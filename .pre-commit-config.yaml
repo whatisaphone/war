@@ -1,0 +1,34 @@
+fail_fast: true
+
+repos:
+  - repo: local
+    hooks:
+      - id: fmt
+        name: fmt
+        language: system
+        files: '[.]rs$'
+        entry: rustup run nightly-2019-08-15 rustfmt
+
+      # Each package is checked separately because of
+      # https://github.com/rust-lang/cargo/issues/5364
+
+      - id: check:bin
+        name: check:bin
+        language: system
+        files: '[.]rs$'
+        entry: cargo clippy --manifest-path crates/bin/Cargo.toml --all-targets --features strict
+        pass_filenames: false
+
+      - id: check:lib
+        name: check:lib
+        language: system
+        files: '[.]rs$'
+        entry: cargo clippy --manifest-path crates/lib/Cargo.toml --all-targets --features strict
+        pass_filenames: false
+
+      - id: test
+        name: test
+        language: system
+        files: '[.]rs$'
+        entry: cargo test
+        pass_filenames: false

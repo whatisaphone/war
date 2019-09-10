@@ -1,0 +1,30 @@
+fmt:
+  # Use a third-party repo since the official repo doesn't include tags.
+  # https://github.com/rust-lang-nursery/docker-rust-nightly/issues/3
+  image: instrumentisto/rust:nightly-2019-08-15
+  script:
+    - rustup component add rustfmt-preview
+    - cargo fmt -- --check
+
+# Each package is checked separately because of
+# https://github.com/rust-lang/cargo/issues/5364
+.check-crate:
+  image: rust
+  before_script:
+    - rustup component add clippy
+  script: cargo clippy --manifest-path "$crate_dir"/Cargo.toml --all-targets --features strict
+
+check-bin:
+  extends: .check-crate
+  variables:
+    crate_dir: crates/bin
+
+check-lib:
+  extends: .check-crate
+  variables:
+    crate_dir: crates/lib
+
+test:
+  image: rust
+  script:
+    - cargo test
