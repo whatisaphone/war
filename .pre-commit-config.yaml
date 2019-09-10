@@ -12,18 +12,18 @@ repos:
       # Each package is checked separately because of
       # https://github.com/rust-lang/cargo/issues/5364
 
-      - id: check:bin
-        name: check:bin
+      - id: check:war
+        name: check:war
         language: system
         files: '[.]rs$'
-        entry: cargo clippy --manifest-path crates/bin/Cargo.toml --all-targets --features strict
+        entry: cargo clippy --manifest-path crates/war/Cargo.toml --all-targets --features strict
         pass_filenames: false
 
-      - id: check:lib
-        name: check:lib
+      - id: check:war-cli
+        name: check:war-cli
         language: system
         files: '[.]rs$'
-        entry: cargo clippy --manifest-path crates/lib/Cargo.toml --all-targets --features strict
+        entry: cargo clippy --manifest-path crates/war-cli/Cargo.toml --all-targets --features strict
         pass_filenames: false
 
       - id: test
