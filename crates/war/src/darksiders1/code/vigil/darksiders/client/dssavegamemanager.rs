@@ -1,7 +1,7 @@
-use crate::darksiders1::gfc;
+use crate::{darksiders1::gfc, utils::parsing::expect};
 use byteorder::ReadBytesExt;
 use failure::Error;
-use std::io::{self, Read};
+use std::io::Read;
 
 pub struct DSSaveGameManager;
 
@@ -11,18 +11,15 @@ impl DSSaveGameManager {
     ) -> Result<(gfc::SaveGameInfo, i32, u32), Error> {
         let magic = &mut [0; 4];
         stream.read_exact(magic)?;
-        if magic != b"DSAV" {
-            return Err(io::Error::new(io::ErrorKind::InvalidData, "bad magic"))?;
-        }
+        expect(magic == b"DSAV")?;
 
         let endianness = stream.read_u8()?;
         let mut stream = gfc::InputStream::with_endianness(stream, endianness)?;
 
         let version = stream.read_i32()?;
         let data_offset = stream.read_u32()?;
-        if version < 3 {
-            return Err(io::Error::new(io::ErrorKind::InvalidData, "wrong version"))?;
-        }
+        expect(version >= 3)?;
+
         let difficulty_level = stream.read_u8()?;
         let health_stones = stream.read_u8()?;
         let health_level = stream.read_u8()?;

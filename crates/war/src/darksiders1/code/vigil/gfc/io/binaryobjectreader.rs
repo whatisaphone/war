@@ -1,18 +1,15 @@
-use crate::darksiders1::gfc;
+use crate::{
+    darksiders1::gfc,
+    utils::parsing::{derailed, expect},
+};
 use byteorder::ReadBytesExt;
 use byteordered::{ByteOrdered, Endian};
 use failure::Error;
-use std::{
-    collections::HashMap,
-    convert::TryInto,
-    io::{self, Read},
-    sync::Arc,
-};
+use std::{collections::HashMap, convert::TryInto, io::Read, sync::Arc};
 
 pub struct BinaryObjectReader {
     object_database: HashMap<i32, Arc<gfc::Object>>,
     strings_ro: Vec<String>,
-    version: u8,
 }
 
 impl BinaryObjectReader {
@@ -29,38 +26,27 @@ impl BinaryObjectReader {
 
         let version = input.read_u8()?;
         let compressed = input.read_u8()?;
-        let use_hashed_strings = input.read_u8()?;
+        let _use_hashed_strings = input.read_u8()?;
         let endianness = input.read_u8()?;
 
-        expect(version >= 2)?;
+        expect(version >= 3)?;
+
         let mut input = gfc::InputStream::with_endianness(input, endianness)?;
 
-        let mut strings_local = Vec::new();
-
-        if version >= 3 {
-            let num_strings = input.read_i32()?;
-            let _max_string = input.read_i32()?;
-            strings_local.reserve(num_strings.try_into()?);
-        } else {
-            input.read_u16()?;
-        }
+        let num_strings = input.read_i32()?;
+        let _max_string = input.read_i32()?;
+        let strings_local = Vec::with_capacity(num_strings.try_into()?);
 
         let input = if compressed == 1 {
             gfc::CompressedInputStream::new(input)?
         } else {
-            expect(false)?;
-            unreachable!()
+            return Err(derailed())?;
         };
         let mut input = gfc::InputStream::with_endianness(input, endianness)?;
-
-        if use_hashed_strings != 0 && version < 3 {
-            expect(false)?;
-        }
 
         let mut reader = Self {
             object_database: HashMap::new(),
             strings_ro: strings_local,
-            version,
         };
         reader.read_obj(&mut input)
     }
@@ -69,9 +55,7 @@ impl BinaryObjectReader {
         &mut self,
         input: &mut ByteOrdered<impl Read, impl Endian>,
     ) -> Result<gfc::Object, Error> {
-        if input.read_u8()? != 1 {
-            return Err(derailed())?;
-        }
+        expect(input.read_u8()? == 1)?;
 
         let classname = self.read_hstring(input)?;
         let count = input.read_i32()?;
@@ -170,10 +154,6 @@ impl BinaryObjectReader {
         &mut self,
         input: &mut ByteOrdered<impl Read, impl Endian>,
     ) -> Result<String, Error> {
-        if self.version < 3 {
-            expect(false)?;
-            unreachable!();
-        }
         Ok(gfc::InputStream::read_string(input)?)
     }
 
@@ -181,10 +161,6 @@ impl BinaryObjectReader {
         &mut self,
         input: &mut ByteOrdered<impl Read, impl Endian>,
     ) -> Result<String, Error> {
-        if self.version < 3 {
-            expect(false)?;
-            unreachable!();
-        }
         if input.read_u8()? != 0 {
             let _hash = input.read_u64()?;
             let len = input.read_u16()?;
@@ -198,12 +174,4 @@ impl BinaryObjectReader {
         let index: usize = input.read_i32()?.try_into()?;
         Ok(self.strings_ro.get(index).ok_or_else(derailed)?.clone())
     }
-}
-
-fn expect(predicate: bool) -> io::Result<()> {
-    if predicate { Ok(()) } else { Err(derailed()) }
-}
-
-fn derailed() -> io::Error {
-    io::Error::new(io::ErrorKind::InvalidData, "unexpected data")
 }
