@@ -18,7 +18,17 @@ mod tests {
     use crate::dsav;
     use failure::Error;
     use flate2::read::ZlibDecoder;
-    use std::io;
+    use std::{
+        convert::{TryFrom, TryInto},
+        io,
+        ops::Range,
+    };
+
+    // Note about ZlibDecoder in these tests:
+    //
+    // The save files contain compressed data. Darksiders uses zlib, while we use
+    // flate2, so the compressed streams will not be identical. Instead, we
+    // decompress them and compare the data inside.
 
     #[allow(clippy::partialeq_ne_impl)]
     mod fixtures {
@@ -28,8 +38,8 @@ mod tests {
         lazy_static_include_bytes!(pub NEW_GAME, "src/dsav/fixtures/new-game.dsav");
     }
 
-    /// Test that we can read data we wrote into an identical structure in
-    /// memory.
+    /// Test that when we write a save and read it back, we get an identical
+    /// structure in memory.
     #[test]
     fn round_trip_data() -> Result<(), Error> {
         let dsav1 = *fixtures::NEW_GAME;
@@ -44,8 +54,7 @@ mod tests {
         Ok(())
     }
 
-    /// Test that we can write a byte-for-byte identical copy of the game info
-    /// header.
+    /// Test that we can read and rewrite an identical copy of a DSAV's header.
     #[test]
     fn round_trip_game_info() -> Result<(), Error> {
         let dsav1 = *fixtures::NEW_GAME;
@@ -64,18 +73,17 @@ mod tests {
         Ok(())
     }
 
-    /// Test that we can write a byte-for-byte identical copy of a save.
+    /// Test that we can read and rewrite an identical copy of a DSAV's
+    /// `PlayerSaveData`.
     #[test]
-    fn round_trip_object() -> Result<(), Error> {
+    fn round_trip_player_save_data() -> Result<(), Error> {
         let dsav1 = *fixtures::NEW_GAME;
         let data = dsav::read(io::Cursor::new(dsav1))?;
 
         let mut dsav2 = Vec::new();
         dsav::write(io::Cursor::new(&mut dsav2), &data)?;
 
-        // Implementation detail: compressed data starts at offset 0x39. Darksiders uses
-        // zlib, while we use flate2, so the results will not be byte-for-byte idential,
-        // but we can decompress both streams and make sure _that_ data is identical.
+        // Implementation detail: compressed data starts at offset 0x39.
         let offset = 0x39;
         let mut bod1 = Vec::new();
         let mut bod2 = Vec::new();
@@ -83,5 +91,32 @@ mod tests {
         io::copy(&mut ZlibDecoder::new(&dsav2[offset..]), &mut bod2)?;
         assert_eq!(bod1, bod2);
         Ok(())
+    }
+
+    /// Test that we can read and rewrite an identical copy of a DSAV's
+    /// `WorldData`.
+    #[test]
+    fn round_trip_world_data() -> Result<(), Error> {
+        let dsav1 = *fixtures::NEW_GAME;
+        let data = dsav::read(io::Cursor::new(dsav1))?;
+
+        let mut dsav2 = Vec::new();
+        dsav::write(io::Cursor::new(&mut dsav2), &data)?;
+
+        let data1 = extract_world_data(&dsav1)?;
+        let data2 = extract_world_data(&dsav2)?;
+        assert_eq!(data1, data2);
+        Ok(())
+    }
+
+    fn extract_world_data(dsav: &[u8]) -> Result<Vec<u8>, Error> {
+        // Implementation detail: world data starts at an offset pointed to in the
+        // header, with 4 bytes added to skip the length prefix.
+        let meta_offset: Range<usize> = 0x9..0xd;
+        let offset = i32::from_le_bytes(dsav[meta_offset].try_into()?);
+        let offset = usize::try_from(offset)? + 4;
+        let mut buffer = Vec::new();
+        io::copy(&mut ZlibDecoder::new(&dsav[offset..]), &mut buffer)?;
+        Ok(buffer)
     }
 }
