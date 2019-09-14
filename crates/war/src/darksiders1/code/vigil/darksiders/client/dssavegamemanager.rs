@@ -9,7 +9,7 @@ use byteordered::{ByteOrdered, Endianness};
 use failure::Error;
 use replace_with::replace_with_or_abort;
 use std::{
-    convert::TryInto,
+    convert::{TryFrom, TryInto},
     io::{Read, Seek, SeekFrom, Write},
 };
 
@@ -21,7 +21,7 @@ impl DSSaveGameManager {
     #[allow(clippy::shadow_unrelated)]
     pub fn write_save(
         mut stream: impl Write + Seek,
-        data: &gfc::PlayerSaveData,
+        data: &gfc::Object,
     ) -> Result<(), Error> {
         stream.write_all(b"DSAV")?;
 
@@ -36,17 +36,31 @@ impl DSSaveGameManager {
         let data_pos = stream.stream_position_ext()?;
         stream.write_u32(0)?;
 
-        stream.write_u8(data.game_info.difficulty_level)?;
-        stream.write_u8(data.game_info.health_stones)?;
-        stream.write_u8(data.game_info.health_level)?;
-        stream.write_u32(data.game_info.wrath_stones)?;
-        stream.write_u8(data.game_info.wrath_level)?;
-        stream.write_u32(data.game_info.game_time)?;
-        stream.write_u32(data.game_info.time_created)?;
-        stream.write_i32(data.game_info.overview_region_id)?;
-        stream.write_i32(data.game_info.user_id)?;
+        let game_info = data.get_property("GameInfo").ok_or_else(derailed)?;
+        let game_info =
+            gfc::SaveGameInfo::try_from(game_info).map_err(|_| derailed())?;
 
-        gfc::BinaryObjectWriter::write_object(&data.data, &mut stream, true)?;
+        stream.write_u8(game_info.difficulty_level)?;
+        stream.write_u8(game_info.health_stones)?;
+        stream.write_u8(game_info.health_level)?;
+        stream.write_u32(game_info.wrath_stones)?;
+        stream.write_u8(game_info.wrath_level)?;
+        stream.write_u32(game_info.game_time)?;
+        stream.write_u32(game_info.time_created)?;
+        stream.write_i32(game_info.overview_region_id)?;
+        stream.write_i32(game_info.user_id)?;
+
+        // Darksiders clears out the fields that are persisted outside the binary
+        // object, so they aren't stored twice.
+        let mut object_to_write = data.clone();
+        *object_to_write
+            .get_property_mut("GameInfo")
+            .ok_or_else(derailed)? = gfc::Value::Null;
+        *object_to_write
+            .get_property_mut("WorldData")
+            .ok_or_else(derailed)? = gfc::Value::Array(Vec::new());
+
+        gfc::BinaryObjectWriter::write_object(&object_to_write, &mut stream, true)?;
 
         // Go back and write an offset pointing to the current position.
         let cur_pos = stream.stream_position_ext()?;
@@ -57,8 +71,17 @@ impl DSSaveGameManager {
         let mut deflate = gfc::CompressedOutputStream::new(&mut stream)?;
         let stream = deflate.inner_mut();
 
+        let world_data_vec = data
+            .get_property("WorldData")
+            .and_then(gfc::Value::as_array)
+            .ok_or_else(derailed)?
+            .iter()
+            .map(gfc::WorldData::try_from)
+            .collect::<Result<Vec<_>, _>>()
+            .map_err(|_| derailed())?;
+
         let mut unique_strings = Vec::new();
-        for world_data in &data.world_data {
+        for world_data in &world_data_vec {
             unique_strings.push(world_data.world.clone());
             Self::get_value_strings(&mut unique_strings, &world_data.values);
             for region in &world_data.regions {
@@ -75,8 +98,8 @@ impl DSSaveGameManager {
 
         gfc::HStringManager::write_string_table(&unique_strings, stream)?;
 
-        stream.write_i32(data.world_data.len().try_into()?)?;
-        for world_data in &data.world_data {
+        stream.write_i32(world_data_vec.len().try_into()?)?;
+        for world_data in &world_data_vec {
             stream.write_u64(gfc::HString::calculate_hash(&world_data.world))?;
             Self::write_values(stream, &world_data.values)?;
             stream.write_i32(world_data.regions.len().try_into()?)?;
@@ -161,11 +184,11 @@ impl DSSaveGameManager {
         Ok((info, version, data_offset))
     }
 
-    pub fn read_save(stream: impl Read + Seek) -> Result<gfc::PlayerSaveData, Error> {
+    pub fn read_save(stream: impl Read + Seek) -> Result<gfc::Object, Error> {
         let mut stream = ByteOrdered::new(stream, Endianness::Little);
 
         let (game_info, _version, data_offset) = Self::read_info(&mut stream)?;
-        let data = gfc::BinaryObjectReader::read_object(&mut stream)?;
+        let mut data = gfc::BinaryObjectReader::read_object(&mut stream)?;
 
         stream.seek(SeekFrom::Start(data_offset.try_into()?))?;
         let mut stream = gfc::CompressedInputStream::new(stream)?;
@@ -260,11 +283,12 @@ impl DSSaveGameManager {
             })
         }
 
-        Ok(gfc::PlayerSaveData {
-            game_info,
-            data,
-            world_data,
-        })
+        // Put back the couple of fields persisted outside the binary object.
+        *data.get_property_mut("GameInfo").ok_or_else(derailed)? = game_info.into();
+        *data.get_property_mut("WorldData").ok_or_else(derailed)? =
+            gfc::Value::Array(world_data.into_iter().map(Into::into).collect());
+
+        Ok(data)
     }
 
     fn write_values(

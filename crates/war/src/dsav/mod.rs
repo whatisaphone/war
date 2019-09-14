@@ -2,14 +2,11 @@ use crate::darksiders1::gfc;
 use failure::Error;
 use std::io::{Read, Seek, Write};
 
-pub fn read(stream: impl Read + Seek) -> Result<gfc::PlayerSaveData, Error> {
+pub fn read(stream: impl Read + Seek) -> Result<gfc::Object, Error> {
     gfc::DSSaveGameManager::read_save(stream)
 }
 
-pub fn write(
-    stream: impl Write + Seek,
-    data: &gfc::PlayerSaveData,
-) -> Result<(), Error> {
+pub fn write(stream: impl Write + Seek, data: &gfc::Object) -> Result<(), Error> {
     gfc::DSSaveGameManager::write_save(stream, data)
 }
 
@@ -43,14 +40,14 @@ mod tests {
     #[test]
     fn round_trip_data() -> Result<(), Error> {
         let dsav1 = *fixtures::NEW_GAME;
-        let data1 = dsav::read(io::Cursor::new(dsav1))?;
+        let object1 = dsav::read(io::Cursor::new(dsav1))?;
 
         let mut dsav2 = Vec::new();
-        dsav::write(io::Cursor::new(&mut dsav2), &data1)?;
+        dsav::write(io::Cursor::new(&mut dsav2), &object1)?;
 
-        let data2 = dsav::read(io::Cursor::new(&mut dsav2))?;
+        let object2 = dsav::read(io::Cursor::new(&mut dsav2))?;
 
-        assert_eq!(format!("{:#?}", data1), format!("{:#?}", data2));
+        assert_eq!(format!("{:#?}", object1), format!("{:#?}", object2));
         Ok(())
     }
 
@@ -58,10 +55,10 @@ mod tests {
     #[test]
     fn round_trip_game_info() -> Result<(), Error> {
         let dsav1 = *fixtures::NEW_GAME;
-        let data = dsav::read(io::Cursor::new(dsav1))?;
+        let object = dsav::read(io::Cursor::new(dsav1))?;
 
         let mut dsav2 = Vec::new();
-        dsav::write(io::Cursor::new(&mut dsav2), &data)?;
+        dsav::write(io::Cursor::new(&mut dsav2), &object)?;
 
         // Implementation detail: the data before the BOD is 0x39 bytes long. Skip over
         // bytes 0x9-0xc since those are an offset that depends on the compressed data
@@ -78,10 +75,10 @@ mod tests {
     #[test]
     fn round_trip_player_save_data() -> Result<(), Error> {
         let dsav1 = *fixtures::NEW_GAME;
-        let data = dsav::read(io::Cursor::new(dsav1))?;
+        let object = dsav::read(io::Cursor::new(dsav1))?;
 
         let mut dsav2 = Vec::new();
-        dsav::write(io::Cursor::new(&mut dsav2), &data)?;
+        dsav::write(io::Cursor::new(&mut dsav2), &object)?;
 
         // Implementation detail: compressed data starts at offset 0x39.
         let offset = 0x39;
@@ -98,10 +95,10 @@ mod tests {
     #[test]
     fn round_trip_world_data() -> Result<(), Error> {
         let dsav1 = *fixtures::NEW_GAME;
-        let data = dsav::read(io::Cursor::new(dsav1))?;
+        let object = dsav::read(io::Cursor::new(dsav1))?;
 
         let mut dsav2 = Vec::new();
-        dsav::write(io::Cursor::new(&mut dsav2), &data)?;
+        dsav::write(io::Cursor::new(&mut dsav2), &object)?;
 
         let data1 = extract_world_data(&dsav1)?;
         let data2 = extract_world_data(&dsav2)?;

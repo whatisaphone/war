@@ -9,7 +9,6 @@ pub use vigil::{
             save::{
                 playersavedata::{
                     LayerData,
-                    PlayerSaveData,
                     RegionData,
                     SaveGameInfo,
                     WorldData,
