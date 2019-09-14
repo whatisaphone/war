@@ -1,8 +1,8 @@
-# nirvana-rust-workspace
+# war
 
-An opinionated [Rust] project starter. There are many like it, but this one is mine.
+A tool that lets you view/edit save files for [Darksiders].
 
-[Rust]: https://www.rust-lang.org/
+[Darksiders]: https://en.wikipedia.org/wiki/Darksiders_(video_game)
 
 ## Development
 
@@ -11,6 +11,7 @@ An opinionated [Rust] project starter. There are many like it, but this one is m
 - [Rust]
 - [pre-commit]
 
+[Rust]: https://www.rust-lang.org/
 [pre-commit]: https://pre-commit.com/
 
 ### Install the pre-commit hook
