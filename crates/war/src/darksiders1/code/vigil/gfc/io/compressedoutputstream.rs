@@ -35,12 +35,14 @@ impl<'w, W: Write + Seek> CompressedOutputStream<'w, W> {
 
         let output = zstream.finish()?;
 
+        let end_pos = output.stream_position_ext()?;
         output.seek(SeekFrom::Start(self.write_size_here))?;
         output.write_i32(
             uncompressed_bytes_written
                 .try_into()
                 .map_err(|_| derailed())?,
         )?;
+        output.seek(SeekFrom::Start(end_pos))?;
         Ok(())
     }
 }

@@ -3,7 +3,22 @@ use crate::darksiders1::code::vigil;
 pub use vigil::{
     darksiders::{
         client::dssavegamemanager::DSSaveGameManager,
-        world::save::playersavedata::{PlayerSaveData, SaveGameInfo},
+        world::{
+            actor::draggableactor::DraggableActorData,
+            map::maptile::MapTileData,
+            save::{
+                playersavedata::{
+                    LayerData,
+                    PlayerSaveData,
+                    RegionData,
+                    SaveGameInfo,
+                    WorldData,
+                    WorldObjectData,
+                    WorldObjectDataData,
+                },
+                savedata::SaveValue,
+            },
+        },
     },
     gfc::{
         base::object::Object,
@@ -15,7 +30,8 @@ pub use vigil::{
             endian::Endian,
             stream::{InputStream, OutputStream},
         },
+        math::vector3::TVector3,
         reflection::value::Value,
-        util::{crc::Crc64, hstring::HString},
+        util::{crc::Crc64, hstring::HString, hstringmanager::HStringManager},
     },
 };

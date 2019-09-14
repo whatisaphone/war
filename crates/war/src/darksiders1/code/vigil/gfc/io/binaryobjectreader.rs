@@ -38,12 +38,11 @@ impl BinaryObjectReader {
         let _max_string = input.read_i32()?;
         let strings_local = Vec::with_capacity(num_strings.try_into()?);
 
-        let input = if compressed == 1 {
+        let mut input = if compressed == 1 {
             gfc::CompressedInputStream::new(input)?
         } else {
             return Err(derailed())?;
         };
-        let mut input = gfc::InputStream::with_endianness(input, endianness)?;
 
         let mut reader = Self {
             object_database: HashMap::new(),
