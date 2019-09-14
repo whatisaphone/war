@@ -1,11 +1,43 @@
 use crate::{darksiders1::gfc, utils::parsing::expect};
 use byteorder::ReadBytesExt;
 use failure::Error;
-use std::io::Read;
+use std::io::{Read, Seek, Write};
 
-pub struct DSSaveGameManager;
+pub struct DSSaveGameManager {
+    _static: (),
+}
 
 impl DSSaveGameManager {
+    pub fn write_save(
+        mut stream: impl Write + Seek,
+        data: &gfc::PlayerSaveData,
+    ) -> Result<(), Error> {
+        stream.write_all(b"DSAV")?;
+
+        let endianness = 0;
+        let mut stream = gfc::OutputStream::with_endianness(stream, endianness)?;
+        stream.write_u8(endianness)?;
+
+        let version = 5;
+        stream.write_i32(version)?;
+
+        let data_offset = 0;
+        stream.write_u32(data_offset)?;
+
+        stream.write_u8(data.game_info.difficulty_level)?;
+        stream.write_u8(data.game_info.health_stones)?;
+        stream.write_u8(data.game_info.health_level)?;
+        stream.write_u32(data.game_info.wrath_stones)?;
+        stream.write_u8(data.game_info.wrath_level)?;
+        stream.write_u32(data.game_info.game_time)?;
+        stream.write_u32(data.game_info.time_created)?;
+        stream.write_i32(data.game_info.overview_region_id)?;
+        stream.write_i32(data.game_info.user_id)?;
+
+        gfc::BinaryObjectWriter::write_object(&data.data, &mut stream, true)?;
+        Ok(())
+    }
+
     fn read_info(
         mut stream: impl Read,
     ) -> Result<(gfc::SaveGameInfo, i32, u32), Error> {
@@ -44,15 +76,9 @@ impl DSSaveGameManager {
         Ok((info, version, data_offset))
     }
 
-    pub fn read_save(mut stream: impl Read) -> Result<DSSaveGame, Error> {
-        let (info, _version, _data_offset) = Self::read_info(&mut stream)?;
+    pub fn read_save(mut stream: impl Read) -> Result<gfc::PlayerSaveData, Error> {
+        let (game_info, _version, _data_offset) = Self::read_info(&mut stream)?;
         let data = gfc::BinaryObjectReader::read_object(&mut stream)?;
-        Ok(DSSaveGame { info, data })
+        Ok(gfc::PlayerSaveData { game_info, data })
     }
-}
-
-#[derive(Debug)]
-pub struct DSSaveGame {
-    info: gfc::SaveGameInfo,
-    data: gfc::Object,
 }

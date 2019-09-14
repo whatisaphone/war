@@ -1,3 +1,5 @@
+use crate::darksiders1::gfc;
+
 #[derive(Debug)]
 pub struct SaveGameInfo {
     pub difficulty_level: u8,
@@ -9,4 +11,10 @@ pub struct SaveGameInfo {
     pub time_created: u32,
     pub overview_region_id: i32,
     pub user_id: i32,
+}
+
+#[derive(Debug)]
+pub struct PlayerSaveData {
+    pub game_info: SaveGameInfo,
+    pub data: gfc::Object,
 }

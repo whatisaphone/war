@@ -3,7 +3,7 @@ use crate::{
     utils::parsing::{derailed, expect},
 };
 use byteorder::ReadBytesExt;
-use byteordered::{ByteOrdered, Endian};
+use byteordered::{ByteOrdered, Endianness};
 use failure::Error;
 use std::{collections::HashMap, convert::TryInto, io::Read, sync::Arc};
 
@@ -26,10 +26,11 @@ impl BinaryObjectReader {
 
         let version = input.read_u8()?;
         let compressed = input.read_u8()?;
-        let _use_hashed_strings = input.read_u8()?;
+        let use_hashed_strings = input.read_u8()?;
         let endianness = input.read_u8()?;
 
         expect(version >= 3)?;
+        expect(use_hashed_strings == 1)?;
 
         let mut input = gfc::InputStream::with_endianness(input, endianness)?;
 
@@ -53,7 +54,7 @@ impl BinaryObjectReader {
 
     fn read_obj(
         &mut self,
-        input: &mut ByteOrdered<impl Read, impl Endian>,
+        input: &mut ByteOrdered<impl Read, Endianness>,
     ) -> Result<gfc::Object, Error> {
         expect(input.read_u8()? == 1)?;
 
@@ -75,7 +76,7 @@ impl BinaryObjectReader {
 
     fn read_value(
         &mut self,
-        input: &mut ByteOrdered<impl Read, impl Endian>,
+        input: &mut ByteOrdered<impl Read, Endianness>,
     ) -> Result<gfc::Value, Error> {
         let typ = input.read_u8()?;
         match typ {
@@ -152,14 +153,14 @@ impl BinaryObjectReader {
 
     fn read_string(
         &mut self,
-        input: &mut ByteOrdered<impl Read, impl Endian>,
+        input: &mut ByteOrdered<impl Read, Endianness>,
     ) -> Result<String, Error> {
         Ok(gfc::InputStream::read_string(input)?)
     }
 
     fn read_hstring(
         &mut self,
-        input: &mut ByteOrdered<impl Read, impl Endian>,
+        input: &mut ByteOrdered<impl Read, Endianness>,
     ) -> Result<String, Error> {
         if input.read_u8()? != 0 {
             let _hash = input.read_u64()?;
