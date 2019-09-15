@@ -2,6 +2,7 @@ use failure::Error;
 use structopt::StructOpt;
 
 mod decode;
+mod edit;
 mod encode;
 
 #[derive(StructOpt)]
@@ -10,6 +11,8 @@ pub enum Command {
     Decode(decode::Command),
     /// Write a .dsav file with the save from a decoded JSON file
     Encode(encode::Command),
+    /// Interactively edit a .dsav file
+    Edit(edit::Command),
 }
 
 impl Command {
@@ -17,6 +20,7 @@ impl Command {
         match self {
             Self::Decode(command) => command.run(),
             Self::Encode(command) => command.run(),
+            Self::Edit(command) => command.run(),
         }
     }
 }
