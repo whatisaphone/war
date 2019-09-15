@@ -1,3 +1,4 @@
+use indexmap::IndexMap;
 use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize)]
@@ -39,9 +40,16 @@ pub enum Value {
 pub struct Object {
     pub id: i32,
     pub classname: String,
-    // I'd love to just use `HashMap<String, Value>` here, but Darksiders has a few
-    // objects that serialize the same property name twice (notably
-    // base/merchantinventorydefault), so that would end up being a lossy
-    // transformation.
-    pub properties: Vec<(String, Value)>,
+    pub properties: ObjectProperties,
+}
+
+/// We store properties in a name-value map when we can. However, Darksiders has
+/// a few objects (notably, base/merchantinventorydefault) that write the same
+/// property name twice, so that can end up being a lossy transformation. Use a
+/// fallback list representation in those cases.
+#[derive(Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ObjectProperties {
+    Map(IndexMap<String, Value>),
+    List(Vec<(String, Value)>),
 }

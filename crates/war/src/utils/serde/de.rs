@@ -68,11 +68,20 @@ impl De {
     }
 
     fn object(&mut self, repr: repr::Object) -> Result<gfc::Value, ()> {
-        let properties = repr
-            .properties
-            .into_iter()
-            .map(|(name, value)| Ok((name, self.value(value)?)))
-            .collect::<Result<Vec<_>, _>>()?;
+        let properties = match repr.properties {
+            repr::ObjectProperties::List(entries) => {
+                entries
+                    .into_iter()
+                    .map(|(name, value)| Ok((name, self.value(value)?)))
+                    .collect::<Result<Vec<_>, _>>()?
+            }
+            repr::ObjectProperties::Map(entries) => {
+                entries
+                    .into_iter()
+                    .map(|(name, value)| Ok((name, self.value(value)?)))
+                    .collect::<Result<Vec<_>, _>>()?
+            }
+        };
 
         let object = Arc::new(gfc::Object {
             classname: repr.classname,

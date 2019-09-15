@@ -1,6 +1,6 @@
 use crate::{darksiders1::gfc, utils::serde::repr};
 use serde::{Serialize, Serializer};
-use std::collections::{hash_map::Entry, HashMap};
+use std::collections::{hash_map::Entry, HashMap, HashSet};
 
 impl Serialize for gfc::Object {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
@@ -64,11 +64,29 @@ impl Ser {
                 self.next_object_id += 1;
                 entry.insert(id);
 
-                let properties = object
+                let unique_properties = object
                     .properties
                     .iter()
-                    .map(|(name, value)| (name.clone(), self.value(value)))
-                    .collect();
+                    .map(|(n, _v)| n)
+                    .collect::<HashSet<_>>();
+                let any_duplicate_keys =
+                    unique_properties.len() != object.properties.len();
+
+                let properties = if any_duplicate_keys {
+                    let list = object
+                        .properties
+                        .iter()
+                        .map(|(name, value)| (name.clone(), self.value(value)))
+                        .collect();
+                    repr::ObjectProperties::List(list)
+                } else {
+                    let map = object
+                        .properties
+                        .iter()
+                        .map(|(name, value)| (name.clone(), self.value(value)))
+                        .collect();
+                    repr::ObjectProperties::Map(map)
+                };
 
                 repr::Value::Object(repr::Object {
                     id,
