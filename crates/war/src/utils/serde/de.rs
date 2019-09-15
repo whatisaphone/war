@@ -88,15 +88,17 @@ impl De {
             properties,
         });
 
-        match self
-            .object_database
-            .entry(repr.id.try_into().map_err(|_| ())?)
-        {
-            Entry::Vacant(entry) => {
-                entry.insert(object.clone());
-                Ok(gfc::Value::Object(object))
+        if let Some(id) = repr.id {
+            match self.object_database.entry(id.try_into().map_err(|_| ())?) {
+                Entry::Vacant(entry) => {
+                    entry.insert(object.clone());
+                }
+                Entry::Occupied(_) => {
+                    return Err(());
+                }
             }
-            Entry::Occupied(_) => Err(()),
         }
+
+        Ok(gfc::Value::Object(object))
     }
 }

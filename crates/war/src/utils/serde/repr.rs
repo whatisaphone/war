@@ -38,7 +38,8 @@ pub enum Value {
 
 #[derive(Serialize, Deserialize)]
 pub struct Object {
-    pub id: i32,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub id: Option<i32>,
     pub classname: String,
     pub properties: ObjectProperties,
 }
