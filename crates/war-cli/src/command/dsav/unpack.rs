@@ -13,7 +13,7 @@ impl Command {
         let file = fs::File::open(&self.dsav_path)?;
         let stream = io::BufReader::new(file);
         let data = dsav::read(stream)?;
-        println!("data = {:#?}", data);
+        println!("{}", serde_json::to_string_pretty(&data)?);
         Ok(())
     }
 }

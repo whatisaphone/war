@@ -12,7 +12,7 @@ pub fn write(stream: impl Write + Seek, data: &gfc::Object) -> Result<(), Error>
 
 #[cfg(test)]
 mod tests {
-    use crate::dsav;
+    use crate::{darksiders1::gfc, dsav};
     use failure::Error;
     use flate2::read::ZlibDecoder;
     use std::{
@@ -46,6 +46,18 @@ mod tests {
         dsav::write(io::Cursor::new(&mut dsav2), &object1)?;
 
         let object2 = dsav::read(io::Cursor::new(&mut dsav2))?;
+
+        assert_eq!(format!("{:#?}", object1), format!("{:#?}", object2));
+        Ok(())
+    }
+
+    /// Test that we can convert to/from JSON losslessly.
+    #[test]
+    fn round_trip_json() -> Result<(), Error> {
+        let dsav1 = *fixtures::NEW_GAME;
+        let object1 = dsav::read(io::Cursor::new(dsav1))?;
+        let json = serde_json::to_string(&object1)?;
+        let object2: gfc::Object = serde_json::from_str(&json)?;
 
         assert_eq!(format!("{:#?}", object1), format!("{:#?}", object2));
         Ok(())

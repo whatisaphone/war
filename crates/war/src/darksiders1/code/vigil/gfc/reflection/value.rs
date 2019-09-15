@@ -44,6 +44,13 @@ impl Value {
         }
     }
 
+    pub fn into_object(self) -> Result<Arc<gfc::Object>, Self> {
+        match self {
+            Self::Object(object) => Ok(object),
+            _ => Err(self),
+        }
+    }
+
     pub fn as_array(&self) -> Option<&[Self]> {
         match self {
             Self::Array(items) => Some(items),
