@@ -4,6 +4,8 @@
 #![allow(clippy::if_not_else, clippy::single_match)]
 #![cfg_attr(feature = "strict", deny(warnings))]
 
+#[macro_use]
+mod macros;
 mod darksiders1;
 pub mod dsav;
 mod utils;

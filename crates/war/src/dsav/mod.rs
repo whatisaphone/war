@@ -37,11 +37,29 @@ mod tests {
 
     const INITIAL_BUFFER: usize = 16384;
 
+    parameterized_test!(round_trip_data, [
+        new_game => (*fixtures::NEW_GAME),
+    ]);
+
+    parameterized_test!(round_trip_json, [
+        new_game => (*fixtures::NEW_GAME),
+    ]);
+
+    parameterized_test!(round_trip_game_info, [
+        new_game => (*fixtures::NEW_GAME),
+    ]);
+
+    parameterized_test!(round_trip_player_save_data, [
+        new_game => (*fixtures::NEW_GAME),
+    ]);
+
+    parameterized_test!(round_trip_world_data, [
+        new_game => (*fixtures::NEW_GAME),
+    ]);
+
     /// Test that when we write a save and read it back, we get an identical
     /// structure in memory.
-    #[test]
-    fn round_trip_data() -> Result<(), Error> {
-        let dsav1 = *fixtures::NEW_GAME;
+    fn round_trip_data(dsav1: &[u8]) -> Result<(), Error> {
         let object1 = dsav::read(io::Cursor::new(dsav1))?;
 
         let mut dsav2 = Vec::with_capacity(INITIAL_BUFFER);
@@ -54,10 +72,8 @@ mod tests {
     }
 
     /// Test that we can convert to/from JSON losslessly.
-    #[test]
-    fn round_trip_json() -> Result<(), Error> {
-        let dsav1 = *fixtures::NEW_GAME;
-        let object1 = dsav::read(io::Cursor::new(dsav1))?;
+    fn round_trip_json(dsav: &[u8]) -> Result<(), Error> {
+        let object1 = dsav::read(io::Cursor::new(dsav))?;
         let json = serde_json::to_string(&object1)?;
         let object2: gfc::Object = serde_json::from_str(&json)?;
 
@@ -66,9 +82,7 @@ mod tests {
     }
 
     /// Test that we can read and rewrite an identical copy of a DSAV's header.
-    #[test]
-    fn round_trip_game_info() -> Result<(), Error> {
-        let dsav1 = *fixtures::NEW_GAME;
+    fn round_trip_game_info(dsav1: &[u8]) -> Result<(), Error> {
         let object = dsav::read(io::Cursor::new(dsav1))?;
 
         let mut dsav2 = Vec::with_capacity(INITIAL_BUFFER);
@@ -86,9 +100,7 @@ mod tests {
 
     /// Test that we can read and rewrite an identical copy of a DSAV's
     /// `PlayerSaveData`.
-    #[test]
-    fn round_trip_player_save_data() -> Result<(), Error> {
-        let dsav1 = *fixtures::NEW_GAME;
+    fn round_trip_player_save_data(dsav1: &[u8]) -> Result<(), Error> {
         let object = dsav::read(io::Cursor::new(dsav1))?;
 
         let mut dsav2 = Vec::with_capacity(INITIAL_BUFFER);
@@ -106,9 +118,7 @@ mod tests {
 
     /// Test that we can read and rewrite an identical copy of a DSAV's
     /// `WorldData`.
-    #[test]
-    fn round_trip_world_data() -> Result<(), Error> {
-        let dsav1 = *fixtures::NEW_GAME;
+    fn round_trip_world_data(dsav1: &[u8]) -> Result<(), Error> {
         let object = dsav::read(io::Cursor::new(dsav1))?;
 
         let mut dsav2 = Vec::with_capacity(INITIAL_BUFFER);
