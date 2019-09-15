@@ -1,5 +1,5 @@
 use crate::{
-    darksiders1::gfc::{self, Endian},
+    darksiders1::gfc,
     utils::{
         parsing::{derailed, expect},
         seek_ext::SeekExt,
@@ -40,7 +40,7 @@ impl BinaryObjectWriter {
         output.write_u8(3)?; // version
         output.write_u8(compressed as u8)?;
         output.write_u8(1)?; // use hashed strings
-        output.write_u8(output.endianness().to_u8())?;
+        output.write_u8(gfc::Endian::to_u8(output.endianness()))?;
 
         // These will be filled in later.
         let string_pos = output.stream_position_ext()?;

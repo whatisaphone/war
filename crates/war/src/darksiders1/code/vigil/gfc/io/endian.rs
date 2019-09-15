@@ -2,7 +2,7 @@ use byteordered::Endianness;
 
 pub trait Endian: Sized {
     fn from_u8(endianness: u8) -> Result<Self, ()>;
-    fn to_u8(&self) -> u8;
+    fn to_u8(endianness: Self) -> u8;
 }
 
 impl Endian for Endianness {
@@ -14,8 +14,8 @@ impl Endian for Endianness {
         }
     }
 
-    fn to_u8(&self) -> u8 {
-        match self {
+    fn to_u8(endianness: Self) -> u8 {
+        match endianness {
             Endianness::Little => 0,
             Endianness::Big => 1,
         }

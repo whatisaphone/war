@@ -9,12 +9,12 @@ pub struct CompressedInputStream {
 
 impl CompressedInputStream {
     #[allow(clippy::new_ret_no_self)]
-    pub fn new(
-        mut input: ByteOrdered<impl Read, Endianness>,
-    ) -> Result<ByteOrdered<impl Read, Endianness>, Error> {
+    pub fn new<'r>(
+        input: &'r mut ByteOrdered<impl Read, Endianness>,
+    ) -> Result<ByteOrdered<impl Read + 'r, Endianness>, Error> {
         let available = input.read_i32()?;
         let endianness = input.endianness();
-        let inner = input.into_inner().take(available.try_into()?);
+        let inner = input.inner_mut().take(available.try_into()?);
         let zstream = ZlibDecoder::new(inner);
         Ok(ByteOrdered::new(zstream, endianness))
     }

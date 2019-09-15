@@ -25,9 +25,9 @@ impl DSSaveGameManager {
     ) -> Result<(), Error> {
         stream.write_all(b"DSAV")?;
 
-        let endianness = 0;
-        let mut stream = gfc::OutputStream::with_endianness(stream, endianness)?;
-        stream.write_u8(endianness)?;
+        let endianness = Endianness::Little;
+        let mut stream = ByteOrdered::new(stream, endianness);
+        stream.write_u8(gfc::Endian::to_u8(endianness))?;
 
         let version = 5;
         stream.write_i32(version)?;
@@ -191,7 +191,7 @@ impl DSSaveGameManager {
         let mut data = gfc::BinaryObjectReader::read_object(&mut stream)?;
 
         stream.seek(SeekFrom::Start(data_offset.try_into()?))?;
-        let mut stream = gfc::CompressedInputStream::new(stream)?;
+        let mut stream = gfc::CompressedInputStream::new(&mut stream)?;
 
         let mut hstring_manager = gfc::HStringManager::new();
         let mut unique_strings = Vec::new();

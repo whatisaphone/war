@@ -1,7 +1,4 @@
-use crate::{
-    darksiders1::gfc::Endian,
-    utils::parsing::{derailed, expect},
-};
+use crate::utils::parsing::{derailed, expect};
 use byteordered::{ByteOrdered, Endianness};
 use std::{
     convert::{TryFrom, TryInto},
@@ -13,15 +10,6 @@ pub struct InputStream {
 }
 
 impl InputStream {
-    pub fn with_endianness<R>(
-        stream: R,
-        endianness: impl Into<u8>,
-    ) -> io::Result<ByteOrdered<R, Endianness>> {
-        let endianness =
-            Endianness::from_u8(endianness.into()).map_err(|_| derailed())?;
-        Ok(ByteOrdered::new(stream, endianness))
-    }
-
     pub fn read_string(
         stream: &mut ByteOrdered<impl Read, Endianness>,
     ) -> io::Result<String> {
@@ -39,15 +27,6 @@ pub struct OutputStream {
 }
 
 impl OutputStream {
-    pub fn with_endianness<W: Write>(
-        stream: W,
-        endianness: impl Into<u8>,
-    ) -> io::Result<ByteOrdered<W, Endianness>> {
-        let endianness =
-            Endianness::from_u8(endianness.into()).map_err(|_| derailed())?;
-        Ok(ByteOrdered::new(stream, endianness))
-    }
-
     pub fn write_string(
         stream: &mut ByteOrdered<impl Write, Endianness>,
         string: &str,

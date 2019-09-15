@@ -2,9 +2,9 @@ use crate::{
     darksiders1::gfc,
     utils::parsing::{derailed, expect},
 };
-use byteorder::ReadBytesExt;
 use byteordered::{ByteOrdered, Endianness};
 use failure::Error;
+use replace_with::replace_with_or_abort;
 use std::{collections::HashMap, convert::TryInto, io::Read, sync::Arc};
 
 pub struct BinaryObjectReader {
@@ -17,7 +17,9 @@ impl BinaryObjectReader {
         &mut self.strings_ro
     }
 
-    pub fn read_object(mut input: impl Read) -> Result<gfc::Object, Error> {
+    pub fn read_object(
+        input: &mut ByteOrdered<impl Read, Endianness>,
+    ) -> Result<gfc::Object, Error> {
         let magic = &mut [0; 3];
         input.read_exact(magic)?;
         expect(magic == b"BOD")?;
@@ -28,11 +30,13 @@ impl BinaryObjectReader {
         let compressed = input.read_u8()?;
         let use_hashed_strings = input.read_u8()?;
         let endianness = input.read_u8()?;
+        let endianness = gfc::Endian::from_u8(endianness).map_err(|_| derailed())?;
 
         expect(version >= 3)?;
         expect(use_hashed_strings == 1)?;
 
-        let mut input = gfc::InputStream::with_endianness(input, endianness)?;
+        // Propagate the new endianness to callers as well.
+        replace_with_or_abort(input, |input| input.into_endianness(endianness));
 
         let num_strings = input.read_i32()?;
         let _max_string = input.read_i32()?;
