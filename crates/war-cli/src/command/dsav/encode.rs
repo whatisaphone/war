@@ -5,6 +5,9 @@ use war::dsav;
 
 #[derive(StructOpt)]
 pub struct Command {
+    /// The source JSON file to read.
+    ///
+    /// The output .dsav file will be placed alongside this input file.
     input_path: PathBuf,
 }
 

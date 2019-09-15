@@ -3,8 +3,10 @@ use structopt::StructOpt;
 
 mod dsav;
 
+/// A save viewer/editor for Darksiders.
 #[derive(StructOpt)]
 pub enum Command {
+    /// Commands for working with .dsav files
     Dsav(dsav::Command),
 }
 
