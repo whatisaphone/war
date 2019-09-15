@@ -31,12 +31,12 @@ struct De {
 impl De {
     fn value(&mut self, repr: repr::Value) -> Result<gfc::Value, ()> {
         Ok(match repr {
-            repr::Value::Int(int) => gfc::Value::Int(int),
-            repr::Value::Float(float) => gfc::Value::Float(float),
-            repr::Value::Bool(bool) => gfc::Value::Bool(bool),
-            repr::Value::String(string) => gfc::Value::String(string),
+            repr::Value::Int { value } => gfc::Value::Int(value),
+            repr::Value::Float { value } => gfc::Value::Float(value),
+            repr::Value::Bool { value } => gfc::Value::Bool(value),
+            repr::Value::String { value } => gfc::Value::String(value),
             repr::Value::Object(object) => self.object(object)?,
-            repr::Value::Array(items) => {
+            repr::Value::Array { items } => {
                 let items = items.into_iter().map(|x| self.value(x)).collect::<Result<
                     Vec<_>,
                     _,
@@ -44,23 +44,23 @@ impl De {
                 )?;
                 gfc::Value::Array(items)
             }
-            repr::Value::Map(entries) => {
+            repr::Value::Map { entries } => {
                 let entries = entries
                     .into_iter()
                     .map(|(key, value)| Ok((self.value(key)?, self.value(value)?)))
                     .collect::<Result<Vec<_>, _>>()?;
                 gfc::Value::Map(entries)
             }
-            repr::Value::Struct(elements) => {
+            repr::Value::Struct { elements } => {
                 let elements = elements
                     .into_iter()
                     .map(|x| self.value(x))
                     .collect::<Result<Vec<_>, _>>()?;
                 gfc::Value::Struct(elements)
             }
-            repr::Value::HString(string) => gfc::Value::HString(string),
+            repr::Value::HString { value } => gfc::Value::HString(value),
             repr::Value::Null => gfc::Value::Null,
-            repr::Value::ObjectLink(id) => {
+            repr::Value::ObjectLink { id } => {
                 let object = self.object_database.get(&id).ok_or(())?;
                 gfc::Value::Object(object.clone())
             }

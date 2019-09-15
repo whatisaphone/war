@@ -20,34 +20,45 @@ struct Ser {
 impl Ser {
     fn value(&mut self, value: &gfc::Value) -> repr::Value {
         match value {
-            &gfc::Value::Int(int) => repr::Value::Int(int),
-            &gfc::Value::Float(float) => repr::Value::Float(float),
-            &gfc::Value::Bool(bool) => repr::Value::Bool(bool),
-            gfc::Value::String(string) => repr::Value::String(string.clone()),
+            &gfc::Value::Int(value) => repr::Value::Int { value },
+            &gfc::Value::Float(value) => repr::Value::Float { value },
+            &gfc::Value::Bool(value) => repr::Value::Bool { value },
+            gfc::Value::String(string) => {
+                repr::Value::String {
+                    value: string.clone(),
+                }
+            }
             gfc::Value::Object(object) => self.object(object),
             gfc::Value::Array(items) => {
                 let items = items.iter().map(|x| self.value(x)).collect();
-                repr::Value::Array(items)
+                repr::Value::Array { items }
             }
-            gfc::Value::Map(emtries) => {
-                let emtries = emtries
+            gfc::Value::Map(entries) => {
+                let entries = entries
                     .iter()
                     .map(|(k, v)| (self.value(k), self.value(v)))
                     .collect();
-                repr::Value::Map(emtries)
+                repr::Value::Map { entries }
             }
             gfc::Value::Struct(elements) => {
                 let elements = elements.iter().map(|x| self.value(x)).collect();
-                repr::Value::Struct(elements)
+                repr::Value::Struct { elements }
             }
-            gfc::Value::HString(string) => repr::Value::HString(string.clone()),
+            gfc::Value::HString(string) => {
+                repr::Value::HString {
+                    value: string.clone(),
+                }
+            }
             gfc::Value::Null => repr::Value::Null,
         }
     }
 
     fn object(&mut self, object: &gfc::Object) -> repr::Value {
         match self.object_database.entry(object) {
-            Entry::Occupied(entry) => repr::Value::ObjectLink(*entry.get()),
+            Entry::Occupied(entry) => {
+                let id = *entry.get();
+                repr::Value::ObjectLink { id }
+            }
             Entry::Vacant(entry) => {
                 let id = self.next_object_id;
                 self.next_object_id += 1;
