@@ -35,6 +35,8 @@ mod tests {
         lazy_static_include_bytes!(pub NEW_GAME, "src/dsav/fixtures/new-game.dsav");
     }
 
+    const INITIAL_BUFFER: usize = 16384;
+
     /// Test that when we write a save and read it back, we get an identical
     /// structure in memory.
     #[test]
@@ -42,7 +44,7 @@ mod tests {
         let dsav1 = *fixtures::NEW_GAME;
         let object1 = dsav::read(io::Cursor::new(dsav1))?;
 
-        let mut dsav2 = Vec::new();
+        let mut dsav2 = Vec::with_capacity(INITIAL_BUFFER);
         dsav::write(io::Cursor::new(&mut dsav2), &object1)?;
 
         let object2 = dsav::read(io::Cursor::new(&mut dsav2))?;
@@ -69,7 +71,7 @@ mod tests {
         let dsav1 = *fixtures::NEW_GAME;
         let object = dsav::read(io::Cursor::new(dsav1))?;
 
-        let mut dsav2 = Vec::new();
+        let mut dsav2 = Vec::with_capacity(INITIAL_BUFFER);
         dsav::write(io::Cursor::new(&mut dsav2), &object)?;
 
         // Implementation detail: the data before the BOD is 0x39 bytes long. Skip over
@@ -89,13 +91,13 @@ mod tests {
         let dsav1 = *fixtures::NEW_GAME;
         let object = dsav::read(io::Cursor::new(dsav1))?;
 
-        let mut dsav2 = Vec::new();
+        let mut dsav2 = Vec::with_capacity(INITIAL_BUFFER);
         dsav::write(io::Cursor::new(&mut dsav2), &object)?;
 
         // Implementation detail: compressed data starts at offset 0x39.
         let offset = 0x39;
-        let mut bod1 = Vec::new();
-        let mut bod2 = Vec::new();
+        let mut bod1 = Vec::with_capacity(INITIAL_BUFFER);
+        let mut bod2 = Vec::with_capacity(INITIAL_BUFFER);
         io::copy(&mut ZlibDecoder::new(&dsav1[offset..]), &mut bod1)?;
         io::copy(&mut ZlibDecoder::new(&dsav2[offset..]), &mut bod2)?;
         assert_eq!(bod1, bod2);
@@ -109,7 +111,7 @@ mod tests {
         let dsav1 = *fixtures::NEW_GAME;
         let object = dsav::read(io::Cursor::new(dsav1))?;
 
-        let mut dsav2 = Vec::new();
+        let mut dsav2 = Vec::with_capacity(INITIAL_BUFFER);
         dsav::write(io::Cursor::new(&mut dsav2), &object)?;
 
         let data1 = extract_world_data(&dsav1)?;
@@ -124,7 +126,7 @@ mod tests {
         let meta_offset: Range<usize> = 0x9..0xd;
         let offset = i32::from_le_bytes(dsav[meta_offset].try_into()?);
         let offset = usize::try_from(offset)? + 4;
-        let mut buffer = Vec::new();
+        let mut buffer = Vec::with_capacity(INITIAL_BUFFER);
         io::copy(&mut ZlibDecoder::new(&dsav[offset..]), &mut buffer)?;
         Ok(buffer)
     }
