@@ -8,6 +8,7 @@ use failure::Error;
 use structopt::StructOpt;
 
 mod command;
+mod utils;
 
 fn main() -> Result<(), Error> {
     Command::from_args().run()

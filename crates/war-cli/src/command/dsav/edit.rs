@@ -1,3 +1,4 @@
+use crate::utils::fs::backup_file_if_no_backup_exists;
 use failure::Error;
 use notify::{DebouncedEvent, RecursiveMode, Watcher};
 use std::{fs, io, path::PathBuf, sync::mpsc, time::Duration};
@@ -13,6 +14,9 @@ pub struct Command {
 impl Command {
     pub fn run(self) -> Result<(), Error> {
         let json_path = self.dsav_path.with_extension("json");
+
+        backup_file_if_no_backup_exists(&self.dsav_path)?;
+        backup_file_if_no_backup_exists(&json_path)?;
 
         let mut file = io::BufReader::new(fs::File::open(&self.dsav_path)?);
         let save = dsav::read(&mut file)?;

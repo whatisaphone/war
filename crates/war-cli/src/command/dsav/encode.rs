@@ -1,3 +1,4 @@
+use crate::utils::fs::backup_file_if_no_backup_exists;
 use failure::Error;
 use std::{fs, io, path::PathBuf};
 use structopt::StructOpt;
@@ -14,6 +15,8 @@ pub struct Command {
 impl Command {
     pub fn run(self) -> Result<(), Error> {
         let output_path = self.input_path.with_extension("dsav");
+
+        backup_file_if_no_backup_exists(&output_path)?;
 
         let mut file = io::BufReader::new(fs::File::open(&self.input_path)?);
         let save = serde_json::from_reader(&mut file)?;
