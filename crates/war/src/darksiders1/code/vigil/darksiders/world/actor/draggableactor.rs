@@ -33,7 +33,10 @@ impl TryFrom<&gfc::Value> for DraggableActorData {
 
         Ok(Self {
             position: object.get_property("Position").ok_or(())?.try_into()?,
-            initialized: false,
+            initialized: object
+                .get_property("Initialized")
+                .and_then(gfc::Value::as_bool)
+                .ok_or(())?,
         })
     }
 }

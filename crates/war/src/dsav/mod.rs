@@ -33,28 +33,34 @@ mod tests {
         use lazy_static_include::*;
 
         lazy_static_include_bytes!(pub NEW_GAME, "src/dsav/fixtures/new-game.dsav");
+        lazy_static_include_bytes!(pub HUNDO, "src/dsav/fixtures/100%.dsav");
     }
 
     const INITIAL_BUFFER: usize = 16384;
 
     parameterized_test!(round_trip_data, [
         new_game => (*fixtures::NEW_GAME),
+        hundo => (*fixtures::HUNDO),
     ]);
 
     parameterized_test!(round_trip_json, [
         new_game => (*fixtures::NEW_GAME),
+        hundo => (*fixtures::HUNDO),
     ]);
 
     parameterized_test!(round_trip_game_info, [
         new_game => (*fixtures::NEW_GAME),
+        hundo => (*fixtures::HUNDO),
     ]);
 
     parameterized_test!(round_trip_player_save_data, [
         new_game => (*fixtures::NEW_GAME),
+        hundo => (*fixtures::HUNDO),
     ]);
 
     parameterized_test!(round_trip_world_data, [
         new_game => (*fixtures::NEW_GAME),
+        hundo => (*fixtures::HUNDO),
     ]);
 
     /// Test that when we write a save and read it back, we get an identical

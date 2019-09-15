@@ -131,6 +131,7 @@ impl DSSaveGameManager {
                                 stream.write_f32(actor.position.array[0])?;
                                 stream.write_f32(actor.position.array[1])?;
                                 stream.write_f32(actor.position.array[2])?;
+                                stream.write_u8(actor.initialized as u8)?;
                             }
                         }
 
