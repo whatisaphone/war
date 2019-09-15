@@ -1,17 +1,20 @@
 use failure::Error;
 use structopt::StructOpt;
 
-mod unpack;
+mod decode;
+mod encode;
 
 #[derive(StructOpt)]
 pub enum Command {
-    Unpack(unpack::Command),
+    Decode(decode::Command),
+    Encode(encode::Command),
 }
 
 impl Command {
     pub fn run(self) -> Result<(), Error> {
         match self {
-            Self::Unpack(command) => command.run(),
+            Self::Decode(command) => command.run(),
+            Self::Encode(command) => command.run(),
         }
     }
 }
