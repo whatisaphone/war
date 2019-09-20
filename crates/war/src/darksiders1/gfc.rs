@@ -1,6 +1,4 @@
-use crate::darksiders1::code::vigil;
-
-pub use vigil::{
+pub use crate::darksiders1::code::vigil::{
     darksiders::{
         client::dssavegamemanager::DSSaveGameManager,
         world::{
@@ -19,6 +17,7 @@ pub use vigil::{
             },
         },
     },
+    drivers::generic::save::keensavegamemanager::KeenSaveGameManager,
     gfc::{
         base::object::Object,
         io::{
@@ -31,6 +30,7 @@ pub use vigil::{
         },
         math::vector3::TVector3,
         reflection::value::Value,
+        save::savegamemanager::SaveGameManagerParams,
         util::{crc::Crc64, hstring::HString, hstringmanager::HStringManager},
     },
 };

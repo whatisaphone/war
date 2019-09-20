@@ -6,4 +6,5 @@ macro_rules! prop {
     };
 }
 
+pub mod library;
 pub mod vigil;
