@@ -4,6 +4,8 @@ A tool that lets you view/edit save files for [Darksiders].
 
 [Darksiders]: https://en.wikipedia.org/wiki/Darksiders_(video_game)
 
+>Darksiders Warfinitive Edition - All your save game are belong to us!
+
 ## Development
 
 ### Install prerequisites
