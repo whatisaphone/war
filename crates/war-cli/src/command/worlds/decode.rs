@@ -2,7 +2,7 @@ use crate::utils::fs::create_dir_if_not_exists;
 use failure::Error;
 use std::{fs, io, path::PathBuf};
 use structopt::StructOpt;
-use war::worlds;
+use war::{worlds, Lossy};
 
 #[derive(StructOpt)]
 pub struct Command {
@@ -20,7 +20,7 @@ impl Command {
             let path = self.output_path.join(format!("{}{}", path, ".json"));
             create_dir_if_not_exists(path.parent().unwrap())?;
             let mut file = io::BufWriter::new(fs::File::create(&path)?);
-            serde_json::to_writer_pretty(&mut file, object)?;
+            serde_json::to_writer_pretty(&mut file, &Lossy(object))?;
         }
 
         println!("Wrote to {:?}.", self.output_path);

@@ -4,6 +4,8 @@
 #![allow(clippy::if_not_else, clippy::single_match, clippy::single_match_else)]
 #![cfg_attr(feature = "strict", deny(warnings))]
 
+pub use utils::serde_lossy::ser::Lossy;
+
 #[macro_use]
 mod macros;
 mod darksiders1;
