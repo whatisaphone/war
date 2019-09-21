@@ -5,6 +5,7 @@ mod decode;
 
 #[derive(StructOpt)]
 pub enum Command {
+    /// Decode a worlds file into human-readable JSON
     Decode(decode::Command),
 }
 

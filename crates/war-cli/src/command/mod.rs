@@ -12,6 +12,7 @@ pub enum Command {
     Dsav(dsav::Command),
     /// Commands for working with Darksiders Warmastered save files (.sav)
     Sav(sav::Command),
+    /// Commands for working with the world file (worlds.mnfst)
     Worlds(worlds::Command),
 }
 
