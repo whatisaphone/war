@@ -17,6 +17,7 @@ mod tests {
     use flate2::read::ZlibDecoder;
     use std::{
         convert::{TryFrom, TryInto},
+        fs,
         io,
         ops::Range,
     };
@@ -27,40 +28,31 @@ mod tests {
     // flate2, so the compressed streams will not be identical. Instead, we
     // decompress them and compare the data inside.
 
-    #[allow(clippy::partialeq_ne_impl)]
-    mod fixtures {
-        use lazy_static::lazy_static;
-        use lazy_static_include::*;
-
-        lazy_static_include_bytes!(pub NEW_GAME, "src/dsav/fixtures/new-game.dsav");
-        lazy_static_include_bytes!(pub HUNDO, "src/dsav/fixtures/100%.dsav");
-    }
-
     const INITIAL_BUFFER: usize = 16384;
 
     parameterized_test!(round_trip_data, [
-        new_game => (*fixtures::NEW_GAME),
-        hundo => (*fixtures::HUNDO),
+        new_game => (&read_fixture("new-game.dsav")?),
+        hundo => (&read_fixture("100%.dsav")?),
     ]);
 
     parameterized_test!(round_trip_json, [
-        new_game => (*fixtures::NEW_GAME),
-        hundo => (*fixtures::HUNDO),
+        new_game => (&read_fixture("new-game.dsav")?),
+        hundo => (&read_fixture("100%.dsav")?),
     ]);
 
     parameterized_test!(round_trip_game_info, [
-        new_game => (*fixtures::NEW_GAME),
-        hundo => (*fixtures::HUNDO),
+        new_game => (&read_fixture("new-game.dsav")?),
+        hundo => (&read_fixture("100%.dsav")?),
     ]);
 
     parameterized_test!(round_trip_player_save_data, [
-        new_game => (*fixtures::NEW_GAME),
-        hundo => (*fixtures::HUNDO),
+        new_game => (&read_fixture("new-game.dsav")?),
+        hundo => (&read_fixture("100%.dsav")?),
     ]);
 
     parameterized_test!(round_trip_world_data, [
-        new_game => (*fixtures::NEW_GAME),
-        hundo => (*fixtures::HUNDO),
+        new_game => (&read_fixture("new-game.dsav")?),
+        hundo => (&read_fixture("100%.dsav")?),
     ]);
 
     /// Test that when we write a save and read it back, we get an identical
@@ -145,5 +137,11 @@ mod tests {
         let mut buffer = Vec::with_capacity(INITIAL_BUFFER);
         io::copy(&mut ZlibDecoder::new(&dsav[offset..]), &mut buffer)?;
         Ok(buffer)
+    }
+
+    fn read_fixture(name: &str) -> io::Result<Vec<u8>> {
+        let root = env!("CARGO_MANIFEST_DIR");
+        let path = format!("{}/src/dsav/fixtures/{}", root, name);
+        fs::read(&path)
     }
 }

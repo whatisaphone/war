@@ -47,40 +47,28 @@ fn validate_slot(slot: i32) -> Result<(), Error> {
 mod tests {
     use crate::sav;
     use failure::Error;
-
-    #[allow(clippy::partialeq_ne_impl)]
-    mod fixtures {
-        use lazy_static::lazy_static;
-        use lazy_static_include::*;
-
-        lazy_static_include_bytes!(
-            pub EMPTY,
-            "src/sav/fixtures/keen_savegame_0_0_empty.sav",
-        );
-        lazy_static_include_bytes!(
-            pub NEW_GAME,
-            "src/sav/fixtures/keen_savegame_0_0_new_game.sav",
-        );
-    }
+    use std::{fs, io};
 
     const SLOT: i32 = -1;
 
     #[test]
     fn read_empty() -> Result<(), Error> {
         // This isn't much of a test, but hey, it's a test
-        assert!(sav::read(&*fixtures::EMPTY, -1).is_err());
+        let sav = read_fixture("keen_savegame_0_0_empty.sav")?;
+        assert!(sav::read(&sav, -1).is_err());
         Ok(())
     }
 
     #[test]
     fn read_new_game() -> Result<(), Error> {
-        sav::read(&*fixtures::NEW_GAME, -1)?;
+        let sav = read_fixture("keen_savegame_0_0_new_game.sav")?;
+        sav::read(&sav, -1)?;
         Ok(())
     }
 
     #[test]
     fn round_trip_new_game() -> Result<(), Error> {
-        let mut sav = fixtures::NEW_GAME.to_vec();
+        let mut sav = read_fixture("keen_savegame_0_0_new_game.sav")?;
         let object1 = sav::read(&sav, SLOT)?;
         sav::write(&mut sav, SLOT, &object1)?;
         let object2 = sav::read(&sav, SLOT)?;
@@ -94,5 +82,11 @@ mod tests {
         let err = sav::read(&[], 15).unwrap_err();
         assert!(format!("{}", err) == "invalid slot");
         Ok(())
+    }
+
+    fn read_fixture(name: &str) -> io::Result<Vec<u8>> {
+        let root = env!("CARGO_MANIFEST_DIR");
+        let path = format!("{}/src/sav/fixtures/{}", root, name);
+        fs::read(&path)
     }
 }
