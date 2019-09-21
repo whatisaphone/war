@@ -5,6 +5,14 @@ use std::{
     path::{Path, PathBuf},
 };
 
+pub fn create_dir_if_not_exists(path: impl AsRef<Path>) -> io::Result<()> {
+    match fs::create_dir(path) {
+        Ok(()) => Ok(()),
+        Err(ref e) if e.kind() == io::ErrorKind::AlreadyExists => Ok(()),
+        Err(e) => Err(e),
+    }
+}
+
 pub fn backup_file_if_no_backup_exists(path: &Path) -> io::Result<()> {
     let mut backup_path_str = OsString::from(path);
     backup_path_str.push(".bak");

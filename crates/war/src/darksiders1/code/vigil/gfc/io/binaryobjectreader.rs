@@ -42,10 +42,14 @@ impl BinaryObjectReader {
         let _max_string = input.read_i32()?;
         let strings_local = Vec::with_capacity(num_strings.try_into()?);
 
-        let mut input = if compressed == 1 {
-            gfc::CompressedInputStream::new(input)?
+        let mut zstream;
+        let mut input: ByteOrdered<&mut dyn Read, Endianness> = if compressed == 1 {
+            let endianness = input.endianness();
+            zstream = gfc::CompressedInputStream::new(input)?;
+            ByteOrdered::new(&mut zstream, endianness)
         } else {
-            return Err(derailed())?;
+            let endianness = input.endianness();
+            ByteOrdered::new(input.inner_mut(), endianness)
         };
 
         let mut reader = Self {

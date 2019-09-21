@@ -3,6 +3,7 @@ use structopt::StructOpt;
 
 mod dsav;
 mod sav;
+mod worlds;
 
 /// A save viewer/editor for Darksiders.
 #[derive(StructOpt)]
@@ -11,6 +12,7 @@ pub enum Command {
     Dsav(dsav::Command),
     /// Commands for working with Darksiders Warmastered save files (.sav)
     Sav(sav::Command),
+    Worlds(worlds::Command),
 }
 
 impl Command {
@@ -18,6 +20,7 @@ impl Command {
         match self {
             Self::Dsav(command) => command.run(),
             Self::Sav(command) => command.run(),
+            Self::Worlds(command) => command.run(),
         }
     }
 }

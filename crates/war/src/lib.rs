@@ -1,7 +1,7 @@
 #![warn(future_incompatible, rust_2018_compatibility, rust_2018_idioms, unused)]
 #![warn(clippy::pedantic)]
 // #![warn(clippy::cargo)]
-#![allow(clippy::if_not_else, clippy::single_match)]
+#![allow(clippy::if_not_else, clippy::single_match, clippy::single_match_else)]
 #![cfg_attr(feature = "strict", deny(warnings))]
 
 #[macro_use]
@@ -10,3 +10,4 @@ mod darksiders1;
 pub mod dsav;
 pub mod sav;
 mod utils;
+pub mod worlds;

@@ -15,6 +15,7 @@ pub use crate::darksiders1::code::vigil::{
                 },
                 savedata::SaveValue,
             },
+            worldfactory::{WorldFactory, WorldFactory__WorldInfo},
         },
     },
     drivers::generic::save::keensavegamemanager::KeenSaveGameManager,

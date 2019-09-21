@@ -16,6 +16,10 @@ pub enum Value {
 }
 
 impl Value {
+    pub fn object(object: gfc::Object) -> Self {
+        Self::Object(Arc::new(object))
+    }
+
     pub fn as_int(&self) -> Option<i32> {
         match *self {
             Self::Int(int) => Some(int),
@@ -44,6 +48,13 @@ impl Value {
         }
     }
 
+    pub fn as_object_mut(&mut self) -> Option<&mut Arc<gfc::Object>> {
+        match self {
+            Self::Object(object) => Some(object),
+            _ => None,
+        }
+    }
+
     pub fn into_object(self) -> Result<Arc<gfc::Object>, Self> {
         match self {
             Self::Object(object) => Ok(object),
@@ -52,6 +63,13 @@ impl Value {
     }
 
     pub fn as_array(&self) -> Option<&[Self]> {
+        match self {
+            Self::Array(items) => Some(items),
+            _ => None,
+        }
+    }
+
+    pub fn as_array_mut(&mut self) -> Option<&mut Vec<Self>> {
         match self {
             Self::Array(items) => Some(items),
             _ => None,

@@ -192,7 +192,9 @@ impl DSSaveGameManager {
         let mut data = gfc::BinaryObjectReader::read_object(&mut stream)?;
 
         stream.seek(SeekFrom::Start(data_offset.try_into()?))?;
-        let mut stream = gfc::CompressedInputStream::new(&mut stream)?;
+        let endianness = stream.endianness();
+        let mut stream =
+            ByteOrdered::new(gfc::CompressedInputStream::new(&mut stream)?, endianness);
 
         let mut hstring_manager = gfc::HStringManager::new();
         let mut unique_strings = Vec::new();
