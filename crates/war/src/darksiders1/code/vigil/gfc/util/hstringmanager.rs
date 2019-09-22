@@ -1,4 +1,10 @@
-use crate::{darksiders1::gfc, utils::parsing::derailed};
+use crate::{
+    darksiders1::gfc,
+    utils::{
+        parsing::derailed,
+        windows1252::{StrWindows1252Ext, StringWindows1252Ext},
+    },
+};
 use byteordered::{ByteOrdered, Endianness};
 use failure::Error;
 use std::{
@@ -43,9 +49,10 @@ impl HStringManager {
         stream.write_i32(longest_string.try_into()?)?;
 
         for string in strings {
-            stream.write_u64(gfc::HString::calculate_hash(string))?;
-            stream.write_i32(string.len().try_into()?)?;
-            stream.write_all(string.as_bytes())?;
+            let bytes = &string.encode_windows_1252();
+            stream.write_u64(gfc::HString::calculate_hash(bytes))?;
+            stream.write_i32(bytes.len().try_into()?)?;
+            stream.write_all(bytes)?;
         }
         Ok(())
     }
@@ -64,7 +71,7 @@ impl HStringManager {
 
             let mut buf = vec![0; length.try_into()?];
             stream.read_exact(&mut buf)?;
-            let string = String::from_utf8(buf)?;
+            let string = String::from_windows_1252(buf);
 
             self.register_string(hash, string.clone());
             strings.push(string);

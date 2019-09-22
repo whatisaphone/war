@@ -1,4 +1,7 @@
-use crate::utils::parsing::{derailed, expect};
+use crate::utils::{
+    parsing::{derailed, expect},
+    windows1252::{StrWindows1252Ext, StringWindows1252Ext},
+};
 use byteordered::{ByteOrdered, Endianness};
 use std::{
     convert::{TryFrom, TryInto},
@@ -18,7 +21,7 @@ impl InputStream {
         let length = usize::try_from(length).map_err(|_| derailed())?;
         let mut buf = vec![0; length];
         stream.read_exact(&mut buf)?;
-        String::from_utf8(buf).map_err(|_| derailed())
+        Ok(String::from_windows_1252(buf))
     }
 }
 
@@ -32,7 +35,8 @@ impl OutputStream {
         string: &str,
     ) -> io::Result<()> {
         stream.write_u8(0xff)?;
-        stream.write_u16(string.len().try_into().map_err(|_| derailed())?)?;
-        stream.write_all(string.as_bytes())
+        let bytes = &string.encode_windows_1252();
+        stream.write_u16(bytes.len().try_into().map_err(|_| derailed())?)?;
+        stream.write_all(bytes)
     }
 }

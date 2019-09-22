@@ -3,6 +3,7 @@ use crate::{
     utils::{
         parsing::{derailed, expect},
         seek_ext::SeekExt,
+        windows1252::StrWindows1252Ext,
     },
 };
 use byteordered::{ByteOrdered, Endianness};
@@ -100,7 +101,8 @@ impl DSSaveGameManager {
 
         stream.write_i32(world_data_vec.len().try_into()?)?;
         for world_data in &world_data_vec {
-            stream.write_u64(gfc::HString::calculate_hash(&world_data.world))?;
+            let world_bytes = &world_data.world.encode_windows_1252();
+            stream.write_u64(gfc::HString::calculate_hash(world_bytes))?;
             Self::write_values(stream, &world_data.values)?;
             stream.write_i32(world_data.regions.len().try_into()?)?;
 
@@ -305,11 +307,17 @@ impl DSSaveGameManager {
 
             match key_index {
                 Some(i) => stream.write_u8(i.try_into()?)?,
-                None => stream.write_u64(gfc::HString::calculate_hash(&v.key))?,
+                None => {
+                    let bytes = &v.key.encode_windows_1252();
+                    stream.write_u64(gfc::HString::calculate_hash(bytes))?
+                }
             }
             match val_index {
                 Some(i) => stream.write_u8(i.try_into()?)?,
-                None => stream.write_u64(gfc::HString::calculate_hash(&v.value))?,
+                None => {
+                    let bytes = &v.value.encode_windows_1252();
+                    stream.write_u64(gfc::HString::calculate_hash(bytes))?
+                }
             }
         }
         Ok(())

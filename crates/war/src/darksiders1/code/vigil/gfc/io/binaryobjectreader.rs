@@ -1,6 +1,9 @@
 use crate::{
     darksiders1::gfc,
-    utils::parsing::{derailed, expect},
+    utils::{
+        parsing::{derailed, expect},
+        windows1252::StringWindows1252Ext,
+    },
 };
 use byteordered::{ByteOrdered, Endianness};
 use failure::Error;
@@ -175,7 +178,7 @@ impl BinaryObjectReader {
 
             let mut buf = vec![0; len.try_into()?];
             input.read_exact(&mut buf)?;
-            let string = String::from_utf8(buf)?;
+            let string = String::from_windows_1252(buf);
             self.strings_local().push(string.clone());
             return Ok(string);
         }

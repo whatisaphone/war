@@ -3,6 +3,7 @@ use crate::{
     utils::{
         parsing::{derailed, expect},
         seek_ext::SeekExt,
+        windows1252::StrWindows1252Ext,
     },
 };
 use byteordered::{ByteOrdered, Endianness};
@@ -180,9 +181,10 @@ impl BinaryObjectWriter {
         }
 
         output.write_u8(1)?;
-        output.write_u64(gfc::HString::calculate_hash(string))?;
-        output.write_u16(string.len().try_into()?)?;
-        output.write_all(string.as_bytes())?;
+        let bytes = &string.encode_windows_1252();
+        output.write_u64(gfc::HString::calculate_hash(bytes))?;
+        output.write_u16(bytes.len().try_into()?)?;
+        output.write_all(bytes)?;
         Ok(())
     }
 }

@@ -1,6 +1,9 @@
 use crate::{
     darksiders1::gfc,
-    utils::parsing::{derailed, expect},
+    utils::{
+        parsing::{derailed, expect},
+        windows1252::StringWindows1252Ext,
+    },
 };
 use byteordered::{ByteOrdered, Endianness};
 use failure::Error;
@@ -139,8 +142,8 @@ impl<F: Read + Seek> WorldFactory<F> {
             let name_len = world_package.read_i32()?;
             let mut name = vec![0; name_len.try_into()?];
             world_package.read_exact(&mut name)?;
+            let name = String::from_windows_1252(name);
             let _name_hash = world_package.read_u64()?;
-            let name = String::from_utf8(name)?;
 
             let world_offset = world_package.read_i32()?;
 
