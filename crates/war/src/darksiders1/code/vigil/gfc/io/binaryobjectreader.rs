@@ -10,14 +10,15 @@ use failure::Error;
 use replace_with::replace_with_or_abort;
 use std::{collections::HashMap, convert::TryInto, io::Read, sync::Arc};
 
-pub struct BinaryObjectReader {
+pub struct BinaryObjectReader<'s> {
     object_database: HashMap<i32, Arc<gfc::Object>>,
-    strings_ro: Vec<String>,
+    strings_ro: Option<&'s [String]>,
+    strings_local: Vec<String>,
 }
 
-impl BinaryObjectReader {
-    fn strings_local(&mut self) -> &mut Vec<String> {
-        &mut self.strings_ro
+impl<'s> BinaryObjectReader<'s> {
+    fn strings_ro(&self) -> &[String] {
+        self.strings_ro.unwrap_or_else(|| &self.strings_local)
     }
 
     pub fn read_object(
@@ -57,9 +58,22 @@ impl BinaryObjectReader {
 
         let mut reader = Self {
             object_database: HashMap::new(),
-            strings_ro: strings_local,
+            strings_ro: None,
+            strings_local,
         };
         reader.read_obj(&mut input)
+    }
+
+    pub fn read_value_naked(
+        input: &mut ByteOrdered<impl Read, Endianness>,
+        strings: &'s [String],
+    ) -> Result<gfc::Value, Error> {
+        let mut reader = Self {
+            object_database: HashMap::new(),
+            strings_ro: Some(strings),
+            strings_local: Vec::new(),
+        };
+        reader.read_value(input)
     }
 
     fn read_obj(
@@ -113,30 +127,26 @@ impl BinaryObjectReader {
                 self.object_database.insert(id, obj.clone());
                 Ok(gfc::Value::Object(obj))
             }
-            0x9 => {
+            0x9 | 0xa => {
                 let count = input.read_i32()?;
                 let has_keys = input.read_u8()? != 0;
-                expect(!has_keys)?;
 
-                let mut items = Vec::with_capacity(count.try_into()?);
-                for _ in 0..count {
-                    let value = self.read_value(input)?;
-                    items.push(value);
+                if has_keys {
+                    let mut entries = Vec::with_capacity(count.try_into()?);
+                    for _ in 0..count {
+                        let key = self.read_value(input)?;
+                        let value = self.read_value(input)?;
+                        entries.push((key, value));
+                    }
+                    Ok(gfc::Value::Map(entries))
+                } else {
+                    let mut items = Vec::with_capacity(count.try_into()?);
+                    for _ in 0..count {
+                        let value = self.read_value(input)?;
+                        items.push(value);
+                    }
+                    Ok(gfc::Value::Array(items))
                 }
-                Ok(gfc::Value::Array(items))
-            }
-            0xa => {
-                let count = input.read_i32()?;
-                let has_keys = input.read_u8()? != 0;
-                expect(has_keys)?;
-
-                let mut entries = Vec::with_capacity(count.try_into()?);
-                for _ in 0..count {
-                    let key = self.read_value(input)?;
-                    let value = self.read_value(input)?;
-                    entries.push((key, value));
-                }
-                Ok(gfc::Value::Map(entries))
             }
             0xb => {
                 let count = input.read_i32()?;
@@ -179,10 +189,10 @@ impl BinaryObjectReader {
             let mut buf = vec![0; len.try_into()?];
             input.read_exact(&mut buf)?;
             let string = String::from_windows_1252(buf);
-            self.strings_local().push(string.clone());
+            self.strings_local.push(string.clone());
             return Ok(string);
         }
         let index: usize = input.read_i32()?.try_into()?;
-        Ok(self.strings_ro.get(index).ok_or_else(derailed)?.clone())
+        Ok(self.strings_ro().get(index).ok_or_else(derailed)?.clone())
     }
 }

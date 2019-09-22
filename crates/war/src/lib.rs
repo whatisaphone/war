@@ -10,6 +10,7 @@ pub use utils::serde_lossy::ser::Lossy;
 mod macros;
 mod darksiders1;
 pub mod dsav;
+pub mod obsp;
 pub mod sav;
 mod utils;
 pub mod worlds;

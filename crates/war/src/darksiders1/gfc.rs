@@ -30,8 +30,23 @@ pub use crate::darksiders1::code::vigil::{
             stream::{InputStream, OutputStream},
         },
         math::vector3::TVector3,
-        reflection::value::Value,
+        oc::occlassmanager::{
+            OCClassManager,
+            OCClassManager__ScriptInfo,
+            OCClassManager__ScriptUnpacked,
+            OCClassManager__Types,
+        },
+        reflection::{
+            scriptclass::{
+                ScriptClass,
+                ScriptProperty,
+                ScriptState,
+                ScriptStaticProperty,
+            },
+            value::Value,
+        },
         save::savegamemanager::SaveGameManagerParams,
+        script::scriptmethod::ScriptMethod,
         util::{crc::Crc64, hstring::HString, hstringmanager::HStringManager},
     },
 };
