@@ -1,4 +1,4 @@
-use crate::darksiders1::gfc;
+use crate::{darksiders1::gfc, utils::parsing::derailed};
 use byteordered::{ByteOrdered, Endianness};
 use failure::Error;
 use std::{
@@ -70,5 +70,13 @@ impl HStringManager {
             strings.push(string);
         }
         Ok(())
+    }
+
+    pub fn read_u64_hstring(
+        &self,
+        stream: &mut ByteOrdered<impl Read, Endianness>,
+    ) -> Result<String, Error> {
+        let hash = stream.read_u64()?;
+        Ok(self.get_string(hash).ok_or_else(derailed)?.to_string())
     }
 }

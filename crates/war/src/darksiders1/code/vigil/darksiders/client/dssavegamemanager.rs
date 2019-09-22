@@ -203,11 +203,7 @@ impl DSSaveGameManager {
         let num_worlds = stream.read_i32()?;
         let mut world_data = Vec::with_capacity(num_worlds.try_into()?);
         for _ in 0..num_worlds {
-            let world_hash = stream.read_u64()?;
-            let world = hstring_manager
-                .get_string(world_hash)
-                .ok_or_else(derailed)?
-                .to_string();
+            let world = hstring_manager.read_u64_hstring(&mut stream)?;
 
             let mut values = Vec::new();
             Self::read_values(&hstring_manager, &mut stream, &mut values)?;
@@ -333,22 +329,14 @@ impl DSSaveGameManager {
                 let index: usize = stream.read_u8()?.try_into()?;
                 COMMON_STRINGS[index].to_string()
             } else {
-                let hash = stream.read_u64()?;
-                hstring_manager
-                    .get_string(hash)
-                    .ok_or_else(derailed)?
-                    .to_string()
+                hstring_manager.read_u64_hstring(stream)?
             };
 
             let value = if flags & 2 != 0 {
                 let index: usize = stream.read_u8()?.try_into()?;
                 COMMON_STRINGS[index].to_string()
             } else {
-                let hash = stream.read_u64()?;
-                hstring_manager
-                    .get_string(hash)
-                    .ok_or_else(derailed)?
-                    .to_string()
+                hstring_manager.read_u64_hstring(stream)?
             };
 
             values.push(gfc::SaveValue { key, value })
