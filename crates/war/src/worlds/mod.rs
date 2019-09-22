@@ -1,4 +1,5 @@
 use crate::{darksiders1::gfc, utils::parsing::derailed};
+use byteordered::{ByteOrdered, Endianness};
 use failure::Error;
 use std::{
     io::{Read, Seek},
@@ -6,17 +7,18 @@ use std::{
 };
 
 pub fn read(file: impl Read + Seek) -> Result<Vec<(String, gfc::Object)>, Error> {
-    let mut factory = gfc::WorldFactory::new(file)?;
     let mut files = Vec::new();
 
-    let world_names = factory
-        .world_files
-        .iter()
-        .map(|w| w.name.clone())
-        .collect::<Vec<_>>();
-    for world_name in world_names {
-        let world_path = world_name.clone();
-        let world = factory.read_world(&world_name)?;
+    let mut world_package = ByteOrdered::new(file, Endianness::Big);
+    let world_files = gfc::WorldFactory::read_header(&mut world_package)?;
+
+    for world_info in &world_files {
+        let world_path = world_info.name.clone();
+        let world = gfc::WorldFactory::read_world(
+            &mut world_package,
+            &world_files,
+            &world_info.name,
+        )?;
         let world = Rc::new(world);
         files.push((world_path, world.clone()));
 
@@ -39,8 +41,13 @@ pub fn read(file: impl Read + Seek) -> Result<Vec<(String, gfc::Object)>, Error>
                 .and_then(gfc::Value::as_array)
                 .ok_or_else(derailed)?;
 
-            let region_path = format!("{}/{}", world_name, region_name);
-            let region = factory.read_region(&world, region_id)?;
+            let region_path = format!("{}/{}", world_info.name, region_name);
+            let region = gfc::WorldFactory::read_region(
+                &mut world_package,
+                &world_files,
+                &world,
+                region_id,
+            )?;
             let region = Rc::new(region);
             files.push((region_path, region.clone()));
 
@@ -56,8 +63,14 @@ pub fn read(file: impl Read + Seek) -> Result<Vec<(String, gfc::Object)>, Error>
                     .ok_or_else(derailed)?;
 
                 let layer_path =
-                    format!("{}/{}/{}", world_name, region_name, layer_name);
-                let layer = factory.read_layer(&world, region_data, layer_id)?;
+                    format!("{}/{}/{}", world_info.name, region_name, layer_name);
+                let layer = gfc::WorldFactory::read_layer(
+                    &mut world_package,
+                    &world_files,
+                    &world,
+                    region_data,
+                    layer_id,
+                )?;
                 files.push((layer_path, Rc::new(layer)));
             }
         }
