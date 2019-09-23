@@ -21,3 +21,28 @@ pub fn read(file: impl Read + Seek) -> Result<Vec<(String, String)>, Error> {
     }
     Ok(files)
 }
+
+#[cfg(test)]
+mod tests {
+    use crate::obsp;
+    use failure::Error;
+    use std::{
+        fs,
+        io::{self, Read, Seek},
+    };
+
+    #[test]
+    fn smoke_test() -> Result<(), Error> {
+        let files = obsp::read(open_fixture()?)?;
+        let (_, war) = files.iter().find(|(k, _v)| k == "war/war").unwrap();
+        assert!(war.contains("IncrementNumberOfKills"));
+        Ok(())
+    }
+
+    fn open_fixture() -> io::Result<impl Read + Seek> {
+        let root = env!("CARGO_MANIFEST_DIR");
+        let path = format!("{}/src/obsp/fixtures/scripts.obsp", root);
+        let file = fs::File::open(&path)?;
+        Ok(io::BufReader::new(file))
+    }
+}
