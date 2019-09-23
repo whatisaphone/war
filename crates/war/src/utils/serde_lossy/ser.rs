@@ -1,6 +1,7 @@
-use crate::darksiders1::gfc;
+use crate::{darksiders1::gfc, utils::darksiders1::script::disassemble};
 use indexmap::{indexmap, IndexMap};
 use serde::{Serialize, Serializer};
+use std::borrow::Cow;
 
 pub struct Lossy<T>(pub T);
 
@@ -19,7 +20,7 @@ fn ser_value(value: &gfc::Value) -> Repr<'_> {
         &gfc::Value::Float(float) => Repr::Float(float),
         &gfc::Value::Bool(bool) => Repr::Bool(bool),
         gfc::Value::String(string) | gfc::Value::HString(string) => {
-            Repr::String(string)
+            Repr::string(string)
         }
         gfc::Value::Object(object) => ser_object(object),
         gfc::Value::Array(items) => Repr::Array(items.iter().map(ser_value).collect()),
@@ -44,7 +45,7 @@ fn ser_object(object: &gfc::Object) -> Repr<'_> {
         .map(|(n, v)| (n.as_str(), ser_value(v)))
         .collect();
     Repr::Object(indexmap! {
-        "classname" => Repr::String(&object.classname),
+        "classname" => Repr::string(&object.classname),
         "properties" => Repr::Object(properties),
     })
 }
@@ -85,12 +86,12 @@ fn ser_script_class(class: &gfc::ScriptClass) -> Repr<'_> {
         .map(|(n, s)| (n.as_str(), ser_script_state(s)))
         .collect();
     Repr::Object(indexmap! {
-        "Parent" => Repr::String(&class.parent_name),
-        "Name" => Repr::String(&class.name),
+        "Parent" => Repr::string(&class.parent_name),
+        "Name" => Repr::string(&class.name),
         "Properties" => Repr::Object(properties),
         "StaticProperties" => Repr::Object(static_properties),
         "Methods" => Repr::Object(methods),
-        "PackageName" => Repr::String(&class.package_name),
+        "PackageName" => Repr::string(&class.package_name),
         "DefaultValues" => Repr::Object(default_values),
         "States" => Repr::Object(states),
     })
@@ -112,13 +113,12 @@ fn ser_script_static_property(property: &gfc::ScriptStaticProperty) -> Repr<'_> 
 fn ser_script_method(method: &gfc::ScriptMethod) -> Repr<'_> {
     assert!(method.script.functions.functions.len() == 1);
     let function = method.script.functions.functions.values().next().unwrap();
-    let compiled_code = function
-        .data
+    let listing = disassemble(function)
+        .unwrap()
         .iter()
-        .copied()
-        .map(|b| Repr::Int(b.into()))
+        .map(|i| Repr::string(format!("0x{:04x} {}", i.offset, i.ins)))
         .collect();
-    Repr::Array(compiled_code)
+    Repr::Array(listing)
 }
 
 fn ser_script_state(script_state: &gfc::ScriptState) -> Repr<'_> {
@@ -139,8 +139,14 @@ enum Repr<'a> {
     Int(i32),
     Float(f32),
     Bool(bool),
-    String(&'a str),
+    String(Cow<'a, str>),
     Array(Vec<Repr<'a>>),
     Object(IndexMap<&'a str, Repr<'a>>),
     Null,
+}
+
+impl<'a> Repr<'a> {
+    fn string(s: impl Into<Cow<'a, str>>) -> Self {
+        Self::String(s.into())
+    }
 }

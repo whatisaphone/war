@@ -18,14 +18,22 @@ impl StringWindows1252Ext for String {
     }
 }
 
-pub trait StrWindows1252Ext {
+pub trait StrWindows1252Ext
+where
+    Self: ToOwned,
+{
+    fn from_windows_1252(bytes: &[u8]) -> Cow<'_, Self>;
     fn encode_windows_1252(&self) -> Cow<'_, [u8]>;
 }
 
 impl StrWindows1252Ext for str {
+    fn from_windows_1252(bytes: &[u8]) -> Cow<'_, Self> {
+        decode_latin1(bytes)
+    }
+
     fn encode_windows_1252(&self) -> Cow<'_, [u8]> {
         if !is_str_latin1(self) {
-            panic!("unencodeable str");
+            panic!("string is unrepresentable in Windows-1252");
         }
         encode_latin1_lossy(self)
     }
