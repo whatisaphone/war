@@ -110,8 +110,10 @@ fn ser_script_static_property(property: &gfc::ScriptStaticProperty) -> Repr<'_> 
 }
 
 fn ser_script_method(method: &gfc::ScriptMethod) -> Repr<'_> {
-    let compiled_code = method
-        .compiled_code
+    assert!(method.script.functions.functions.len() == 1);
+    let function = method.script.functions.functions.values().next().unwrap();
+    let compiled_code = function
+        .data
         .iter()
         .copied()
         .map(|b| Repr::Int(b.into()))

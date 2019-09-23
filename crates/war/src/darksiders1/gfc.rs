@@ -46,7 +46,11 @@ pub use crate::darksiders1::code::vigil::{
             value::Value,
         },
         save::savegamemanager::SaveGameManagerParams,
-        script::scriptmethod::ScriptMethod,
+        script::{
+            common::scriptfunctions::{ScriptFunction, ScriptFunctions},
+            script::Script,
+            scriptmethod::ScriptMethod,
+        },
         util::{crc::Crc64, hstring::HString, hstringmanager::HStringManager},
     },
 };

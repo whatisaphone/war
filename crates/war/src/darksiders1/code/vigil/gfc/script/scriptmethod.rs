@@ -1,10 +1,9 @@
+use crate::darksiders1::gfc;
 use byteordered::Endianness;
 
 pub struct ScriptMethod {
     pub name: String,
-    pub compiled_code: Vec<u8>,
-    pub endianness: Endianness,
-    pub source_name: String,
+    pub script: gfc::Script,
 }
 
 impl ScriptMethod {
@@ -14,11 +13,8 @@ impl ScriptMethod {
         endianness: Endianness,
         source_name: String,
     ) -> Self {
-        Self {
-            name,
-            compiled_code,
-            endianness,
-            source_name,
-        }
+        let script =
+            gfc::Script::new(source_name, name.clone(), compiled_code, endianness);
+        Self { name, script }
     }
 }
