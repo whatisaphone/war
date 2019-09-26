@@ -2,6 +2,8 @@
 
 set -euo pipefail
 
+cd "$(dirname "$0")"/..
+
 mkdir -p output
 mkdir -p output/saves
 
@@ -14,3 +16,7 @@ mv crates/war/src/dsav/fixtures/100%.json output/saves
 cargo run -- obsp decode crates/war/src/obsp/fixtures/scripts.obsp output/obsp
 
 cargo run -- worlds decode crates/war/src/worlds/fixtures/worlds.mnfst output/worlds
+
+python dev/generate-new-game-plus.py
+mv dsauto.json output/saves/new-game-plus.json
+mv dsauto.dsav output/saves/new-game-plus.dsav
