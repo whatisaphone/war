@@ -1,5 +1,7 @@
 # <img src="docs/war.png" width="40%" align="right"> war
 
+[![pipeline status](https://gitlab.com/whatisaphone/war/badges/master/pipeline.svg)](https://gitlab.com/whatisaphone/war/commits/master)
+
 A tool that lets you view/edit [Darksiders] save files and game assets.
 
 [Darksiders]: https://en.wikipedia.org/wiki/Darksiders_(video_game)
