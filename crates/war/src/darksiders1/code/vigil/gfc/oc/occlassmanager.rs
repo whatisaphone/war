@@ -184,8 +184,7 @@ pub struct OCClassManager__ScriptInfo {
     #[allow(dead_code)]
     package_id: u16,
     pub typ: OCClassManager__Types,
-    #[allow(dead_code)]
-    unpacked: OCClassManager__ScriptUnpacked,
+    pub unpacked: OCClassManager__ScriptUnpacked,
 }
 
 #[allow(non_camel_case_types)]

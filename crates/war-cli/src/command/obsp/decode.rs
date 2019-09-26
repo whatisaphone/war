@@ -1,5 +1,6 @@
 use failure::Error;
 use std::{
+    borrow::Cow,
     fs,
     io,
     path::{Path, PathBuf},
@@ -21,6 +22,14 @@ impl Command {
         create_dir_if_not_exists(&self.output_path)?;
 
         for (path, data) in &scripts {
+            // Get rid of `../` prefixes so files don't escape the output directory.
+            // (The 90s called, they want their PKZIP directory traversal exploits
+            // back.)
+            let mut path = Cow::from(path);
+            if path.starts_with("../") {
+                path = path.replace("../", "").into();
+            }
+
             let path = self.output_path.join(format!("{}{}", path, ".json"));
             fs::create_dir_all(path.parent().unwrap())?;
             fs::write(&path, &data)?;

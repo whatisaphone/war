@@ -8,15 +8,24 @@ pub fn read(file: impl Read + Seek) -> Result<Vec<(String, String)>, Error> {
     let mut packfile = ByteOrdered::new(file, Endianness::Little);
     let scripts = gfc::OCClassManager::read_header(&mut packfile)?;
     let mut files = Vec::new();
-    for (name, info) in scripts {
+    for info in scripts.values() {
+        let path = if info.unpacked.relative_path.is_empty() {
+            info.unpacked.original_name.clone()
+        } else {
+            format!(
+                "{}/{}",
+                info.unpacked.relative_path, info.unpacked.original_name,
+            )
+        };
+
         if info.typ == gfc::OCClassManager__Types::Script {
             let class = gfc::OCClassManager::read_script(&mut packfile, &info)?;
             let json = serde_json::to_string_pretty(&Lossy(&class))?;
-            files.push((name, json));
+            files.push((path, json));
         } else {
             let object = gfc::OCClassManager::read_object(&mut packfile, &info)?;
             let json = serde_json::to_string_pretty(&Lossy(&object))?;
-            files.push((name, json));
+            files.push((path, json));
         }
     }
     Ok(files)
@@ -34,7 +43,7 @@ mod tests {
     #[test]
     fn smoke_test() -> Result<(), Error> {
         let files = obsp::read(open_fixture()?)?;
-        let (_, war) = files.iter().find(|(k, _v)| k == "war/war").unwrap();
+        let (_, war) = files.iter().find(|(k, _v)| k == "war").unwrap();
         assert!(war.contains("IncrementNumberOfKills"));
         Ok(())
     }
