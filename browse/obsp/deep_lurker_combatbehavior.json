@@ -1,0 +1,425 @@
+{
+  "Parent": "base/standardbehavior",
+  "Name": "deep_lurker/deep_lurker_combatbehavior",
+  "Properties": {
+    "ScanAlertDistance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ScanInterval": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachMoveStateMove": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "ApproachForceCloseRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachForceCompleteRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "FleeApproachRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "FleeApproachMoveStateMove": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "FleeApproachForceCloseRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "FleeApproachForceCompleteRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AnimMoveState": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "TurnBackMoveState": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "TurnBackMinDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "TurnBackMaxDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "TurnBackMaxAngleDiff": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AttackMoveStateAttack": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "AttackMinDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AttackMaxDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AttackMinRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AttackMaxRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AttackAllowRepeat": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "AttackPredictTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AttackPressure": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "FaceTargetAngleDiff": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "FaceTargetMoveStateTurnLeft": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "FaceTargetMoveStateTurnRight": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleMoveStateIdle": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleMinTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMaxTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMoveStateFidget": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleFidgetChance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleFidgetMinTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleFidgetMaxTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "FleePosition": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "FacePoint": {
+      "Flags": 2,
+      "Type": 1
+    }
+  },
+  "StaticProperties": {},
+  "Methods": [
+    "begin",
+    "onTargetUnreachable"
+  ],
+  "PackageName": "deep_lurker",
+  "DefaultValues": {
+    "ApproachForceCompleteRange": -1,
+    "AttackMinDelay": 1.0,
+    "IdleMinTime": 1.5,
+    "AttackMaxDelay": 2.0,
+    "IdleFidgetChance": 0,
+    "IdleFidgetMinTime": 2,
+    "FleePosition": null,
+    "AttackPredictTime": 0.5,
+    "FleeApproachForceCompleteRange": 60,
+    "ApproachMoveStateMove": "MoveToTarget",
+    "FaceTargetMoveStateTurnRight": "",
+    "FaceTargetAngleDiff": 180,
+    "TurnBackMaxAngleDiff": 180,
+    "ID": "DeepLurkerCombat",
+    "BackgroundActions": [
+      {
+        "classname": "base/scanaction",
+        "properties": {
+          "Position": [
+            7.006007e22,
+            1.6884063e25,
+            1.6531698e19
+          ]
+        }
+      }
+    ],
+    "IdleMoveStateFidget": "",
+    "AttackPressure": -1,
+    "FleeApproachForceCloseRange": -1,
+    "AnimMoveState": "",
+    "TurnBackMoveState": "TurnAway - Move_Transition",
+    "ScanInterval": 1.5,
+    "IdleMoveStateIdle": "Idle",
+    "ApproachRange": 150,
+    "FleeApproachRange": 110,
+    "FaceTargetMoveStateTurnLeft": "",
+    "FacePoint": null,
+    "IdleMaxTime": 2.25,
+    "TurnBackMaxDelay": 15.0,
+    "AttackMaxRange": 150,
+    "ComponentActions": [
+      {
+        "classname": "base/facepointaction",
+        "properties": {
+          "FaceTargetMinDistance": 0,
+          "ID": "Face Flee Point",
+          "ActionCode": 99,
+          "Priority": 19,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "ValidStates": [
+            "Flee"
+          ],
+          "OnCompleteState": "FleeMove",
+          "Position": [
+            -6.2343606e-38,
+            8.433785e-38,
+            9.602269e-11
+          ]
+        }
+      },
+      {
+        "classname": "base/defaultaction",
+        "properties": {
+          "ID": "SkipTo Flee Point",
+          "ActionCode": 99,
+          "Priority": 19,
+          "ValidStates": [
+            "Flee"
+          ],
+          "OnCompleteState": "FleeMove",
+          "Position": [
+            9.601192e-11,
+            2.5665596e-9,
+            1e-45
+          ]
+        }
+      },
+      {
+        "classname": "base/approachfleepoint",
+        "properties": {
+          "IgnoreZTolerance": true,
+          "ID": "Approach FleePoint",
+          "Priority": 20,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "ValidStates": [
+            "FleeMove"
+          ],
+          "OnCompleteAction": "TurnBack",
+          "Position": [
+            2.5e-44,
+            3.9423e30,
+            -7.414538e-8
+          ]
+        }
+      },
+      {
+        "classname": "base/animaction",
+        "properties": {
+          "ID": "TurnBack",
+          "Priority": -1,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "ValidStates": [
+            "FleeMove"
+          ],
+          "OnCompleteState": "Insider",
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/attackaction",
+        "properties": {
+          "ID": "Melee Attack",
+          "Priority": 17,
+          "InterruptibleBy": [
+            "Death",
+            "Interactive",
+            "Impact"
+          ],
+          "ValidStates": [
+            "Insider",
+            "FleeMove"
+          ],
+          "ResourceLock": "Attack",
+          "OnCompleteState": "Flee",
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "MaxRange": 500.0,
+          "MinHeight": 100.0,
+          "MaxHeight": 5000.0,
+          "MinAngle": -180.0,
+          "MaxAngle": 180.0,
+          "MoveState": "Move - FloatSink",
+          "RequireInView": true,
+          "ID": "Surface",
+          "Priority": 13,
+          "InterruptibleBy": [
+            "Death",
+            "Interactive",
+            "Impact",
+            "Melee Attack"
+          ],
+          "ValidStates": [
+            "Insider"
+          ],
+          "ResourceLock": "Surface",
+          "MinLockTime": 1.0,
+          "MaxLockTime": 3.0,
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "MaxRange": 500.0,
+          "MinHeight": -5000.0,
+          "MaxHeight": -100.0,
+          "MinAngle": -180.0,
+          "MaxAngle": 180.0,
+          "MoveState": "Move - FloatSink",
+          "RequireInView": true,
+          "ID": "Dive",
+          "Priority": 12,
+          "InterruptibleBy": [
+            "Death",
+            "Interactive",
+            "Impact",
+            "Melee Attack"
+          ],
+          "ValidStates": [
+            "Insider"
+          ],
+          "ResourceLock": "Dive",
+          "MinLockTime": 1.0,
+          "MaxLockTime": 3.0,
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/approachaction",
+        "properties": {
+          "ID": "Approach Simple",
+          "Priority": 6,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "ValidStates": [
+            "Insider"
+          ],
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/idleaction",
+        "properties": {
+          "ID": "Idle",
+          "ActionCode": 1,
+          "Priority": 1,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "Position": [
+            5.766498e-31,
+            1.6495025e-33,
+            3.0353437e32
+          ]
+        }
+      }
+    ],
+    "ApproachForceCloseRange": -1,
+    "AttackMoveStateAttack": "Attack 1 Start",
+    "IdleFidgetMaxTime": 4,
+    "AttackAllowRepeat": true,
+    "ScanAlertDistance": -1,
+    "FleeApproachMoveStateMove": "TurnAway - Move",
+    "AttackMinRange": 0,
+    "TurnBackMinDelay": 10.0
+  },
+  "States": {
+    "Flee": {
+      "methods": [
+        "PickFleePoint",
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "FleeMove": {
+      "methods": [
+        "getCurrentState"
+      ]
+    },
+    "Insider": {
+      "methods": [
+        "getCurrentState"
+      ]
+    },
+    "LostTarget": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    }
+  }
+}

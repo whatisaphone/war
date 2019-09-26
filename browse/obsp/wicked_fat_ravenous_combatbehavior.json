@@ -1,0 +1,159 @@
+{
+  "classname": "base/tbehavior",
+  "properties": {
+    "ComponentActions": [
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "MoveState": "Strafe",
+          "ExitOnComplete": false,
+          "ID": "Strafe",
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "AttackType": 1,
+          "Pressure": 8,
+          "MinRange": 150.0,
+          "MaxRange": 300.0,
+          "MaxHeight": 120.0,
+          "MinAngle": -45.0,
+          "MaxAngle": 45.0,
+          "MoveState": "Attack1",
+          "RequireInView": true,
+          "ID": "Attack1",
+          "Priority": 5,
+          "Chance": 0.5,
+          "ResourceLock": "Attack",
+          "MinLockTime": 2.0,
+          "MaxLockTime": 3.0,
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "AttackType": 1,
+          "Pressure": 8,
+          "MaxRange": 200.0,
+          "MaxHeight": 120.0,
+          "MinAngle": -45.0,
+          "MaxAngle": 45.0,
+          "MoveState": "Attack2",
+          "RequireInView": true,
+          "ID": "Attack2",
+          "Priority": 5,
+          "Chance": 0.5,
+          "ResourceLock": "Attack2",
+          "MinLockTime": 5.0,
+          "MaxLockTime": 10.0,
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "AttackType": 1,
+          "Pressure": 8,
+          "MinAngle": -45.0,
+          "MaxAngle": 45.0,
+          "MoveState": "Wicked_Ravenous_RangeAttack",
+          "OnBeginEvent": "onRangeAttack",
+          "RequireInView": true,
+          "AutoClose": true,
+          "PreferredDistance": 350.0,
+          "ID": "RangeAttack",
+          "Priority": -1,
+          "ResourceLock": "RangeAttack",
+          "MinLockTime": 8.0,
+          "MaxLockTime": 10.0,
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "MinRange": 50.0,
+          "MaxRange": 400.0,
+          "MinAngle": -45.0,
+          "MaxAngle": 45.0,
+          "MoveState": "Fidget",
+          "ID": "Fidget",
+          "Priority": 3,
+          "Chance": 0.5,
+          "ResourceLock": "Fidget",
+          "MinLockTime": 5.0,
+          "MaxLockTime": 10.0,
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "MoveState": "Impact",
+          "ID": "Stunned",
+          "Priority": -1,
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "BackgroundActions": [
+      {
+        "classname": "base/onhithandler",
+        "properties": {
+          "ActionID": "Stunned",
+          "DamageThreshold": 25,
+          "DamageThresholdDecay": 1
+        }
+      }
+    ],
+    "InterruptHandler": {
+      "classname": "base/oninterrupthandler",
+      "properties": {}
+    },
+    "ExitBehaviorHandler": {
+      "classname": "ExitBehaviorAction",
+      "properties": {
+        "Position": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "Position": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  }
+}

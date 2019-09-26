@@ -1,0 +1,574 @@
+{
+  "Parent": "Character",
+  "Name": "ot_door/ot_door",
+  "Properties": {
+    "Active": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "CloseDistance": {
+      "Flags": 4,
+      "Type": 2
+    },
+    "OverrideCloseTimer": {
+      "Flags": 2,
+      "Type": 3
+    },
+    "Portal": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "Enabled": {
+      "Flags": 2,
+      "Type": 4
+    },
+    "moveStateDoor1": {
+      "Flags": 2,
+      "Type": 2
+    },
+    "moveStateDoor2": {
+      "Flags": 2,
+      "Type": 2
+    }
+  },
+  "StaticProperties": {
+    "Description": {
+      "Value": {
+        "classname": "CharacterDesc",
+        "properties": {
+          "MoveStates": {
+            "classname": "CharacterMoveStateList",
+            "properties": {
+              "MoveStates": [
+                {
+                  "classname": "CharacterGenericStateDesc",
+                  "properties": {
+                    "Name": "Closed Loop",
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 0
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                },
+                {
+                  "classname": "CharacterGenericStateDesc",
+                  "properties": {
+                    "Name": "Closing Side 1",
+                    "ID": 4,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 4
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                },
+                {
+                  "classname": "CharacterGenericStateDesc",
+                  "properties": {
+                    "Name": "Closing Side 2",
+                    "ID": 6,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 8
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                },
+                {
+                  "classname": "CharacterDoInteractiveDesc",
+                  "properties": {
+                    "TargetType": "war/war",
+                    "Initiator": 1,
+                    "MaxErrorDistance": 45.0,
+                    "DoCollision": false,
+                    "UseWeapon": 0,
+                    "AnimationID": 1,
+                    "TargetAnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 10
+                      }
+                    },
+                    "OnCompleteOther": 0,
+                    "AnimationSource": 0,
+                    "UseAnchorNode": true,
+                    "AnchorNodeName": "Interactive Node 1",
+                    "CanPlayDuringCinematic": true,
+                    "Name": "Interactive 1",
+                    "ID": 1,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 1
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                },
+                {
+                  "classname": "CharacterDoInteractiveDesc",
+                  "properties": {
+                    "TargetType": "war/war",
+                    "Initiator": 1,
+                    "MaxErrorDistance": 45.0,
+                    "DoCollision": false,
+                    "UseWeapon": 0,
+                    "AnimationID": 5,
+                    "TargetAnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 11
+                      }
+                    },
+                    "OnCompleteOther": 0,
+                    "AnimationSource": 0,
+                    "UseAnchorNode": true,
+                    "AnchorNodeName": "Interactive Node 2",
+                    "CanPlayDuringCinematic": true,
+                    "Name": "Interactive 2",
+                    "ID": 2,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 2
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                },
+                {
+                  "classname": "CharacterGenericStateDesc",
+                  "properties": {
+                    "Name": "Open Loop Side 1",
+                    "ID": 3,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 3
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                },
+                {
+                  "classname": "CharacterGenericStateDesc",
+                  "properties": {
+                    "Name": "Open Loop Side 2",
+                    "ID": 5,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 7
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                }
+              ]
+            }
+          },
+          "Invincible": true,
+          "UseProxy": false,
+          "HitInfos": {
+            "classname": "HitInfoList",
+            "properties": {
+              "HitInfos": [
+                {
+                  "classname": "HitInfo",
+                  "properties": {
+                    "ID": 10,
+                    "Name": "Door_Closing_Inside",
+                    "WType": 3,
+                    "HType": 1,
+                    "Power": 3,
+                    "Damage": 5.0,
+                    "KnockBackPower": 100.0,
+                    "KnockUpPower": 10.0,
+                    "EnvPowerScale": 2.0
+                  }
+                },
+                {
+                  "classname": "HitInfo",
+                  "properties": {
+                    "ID": 11,
+                    "Name": "Door_Closing_Outside",
+                    "WType": 3,
+                    "HType": 1,
+                    "Power": 3,
+                    "Damage": 5.0,
+                    "KnockBackPower": 100.0,
+                    "KnockUpPower": 10.0,
+                    "EnvPowerScale": 2.0
+                  }
+                }
+              ]
+            }
+          },
+          "Visual": "ot_door",
+          "FactionID": -1,
+          "Animations": {
+            "classname": "AnimationList",
+            "properties": {
+              "Animations": [
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 3
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 1,
+                    "Name": " - 1",
+                    "AnimationName": "OT_Door_open",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "ot_door_open"
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 1,
+                          "TriggerFrame": 6
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50058,
+                          "TriggerFrame": 5
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50047,
+                          "TriggerFrame": 5
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 4,
+                    "Name": " - 1",
+                    "AnimationName": "OT_Door_close",
+                    "Triggers": [
+                      {
+                        "classname": "WeaponPhantomTrigger",
+                        "properties": {
+                          "Duration": 26,
+                          "WeaponPhantom": "WeaponPhantom",
+                          "HitInfoID": 10,
+                          "HitInfoIDOutside": 11,
+                          "OverrideFactionID": -2,
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "ot_door_close"
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 2,
+                          "TriggerFrame": 6
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 5,
+                    "Name": " - 1"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 10,
+                    "Name": " - 1 War",
+                    "AnimationName": "OT_Door_open"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 2,
+                    "Name": " - 2",
+                    "AnimationName": "OT_Door_open",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "ot_door_open"
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 1,
+                          "TriggerFrame": 6
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50058,
+                          "TriggerFrame": 5
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50047,
+                          "TriggerFrame": 5
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 6,
+                    "Name": " - 2"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 11,
+                    "Name": " - 2 War",
+                    "AnimationName": "OT_Door_open"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 7,
+                    "Name": " - 3"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 8,
+                    "Name": " - 5",
+                    "AnimationName": "OT_Door_close",
+                    "Triggers": [
+                      {
+                        "classname": "WeaponPhantomTrigger",
+                        "properties": {
+                          "Duration": 26,
+                          "WeaponPhantom": "WeaponPhantom",
+                          "HitInfoID": 10,
+                          "HitInfoIDOutside": 11,
+                          "OverrideFactionID": -2,
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "ot_door_close"
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 2,
+                          "TriggerFrame": 6
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "Name": "- 0"
+                  }
+                }
+              ]
+            }
+          },
+          "Sounds": {
+            "classname": "SoundList",
+            "properties": {
+              "Sounds": [
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50126,
+                    "Name": "armor_foley",
+                    "Volume": 0.099975586,
+                    "RandomPitch": 0.7001953,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Priority": 50,
+                    "Sounds": "war_armor_foley_6,war_armor_foley_1,war_armor_foley_2,war_armor_foley_3,war_armor_foley_4,war_armor_foley_5",
+                    "Group": "War"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50047,
+                    "Name": "body_grab",
+                    "Volume": 0.30004883,
+                    "RandomVolume": 0.099975586,
+                    "RandomPitch": 2.0,
+                    "Min": 1.0,
+                    "Priority": 50,
+                    "Sounds": "body_grab_4,body_grab_1,body_grab_2,body_grab_3",
+                    "Group": "War"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50058,
+                    "Name": "grab_ledge",
+                    "Volume": 0.47998047,
+                    "RandomVolume": 1.0,
+                    "RandomPitch": 3.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Priority": 50,
+                    "Sounds": "grab_ledge_3,grab_ledge_1,grab_ledge_2",
+                    "Group": "War"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 2,
+                    "Name": "ot_door_close",
+                    "Volume": 0.99902344,
+                    "Min": 200.0,
+                    "Max": 2800.0,
+                    "Priority": 0,
+                    "Sounds": "ot_door_close",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 1,
+                    "Name": "ot_door_open",
+                    "Volume": 0.99902344,
+                    "Min": 1000.0,
+                    "Max": 2000.0,
+                    "Priority": 0,
+                    "Sounds": "ot_door_open",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50067,
+                    "Name": "voc_war_attack_finish",
+                    "Volume": 0.72021484,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "ExclusiveActor": true,
+                    "Min": 1.0,
+                    "Priority": 0,
+                    "Sounds": "voc_war_attack_long_5,voc_war_attack_long_3,voc_war_attack_long_4",
+                    "Group": "War Vox"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "Methods": [
+    "onInit",
+    "onQueryInteractive",
+    "onQueryBoomerangTag",
+    "activate",
+    "deactivate",
+    "setPortalEnabled",
+    "ForceOpen",
+    "onEditorProcessObjects"
+  ],
+  "PackageName": "ot_door",
+  "DefaultValues": {
+    "Portal": "",
+    "Enabled": true,
+    "Active": true,
+    "CloseDistance": 300,
+    "OverrideCloseTimer": 2.0,
+    "moveStateDoor2": 2,
+    "moveStateDoor1": 1
+  },
+  "States": {
+    "OpeningSide2": {
+      "methods": [
+        "onInteractiveComplete",
+        "onEnter"
+      ]
+    },
+    "OpeningSide1": {
+      "methods": [
+        "onInteractiveComplete",
+        "onEnter"
+      ]
+    },
+    "OpenSide2": {
+      "methods": [
+        "onTimer",
+        "onEnter"
+      ]
+    },
+    "OpenSide1": {
+      "methods": [
+        "onTimer",
+        "onEnter"
+      ]
+    },
+    "Closed": {
+      "methods": [
+        "onInteractive",
+        "onQueryInteractive",
+        "onEnter"
+      ]
+    },
+    "CloseSide1": {
+      "methods": [
+        "onActionComplete",
+        "onEnter"
+      ]
+    },
+    "CloseSide2": {
+      "methods": [
+        "onActionComplete",
+        "onEnter"
+      ]
+    }
+  }
+}

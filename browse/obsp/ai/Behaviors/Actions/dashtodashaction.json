@@ -1,0 +1,148 @@
+{
+  "Parent": "base/componentaction",
+  "Name": "base/dashtodashaction",
+  "Properties": {
+    "DashToDashMissAngle": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "DashToDashMoveToTimeout": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "DashToDashDashTimeout": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "DashToDashMoveStateEndDash": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "DashToDashMoveStateEndDashFar": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "DashToDashMoveStateAttack": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "DashToDashMoveStateMoveTo": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "DashToDashMoveStateDash": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "DashToDashMinDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "DashToDashMaxDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "DashToDashMinRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "DashToDashMaxRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "DashToDashEndFarRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "DashToDashPredictTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "DashToDashAttackPressure": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "DashToDashThinkHeartbeat": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "DashToDashInteractiveMoveStateID": {
+      "Flags": 4,
+      "Type": 2
+    },
+    "Interrupted": {
+      "Flags": 2,
+      "Type": 4
+    }
+  },
+  "StaticProperties": {},
+  "Methods": [
+    "InitVars",
+    "begin",
+    "InitDashToDashAction",
+    "end",
+    "validate"
+  ],
+  "PackageName": "base",
+  "DefaultValues": {
+    "DashToDashEndFarRange": -1,
+    "DashToDashMoveStateAttack": "",
+    "DashToDashMoveStateEndDashFar": "",
+    "DashToDashThinkHeartbeat": 0.1,
+    "DashToDashPredictTime": -1,
+    "DashToDashAttackPressure": -1,
+    "DashToDashMoveStateDash": "",
+    "DashToDashMinDelay": -1,
+    "DashToDashMaxDelay": -1,
+    "ID": "DashToDash",
+    "DashToDashInteractiveMoveStateID": 0,
+    "DashToDashMissAngle": -1,
+    "DashToDashMoveStateMoveTo": "",
+    "Interrupted": true,
+    "DashToDashDashTimeout": -1,
+    "DashToDashMaxRange": -1,
+    "DashToDashMinRange": -1,
+    "DashToDashMoveToTimeout": -1,
+    "DashToDashMoveStateEndDash": ""
+  },
+  "States": {
+    "DashEndClose": {
+      "methods": [
+        "onActionComplete",
+        "getDashState",
+        "onEnter"
+      ]
+    },
+    "DashAttack": {
+      "methods": [
+        "onActionComplete",
+        "getDashState",
+        "onEnter"
+      ]
+    },
+    "Dash": {
+      "methods": [
+        "onActionComplete",
+        "getDashState",
+        "onEnter",
+        "DashToDashThink"
+      ]
+    },
+    "MoveTo": {
+      "methods": [
+        "MoveToTimeOut",
+        "onActionComplete",
+        "getDashState",
+        "onEnter",
+        "DashToDashThink"
+      ]
+    },
+    "DashEnd": {
+      "methods": [
+        "onActionComplete",
+        "getDashState",
+        "onEnter"
+      ]
+    }
+  }
+}

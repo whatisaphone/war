@@ -1,0 +1,44 @@
+.method In
+0x0001 .param_count 0
+0x0001 .line 10
+0x0006     nop
+0x0007 .line 12
+0x000c     identifier this
+0x001b     property triggered
+0x002f     bool false
+0x0031     equal
+0x0032     branch_false 0x00a9
+0x0037 .line 14
+0x003c     nop
+0x003d     identifier this
+0x004c     property triggered
+0x0060     bool true
+0x0062     assign
+0x0063     pop
+0x0064 .line 15
+0x0069     string "Out"
+0x0077     int 1
+0x007c     identifier this
+0x008b     method doEvent
+0x009d     pop
+0x009e .line 16
+0x00a3     nop
+0x00a4 .line 17
+0x00a9 .label 0x0605
+0x00ae     nop
+0x00af     return_null
+
+.method Reset
+0x0001 .param_count 0
+0x0001 .line 19
+0x0006     nop
+0x0007 .line 21
+0x000c     identifier this
+0x001b     property triggered
+0x002f     bool false
+0x0031     assign
+0x0032     pop
+0x0033 .line 22
+0x0038     nop
+0x0039     return_null
+

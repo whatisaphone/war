@@ -1,0 +1,220 @@
+{
+  "Parent": "Monster",
+  "Name": "base/monsterbase",
+  "Properties": {
+    "PreCinematicBehavior": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "Spawnpos": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "previousFactionID": {
+      "Flags": 2,
+      "Type": 2
+    },
+    "DestinationPoint": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "HomeZones": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "HomePoint": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "HomeScan": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "LeashLocks": {
+      "Flags": 2,
+      "Type": 2
+    },
+    "AmbientDueToLeash": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "LeashTimerActive": {
+      "Flags": 2,
+      "Type": 4
+    },
+    "inCinematic": {
+      "Flags": 2,
+      "Type": 4
+    },
+    "SplineSpeedOverride": {
+      "Flags": 2,
+      "Type": 3
+    },
+    "HasBeenAlerted": {
+      "Flags": 2,
+      "Type": 4
+    },
+    "LOSCheckActive": {
+      "Flags": 2,
+      "Type": 4
+    },
+    "IngoreCinemaMode": {
+      "Flags": 2,
+      "Type": 4
+    },
+    "returnhomeallowed": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "insideMZonesCount": {
+      "Flags": 2,
+      "Type": 2
+    },
+    "StartBarrierScanPos": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "VoiceOverID": {
+      "Flags": 2,
+      "Type": 2
+    }
+  },
+  "StaticProperties": {},
+  "Methods": [
+    "onBehaviorCanExit",
+    "canSpecialAttack",
+    "findNewTargetCallback",
+    "onInit",
+    "onRemove",
+    "onCustomInit",
+    "onCustomRemove",
+    "onQueryInteractive",
+    "onQueryDoT",
+    "onNewSpline",
+    "onGhostHookZipConnect",
+    "setInitialBehavior",
+    "setIgnoreCinemaMode",
+    "onSuspendAI",
+    "onCinematicStart",
+    "sendCinematicMode",
+    "InView",
+    "onResumeAI",
+    "onCinematicEnd",
+    "unregisterLOSCheck",
+    "onCinematicEndTimer",
+    "getIsInsider",
+    "doInsider",
+    "doOutsider",
+    "overrideCombatLeashDist",
+    "onChangeCombatantType",
+    "setBehaviorAmbient",
+    "setBehaviorCombat",
+    "setBehaviorDefensiveIdle",
+    "setCombatRandDelay",
+    "setBehaviorCombatDt",
+    "getCombatBehavior",
+    "ReturnToHome",
+    "onEnterMZoneBarrier",
+    "onLeavingHomeZone",
+    "onExitMZoneBarrier",
+    "disableReturnHome",
+    "playVoiceOver",
+    "onDeathBlow",
+    "onKilledObject",
+    "onObjectImpacted",
+    "onHavocFormTriggered",
+    "onHavocFormExited",
+    "setBehaviorUnreachable"
+  ],
+  "PackageName": "base",
+  "DefaultValues": {
+    "returnhomeallowed": true,
+    "LeashTimerActive": false,
+    "HomeZones": null,
+    "insideMZonesCount": 0,
+    "previousFactionID": -1,
+    "HomeScan": false,
+    "StartBarrierScanPos": null,
+    "HasBeenAlerted": false,
+    "HomePoint": null,
+    "LOSCheckActive": false,
+    "IngoreCinemaMode": false,
+    "SplineSpeedOverride": -1,
+    "DestinationPoint": null,
+    "AmbientDueToLeash": false,
+    "inCinematic": false,
+    "VoiceOverID": -1,
+    "LeashLocks": 0
+  },
+  "States": {
+    "Combat": {
+      "methods": [
+        "onAttacked",
+        "startCombatLeash",
+        "onBehaviorComplete",
+        "releaseLeashLock",
+        "getCurrentState",
+        "onEnter",
+        "onChangeCombatantType",
+        "checkCombatLeash"
+      ]
+    },
+    "Spawning": {
+      "methods": [
+        "setBehaviorSpawnSpline",
+        "setBehaviorSpawnEmerge",
+        "onLeavingHomeZone",
+        "setBehaviorSpawnPath",
+        "onExit",
+        "onBehaviorComplete",
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "Scripted": {
+      "methods": [
+        "onBehaviorComplete",
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "Dead": {
+      "methods": [
+        "setBehaviorUnreachable",
+        "setBehaviorCinematic",
+        "setBehaviorAmbient",
+        "setBehaviorCombat",
+        "setBehaviorDefensiveIdle"
+      ]
+    },
+    "Defensive": {
+      "methods": [
+        "onBehaviorComplete",
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "AirRecovery": {
+      "methods": [
+        "onBehaviorComplete",
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "TargetUnreachable": {
+      "methods": [
+        "onBehaviorComplete",
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "Ambient": {
+      "methods": [
+        "onExit",
+        "onBehaviorComplete",
+        "getCurrentState",
+        "onEnter"
+      ]
+    }
+  }
+}

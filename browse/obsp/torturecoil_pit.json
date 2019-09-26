@@ -1,0 +1,3031 @@
+{
+  "Parent": "base/combatmonster",
+  "Name": "torturecoil/torturecoil_pit",
+  "Properties": {
+    "StartEmergedBehavior": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "EmergedBehavior": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "IdleBehavior": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "SquashBehavior": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "PenisDamageDone": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "PenisHitPoints": {
+      "Flags": 4,
+      "Type": 1
+    },
+    "CeilingHitCount": {
+      "Flags": 2,
+      "Type": 2
+    },
+    "NumLashes": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "CanGrab": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "TauntFlag": {
+      "Flags": 2,
+      "Type": 4
+    },
+    "TargetHelper": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "AttackAccumulator": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "CombatStage": {
+      "Flags": 2,
+      "Type": 1
+    }
+  },
+  "StaticProperties": {
+    "Description": {
+      "Value": {
+        "classname": "base/combatmonsterdesc",
+        "properties": {
+          "AmbientBehaviorGuard": {
+            "classname": "base/guardambientbehavior",
+            "properties": {
+              "PathBlockedBreakableHandler": {
+                "classname": "base/clearobstacleaction",
+                "properties": {
+                  "ID": "Clear Obstacle",
+                  "ActionCode": 5,
+                  "Priority": 16,
+                  "InterruptibleBy": [
+                    "Death",
+                    "Exit",
+                    "Interactive",
+                    "Impact"
+                  ],
+                  "Position": [
+                    2.6208754e20,
+                    2.1714976e-18,
+                    1.8472921e20
+                  ]
+                }
+              },
+              "DeathBlowHandler": {
+                "classname": "base/deathblowaction",
+                "properties": {
+                  "ID": "Death",
+                  "ActionCode": 660,
+                  "Priority": 660,
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "InteractiveHandler": {
+                "classname": "base/interactivestallaction",
+                "properties": {
+                  "ID": "Interactive",
+                  "Priority": 630,
+                  "InterruptibleBy": [
+                    "Death"
+                  ],
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "ImpactHandler": {
+                "classname": "base/impactaction",
+                "properties": {
+                  "ID": "Impact",
+                  "Priority": 620,
+                  "InterruptibleBy": [
+                    "Death",
+                    "Interactive"
+                  ],
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "ComponentActions": [
+                {
+                  "classname": "base/approachhomeaction",
+                  "properties": {
+                    "IgnoreZTolerance": true,
+                    "ID": "ReturnHome",
+                    "Priority": 9,
+                    "InterruptibleBy": [
+                      "ANY"
+                    ],
+                    "OnCompleteState": "Guarding",
+                    "Position": [
+                      null,
+                      0.0,
+                      -1.5924013e-19
+                    ]
+                  }
+                },
+                {
+                  "classname": "base/idleaction",
+                  "properties": {
+                    "ID": "Idle",
+                    "ActionCode": 1,
+                    "Priority": 1,
+                    "InterruptibleBy": [
+                      "ANY"
+                    ],
+                    "Position": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  }
+                }
+              ],
+              "BackgroundActions": [
+                {
+                  "classname": "base/homescanaction",
+                  "properties": {
+                    "OnScanAcquiredTarget": "FoundMeleeTarget",
+                    "OnScanAcquiredRangedTarget": "FoundRangedTarget",
+                    "OnScanLostTarget": "",
+                    "ScanLOSCheck": true,
+                    "ScanMeleeOnly": false,
+                    "ScanAllowRescansWithTarget": true,
+                    "ID": "HomeScanForTarget",
+                    "ValidStates": [
+                      "MovingIntoPosition"
+                    ],
+                    "Position": [
+                      1.5113662e-13,
+                      1.5113662e-13,
+                      1.5113662e-13
+                    ]
+                  }
+                },
+                {
+                  "classname": "base/scanaction",
+                  "properties": {
+                    "OnScanAcquiredTarget": "FoundMeleeTarget",
+                    "OnScanAcquiredRangedTarget": "FoundRangedTarget",
+                    "OnScanLostTarget": "",
+                    "ScanLOSCheck": true,
+                    "ScanMeleeOnly": false,
+                    "ScanAllowRescansWithTarget": true,
+                    "ID": "Scan",
+                    "ValidStates": [
+                      "Guarding"
+                    ],
+                    "Position": [
+                      4.8613497e30,
+                      4.8603944e30,
+                      7.5550794e31
+                    ]
+                  }
+                }
+              ],
+              "ExitBehaviorHandler": {
+                "classname": "base/exitbehavioraction",
+                "properties": {
+                  "ID": "Exit",
+                  "Priority": 640,
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "Position": [
+                1.8615984e25,
+                0.0024787446,
+                6.7907934e-33
+              ]
+            }
+          },
+          "AmbientBehaviorWander": {
+            "classname": "base/wanderambientbehavior",
+            "properties": {
+              "PathBlockedBreakableHandler": {
+                "classname": "base/clearobstacleaction",
+                "properties": {
+                  "ID": "Clear Obstacle",
+                  "ActionCode": 5,
+                  "Priority": 16,
+                  "InterruptibleBy": [
+                    "Death",
+                    "Exit",
+                    "Interactive",
+                    "Impact"
+                  ],
+                  "Position": [
+                    5.9726217e-30,
+                    3.59e-43,
+                    null
+                  ]
+                }
+              },
+              "DeathBlowHandler": {
+                "classname": "base/deathblowaction",
+                "properties": {
+                  "ID": "Death",
+                  "ActionCode": 660,
+                  "Priority": 660
+                }
+              },
+              "InteractiveHandler": {
+                "classname": "base/interactivestallaction",
+                "properties": {
+                  "ID": "Interactive",
+                  "Priority": 630,
+                  "InterruptibleBy": [
+                    "Death"
+                  ]
+                }
+              },
+              "ImpactHandler": {
+                "classname": "base/impactaction",
+                "properties": {
+                  "ID": "Impact",
+                  "Priority": 620,
+                  "InterruptibleBy": [
+                    "Death",
+                    "Interactive"
+                  ]
+                }
+              },
+              "ComponentActions": [
+                {
+                  "classname": "base/approachwanderaction",
+                  "properties": {
+                    "IgnoreZTolerance": true,
+                    "Priority": 9,
+                    "InterruptibleBy": [
+                      "ANY"
+                    ],
+                    "ValidStates": [
+                      "Wander",
+                      "MovingIntoPosition"
+                    ],
+                    "OnCompleteState": "WanderPointReached",
+                    "Position": [
+                      0.0,
+                      0.0,
+                      -1.038998e-7
+                    ]
+                  }
+                },
+                {
+                  "classname": "base/defaultaction",
+                  "properties": {
+                    "ID": "WanderTooClose",
+                    "Priority": 8,
+                    "InterruptibleBy": [
+                      "ANY"
+                    ],
+                    "ValidStates": [
+                      "Wander",
+                      "MovingIntoPosition"
+                    ],
+                    "OnCompleteState": "WanderPointReached",
+                    "Position": [
+                      5.973356e-30,
+                      3.59e-43,
+                      null
+                    ]
+                  }
+                },
+                {
+                  "classname": "base/idleaction",
+                  "properties": {
+                    "ID": "Idle",
+                    "Priority": 1,
+                    "InterruptibleBy": [
+                      "ANY"
+                    ]
+                  }
+                }
+              ],
+              "BackgroundActions": [
+                {
+                  "classname": "base/homescanaction",
+                  "properties": {
+                    "OnScanAcquiredTarget": "FoundMeleeTarget",
+                    "OnScanAcquiredRangedTarget": "FoundRangedTarget",
+                    "OnScanLostTarget": "",
+                    "ScanLOSCheck": true,
+                    "ScanMeleeOnly": false,
+                    "ScanAllowRescansWithTarget": true,
+                    "ID": "HomeScanForTarget",
+                    "ValidStates": [
+                      "MovingIntoPosition"
+                    ]
+                  }
+                },
+                {
+                  "classname": "base/scanaction",
+                  "properties": {
+                    "OnScanAcquiredTarget": "FoundMeleeTarget",
+                    "OnScanAcquiredRangedTarget": "FoundRangedTarget",
+                    "OnScanLostTarget": "",
+                    "ScanLOSCheck": true,
+                    "ScanMeleeOnly": false,
+                    "ScanAllowRescansWithTarget": true,
+                    "ID": "Scan",
+                    "ValidStates": [
+                      "Wander",
+                      "Resting",
+                      "NoWanderRegion"
+                    ]
+                  }
+                }
+              ],
+              "ExitBehaviorHandler": {
+                "classname": "base/exitbehavioraction",
+                "properties": {
+                  "ID": "Exit",
+                  "Priority": 640
+                }
+              },
+              "Position": [
+                1.6617275e-33,
+                2.8365938e20,
+                7.0601806e28
+              ]
+            }
+          },
+          "AmbientBehaviorPatrol": {
+            "classname": "base/patrolambientbehavior",
+            "properties": {
+              "PathBlockedBreakableHandler": {
+                "classname": "base/clearobstacleaction",
+                "properties": {
+                  "ID": "Clear Obstacle",
+                  "ActionCode": 5,
+                  "Priority": 16,
+                  "InterruptibleBy": [
+                    "Death",
+                    "Exit",
+                    "Interactive",
+                    "Impact"
+                  ],
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "DeathBlowHandler": {
+                "classname": "base/deathblowaction",
+                "properties": {
+                  "ID": "Death",
+                  "ActionCode": 660,
+                  "Priority": 660,
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "InteractiveHandler": {
+                "classname": "base/interactivestallaction",
+                "properties": {
+                  "ID": "Interactive",
+                  "Priority": 630,
+                  "InterruptibleBy": [
+                    "Death"
+                  ],
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "ImpactHandler": {
+                "classname": "base/impactaction",
+                "properties": {
+                  "ID": "Impact",
+                  "Priority": 620,
+                  "InterruptibleBy": [
+                    "Death",
+                    "Interactive"
+                  ],
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "ComponentActions": [
+                {
+                  "classname": "base/approachpatrolaction",
+                  "properties": {
+                    "IgnoreZTolerance": true,
+                    "ID": "ApproachPatrol",
+                    "Priority": 9,
+                    "InterruptibleBy": [
+                      "ANY"
+                    ],
+                    "OnCompleteState": "Patrol",
+                    "Position": [
+                      null,
+                      7.7135135e31,
+                      -21.848436
+                    ]
+                  }
+                },
+                {
+                  "classname": "base/idleaction",
+                  "properties": {
+                    "ID": "Idle",
+                    "ActionCode": 1,
+                    "Priority": 1,
+                    "InterruptibleBy": [
+                      "ANY"
+                    ],
+                    "Position": [
+                      5.9751706e-30,
+                      3.59e-43,
+                      6e-45
+                    ]
+                  }
+                }
+              ],
+              "BackgroundActions": [
+                {
+                  "classname": "base/homescanaction",
+                  "properties": {
+                    "OnScanAcquiredTarget": "FoundMeleeTarget",
+                    "OnScanAcquiredRangedTarget": "FoundRangedTarget",
+                    "OnScanLostTarget": "",
+                    "ScanLOSCheck": true,
+                    "ScanMeleeOnly": false,
+                    "ScanAllowRescansWithTarget": true,
+                    "ID": "HomeScanForTarget",
+                    "ValidStates": [
+                      "MovingIntoPosition"
+                    ],
+                    "Position": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  }
+                },
+                {
+                  "classname": "base/scanaction",
+                  "properties": {
+                    "OnScanAcquiredTarget": "FoundMeleeTarget",
+                    "OnScanAcquiredRangedTarget": "FoundRangedTarget",
+                    "OnScanLostTarget": "",
+                    "ScanLOSCheck": true,
+                    "ScanMeleeOnly": false,
+                    "ScanAllowRescansWithTarget": true,
+                    "ID": "Scan",
+                    "ValidStates": [
+                      "Patrol"
+                    ],
+                    "Position": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  }
+                }
+              ],
+              "ExitBehaviorHandler": {
+                "classname": "base/exitbehavioraction",
+                "properties": {
+                  "ID": "Exit",
+                  "Priority": 640
+                }
+              },
+              "Position": [
+                null,
+                8.9087774e-15,
+                5.4388207e34
+              ]
+            }
+          },
+          "IsGhostHookTargetable": false,
+          "FearFactor": 3,
+          "AlertDistance": 650.0,
+          "FlinchAnim": 50,
+          "MoveStates": {
+            "classname": "CharacterMoveStateList",
+            "properties": {
+              "MoveStates": [
+                {
+                  "classname": "MonsterAttackDesc",
+                  "properties": {
+                    "Name": "AOE Lash",
+                    "ID": 106,
+                    "AnimController": {
+                      "classname": "HAimAnimController",
+                      "properties": {
+                        "MaxAngle": 40.0,
+                        "LeftAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 101,
+                            "Ease": 1.0
+                          }
+                        },
+                        "ForwardAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 10,
+                            "Ease": 1.0
+                          }
+                        },
+                        "RightAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 102,
+                            "Ease": 1.0
+                          }
+                        },
+                        "Ease": 0.1
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "FaceTarget": false,
+                    "FaceOnStart": false
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "Name": "Emerge",
+                    "ID": 101,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 1
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "TurnSpeed": 0.0,
+                    "OnActionComplete": 114
+                  }
+                },
+                {
+                  "classname": "MonsterIdleDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "Hidden Idle",
+                    "ID": 109,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 9
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "TurnSpeed": 0.0
+                  }
+                },
+                {
+                  "classname": "MonsterIdleDesc",
+                  "properties": {
+                    "IdleTime": 4.0,
+                    "Name": "Idle",
+                    "ID": 105,
+                    "AnimController": {
+                      "classname": "HAimAnimController",
+                      "properties": {
+                        "MaxAngle": 40.0,
+                        "LeftAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 3,
+                            "Ease": 1.0
+                          }
+                        },
+                        "ForwardAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 2,
+                            "Ease": 1.0
+                          }
+                        },
+                        "RightAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 4,
+                            "Ease": 1.0
+                          }
+                        },
+                        "Ease": 1.0
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "TurnSpeed": 0.0
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "Squash",
+                    "ID": 110,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 19
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "TurnSpeed": 0.0
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "Stuck Hit Retract",
+                    "ID": 108,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 18
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "TurnSpeed": 0.0
+                  }
+                },
+                {
+                  "classname": "MonsterAttackDesc",
+                  "properties": {
+                    "OnImpact": [
+                      -1
+                    ],
+                    "FlinchAnimation": 50,
+                    "Name": "Stuck Lash",
+                    "ID": 102,
+                    "AnimController": {
+                      "classname": "HAimAnimController",
+                      "properties": {
+                        "MaxAngle": 20.0,
+                        "LeftAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 16
+                          }
+                        },
+                        "ForwardAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 15
+                          }
+                        },
+                        "RightAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 17
+                          }
+                        }
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "ImpulseDamage": 100,
+                    "ImpulsePeriod": 4.1992188,
+                    "LimitPeriodToTimeInState": true,
+                    "FaceTarget": false,
+                    "FaceOnStart": false
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "Name": "Submerge",
+                    "ID": 113,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 5
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "TurnSpeed": 0.0,
+                    "OnActionComplete": 109,
+                    "ConstrainToGround": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "Name": "Taunt",
+                    "ID": 114,
+                    "AnimController": {
+                      "classname": "HAimAnimController",
+                      "properties": {
+                        "MaxAngle": 20.0,
+                        "LeftAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 7,
+                            "Ease": 1.0
+                          }
+                        },
+                        "ForwardAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 6,
+                            "Ease": 1.0
+                          }
+                        },
+                        "RightAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 8,
+                            "Ease": 1.0
+                          }
+                        },
+                        "Ease": 1.0
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "TurnSpeed": 0.0
+                  }
+                },
+                {
+                  "classname": "CharacterDoInteractiveDesc",
+                  "properties": {
+                    "TargetType": "war/war",
+                    "MaxErrorDistance": 3000.0,
+                    "Arc": 360.0,
+                    "DoCollision": false,
+                    "DoRaycast": false,
+                    "ConvergeTime": 0.0,
+                    "LoopCount": 2,
+                    "ImmediateInterrupt": true,
+                    "ButtonMash": true,
+                    "MashSuccessValue": 0.99,
+                    "MashIncrement": 0.1,
+                    "MashAdvances": false,
+                    "AnimationID": 10502,
+                    "TargetAnimController": {
+                      "classname": "TrackAnimController",
+                      "properties": {
+                        "Animation": 10502
+                      }
+                    },
+                    "OnMashSuccess": 112,
+                    "OnMashFailure": 29,
+                    "UseCameraNode": true,
+                    "Name": "War Grab Interactive",
+                    "ID": 27,
+                    "AnimController": {
+                      "classname": "TrackAnimController",
+                      "properties": {
+                        "Animation": 10502
+                      }
+                    },
+                    "InAir": true
+                  }
+                },
+                {
+                  "classname": "CharacterDoInteractiveDesc",
+                  "properties": {
+                    "TargetType": "war/war",
+                    "MaxErrorDistance": 3000.0,
+                    "Arc": 360.0,
+                    "ConvergeTime": 0.0,
+                    "UseWeapon": 0,
+                    "TargetAnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 10504,
+                        "Ease": 0.0
+                      }
+                    },
+                    "UseCameraNode": true,
+                    "Name": "War Grab Lose",
+                    "ID": 29,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 10504,
+                        "Ease": 0.0
+                      }
+                    },
+                    "InAir": true
+                  }
+                },
+                {
+                  "classname": "CharacterDoInteractiveDesc",
+                  "properties": {
+                    "TargetType": "war/war",
+                    "MaxErrorDistance": 3000.0,
+                    "Arc": 360.0,
+                    "ConvergeTime": 1.0,
+                    "TargetAnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 10500
+                      }
+                    },
+                    "OnComplete": 111,
+                    "UseCameraNode": true,
+                    "CameraTransitionTime": 0.5,
+                    "Name": "War Grab Start 1",
+                    "ID": 26,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 10500
+                      }
+                    },
+                    "InAir": true
+                  }
+                },
+                {
+                  "classname": "CharacterDoInteractiveDesc",
+                  "properties": {
+                    "TargetType": "war/war",
+                    "MaxErrorDistance": 3000.0,
+                    "Arc": 360.0,
+                    "ConvergeTime": 0.0,
+                    "TargetAnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 10501,
+                        "Ease": 0.0
+                      }
+                    },
+                    "OnComplete": 27,
+                    "UseCameraNode": true,
+                    "Name": "War Grab Start 2",
+                    "ID": 111,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 10501,
+                        "Ease": 0.0
+                      }
+                    },
+                    "InAir": true
+                  }
+                },
+                {
+                  "classname": "CharacterDoInteractiveDesc",
+                  "properties": {
+                    "TargetType": "war/war",
+                    "Arc": 360.0,
+                    "ConvergeTime": 0.0,
+                    "TargetAnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 10505,
+                        "Ease": 0.0
+                      }
+                    },
+                    "OnCompleteOther": 500,
+                    "UseCameraNode": true,
+                    "Name": "War Grab Win",
+                    "ID": 112,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 10505,
+                        "Ease": 0.0
+                      }
+                    },
+                    "InAir": true
+                  }
+                }
+              ]
+            }
+          },
+          "Invincible": true,
+          "CharacterClass": "TortureCoilPit",
+          "Visual": "TortureCoil",
+          "FactionID": 1,
+          "MaxLockOnDistance": 1100.0,
+          "Animations": {
+            "classname": "AnimationList",
+            "properties": {
+              "Animations": [
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50,
+                    "Name": "TCoil_Impact_Flinch",
+                    "AnimationName": "TCoil_Impact_Flinch",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 44937
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 18,
+                    "Name": "TCoil_Int_Pit_StuckRetractCrash",
+                    "AnimationName": "TCoil_Int_Pit_StuckRetractCrash",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50003,
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50000,
+                          "TriggerFrame": 6
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50015,
+                          "TriggerFrame": 26
+                        }
+                      },
+                      {
+                        "classname": "EventTrigger",
+                        "properties": {
+                          "EventName": "onTriggerCrash",
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "CameraShakeTrigger",
+                        "properties": {
+                          "HPower": 10.0,
+                          "VPower": 10.0,
+                          "Duration": 0.2,
+                          "AttenStart": 500.0,
+                          "AttenEnd": 2000.0,
+                          "BlurPower": 1.0,
+                          "TriggerFrame": 6
+                        }
+                      },
+                      {
+                        "classname": "CameraShakeTrigger",
+                        "properties": {
+                          "HPower": 10.0,
+                          "VPower": 10.0,
+                          "Duration": 0.2,
+                          "AttenStart": 500.0,
+                          "AttenEnd": 2000.0,
+                          "BlurPower": 1.0,
+                          "TriggerFrame": 26
+                        }
+                      },
+                      {
+                        "classname": "EventTrigger",
+                        "properties": {
+                          "EventName": "unlockTargetPosition",
+                          "TriggerFrame": 60
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50000,
+                          "TriggerFrame": 26
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 10,
+                    "Name": "TCoil_Interactive_Pit_AOELash",
+                    "AnimationName": "TCoil_Interactive_Pit_AOELash",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "TCoil_Lash_Impact",
+                          "TriggerFrame": 92,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 8754,
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50000,
+                          "TriggerFrame": 93
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50000,
+                          "TriggerFrame": 212
+                        }
+                      },
+                      {
+                        "classname": "CameraShakeTrigger",
+                        "properties": {
+                          "HPower": 10.0,
+                          "VPower": 10.0,
+                          "AttenStart": 1000.0,
+                          "AttenEnd": 2000.0,
+                          "BlurPower": 1.0,
+                          "TriggerFrame": 93
+                        }
+                      },
+                      {
+                        "classname": "CameraShakeTrigger",
+                        "properties": {
+                          "HPower": 10.0,
+                          "VPower": 10.0,
+                          "AttenStart": 1000.0,
+                          "AttenEnd": 2000.0,
+                          "BlurPower": 1.0,
+                          "TriggerFrame": 212
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "TCoil_Lash_Impact_Backhand",
+                          "TriggerFrame": 213,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "WeaponPhantomTrigger",
+                        "properties": {
+                          "Duration": 297,
+                          "WeaponPhantom": "WeaponPhantom AOEtemp",
+                          "HitInfoID": 1,
+                          "TriggerFrame": 30
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 101,
+                    "Name": "TCoil_Interactive_Pit_AOELashL",
+                    "AnimationName": "TCoil_Interactive_Pit_AOELashL",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 8754,
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 44936,
+                          "TriggerFrame": 87
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 44936,
+                          "TriggerFrame": 207
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50000,
+                          "TriggerFrame": 93
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50000,
+                          "TriggerFrame": 212
+                        }
+                      },
+                      {
+                        "classname": "CameraShakeTrigger",
+                        "properties": {
+                          "TriggerFrame": 93
+                        }
+                      },
+                      {
+                        "classname": "CameraShakeTrigger",
+                        "properties": {
+                          "TriggerFrame": 212
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 102,
+                    "Name": "TCoil_Interactive_Pit_AOELashR",
+                    "AnimationName": "TCoil_Interactive_Pit_AOELashR",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 8754,
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 44936,
+                          "TriggerFrame": 87
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 44936,
+                          "TriggerFrame": 207
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50000,
+                          "TriggerFrame": 93
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50000,
+                          "TriggerFrame": 212
+                        }
+                      },
+                      {
+                        "classname": "CameraShakeTrigger",
+                        "properties": {
+                          "TriggerFrame": 93
+                        }
+                      },
+                      {
+                        "classname": "CameraShakeTrigger",
+                        "properties": {
+                          "TriggerFrame": 212
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 10500,
+                    "Name": "TCoil_Interactive_Pit_Grab01",
+                    "AnimationName": "TCoil_Interactive_Pit_Grab01",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50001,
+                          "TriggerFrame": 2
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 44936,
+                          "TriggerFrame": 5
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 10501,
+                    "Name": "TCoil_Interactive_Pit_Grab02",
+                    "AnimationName": "TCoil_Interactive_Pit_Grab02",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50005,
+                          "TriggerFrame": 11
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 2,
+                    "Name": "TCoil_Interactive_Pit_Idle",
+                    "AnimationName": "TCoil_Interactive_Pit_Idle",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 8755,
+                          "TriggerFrame": 10
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 44929
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 3,
+                    "Name": "TCoil_Interactive_Pit_IdleL",
+                    "AnimationName": "TCoil_Interactive_Pit_IdleL",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 8755,
+                          "TriggerFrame": 1
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 4,
+                    "Name": "TCoil_Interactive_Pit_IdleR",
+                    "AnimationName": "TCoil_Interactive_Pit_IdleR",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 8755,
+                          "TriggerFrame": 1
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 1,
+                    "Name": "TCoil_Interactive_Pit_Loop_OutOfPit",
+                    "AnimationName": "TCoil_Interactive_Pit_Loop_OutOfPit",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 8755,
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 44942,
+                          "TriggerFrame": 20
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 8754
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 10504,
+                    "Name": "TCoil_Interactive_Pit_Lose",
+                    "AnimationName": "TCoil_Interactive_Pit_Lose",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50000,
+                          "TriggerFrame": 5
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50013,
+                          "TriggerFrame": 5
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50017,
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 669,
+                          "TriggerFrame": 31
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50001,
+                          "TriggerFrame": 55
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50017,
+                          "TriggerFrame": 61
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50000,
+                          "TriggerFrame": 61
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50005,
+                          "TriggerFrame": 95
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50001,
+                          "TriggerFrame": 100
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 44930,
+                          "TriggerFrame": 101
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50,
+                          "TriggerFrame": 104
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 44935,
+                          "TriggerFrame": 143
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 8756,
+                          "TriggerFrame": 200
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 44934,
+                          "TriggerFrame": 205
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "TCoil_Interactive_Pit_Lose",
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 10502,
+                    "Name": "TCoil_Interactive_Pit_Struggle",
+                    "AnimationName": "TCoil_Interactive_Pit_Struggle",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 8754,
+                          "TriggerFrame": 20
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50005,
+                          "TriggerFrame": 80
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 8754,
+                          "TriggerFrame": 160
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "TCoil_Interactive_Pit_Struggle"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 15,
+                    "Name": "TCoil_Interactive_Pit_StuckLash",
+                    "AnimationName": "TCoil_Interactive_Pit_StuckLash",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "TCoil_Lash_Impact",
+                          "TriggerFrame": 73
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 8754,
+                          "TriggerFrame": 27
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 44936,
+                          "TriggerFrame": 65
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50000,
+                          "TriggerFrame": 73
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50003,
+                          "TriggerFrame": 134
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 8754,
+                          "TriggerFrame": 171
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 44936,
+                          "TriggerFrame": 201
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 44930,
+                          "TriggerFrame": 223
+                        }
+                      },
+                      {
+                        "classname": "EventTrigger",
+                        "properties": {
+                          "EventName": "lockTargetPosition",
+                          "TriggerFrame": 65
+                        }
+                      },
+                      {
+                        "classname": "EventTrigger",
+                        "properties": {
+                          "EventName": "unlockTargetPosition",
+                          "TriggerFrame": 240
+                        }
+                      },
+                      {
+                        "classname": "CameraShakeTrigger",
+                        "properties": {
+                          "HPower": 10.0,
+                          "VPower": 10.0,
+                          "AttenStart": 1000.0,
+                          "AttenEnd": 2000.0,
+                          "BlurPower": 1.0,
+                          "TriggerFrame": 73
+                        }
+                      },
+                      {
+                        "classname": "WeaponPhantomTrigger",
+                        "properties": {
+                          "Duration": 176,
+                          "WeaponPhantom": "WeaponPhantom AOEtemp",
+                          "HitInfoID": 2,
+                          "TriggerFrame": 66
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 16,
+                    "Name": "TCoil_Interactive_Pit_StuckLashL",
+                    "AnimationName": "TCoil_Interactive_Pit_StuckLashL",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "TCoil_Lash_Impact",
+                          "TriggerFrame": 73
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 8754,
+                          "TriggerFrame": 27
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 44936,
+                          "TriggerFrame": 65
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50000,
+                          "TriggerFrame": 73
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50003,
+                          "TriggerFrame": 134
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 8754,
+                          "TriggerFrame": 171
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 44936,
+                          "TriggerFrame": 201
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 44930,
+                          "TriggerFrame": 223
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 17,
+                    "Name": "TCoil_Interactive_Pit_StuckLashR",
+                    "AnimationName": "TCoil_Interactive_Pit_StuckLashR",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "Duration": 60,
+                          "EffectName": "TCoil_Lash_Impact",
+                          "TriggerFrame": 73
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 8754,
+                          "TriggerFrame": 27
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 44936,
+                          "TriggerFrame": 65
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50000,
+                          "TriggerFrame": 73
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50003,
+                          "TriggerFrame": 134
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 8754,
+                          "TriggerFrame": 171
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 44936,
+                          "TriggerFrame": 201
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 44930,
+                          "TriggerFrame": 223
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 5,
+                    "Name": "TCoil_Interactive_Pit_Submerge",
+                    "AnimationName": "TCoil_Interactive_Pit_Submerge",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 8755,
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "TCoil_Interactive_Pit_Submerge",
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 6,
+                    "Name": "TCoil_Interactive_Pit_Taunt",
+                    "AnimationName": "TCoil_Interactive_Pit_Taunt",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50001,
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "CameraShakeTrigger",
+                        "properties": {
+                          "HPower": 8.0,
+                          "VPower": 8.0,
+                          "Duration": 0.5,
+                          "AttenStart": 500.0,
+                          "AttenEnd": 2000.0,
+                          "BlurPower": 0.75,
+                          "TriggerFrame": 8
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "TCoil_Breath",
+                          "TriggerFrame": 6,
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 7,
+                    "Name": "TCoil_Interactive_Pit_TauntL",
+                    "AnimationName": "TCoil_Interactive_Pit_TauntL",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50001,
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "TCoil_Interactive_Pit_TauntL",
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 8,
+                    "Name": "TCoil_Interactive_Pit_TauntR",
+                    "AnimationName": "TCoil_Interactive_Pit_TauntR",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50001,
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "TCoil_Interactive_Pit_TauntR",
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 10505,
+                    "Name": "TCoil_Interactive_Pit_Win",
+                    "AnimationName": "TCoil_Interactive_Pit_Win"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 10506,
+                    "Name": "TCoil_Interactive_Pit_Win - 1",
+                    "AnimationName": "TCoil_Interactive_Pit_Win"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 19,
+                    "Name": "TCoil_Pit_CielingCollapse",
+                    "AnimationName": "TCoil_Pit_CielingCollapse",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50012,
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50004,
+                          "TriggerFrame": 24
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 44937,
+                          "TriggerFrame": 41
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50004,
+                          "TriggerFrame": 42
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50003,
+                          "TriggerFrame": 42
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50000,
+                          "TriggerFrame": 60
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50011,
+                          "TriggerFrame": 66
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50013,
+                          "TriggerFrame": 81
+                        }
+                      },
+                      {
+                        "classname": "CameraShakeTrigger",
+                        "properties": {
+                          "TriggerFrame": 5
+                        }
+                      },
+                      {
+                        "classname": "CameraShakeTrigger",
+                        "properties": {
+                          "TriggerFrame": 69
+                        }
+                      },
+                      {
+                        "classname": "CameraShakeTrigger",
+                        "properties": {
+                          "TriggerFrame": 20
+                        }
+                      },
+                      {
+                        "classname": "CameraShakeTrigger",
+                        "properties": {
+                          "TriggerFrame": 35
+                        }
+                      },
+                      {
+                        "classname": "CameraShakeTrigger",
+                        "properties": {
+                          "TriggerFrame": 50
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 9,
+                    "Name": "TortureCoil_Idle_Pit",
+                    "AnimationName": "TortureCoil_Idle_Pit",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 8755,
+                          "TriggerFrame": 1
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 12,
+                    "Name": "TortureCoil_Lash_Pit",
+                    "AnimationName": "TortureCoil_Lash_Pit",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 8754,
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 44936,
+                          "TriggerFrame": 87
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 44936,
+                          "TriggerFrame": 207
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50000,
+                          "TriggerFrame": 93
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50000,
+                          "TriggerFrame": 212
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "TortureCoil_Lash_Pit",
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          "Sounds": {
+            "classname": "SoundList",
+            "properties": {
+              "Sounds": [
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50015,
+                    "Name": "AMB_RCK_FALLING_DEBRIS",
+                    "Volume": 0.30004883,
+                    "FollowActor": true,
+                    "Max": 7000.0,
+                    "Priority": 100,
+                    "Sounds": "AMB_RCK_FALLING_DEBRIS",
+                    "Group": "Creatures"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50016,
+                    "Name": "AMB_RCK_FALLING_DIRT_SAND",
+                    "Volume": 0.30004883,
+                    "FollowActor": true,
+                    "Max": 7000.0,
+                    "Priority": 100,
+                    "Sounds": "AMB_RCK_FALLING_DIRT_SAND",
+                    "Group": "Creatures"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 51016,
+                    "Name": "bodyfall_war",
+                    "FollowActor": true,
+                    "Min": 3000.0,
+                    "Max": 5000.0,
+                    "Sounds": "bodyfall_armor_large_std_03,bodyfall_armor_large_std_01,bodyfall_armor_large_std_02",
+                    "Group": "Impacts"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 44937,
+                    "Name": "CRE_TCOI_VOC_PAIN",
+                    "FollowActor": true,
+                    "Min": 1000.0,
+                    "Max": 7000.0,
+                    "Priority": 100,
+                    "Sounds": "CRE_TCOIL_VOC_PAIN_1,CRE_TCOIL_VOC_PAIN_2",
+                    "Group": "Interactives_More"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50009,
+                    "Name": "CRE_TCOIL_BONE_CRUNCH",
+                    "Volume": 0.75,
+                    "FollowActor": true,
+                    "Max": 7000.0,
+                    "Priority": 100,
+                    "Sounds": "CRE_TCOIL_BONE_CRUNCH",
+                    "Group": "torturecoil_foley"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 44934,
+                    "Name": "CRE_TCOIL_BURP",
+                    "Volume": 0.5,
+                    "Pitch": -5.0,
+                    "FollowActor": true,
+                    "Max": 7000.0,
+                    "Priority": 100,
+                    "Sounds": "CRE_TCOIL_BURP",
+                    "Group": "torturecoil_vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50003,
+                    "Name": "CRE_TCOIL_CEILING_VOC_PAIN",
+                    "FollowActor": true,
+                    "Min": 1000.0,
+                    "Max": 7000.0,
+                    "Priority": 0,
+                    "Sounds": "CRE_TCOIL_CEILING_VOC_PAIN",
+                    "Group": "Interactives"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 8752,
+                    "Name": "CRE_TCOIL_EMERGED_ROAR - chance 100",
+                    "Volume": 0.89990234,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 7000.0,
+                    "Priority": 100,
+                    "Sounds": "CRE_TCOIL_EMERGE_ROAR_1,CRE_TCOIL_EMERGE_ROAR_2,CRE_TCOIL_EMERGE_ROAR_3,CRE_TCOIL_EMERGE_ROAR_4",
+                    "Group": "torturecoil_vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 8753,
+                    "Name": "CRE_TCOIL_EMERGED_ROAR - chance 50",
+                    "Volume": 0.89990234,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 7000.0,
+                    "Priority": 100,
+                    "Sounds": "CRE_TCOIL_EMERGE_ROAR_1,CRE_TCOIL_EMERGE_ROAR_2,CRE_TCOIL_EMERGE_ROAR_3,CRE_TCOIL_EMERGE_ROAR_4",
+                    "Group": "torturecoil_vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 8754,
+                    "Name": "CRE_TCOIL_GROWLS",
+                    "Volume": 0.89990234,
+                    "FollowActor": true,
+                    "Max": 7000.0,
+                    "Priority": 100,
+                    "Sounds": "CRE_TCOIL_GROWLS_1,CRE_TCOIL_GROWLS_2,CRE_TCOIL_GROWLS_3,CRE_TCOIL_GROWLS_4,CRE_TCOIL_GROWLS_5,CRE_TCOIL_GROWLS_6,CRE_TCOIL_GROWLS_7,CRE_TCOIL_GROWLS_8",
+                    "Group": "torturecoil_vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 8755,
+                    "Name": "CRE_TCOIL_GROWLS_MILD - vol .5; chance 30",
+                    "Volume": 0.89990234,
+                    "FollowActor": true,
+                    "Max": 7000.0,
+                    "Chance": 30,
+                    "Priority": 100,
+                    "Sounds": "CRE_TCOIL_GROWLS_MILD_1,CRE_TCOIL_GROWLS_MILD_2,CRE_TCOIL_GROWLS_MILD_3,CRE_TCOIL_GROWLS_MILD_4,CRE_TCOIL_GROWLS_MILD_5,CRE_TCOIL_GROWLS_MILD_6,CRE_TCOIL_GROWLS_MILD_7",
+                    "Group": "torturecoil_vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 8756,
+                    "Name": "CRE_TCOIL_GROWLS_MILD - vol .7;",
+                    "Volume": 0.89990234,
+                    "FollowActor": true,
+                    "Max": 7000.0,
+                    "Priority": 100,
+                    "Sounds": "CRE_TCOIL_GROWLS_MILD_1,CRE_TCOIL_GROWLS_MILD_2,CRE_TCOIL_GROWLS_MILD_3,CRE_TCOIL_GROWLS_MILD_4,CRE_TCOIL_GROWLS_MILD_5,CRE_TCOIL_GROWLS_MILD_6,CRE_TCOIL_GROWLS_MILD_7",
+                    "Group": "torturecoil_vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 44929,
+                    "Name": "CRE_TCOIL_IDLE",
+                    "Volume": 0.099975586,
+                    "FadeOutTime": 1.0,
+                    "FollowActor": true,
+                    "Max": 7000.0,
+                    "Priority": 100,
+                    "Sounds": "CRE_TCOIL_IDLE",
+                    "Group": "torturecoil_vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 44942,
+                    "Name": "CRE_TCOIL_RETRACT_HISS",
+                    "Volume": 0.89990234,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 7000.0,
+                    "Priority": 100,
+                    "Sounds": "CRE_TCOIL_RETRACT_HISS_1,CRE_TCOIL_RETRACT_HISS_2,CRE_TCOIL_RETRACT_HISS_3,CRE_TCOIL_RETRACT_HISS_4",
+                    "Group": "torturecoil_vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50022,
+                    "Name": "CRE_TCOIL_RETRACT_HISS - chance 50; vol .6",
+                    "Volume": 0.89990234,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 7000.0,
+                    "Chance": 50,
+                    "Priority": 100,
+                    "Sounds": "CRE_TCOIL_RETRACT_HISS_1,CRE_TCOIL_RETRACT_HISS_2,CRE_TCOIL_RETRACT_HISS_3,CRE_TCOIL_RETRACT_HISS_4",
+                    "Group": "torturecoil_vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 44936,
+                    "Name": "CRE_TCOIL_SWIPE",
+                    "Volume": 0.89990234,
+                    "Max": 7000.0,
+                    "Priority": 100,
+                    "Sounds": "CRE_TCOIL_SWIPE_1,CRE_TCOIL_SWIPE_2,CRE_TCOIL_SWIPE_3,CRE_TCOIL_SWIPE_4",
+                    "Group": "torturecoil_whooshes"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50001,
+                    "Name": "CRE_TCOIL_TAUNT",
+                    "FollowActor": true,
+                    "Min": 5000.0,
+                    "Max": 7000.0,
+                    "Priority": 100,
+                    "Sounds": "CRE_TCOIL_TAUNT_1,CRE_TCOIL_TAUNT_2,CRE_TCOIL_TAUNT_3",
+                    "Group": "Interactives_More"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 44930,
+                    "Name": "CRE_TCOIL_TONGUE_SLURP",
+                    "Volume": 0.89990234,
+                    "Pitch": -4.0,
+                    "FollowActor": true,
+                    "Max": 7000.0,
+                    "Priority": 100,
+                    "Sounds": "CRE_TCOIL_TONGUE_SLURP_1,CRE_TCOIL_TONGUE_SLURP_2,CRE_TCOIL_TONGUE_SLURP_3,CRE_TCOIL_TONGUE_SLURP_4,CRE_TCOIL_TONGUE_SLURP_5",
+                    "Group": "torturecoil_vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50007,
+                    "Name": "CRE_TCOIL_WAR_CRUNCH",
+                    "Volume": 0.7998047,
+                    "FollowActor": true,
+                    "Max": 4000.0,
+                    "Priority": 100,
+                    "Sounds": "CRE_TCOIL_WAR_CRUNCH",
+                    "Group": "War"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 44931,
+                    "Name": "CRE_TCOIL_WAR_GRUNT",
+                    "Volume": 0.75,
+                    "FollowActor": true,
+                    "Max": 7000.0,
+                    "Priority": 100,
+                    "Group": "War"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50008,
+                    "Name": "CRE_TCOIL_WAR_GRUNT",
+                    "Volume": 0.75,
+                    "Priority": 100,
+                    "Sounds": "CRE_TCOIL_WAR_GRUNT",
+                    "Group": "War"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 10,
+                    "Name": "CRE_TCOIL_WAR_SCREAM",
+                    "Volume": 0.85009766,
+                    "FollowActor": true,
+                    "Max": 3000.0,
+                    "Priority": 100,
+                    "Sounds": "voc_war_death_1,voc_war_death_2,voc_war_death_3",
+                    "Group": "War"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50025,
+                    "Name": "DissolveSound",
+                    "Volume": 0.15002441,
+                    "RandomPitch": 1.0,
+                    "Min": 1.0,
+                    "Priority": 50,
+                    "Sounds": "death_burn_3,death_burn_1,death_burn_2",
+                    "Group": "Dissolve sfx"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 51014,
+                    "Name": "Foley_Grab",
+                    "Volume": 0.9501953,
+                    "FollowActor": true,
+                    "Max": 7000.0,
+                    "Priority": 0,
+                    "Sounds": "TortureCoil_Foley_Grab_02,TortureCoil_Foley_Grab_01",
+                    "Group": "torturecoil_foley"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 51013,
+                    "Name": "Foley_Slither",
+                    "Volume": 0.89990234,
+                    "FollowActor": true,
+                    "Max": 5000.0,
+                    "Sounds": "TortureCoil_Foley_Slither_01,TortureCoil_Foley_Slither_02",
+                    "Group": "torturecoil_foley"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 51010,
+                    "Name": "Foley_TCoil",
+                    "Volume": 0.9501953,
+                    "FollowActor": true,
+                    "Min": 2000.0,
+                    "Max": 5000.0,
+                    "Sounds": "TortureCoil_Foley_Tentacles_01,TortureCoil_Foley_Tentacles_02,TortureCoil_Foley_Tentacles_03,TortureCoil_Foley_Tentacles_04",
+                    "Group": "torturecoil_foley"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50012,
+                    "Name": "GEN_IMP_ERTH_RUMBLE",
+                    "Volume": 0.30004883,
+                    "Priority": 100,
+                    "Sounds": "GEN_IMP_ERTH_RUMBLE",
+                    "Group": "Creatures"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50000,
+                    "Name": "GEN_IMP_RCK_LRG",
+                    "Volume": 0.30004883,
+                    "Pitch": 2.0,
+                    "FollowActor": true,
+                    "Max": 7000.0,
+                    "Priority": 100,
+                    "Sounds": "GEN_IMP_RCK_LRG_1",
+                    "Group": "Impacts"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50002,
+                    "Name": "GEN_IMP_RCK_MED",
+                    "Volume": 0.30004883,
+                    "FollowActor": true,
+                    "Max": 7000.0,
+                    "Priority": 100,
+                    "Sounds": "GEN_IMP_RCK_MED_1",
+                    "Group": "Creatures"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50013,
+                    "Name": "GEN_IMP_RCK_SLIDE_SML",
+                    "Volume": 0.30004883,
+                    "FollowActor": true,
+                    "Max": 7000.0,
+                    "Priority": 100,
+                    "Sounds": "GEN_IMP_RCK_SLIDE_SML",
+                    "Group": "Creatures"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50004,
+                    "Name": "GEN_IMP_RCK_SML",
+                    "Volume": 0.30004883,
+                    "FollowActor": true,
+                    "Max": 7000.0,
+                    "Priority": 100,
+                    "Sounds": "GEN_IMP_RCK_SML_1,GEN_IMP_RCK_SML_2",
+                    "Group": "Creatures"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 669,
+                    "Name": "MOV_STD_LND_WAR",
+                    "Volume": 0.60009766,
+                    "Priority": 100,
+                    "Sounds": "war_fall_land_heavy_01,war_fall_land_heavy_02,war_fall_land_heavy_03,war_fall_land_heavy_04,war_fall_land_heavy_05",
+                    "Group": "Creatures"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50011,
+                    "Name": "SP_IMP_CRE_CRUSHED",
+                    "Volume": 0.85009766,
+                    "FollowActor": true,
+                    "Max": 7000.0,
+                    "Priority": 100,
+                    "Sounds": "SP_IMP_CRE_CRUSHED",
+                    "Group": "Impacts"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50020,
+                    "Name": "SP_IMP_TRAIN_CORP - vol .5",
+                    "Volume": 0.7001953,
+                    "FollowActor": true,
+                    "Min": 1000.0,
+                    "Max": 7000.0,
+                    "Priority": 100,
+                    "Sounds": "SP_IMP_TRAIN_CORP_1,SP_IMP_TRAIN_CORP_2,SP_IMP_TRAIN_CORP_3,SP_IMP_TRAIN_CORP_4,SP_IMP_TRAIN_CORP_5,SP_IMP_TRAIN_CORP_6",
+                    "Group": "Impacts"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50019,
+                    "Name": "SP_IMP_TRAIN_CORP - vol .7",
+                    "Volume": 0.7001953,
+                    "FollowActor": true,
+                    "Min": 1000.0,
+                    "Max": 7000.0,
+                    "Priority": 100,
+                    "Sounds": "SP_IMP_TRAIN_CORP_1,SP_IMP_TRAIN_CORP_2,SP_IMP_TRAIN_CORP_3,SP_IMP_TRAIN_CORP_4,SP_IMP_TRAIN_CORP_5,SP_IMP_TRAIN_CORP_6",
+                    "Group": "Impacts"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50018,
+                    "Name": "SP_IMP_TRAIN_CORP - vol .95",
+                    "Volume": 0.9501953,
+                    "FollowActor": true,
+                    "Min": 1000.0,
+                    "Max": 7000.0,
+                    "Priority": 100,
+                    "Sounds": "SP_IMP_TRAIN_CORP_1,SP_IMP_TRAIN_CORP_2,SP_IMP_TRAIN_CORP_3,SP_IMP_TRAIN_CORP_4,SP_IMP_TRAIN_CORP_5,SP_IMP_TRAIN_CORP_6",
+                    "Group": "Impacts"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 44939,
+                    "Name": "SP_IMP_TRAIN_DEBRIS",
+                    "Volume": 0.85009766,
+                    "FollowActor": true,
+                    "Min": 1000.0,
+                    "Max": 7000.0,
+                    "Priority": 100,
+                    "Sounds": "SP_IMP_TRAIN_DEBRIS_1",
+                    "Group": "Impacts"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50021,
+                    "Name": "SP_IMP_TRAIN_RATTLE - vol low",
+                    "Volume": 0.5,
+                    "FollowActor": true,
+                    "Max": 7000.0,
+                    "Priority": 100,
+                    "Sounds": "SP_IMP_TRAIN_RATTLE",
+                    "Group": "Impacts"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 51015,
+                    "Name": "Stinger_Death",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "Positional": false,
+                    "Sounds": "lava_death_stinger",
+                    "Group": "Music_Stinger_Death_Quick"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50023,
+                    "Name": "TEST_TONE",
+                    "Sounds": "TEST_TONE",
+                    "Group": "Creatures"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 51017,
+                    "Name": "voc_idle",
+                    "Volume": 0.5,
+                    "Pitch": -5.0,
+                    "Loop": true,
+                    "Offset": true,
+                    "Max": 5000.0,
+                    "Sounds": "Cre_TortureCoil_Idle_Retracted",
+                    "Group": "torturecoil_vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50026,
+                    "Name": "War_Break_Free",
+                    "Volume": 0.89990234,
+                    "Pitch": -3.0,
+                    "FollowActor": true,
+                    "Max": 7000.0,
+                    "Sounds": "War_Break_TCoil",
+                    "Group": "War"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 51011,
+                    "Name": "War_Gore_Sweetener",
+                    "FollowActor": true,
+                    "Max": 7000.0,
+                    "Sounds": "TCoil_interactive_blood_01",
+                    "Group": "Interactives"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50010,
+                    "Name": "WAR_MOV_SLIDE_STD",
+                    "Volume": 0.44995117,
+                    "Priority": 100,
+                    "Sounds": "WAR_MOV_SLIDE_STD",
+                    "Group": "War"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 51012,
+                    "Name": "War_Stab_Sweetener",
+                    "Volume": 0.89990234,
+                    "FollowActor": true,
+                    "Max": 7000.0,
+                    "Sounds": "TCoil_interactive_stab_01",
+                    "Group": "Impacts"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50024,
+                    "Name": "WAR_VOC_ATTACK",
+                    "Max": 2000.0,
+                    "Priority": 100,
+                    "Sounds": "voc_war_attack_long_5,voc_war_attack_long_1,voc_war_attack_long_2,voc_war_attack_long_3,voc_war_attack_long_4",
+                    "Group": "War"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50,
+                    "Name": "WAR_VOC_DEATH",
+                    "Volume": 0.7001953,
+                    "Max": 2000.0,
+                    "Priority": 100,
+                    "Sounds": "voc_war_death_3,voc_war_death_1,voc_war_death_2",
+                    "Group": "War"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50005,
+                    "Name": "WAR_VOC_EFFORT",
+                    "Volume": 0.7001953,
+                    "Priority": 100,
+                    "Sounds": "voc_war_lift_6,voc_war_lift_1,voc_war_lift_2,voc_war_lift_3,voc_war_lift_4,voc_war_lift_5",
+                    "Group": "War"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50017,
+                    "Name": "WAR_VOC_PAIN",
+                    "Volume": 0.75,
+                    "Priority": 100,
+                    "Sounds": "voc_war_pain_6,voc_war_pain_1,voc_war_pain_2,voc_war_pain_3,voc_war_pain_4,voc_war_pain_5",
+                    "Group": "War"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50006,
+                    "Name": "WAR_WEP_BLD_UNSHEATH",
+                    "Volume": 0.75,
+                    "Priority": 100,
+                    "Group": "War"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 44933,
+                    "Name": "WAR_WEP_SWRD_STAB_MED",
+                    "Volume": 0.89990234,
+                    "FollowActor": true,
+                    "Min": 100.0,
+                    "Max": 7000.0,
+                    "Priority": 100,
+                    "Sounds": "sword_vs_lavashrike_4,sword_vs_lavashrike_1,sword_vs_lavashrike_2,sword_vs_lavashrike_3",
+                    "Group": "Impacts"
+                  }
+                }
+              ]
+            }
+          },
+          "BlocksCrossblade": false
+        }
+      }
+    },
+    "EmergeRange": {
+      "Value": 600
+    },
+    "SubmergeRange": {
+      "Value": 1300
+    },
+    "RequiredCeilingHits": {
+      "Value": 3
+    },
+    "HiddenIdle": {
+      "Value": 109
+    },
+    "IntroStateId": {
+      "Value": 101
+    },
+    "IdleStateId": {
+      "Value": 105
+    },
+    "LashStateId": {
+      "Value": 106
+    },
+    "StuckLashStateId": {
+      "Value": 102
+    },
+    "StuckRetractCrashStateId": {
+      "Value": 108
+    },
+    "SquashStateId": {
+      "Value": 110
+    },
+    "GrabStateId": {
+      "Value": 26
+    },
+    "TauntStateId": {
+      "Value": 114
+    },
+    "SubmergeStateId": {
+      "Value": 113
+    },
+    "GrabDistance": {
+      "Value": 200
+    },
+    "TauntTimeout": {
+      "Value": 3
+    }
+  },
+  "Methods": [
+    "onInit",
+    "onRemove",
+    "onQueryInteractive",
+    "onQueryDamage",
+    "lockTargetPosition",
+    "unlockTargetPosition",
+    "squash",
+    "setCanGrab",
+    "onTauntTimer",
+    "killAllMonsters",
+    "onEmerged",
+    "onAttackComplete",
+    "onSubmerged",
+    "onTriggerCrash"
+  ],
+  "PackageName": "torturecoil",
+  "DefaultValues": {
+    "StartEmergedBehavior": {
+      "classname": "AIBehavior",
+      "properties": {
+        "ComponentActions": [
+          {
+            "classname": "AIGenericAction",
+            "properties": {
+              "MaxRange": 750.0,
+              "MoveState": "AOE Lash",
+              "OnCompleteEvent": "onAttackComplete",
+              "ID": "AOE Lash",
+              "Priority": 10,
+              "Chance": 0.9
+            }
+          },
+          {
+            "classname": "AIGenericAction",
+            "properties": {
+              "MaxRange": 1300.0,
+              "MoveState": "Taunt",
+              "ID": "Taunt",
+              "Priority": 7,
+              "Chance": 0.2,
+              "ResourceLock": "Taunt",
+              "MinLockTime": 3.0,
+              "MaxLockTime": 3.5
+            }
+          },
+          {
+            "classname": "AIGenericAction",
+            "properties": {
+              "MaxRange": 1300.0,
+              "MoveState": "Idle",
+              "ID": "Idle",
+              "Priority": 2,
+              "InterruptibleBy": [
+                "ANY"
+              ]
+            }
+          },
+          {
+            "classname": "AIGenericAction",
+            "properties": {
+              "MoveState": "Submerge",
+              "OnCompleteEvent": "onSubmerged",
+              "ID": "Demerge",
+              "Priority": 1
+            }
+          },
+          {
+            "classname": "AIGenericAction",
+            "properties": {
+              "MaxRange": 1050.0,
+              "MoveState": "Stuck Lash",
+              "OnBeginEvent": "onStuckBegin",
+              "OnCompleteEvent": "onStuckComplete",
+              "ID": "Stuck",
+              "Priority": -1,
+              "InterruptibleBy": [
+                "Retract"
+              ]
+            }
+          },
+          {
+            "classname": "AIGenericAction",
+            "properties": {
+              "MoveState": "Stuck Hit Retract",
+              "OnCompleteEvent": "onRetractComplete",
+              "ID": "Retract",
+              "Priority": -1
+            }
+          }
+        ],
+        "BackgroundActions": [
+          {
+            "classname": "base/accumulatoraction",
+            "properties": {
+              "AccumulatorActionName": "Retract",
+              "AccumulatorActionPriority": 1000,
+              "AccumulatorDamageThreshold": 1,
+              "Position": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          }
+        ],
+        "ExitBehaviorHandler": {
+          "classname": "ExitBehaviorAction",
+          "properties": {}
+        },
+        "ID": "StartEmergedBehavior",
+        "Position": [
+          null,
+          0.0,
+          2.6613773e-8
+        ]
+      }
+    },
+    "TauntFlag": true,
+    "CeilingHitCount": 0,
+    "NumLashes": 2,
+    "IdleBehavior": {
+      "classname": "AIBehavior",
+      "properties": {
+        "ComponentActions": [
+          {
+            "classname": "AIGenericAction",
+            "properties": {
+              "MaxRange": 600.0,
+              "MoveState": "Emerge",
+              "OnCompleteEvent": "onEmerged",
+              "ID": "Emerge",
+              "Priority": 20
+            }
+          },
+          {
+            "classname": "AIGenericAction",
+            "properties": {
+              "MoveState": "Hidden Idle",
+              "ID": "Hidden Idle",
+              "Priority": 1,
+              "InterruptibleBy": [
+                "ANY"
+              ]
+            }
+          }
+        ],
+        "ExitBehaviorHandler": {
+          "classname": "ExitBehaviorAction",
+          "properties": {}
+        }
+      }
+    },
+    "EmergedBehavior": {
+      "classname": "AIBehavior",
+      "properties": {
+        "ComponentActions": [
+          {
+            "classname": "AIGenericAction",
+            "properties": {
+              "MaxRange": 750.0,
+              "MoveState": "AOE Lash",
+              "OnCompleteEvent": "onAttackComplete",
+              "ID": "AOE Lash",
+              "Priority": 10,
+              "Chance": 0.9
+            }
+          },
+          {
+            "classname": "AIGenericAction",
+            "properties": {
+              "MaxRange": 1300.0,
+              "MoveState": "Taunt",
+              "ID": "Taunt",
+              "Priority": 7,
+              "Chance": 0.2,
+              "ResourceLock": "Taunt",
+              "MinLockTime": 3.0,
+              "MaxLockTime": 3.5
+            }
+          },
+          {
+            "classname": "AIGenericAction",
+            "properties": {
+              "MaxRange": 1300.0,
+              "MoveState": "Idle",
+              "ID": "Idle",
+              "Priority": 2,
+              "InterruptibleBy": [
+                "ANY"
+              ]
+            }
+          },
+          {
+            "classname": "AIGenericAction",
+            "properties": {
+              "MoveState": "Submerge",
+              "OnCompleteEvent": "onSubmerged",
+              "ID": "Demerge",
+              "Priority": 1
+            }
+          },
+          {
+            "classname": "AIGenericAction",
+            "properties": {
+              "MaxRange": 1050.0,
+              "MoveState": "Stuck Lash",
+              "OnBeginEvent": "onStuckBegin",
+              "OnCompleteEvent": "onStuckComplete",
+              "ID": "Stuck",
+              "Priority": -1,
+              "InterruptibleBy": [
+                "Retract"
+              ]
+            }
+          },
+          {
+            "classname": "AIGenericAction",
+            "properties": {
+              "MoveState": "Stuck Hit Retract",
+              "OnCompleteEvent": "onRetractComplete",
+              "ID": "Retract",
+              "Priority": -1
+            }
+          }
+        ],
+        "BackgroundActions": [
+          {
+            "classname": "base/accumulatoraction",
+            "properties": {
+              "AccumulatorActionName": "Retract",
+              "AccumulatorActionPriority": 1000,
+              "AccumulatorDamageThreshold": 100,
+              "Position": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          }
+        ],
+        "ExitBehaviorHandler": {
+          "classname": "ExitBehaviorAction",
+          "properties": {}
+        },
+        "ID": "EmergedBehavior"
+      }
+    },
+    "PenisHitPoints": 100,
+    "CombatStage": 1,
+    "PenisDamageDone": 0,
+    "CanGrab": false,
+    "AttackAccumulator": 2,
+    "SquashBehavior": {
+      "classname": "AIBehavior",
+      "properties": {
+        "ComponentActions": [
+          {
+            "classname": "AIGenericAction",
+            "properties": {
+              "MoveState": "Squash",
+              "ID": "Squash",
+              "Priority": 20
+            }
+          }
+        ],
+        "ExitBehaviorHandler": {
+          "classname": "ExitBehaviorAction",
+          "properties": {}
+        }
+      }
+    }
+  },
+  "States": {
+    "SubmergedIdle": {
+      "methods": [
+        "onEnter"
+      ]
+    },
+    "Emerged": {
+      "methods": [
+        "onExit",
+        "onStuckBegin",
+        "onEnter"
+      ]
+    },
+    "Stuck": {
+      "methods": [
+        "onStuckComplete",
+        "onRetractComplete",
+        "onQueryDamage"
+      ]
+    },
+    "Squash": {
+      "methods": [
+        "onActionComplete",
+        "onEnter"
+      ]
+    }
+  }
+}

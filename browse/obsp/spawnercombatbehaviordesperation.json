@@ -1,0 +1,244 @@
+{
+  "Parent": "base/standardbehavior",
+  "Name": "spawner/spawnercombatbehaviordesperation",
+  "Properties": {
+    "OutsiderMode": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "ScanAlertDistance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ScanInterval": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachMoveStateMove": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "ApproachForceCloseRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachForceCompleteRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "WalkbackEnabled": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "WalkbackMinRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "WalkbackMoveStateWalkback": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "WalkBackTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "FaceTargetAngleDiff": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "FaceTargetMoveStateTurnLeft": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "FaceTargetMoveStateTurnRight": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleMoveStateIdle": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleMinTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMaxTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMoveStateFidget": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleFidgetChance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleFidgetMinTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleFidgetMaxTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ClearObstacleMoveState": {
+      "Flags": 4,
+      "Type": 5
+    }
+  },
+  "StaticProperties": {},
+  "Methods": [
+    "doSpecialAttack",
+    "begin",
+    "onTargetUnreachable"
+  ],
+  "PackageName": "spawner",
+  "DefaultValues": {
+    "ApproachForceCompleteRange": -1,
+    "OutsiderMode": false,
+    "IdleMinTime": 1.5,
+    "IdleFidgetChance": 0,
+    "IdleFidgetMinTime": 2,
+    "ApproachMoveStateMove": "WalkToTarget",
+    "FaceTargetMoveStateTurnRight": "Turn 180 Right",
+    "FaceTargetAngleDiff": 110,
+    "ID": "SpawnerCombatDesperation",
+    "BackgroundActions": [
+      {
+        "classname": "base/scanaction",
+        "properties": {}
+      }
+    ],
+    "IdleMoveStateFidget": "",
+    "ClearObstacleMoveState": "Attack 1 - Swipe",
+    "ScanInterval": 1.5,
+    "IdleMoveStateIdle": "Idle",
+    "ApproachRange": 150,
+    "WalkbackMoveStateWalkback": "WalkBack",
+    "OnAttackHandler": [],
+    "PathBlockedBreakableHandler": {
+      "classname": "base/clearobstacleaction",
+      "properties": {
+        "ID": "Clear Obstacle",
+        "ActionCode": 5,
+        "Priority": 16,
+        "InterruptibleBy": [
+          "Death",
+          "Exit",
+          "Interactive",
+          "Impact"
+        ]
+      }
+    },
+    "FaceTargetMoveStateTurnLeft": "Turn 180 Left",
+    "WalkbackMinRange": 100,
+    "WalkBackTime": 1.0,
+    "IdleMaxTime": 2.25,
+    "WalkbackEnabled": true,
+    "ComponentActions": [
+      {
+        "classname": "base/facetargetaction",
+        "properties": {
+          "ID": "Face Target",
+          "Priority": 10,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "Position": [
+            null,
+            0.0,
+            -8.079059e28
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "AttackType": 1,
+          "Pressure": 5,
+          "MaxRange": 250.0,
+          "MinAngle": -60.0,
+          "MaxAngle": 60.0,
+          "MoveState": "Attack 3 - Desperation",
+          "RequireLOS": true,
+          "ID": "Desperation Attack",
+          "Priority": 8,
+          "Chance": 0.5,
+          "InterruptibleBy": [
+            "Death",
+            "Exit",
+            "Interactive",
+            "Impact"
+          ],
+          "ResourceLock": "Attack",
+          "MinLockTime": 3.0,
+          "MaxLockTime": 4.0
+        }
+      },
+      {
+        "classname": "base/approachaction",
+        "properties": {
+          "ID": "Approach Target",
+          "Priority": 6,
+          "InterruptibleBy": [
+            "ANY"
+          ]
+        }
+      },
+      {
+        "classname": "base/idleaction",
+        "properties": {
+          "ID": "Idle",
+          "Priority": 1,
+          "InterruptibleBy": [
+            "ANY"
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "AttackType": 2,
+          "Pressure": 4,
+          "MinRange": 100.0,
+          "MaxRange": 2000.0,
+          "MinAngle": -60.0,
+          "MaxAngle": 60.0,
+          "RequireLOS": true,
+          "ID": "Special Attack",
+          "Priority": -1,
+          "InterruptibleBy": [
+            "Death",
+            "Exit",
+            "Interactive",
+            "Impact"
+          ],
+          "ResourceLock": "Attack",
+          "MinLockTime": 1.0,
+          "MaxLockTime": 2.0
+        }
+      }
+    ],
+    "ApproachForceCloseRange": -1,
+    "IdleFidgetMaxTime": 4,
+    "ScanAlertDistance": 5000
+  },
+  "States": {
+    "Insider": {
+      "methods": [
+        "getCurrentState"
+      ]
+    },
+    "LostTarget": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    }
+  }
+}

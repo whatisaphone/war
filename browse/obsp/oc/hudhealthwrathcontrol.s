@@ -1,0 +1,142 @@
+.method onInit
+0x0001 .param_count 0
+0x0001 .line 5
+0x0006     nop
+0x0007 .line 7
+0x000c     int 0
+0x0011     identifier WindowManager
+0x0029     method isWidescreen
+0x0040     branch_false 0x00be
+0x0045 .line 10
+0x004a     nop
+0x004b     identifier this
+0x005a     property Position
+0x006d     int 0
+0x0072     element
+0x0073     int -42
+0x0078     assign
+0x0079     pop
+0x007a .line 11
+0x007f     identifier this
+0x008e     property Position
+0x00a1     int 1
+0x00a6     element
+0x00a7     int -60
+0x00ac     assign
+0x00ad     pop
+0x00ae .line 12
+0x00b3     nop
+0x00b4 .line 13
+0x00b9     goto 0x0132
+0x00be .label 0x0e74
+0x00c3 .line 16
+0x00c8     nop
+0x00c9     identifier this
+0x00d8     property Position
+0x00eb     int 0
+0x00f0     element
+0x00f1     int -32
+0x00f6     assign
+0x00f7     pop
+0x00f8 .line 17
+0x00fd     identifier this
+0x010c     property Position
+0x011f     int 1
+0x0124     element
+0x0125     int -50
+0x012a     assign
+0x012b     pop
+0x012c .line 18
+0x0131     nop
+0x0132 .label 0x0e75
+0x0137 .line 19
+0x013c     nop
+0x013d     return_null
+
+.method onDeInit
+0x0001 .param_count 0
+0x0001 .line 21
+0x0006     nop
+0x0007 .line 23
+0x000c     identifier this
+0x001b     property inPanicMode
+0x0031     branch_false 0x008d
+0x0036 .line 25
+0x003b     nop
+0x003c     string "onPanicModeStop"
+0x0056     int 1
+0x005b     identifier Game
+0x006a     method executeEvent
+0x0081     pop
+0x0082 .line 26
+0x0087     nop
+0x0088 .line 27
+0x008d .label 0x0e76
+0x0092     nop
+0x0093     return_null
+
+.method notify
+0x0001 .param_count 1
+0x0001 .line 29
+0x0006     inc_scope
+0x0007     param_assign event
+0x0017 .line 31
+0x001c     identifier event
+0x002c     property ID
+0x0039     int 911
+0x003e     equal
+0x003f     branch_false 0x01cb
+0x0044 .line 33
+0x0049     nop
+0x004a     identifier event
+0x005a     property CallerID
+0x006d     int 911
+0x0072     equal
+0x0073     branch_false 0x0103
+0x0078 .line 36
+0x007d     nop
+0x007e     identifier this
+0x008d     property inPanicMode
+0x00a3     bool true
+0x00a5     assign
+0x00a6     pop
+0x00a7 .line 37
+0x00ac     string "onPanicModeStart"
+0x00c7     int 1
+0x00cc     identifier Game
+0x00db     method executeEvent
+0x00f2     pop
+0x00f3 .line 38
+0x00f8     nop
+0x00f9 .line 39
+0x00fe     goto 0x01c0
+0x0103 .label 0x0e78
+0x0108     identifier event
+0x0118     property CallerID
+0x012b     int 0
+0x0130     equal
+0x0131     branch_false 0x01bb
+0x0136 .line 42
+0x013b     nop
+0x013c     identifier this
+0x014b     property inPanicMode
+0x0161     bool false
+0x0163     assign
+0x0164     pop
+0x0165 .line 43
+0x016a     string "onPanicModeStop"
+0x0184     int 1
+0x0189     identifier Game
+0x0198     method executeEvent
+0x01af     pop
+0x01b0 .line 44
+0x01b5     nop
+0x01b6 .line 45
+0x01bb .label 0x0e7a
+0x01c0 .label 0x0e79
+0x01c5     nop
+0x01c6 .line 46
+0x01cb .label 0x0e77
+0x01d0     dec_scope
+0x01d1     return_null
+

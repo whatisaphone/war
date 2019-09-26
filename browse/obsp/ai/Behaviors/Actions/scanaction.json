@@ -1,0 +1,105 @@
+{
+  "Parent": "base/backgroundaction",
+  "Name": "base/scanaction",
+  "Properties": {
+    "ScanAlertDistance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ScanInterval": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "OnScanAcquiredTarget": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "OnScanAcquiredRangedTarget": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "OnScanLostTarget": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "ScanLOSCheck": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "ScanMeleeOnly": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "ScanAllowRescansWithTarget": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "ExitBehaviorOnTargetLost": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "ScanModifyScanTimeByDist": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "ScanTimerMod": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ScanTimerActive": {
+      "Flags": 2,
+      "Type": 4
+    },
+    "LastActorThatHitMe": {
+      "Flags": 2,
+      "Type": 1
+    }
+  },
+  "StaticProperties": {},
+  "Methods": [
+    "InitVars",
+    "InitScanAction",
+    "begin",
+    "onScanTimer",
+    "calcScanTimer"
+  ],
+  "PackageName": "base",
+  "DefaultValues": {
+    "OnScanAcquiredRangedTarget": "",
+    "OnScanAcquiredTarget": "",
+    "ScanTimerActive": false,
+    "ID": "ScanForTarget",
+    "LastActorThatHitMe": null,
+    "ScanModifyScanTimeByDist": true,
+    "ScanLOSCheck": false,
+    "ScanInterval": -1,
+    "ScanTimerMod": 0.65,
+    "ExitBehaviorOnTargetLost": false,
+    "ScanMeleeOnly": true,
+    "OnScanLostTarget": "LostTarget",
+    "ScanAllowRescansWithTarget": false,
+    "ScanAlertDistance": -1
+  },
+  "States": {
+    "Scanning": {
+      "methods": [
+        "doScan",
+        "scanWithinRange",
+        "onTargetFactionIDChanged",
+        "rescanOnEvent",
+        "onHit",
+        "onScanTimer",
+        "rescanOnHit",
+        "onBehaviorStateChange",
+        "onTargetDead",
+        "FoundNoTarget",
+        "FoundRangedTarget",
+        "FoundMeleeTarget",
+        "validate",
+        "onMyFactionIDChanged",
+        "onEnter",
+        "validatestate"
+      ]
+    }
+  }
+}

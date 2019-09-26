@@ -1,0 +1,47 @@
+.method onInit
+0x0001 .param_count 0
+0x0001 .line 66
+0x0006     nop
+0x0007 .line 68
+0x000c     int 0
+0x0011     identifier Platform
+0x0024     method getSwapCircleCross
+0x0041     branch_false 0x00b3
+0x0046 .line 70
+0x004b     nop
+0x004c     identifier this
+0x005b     property UIAccept
+0x006e     int 1
+0x0073     assign
+0x0074     pop
+0x0075 .line 71
+0x007a     identifier this
+0x0089     property UICancel
+0x009c     int 0
+0x00a1     assign
+0x00a2     pop
+0x00a3 .line 72
+0x00a8     nop
+0x00a9 .line 73
+0x00ae     goto 0x011b
+0x00b3 .label 0x00a5
+0x00b8 .line 75
+0x00bd     nop
+0x00be     identifier this
+0x00cd     property UIAccept
+0x00e0     int 0
+0x00e5     assign
+0x00e6     pop
+0x00e7 .line 76
+0x00ec     identifier this
+0x00fb     property UICancel
+0x010e     int 1
+0x0113     assign
+0x0114     pop
+0x0115 .line 77
+0x011a     nop
+0x011b .label 0x00a6
+0x0120 .line 78
+0x0125     nop
+0x0126     return_null
+

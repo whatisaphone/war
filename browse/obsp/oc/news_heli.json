@@ -1,0 +1,442 @@
+{
+  "Parent": "Monster",
+  "Name": "mayhem_props/news_heli",
+  "Properties": {},
+  "StaticProperties": {
+    "Description": {
+      "Value": {
+        "classname": "MonsterDesc",
+        "properties": {
+          "MoveStates": {
+            "classname": "CharacterMoveStateList",
+            "properties": {
+              "MoveStates": [
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "Name": "Destroyed",
+                    "ID": 3,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 7
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                },
+                {
+                  "classname": "MonsterFallDesc",
+                  "properties": {
+                    "HeightAboveGround": 50.0,
+                    "LandAnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 7
+                      }
+                    },
+                    "OnElapsedTime": 3,
+                    "ElapsedTimeMin": 3.0,
+                    "ElapsedTimeMax": 5.0,
+                    "InheritSpeed": true,
+                    "Name": "Fall",
+                    "ID": 1,
+                    "AnimController": {
+                      "classname": "PlayOnceAndIdleAnimController",
+                      "properties": {
+                        "StartAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 6,
+                            "Ease": 0.0
+                          }
+                        },
+                        "IdleAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 5,
+                            "Ease": 0.0
+                          }
+                        }
+                      }
+                    },
+                    "GravityScale": 0.25,
+                    "OnActionComplete": 3,
+                    "UseMotionNode": true
+                  }
+                },
+                {
+                  "classname": "MonsterFlySplineDesc",
+                  "properties": {
+                    "MinimumSpeed": 250.0,
+                    "TerminalSpeed": 900.0,
+                    "AutoBankHeadingRef": 5.0,
+                    "AutoBankAngle": 35.0,
+                    "AutoBankSpeed": 16.0,
+                    "AutoBankAccel": 32.0,
+                    "RangedAttackDist": 350.0,
+                    "RequireScriptCallback": false,
+                    "AlwaysFaceTarget": false,
+                    "InheritSpeed": true,
+                    "Name": "FlySpline",
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 0
+                      }
+                    },
+                    "Acceleration": 225.0,
+                    "Deceleration": 920.0,
+                    "MaxSpeed": 600.0,
+                    "InAir": true,
+                    "FaceOnStart": false
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "GroundRayDistance": 9999999.0,
+                    "InheritSpeed": true,
+                    "Name": "FlySpline Damaged",
+                    "ID": 2,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 3,
+                        "Ease": 1.0
+                      }
+                    },
+                    "Acceleration": 225.0,
+                    "Deceleration": 920.0,
+                    "MaxSpeed": 600.0
+                  }
+                }
+              ]
+            }
+          },
+          "Invincible": true,
+          "CharacterClass": "AngelLightSpline",
+          "Visual": "ma_news_heli",
+          "FactionID": 2,
+          "Size": 10,
+          "MoveWeight": 70.0,
+          "CharacterShadow": true,
+          "Animations": {
+            "classname": "AnimationList",
+            "properties": {
+              "Animations": [
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 7,
+                    "Name": "Mayhem_News_Heli_Explode",
+                    "AnimationName": "Mayhem_News_Heli_Fall_Start",
+                    "Length": 30,
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "TrackEffect": false,
+                          "EffectName": "Mayhem_News_Heli_Explode"
+                        }
+                      },
+                      {
+                        "classname": "DissolveTrigger",
+                        "properties": {
+                          "Duration": 15,
+                          "Brightness": 3.0,
+                          "IsRequired": true,
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 5,
+                    "Name": "Mayhem_News_Heli_Fall",
+                    "AnimationName": "Mayhem_News_Heli_Fall",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Mayhem_News_Heli_Fall",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 31,
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 6,
+                    "Name": "Mayhem_News_Heli_Fall_Start",
+                    "AnimationName": "Mayhem_News_Heli_Fall_Start",
+                    "Triggers": [
+                      {
+                        "classname": "VisualTrigger",
+                        "properties": {
+                          "IsRequired": true
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Mayhem_News_Heli_Fall_Start"
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 33
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 28,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 31,
+                          "TriggerFrame": 10,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 32,
+                          "TriggerFrame": 1,
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "Name": "Mayhem_News_Heli_Fly_Forward",
+                    "AnimationName": "Mayhem_News_Heli_Fly_Forward",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Mayhem_News_Heli_Fly_Forward",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 26,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 27,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 34
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          "Sounds": {
+            "classname": "SoundList",
+            "properties": {
+              "Sounds": [
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 26,
+                    "Name": "mayhem_heli_blades",
+                    "Volume": 0.8198242,
+                    "Loop": true,
+                    "FadeInTime": 0.5,
+                    "FadeOutTime": 4.0,
+                    "Offset": true,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 3000.0,
+                    "Priority": 50,
+                    "Sounds": "helicopter_close_lp_2",
+                    "Group": "mayhem_heli_close"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 29,
+                    "Name": "mayhem_heli_explode",
+                    "Volume": 0.85009766,
+                    "RandomPitch": 3.0,
+                    "FollowActor": true,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "MA_Heli_Explode_03,MA_Heli_Explode_01,MA_Heli_Explode_02",
+                    "Group": "explosions"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 28,
+                    "Name": "mayhem_heli_fall",
+                    "Volume": 0.7001953,
+                    "FollowActor": true,
+                    "Min": 2000.0,
+                    "Max": 7500.0,
+                    "Priority": 40,
+                    "Sounds": "MA_Heli_Fall_Rotors_Start_01",
+                    "Group": "mayhem_heli"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 33,
+                    "Name": "mayhem_heli_fall_impact",
+                    "Volume": 0.7001953,
+                    "RandomPitch": 3.0,
+                    "FollowActor": true,
+                    "Max": 10000.0,
+                    "Sounds": "MA_Heli_Impact_01",
+                    "Group": "Impacts"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 31,
+                    "Name": "mayhem_heli_fall_loop",
+                    "Volume": 0.85009766,
+                    "Loop": true,
+                    "FadeInTime": 0.5,
+                    "FadeOutTime": 0.30004883,
+                    "Offset": true,
+                    "FollowActor": true,
+                    "Max": 10000.0,
+                    "Sounds": "MA_Heli_Fall_Rotors_lp_01",
+                    "Group": "mayhem_heli"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 32,
+                    "Name": "mayhem_heli_fall_warning",
+                    "Volume": 0.7998047,
+                    "Loop": true,
+                    "FollowActor": true,
+                    "Min": 1500.0,
+                    "Max": 10000.0,
+                    "Priority": 10,
+                    "Sounds": "MA_Heli_Warning_01",
+                    "Group": "mayhem_heli"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 34,
+                    "Name": "mayhem_heli_radio_oneshots",
+                    "Volume": 0.64990234,
+                    "RandomPitch": 1.5,
+                    "FollowActor": true,
+                    "Max": 10000.0,
+                    "Chance": 10,
+                    "Sounds": "Mayhem_Heli_Radio_01,Mayhem_Heli_Radio_02,Mayhem_Heli_Radio_03,Mayhem_Heli_Radio_04",
+                    "Group": "mayhem_heli_radio"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 27,
+                    "Name": "mayhem_heli_turbine",
+                    "Volume": 0.64990234,
+                    "Loop": true,
+                    "FadeInTime": 0.5,
+                    "FadeOutTime": 3.0,
+                    "Offset": true,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 7000.0,
+                    "Priority": 50,
+                    "Sounds": "helicopter_close_lp_3",
+                    "Group": "mayhem_heli"
+                  }
+                }
+              ]
+            }
+          },
+          "Visuals": {
+            "classname": "VisualList",
+            "properties": {
+              "Visuals": [
+                {
+                  "classname": "VisualDesc",
+                  "properties": {
+                    "ID": 0,
+                    "VisualName": "ma_news_heli_dam_rigged"
+                  }
+                },
+                {
+                  "classname": "VisualDesc",
+                  "properties": {
+                    "ID": 1,
+                    "VisualName": "ma_news_heli_des"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "FlySplineMoveState": {
+      "Value": "FlySpline"
+    }
+  },
+  "Methods": [
+    "onInit",
+    "onHit",
+    "onSplineComplete",
+    "explodeHeli"
+  ],
+  "PackageName": "mayhem_props",
+  "DefaultValues": {},
+  "States": {
+    "Damaged": {
+      "methods": [
+        "onActionComplete",
+        "explodeHeli"
+      ]
+    }
+  }
+}

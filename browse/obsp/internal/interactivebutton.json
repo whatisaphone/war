@@ -1,0 +1,75 @@
+{
+  "Parent": "KinematicActor",
+  "Name": "base/interactivebutton",
+  "Properties": {
+    "UseLargeAnim": {
+      "Flags": 2,
+      "Type": 4
+    },
+    "InDisperse": {
+      "Flags": 2,
+      "Type": 4
+    },
+    "PlayActivateSound": {
+      "Flags": 2,
+      "Type": 4
+    },
+    "InactiveMinDistance": {
+      "Flags": 2,
+      "Type": 3
+    },
+    "InactiveMaxDistance": {
+      "Flags": 2,
+      "Type": 3
+    },
+    "ButtonState": {
+      "Flags": 2,
+      "Type": 2
+    }
+  },
+  "StaticProperties": {},
+  "Methods": [
+    "onRemove",
+    "disperse",
+    "onDetachFromObject",
+    "useLargeAnimation",
+    "playActivateSound",
+    "setInactiveMaxDistance",
+    "onInit",
+    "checkDistance",
+    "onCustomInit",
+    "show",
+    "hide"
+  ],
+  "PackageName": "base",
+  "DefaultValues": {
+    "InDisperse": false,
+    "ButtonState": 0,
+    "UseLargeAnim": false,
+    "InactiveMinDistance": 100.0,
+    "PlayActivateSound": false,
+    "InactiveMaxDistance": 750.0
+  },
+  "States": {
+    "Disperse": {
+      "methods": [
+        "disperse",
+        "checkDistance",
+        "onEnter",
+        "onDisperseTimer"
+      ]
+    },
+    "Idle": {
+      "methods": [
+        "hide",
+        "onEnter"
+      ]
+    },
+    "Dormant": {
+      "methods": [
+        "show",
+        "onEnter"
+      ]
+    }
+  }
+}

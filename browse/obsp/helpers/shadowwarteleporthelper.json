@@ -1,0 +1,932 @@
+{
+  "Parent": "Monster",
+  "Name": "shadowwar/shadowwarteleporthelper",
+  "Properties": {
+    "parentObject": {
+      "Flags": 2,
+      "Type": 1
+    }
+  },
+  "StaticProperties": {
+    "Description": {
+      "Value": {
+        "classname": "MonsterDesc",
+        "properties": {
+          "MoveStates": {
+            "classname": "CharacterMoveStateList",
+            "properties": {
+              "MoveStates": [
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "CenterPoint - FaceToTarget",
+                    "ID": 43,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 16
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "TurnSpeed": 1000.0,
+                    "FaceOnStart": true
+                  }
+                },
+                {
+                  "classname": "MonsterMoveToDesc",
+                  "properties": {
+                    "Range": 0.0,
+                    "UsePathing": false,
+                    "AllowImpacts": false,
+                    "AllowDeath": false,
+                    "Name": "Light Beam - Follow",
+                    "ID": 27,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 16
+                      }
+                    },
+                    "Acceleration": 10000.0,
+                    "Deceleration": 10000.0,
+                    "GravityScale": 0.0,
+                    "MaxSpeed": 350.0,
+                    "TurnSpeed": 125.0
+                  }
+                },
+                {
+                  "classname": "MonsterMoveToDesc",
+                  "properties": {
+                    "AllowFall": 2,
+                    "Range": 0.0,
+                    "UsePathing": false,
+                    "DoCollision": false,
+                    "InheritSpeed": false,
+                    "Name": "Light Beam - FollowSLOW",
+                    "ID": 28,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 16
+                      }
+                    },
+                    "Acceleration": 10000.0,
+                    "Deceleration": 10000.0,
+                    "GravityScale": 0.0,
+                    "MaxSpeed": 350.0,
+                    "TurnSpeed": 125.0,
+                    "InAir": true,
+                    "FaceTarget": true,
+                    "FaceOnStart": true
+                  }
+                },
+                {
+                  "classname": "MonsterHoverStrafeDesc",
+                  "properties": {
+                    "StrafeHeightOffset": 0.0,
+                    "UsePathing": false,
+                    "AllowImpacts": false,
+                    "AllowDeath": false,
+                    "DoCollision": false,
+                    "Name": "Light Beam - HoverFollow",
+                    "ID": 29,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 16
+                      }
+                    },
+                    "Acceleration": 1000.0,
+                    "GravityScale": 0.0,
+                    "MaxSpeed": 5000.0,
+                    "MoveStrength": 0.0,
+                    "TurnSpeed": 720.0,
+                    "FaceTarget": true,
+                    "FaceOnStart": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "ElapsedTimeMin": 5.0,
+                    "ElapsedTimeMax": 5.0,
+                    "DoCollision": false,
+                    "Name": "Light Beam - Idle",
+                    "ID": 30,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 16
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "TurnSpeed": 2000.0,
+                    "InAir": true,
+                    "FaceOnStart": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "AllowImpacts": false,
+                    "AllowDeath": false,
+                    "Name": "Napalm - Death",
+                    "ID": 12,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 20
+                      }
+                    },
+                    "ConstrainToGround": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "AllowImpacts": false,
+                    "AllowDeath": false,
+                    "Name": "Napalm - Explode",
+                    "ID": 4,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 14
+                      }
+                    },
+                    "GravityScale": 10.0,
+                    "TurnSpeed": 0.0,
+                    "OnActionComplete": 11,
+                    "InAir": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "AllowImpacts": false,
+                    "AllowDeath": false,
+                    "Name": "Napalm - Explode to MoveTo",
+                    "ID": 14,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 14
+                      }
+                    },
+                    "GravityScale": 10.0,
+                    "TurnSpeed": 0.0,
+                    "OnActionComplete": 13,
+                    "InAir": true
+                  }
+                },
+                {
+                  "classname": "MonsterFallDesc",
+                  "properties": {
+                    "AllowImpacts": false,
+                    "AllowDeath": false,
+                    "Name": "Napalm - Fall",
+                    "ID": 5,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 19
+                      }
+                    },
+                    "GravityScale": 100.0
+                  }
+                },
+                {
+                  "classname": "MonsterIdleDesc",
+                  "properties": {
+                    "IdleTime": 3.0,
+                    "AllowStartTimeVariance": false,
+                    "Name": "Napalm - Firepillar",
+                    "ID": 11,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 19
+                      }
+                    },
+                    "GravityScale": 100.0,
+                    "TurnSpeed": 0.0,
+                    "InAir": true
+                  }
+                },
+                {
+                  "classname": "MonsterMoveToDesc",
+                  "properties": {
+                    "Range": 0.0,
+                    "UsePathing": false,
+                    "AllowImpacts": false,
+                    "AllowDeath": false,
+                    "Name": "Napalm - Firepillar Move",
+                    "ID": 13,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 19,
+                        "Ease": 0.0
+                      }
+                    },
+                    "Acceleration": 400.0,
+                    "MaxSpeed": 500.0,
+                    "TurnSpeed": 60.0,
+                    "ConstrainToGround": true,
+                    "FaceTarget": true,
+                    "FaceOnStart": true
+                  }
+                },
+                {
+                  "classname": "MonsterJumpToDesc",
+                  "properties": {
+                    "FaceTargetOnWindup": false,
+                    "Name": "Napalm - Move To",
+                    "ID": 10,
+                    "AnimController": {
+                      "classname": "JumpAnimController",
+                      "properties": {
+                        "LaunchAnimation": 12,
+                        "ApexAnimation": 12,
+                        "FallAnimation": 12
+                      }
+                    },
+                    "MaxSpeed": 1000.0,
+                    "InAir": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "AllowImpacts": false,
+                    "AllowDeath": false,
+                    "ElapsedTimeMin": 5.0,
+                    "ElapsedTimeMax": 5.0,
+                    "DoCollision": false,
+                    "Name": "Napalm - Spawn",
+                    "ID": 2,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 18
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "OnActionComplete": 10,
+                    "InAir": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "AllowImpacts": false,
+                    "DoCollision": false,
+                    "Name": "Orb - Destroyed",
+                    "ID": 8,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 16,
+                        "Ease": 0.0
+                      }
+                    },
+                    "InAir": true
+                  }
+                },
+                {
+                  "classname": "MonsterHoverStrafeDesc",
+                  "properties": {
+                    "StrafeHeightOffset": 0.0,
+                    "UsePathing": false,
+                    "AllowImpacts": false,
+                    "AllowDeath": false,
+                    "DoCollision": false,
+                    "Name": "Orb - Float",
+                    "ID": 6,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 15
+                      }
+                    },
+                    "Acceleration": 1000.0,
+                    "GravityScale": 0.0,
+                    "MaxSpeed": 5000.0,
+                    "MoveStrength": 0.0,
+                    "TurnSpeed": 720.0,
+                    "FaceTarget": true,
+                    "FaceOnStart": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "ElapsedTimeMin": 5.0,
+                    "ElapsedTimeMax": 5.0,
+                    "DoCollision": false,
+                    "Name": "Orb - Idle",
+                    "ID": 7,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 15
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "InAir": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "ElapsedTimeMin": 5.0,
+                    "ElapsedTimeMax": 5.0,
+                    "DoCollision": false,
+                    "Name": "Orb - Spawn",
+                    "ID": 9,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 17
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "OnActionComplete": 6,
+                    "InAir": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "AllowImpacts": false,
+                    "AllowDeath": false,
+                    "Name": "Rock Large - Explode",
+                    "ID": 42,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 94
+                      }
+                    },
+                    "GravityScale": 10.0,
+                    "TurnSpeed": 0.0,
+                    "InAir": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "AllowImpacts": false,
+                    "AllowDeath": false,
+                    "Name": "Rock Large - Hit Ground",
+                    "ID": 40,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 94
+                      }
+                    },
+                    "GravityScale": 10.0,
+                    "TurnSpeed": 0.0,
+                    "OnActionComplete": 41,
+                    "InAir": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "ElapsedTimeMin": 5.0,
+                    "ElapsedTimeMax": 5.0,
+                    "DoCollision": false,
+                    "Name": "Rock Large - Idle",
+                    "ID": 36,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 90
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "InAir": true,
+                    "HasGrabbable": true,
+                    "UseMotionNode": true
+                  }
+                },
+                {
+                  "classname": "MonsterMoveToDesc",
+                  "properties": {
+                    "Range": 0.0,
+                    "UsePathing": false,
+                    "AllowImpacts": false,
+                    "AllowDeath": false,
+                    "Name": "Rock Large - MoveTo - Ground",
+                    "ID": 41,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 93,
+                        "Ease": 0.0
+                      }
+                    },
+                    "Acceleration": 400.0,
+                    "MaxSpeed": 500.0,
+                    "TurnSpeed": 10.0,
+                    "ConstrainToGround": true,
+                    "FaceTarget": true
+                  }
+                },
+                {
+                  "classname": "MonsterJumpToDesc",
+                  "properties": {
+                    "FaceTargetOnWindup": false,
+                    "Name": "Rock Large - MoveTo - Jump",
+                    "ID": 37,
+                    "AnimController": {
+                      "classname": "JumpAnimController",
+                      "properties": {
+                        "LaunchAnimation": 93,
+                        "ApexAnimation": 93,
+                        "FallAnimation": 93
+                      }
+                    },
+                    "MaxSpeed": 1000.0,
+                    "InAir": true,
+                    "UseMotionNodeRotation": true,
+                    "IgnoreSelectiveBlockers": false
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "ElapsedTimeMin": 5.0,
+                    "ElapsedTimeMax": 5.0,
+                    "DoCollision": false,
+                    "Name": "Rock Large - Spawn",
+                    "ID": 35,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 59
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "InAir": true,
+                    "HasGrabbable": true,
+                    "UseMotionNode": true,
+                    "UseMotionNodeRotation": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "AllowImpacts": false,
+                    "AllowDeath": false,
+                    "Name": "Rock Large - Throw",
+                    "ID": 44,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 93
+                      }
+                    },
+                    "GravityScale": 10.0,
+                    "TurnSpeed": 1000.0,
+                    "OnActionComplete": 41,
+                    "HasGrabbable": true,
+                    "FaceTarget": true,
+                    "FaceOnStart": true
+                  }
+                },
+                {
+                  "classname": "MonsterHoverStrafeDesc",
+                  "properties": {
+                    "StrafeHeightOffset": 0.0,
+                    "UsePathing": false,
+                    "AllowImpacts": false,
+                    "AllowDeath": false,
+                    "DoCollision": false,
+                    "Name": "Teleport - Float Horizontal",
+                    "ID": 31,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 15
+                      }
+                    },
+                    "Acceleration": 5000.0,
+                    "GravityScale": 0.0,
+                    "MaxSpeed": 10000.0,
+                    "MoveStrength": 0.0,
+                    "TurnSpeed": 720.0,
+                    "FaceTarget": true,
+                    "FaceOnStart": true,
+                    "IgnoreSelectiveBlockers": false
+                  }
+                },
+                {
+                  "classname": "MonsterHoverStrafeDesc",
+                  "properties": {
+                    "StrafeHeightOffset": 1000.0,
+                    "Range": 0.0,
+                    "UsePathing": false,
+                    "AllowImpacts": false,
+                    "AllowDeath": false,
+                    "DoCollision": false,
+                    "Name": "Teleport - Float Vertical",
+                    "ID": 34,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 15
+                      }
+                    },
+                    "Acceleration": 5000.0,
+                    "GravityScale": 0.0,
+                    "MaxSpeed": 10000.0,
+                    "MoveStrength": 0.0,
+                    "TurnSpeed": 720.0,
+                    "FaceTarget": true,
+                    "FaceOnStart": true,
+                    "IgnoreSelectiveBlockers": false
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "ElapsedTimeMin": 5.0,
+                    "ElapsedTimeMax": 5.0,
+                    "DoCollision": false,
+                    "Name": "WeakSpot - Active",
+                    "ID": 33,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 31
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "InAir": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "ElapsedTimeMin": 5.0,
+                    "ElapsedTimeMax": 5.0,
+                    "DoCollision": false,
+                    "Name": "WeakSpot - Deactive",
+                    "ID": 32,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 32
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "InAir": true
+                  }
+                }
+              ]
+            }
+          },
+          "CharacterClass": "TargetHelper",
+          "HitInfos": {
+            "classname": "HitInfoList",
+            "properties": {
+              "HitInfos": [
+                {
+                  "classname": "HitInfo",
+                  "properties": {
+                    "ID": 93,
+                    "Name": "Barrage Projectile (15)",
+                    "WType": 2,
+                    "StrikeDirection": 116,
+                    "Power": 1,
+                    "KnockBackPower": 200.0,
+                    "KnockUpPower": 250.0,
+                    "EnvPowerScale": 5.0,
+                    "IsUnblockable": true,
+                    "DamageMod": 50
+                  }
+                },
+                {
+                  "classname": "HitInfo",
+                  "properties": {
+                    "ID": 95,
+                    "Name": "Napalm - Explosion (20)",
+                    "WType": 2,
+                    "HType": 2,
+                    "StrikeDirection": 13,
+                    "Power": 3,
+                    "KnockBackPower": 300.0,
+                    "KnockUpPower": 300.0,
+                    "EnvPowerScale": 5.0,
+                    "DamageMod": 100
+                  }
+                },
+                {
+                  "classname": "HitInfo",
+                  "properties": {
+                    "ID": 94,
+                    "Name": "Napalm - FirePillar (30)",
+                    "WType": 2,
+                    "HType": 2,
+                    "StrikeDirection": 115,
+                    "Power": 3,
+                    "KnockBackPower": 300.0,
+                    "KnockUpPower": 250.0,
+                    "EnvPowerScale": 5.0,
+                    "DamageMod": 200
+                  }
+                }
+              ]
+            }
+          },
+          "Visual": "ShadowWar_TargetHelper",
+          "FactionID": 1,
+          "MoveWeight": 0.0,
+          "Animations": {
+            "classname": "AnimationList",
+            "properties": {
+              "Animations": [
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 20,
+                    "Name": "Napalm_Death",
+                    "Length": 5,
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "abyssalrider_napalm_explosion"
+                        }
+                      },
+                      {
+                        "classname": "EventTrigger",
+                        "properties": {
+                          "EventName": "removeNapalm",
+                          "IsRequired": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 14,
+                    "Name": "Napalm_Explode",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "abyssalrider_napalm_explosion"
+                        }
+                      },
+                      {
+                        "classname": "CombatEffectTrigger",
+                        "properties": {
+                          "CombatEffect": {
+                            "classname": "AOEInstantCombatEffect",
+                            "properties": {
+                              "Radius": 100.0,
+                              "Height": 200.0,
+                              "Damage": 0.0,
+                              "WeaponType": 1,
+                              "HitType": 2,
+                              "KnockBackPower": 150.0,
+                              "PowerOutside": 0,
+                              "HitInfoID": 95
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 19,
+                    "Name": "Napalm_FirePillar",
+                    "AnimationName": "Loop",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "abyssalrider_napalm_explosion",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "abyssalrider_napalm_firepillar",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "WeaponPhantomTrigger",
+                        "properties": {
+                          "Duration": 45,
+                          "WeaponPhantom": "WeaponPhantom",
+                          "HitInfoID": 94
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 12,
+                    "Name": "Napalm_Idle",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "abyssalrider_napalm_projectile"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 18,
+                    "Name": "Napalm_Spawn",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "abyssalrider_napalm_shoot"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 30,
+                    "Name": "Orb_Destroyed",
+                    "Length": 120
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 15,
+                    "Name": "Orb_Float"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 17,
+                    "Name": "Orb_Spawn",
+                    "Length": 30
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 90,
+                    "Name": "Rock_Idle",
+                    "AnimationName": "Rock_Idle"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 94,
+                    "Name": "Rock_Large_Explode",
+                    "AnimationName": "Rock_Idle",
+                    "Length": 1,
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Abaddon_Rock_Impact"
+                        }
+                      },
+                      {
+                        "classname": "CombatEffectTrigger",
+                        "properties": {
+                          "CombatEffect": {
+                            "classname": "AOEInstantCombatEffect",
+                            "properties": {
+                              "Radius": 275.0,
+                              "Height": 200.0,
+                              "Damage": 0.0,
+                              "WeaponType": 1,
+                              "HitType": 2,
+                              "KnockBackPower": 150.0,
+                              "PowerOutside": 0,
+                              "HitInfoID": 94
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 59,
+                    "Name": "Rock_Large_Spawn",
+                    "AnimationName": "Rock_Large_Spawn",
+                    "Triggers": [
+                      {
+                        "classname": "GrabbableTrigger",
+                        "properties": {
+                          "GrabbableClass": "Abaddon/Rock_Spike_Breakable"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 93,
+                    "Name": "Rock_Throw",
+                    "AnimationName": "Rock_Throw",
+                    "Triggers": [
+                      {
+                        "classname": "GrabbableThrowTrigger",
+                        "properties": {
+                          "PowerScale": 6.0,
+                          "DamageScale": 0.75
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 16,
+                    "Name": "Target_Float",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "Duration": 300,
+                          "EffectName": "Guardian_Beam_Hit_Loop"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 31,
+                    "Name": "WeakSpot_Active",
+                    "AnimationName": "Loop",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "ShadowWar_WeakSpot",
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 32,
+                    "Name": "WeakSpot_Deactive",
+                    "AnimationName": "Loop"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "Methods": [
+    "onInit",
+    "setOrbTarget",
+    "setOrientationType",
+    "onQueryDamage",
+    "killOrb",
+    "onDeathBlow"
+  ],
+  "PackageName": "shadowwar",
+  "DefaultValues": {
+    "parentObject": null,
+    "Name": "Teleport Helper"
+  },
+  "States": {}
+}

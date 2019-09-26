@@ -1,0 +1,92 @@
+.method In
+0x0001 .param_count 0
+0x0001 .line 10
+0x0006     nop
+0x0007 .line 12
+0x000c     string "Adjusting Chaos Level."
+0x002d     print
+0x002e .line 13
+0x0033     identifier this
+0x0042     property LevelAdjustment
+0x005c     int 0
+0x0061     less
+0x0062     branch_false 0x0169
+0x0067 .line 15
+0x006c     inc_scope
+0x006d     identifier this
+0x007c     property LevelAdjustment
+0x0096     var_assign Adjustments
+0x00ac .line 17
+0x00b1 .label 0x06cd
+0x00b6     identifier Adjustments
+0x00cc     int 0
+0x00d1     less
+0x00d2     branch_false 0x0154
+0x00d7 .line 19
+0x00dc     nop
+0x00dd     bool true
+0x00df     int 1
+0x00e4     identifier Player
+0x00f5     method lowerChaosLevel
+0x010f     pop
+0x0110 .line 20
+0x0115     identifier Adjustments
+0x012b     identifier Adjustments
+0x0141     int 1
+0x0146     add
+0x0147     assign
+0x0148     pop
+0x0149 .line 21
+0x014e     nop
+0x014f     goto 0x00b1
+0x0154 .label 0x06ce
+0x0159 .line 22
+0x015e     dec_scope
+0x015f .line 23
+0x0164     goto 0x0286
+0x0169 .label 0x06cc
+0x016e .line 25
+0x0173     inc_scope
+0x0174     identifier this
+0x0183     property LevelAdjustment
+0x019d     var_assign Adjustments
+0x01b3 .line 26
+0x01b8 .label 0x06d0
+0x01bd     identifier Adjustments
+0x01d3     int 0
+0x01d8     greater
+0x01d9     branch_false 0x027b
+0x01de .line 28
+0x01e3     nop
+0x01e4     string "Adding a level."
+0x01fe     print
+0x01ff .line 29
+0x0204     bool true
+0x0206     int 1
+0x020b     identifier Player
+0x021c     method raiseChaosLevel
+0x0236     pop
+0x0237 .line 30
+0x023c     identifier Adjustments
+0x0252     identifier Adjustments
+0x0268     int 1
+0x026d     subtract
+0x026e     assign
+0x026f     pop
+0x0270 .line 31
+0x0275     nop
+0x0276     goto 0x01b8
+0x027b .label 0x06d1
+0x0280 .line 32
+0x0285     dec_scope
+0x0286 .label 0x06cf
+0x028b .line 34
+0x0290     string "Out"
+0x029e     int 1
+0x02a3     identifier this
+0x02b2     method doEvent
+0x02c4     pop
+0x02c5 .line 35
+0x02ca     nop
+0x02cb     return_null
+

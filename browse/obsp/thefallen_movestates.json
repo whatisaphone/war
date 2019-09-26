@@ -1,0 +1,4120 @@
+{
+  "classname": "CharacterMoveStateList",
+  "properties": {
+    "MoveStates": [
+      {
+        "classname": "MonsterBlockDesc",
+        "properties": {
+          "DamageScale": 0.5,
+          "BlockAngle": 60.0,
+          "BlockTime": 1.5,
+          "IdleAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Ease": 0.1
+            }
+          },
+          "EndAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Ease": 0.1
+            }
+          },
+          "BreakOnOutOfAngleDetection": true,
+          "OnImpact": [
+            621,
+            621,
+            51
+          ],
+          "Name": "_Defense - Block",
+          "ID": 624,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Ease": 0.0
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 30.0,
+          "ImpulseDamage": 60,
+          "PowerResistance": -2,
+          "ConstrainToGround": true,
+          "InAir": true,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "MonsterFlyToDesc",
+        "properties": {
+          "Range": 30.0,
+          "OnImpact": [
+            50,
+            50,
+            51
+          ],
+          "Name": "_Fly - LedgeWalk",
+          "ID": 648,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {}
+          },
+          "InAir": true,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "Name": "_Fly - WalkToTarget Start",
+          "ID": 652,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 3,
+              "Ease": 0.5
+            }
+          },
+          "GravityScale": 0.0,
+          "MaxSpeed": 240.0,
+          "OnActionComplete": 644,
+          "InAir": true,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "MonsterFlyToDesc",
+        "properties": {
+          "TurningSlowdownFactor": 0.45,
+          "Range": 75.0,
+          "OnImpact": [
+            50,
+            50,
+            51
+          ],
+          "Name": "_Fly - WanderWalk",
+          "ID": 649,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {}
+          },
+          "InAir": true,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "MonsterGhostHookGrabDesc",
+        "properties": {
+          "TargetBone": "Bone_Hips",
+          "ReleaseAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {}
+          },
+          "OnAirGrab": 638,
+          "OnAirSlam": 639,
+          "OnImpact": [
+            51,
+            51
+          ],
+          "Name": "_Ghost Hook - Grab",
+          "ID": 600,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Ease": 0.0
+            }
+          },
+          "InAir": true
+        }
+      },
+      {
+        "classname": "MonsterGhostHookGrabDesc",
+        "properties": {
+          "TargetBone": "Bone_Hips",
+          "ReleaseAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {}
+          },
+          "OnImpact": [
+            51,
+            51
+          ],
+          "Name": "_Ghost Hook - Grab Air",
+          "ID": 638,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Ease": 0.0
+            }
+          },
+          "InAir": true
+        }
+      },
+      {
+        "classname": "MonsterGhostHookGrabDesc",
+        "properties": {
+          "TargetBone": "Bone_Hips",
+          "ReleaseAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {}
+          },
+          "AirSlam": true,
+          "OnImpact": [
+            51,
+            51
+          ],
+          "Name": "_Ghost Hook - Grab Slam",
+          "ID": 639,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Ease": 0.0
+            }
+          },
+          "InAir": true
+        }
+      },
+      {
+        "classname": "MonsterIdleDesc",
+        "properties": {
+          "TurnThreshold": 0.0,
+          "IdleTime": 1.5,
+          "AllowStartTimeVariance": false,
+          "OnImpact": [
+            614,
+            614,
+            51
+          ],
+          "Name": "_Grounded - Idle",
+          "ID": 609,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 0,
+              "Ease": 0.0
+            }
+          },
+          "TurnSpeed": 0.0,
+          "OnActionComplete": 610,
+          "ImpulseDamage": 40,
+          "ConstrainToGround": true,
+          "IsProne": true,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "MonsterFallDesc",
+        "properties": {
+          "OnImpact": [
+            50,
+            614,
+            51
+          ],
+          "Name": "_Grounded - Impact",
+          "ID": 614,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 2
+            }
+          },
+          "OnActionComplete": 610,
+          "ConstrainToGround": true,
+          "IsProne": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            50,
+            614,
+            51
+          ],
+          "Name": "_Grounded - Land",
+          "ID": 640,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Ease": 0.0
+            }
+          },
+          "OnActionComplete": 609,
+          "ConstrainToGround": true,
+          "IsProne": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "InteractiveFrame": 1,
+          "OnInteractive": 615,
+          "OnImpact": [
+            50,
+            614,
+            51
+          ],
+          "Name": "_Grounded - Recover",
+          "ID": 610,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 0,
+              "Ease": 0.0
+            }
+          },
+          "ConstrainToGround": true,
+          "IsProne": true
+        }
+      },
+      {
+        "classname": "MonsterKnockDownDesc",
+        "properties": {
+          "OnBounce": 51,
+          "BounceKnockUpPower": 400.0,
+          "BounceKnockBackPower": 50.0,
+          "BackAnimController": {
+            "classname": "JumpAnimController",
+            "properties": {
+              "BlendImpulse": 200.0,
+              "Ease": 0.2
+            }
+          },
+          "FrontAnimController": {
+            "classname": "JumpAnimController",
+            "properties": {
+              "BlendImpulse": 200.0,
+              "Ease": 0.2
+            }
+          },
+          "UpAnimController": {
+            "classname": "JumpAnimController",
+            "properties": {
+              "BlendImpulse": 500.0,
+              "Ease": 0.2
+            }
+          },
+          "LandAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Ease": 0.1
+            }
+          },
+          "BackLandAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Ease": 0.1
+            }
+          },
+          "FrontLandAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Ease": 0.1
+            }
+          },
+          "UpLandAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Ease": 0.1
+            }
+          },
+          "ApexGravityScaleDuration": 0.5,
+          "ApexGravityScale": 0.3,
+          "ApexGravityScaleStartScale": 200.0,
+          "OnImpact": [
+            51,
+            51
+          ],
+          "Name": "_Impact - KnockBack",
+          "ID": 51,
+          "AnimController": {
+            "classname": "JumpAnimController",
+            "properties": {
+              "BlendImpulse": 200.0,
+              "Ease": 0.2
+            }
+          },
+          "GravityScale": 0.7998047,
+          "OnActionComplete": 640,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "CharacterDoInteractiveDesc",
+        "properties": {
+          "TargetType": "war/war",
+          "MaxErrorDistance": 300.0,
+          "Arc": 0.0,
+          "ConvergeTime": 0.1,
+          "TargetAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {}
+          },
+          "OnCompleteOther": 0,
+          "AnimationSource": 0,
+          "Name": "_Interactive - Us",
+          "ID": 615,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {}
+          }
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "Name": "_OLD_Fly - RunToTarget Start_OLD",
+          "ID": 651,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 4
+            }
+          },
+          "GravityScale": 0.0,
+          "MaxSpeed": 240.0,
+          "OnActionComplete": 781,
+          "InAir": true,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "_OLD_Fly - StrafeLeft",
+          "ID": 682,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 45,
+              "Ease": 0.1
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 220.0,
+          "OnActionComplete": 683,
+          "ConstrainToGround": true,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "_OLD_Fly - StrafeLeft End",
+          "ID": 683,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 41,
+              "Ease": 0.1
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 220.0,
+          "ConstrainToGround": true,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "_OLD_Fly - StrafeLeft Start",
+          "ID": 645,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 40
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 220.0,
+          "OnActionComplete": 682,
+          "ConstrainToGround": true,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "_OLD_Fly - StrafeRight",
+          "ID": 680,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 46,
+              "Ease": 0.1
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 220.0,
+          "OnActionComplete": 681,
+          "ConstrainToGround": true,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "_OLD_Fly - StrafeRight End",
+          "ID": 681,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 42,
+              "Ease": 0.1
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 220.0,
+          "ConstrainToGround": true,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "_OLD_Fly - StrafeRight Start",
+          "ID": 646,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 47
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 220.0,
+          "OnActionComplete": 680,
+          "ConstrainToGround": true,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "_OLD_Fly - WalkBack",
+          "ID": 647,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 9,
+              "Ease": 0.0
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 220.0,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "_OLD_Fly - WalkBack End",
+          "ID": 655,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 11,
+              "Ease": 0.0
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 220.0,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "_OLD_Fly - WalkBack Start",
+          "ID": 654,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 12
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 220.0,
+          "OnActionComplete": 647,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterHoverStrafeDesc",
+        "properties": {
+          "StrafeHeightOffset": 275.0,
+          "Name": "_OLD_Fly - WalkToTarget Start _2",
+          "ID": 699,
+          "AnimController": {
+            "classname": "StrafeBlendController",
+            "properties": {
+              "NeutralAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 2
+                }
+              },
+              "ForwardAnimController": {
+                "classname": "PlayOnceAndIdleAnimController",
+                "properties": {
+                  "StartAnimController": {
+                    "classname": "SimpleAnimController",
+                    "properties": {
+                      "Animation": 4
+                    }
+                  },
+                  "IdleAnimController": {
+                    "classname": "SimpleAnimController",
+                    "properties": {
+                      "Animation": 1,
+                      "Ease": 0.0
+                    }
+                  }
+                }
+              },
+              "LeftAnimController": {
+                "classname": "PlayOnceAndIdleAnimController",
+                "properties": {
+                  "StartAnimController": {
+                    "classname": "SimpleAnimController",
+                    "properties": {
+                      "Animation": 40
+                    }
+                  },
+                  "IdleAnimController": {
+                    "classname": "SimpleAnimController",
+                    "properties": {
+                      "Animation": 45,
+                      "Ease": 0.0
+                    }
+                  }
+                }
+              },
+              "RightAnimController": {
+                "classname": "PlayOnceAndIdleAnimController",
+                "properties": {
+                  "StartAnimController": {
+                    "classname": "SimpleAnimController",
+                    "properties": {
+                      "Animation": 47
+                    }
+                  },
+                  "IdleAnimController": {
+                    "classname": "SimpleAnimController",
+                    "properties": {
+                      "Animation": 46,
+                      "Ease": 0.0
+                    }
+                  }
+                }
+              },
+              "BackwardAnimController": {
+                "classname": "PlayOnceAndIdleAnimController",
+                "properties": {
+                  "StartAnimController": {
+                    "classname": "SimpleAnimController",
+                    "properties": {
+                      "Animation": 12
+                    }
+                  },
+                  "IdleAnimController": {
+                    "classname": "SimpleAnimController",
+                    "properties": {
+                      "Animation": 9,
+                      "Ease": 0.0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "MaxSpeed": 300.0,
+          "TurnSpeed": 360.0
+        }
+      },
+      {
+        "classname": "MonsterRandDesc",
+        "properties": {
+          "StateOneChance": 100,
+          "OnStateOne": 603,
+          "OnStateTwo": 69,
+          "Name": "_Taunt - Random",
+          "ID": 634,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {}
+          },
+          "GravityScale": 0.0,
+          "ConstrainToGround": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            50,
+            50,
+            51
+          ],
+          "Name": "_Taunt - Taunt 1",
+          "ID": 603,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {}
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 1000.0,
+          "ConstrainToGround": true,
+          "InAir": true,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            50,
+            50,
+            51
+          ],
+          "Name": "_Taunt - Taunt 2",
+          "ID": 69,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Ease": 0.5
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 10.0,
+          "ConstrainToGround": true,
+          "InAir": true,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          "VulnerableEndTime": 0.8,
+          "Name": "Attack - 180 FlyUp",
+          "ID": 786,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 22,
+              "Ease": 0.0
+            }
+          },
+          "Acceleration": 320.0,
+          "Deceleration": 840.0,
+          "GravityScale": 0.0,
+          "TurnSpeed": 5000.0,
+          "OnActionComplete": 695,
+          "DamageMitigation": 100,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceTarget": true,
+          "FaceOnStart": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          "VulnerableEndTime": 0.8,
+          "Name": "Attack - 180 FlyUp Attack",
+          "ID": 785,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 22,
+              "Ease": 0.0
+            }
+          },
+          "Acceleration": 320.0,
+          "Deceleration": 840.0,
+          "GravityScale": 0.0,
+          "TurnSpeed": 5000.0,
+          "OnActionComplete": 695,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceTarget": true,
+          "FaceOnStart": true
+        }
+      },
+      {
+        "classname": "MonsterAttackDesc",
+        "properties": {
+          "StopTurnFrame": 60,
+          "Name": "Attack - 180 FlyUp_OLD",
+          "ID": 659,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 22,
+              "Ease": 0.0
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 5000.0,
+          "InAir": true,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "MonsterAttackDesc",
+        "properties": {
+          "StopTurnFrame": 60,
+          "Name": "Attack - 180 Spin Attack",
+          "ID": 677,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 21
+            }
+          },
+          "TurnSpeed": 120.0,
+          "OnActionComplete": 785,
+          "ConstrainToGround": true,
+          "UseMotionNode": true,
+          "FaceOnStart": false
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "Name": "Attack - 180 Spin Start",
+          "ID": 606,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 20
+            }
+          },
+          "TurnSpeed": 90.0,
+          "OnActionComplete": 677,
+          "ConstrainToGround": true,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1,
+            658
+          ],
+          "Name": "Attack - Dive Bomb Land",
+          "ID": 671,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 34,
+              "Ease": 0.0
+            }
+          },
+          "GravityScale": 10.0,
+          "TurnSpeed": 30.0,
+          "OnActionComplete": 705,
+          "ImpulseDamage": 80,
+          "ImpulsePeriod": 2.0,
+          "OnImpulseImpact": 658,
+          "ConstrainToGround": true,
+          "UseMotionNode": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            50,
+            50,
+            50,
+            658
+          ],
+          "Name": "Attack - Dive Bomb Return",
+          "ID": 706,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 58,
+              "Ease": 0.5
+            }
+          },
+          "GravityScale": 10.0,
+          "TurnSpeed": 5.0,
+          "OnActionComplete": 786,
+          "ImpulseDamage": 80,
+          "ImpulsePeriod": 2.0,
+          "OnImpulseImpact": 658,
+          "ConstrainToGround": true,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "MonsterJumpToDesc",
+        "properties": {
+          "WindupAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 27
+            }
+          },
+          "AutoCalcJumpHeight": false,
+          "JumpHeight": 0.0,
+          "OnImpact": [
+            -1,
+            -1,
+            -1,
+            771
+          ],
+          "Name": "Attack - Dive Bomb Start",
+          "ID": 686,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 54
+            }
+          },
+          "MaxSpeed": 1000.0,
+          "TurnSpeed": 1000.0,
+          "OnActionComplete": 671,
+          "InAir": true,
+          "FaceOnStart": true
+        }
+      },
+      {
+        "classname": "MonsterJumpToDesc",
+        "properties": {
+          "AutoCalcJumpHeight": false,
+          "JumpHeight": 0.0,
+          "OnImpact": [
+            -1,
+            -1,
+            -1,
+            771
+          ],
+          "Name": "Attack - Dive Bomb Start NoWindup",
+          "ID": 790,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 54
+            }
+          },
+          "MaxSpeed": 1000.0,
+          "TurnSpeed": 1000.0,
+          "OnActionComplete": 671,
+          "InAir": true,
+          "FaceOnStart": true
+        }
+      },
+      {
+        "classname": "MonsterMoveToDesc",
+        "properties": {
+          "MaxFallDist": 1000.0,
+          "OnPathBlocked": 671,
+          "Range": 100.0,
+          "Name": "Attack - Dive Bomb_OLD",
+          "ID": 676,
+          "AnimController": {
+            "classname": "AimAnimController",
+            "properties": {
+              "UpAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 53,
+                  "Ease": 0.0
+                }
+              },
+              "ForwardAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 54,
+                  "Ease": 0.0
+                }
+              },
+              "DownAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 55,
+                  "Ease": 0.0
+                }
+              },
+              "UpAngle": 0.0,
+              "DownAngle": 90.0,
+              "Ease": 0.0
+            }
+          },
+          "Acceleration": 1000.0,
+          "MaxSpeed": 1000.0,
+          "TurnSpeed": 10.0,
+          "OnActionComplete": 671,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterAttackDesc",
+        "properties": {
+          "StopTurnFrame": 30,
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "Attack - DiveBomb Attack",
+          "ID": 705,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 74,
+              "Ease": 0.0
+            }
+          },
+          "OnActionComplete": 706,
+          "ConstrainToGround": true,
+          "UseMotionNode": true,
+          "FaceTarget": false,
+          "FaceOnStart": false
+        }
+      },
+      {
+        "classname": "MonsterIdleDesc",
+        "properties": {
+          "IdleTime": 2.0,
+          "AllowStartTimeVariance": false,
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "Attack - DoubleStrike",
+          "ID": 759,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 98,
+              "Ease": 0.0
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 720.0,
+          "OnActionComplete": 760,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceOnStart": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "VulnerableEndTime": 0.8,
+          "Name": "Attack - DoubleStrike End",
+          "ID": 760,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 97,
+              "Ease": 0.0
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 1000.0,
+          "InAir": true,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "MonsterAttackDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "VulnerableEndTime": 0.8,
+          "Name": "Attack - DoubleStrike Start",
+          "ID": 758,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 99,
+              "Ease": 0.18
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 1000.0,
+          "OnActionComplete": 759,
+          "InAir": true,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "MonsterIdleDesc",
+        "properties": {
+          "IdleTime": 2.0,
+          "AllowStartTimeVariance": false,
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "Attack - Energy Ball Charge",
+          "ID": 660,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 23,
+              "Ease": 0.0
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 720.0,
+          "OnActionComplete": 657,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceOnStart": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "VulnerableEndTime": 0.8,
+          "Name": "Attack - Energy Ball End",
+          "ID": 684,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 25,
+              "Ease": 0.0
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 1000.0,
+          "InAir": true,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "MonsterBlockDesc",
+        "properties": {
+          "BlockAngle": 360.0,
+          "IdleAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 50,
+              "Ease": 0.5
+            }
+          },
+          "EndAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Ease": 0.0
+            }
+          },
+          "BreakOnFirstMissedBlock": false,
+          "Repulse": true,
+          "Name": "Attack - Energy Ball Reflect",
+          "ID": 661,
+          "AnimController": {
+            "classname": "SequentialAnimController",
+            "properties": {
+              "AnimControllerList": [
+                {
+                  "classname": "SimpleAnimController",
+                  "properties": {
+                    "Animation": 49,
+                    "Ease": 0.0
+                  }
+                },
+                {
+                  "classname": "SimpleAnimController",
+                  "properties": {
+                    "Animation": 48,
+                    "Ease": 0.0
+                  }
+                }
+              ],
+              "Ease": 0.0
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 5000.0,
+          "InAir": true
+        }
+      },
+      {
+        "classname": "MonsterAttackDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "VulnerableEndTime": 0.8,
+          "Name": "Attack - Energy Ball Start",
+          "ID": 656,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 26,
+              "Ease": 0.18
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 1000.0,
+          "OnActionComplete": 660,
+          "InAir": true,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "MonsterAttackDesc",
+        "properties": {
+          "StopTurnFrame": 30,
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "Attack - Energy Ball Throw",
+          "ID": 657,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 24,
+              "Ease": 0.0
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 1000.0,
+          "OnActionComplete": 684,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceOnStart": false
+        }
+      },
+      {
+        "classname": "MonsterAttackDesc",
+        "properties": {
+          "StopTurnFrame": 30,
+          "OnImpact": [
+            -1,
+            -1,
+            -1,
+            771
+          ],
+          "Name": "Attack - FireBreath Fire",
+          "ID": 696,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 64,
+              "Ease": 0.0
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 1000.0,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceOnStart": false
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1,
+            728
+          ],
+          "VulnerableEndTime": 0.8,
+          "Name": "Attack - FireBreath Return",
+          "ID": 697,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 65,
+              "Ease": 0.0
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 1000.0,
+          "InAir": true,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "MonsterAttackDesc",
+        "properties": {
+          "StopTurnFrame": 60,
+          "OnImpact": [
+            -1,
+            -1,
+            771,
+            771
+          ],
+          "VulnerableEndTime": 0.8,
+          "Name": "Attack - FireBreath Start",
+          "ID": 695,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 66,
+              "Ease": 0.18
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 1000.0,
+          "OnActionComplete": 696,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceOnStart": false
+        }
+      },
+      {
+        "classname": "MonsterAttackDesc",
+        "properties": {
+          "StopTurnFrame": 5,
+          "OnRepulsed": 50,
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "Attack - Punch",
+          "ID": 626,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 52,
+              "Ease": 0.0
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 150.0,
+          "OnActionComplete": 685,
+          "ImpulseDamage": 40,
+          "ImpulsePeriod": 2.0,
+          "ConstrainToGround": true,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceOnStart": false
+        }
+      },
+      {
+        "classname": "MonsterAttackDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "VulnerableEndTime": 0.8,
+          "Name": "Attack - Punch End",
+          "ID": 685,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 48
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 1000.0,
+          "ConstrainToGround": true,
+          "InAir": true,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "MonsterAttackDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "VulnerableEndTime": 0.8,
+          "Name": "Attack - Punch Start",
+          "ID": 642,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 51
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 1000.0,
+          "OnActionComplete": 626,
+          "ConstrainToGround": true,
+          "InAir": true,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "MonsterAttackDesc",
+        "properties": {
+          "StopTurnFrame": 30,
+          "OnImpact": [
+            -1,
+            -1,
+            728
+          ],
+          "Name": "Attack - Slash",
+          "ID": 776,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 94,
+              "Ease": 0.0
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 720.0,
+          "OnActionComplete": 763,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceOnStart": false
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1,
+            728
+          ],
+          "VulnerableEndTime": 0.8,
+          "Name": "Attack - Slash End",
+          "ID": 763,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 96,
+              "Ease": 0.0
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 1000.0,
+          "InAir": true,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "MonsterAttackDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1,
+            728
+          ],
+          "VulnerableEndTime": 0.8,
+          "Name": "Attack - Slash Start",
+          "ID": 761,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 95,
+              "Ease": 0.18
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 1000.0,
+          "OnActionComplete": 776,
+          "InAir": true,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "MonsterIdleDesc",
+        "properties": {
+          "IdleTime": 2.0,
+          "AllowStartTimeVariance": false,
+          "OnImpact": [
+            -1,
+            -1,
+            -1,
+            728
+          ],
+          "Name": "Attack - Slash_OLD",
+          "ID": 762,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 94,
+              "Ease": 0.0
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 720.0,
+          "OnActionComplete": 763,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceOnStart": true
+        }
+      },
+      {
+        "classname": "MonsterRandDesc",
+        "properties": {
+          "StateOneChance": 100,
+          "OnStateOne": 761,
+          "OnStateTwo": 606,
+          "Name": "Attack - StandardAttack",
+          "ID": 616,
+          "AnimController": null,
+          "GravityScale": 0.0,
+          "ConstrainToGround": true
+        }
+      },
+      {
+        "classname": "MonsterAttackDesc",
+        "properties": {
+          "StopTurnFrame": 5,
+          "OnRepulsed": 50,
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "Attack - Swipe",
+          "ID": 717,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 78,
+              "Ease": 0.0
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 150.0,
+          "OnActionComplete": 718,
+          "ImpulseDamage": 40,
+          "ImpulsePeriod": 2.0,
+          "ConstrainToGround": true,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceOnStart": false
+        }
+      },
+      {
+        "classname": "MonsterAttackDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "VulnerableEndTime": 0.8,
+          "Name": "Attack - Swipe End",
+          "ID": 718,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 77
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 1000.0,
+          "ConstrainToGround": true,
+          "InAir": true,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "MonsterJumpToDesc",
+        "properties": {
+          "WindupAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 79
+            }
+          },
+          "Name": "Attack - Swipe Start",
+          "ID": 727,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 79,
+              "Ease": 0.2
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 100.0,
+          "OnActionComplete": 717,
+          "InAir": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "Attack - Variant 180 FlyUp",
+          "ID": 764,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 93,
+              "Ease": 0.0
+            }
+          },
+          "Acceleration": 320.0,
+          "Deceleration": 840.0,
+          "GravityScale": 0.0,
+          "TurnSpeed": 5000.0,
+          "ImpulseDamage": 80,
+          "ImpulsePeriod": 2.0,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterAttackDesc",
+        "properties": {
+          "PreventMovementCollisions": true,
+          "AllowPenetration": true,
+          "Name": "Attack - Variant 180 FlyUp_OLD",
+          "ID": 740,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 93,
+              "Ease": 0.0
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 5000.0,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceTarget": false,
+          "FaceOnStart": false
+        }
+      },
+      {
+        "classname": "MonsterMoveToDesc",
+        "properties": {
+          "MaxFallDist": 1000.0,
+          "Range": 275.0,
+          "UsePathing": false,
+          "OnElapsedTime": 748,
+          "ElapsedTimeMin": 1.5,
+          "ElapsedTimeMax": 2.0,
+          "Name": "Attack - Variant DiveBomb",
+          "ID": 752,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 54
+            }
+          },
+          "Acceleration": 1000.0,
+          "MaxSpeed": 3000.0,
+          "TurnSpeed": 90.0,
+          "OnActionComplete": 748,
+          "InAir": true,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "MonsterJumpToDesc",
+        "properties": {
+          "LandAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 89
+            }
+          },
+          "OnImpact": [
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "Attack - Variant DiveBomb Jump",
+          "ID": 787,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 54
+            }
+          },
+          "MaxSpeed": 1000.0,
+          "TurnSpeed": 1000.0,
+          "OnActionComplete": 705,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceOnStart": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "Attack - Variant DiveBomb Land",
+          "ID": 748,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 89,
+              "Ease": 0.0
+            }
+          },
+          "GravityScale": 10.0,
+          "TurnSpeed": 5.0,
+          "OnActionComplete": 705,
+          "ImpulseDamage": 80,
+          "ImpulsePeriod": 2.0,
+          "ConstrainToGround": true,
+          "UseMotionNode": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "DoCollision": false,
+          "Name": "Attack - Variant DiveBomb Start",
+          "ID": 666,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 27,
+              "Ease": 0.1
+            }
+          },
+          "GravityScale": 0.0,
+          "MaxSpeed": 600.0,
+          "TurnSpeed": 220.0,
+          "OnActionComplete": 752,
+          "InAir": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterAttackDesc",
+        "properties": {
+          "StopTurnFrame": 30,
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "Attack - Variant FireBreath Fire",
+          "ID": 734,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 84,
+              "Ease": 0.0
+            }
+          },
+          "GravityScale": 0.0,
+          "MaxSpeed": 500.0,
+          "TurnSpeed": 1000.0,
+          "OnActionComplete": 735,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceOnStart": false
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "VulnerableEndTime": 0.8,
+          "Name": "Attack - Variant FireBreath Return",
+          "ID": 735,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 85,
+              "Ease": 0.0
+            }
+          },
+          "Acceleration": 500.0,
+          "Deceleration": 840.0,
+          "GravityScale": 0.0,
+          "MaxSpeed": 515.0,
+          "TurnSpeed": 1000.0,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "VulnerableEndTime": 0.8,
+          "Name": "Attack - Variant FireBreath Start",
+          "ID": 766,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 87,
+              "Ease": 0.18
+            }
+          },
+          "Acceleration": 500.0,
+          "Deceleration": 840.0,
+          "GravityScale": 0.0,
+          "MaxSpeed": 515.0,
+          "TurnSpeed": 1000.0,
+          "OnActionComplete": 734,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterAttackDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "VulnerableEndTime": 0.8,
+          "Name": "Attack - Variant FireBreath Start_OLD",
+          "ID": 733,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 87,
+              "Ease": 0.18
+            }
+          },
+          "GravityScale": 0.0,
+          "MaxSpeed": 530.0,
+          "TurnSpeed": 1000.0,
+          "OnActionComplete": 734,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceOnStart": false
+        }
+      },
+      {
+        "classname": "MonsterFlyToDesc",
+        "properties": {
+          "HeightOffset": 125.0,
+          "MaxBank": 45.0,
+          "MaxBankSpeed": 40.0,
+          "BankAcceleration": 15.0,
+          "MaxFlapSpeed": 1.5,
+          "ClimbAcceleration": 300.0,
+          "DiveAcceleration": 500.0,
+          "Range": 150.0,
+          "OnImpact": [
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          "ElapsedTimeMin": 3.0,
+          "ElapsedTimeMax": 3.0,
+          "Name": "Attack - Variant Glide LockOn",
+          "ID": 721,
+          "AnimController": {
+            "classname": "HAimAnimController",
+            "properties": {
+              "LeftAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 86
+                }
+              },
+              "ForwardAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 7
+                }
+              },
+              "RightAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 88
+                }
+              }
+            }
+          },
+          "GravityScale": 0.0,
+          "MaxSpeed": 700.0,
+          "TurnSpeed": 120.0,
+          "InAir": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "Attack - Variant Glide Projectile",
+          "ID": 754,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 90,
+              "Ease": 0.0
+            }
+          },
+          "Acceleration": 500.0,
+          "Deceleration": 640.0,
+          "GravityScale": 0.0,
+          "MaxSpeed": 600.0,
+          "TurnSpeed": 180.0,
+          "ImpulseDamage": 80,
+          "ImpulsePeriod": 2.0,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceOnStart": true
+        }
+      },
+      {
+        "classname": "MonsterAttackDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "VulnerableEndTime": 0.8,
+          "Name": "Attack - Variant LockOn Attack",
+          "ID": 755,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 78,
+              "Ease": 0.18
+            }
+          },
+          "Acceleration": 1500.0,
+          "GravityScale": 0.0,
+          "MaxSpeed": 1000.0,
+          "TurnSpeed": 15.0,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceTarget": false,
+          "FaceOnStart": false
+        }
+      },
+      {
+        "classname": "MonsterFlyToDesc",
+        "properties": {
+          "HeightOffset": 150.0,
+          "MaxBank": 45.0,
+          "MaxBankSpeed": 40.0,
+          "BankAcceleration": 15.0,
+          "MaxFlapSpeed": 1.5,
+          "ClimbAcceleration": 300.0,
+          "DiveAcceleration": 500.0,
+          "Range": 250.0,
+          "OnImpact": [
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          "ElapsedTimeMin": 2.0,
+          "ElapsedTimeMax": 2.5,
+          "Name": "Attack - Variant LockOn Dash",
+          "ID": 749,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 91
+            }
+          },
+          "Acceleration": 1000.0,
+          "Deceleration": 0.0,
+          "GravityScale": 0.0,
+          "MaxSpeed": 1500.0,
+          "TurnSpeed": 3000.0,
+          "InAir": true,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "Attack - Variant LockOn Swipe Start",
+          "ID": 756,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 79,
+              "Ease": 0.0
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 1000.0,
+          "OnActionComplete": 749,
+          "ImpulseDamage": 80,
+          "ImpulsePeriod": 2.0,
+          "UseMotionNode": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterJumpToDesc",
+        "properties": {
+          "FaceTargetOnWindup": false,
+          "Name": "Attack - Variant Swipe_OLD",
+          "ID": 739,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 53,
+              "Ease": 0.2
+            }
+          },
+          "Acceleration": 500.0,
+          "MaxSpeed": 1000.0,
+          "TurnSpeed": 100.0,
+          "OnActionComplete": 748,
+          "InAir": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "VulnerableEndTime": 0.8,
+          "Name": "Death",
+          "ID": 692,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 61,
+              "Ease": 0.5
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 0.0,
+          "ConstrainToGround": true,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "AllowImpacts": false,
+          "VulnerableEndTime": 0.8,
+          "Name": "Death - KillTrigger",
+          "ID": 693,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 63,
+              "Ease": 0.0
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 0.0,
+          "ConstrainToGround": true,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "Defense - DashBack",
+          "ID": 673,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 38,
+              "Ease": 0.0
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 220.0,
+          "OnActionComplete": 674,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "Defense - DashBack End",
+          "ID": 674,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 29,
+              "Ease": 0.0
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 220.0,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "Defense - DashBack Start",
+          "ID": 672,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 31,
+              "Ease": 0.1
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 220.0,
+          "OnActionComplete": 673,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "Defense - DashLeft",
+          "ID": 8,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 28,
+              "Ease": 0.0
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 100.0,
+          "OnActionComplete": 665,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "Defense - DashLeft End",
+          "ID": 665,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 35,
+              "Ease": 0.0
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 220.0,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "Defense - DashLeft Start",
+          "ID": 662,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 37,
+              "Ease": 0.1
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 220.0,
+          "OnActionComplete": 8,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "Defense - DashRight",
+          "ID": 7,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 30,
+              "Ease": 0.0
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 100.0,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "Defense - DashRight End",
+          "ID": 664,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 36,
+              "Ease": 0.0
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 220.0,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "Defense - DashRight Start",
+          "ID": 663,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 32,
+              "Ease": 0.1
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 220.0,
+          "OnActionComplete": 7,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "Defense - Variant DashBack",
+          "ID": 744,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 38,
+              "Ease": 0.0
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 220.0,
+          "OnActionComplete": 745,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "Defense - Variant DashBack End",
+          "ID": 745,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 29,
+              "Ease": 0.0
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 220.0,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "Defense - Variant DashBack Start",
+          "ID": 743,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 31,
+              "Ease": 0.1
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 220.0,
+          "OnActionComplete": 744,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterIdleDesc",
+        "properties": {
+          "IdleTime": 5.0,
+          "AllowStartTimeVariance": false,
+          "OnImpact": [
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          "VulnerableEndTime": 99.0,
+          "FlinchAnimation": 19,
+          "Name": "Dizzy - Idle",
+          "ID": 689,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 62,
+              "Ease": 0.5
+            }
+          },
+          "GravityScale": 0.0,
+          "OnActionComplete": 690,
+          "ImpulseDamage": 40,
+          "ImpulsePeriod": 2.0,
+          "ConstrainToGround": true,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "MonsterImpactDesc",
+        "properties": {
+          "UseDirectionalImpacts": true,
+          "BackAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 14,
+              "Ease": 0.18
+            }
+          },
+          "LeftAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 14,
+              "Ease": 0.18
+            }
+          },
+          "RightAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 14,
+              "Ease": 0.18
+            }
+          },
+          "FrontAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 56,
+              "Ease": 0.18
+            }
+          },
+          "UpAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 56,
+              "Ease": 0.18
+            }
+          },
+          "OnImpact": [
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "Dizzy - ImpactTransition",
+          "ID": 703,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {}
+          },
+          "OnActionComplete": 689,
+          "ImpulseDamage": 100,
+          "ImpulsePeriod": 2.0,
+          "ConstrainToGround": true,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "Dizzy - Return",
+          "ID": 690,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 60,
+              "Ease": 0.5
+            }
+          },
+          "GravityScale": 10.0,
+          "TurnSpeed": 0.0,
+          "ConstrainToGround": true,
+          "UseMotionNode": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterFallDesc",
+        "properties": {
+          "HeightAboveGround": 10.0,
+          "Name": "Fall",
+          "ID": 612,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 18,
+              "Ease": 0.1
+            }
+          },
+          "Acceleration": 400.0,
+          "GravityScale": 5.0,
+          "OnActionComplete": 613
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1,
+            658
+          ],
+          "FlinchAnimation": 19,
+          "Name": "Fall - Land",
+          "ID": 613,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 13,
+              "Ease": 0.0
+            }
+          },
+          "GravityScale": 3.0,
+          "TurnSpeed": 0.0,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "Fly - MoveBack",
+          "ID": 778,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 9,
+              "Ease": 0.0
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 220.0,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterHoverStrafeDesc",
+        "properties": {
+          "StrafeHeightOffset": 200.0,
+          "Range": 650.0,
+          "CloseAnimController": {
+            "classname": "StrafeBlendController",
+            "properties": {
+              "NeutralAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 2
+                }
+              },
+              "ForwardAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 2
+                }
+              },
+              "LeftAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 45
+                }
+              },
+              "RightAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 46
+                }
+              },
+              "BackwardAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 9
+                }
+              }
+            }
+          },
+          "CloseRange": 500.0,
+          "CloseSpeed": 200.0,
+          "OnImpact": [
+            -1,
+            -1,
+            -1,
+            728
+          ],
+          "Name": "Fly - MoveToTarget",
+          "ID": 781,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 1
+            }
+          },
+          "GravityScale": 0.0,
+          "MaxSpeed": 350.0,
+          "TurnSpeed": 120.0
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "Name": "Fly - MoveToTarget End",
+          "ID": 653,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 8
+            }
+          },
+          "GravityScale": 0.0,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterHoverStrafeDesc",
+        "properties": {
+          "StrafeHeightOffset": 200.0,
+          "Range": 500.0,
+          "CloseAnimController": {
+            "classname": "StrafeBlendController",
+            "properties": {
+              "NeutralAnimController": {
+                "classname": "PlayOnceAndIdleAnimController",
+                "properties": {
+                  "StartAnimController": {
+                    "classname": "SimpleAnimController",
+                    "properties": {
+                      "Animation": 8
+                    }
+                  },
+                  "IdleAnimController": {
+                    "classname": "SimpleAnimController",
+                    "properties": {
+                      "Animation": 2
+                    }
+                  }
+                }
+              },
+              "ForwardAnimController": {
+                "classname": "PlayOnceAndIdleAnimController",
+                "properties": {
+                  "StartAnimController": {
+                    "classname": "SimpleAnimController",
+                    "properties": {
+                      "Animation": 8
+                    }
+                  },
+                  "IdleAnimController": {
+                    "classname": "SimpleAnimController",
+                    "properties": {
+                      "Animation": 1
+                    }
+                  }
+                }
+              },
+              "LeftAnimController": {
+                "classname": "PlayOnceAndIdleAnimController",
+                "properties": {
+                  "StartAnimController": {
+                    "classname": "SimpleAnimController",
+                    "properties": {
+                      "Animation": 8
+                    }
+                  },
+                  "IdleAnimController": {
+                    "classname": "SimpleAnimController",
+                    "properties": {
+                      "Animation": 45
+                    }
+                  }
+                }
+              },
+              "RightAnimController": {
+                "classname": "PlayOnceAndIdleAnimController",
+                "properties": {
+                  "StartAnimController": {
+                    "classname": "SimpleAnimController",
+                    "properties": {
+                      "Animation": 8
+                    }
+                  },
+                  "IdleAnimController": {
+                    "classname": "SimpleAnimController",
+                    "properties": {
+                      "Animation": 46
+                    }
+                  }
+                }
+              },
+              "BackwardAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 9
+                }
+              }
+            }
+          },
+          "CloseRange": 500.0,
+          "CloseSpeed": 200.0,
+          "OnImpact": [
+            -1,
+            -1,
+            -1,
+            728
+          ],
+          "Name": "Fly - MoveToTarget_OLD",
+          "ID": 780,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 6
+            }
+          },
+          "GravityScale": 0.0,
+          "MaxSpeed": 350.0,
+          "TurnSpeed": 120.0,
+          "OnActionComplete": 653
+        }
+      },
+      {
+        "classname": "MonsterFlyToDesc",
+        "properties": {
+          "HeightOffset": 225.0,
+          "MaxBank": 40.0,
+          "MaxBankSpeed": 18.0,
+          "BankAcceleration": 320.0,
+          "TargetAngleRange": 25.0,
+          "MaxFlapSpeed": 1.3,
+          "TurningSlowdownFactor": 0.35,
+          "VerticalCompletionTolerance": 25.0,
+          "CloseAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 1
+            }
+          },
+          "CloseSpeed": 200.0,
+          "CloseTurnAngle": 40.0,
+          "CloseTurnAngleBuffer": 18.0,
+          "OnImpact": [
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          "InheritSpeed": true,
+          "SlowTurnAngle": 6.0,
+          "NormalTurnAngle": 25.0,
+          "FastTurnAngle": 80.0,
+          "SlowTurnFactor": 0.05,
+          "NormalTurnFactor": 0.35,
+          "FastTurnFactor": 1.7,
+          "Name": "Fly - Path",
+          "ID": 644,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 6
+            }
+          },
+          "Acceleration": 150.0,
+          "Deceleration": 200.0,
+          "GravityScale": 0.0,
+          "MaxSpeed": 440.0,
+          "TurnSpeed": 180.0,
+          "InAir": true
+        }
+      },
+      {
+        "classname": "MonsterFlyToDesc",
+        "properties": {
+          "HeightOffset": 225.0,
+          "MaxBank": 45.0,
+          "MaxBankSpeed": 40.0,
+          "BankAcceleration": 15.0,
+          "MaxFlapSpeed": 1.5,
+          "ClimbAcceleration": 300.0,
+          "DiveAcceleration": 500.0,
+          "Range": 200.0,
+          "CloseAnimController": {
+            "classname": "HAimAnimController",
+            "properties": {
+              "LeftAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 75,
+                  "Ease": 0.15
+                }
+              },
+              "ForwardAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 6,
+                  "Ease": 0.15
+                }
+              },
+              "RightAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 76,
+                  "Ease": 0.15
+                }
+              }
+            }
+          },
+          "CloseRange": 975.0,
+          "CloseSpeed": 1200.0,
+          "OnImpact": [
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          "ElapsedTimeMin": 3.0,
+          "ElapsedTimeMax": 3.0,
+          "Name": "Fly - Variant MoveToTarget",
+          "ID": 719,
+          "AnimController": {
+            "classname": "HAimAnimController",
+            "properties": {
+              "LeftAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 75,
+                  "Ease": 0.15
+                }
+              },
+              "ForwardAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 6,
+                  "Ease": 0.15
+                }
+              },
+              "RightAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 76,
+                  "Ease": 0.15
+                }
+              }
+            }
+          },
+          "Acceleration": 350.0,
+          "GravityScale": 0.0,
+          "MaxSpeed": 2000.0,
+          "TurnSpeed": 100.0,
+          "InAir": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "Fly - WalkToRun",
+          "ID": 700,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 6,
+              "Ease": 0.5
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 220.0,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterHoverStrafeDesc",
+        "properties": {
+          "StrafeHeightOffset": 225.0,
+          "OnImpact": [
+            -1,
+            -1,
+            -1,
+            728
+          ],
+          "Name": "Fly - WalkToTarget Start",
+          "ID": 698,
+          "AnimController": {
+            "classname": "StrafeBlendController",
+            "properties": {
+              "NeutralAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 2
+                }
+              },
+              "ForwardAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 1
+                }
+              },
+              "LeftAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 45
+                }
+              },
+              "RightAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 46
+                }
+              },
+              "BackwardAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 9
+                }
+              }
+            }
+          },
+          "GravityScale": 0.0,
+          "MaxSpeed": 250.0,
+          "TurnSpeed": 360.0
+        }
+      },
+      {
+        "classname": "MonsterFlySplineDesc",
+        "properties": {
+          "MinimumSpeed": 350.0,
+          "TerminalSpeed": 900.0,
+          "AutoBankHeadingRef": 8.0,
+          "AutoBankAngle": 45.0,
+          "AutoBankSpeed": 90.0,
+          "AutoBankAccel": 320.0,
+          "ClimbDescentMaxAngle": 55.0,
+          "Name": "FlySpline",
+          "ID": 757,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 6,
+              "Ease": 0.8
+            }
+          },
+          "Deceleration": 140.0,
+          "GravityScale": 0.0,
+          "MaxSpeed": 525.0,
+          "InAir": true,
+          "FaceOnStart": false
+        }
+      },
+      {
+        "classname": "MonsterFlySplineDesc",
+        "properties": {
+          "MinimumSpeed": 250.0,
+          "TerminalSpeed": 900.0,
+          "InheritSpeed": true,
+          "Name": "FlySpline FaceTarget",
+          "ID": 769,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 9,
+              "Ease": 0.8
+            }
+          },
+          "Acceleration": 180.0,
+          "Deceleration": 120.0,
+          "GravityScale": 0.0,
+          "MaxSpeed": 450.0,
+          "InAir": true,
+          "FaceTarget": true,
+          "FaceOnStart": false
+        }
+      },
+      {
+        "classname": "MonsterFlySplineDesc",
+        "properties": {
+          "MinimumSpeed": 250.0,
+          "TerminalSpeed": 900.0,
+          "InheritSpeed": true,
+          "Name": "FlySpline PreciseSpeed",
+          "ID": 770,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 6,
+              "Ease": 0.8
+            }
+          },
+          "Acceleration": 180.0,
+          "Deceleration": 120.0,
+          "GravityScale": 0.0,
+          "MaxSpeed": 300.0,
+          "InAir": true,
+          "FaceOnStart": false
+        }
+      },
+      {
+        "classname": "MonsterFlySplineDesc",
+        "properties": {
+          "MinimumSpeed": 250.0,
+          "TerminalSpeed": 900.0,
+          "InheritSpeed": true,
+          "Name": "FlySpline RangedAttack",
+          "ID": 768,
+          "AnimController": {
+            "classname": "SequentialAnimController",
+            "properties": {
+              "AnimControllerList": [
+                {
+                  "classname": "SimpleAnimController",
+                  "properties": {
+                    "Animation": 66
+                  }
+                },
+                {
+                  "classname": "SimpleAnimController",
+                  "properties": {
+                    "Animation": 64,
+                    "Ease": 0.0
+                  }
+                },
+                {
+                  "classname": "SimpleAnimController",
+                  "properties": {
+                    "Animation": 65,
+                    "Ease": 0.0
+                  }
+                }
+              ],
+              "Ease": 0.25
+            }
+          },
+          "Acceleration": 180.0,
+          "Deceleration": 120.0,
+          "GravityScale": 0.0,
+          "MaxSpeed": 450.0,
+          "InAir": true,
+          "FaceTarget": true,
+          "FaceOnStart": false
+        }
+      },
+      {
+        "classname": "MonsterFlySplineDesc",
+        "properties": {
+          "TerminalSpeed": 1800.0,
+          "Name": "FlySpline Reveal",
+          "ID": 772,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 6,
+              "Ease": 0.8
+            }
+          },
+          "Acceleration": 800.0,
+          "Deceleration": 450.0,
+          "GravityScale": 0.0,
+          "MaxSpeed": 900.0,
+          "InAir": true,
+          "FaceOnStart": false
+        }
+      },
+      {
+        "classname": "MonsterFlySplineDesc",
+        "properties": {
+          "TerminalSpeed": 1800.0,
+          "Name": "FlySpline RevealFaceTarget",
+          "ID": 773,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 6,
+              "Ease": 0.8
+            }
+          },
+          "Acceleration": 800.0,
+          "Deceleration": 450.0,
+          "GravityScale": 0.0,
+          "MaxSpeed": 900.0,
+          "InAir": true,
+          "FaceTarget": true,
+          "FaceOnStart": false
+        }
+      },
+      {
+        "classname": "MonsterIdleDesc",
+        "properties": {
+          "IdleTime": 1.333,
+          "AllowStartTimeVariance": false,
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "Idle - Air",
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 2
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 180.0,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceOnStart": true
+        }
+      },
+      {
+        "classname": "MonsterIdleDesc",
+        "properties": {
+          "AllowStartTimeVariance": false,
+          "OnImpact": [
+            -1,
+            -1,
+            -1,
+            658
+          ],
+          "Name": "Idle - Ground",
+          "ID": 650,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 0,
+              "Ease": 0.0
+            }
+          },
+          "GravityScale": 0.0,
+          "ConstrainToGround": true,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "Idle - Variant Forward To Fast",
+          "ID": 747,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 92,
+              "Ease": 0.5
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 0.0,
+          "InAir": true,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "MonsterImpactDesc",
+        "properties": {
+          "UseDirectionalImpacts": true,
+          "BackAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 68,
+              "Ease": 0.18
+            }
+          },
+          "LeftAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 68,
+              "Ease": 0.18
+            }
+          },
+          "RightAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 68,
+              "Ease": 0.18
+            }
+          },
+          "FrontAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 67,
+              "Ease": 0.18
+            }
+          },
+          "UpAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 68,
+              "Ease": 0.0
+            }
+          },
+          "OnImpact": [
+            -1,
+            -1,
+            -1,
+            658
+          ],
+          "Name": "Impact - Heavy",
+          "ID": 658,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Ease": 0.0
+            }
+          },
+          "ImpulseDamage": 40,
+          "ImpulsePeriod": 1.0,
+          "LimitPeriodToTimeInState": true,
+          "ConstrainToGround": true,
+          "UseMotionNode": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterImpactDesc",
+        "properties": {
+          "UseDirectionalImpacts": true,
+          "BackAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 17,
+              "Ease": 0.18
+            }
+          },
+          "LeftAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 17,
+              "Ease": 0.18
+            }
+          },
+          "RightAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 17,
+              "Ease": 0.18
+            }
+          },
+          "FrontAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 17,
+              "Ease": 0.18
+            }
+          },
+          "UpAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 17,
+              "Ease": 0.0
+            }
+          },
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "Impact - Heavy In Air",
+          "ID": 728,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Ease": 0.0
+            }
+          },
+          "ImpulseDamage": 40,
+          "ImpulsePeriod": 1.0,
+          "LimitPeriodToTimeInState": true,
+          "ConstrainToGround": true,
+          "UseMotionNode": true,
+          "FaceOnStart": true
+        }
+      },
+      {
+        "classname": "MonsterImpactDesc",
+        "properties": {
+          "UseDirectionalImpacts": true,
+          "BackAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 14,
+              "Ease": 0.18
+            }
+          },
+          "LeftAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 14,
+              "Ease": 0.18
+            }
+          },
+          "RightAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 14,
+              "Ease": 0.18
+            }
+          },
+          "FrontAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 56,
+              "Ease": 0.18
+            }
+          },
+          "UpAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 14,
+              "Ease": 0.18
+            }
+          },
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "Impact - HeavyIntoRetaliation",
+          "ID": 688,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Ease": 0.0
+            }
+          },
+          "OnActionComplete": 606,
+          "ImpulseDamage": 40,
+          "ImpulsePeriod": 1.0,
+          "LimitPeriodToTimeInState": true,
+          "ConstrainToGround": true,
+          "UseMotionNode": true,
+          "FaceOnStart": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "Name": "Impact - InstantStagger",
+          "ID": 771,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 101,
+              "Ease": 0.0
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 1000.0,
+          "InAir": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "Impact - Recover FlyUp",
+          "ID": 702,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 60,
+              "Ease": 0.5
+            }
+          },
+          "GravityScale": 10.0,
+          "TurnSpeed": 0.0,
+          "OnActionComplete": 786,
+          "ConstrainToGround": true,
+          "UseMotionNode": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterIdleDesc",
+        "properties": {
+          "IdleTime": 5.0,
+          "AllowStartTimeVariance": false,
+          "OnImpact": [
+            -1,
+            -1,
+            -1,
+            658
+          ],
+          "FlinchAnimation": 19,
+          "Name": "Impact - Staggered Idle",
+          "ID": 620,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 16,
+              "Ease": 0.18
+            }
+          },
+          "OnActionComplete": 701,
+          "ImpulseDamage": 100,
+          "OnImpulseImpact": 658,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "MonsterImpactDesc",
+        "properties": {
+          "UseDirectionalImpacts": true,
+          "BackAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 72,
+              "Ease": 0.18
+            }
+          },
+          "LeftAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 72,
+              "Ease": 0.18
+            }
+          },
+          "RightAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 72,
+              "Ease": 0.18
+            }
+          },
+          "FrontAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 71,
+              "Ease": 0.18
+            }
+          },
+          "UpAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 71,
+              "Ease": 0.18
+            }
+          },
+          "OnImpact": [
+            -1,
+            -1,
+            658,
+            658
+          ],
+          "Name": "Impact - Staggered Impact",
+          "ID": 779,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 72,
+              "Ease": 0.0
+            }
+          },
+          "ImpulseDamage": 100,
+          "ImpulsePeriod": 2.0,
+          "OnImpulseImpact": 658,
+          "ConstrainToGround": true,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1,
+            658
+          ],
+          "Name": "Impact - Staggered Return",
+          "ID": 701,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 73,
+              "Ease": 0.5
+            }
+          },
+          "GravityScale": 10.0,
+          "TurnSpeed": 0.0,
+          "ConstrainToGround": true,
+          "UseMotionNode": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "Name": "Impact - Staggered Start",
+          "ID": 621,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 15,
+              "Ease": 0.0
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 1000.0,
+          "OnActionComplete": 612,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceOnStart": true
+        }
+      },
+      {
+        "classname": "MonsterImpactDesc",
+        "properties": {
+          "UseDirectionalImpacts": true,
+          "BackAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 72,
+              "Ease": 0.18
+            }
+          },
+          "LeftAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 72,
+              "Ease": 0.18
+            }
+          },
+          "RightAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 72,
+              "Ease": 0.18
+            }
+          },
+          "FrontAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 71,
+              "Ease": 0.18
+            }
+          },
+          "UpAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 71,
+              "Ease": 0.18
+            }
+          },
+          "OnImpact": [
+            -1,
+            -1,
+            658,
+            658
+          ],
+          "Name": "Impact - Standard",
+          "ID": 50,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 72,
+              "Ease": 0.0
+            }
+          },
+          "OnActionComplete": 702,
+          "ImpulseDamage": 100,
+          "ImpulsePeriod": 2.0,
+          "OnImpulseImpact": 658,
+          "ConstrainToGround": true,
+          "UseMotionNode": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterImpactDesc",
+        "properties": {
+          "UseDirectionalImpacts": true,
+          "BackAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 17,
+              "Ease": 0.18
+            }
+          },
+          "LeftAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 17,
+              "Ease": 0.18
+            }
+          },
+          "RightAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 17,
+              "Ease": 0.18
+            }
+          },
+          "FrontAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 17,
+              "Ease": 0.18
+            }
+          },
+          "UpAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 17,
+              "Ease": 0.0
+            }
+          },
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "Impact - Variant Heavy In Air",
+          "ID": 742,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Ease": 0.0
+            }
+          },
+          "GravityScale": 0.0,
+          "ImpulseDamage": 40,
+          "ImpulsePeriod": 1.0,
+          "LimitPeriodToTimeInState": true,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceOnStart": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "Impact - Variant Heavy in Air Retaliation",
+          "ID": 767,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 100,
+              "Ease": 0.0
+            }
+          },
+          "Acceleration": 500.0,
+          "Deceleration": 640.0,
+          "GravityScale": 0.0,
+          "MaxSpeed": 600.0,
+          "TurnSpeed": 180.0,
+          "ImpulseDamage": 80,
+          "ImpulsePeriod": 2.0,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceOnStart": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "Impact - Variant Recover FlyUp",
+          "ID": 741,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 60,
+              "Ease": 0.5
+            }
+          },
+          "GravityScale": 10.0,
+          "TurnSpeed": 0.0,
+          "OnActionComplete": 764,
+          "ConstrainToGround": true,
+          "UseMotionNode": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "Impact - Variant Tumble",
+          "ID": 724,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 82,
+              "Ease": 0.0
+            }
+          },
+          "GravityScale": 3.0,
+          "TurnSpeed": 30.0,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "MonsterFallDesc",
+        "properties": {
+          "HeightAboveGround": 10.0,
+          "Name": "Impact - Variant Tumble Fall",
+          "ID": 723,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 81,
+              "Ease": 0.1
+            }
+          },
+          "Acceleration": 400.0,
+          "GravityScale": 5.0,
+          "TurnSpeed": 30.0,
+          "OnActionComplete": 724,
+          "UseMotionNode": true,
+          "FaceTarget": true,
+          "FaceOnStart": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "Name": "Impact - Variant Tumble Start",
+          "ID": 722,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 80,
+              "Ease": 0.0
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 30.0,
+          "OnActionComplete": 723,
+          "InAir": true,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "DoCollision": false,
+          "Name": "Interactive - Brute Mayhem",
+          "ID": 777,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 104
+            }
+          },
+          "GravityScale": 0.0
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "DoCollision": false,
+          "Name": "Interactive - Crowd Mayhem Grab",
+          "ID": 788,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 112
+            }
+          },
+          "GravityScale": 0.0
+        }
+      },
+      {
+        "classname": "CharacterDoInteractiveDesc",
+        "properties": {
+          "TargetType": "base/human",
+          "MaxErrorDistance": 360.0,
+          "Arc": 5000.0,
+          "DoCollisionOther": true,
+          "Anchor": 1,
+          "ConvergeTime": 0.0,
+          "AnimationID": 109,
+          "TargetAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 109,
+              "Ease": 0.5
+            }
+          },
+          "AnimationSource": 0,
+          "Name": "Interactive - Crowd Mayhem Pounce",
+          "ID": 789,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 109,
+              "Ease": 0.0
+            }
+          },
+          "GravityScale": 0.0,
+          "UseMotionNodeRotation": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "DoCollision": false,
+          "Name": "Interactive - Crowd Mayhem Pounce Start",
+          "ID": 791,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 117
+            }
+          },
+          "GravityScale": 0.0,
+          "OnActionComplete": 789,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "CharacterDoInteractiveDesc",
+        "properties": {
+          "ValidStateDescs": [
+            689
+          ],
+          "TargetType": "war/war",
+          "Initiator": 1,
+          "MaxErrorDistance": 80.0,
+          "DoCameraCollision": true,
+          "ConvergeTime": 0.0,
+          "MashAdvances": false,
+          "AnimationID": 69,
+          "TargetAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 70,
+              "Ease": 0.1
+            }
+          },
+          "OnCompleteOther": 0,
+          "UseCameraNode": true,
+          "ShowCinematicBars": false,
+          "AnimationSource": 0,
+          "Priority": 4,
+          "ShowWorldContext": true,
+          "ClampWorldContextDistance": 750.0,
+          "InteractiveType": 1,
+          "Name": "Interactive - Fatality",
+          "ID": 617,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 69
+            }
+          }
+        }
+      },
+      {
+        "classname": "MonsterIdleDesc",
+        "properties": {
+          "AllowStartTimeVariance": false,
+          "OnImpact": [
+            -1,
+            -1,
+            -1,
+            658
+          ],
+          "Name": "Perch - Sitting",
+          "ID": 704,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 0,
+              "Ease": 0.0
+            }
+          },
+          "ConstrainToGround": true,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "Name": "Reveal",
+          "ID": 775,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 103
+            }
+          },
+          "GravityScale": 0.0,
+          "InAir": true,
+          "UseMotionNode": true,
+          "UseMotionNodeRotation": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "AllowImpacts": false,
+          "Name": "Spawn - Emerge",
+          "ID": 694,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 57,
+              "Ease": 0.0
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 1000.0,
+          "InAir": true,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "AllowImpacts": false,
+          "Name": "TurnToFace - Left",
+          "ID": 783,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 43,
+              "Ease": 0.0
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 200.0,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterIdleDesc",
+        "properties": {
+          "IdleTime": 0.4,
+          "IdleTimeVariance": 0.07,
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "TurnToFace - Left_OLD",
+          "ID": 625,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 43
+            }
+          },
+          "GravityScale": 0.0,
+          "MaxSpeed": 10.0,
+          "TurnSpeed": 150.0,
+          "ConstrainToGround": true,
+          "InAir": true,
+          "FaceOnStart": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "AllowImpacts": false,
+          "Name": "TurnToFace - Right",
+          "ID": 784,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 44,
+              "Ease": 0.0
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 200.0,
+          "InAir": true,
+          "UseMotionNode": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterIdleDesc",
+        "properties": {
+          "IdleTime": 0.4,
+          "IdleTimeVariance": 0.07,
+          "OnImpact": [
+            -1,
+            -1,
+            -1
+          ],
+          "Name": "TurnToFace - Right_OLD",
+          "ID": 641,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 44
+            }
+          },
+          "GravityScale": 0.0,
+          "MaxSpeed": 10.0,
+          "TurnSpeed": 150.0,
+          "ConstrainToGround": true,
+          "InAir": true,
+          "FaceOnStart": true
+        }
+      }
+    ]
+  }
+}

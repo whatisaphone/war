@@ -1,0 +1,134 @@
+{
+  "Parent": "base/standardbehavior",
+  "Name": "shadowwar/shadowhavoc_combatbehavior",
+  "Properties": {
+    "ScanAlertDistance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ScanInterval": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ClearObstacleMoveState": {
+      "Flags": 4,
+      "Type": 5
+    }
+  },
+  "StaticProperties": {},
+  "Methods": [
+    "begin",
+    "onTargetUnreachable"
+  ],
+  "PackageName": "shadowwar",
+  "DefaultValues": {
+    "ID": "ShadowHavoc CombatBehavior",
+    "BackgroundActions": [
+      {
+        "classname": "base/scanaction",
+        "properties": {
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "ClearObstacleMoveState": "Havoc Attack 1",
+    "ScanInterval": 1.5,
+    "OnAttackHandler": [],
+    "PathBlockedBreakableHandler": {
+      "classname": "base/clearobstacleaction",
+      "properties": {
+        "ID": "Clear Obstacle",
+        "ActionCode": 5,
+        "Priority": 16,
+        "InterruptibleBy": [
+          "Death",
+          "Exit",
+          "Interactive",
+          "Impact"
+        ],
+        "Position": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "ComponentActions": [
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "MoveState": "Havoc Strafe",
+          "ExitOnComplete": false,
+          "ID": "Strafe",
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "Position": [
+            5.8200924e-19,
+            -3.1472179e22,
+            0.000049078695
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "AttackType": 1,
+          "Pressure": 7,
+          "MaxRange": 200.0,
+          "MinAngle": -135.0,
+          "MaxAngle": 135.0,
+          "MoveState": "Attack - Standard Havoc",
+          "AutoClose": true,
+          "CloseMoveState": "Havoc Strafe",
+          "PreferredDistance": 150.0,
+          "ID": "Melee Attack",
+          "Priority": 7,
+          "ResourceLock": "Attack",
+          "MinLockTime": 1.0,
+          "MaxLockTime": 2.0,
+          "Position": [
+            -7.0943905e16,
+            -76914295000.0,
+            -5.3721043e-17
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "AttackType": 1,
+          "Pressure": 7,
+          "MinRange": 150.0,
+          "MaxRange": 700.0,
+          "MinAngle": -135.0,
+          "MaxAngle": 135.0,
+          "MoveState": "Havoc Jump",
+          "ID": "Ranged Attack",
+          "Priority": 9,
+          "ResourceLock": "RangedAttack",
+          "MinLockTime": 5.0,
+          "MaxLockTime": 6.0,
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "ScanAlertDistance": -1
+  },
+  "States": {
+    "LostTarget": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    }
+  }
+}

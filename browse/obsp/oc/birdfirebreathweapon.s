@@ -1,0 +1,85 @@
+.method shouldTagTarget
+0x0001 .param_count 1
+0x0001 .line 155
+0x0006     inc_scope
+0x0007     param_assign actor
+0x0017 .line 157
+0x001c     bool false
+0x001e     var_assign ret
+0x002c .line 159
+0x0031     string "angel_brute/flyspline_shield"
+0x0058     int 1
+0x005d     identifier actor
+0x006d     method instanceOf
+0x0082     branch_false 0x00a8
+0x0087 .line 160
+0x008c     identifier ret
+0x009a     bool true
+0x009c     assign
+0x009d     pop
+0x009e .line 161
+0x00a3     goto 0x02bd
+0x00a8 .label 0x0b13
+0x00ad     string "angel_brute/angel_brute_flyspline_splinegrenade"
+0x00e7     int 1
+0x00ec     identifier actor
+0x00fc     method instanceOf
+0x0111     branch_false 0x0162
+0x0116 .line 162
+0x011b     identifier ret
+0x0129     int 0
+0x012e     identifier actor
+0x013e     method shouldBirdTag
+0x0156     assign
+0x0157     pop
+0x0158 .line 163
+0x015d     goto 0x02b8
+0x0162 .label 0x0b15
+0x0167     string "torturedgate/torturedgate"
+0x018b     int 1
+0x0190     identifier actor
+0x01a0     method instanceOf
+0x01b5     branch_false 0x01db
+0x01ba .line 164
+0x01bf     identifier ret
+0x01cd     bool false
+0x01cf     assign
+0x01d0     pop
+0x01d1 .line 165
+0x01d6     goto 0x02b3
+0x01db .label 0x0b17
+0x01e0     string "Character"
+0x01f4     int 1
+0x01f9     identifier actor
+0x0209     method instanceOf
+0x021e     branch_false 0x0244
+0x0223 .line 166
+0x0228     identifier ret
+0x0236     bool true
+0x0238     assign
+0x0239     pop
+0x023a .line 167
+0x023f     goto 0x02ae
+0x0244 .label 0x0b19
+0x0249     string "Projectile"
+0x025e     int 1
+0x0263     identifier actor
+0x0273     method instanceOf
+0x0288     branch_false 0x02a9
+0x028d .line 168
+0x0292     identifier ret
+0x02a0     bool true
+0x02a2     assign
+0x02a3     pop
+0x02a4 .line 170
+0x02a9 .label 0x0b1b
+0x02ae .label 0x0b1a
+0x02b3 .label 0x0b18
+0x02b8 .label 0x0b16
+0x02bd .label 0x0b14
+0x02c2     identifier ret
+0x02d0     return
+0x02d1 .line 171
+0x02d6     dec_scope
+0x02d7     return_null
+

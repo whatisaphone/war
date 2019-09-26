@@ -1,0 +1,958 @@
+{
+  "Parent": "Monster",
+  "Name": "watcher/watchereden",
+  "Properties": {},
+  "StaticProperties": {
+    "Description": {
+      "Value": {
+        "classname": "MonsterDesc",
+        "properties": {
+          "IsGhostHookGrabbable": true,
+          "AutoDecayOnDeath": true,
+          "SpawnPathState": 87,
+          "AddToRegion": false,
+          "AlertDistance": 1600.0,
+          "HuntDistance": 2000.0,
+          "FlinchAnim": 77,
+          "MoveStates": {
+            "classname": "CharacterMoveStateList",
+            "properties": {
+              "MoveStates": [
+                {
+                  "classname": "MonsterHoverStrafeDesc",
+                  "properties": {
+                    "MinStrafeHeightOffset": 10.0,
+                    "StrafeHeightOffset": 60.0,
+                    "MaxFlapSpeed": 1.0,
+                    "HelperTargetClass": "war/war",
+                    "HelperTargetDistance": 250.0,
+                    "Name": "Banish",
+                    "ID": 3,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 6,
+                        "Ease": 1.0
+                      }
+                    },
+                    "Acceleration": 200.0,
+                    "Deceleration": 400.0,
+                    "TurnSpeed": 150.0
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "Name": "EdenEmote1",
+                    "ID": 56,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 16
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "MoveStrength": 0.0,
+                    "TurnSpeed": 250.0,
+                    "EnableIK": false
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "Name": "EdenEmote2",
+                    "ID": 57,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 17
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "MoveStrength": 0.0,
+                    "TurnSpeed": 250.0,
+                    "EnableIK": false
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "Name": "EdenEmote3",
+                    "ID": 58,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 18
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "MoveStrength": 0.0,
+                    "TurnSpeed": 250.0,
+                    "EnableIK": false
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "Name": "EdenEmote4",
+                    "ID": 59,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 19
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "MoveStrength": 0.0,
+                    "TurnSpeed": 250.0,
+                    "EnableIK": false
+                  }
+                },
+                {
+                  "classname": "MonsterIdleDesc",
+                  "properties": {
+                    "Name": "EdenIdle",
+                    "ID": 15,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 2
+                      }
+                    },
+                    "Acceleration": 200.0,
+                    "Deceleration": 400.0,
+                    "GravityScale": 0.0,
+                    "TurnSpeed": 250.0,
+                    "EnableIK": false,
+                    "InAir": true,
+                    "FaceTarget": true
+                  }
+                },
+                {
+                  "classname": "MonsterHoverStrafeDesc",
+                  "properties": {
+                    "MinStrafeHeightOffset": 10.0,
+                    "StrafeHeightOffset": 60.0,
+                    "MaxFlapSpeed": 1.0,
+                    "HelperTargetClass": "war/war",
+                    "HelperTargetDistance": 250.0,
+                    "UsePathing": false,
+                    "Name": "EmoteIdle",
+                    "ID": 55,
+                    "AnimController": {
+                      "classname": "RandomAnimController",
+                      "properties": {
+                        "AnimationList": [
+                          15,
+                          14,
+                          13
+                        ],
+                        "AnimationChance": [
+                          33,
+                          33,
+                          34
+                        ]
+                      }
+                    },
+                    "Acceleration": 200.0,
+                    "Deceleration": 400.0,
+                    "TurnSpeed": 250.0,
+                    "EnableIK": false
+                  }
+                },
+                {
+                  "classname": "MonsterStewardWispMoveToDesc",
+                  "properties": {
+                    "LocalOffset": [
+                      0.0,
+                      0.0,
+                      -30.0
+                    ],
+                    "Name": "GoToWar",
+                    "ID": 12,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 10,
+                        "Ease": 1.0
+                      }
+                    },
+                    "Acceleration": 300.0,
+                    "Deceleration": 300.0,
+                    "MaxSpeed": 800.0
+                  }
+                },
+                {
+                  "classname": "MonsterHoverStrafeDesc",
+                  "properties": {
+                    "MinStrafeHeightOffset": 10.0,
+                    "StrafeHeightOffset": 60.0,
+                    "MaxFlapSpeed": 1.0,
+                    "HelperTargetClass": "war/war",
+                    "HelperTargetDistance": 250.0,
+                    "UsePathing": false,
+                    "Name": "HoverIdle",
+                    "ID": 2,
+                    "AnimController": {
+                      "classname": "StrafeBlendController",
+                      "properties": {
+                        "NeutralAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 2
+                          }
+                        },
+                        "ForwardAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 5
+                          }
+                        },
+                        "LeftAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 8
+                          }
+                        },
+                        "RightAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 3
+                          }
+                        },
+                        "BackwardAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 1
+                          }
+                        },
+                        "Ease": 1.0
+                      }
+                    },
+                    "Acceleration": 200.0,
+                    "Deceleration": 400.0,
+                    "TurnSpeed": 250.0,
+                    "EnableIK": false
+                  }
+                },
+                {
+                  "classname": "MonsterHoverStrafeDesc",
+                  "properties": {
+                    "MinStrafeHeightOffset": 20.0,
+                    "StrafeHeightOffset": 80.0,
+                    "MaxFlapSpeed": 1.0,
+                    "HelperTargetClass": "war/war",
+                    "HelperTargetDistance": 250.0,
+                    "InheritSpeed": true,
+                    "Name": "HoverStrafe",
+                    "ID": 13,
+                    "AnimController": {
+                      "classname": "StrafeBlendController",
+                      "properties": {
+                        "NeutralAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 2
+                          }
+                        },
+                        "ForwardAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 5
+                          }
+                        },
+                        "LeftAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 8
+                          }
+                        },
+                        "RightAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 3
+                          }
+                        },
+                        "BackwardAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 1
+                          }
+                        },
+                        "Ease": 1.0
+                      }
+                    },
+                    "Acceleration": 400.0,
+                    "Deceleration": 400.0,
+                    "MaxSpeed": 400.0,
+                    "TurnSpeed": 250.0,
+                    "FaceTarget": true
+                  }
+                },
+                {
+                  "classname": "MonsterHoverStrafeDesc",
+                  "properties": {
+                    "MinStrafeHeightOffset": 20.0,
+                    "StrafeHeightOffset": 80.0,
+                    "MaxFlapSpeed": 1.0,
+                    "HelperTargetClass": "war/war",
+                    "HelperTargetDistance": 250.0,
+                    "InheritSpeed": true,
+                    "Name": "HoverStrafe Start",
+                    "ID": 1,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 4,
+                        "Ease": 1.0
+                      }
+                    },
+                    "Acceleration": 2000.0,
+                    "Deceleration": 2000.0,
+                    "MaxSpeed": 400.0,
+                    "TurnSpeed": 250.0
+                  }
+                },
+                {
+                  "classname": "MonsterHoverStrafeDesc",
+                  "properties": {
+                    "MinStrafeHeightOffset": 10.0,
+                    "StrafeHeightOffset": 30.0,
+                    "MaxFlapSpeed": 1.0,
+                    "HelperTargetClass": "war/war",
+                    "HelperTargetDistance": 250.0,
+                    "Name": "HoverStrafePOI",
+                    "ID": 14,
+                    "AnimController": {
+                      "classname": "StrafeBlendController",
+                      "properties": {
+                        "NeutralAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 2
+                          }
+                        },
+                        "ForwardAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 5
+                          }
+                        },
+                        "LeftAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 8
+                          }
+                        },
+                        "RightAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 3
+                          }
+                        },
+                        "BackwardAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 1
+                          }
+                        },
+                        "Ease": 1.0
+                      }
+                    },
+                    "Acceleration": 2000.0,
+                    "Deceleration": 2000.0,
+                    "MaxSpeed": 400.0,
+                    "TurnSpeed": 250.0,
+                    "EnableIK": false
+                  }
+                }
+              ]
+            }
+          },
+          "Invincible": true,
+          "UseObstacleAvoidance": true,
+          "OnPortalExit": 611,
+          "Label": "The Watcher",
+          "UsePathfinding": true,
+          "IsFlyingCreature": true,
+          "SeparationDistance": 20.0,
+          "Visual": "watcher",
+          "FactionID": 0,
+          "MoveWeight": 100.0,
+          "CharacterShadow": true,
+          "Animations": {
+            "classname": "AnimationList",
+            "properties": {
+              "Animations": [
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 6,
+                    "Name": "Watcher_Banish",
+                    "AnimationName": "watcher_banish",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Watcher_Banish",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "EventTrigger",
+                        "properties": {
+                          "EventName": "onBanishComplete",
+                          "TriggerFrame": 30
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Watcher_Whisp",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "DissolveTrigger",
+                        "properties": {
+                          "DissolveTexture": "Blue_Dissolve_Ramp",
+                          "TheseMaterialsOnly": [
+                            "Watcher",
+                            "Watcher_cloth"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 16,
+                    "Name": "watcher_edenemote_01",
+                    "AnimationName": "Watcher_Emote_02"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 17,
+                    "Name": "watcher_edenemote_02",
+                    "AnimationName": "Watcher_Emote_01",
+                    "Length": 70
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 18,
+                    "Name": "watcher_edenemote_03",
+                    "AnimationName": "Watcher_Emote_03"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 19,
+                    "Name": "watcher_edenemote_04",
+                    "AnimationName": "Watcher_Emote_01"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 15,
+                    "Name": "watcher_emote_01",
+                    "AnimationName": "watcher_emote_01"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 14,
+                    "Name": "watcher_emote_02",
+                    "AnimationName": "watcher_emote_02"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 13,
+                    "Name": "watcher_emote_03",
+                    "AnimationName": "watcher_emote_03"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 11,
+                    "Name": "watcher_emote_04",
+                    "AnimationName": "watcher_emote_04"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 12,
+                    "Name": "watcher_emote_05",
+                    "AnimationName": "watcher_emote_05"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 10,
+                    "Name": "Watcher_GoToWar",
+                    "AnimationName": "watcher_idle",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Watcher_Whisp",
+                          "IsRequired": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 2
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 2,
+                    "Name": "Watcher_Idle",
+                    "AnimationName": "watcher_idle",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 2,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Watcher_Idle",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 8,
+                          "TriggerFrame": 14,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 8,
+                          "TriggerFrame": 35,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 8,
+                          "TriggerFrame": 60,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 8,
+                          "TriggerFrame": 95,
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 1,
+                    "Name": "Watcher_Move_Backward",
+                    "AnimationName": "watcher_move_backward",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 2,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 3,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 8,
+                          "TriggerFrame": 15,
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 5,
+                    "Name": "Watcher_Move_Forward",
+                    "AnimationName": "watcher_move_forward",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 2,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 3,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 8,
+                          "TriggerFrame": 25,
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 8,
+                    "Name": "Watcher_Move_Left",
+                    "AnimationName": "watcher_move_left",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 2,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 3,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 8,
+                          "TriggerFrame": 15,
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 3,
+                    "Name": "Watcher_Move_Right",
+                    "AnimationName": "watcher_move_right",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 2,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 3,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 8,
+                          "TriggerFrame": 15,
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 4,
+                    "Name": "Watcher_Summon",
+                    "AnimationName": "watcher_summon",
+                    "Triggers": [
+                      {
+                        "classname": "EventTrigger",
+                        "properties": {
+                          "EventName": "onSummonComplete",
+                          "TriggerFrame": 50
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Watcher_Summon",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 0
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 8,
+                          "TriggerFrame": 15
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 8,
+                          "TriggerFrame": 49
+                        }
+                      },
+                      {
+                        "classname": "DissolveTrigger",
+                        "properties": {
+                          "DissolveTexture": "Blue_Dissolve_Ramp",
+                          "DissolveIn": true,
+                          "TheseMaterialsOnly": [
+                            "Watcher",
+                            "Watcher_cloth"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          "Sounds": {
+            "classname": "SoundList",
+            "properties": {
+              "Sounds": [
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 4,
+                    "Name": "vo_watcher_call_war 1",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 3000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_call_war_01",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 5,
+                    "Name": "vo_watcher_call_war 2",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 3000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_call_war_06,vo_watcher_call_war_07,vo_watcher_call_war_08",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 1,
+                    "Name": "Watcher_Banish",
+                    "Volume": 0.75,
+                    "FadeOutTime": 3.0,
+                    "FollowActor": true,
+                    "ExclusiveActor": true,
+                    "Min": 1.0,
+                    "Max": 2000.0,
+                    "Priority": 0,
+                    "Sounds": "watcher_banish_01",
+                    "Group": "watcher_banish"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 6,
+                    "Name": "Watcher_Banish_War",
+                    "Volume": 0.39990234,
+                    "Pitch": -10.0,
+                    "FadeInTime": 2.0,
+                    "FollowActor": true,
+                    "Max": 2000.0,
+                    "Priority": 20,
+                    "Sounds": "watcher_banish_01",
+                    "Group": "Creatures"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 7,
+                    "Name": "watcher_banish_war_impact",
+                    "Volume": 0.39990234,
+                    "FollowActor": true,
+                    "Max": 2000.0,
+                    "Sounds": "watcher_banish_glove_01",
+                    "Group": "Creatures"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 8,
+                    "Name": "Watcher_Foley",
+                    "Volume": 0.024993896,
+                    "RandomPitch": 3.0,
+                    "FollowActor": true,
+                    "Priority": 40,
+                    "Sounds": "Watcher_Foley_01,Watcher_Foley_02,Watcher_Foley_03,Watcher_Foley_04",
+                    "Group": "Creature Foley"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 2,
+                    "Name": "Watcher_Idle",
+                    "Volume": 0.75,
+                    "Loop": true,
+                    "FadeInTime": 0.5,
+                    "FadeOutTime": 2.0,
+                    "Offset": true,
+                    "FollowActor": true,
+                    "ExclusiveActor": true,
+                    "Min": 1.0,
+                    "Max": 3000.0,
+                    "Priority": 50,
+                    "Sounds": "watcher_idle_loop_01",
+                    "Group": "Creatures"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 3,
+                    "Name": "Watcher_Move",
+                    "Volume": 0.19995117,
+                    "RandomPitch": 2.0,
+                    "FollowActor": true,
+                    "ExclusiveActor": true,
+                    "Min": 1.0,
+                    "Max": 3000.0,
+                    "Priority": 50,
+                    "Sounds": "watcher_move_03,watcher_move_01,watcher_move_02",
+                    "Group": "Creatures"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 0,
+                    "Name": "Watcher_Summon",
+                    "Volume": 0.75,
+                    "FadeInTime": 0.5,
+                    "FadeOutTime": 0.5,
+                    "FollowActor": true,
+                    "ExclusiveActor": true,
+                    "Min": 1.0,
+                    "Max": 2000.0,
+                    "Priority": 0,
+                    "Sounds": "watcher_summon_01",
+                    "Group": "Creatures"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "Methods": [
+    "onInit",
+    "onSetIdle",
+    "doEdenEmote1",
+    "doEdenEmote2",
+    "doEdenEmote3",
+    "doEdenEmote4"
+  ],
+  "PackageName": "watcher",
+  "DefaultValues": {},
+  "States": {
+    "Idle": {
+      "methods": [
+        "onEnter"
+      ]
+    },
+    "EdenEmote1": {
+      "methods": [
+        "onActionComplete",
+        "onEnter"
+      ]
+    },
+    "EdenEmote3": {
+      "methods": [
+        "onActionComplete",
+        "onEnter"
+      ]
+    },
+    "EdenEmote2": {
+      "methods": [
+        "onActionComplete",
+        "onEnter"
+      ]
+    },
+    "EdenEmote4": {
+      "methods": [
+        "onActionComplete",
+        "onEnter"
+      ]
+    }
+  }
+}

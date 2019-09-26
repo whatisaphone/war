@@ -1,0 +1,47 @@
+.method getDialogByName
+0x0001 .param_count 1
+0x0001 .line 9
+0x0006     inc_scope
+0x0007     param_assign name
+0x0016 .line 11
+0x001b     null_object
+0x001c     var_assign rtn
+0x002a .line 14
+0x002f     identifier this
+0x003e     property Dialogs
+0x0050     iterator
+0x0051 .label 0x03a5
+0x0056     iterator_test
+0x0057     branch_false 0x00f1
+0x005c     iterator_assign d
+0x0068 .line 15
+0x006d     nop
+0x006e     identifier d
+0x007a     property Name
+0x0089     identifier name
+0x0098     equal
+0x0099     branch_false 0x00e5
+0x009e .line 17
+0x00a3     nop
+0x00a4     identifier rtn
+0x00b2     int 0
+0x00b7     identifier d
+0x00c3     method pickDialog
+0x00d8     assign
+0x00d9     pop
+0x00da .line 18
+0x00df     nop
+0x00e0 .line 19
+0x00e5 .label 0x03a7
+0x00ea     nop
+0x00eb     inc
+0x00ec     goto 0x0051
+0x00f1 .label 0x03a6
+0x00f6     pop
+0x00f7 .line 21
+0x00fc     identifier rtn
+0x010a     return
+0x010b .line 22
+0x0110     dec_scope
+0x0111     return_null
+

@@ -1,0 +1,1550 @@
+{
+  "Parent": "Monster",
+  "Name": "locust_ranged/locust_ranged_flyspline",
+  "Properties": {},
+  "StaticProperties": {
+    "Description": {
+      "Value": {
+        "classname": "MonsterDesc",
+        "properties": {
+          "AutoDecayOnDeath": true,
+          "FearFactor": 2,
+          "AlertDistance": 800.0,
+          "MoveStates": {
+            "classname": "CharacterMoveStateList",
+            "properties": {
+              "MoveStates": [
+                {
+                  "classname": "MonsterFlyToDesc",
+                  "properties": {
+                    "HeightOffset": -100.0,
+                    "HeightOffsetVar": 200.0,
+                    "OnDeath": 60,
+                    "Name": "FlyAroundWaypoints",
+                    "ID": 103,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 15
+                      }
+                    },
+                    "Deceleration": 100.0,
+                    "MaxSpeed": 150.0,
+                    "TurnSpeed": 50.0
+                  }
+                },
+                {
+                  "classname": "MonsterFlyToDesc",
+                  "properties": {
+                    "HeightOffset": 40.0,
+                    "IsHovering": true,
+                    "Range": 60.0,
+                    "OnDeath": 60,
+                    "Name": "FlyAttack Close",
+                    "ID": 101,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 16,
+                        "Ease": 0.3
+                      }
+                    },
+                    "Acceleration": 36000.0,
+                    "MaxSpeed": 600.0,
+                    "TurnSpeed": 2000.0,
+                    "OnActionComplete": 102,
+                    "InAir": true
+                  }
+                },
+                {
+                  "classname": "MonsterAttackDesc",
+                  "properties": {
+                    "StopTurnFrame": 100,
+                    "AllowPenetration": true,
+                    "OnDeath": 60,
+                    "Name": "FlyAttack Strike",
+                    "ID": 102,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 103,
+                        "Ease": 0.1
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "TurnSpeed": 100.0,
+                    "InAir": true,
+                    "UseMotionNode": true
+                  }
+                },
+                {
+                  "classname": "MonsterImpactDesc",
+                  "properties": {
+                    "Name": "FlyImpact",
+                    "ID": 110,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 60010
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "InAir": true,
+                    "UseMotionNode": true
+                  }
+                },
+                {
+                  "classname": "MonsterFlySplineDesc",
+                  "properties": {
+                    "MinimumSpeed": 200.0,
+                    "TerminalSpeed": 600.0,
+                    "RequireScriptCallback": false,
+                    "AlwaysFaceTarget": false,
+                    "Name": "FlySpline",
+                    "ID": 612,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 15,
+                        "Ease": 0.1
+                      }
+                    },
+                    "MaxSpeed": 750.0,
+                    "InAir": true,
+                    "FaceOnStart": false
+                  }
+                },
+                {
+                  "classname": "MonsterFlySplineDesc",
+                  "properties": {
+                    "MinimumSpeed": 200.0,
+                    "TerminalSpeed": 600.0,
+                    "RequireScriptCallback": false,
+                    "Name": "FlySpline FaceTarget",
+                    "ID": 613,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 15,
+                        "Ease": 0.1
+                      }
+                    },
+                    "MaxSpeed": 750.0,
+                    "InAir": true,
+                    "FaceTarget": true,
+                    "FaceOnStart": false
+                  }
+                },
+                {
+                  "classname": "MonsterHoverStrafeDesc",
+                  "properties": {
+                    "StrafeHeightOffset": 50.0,
+                    "StrafeHeightOffsetVar": 50.0,
+                    "OnElapsedTime": 10,
+                    "ElapsedTimeMin": 1.0,
+                    "ElapsedTimeMax": 3.0,
+                    "Name": "Hovering",
+                    "ID": 10,
+                    "AnimController": {
+                      "classname": "StrafeBlendController",
+                      "properties": {
+                        "NeutralAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 0
+                          }
+                        },
+                        "ForwardAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 11
+                          }
+                        },
+                        "LeftAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 13
+                          }
+                        },
+                        "RightAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 14
+                          }
+                        },
+                        "BackwardAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 12
+                          }
+                        }
+                      }
+                    },
+                    "Acceleration": 500.0,
+                    "MaxSpeed": 200.0
+                  }
+                },
+                {
+                  "classname": "MonsterHoverIdleDesc",
+                  "properties": {
+                    "Name": "Idle",
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 0,
+                        "Ease": 0.1
+                      }
+                    },
+                    "UseMotionNode": true
+                  }
+                },
+                {
+                  "classname": "MonsterFlySplineDesc",
+                  "properties": {
+                    "MinimumSpeed": 200.0,
+                    "TerminalSpeed": 600.0,
+                    "RequireScriptCallback": false,
+                    "AlwaysFaceTarget": false,
+                    "Name": "Ranged FlySpline",
+                    "ID": 16,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 15,
+                        "Ease": 0.1
+                      }
+                    },
+                    "MaxSpeed": 750.0
+                  }
+                },
+                {
+                  "classname": "MonsterFlySplineDesc",
+                  "properties": {
+                    "MinimumSpeed": 200.0,
+                    "TerminalSpeed": 600.0,
+                    "RequireScriptCallback": false,
+                    "Name": "Ranged FlySpline FaceTarget",
+                    "ID": 614,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 15,
+                        "Ease": 0.1
+                      }
+                    },
+                    "MaxSpeed": 750.0,
+                    "InAir": true,
+                    "FaceTarget": true,
+                    "FaceOnStart": false
+                  }
+                },
+                {
+                  "classname": "MonsterFlySplineDesc",
+                  "properties": {
+                    "MinimumSpeed": 200.0,
+                    "TerminalSpeed": 600.0,
+                    "RequireScriptCallback": false,
+                    "Name": "Ranged FlySpline Shoot",
+                    "ID": 611,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 60017,
+                        "Ease": 0.1
+                      }
+                    },
+                    "MaxSpeed": 750.0,
+                    "FaceTarget": true,
+                    "FaceOnStart": false
+                  }
+                },
+                {
+                  "classname": "MonsterFlyToDesc",
+                  "properties": {
+                    "HeightOffset": 75.0,
+                    "HeightOffsetVar": 50.0,
+                    "IsHovering": true,
+                    "Range": 750.0,
+                    "Name": "Ranged FlyToTarget",
+                    "ID": 615,
+                    "AnimController": {
+                      "classname": "StrafeBlendController",
+                      "properties": {
+                        "NeutralAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 0
+                          }
+                        },
+                        "ForwardAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 11
+                          }
+                        },
+                        "LeftAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 13
+                          }
+                        },
+                        "RightAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 14
+                          }
+                        },
+                        "BackwardAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 12
+                          }
+                        }
+                      }
+                    },
+                    "MaxSpeed": 100.0,
+                    "TurnSpeed": 75.0
+                  }
+                },
+                {
+                  "classname": "MonsterAttackDesc",
+                  "properties": {
+                    "Name": "Ranged_Attack",
+                    "ID": 601,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 60017,
+                        "Ease": 0.2
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "InAir": true,
+                    "UseMotionNode": true
+                  }
+                },
+                {
+                  "classname": "MonsterHoverStrafeDesc",
+                  "properties": {
+                    "StrafeHeightOffset": 50.0,
+                    "StrafeHeightOffsetVar": 100.0,
+                    "Name": "Ranged_HoverStrafe",
+                    "ID": 607,
+                    "AnimController": {
+                      "classname": "StrafeBlendController",
+                      "properties": {
+                        "NeutralAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 0
+                          }
+                        },
+                        "ForwardAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 11
+                          }
+                        },
+                        "LeftAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 13
+                          }
+                        },
+                        "RightAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 14
+                          }
+                        },
+                        "BackwardAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 12
+                          }
+                        }
+                      }
+                    },
+                    "MaxSpeed": 100.0,
+                    "TurnSpeed": 75.0
+                  }
+                },
+                {
+                  "classname": "MonsterHoverIdleDesc",
+                  "properties": {
+                    "Name": "Ranged_Idle",
+                    "ID": 609,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 0,
+                        "Ease": 0.1
+                      }
+                    },
+                    "UseMotionNode": true
+                  }
+                },
+                {
+                  "classname": "MonsterImpactDesc",
+                  "properties": {
+                    "Name": "Ranged_Impact_Explode",
+                    "ID": 608,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 60018
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "InAir": true,
+                    "UseMotionNode": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "Name": "Spawn",
+                    "ID": 20,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 20,
+                        "Ease": 0.2
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "UseMotionNode": true
+                  }
+                },
+                {
+                  "classname": "MonsterFallDesc",
+                  "properties": {
+                    "Name": "Spawn Fall",
+                    "ID": 610,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 200
+                      }
+                    }
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "Name": "StandardAttack",
+                    "ID": 100,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 101,
+                        "Ease": 0.2
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "OnActionComplete": 102,
+                    "InAir": true,
+                    "UseMotionNode": true,
+                    "FaceTarget": true
+                  }
+                },
+                {
+                  "classname": "MonsterFlyToDesc",
+                  "properties": {
+                    "HeightOffset": 65.0,
+                    "IsHovering": true,
+                    "Range": 150.0,
+                    "Name": "WalkToTarget",
+                    "ID": 15,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 15,
+                        "Ease": 0.1
+                      }
+                    },
+                    "Deceleration": 100.0,
+                    "MaxSpeed": 300.0,
+                    "TurnSpeed": 100.0,
+                    "InAir": true
+                  }
+                },
+                {
+                  "classname": "MonsterFlyToDesc",
+                  "properties": {
+                    "HeightOffset": 65.0,
+                    "IsHovering": true,
+                    "Range": 525.0,
+                    "Name": "WalkToTarget_Left",
+                    "ID": 604,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 13,
+                        "Ease": 0.5
+                      }
+                    },
+                    "Deceleration": 100.0,
+                    "MaxSpeed": 300.0,
+                    "TurnSpeed": 3000.0,
+                    "InAir": true,
+                    "UseMotionNode": true
+                  }
+                },
+                {
+                  "classname": "MonsterFlyToDesc",
+                  "properties": {
+                    "HeightOffset": 65.0,
+                    "IsHovering": true,
+                    "Range": 525.0,
+                    "Name": "WalkToTarget_Right",
+                    "ID": 605,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 14,
+                        "Ease": 0.5
+                      }
+                    },
+                    "Deceleration": 100.0,
+                    "MaxSpeed": 300.0,
+                    "TurnSpeed": 3000.0,
+                    "InAir": true,
+                    "UseMotionNode": true
+                  }
+                }
+              ]
+            }
+          },
+          "OnDeath": 608,
+          "CharacterClass": "RangedLocust_FlightSequence",
+          "CombatHeightOffset": 125.0,
+          "IsFlyingCreature": true,
+          "DecayAnimId": 60026,
+          "TimeUntilDecay": 0.6,
+          "TimeUntilDecayVar": 0.0,
+          "SeparationDistance": 200.0,
+          "HitInfos": {
+            "classname": "HitInfoList",
+            "properties": {
+              "HitInfos": [
+                {
+                  "classname": "HitInfo",
+                  "properties": {
+                    "ID": 3,
+                    "Name": "AOE Attack In",
+                    "HType": 2,
+                    "Power": 3,
+                    "KnockBackPower": 400.0,
+                    "KnockUpPower": 300.0,
+                    "EnvPowerScale": 4.0,
+                    "IsUnblockable": true,
+                    "DamageMod": 100
+                  }
+                },
+                {
+                  "classname": "HitInfo",
+                  "properties": {
+                    "ID": 4,
+                    "Name": "AOE Attack Out",
+                    "HType": 2,
+                    "Power": 3,
+                    "KnockBackPower": 300.0,
+                    "KnockUpPower": 300.0,
+                    "EnvPowerScale": 5.0,
+                    "IsUnblockable": true,
+                    "DamageMod": 100
+                  }
+                },
+                {
+                  "classname": "HitInfo",
+                  "properties": {
+                    "ID": 2,
+                    "Name": "Ranged Attack",
+                    "StrikeDirection": 61,
+                    "Power": 1,
+                    "KnockBackPower": 1.0,
+                    "KnockUpPower": 1.0
+                  }
+                },
+                {
+                  "classname": "HitInfo",
+                  "properties": {
+                    "ID": 1,
+                    "Name": "Stinger Attack",
+                    "StrikeDirection": 97,
+                    "KnockBackPower": 100.0,
+                    "KnockUpPower": 75.0
+                  }
+                }
+              ]
+            }
+          },
+          "Visual": "locustranged",
+          "FactionID": 1,
+          "TriggerType": 1,
+          "ActorScale": 2.0,
+          "MaxLockOnDistance": 1200.0,
+          "CharacterShadow": true,
+          "Animations": {
+            "classname": "AnimationList",
+            "properties": {
+              "Animations": [
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 200,
+                    "Name": "Eating1",
+                    "AnimationName": "Locust_Eat01",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 31,
+                          "TriggerFrame": 30
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 201,
+                    "Name": "Eating2",
+                    "AnimationName": "Locust_Eat02"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 100,
+                    "Name": "FlyAttack Buildup",
+                    "AnimationName": "Locust_FlyAttack_Buildup",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 23,
+                          "TriggerFrame": 8
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 24,
+                          "TriggerFrame": 11
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 23,
+                          "TriggerFrame": 41
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 23,
+                          "TriggerFrame": 73
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 24,
+                          "TriggerFrame": 8
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 24,
+                          "TriggerFrame": 18
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 24,
+                          "TriggerFrame": 24
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 24,
+                          "TriggerFrame": 32
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 24,
+                          "TriggerFrame": 41
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 24,
+                          "TriggerFrame": 53
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 24,
+                          "TriggerFrame": 75
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 25,
+                          "TriggerFrame": 1,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 27,
+                          "TriggerFrame": 69
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 23,
+                          "TriggerFrame": 56
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 24,
+                          "TriggerFrame": 23
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 23,
+                          "TriggerFrame": 33
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 101,
+                    "Name": "FlyAttack Intro",
+                    "AnimationName": "Locust_FlyAttack_Intro"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 103,
+                    "Name": "FlyAttack Strike",
+                    "AnimationName": "Locust_FlyAttack_Strike",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 23,
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 27,
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "WeaponPhantomTrigger",
+                        "properties": {
+                          "Duration": 13,
+                          "WeaponPhantom": "Weapon Phantom",
+                          "HitInfoID": 1,
+                          "EffectImpactDir": [
+                            90.0,
+                            0.0,
+                            0.0
+                          ],
+                          "StrikeDirection": 2,
+                          "TriggerFrame": 2
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 15,
+                    "Name": "FlyForward Fast",
+                    "AnimationName": "Locust_FlyForward_Fast",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 24,
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 23,
+                          "TriggerFrame": 11
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 24,
+                          "TriggerFrame": 13
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 24,
+                          "TriggerFrame": 24
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 23,
+                          "TriggerFrame": 35
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 24,
+                          "TriggerFrame": 36
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 25,
+                          "TriggerFrame": 1,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 31,
+                          "TriggerFrame": 1,
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 16,
+                    "Name": "FlyForward Glide",
+                    "AnimationName": "Locust_FlyForward_Glide",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 25,
+                          "TriggerFrame": 1,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 24,
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 24,
+                          "TriggerFrame": 19
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 24,
+                          "TriggerFrame": 41
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 24,
+                          "TriggerFrame": 59
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 23,
+                          "TriggerFrame": 20
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 23,
+                          "TriggerFrame": 56
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 23,
+                          "TriggerFrame": 24
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "Name": "FlyIdle",
+                    "AnimationName": "Locust_FlyIdle",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 24,
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 24,
+                          "TriggerFrame": 18
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 23,
+                          "TriggerFrame": 18
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 25,
+                          "TriggerFrame": 1,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 31,
+                          "TriggerFrame": 1,
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 12,
+                    "Name": "FlyIdle Back",
+                    "AnimationName": "Locust_FlyIdle_Back"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 11,
+                    "Name": "FlyIdle Fwd",
+                    "AnimationName": "Locust_FlyIdle_Fwd"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 13,
+                    "Name": "FlyIdle Left",
+                    "AnimationName": "Locust_FlyIdle_Left"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 14,
+                    "Name": "FlyIdle Right",
+                    "AnimationName": "Locust_FlyIdle_Right"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 60010,
+                    "Name": "FlyImpact",
+                    "AnimationName": "Locust_FlyImpact",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 30,
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 23,
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 24,
+                          "TriggerFrame": 24
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 25,
+                          "TriggerFrame": 1
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 61,
+                    "Name": "KnockBack Apex",
+                    "AnimationName": "Locust_KnockBack_Apex",
+                    "Triggers": [
+                      {
+                        "classname": "EventTrigger",
+                        "properties": {
+                          "EventName": "onKill",
+                          "TriggerFrame": 30
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 15,
+                          "TriggerFrame": 1
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 62,
+                    "Name": "KnockBack Fall",
+                    "AnimationName": "Locust_KnockBack_Fall"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 60,
+                    "Name": "KnockBack Start",
+                    "AnimationName": "Locust_KnockBack_Start"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 60011,
+                    "Name": "Locust_FlyIdle_Settle",
+                    "AnimationName": "Locust_FlyIdle_Settle"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 60018,
+                    "Name": "Range_FlyImpactExplode",
+                    "AnimationName": "Locust_FlyImpactExplode",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 30,
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 23,
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 29,
+                          "TriggerFrame": 32
+                        }
+                      },
+                      {
+                        "classname": "CombatEffectTrigger",
+                        "properties": {
+                          "CombatEffect": {
+                            "classname": "AOEInstantCombatEffect",
+                            "properties": {
+                              "Radius": 110.0,
+                              "Height": 200.0,
+                              "Damage": 30.0,
+                              "WeaponType": 0,
+                              "HitType": 2,
+                              "KnockUpPower": 400.0,
+                              "PowerOutside": 3,
+                              "DamageOutside": 30.0,
+                              "KnockUpPowerOutside": 300.0,
+                              "KnockBackPowerOutside": 300.0,
+                              "HitInfoIDOutside": 4,
+                              "HitInfoID": 3,
+                              "FactionOverrideID": -2,
+                              "Particles": "LocustRanged_Death"
+                            }
+                          },
+                          "TriggerFrame": 38,
+                          "IsRequired": true
+                        }
+                      },
+                      {
+                        "classname": "EventTrigger",
+                        "properties": {
+                          "EventName": "removeAfterExplosion",
+                          "TriggerFrame": 39,
+                          "IsRequired": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 60017,
+                    "Name": "Ranged_AtkProjectile",
+                    "AnimationName": "Locust_AtkProjectile",
+                    "Triggers": [
+                      {
+                        "classname": "ShootProjectileTrigger",
+                        "properties": {
+                          "Projectile": "locust_ranged/locust_ranged_projectile",
+                          "TriggerFrame": 28
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 24,
+                          "TriggerFrame": 5
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 24,
+                          "TriggerFrame": 12
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 24,
+                          "TriggerFrame": 18
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 24,
+                          "TriggerFrame": 30
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 23,
+                          "TriggerFrame": 4
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 23,
+                          "TriggerFrame": 17
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 23,
+                          "TriggerFrame": 30
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 25,
+                          "TriggerFrame": 1,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 26,
+                          "TriggerFrame": 25
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "LocustRanged_Projectile_Shoot",
+                          "TriggerFrame": 25
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 34,
+                          "TriggerFrame": 25
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          "Sounds": {
+            "classname": "SoundList",
+            "properties": {
+              "Sounds": [
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 37,
+                    "Name": "death acid",
+                    "Volume": 0.30004883,
+                    "Pitch": -5.0,
+                    "FadeInTime": 0.5,
+                    "FadeOutTime": 1.0,
+                    "Duration": 1.0,
+                    "Offset": true,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 1250.0,
+                    "Priority": 30,
+                    "Sounds": "locust_ranged_impact_3,locust_ranged_impact_1,locust_ranged_impact_2",
+                    "Group": "Creatures"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 33,
+                    "Name": "DissolveSound",
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Sounds": "death_dissolve_A_3,death_dissolve_A_1,death_dissolve_A_2",
+                    "Group": "Dissolve sfx"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 21,
+                    "Name": "locust_bite_chew_gore",
+                    "Volume": 0.099975586,
+                    "RandomPitch": 2.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Sounds": "locust_bite_chew_gore_1,locust_bite_chew_gore_2,locust_bite_chew_gore_3",
+                    "Group": "Interactives"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 22,
+                    "Name": "locust_gore",
+                    "Volume": 0.099975586,
+                    "RandomPitch": 2.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Sounds": "locust_gore_3,locust_gore_1,locust_gore_2",
+                    "Group": "Interactives"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 23,
+                    "Name": "locust_wing_flap",
+                    "Volume": 0.099975586,
+                    "RandomVolume": 1.0,
+                    "RandomPitch": 5.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 1250.0,
+                    "Priority": 20,
+                    "Sounds": "locust_wing_flap_6,locust_wing_flap_1,locust_wing_flap_2,locust_wing_flap_3,locust_wing_flap_4,locust_wing_flap_5",
+                    "Group": "locust flap"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 24,
+                    "Name": "locust_wing_flap_small",
+                    "Volume": 0.099975586,
+                    "RandomVolume": 1.0,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 1200.0,
+                    "Priority": 20,
+                    "Sounds": "locust_wing_flap_small_6,locust_wing_flap_small_1,locust_wing_flap_small_2,locust_wing_flap_small_3,locust_wing_flap_small_4,locust_wing_flap_small_5",
+                    "Group": "locust flap"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 25,
+                    "Name": "locust_wing_flutter",
+                    "Volume": 0.099975586,
+                    "RandomVolume": 1.0,
+                    "RandomPitch": 1.0,
+                    "Loop": true,
+                    "FadeInTime": 0.19995117,
+                    "FadeOutTime": 0.19995117,
+                    "Offset": true,
+                    "FollowActor": true,
+                    "ExclusiveActor": true,
+                    "Min": 1.0,
+                    "Max": 1200.0,
+                    "Priority": 20,
+                    "Sounds": "locust_wing_flutter",
+                    "Group": "locust wing buzz"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 34,
+                    "Name": "ranged attack",
+                    "Volume": 0.35009766,
+                    "Pitch": -6.0,
+                    "RandomPitch": 1.5,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 2000.0,
+                    "Priority": 10,
+                    "Sounds": "locust_ranged_launch",
+                    "Group": "Weapons"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 35,
+                    "Name": "ranged impact",
+                    "Volume": 0.60009766,
+                    "Pitch": -2.0,
+                    "Min": 1.0,
+                    "Max": 2000.0,
+                    "Priority": 10,
+                    "Sounds": "locust_ranged_impact_3,locust_ranged_impact_1,locust_ranged_impact_2",
+                    "Group": "Impacts"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 36,
+                    "Name": "ranged loop",
+                    "Volume": 0.39990234,
+                    "Pitch": 4.0,
+                    "RandomPitch": 1.0,
+                    "Loop": true,
+                    "Offset": true,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 700.0,
+                    "Priority": 20,
+                    "Sounds": "locust_ranged_loop",
+                    "Group": "Weapons"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 26,
+                    "Name": "voc_locus_attack_a",
+                    "Volume": 0.19995117,
+                    "RandomPitch": 2.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 1500.0,
+                    "Priority": 15,
+                    "Sounds": "voc_locust_attack_a_4,voc_locust_attack_a_1,voc_locust_attack_a_2,voc_locust_attack_a_3",
+                    "Group": "locust vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 28,
+                    "Name": "voc_locus_attack_a_b",
+                    "Volume": 0.22497559,
+                    "RandomPitch": 2.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 1500.0,
+                    "Priority": 15,
+                    "Sounds": "voc_locust_attack_b_4,voc_locust_attack_a_1,voc_locust_attack_a_2,voc_locust_attack_a_3,voc_locust_attack_a_4,voc_locust_attack_b_1,voc_locust_attack_b_2,voc_locust_attack_b_3",
+                    "Group": "locust vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 27,
+                    "Name": "voc_locus_attack_b",
+                    "Volume": 0.19995117,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 1500.0,
+                    "Priority": 15,
+                    "Sounds": "voc_locust_attack_b_4,voc_locust_attack_b_1,voc_locust_attack_b_2,voc_locust_attack_b_3",
+                    "Group": "locust vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 32,
+                    "Name": "voc_locus_attack_clicking",
+                    "Volume": 0.19995117,
+                    "RandomPitch": 2.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 1500.0,
+                    "Sounds": "voc_locust_idle_citter_4,voc_locust_idle_citter_1,voc_locust_idle_citter_2,voc_locust_idle_citter_3",
+                    "Group": "Creature Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 29,
+                    "Name": "voc_locus_death",
+                    "Volume": 0.25,
+                    "RandomPitch": 2.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 3500.0,
+                    "Priority": 5,
+                    "Sounds": "voc_locust_death_4,voc_locust_death_1,voc_locust_death_2,voc_locust_death_3",
+                    "Group": "locust vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 51555,
+                    "Name": "voc_locus_death",
+                    "Volume": 0.25,
+                    "RandomPitch": 4.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 3500.0,
+                    "Priority": 5,
+                    "Sounds": "voc_locust_death_4,voc_locust_death_1,voc_locust_death_2,voc_locust_death_3",
+                    "Group": "locust vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 30,
+                    "Name": "voc_locus_pain",
+                    "Volume": 0.25,
+                    "RandomVolume": 1.0,
+                    "RandomPitch": 2.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 2000.0,
+                    "Priority": 10,
+                    "Sounds": "voc_locust_pain_9,voc_locust_pain_1,voc_locust_pain_2,voc_locust_pain_3,voc_locust_pain_4,voc_locust_pain_5,voc_locust_pain_6,voc_locust_pain_7,voc_locust_pain_8",
+                    "Group": "locust vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 31,
+                    "Name": "voc_locust_idle_citter",
+                    "Volume": 0.17504883,
+                    "RandomPitch": 3.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 2000.0,
+                    "Chance": 85,
+                    "Priority": 25,
+                    "Sounds": "voc_locust_idle_citter_4,voc_locust_idle_citter_1,voc_locust_idle_citter_2,voc_locust_idle_citter_3",
+                    "Group": "locust vox"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "FlySplineMoveState": {
+      "Value": "FlySpline"
+    }
+  },
+  "Methods": [
+    "onInit",
+    "removeAfterExplosion"
+  ],
+  "PackageName": "locust_ranged",
+  "DefaultValues": {},
+  "States": {}
+}

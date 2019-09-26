@@ -1,0 +1,371 @@
+{
+  "Parent": "base/standardbehavior",
+  "Name": "undead_plague/undeadplaguecombatbehavior",
+  "Properties": {
+    "OutsiderMode": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "ScanAlertDistance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ScanInterval": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachMoveStateMove": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "ApproachRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachForceCloseRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachForceCompleteRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AttackMoveStateAttack": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "AttackMinDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AttackMaxDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AttackMinRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AttackMaxRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AttackAllowRepeat": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "AttackPredictTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AttackPressure": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "RangedAttackMoveStateAttack": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "RangedAttackMinDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "RangedAttackMaxDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "RangedAttackMinRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "RangedAttackMaxRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "RangedAttackLockDelayMin": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "RangedAttackLockDelayMax": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "RangedAttackPredictTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "RangedAttackPressure": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "RangedAttackAngleDiff": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AnimMoveState": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "TauntMoveState": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "TauntMinDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "TauntMaxDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "TauntMaxAngleDiff": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMoveStateIdle": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleMinTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMaxTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMoveStateFidget": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleFidgetChance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleFidgetMinTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleFidgetMaxTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ClearObstacleMoveState": {
+      "Flags": 4,
+      "Type": 5
+    }
+  },
+  "StaticProperties": {},
+  "Methods": [
+    "begin",
+    "onTargetUnreachable"
+  ],
+  "PackageName": "undead_plague",
+  "DefaultValues": {
+    "ApproachForceCompleteRange": -1,
+    "RangedAttackMinRange": 0,
+    "AttackMinDelay": 1.0,
+    "OutsiderMode": false,
+    "IdleMinTime": 1.5,
+    "RangedAttackLockDelayMax": 2.0,
+    "RangedAttackMaxRange": 350,
+    "AttackMaxDelay": 2.0,
+    "IdleFidgetChance": 0,
+    "IdleFidgetMinTime": 2,
+    "AttackPredictTime": 1.0,
+    "ApproachMoveStateMove": "Plague MoveToTarget",
+    "TauntMoveState": "Plague Taunt",
+    "RangedAttackLockDelayMin": 1.0,
+    "RangedAttackAngleDiff": -1,
+    "ID": "UndeadPlagueCombatBehavior",
+    "BackgroundActions": [
+      {
+        "classname": "base/scanaction",
+        "properties": {
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "RangedAttackPressure": -1,
+    "IdleMoveStateFidget": "",
+    "RangedAttackMoveStateAttack": "Plague RangedAttack",
+    "ClearObstacleMoveState": "Plague StandardAttack",
+    "AttackPressure": -1,
+    "AnimMoveState": "",
+    "TauntMaxAngleDiff": 180,
+    "TauntMaxDelay": 12,
+    "ScanInterval": 1.5,
+    "ImpactHandler": {
+      "classname": "base/impactaction",
+      "properties": {
+        "ID": "Impact",
+        "Priority": 640,
+        "InterruptibleBy": [
+          "Death",
+          "Interactive",
+          "Exit"
+        ],
+        "Position": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "IdleMoveStateIdle": "Plague Idle",
+    "ApproachRange": 150,
+    "TauntMinDelay": 8,
+    "OnAttackHandler": [],
+    "PathBlockedBreakableHandler": {
+      "classname": "base/clearobstacleaction",
+      "properties": {
+        "ID": "Clear Obstacle",
+        "ActionCode": 5,
+        "Priority": 16,
+        "InterruptibleBy": [
+          "Death",
+          "Exit",
+          "Interactive",
+          "Impact"
+        ],
+        "Position": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "IdleMaxTime": 2.25,
+    "RangedAttackMaxDelay": 12.0,
+    "AttackMaxRange": 250,
+    "ComponentActions": [
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "MoveState": "Strafe",
+          "ExitOnComplete": false,
+          "ID": "Strafe",
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "Position": [
+            null,
+            0.0,
+            1.2542435e-17
+          ]
+        }
+      },
+      {
+        "classname": "base/rangedattackaction",
+        "properties": {
+          "ID": "Ranged Attack",
+          "ActionCode": 5,
+          "Priority": 8,
+          "InterruptibleBy": [
+            "Death",
+            "Interactive",
+            "Impact"
+          ],
+          "ValidStates": [
+            "Insider",
+            "Outsider"
+          ],
+          "ResourceLock": "RangedAttack",
+          "Position": [
+            null,
+            0.0,
+            1.2542435e-17
+          ]
+        }
+      },
+      {
+        "classname": "base/attackaction",
+        "properties": {
+          "ID": "Melee Attack",
+          "ActionCode": 5,
+          "Priority": 7,
+          "InterruptibleBy": [
+            "Death",
+            "Interactive",
+            "Impact"
+          ],
+          "ValidStates": [
+            "Insider"
+          ],
+          "ResourceLock": "Attack",
+          "Position": [
+            3e-45,
+            -1.234737e-37,
+            0.00005343284
+          ]
+        }
+      },
+      {
+        "classname": "base/animaction",
+        "properties": {
+          "ID": "Taunt",
+          "ActionCode": 2,
+          "Priority": 1,
+          "Chance": 0.9,
+          "InterruptibleBy": [
+            "Death",
+            "Interactive",
+            "Impact"
+          ],
+          "ResourceLock": "Taunt",
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/idleaction",
+        "properties": {
+          "ID": "Idle",
+          "ActionCode": 1,
+          "Priority": 1,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "ApproachForceCloseRange": -1,
+    "AttackMoveStateAttack": "Plague StandardAttack",
+    "IdleFidgetMaxTime": 4,
+    "RangedAttackPredictTime": 1.0,
+    "AttackAllowRepeat": false,
+    "RangedAttackMinDelay": 8.0,
+    "ScanAlertDistance": 5000,
+    "AttackMinRange": 0
+  },
+  "States": {
+    "Outsider": {
+      "methods": [
+        "getCurrentState"
+      ]
+    },
+    "Insider": {
+      "methods": [
+        "getCurrentState"
+      ]
+    },
+    "LostTarget": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    }
+  }
+}

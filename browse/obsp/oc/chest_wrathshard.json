@@ -1,0 +1,393 @@
+{
+  "Parent": "special_casket/specialchest",
+  "Name": "special_casket/chest_wrathshard",
+  "Properties": {},
+  "StaticProperties": {
+    "Description": {
+      "Value": {
+        "classname": "special_casket/specialchestdesc",
+        "properties": {
+          "MoveStates": {
+            "classname": "CharacterMoveStateList",
+            "properties": {
+              "MoveStates": [
+                {
+                  "classname": "CharacterGenericStateDesc",
+                  "properties": {
+                    "Name": "FinishedIdle",
+                    "ID": 2,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 3
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                },
+                {
+                  "classname": "CharacterGenericStateDesc",
+                  "properties": {
+                    "Name": "Idle",
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 0
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                },
+                {
+                  "classname": "CharacterDoInteractiveDesc",
+                  "properties": {
+                    "TargetType": "war/war",
+                    "Initiator": 1,
+                    "MaxErrorDistance": 80.0,
+                    "Arc": 140.0,
+                    "IgnoreTime": 0.01,
+                    "DoCollision": false,
+                    "UseWeapon": 0,
+                    "AnimationID": 1,
+                    "TargetAnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 2
+                      }
+                    },
+                    "OnComplete": 2,
+                    "OnCompleteOther": 0,
+                    "AnimationSource": 0,
+                    "UseAnchorNode": true,
+                    "CanPlayDuringCinematic": true,
+                    "Name": "Interactive",
+                    "ID": 1,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 1
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                },
+                {
+                  "classname": "CharacterGenericStateDesc",
+                  "properties": {
+                    "Name": "UserAction1",
+                    "ID": 4,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 4
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                },
+                {
+                  "classname": "CharacterGenericStateDesc",
+                  "properties": {
+                    "Name": "UserAction2",
+                    "ID": 5,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 5
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                },
+                {
+                  "classname": "CharacterGenericStateDesc",
+                  "properties": {
+                    "Name": "UserAction3",
+                    "ID": 6,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 6
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                }
+              ]
+            }
+          },
+          "Visual": "Special_casket",
+          "TriggerType": 5,
+          "Animations": {
+            "classname": "AnimationList",
+            "properties": {
+              "Animations": [
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "Name": "SkullChest_Closed",
+                    "AnimationName": "SkullChest_Closed",
+                    "Looping": true
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 60,
+                    "Name": "SkullChest_Closed VFX Layer",
+                    "Looping": true,
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "dgn_healthchest_closed",
+                          "ActorTypeMask": 1
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "dgn_soulchest_closed",
+                          "ActorTypeMask": 2
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "dgn_wrathchest_closed",
+                          "ActorTypeMask": 4
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "dgn_healthshardchest_closed",
+                          "ActorTypeMask": 8
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "dgn_wrathshardchest_closed",
+                          "ActorTypeMask": 16
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 1,
+                    "Name": "SkullChest_Open",
+                    "AnimationName": "SkullChest_Open",
+                    "Triggers": [
+                      {
+                        "classname": "EventTrigger",
+                        "properties": {
+                          "EventName": "onOpen",
+                          "TriggerFrame": 49
+                        }
+                      },
+                      {
+                        "classname": "EventTrigger",
+                        "properties": {
+                          "EventName": "onTrigger",
+                          "TriggerFrame": 49
+                        }
+                      },
+                      {
+                        "classname": "EventTrigger",
+                        "properties": {
+                          "EventName": "onPersistOpen",
+                          "TriggerFrame": 49
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 2
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 4,
+                          "TriggerFrame": 10
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 5,
+                          "TriggerFrame": 8
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 6,
+                          "TriggerFrame": 12
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 7,
+                          "TriggerFrame": 10
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "dgn_healthchest_open",
+                          "ActorTypeMask": 1
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "dgn_soulchest_open",
+                          "ActorTypeMask": 2
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "dgn_wrathchest_open",
+                          "ActorTypeMask": 4
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "dgn_healthshardchest_open",
+                          "ActorTypeMask": 8
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "dgn_wrathshardchest_open",
+                          "ActorTypeMask": 16
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 2,
+                    "Name": "SkullChest_Open - 1",
+                    "AnimationName": "SkullChest_Open"
+                  }
+                }
+              ]
+            }
+          },
+          "Sounds": {
+            "classname": "SoundList",
+            "properties": {
+              "Sounds": [
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 8,
+                    "Name": "chest_idle_glow_lp",
+                    "Volume": 0.2800293,
+                    "Loop": true,
+                    "FadeOutTime": 1.7998047,
+                    "Offset": true,
+                    "Min": 1.0,
+                    "Max": 770.0,
+                    "Sounds": "chest_glow_loop",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 9,
+                    "Name": "chest_open_glow",
+                    "Volume": 0.89990234,
+                    "FollowActor": true,
+                    "Priority": 50,
+                    "Sounds": "chest_glow_open",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 6,
+                    "Name": "extra_impact",
+                    "Volume": 0.75,
+                    "Min": 1.0,
+                    "Priority": 0,
+                    "Sounds": "hit_ground_lite_3,hit_ground_lite_1,hit_ground_lite_2",
+                    "Group": "War"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 7,
+                    "Name": "extra_impact_2",
+                    "Volume": 0.39990234,
+                    "Priority": 0,
+                    "Sounds": "statue_fall_in_place",
+                    "Group": "War"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 2,
+                    "Name": "war_punch_impact",
+                    "Volume": 0.75,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Priority": 0,
+                    "Sounds": "war_punch_chest_1",
+                    "Group": "War"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 4,
+                    "Name": "war_voc",
+                    "Volume": 0.60009766,
+                    "Min": 1.0,
+                    "Priority": 50,
+                    "Sounds": "voc_war_attack_short_4,voc_war_attack_long_1,voc_war_attack_long_2,voc_war_attack_long_3,voc_war_attack_long_4,voc_war_attack_long_5,voc_war_attack_short_1,voc_war_attack_short_2,voc_war_attack_short_3",
+                    "Group": "War"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 5,
+                    "Name": "war_whoosh",
+                    "Volume": 0.5498047,
+                    "Min": 1.0,
+                    "Priority": 0,
+                    "Sounds": "war_whooshes_melee_1_3,war_whooshes_melee_1_1,war_whooshes_melee_1_2",
+                    "Group": "War"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "Methods": [
+    "onOpen"
+  ],
+  "PackageName": "special_casket",
+  "DefaultValues": {},
+  "States": {}
+}

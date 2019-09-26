@@ -1,0 +1,2018 @@
+{
+  "Parent": "base/combatmonster",
+  "Name": "uriel/uriel_shared",
+  "Properties": {
+    "materialName": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "materialParameter": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "brightValue": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "midValue": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "normalValue": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "darkValue": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "activeIntensity": {
+      "Flags": 2,
+      "Type": 3
+    },
+    "inactiveIntensity": {
+      "Flags": 2,
+      "Type": 3
+    },
+    "currentIntensity": {
+      "Flags": 2,
+      "Type": 3
+    },
+    "intensityChangePulseTime": {
+      "Flags": 2,
+      "Type": 3
+    },
+    "activeFadeTime": {
+      "Flags": 2,
+      "Type": 3
+    },
+    "inactiveFadeTime": {
+      "Flags": 2,
+      "Type": 3
+    },
+    "feathersActive": {
+      "Flags": 2,
+      "Type": 4
+    },
+    "BladeRainActive": {
+      "Flags": 2,
+      "Type": 4
+    },
+    "bladeCount": {
+      "Flags": 2,
+      "Type": 2
+    },
+    "seriesNextPoint": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "seriesDirVect": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "seriesHeading": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "seriesHeadingShift": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "seriesCount": {
+      "Flags": 2,
+      "Type": 2
+    }
+  },
+  "StaticProperties": {
+    "Description": {
+      "Value": {
+        "classname": "base/combatmonsterdesc",
+        "properties": {
+          "AmbientBehaviorGuard": {
+            "classname": "base/guardambientbehavior",
+            "properties": {
+              "PathBlockedBreakableHandler": {
+                "classname": "base/clearobstacleaction",
+                "properties": {
+                  "ID": "Clear Obstacle",
+                  "ActionCode": 5,
+                  "Priority": 16,
+                  "InterruptibleBy": [
+                    "Death",
+                    "Exit",
+                    "Interactive",
+                    "Impact"
+                  ],
+                  "Position": [
+                    2.6208754e20,
+                    2.1714976e-18,
+                    1.8472921e20
+                  ]
+                }
+              },
+              "DeathBlowHandler": {
+                "classname": "base/deathblowaction",
+                "properties": {
+                  "ID": "Death",
+                  "ActionCode": 660,
+                  "Priority": 660,
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "InteractiveHandler": {
+                "classname": "base/interactivestallaction",
+                "properties": {
+                  "ID": "Interactive",
+                  "Priority": 630,
+                  "InterruptibleBy": [
+                    "Death"
+                  ],
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "ImpactHandler": {
+                "classname": "base/impactaction",
+                "properties": {
+                  "ID": "Impact",
+                  "Priority": 620,
+                  "InterruptibleBy": [
+                    "Death",
+                    "Interactive"
+                  ],
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "ComponentActions": [
+                {
+                  "classname": "base/approachhomeaction",
+                  "properties": {
+                    "IgnoreZTolerance": true,
+                    "ID": "ReturnHome",
+                    "Priority": 9,
+                    "InterruptibleBy": [
+                      "ANY"
+                    ],
+                    "OnCompleteState": "Guarding",
+                    "Position": [
+                      null,
+                      0.0,
+                      -1.5924013e-19
+                    ]
+                  }
+                },
+                {
+                  "classname": "base/idleaction",
+                  "properties": {
+                    "ID": "Idle",
+                    "ActionCode": 1,
+                    "Priority": 1,
+                    "InterruptibleBy": [
+                      "ANY"
+                    ],
+                    "Position": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  }
+                }
+              ],
+              "BackgroundActions": [
+                {
+                  "classname": "base/homescanaction",
+                  "properties": {
+                    "OnScanAcquiredTarget": "FoundMeleeTarget",
+                    "OnScanAcquiredRangedTarget": "FoundRangedTarget",
+                    "OnScanLostTarget": "",
+                    "ScanLOSCheck": true,
+                    "ScanMeleeOnly": false,
+                    "ScanAllowRescansWithTarget": true,
+                    "ID": "HomeScanForTarget",
+                    "ValidStates": [
+                      "MovingIntoPosition"
+                    ],
+                    "Position": [
+                      1.5113662e-13,
+                      1.5113662e-13,
+                      1.5113662e-13
+                    ]
+                  }
+                },
+                {
+                  "classname": "base/scanaction",
+                  "properties": {
+                    "OnScanAcquiredTarget": "FoundMeleeTarget",
+                    "OnScanAcquiredRangedTarget": "FoundRangedTarget",
+                    "OnScanLostTarget": "",
+                    "ScanLOSCheck": true,
+                    "ScanMeleeOnly": false,
+                    "ScanAllowRescansWithTarget": true,
+                    "ID": "Scan",
+                    "ValidStates": [
+                      "Guarding"
+                    ],
+                    "Position": [
+                      4.8613497e30,
+                      4.8603944e30,
+                      7.5550794e31
+                    ]
+                  }
+                }
+              ],
+              "ExitBehaviorHandler": {
+                "classname": "base/exitbehavioraction",
+                "properties": {
+                  "ID": "Exit",
+                  "Priority": 640,
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "Position": [
+                1.8615984e25,
+                0.0024787446,
+                6.7907934e-33
+              ]
+            }
+          },
+          "AmbientBehaviorWander": {
+            "classname": "base/wanderambientbehavior",
+            "properties": {
+              "PathBlockedBreakableHandler": {
+                "classname": "base/clearobstacleaction",
+                "properties": {
+                  "ID": "Clear Obstacle",
+                  "ActionCode": 5,
+                  "Priority": 16,
+                  "InterruptibleBy": [
+                    "Death",
+                    "Exit",
+                    "Interactive",
+                    "Impact"
+                  ],
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "DeathBlowHandler": {
+                "classname": "base/deathblowaction",
+                "properties": {
+                  "ID": "Death",
+                  "ActionCode": 660,
+                  "Priority": 660,
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "InteractiveHandler": {
+                "classname": "base/interactivestallaction",
+                "properties": {
+                  "ID": "Interactive",
+                  "Priority": 630,
+                  "InterruptibleBy": [
+                    "Death"
+                  ],
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "ImpactHandler": {
+                "classname": "base/impactaction",
+                "properties": {
+                  "ID": "Impact",
+                  "Priority": 620,
+                  "InterruptibleBy": [
+                    "Death",
+                    "Interactive"
+                  ],
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "ComponentActions": [
+                {
+                  "classname": "base/approachwanderaction",
+                  "properties": {
+                    "IgnoreZTolerance": true,
+                    "Priority": 9,
+                    "InterruptibleBy": [
+                      "ANY"
+                    ],
+                    "ValidStates": [
+                      "Wander",
+                      "MovingIntoPosition"
+                    ],
+                    "OnCompleteState": "WanderPointReached",
+                    "Position": [
+                      0.0,
+                      0.0,
+                      -1.038998e-7
+                    ]
+                  }
+                },
+                {
+                  "classname": "base/defaultaction",
+                  "properties": {
+                    "ID": "WanderTooClose",
+                    "Priority": 8,
+                    "InterruptibleBy": [
+                      "ANY"
+                    ],
+                    "ValidStates": [
+                      "Wander",
+                      "MovingIntoPosition"
+                    ],
+                    "OnCompleteState": "WanderPointReached",
+                    "Position": [
+                      0.0,
+                      0.0,
+                      -1.038998e-7
+                    ]
+                  }
+                },
+                {
+                  "classname": "base/idleaction",
+                  "properties": {
+                    "ID": "Idle",
+                    "Priority": 1,
+                    "InterruptibleBy": [
+                      "ANY"
+                    ],
+                    "Position": [
+                      2.3784091e-30,
+                      3.59e-43,
+                      null
+                    ]
+                  }
+                }
+              ],
+              "BackgroundActions": [
+                {
+                  "classname": "base/homescanaction",
+                  "properties": {
+                    "OnScanAcquiredTarget": "FoundMeleeTarget",
+                    "OnScanAcquiredRangedTarget": "FoundRangedTarget",
+                    "OnScanLostTarget": "",
+                    "ScanLOSCheck": true,
+                    "ScanMeleeOnly": false,
+                    "ScanAllowRescansWithTarget": true,
+                    "ID": "HomeScanForTarget",
+                    "ValidStates": [
+                      "MovingIntoPosition"
+                    ],
+                    "Position": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  }
+                },
+                {
+                  "classname": "base/scanaction",
+                  "properties": {
+                    "OnScanAcquiredTarget": "FoundMeleeTarget",
+                    "OnScanAcquiredRangedTarget": "FoundRangedTarget",
+                    "OnScanLostTarget": "",
+                    "ScanLOSCheck": true,
+                    "ScanMeleeOnly": false,
+                    "ScanAllowRescansWithTarget": true,
+                    "ID": "Scan",
+                    "ValidStates": [
+                      "Wander",
+                      "Resting",
+                      "NoWanderRegion"
+                    ],
+                    "Position": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  }
+                }
+              ],
+              "ExitBehaviorHandler": {
+                "classname": "base/exitbehavioraction",
+                "properties": {
+                  "ID": "Exit",
+                  "Priority": 640,
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "Position": [
+                1.6617275e-33,
+                2.8365938e20,
+                7.0601806e28
+              ]
+            }
+          },
+          "AmbientBehaviorPatrol": {
+            "classname": "base/patrolambientbehavior",
+            "properties": {
+              "PathBlockedBreakableHandler": {
+                "classname": "base/clearobstacleaction",
+                "properties": {
+                  "ID": "Clear Obstacle",
+                  "ActionCode": 5,
+                  "Priority": 16,
+                  "InterruptibleBy": [
+                    "Death",
+                    "Exit",
+                    "Interactive",
+                    "Impact"
+                  ],
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "DeathBlowHandler": {
+                "classname": "base/deathblowaction",
+                "properties": {
+                  "ID": "Death",
+                  "ActionCode": 660,
+                  "Priority": 660,
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "InteractiveHandler": {
+                "classname": "base/interactivestallaction",
+                "properties": {
+                  "ID": "Interactive",
+                  "Priority": 630,
+                  "InterruptibleBy": [
+                    "Death"
+                  ],
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "ImpactHandler": {
+                "classname": "base/impactaction",
+                "properties": {
+                  "ID": "Impact",
+                  "Priority": 620,
+                  "InterruptibleBy": [
+                    "Death",
+                    "Interactive"
+                  ],
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "ComponentActions": [
+                {
+                  "classname": "base/approachpatrolaction",
+                  "properties": {
+                    "IgnoreZTolerance": true,
+                    "ID": "ApproachPatrol",
+                    "Priority": 9,
+                    "InterruptibleBy": [
+                      "ANY"
+                    ],
+                    "OnCompleteState": "Patrol",
+                    "Position": [
+                      null,
+                      7.7135135e31,
+                      -21.848436
+                    ]
+                  }
+                },
+                {
+                  "classname": "base/idleaction",
+                  "properties": {
+                    "ID": "Idle",
+                    "ActionCode": 1,
+                    "Priority": 1,
+                    "InterruptibleBy": [
+                      "ANY"
+                    ],
+                    "Position": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  }
+                }
+              ],
+              "BackgroundActions": [
+                {
+                  "classname": "base/homescanaction",
+                  "properties": {
+                    "OnScanAcquiredTarget": "FoundMeleeTarget",
+                    "OnScanAcquiredRangedTarget": "FoundRangedTarget",
+                    "OnScanLostTarget": "",
+                    "ScanLOSCheck": true,
+                    "ScanMeleeOnly": false,
+                    "ScanAllowRescansWithTarget": true,
+                    "ID": "HomeScanForTarget",
+                    "ValidStates": [
+                      "MovingIntoPosition"
+                    ],
+                    "Position": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  }
+                },
+                {
+                  "classname": "base/scanaction",
+                  "properties": {
+                    "OnScanAcquiredTarget": "FoundMeleeTarget",
+                    "OnScanAcquiredRangedTarget": "FoundRangedTarget",
+                    "OnScanLostTarget": "",
+                    "ScanLOSCheck": true,
+                    "ScanMeleeOnly": false,
+                    "ScanAllowRescansWithTarget": true,
+                    "ID": "Scan",
+                    "ValidStates": [
+                      "Patrol"
+                    ],
+                    "Position": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  }
+                }
+              ],
+              "ExitBehaviorHandler": {
+                "classname": "base/exitbehavioraction",
+                "properties": {
+                  "ID": "Exit",
+                  "Priority": 640,
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "Position": [
+                null,
+                8.9087774e-15,
+                5.4388207e34
+              ]
+            }
+          }
+        }
+      }
+    },
+    "Encounter1StageA": {
+      "Value": {
+        "classname": "uriel/urielcombatbehavior",
+        "properties": {
+          "ScanAlertDistance": 5000,
+          "AvoidAttackTypes": [
+            2,
+            3
+          ],
+          "AvoidBackMoveStateLeft": "Air - DashBackwards",
+          "AvoidBackMoveStateRight": "Air - DashBackwards",
+          "AvoidBackMaxRange": 300,
+          "AvoidBackMinRange": 0,
+          "AvoidBackMinDelay": 0,
+          "AvoidBackMaxDelay": 0,
+          "AvoidBackAttackTypes": [
+            1
+          ],
+          "FaceTargetAngleDiff": 135,
+          "AttackMoveStateAttack": "Air - Attack - StandardAttack A",
+          "AttackMinDelay": 6.0,
+          "AttackMaxDelay": 6.0,
+          "AttackMaxRange": 160,
+          "RangedAttackMoveStateAttack": "Air - Attack 4 - Terra Blades Start x1",
+          "RangedAttackMinDelay": 8.0,
+          "RangedAttackMaxDelay": 10.0,
+          "RangedAttackMinRange": 300,
+          "RangedAttackMaxRange": 600,
+          "DashAttackMissAngle": 65,
+          "DashAttackTimeout": 15.0,
+          "DashAttackMoveStateEndDash": "Air - Dash Attack Sweep",
+          "DashAttackMoveStateAttack": "Air - Dash Attack Sweep",
+          "DashAttackMoveStateDash": "Air - Dash Start",
+          "DashAttackMinDelay": 10.0,
+          "DashAttackMaxDelay": 15.0,
+          "DashAttackMinRange": 300,
+          "DashAttackMaxRange": 600,
+          "DashAttackMoveStateEndDashFar": "Air - Dash End",
+          "DashAttackEndFarRange": 300,
+          "SpecialDamageThreshold": 150,
+          "SpecialMaxRange": 300,
+          "BlockEnabled": true,
+          "BlockChance": 1.0,
+          "BlockAttackTypes": [
+            4,
+            5
+          ],
+          "PathBlockedBreakableHandler": {
+            "classname": "base/animaction",
+            "properties": {
+              "AnimMaxAngleDiff": 180,
+              "ID": "ClearObstacle",
+              "ActionCode": 8,
+              "Priority": 16,
+              "InterruptibleBy": [
+                "Death",
+                "Exit",
+                "Interactive",
+                "Impact"
+              ],
+              "Position": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "DeathBlowHandler": {
+            "classname": "base/deathblowaction",
+            "properties": {
+              "ID": "Death",
+              "ActionCode": 660,
+              "Priority": 660,
+              "Position": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "InteractiveHandler": {
+            "classname": "base/interactivestallaction",
+            "properties": {
+              "ID": "Interactive",
+              "Priority": 630,
+              "InterruptibleBy": [
+                "Death"
+              ],
+              "Position": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "ImpactHandler": {
+            "classname": "base/impactaction",
+            "properties": {
+              "ID": "Impact",
+              "Priority": 620,
+              "InterruptibleBy": [
+                "Death",
+                "Interactive"
+              ],
+              "Position": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "ComponentActions": [
+            {
+              "classname": "base/attackaction",
+              "properties": {
+                "ID": "HeavenlyStrike",
+                "ActionCode": 10,
+                "Priority": -1,
+                "InterruptibleBy": [
+                  "Death",
+                  "Interactive",
+                  "Impact"
+                ],
+                "ResourceLock": "Attack",
+                "Position": [
+                  null,
+                  1.213939e-10,
+                  1.3144381e17
+                ]
+              }
+            },
+            {
+              "classname": "base/attackaction",
+              "properties": {
+                "ID": "SpecialMove",
+                "ActionCode": 12,
+                "Priority": -1,
+                "InterruptibleBy": [
+                  "Death",
+                  "Interactive"
+                ],
+                "ResourceLock": "SuperMove",
+                "Position": [
+                  -0.03399668,
+                  0.003632192,
+                  1.2067891e-10
+                ]
+              }
+            },
+            {
+              "classname": "base/rangedattackaction",
+              "properties": {
+                "ActionCode": 8,
+                "Priority": 14,
+                "InterruptibleBy": [
+                  "Death",
+                  "Interactive",
+                  "Impact",
+                  "HeavenlyStrike"
+                ],
+                "ResourceLock": "RangedAttack",
+                "Position": [
+                  -1.5410333e35,
+                  0.000047714293,
+                  1.2006396e-10
+                ]
+              }
+            },
+            {
+              "classname": "base/dashattackaction",
+              "properties": {
+                "ID": "DashGrab",
+                "ActionCode": 7,
+                "Priority": 13,
+                "InterruptibleBy": [
+                  "Death",
+                  "Interactive",
+                  "Impact"
+                ],
+                "ResourceLock": "DashAttack",
+                "Position": [
+                  5e-44,
+                  null,
+                  7.144628e-33
+                ]
+              }
+            },
+            {
+              "classname": "base/dashattackaction",
+              "properties": {
+                "ID": "DashAttack",
+                "ActionCode": 6,
+                "Priority": 12,
+                "Chance": 0.5,
+                "InterruptibleBy": [
+                  "Death",
+                  "Interactive",
+                  "Impact"
+                ],
+                "ResourceLock": "DashAttack",
+                "Position": [
+                  1e-45,
+                  1.3315163e21,
+                  -2.7097548e14
+                ]
+              }
+            },
+            {
+              "classname": "base/approachaction",
+              "properties": {
+                "IgnoreZTolerance": true,
+                "Priority": 10,
+                "InterruptibleBy": [
+                  "ANY"
+                ],
+                "Position": [
+                  1e-45,
+                  -2.8638964e20,
+                  -2.7097548e14
+                ]
+              }
+            },
+            {
+              "classname": "base/attackaction",
+              "properties": {
+                "ID": "StandardAttack",
+                "ActionCode": 4,
+                "Priority": 7,
+                "InterruptibleBy": [
+                  "Death",
+                  "Interactive",
+                  "Impact"
+                ],
+                "ResourceLock": "Attack",
+                "Position": [
+                  null,
+                  1.3315163e21,
+                  2.2959e-41
+                ]
+              }
+            },
+            {
+              "classname": "base/strafeaction",
+              "properties": {
+                "ActionCode": 3,
+                "Priority": 4,
+                "Chance": 0.65,
+                "InterruptibleBy": [
+                  "ANY"
+                ],
+                "Position": [
+                  2.370278e-30,
+                  3.59e-43,
+                  null
+                ]
+              }
+            },
+            {
+              "classname": "base/walkbackaction",
+              "properties": {
+                "ActionCode": 2,
+                "Priority": 5,
+                "Chance": 0.75,
+                "InterruptibleBy": [
+                  "ANY"
+                ],
+                "Position": [
+                  2.3700524e-30,
+                  3.59e-43,
+                  null
+                ]
+              }
+            },
+            {
+              "classname": "base/facetargetaction",
+              "properties": {
+                "ID": "Face Target",
+                "Priority": 20,
+                "InterruptibleBy": [
+                  "Death",
+                  "Interactive",
+                  "Impact"
+                ]
+              }
+            },
+            {
+              "classname": "base/idleaction",
+              "properties": {
+                "Priority": 1,
+                "InterruptibleBy": [
+                  "ANY"
+                ]
+              }
+            }
+          ],
+          "BackgroundActions": [
+            {
+              "classname": "base/scanaction",
+              "properties": {}
+            },
+            {
+              "classname": "base/accumulatoraction",
+              "properties": {
+                "AccumulatorActionName": "SpecialMove",
+                "AccumulatorActionPriority": 20,
+                "ID": "SpecialAccumulator"
+              }
+            }
+          ],
+          "ExitBehaviorHandler": {
+            "classname": "base/exitbehavioraction",
+            "properties": {
+              "ID": "Exit",
+              "Priority": 640
+            }
+          },
+          "ID": "Encounter1StageA",
+          "Position": [
+            1.3144381e17,
+            1.4869416e-31,
+            9.8254516e-11
+          ]
+        }
+      }
+    },
+    "Encounter1StageB": {
+      "Value": {
+        "classname": "uriel/urielcombatbehavior",
+        "properties": {
+          "ScanAlertDistance": 5000,
+          "AvoidBackMoveStateLeft": "Air - DashBackwards",
+          "AvoidBackMoveStateRight": "Air - DashBackwards",
+          "AvoidBackMaxRange": 220,
+          "AvoidBackMinRange": 0,
+          "AvoidBackMinDelay": 0,
+          "AvoidBackMaxDelay": 0.25,
+          "AvoidBackAttackTypes": [
+            1,
+            3,
+            4,
+            5
+          ],
+          "AttackMoveStateAttack": "Air - Attack - StandardAttack A",
+          "AttackMinDelay": 4.0,
+          "AttackMaxDelay": 4.0,
+          "AttackMaxRange": 160,
+          "RangedAttackMoveStateAttack": "Air - Attack 4 - Terra Blades Start x2",
+          "RangedAttackMinDelay": 8.0,
+          "RangedAttackMaxDelay": 10.0,
+          "RangedAttackMinRange": 300,
+          "RangedAttackMaxRange": 600,
+          "DashAttackMissAngle": 65,
+          "DashAttackTimeout": 2.0,
+          "DashAttackMoveStateEndDash": "Air - Dash Attack Sweep",
+          "DashAttackMoveStateAttack": "Air - Dash Attack Sweep",
+          "DashAttackMoveStateDash": "Air - Dash Start",
+          "DashAttackMinDelay": 2.0,
+          "DashAttackMaxDelay": 3.0,
+          "DashAttackMinRange": 200,
+          "DashAttackMaxRange": 600,
+          "DashAttackMoveStateEndDashFar": "Air - Dash End",
+          "DashAttackEndFarRange": 300,
+          "DashGrabAttackMissAngle": 35,
+          "DashGrabAttackTimeout": 2.0,
+          "DashGrabAttackMoveStateEndDash": "Air - Dash End",
+          "DashGrabAttackMoveStateDash": "Air - Dash Start Grab",
+          "DashGrabAttackMinDelay": 10.0,
+          "DashGrabAttackMaxDelay": 15.0,
+          "DashGrabAttackMinRange": 300,
+          "DashGrabAttackMaxRange": 600,
+          "DashGrabAttackInteractiveMoveStateID": 10087,
+          "DashGrabAttackMoveStateEndDashFar": "Air - Dash End",
+          "DashGrabAttackEndFarRange": 150,
+          "PathBlockedBreakableHandler": {
+            "classname": "base/animaction",
+            "properties": {
+              "AnimMaxAngleDiff": 180,
+              "ID": "ClearObstacle",
+              "ActionCode": 8,
+              "Priority": 16,
+              "InterruptibleBy": [
+                "Death",
+                "Exit",
+                "Interactive",
+                "Impact"
+              ],
+              "Position": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "DeathBlowHandler": {
+            "classname": "base/deathblowaction",
+            "properties": {
+              "ID": "Death",
+              "ActionCode": 660,
+              "Priority": 660,
+              "Position": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "InteractiveHandler": {
+            "classname": "base/interactivestallaction",
+            "properties": {
+              "ID": "Interactive",
+              "Priority": 630,
+              "InterruptibleBy": [
+                "Death"
+              ],
+              "Position": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "ImpactHandler": {
+            "classname": "base/impactaction",
+            "properties": {
+              "ID": "Impact",
+              "Priority": 620,
+              "InterruptibleBy": [
+                "Death",
+                "Interactive"
+              ],
+              "Position": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "ComponentActions": [
+            {
+              "classname": "base/attackaction",
+              "properties": {
+                "ID": "HeavenlyStrike",
+                "ActionCode": 10,
+                "Priority": -1,
+                "InterruptibleBy": [
+                  "Death",
+                  "Interactive",
+                  "Impact"
+                ],
+                "ResourceLock": "Attack",
+                "Position": [
+                  null,
+                  1.213939e-10,
+                  1.3144381e17
+                ]
+              }
+            },
+            {
+              "classname": "base/attackaction",
+              "properties": {
+                "ID": "SpecialMove",
+                "ActionCode": 12,
+                "Priority": -1,
+                "InterruptibleBy": [
+                  "Death",
+                  "Interactive"
+                ],
+                "ResourceLock": "SuperMove",
+                "Position": [
+                  -0.03399668,
+                  0.003632192,
+                  1.2067891e-10
+                ]
+              }
+            },
+            {
+              "classname": "base/rangedattackaction",
+              "properties": {
+                "ActionCode": 8,
+                "Priority": 14,
+                "InterruptibleBy": [
+                  "Death",
+                  "Interactive",
+                  "Impact",
+                  "HeavenlyStrike"
+                ],
+                "ResourceLock": "RangedAttack",
+                "Position": [
+                  -1.5410333e35,
+                  0.000047714293,
+                  1.2006396e-10
+                ]
+              }
+            },
+            {
+              "classname": "base/dashattackaction",
+              "properties": {
+                "ID": "DashGrab",
+                "ActionCode": 7,
+                "Priority": 13,
+                "InterruptibleBy": [
+                  "Death",
+                  "Interactive",
+                  "Impact"
+                ],
+                "ResourceLock": "DashAttack",
+                "Position": [
+                  5e-44,
+                  null,
+                  7.144628e-33
+                ]
+              }
+            },
+            {
+              "classname": "base/dashattackaction",
+              "properties": {
+                "ID": "DashAttack",
+                "ActionCode": 6,
+                "Priority": 12,
+                "Chance": 0.5,
+                "InterruptibleBy": [
+                  "Death",
+                  "Interactive",
+                  "Impact"
+                ],
+                "ResourceLock": "DashAttack",
+                "Position": [
+                  1e-45,
+                  1.3315163e21,
+                  -2.7097548e14
+                ]
+              }
+            },
+            {
+              "classname": "base/approachaction",
+              "properties": {
+                "IgnoreZTolerance": true,
+                "Priority": 10,
+                "InterruptibleBy": [
+                  "ANY"
+                ],
+                "Position": [
+                  1e-45,
+                  -2.8638964e20,
+                  -2.7097548e14
+                ]
+              }
+            },
+            {
+              "classname": "base/attackaction",
+              "properties": {
+                "ID": "StandardAttack",
+                "ActionCode": 4,
+                "Priority": 7,
+                "InterruptibleBy": [
+                  "Death",
+                  "Interactive",
+                  "Impact"
+                ],
+                "ResourceLock": "Attack",
+                "Position": [
+                  null,
+                  1.3315163e21,
+                  2.2959e-41
+                ]
+              }
+            },
+            {
+              "classname": "base/strafeaction",
+              "properties": {
+                "ActionCode": 3,
+                "Priority": 4,
+                "Chance": 0.65,
+                "InterruptibleBy": [
+                  "ANY"
+                ],
+                "Position": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            },
+            {
+              "classname": "base/walkbackaction",
+              "properties": {
+                "ActionCode": 2,
+                "Priority": 5,
+                "Chance": 0.75,
+                "InterruptibleBy": [
+                  "ANY"
+                ],
+                "Position": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            },
+            {
+              "classname": "base/facetargetaction",
+              "properties": {
+                "ID": "Face Target",
+                "Priority": 20,
+                "InterruptibleBy": [
+                  "Death",
+                  "Interactive",
+                  "Impact"
+                ],
+                "Position": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            },
+            {
+              "classname": "base/idleaction",
+              "properties": {
+                "Priority": 1,
+                "InterruptibleBy": [
+                  "ANY"
+                ],
+                "Position": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            }
+          ],
+          "BackgroundActions": [
+            {
+              "classname": "base/scanaction",
+              "properties": {
+                "Position": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            },
+            {
+              "classname": "base/accumulatoraction",
+              "properties": {
+                "AccumulatorActionName": "SpecialMove",
+                "AccumulatorActionPriority": 20,
+                "ID": "SpecialAccumulator",
+                "Position": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            }
+          ],
+          "ExitBehaviorHandler": {
+            "classname": "base/exitbehavioraction",
+            "properties": {
+              "ID": "Exit",
+              "Priority": 640,
+              "Position": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "ID": "Encounter1StageB",
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "Encounter2StageA": {
+      "Value": {
+        "classname": "uriel/urielcombatbehavior",
+        "properties": {
+          "AvoidBackMoveStateLeft": "Air - DashBackwards",
+          "AvoidBackMoveStateRight": "Air - DashBackwards",
+          "AvoidBackMaxRange": 220,
+          "AvoidBackMinRange": 0,
+          "AvoidBackMinDelay": 0,
+          "AvoidBackMaxDelay": 0.25,
+          "AvoidBackAttackTypes": [
+            1,
+            3,
+            4,
+            5
+          ],
+          "AttackMoveStateAttack": "Air - Attack - StandardAttack B",
+          "AttackMinDelay": 4.0,
+          "AttackMaxDelay": 4.0,
+          "AttackMaxRange": 160,
+          "RangedAttackMoveStateAttack": "Air - Attack 4 - Terra Blades Start x2",
+          "RangedAttackMinDelay": 8.0,
+          "RangedAttackMaxDelay": 10.0,
+          "RangedAttackMinRange": 300,
+          "RangedAttackMaxRange": 600,
+          "DashAttackMissAngle": 65,
+          "DashAttackTimeout": 2.0,
+          "DashAttackMoveStateEndDash": "Air - Dash Attack Sweep",
+          "DashAttackMoveStateAttack": "Air - Dash Attack Sweep",
+          "DashAttackMoveStateDash": "Air - Dash Start",
+          "DashAttackMinDelay": 2.0,
+          "DashAttackMaxDelay": 3.0,
+          "DashAttackMinRange": 200,
+          "DashAttackMaxRange": 600,
+          "DashAttackMoveStateEndDashFar": "Air - Dash End",
+          "DashAttackEndFarRange": 300,
+          "SpecialDamageThreshold": 200,
+          "SpecialMoveStateAttack": "Air - GroundToAir - Special X3",
+          "SpecialMaxRange": 300,
+          "PathBlockedBreakableHandler": {
+            "classname": "base/animaction",
+            "properties": {
+              "AnimMaxAngleDiff": 180,
+              "ID": "ClearObstacle",
+              "ActionCode": 8,
+              "Priority": 16,
+              "InterruptibleBy": [
+                "Death",
+                "Exit",
+                "Interactive",
+                "Impact"
+              ],
+              "Position": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "DeathBlowHandler": {
+            "classname": "base/deathblowaction",
+            "properties": {
+              "ID": "Death",
+              "ActionCode": 660,
+              "Priority": 660,
+              "Position": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "InteractiveHandler": {
+            "classname": "base/interactivestallaction",
+            "properties": {
+              "ID": "Interactive",
+              "Priority": 630,
+              "InterruptibleBy": [
+                "Death"
+              ],
+              "Position": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "ImpactHandler": {
+            "classname": "base/impactaction",
+            "properties": {
+              "ID": "Impact",
+              "Priority": 620,
+              "InterruptibleBy": [
+                "Death",
+                "Interactive"
+              ],
+              "Position": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "ComponentActions": [
+            {
+              "classname": "base/attackaction",
+              "properties": {
+                "ID": "HeavenlyStrike",
+                "ActionCode": 10,
+                "Priority": -1,
+                "InterruptibleBy": [
+                  "Death",
+                  "Interactive",
+                  "Impact"
+                ],
+                "ResourceLock": "Attack",
+                "Position": [
+                  null,
+                  1.213939e-10,
+                  1.3144381e17
+                ]
+              }
+            },
+            {
+              "classname": "base/attackaction",
+              "properties": {
+                "ID": "SpecialMove",
+                "ActionCode": 12,
+                "Priority": -1,
+                "InterruptibleBy": [
+                  "Death",
+                  "Interactive"
+                ],
+                "ResourceLock": "SuperMove",
+                "Position": [
+                  -0.03399668,
+                  0.003632192,
+                  1.2067891e-10
+                ]
+              }
+            },
+            {
+              "classname": "base/rangedattackaction",
+              "properties": {
+                "ActionCode": 8,
+                "Priority": 14,
+                "InterruptibleBy": [
+                  "Death",
+                  "Interactive",
+                  "Impact",
+                  "HeavenlyStrike"
+                ],
+                "ResourceLock": "RangedAttack",
+                "Position": [
+                  -1.5410333e35,
+                  0.000047714293,
+                  1.2006396e-10
+                ]
+              }
+            },
+            {
+              "classname": "base/dashattackaction",
+              "properties": {
+                "ID": "DashGrab",
+                "ActionCode": 7,
+                "Priority": 13,
+                "InterruptibleBy": [
+                  "Death",
+                  "Interactive",
+                  "Impact"
+                ],
+                "ResourceLock": "DashAttack",
+                "Position": [
+                  5e-44,
+                  null,
+                  7.144628e-33
+                ]
+              }
+            },
+            {
+              "classname": "base/dashattackaction",
+              "properties": {
+                "ID": "DashAttack",
+                "ActionCode": 6,
+                "Priority": 12,
+                "Chance": 0.5,
+                "InterruptibleBy": [
+                  "Death",
+                  "Interactive",
+                  "Impact"
+                ],
+                "ResourceLock": "DashAttack",
+                "Position": [
+                  1e-45,
+                  1.3315163e21,
+                  -2.7097548e14
+                ]
+              }
+            },
+            {
+              "classname": "base/approachaction",
+              "properties": {
+                "IgnoreZTolerance": true,
+                "Priority": 10,
+                "InterruptibleBy": [
+                  "ANY"
+                ],
+                "Position": [
+                  1e-45,
+                  -2.8638964e20,
+                  -2.7097548e14
+                ]
+              }
+            },
+            {
+              "classname": "base/attackaction",
+              "properties": {
+                "ID": "StandardAttack",
+                "ActionCode": 4,
+                "Priority": 7,
+                "InterruptibleBy": [
+                  "Death",
+                  "Interactive",
+                  "Impact"
+                ],
+                "ResourceLock": "Attack",
+                "Position": [
+                  null,
+                  1.3315163e21,
+                  2.2959e-41
+                ]
+              }
+            },
+            {
+              "classname": "base/strafeaction",
+              "properties": {
+                "ActionCode": 3,
+                "Priority": 4,
+                "Chance": 0.65,
+                "InterruptibleBy": [
+                  "ANY"
+                ],
+                "Position": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            },
+            {
+              "classname": "base/walkbackaction",
+              "properties": {
+                "ActionCode": 2,
+                "Priority": 5,
+                "Chance": 0.75,
+                "InterruptibleBy": [
+                  "ANY"
+                ],
+                "Position": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            },
+            {
+              "classname": "base/facetargetaction",
+              "properties": {
+                "ID": "Face Target",
+                "Priority": 20,
+                "InterruptibleBy": [
+                  "Death",
+                  "Interactive",
+                  "Impact"
+                ],
+                "Position": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            },
+            {
+              "classname": "base/idleaction",
+              "properties": {
+                "Priority": 1,
+                "InterruptibleBy": [
+                  "ANY"
+                ],
+                "Position": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            }
+          ],
+          "BackgroundActions": [
+            {
+              "classname": "base/scanaction",
+              "properties": {
+                "Position": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            },
+            {
+              "classname": "base/accumulatoraction",
+              "properties": {
+                "AccumulatorActionName": "SpecialMove",
+                "AccumulatorActionPriority": 20,
+                "ID": "SpecialAccumulator",
+                "Position": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            }
+          ],
+          "ExitBehaviorHandler": {
+            "classname": "base/exitbehavioraction",
+            "properties": {
+              "ID": "Exit",
+              "Priority": 640,
+              "Position": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "ID": "Encounter2StageA",
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "Encounter2StageB": {
+      "Value": {
+        "classname": "uriel/urielcombatbehavior",
+        "properties": {
+          "AvoidBackMoveStateLeft": "Air - DashBackwards",
+          "AvoidBackMoveStateRight": "Air - DashBackwards",
+          "AvoidBackMaxRange": 220,
+          "AvoidBackMinRange": 0,
+          "AvoidBackMinDelay": 0,
+          "AvoidBackMaxDelay": 0.25,
+          "AvoidBackAttackTypes": [
+            1,
+            3,
+            4,
+            5
+          ],
+          "AttackMoveStateAttack": "Air - Attack - StandardAttack B",
+          "AttackMinDelay": 4.0,
+          "AttackMaxDelay": 4.0,
+          "AttackMaxRange": 160,
+          "RangedAttackMoveStateAttack": "Air - Attack 4 - Terra Blades Start x2",
+          "RangedAttackMinDelay": 8.0,
+          "RangedAttackMaxDelay": 10.0,
+          "RangedAttackMinRange": 300,
+          "RangedAttackMaxRange": 600,
+          "DashGrabAttackMissAngle": 35,
+          "DashGrabAttackTimeout": 2.0,
+          "DashGrabAttackMoveStateEndDash": "Air - Dash Attack Sweep",
+          "DashGrabAttackMoveStateDash": "Air - Dash Start Grab",
+          "DashGrabAttackMinDelay": 10.0,
+          "DashGrabAttackMaxDelay": 15.0,
+          "DashGrabAttackMinRange": 300,
+          "DashGrabAttackMaxRange": 600,
+          "DashGrabAttackInteractiveMoveStateID": 10087,
+          "DashGrabAttackMoveStateEndDashFar": "Air - Dash End",
+          "DashGrabAttackEndFarRange": 150,
+          "SpecialDamageThreshold": 200,
+          "SpecialMoveStateAttack": "Air - GroundToAir - Special X3",
+          "SpecialMaxRange": 300,
+          "PathBlockedBreakableHandler": {
+            "classname": "base/animaction",
+            "properties": {
+              "AnimMaxAngleDiff": 180,
+              "ID": "ClearObstacle",
+              "ActionCode": 8,
+              "Priority": 16,
+              "InterruptibleBy": [
+                "Death",
+                "Exit",
+                "Interactive",
+                "Impact"
+              ],
+              "Position": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "DeathBlowHandler": {
+            "classname": "base/deathblowaction",
+            "properties": {
+              "ID": "Death",
+              "ActionCode": 660,
+              "Priority": 660,
+              "Position": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "InteractiveHandler": {
+            "classname": "base/interactivestallaction",
+            "properties": {
+              "ID": "Interactive",
+              "Priority": 630,
+              "InterruptibleBy": [
+                "Death"
+              ],
+              "Position": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "ImpactHandler": {
+            "classname": "base/impactaction",
+            "properties": {
+              "ID": "Impact",
+              "Priority": 620,
+              "InterruptibleBy": [
+                "Death",
+                "Interactive"
+              ],
+              "Position": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "ComponentActions": [
+            {
+              "classname": "base/attackaction",
+              "properties": {
+                "ID": "HeavenlyStrike",
+                "ActionCode": 10,
+                "Priority": -1,
+                "InterruptibleBy": [
+                  "Death",
+                  "Interactive",
+                  "Impact"
+                ],
+                "ResourceLock": "Attack",
+                "Position": [
+                  null,
+                  1.213939e-10,
+                  1.3144381e17
+                ]
+              }
+            },
+            {
+              "classname": "base/attackaction",
+              "properties": {
+                "ID": "SpecialMove",
+                "ActionCode": 12,
+                "Priority": -1,
+                "InterruptibleBy": [
+                  "Death",
+                  "Interactive"
+                ],
+                "ResourceLock": "SuperMove",
+                "Position": [
+                  -0.03399668,
+                  0.003632192,
+                  1.2067891e-10
+                ]
+              }
+            },
+            {
+              "classname": "base/rangedattackaction",
+              "properties": {
+                "ActionCode": 8,
+                "Priority": 14,
+                "InterruptibleBy": [
+                  "Death",
+                  "Interactive",
+                  "Impact",
+                  "HeavenlyStrike"
+                ],
+                "ResourceLock": "RangedAttack",
+                "Position": [
+                  -1.5410333e35,
+                  0.000047714293,
+                  1.2006396e-10
+                ]
+              }
+            },
+            {
+              "classname": "base/dashattackaction",
+              "properties": {
+                "ID": "DashGrab",
+                "ActionCode": 7,
+                "Priority": 13,
+                "InterruptibleBy": [
+                  "Death",
+                  "Interactive",
+                  "Impact"
+                ],
+                "ResourceLock": "DashAttack",
+                "Position": [
+                  5e-44,
+                  null,
+                  7.144628e-33
+                ]
+              }
+            },
+            {
+              "classname": "base/dashattackaction",
+              "properties": {
+                "ID": "DashAttack",
+                "ActionCode": 6,
+                "Priority": 12,
+                "Chance": 0.5,
+                "InterruptibleBy": [
+                  "Death",
+                  "Interactive",
+                  "Impact"
+                ],
+                "ResourceLock": "DashAttack",
+                "Position": [
+                  1e-45,
+                  1.3315163e21,
+                  -2.7097548e14
+                ]
+              }
+            },
+            {
+              "classname": "base/approachaction",
+              "properties": {
+                "IgnoreZTolerance": true,
+                "Priority": 10,
+                "InterruptibleBy": [
+                  "ANY"
+                ],
+                "Position": [
+                  1e-45,
+                  -2.8638964e20,
+                  -2.7097548e14
+                ]
+              }
+            },
+            {
+              "classname": "base/attackaction",
+              "properties": {
+                "ID": "StandardAttack",
+                "ActionCode": 4,
+                "Priority": 7,
+                "InterruptibleBy": [
+                  "Death",
+                  "Interactive",
+                  "Impact"
+                ],
+                "ResourceLock": "Attack",
+                "Position": [
+                  null,
+                  1.3315163e21,
+                  2.2959e-41
+                ]
+              }
+            },
+            {
+              "classname": "base/strafeaction",
+              "properties": {
+                "ActionCode": 3,
+                "Priority": 4,
+                "Chance": 0.65,
+                "InterruptibleBy": [
+                  "ANY"
+                ],
+                "Position": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            },
+            {
+              "classname": "base/walkbackaction",
+              "properties": {
+                "ActionCode": 2,
+                "Priority": 5,
+                "Chance": 0.75,
+                "InterruptibleBy": [
+                  "ANY"
+                ],
+                "Position": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            },
+            {
+              "classname": "base/facetargetaction",
+              "properties": {
+                "ID": "Face Target",
+                "Priority": 20,
+                "InterruptibleBy": [
+                  "Death",
+                  "Interactive",
+                  "Impact"
+                ],
+                "Position": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            },
+            {
+              "classname": "base/idleaction",
+              "properties": {
+                "Priority": 1,
+                "InterruptibleBy": [
+                  "ANY"
+                ],
+                "Position": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            }
+          ],
+          "BackgroundActions": [
+            {
+              "classname": "base/scanaction",
+              "properties": {
+                "Position": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            },
+            {
+              "classname": "base/accumulatoraction",
+              "properties": {
+                "AccumulatorActionName": "SpecialMove",
+                "AccumulatorActionPriority": 20,
+                "ID": "SpecialAccumulator",
+                "Position": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            }
+          ],
+          "ExitBehaviorHandler": {
+            "classname": "base/exitbehavioraction",
+            "properties": {
+              "ID": "Exit",
+              "Priority": 640,
+              "Position": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "ID": "Encounter2StageB",
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "velPredictTime": {
+      "Value": 1.3
+    },
+    "seriesSpacing": {
+      "Value": 125
+    },
+    "seriesSize": {
+      "Value": 3
+    }
+  },
+  "Methods": [
+    "setFeathersBright",
+    "setFeathersNormal",
+    "setFeathersDark",
+    "resetFeathers",
+    "setActive",
+    "setInactive",
+    "fadeToActive",
+    "fadeToInactive",
+    "startTempestBlade",
+    "rainDownBlades",
+    "endTempestBlade",
+    "ResetTempestBladeSeries",
+    "DropTempestBlade",
+    "placeTempestBlade",
+    "spawnTempestBlade"
+  ],
+  "PackageName": "uriel",
+  "DefaultValues": {
+    "BladeRainActive": false,
+    "materialParameter": "EmissiveColor",
+    "currentIntensity": 0.0,
+    "seriesHeading": 0,
+    "inactiveFadeTime": 0.5,
+    "seriesNextPoint": null,
+    "inactiveIntensity": 0.2,
+    "darkValue": 0.0,
+    "feathersActive": false,
+    "intensityChangePulseTime": 0.04,
+    "normalValue": 0.2,
+    "seriesHeadingShift": 40,
+    "activeFadeTime": 1.0,
+    "seriesDirVect": null,
+    "materialName": "Uriel_Feathers",
+    "midValue": 0.3,
+    "seriesCount": 0,
+    "brightValue": 0.5,
+    "activeIntensity": 2.0,
+    "bladeCount": 0
+  },
+  "States": {}
+}

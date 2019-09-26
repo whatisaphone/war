@@ -1,0 +1,409 @@
+{
+  "Parent": "KinematicActor",
+  "Name": "crossblade_switch/crossbladeswitch",
+  "Properties": {
+    "MultiTagTarget": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "TagGroup": {
+      "Flags": 4,
+      "Type": 2
+    },
+    "TagCount": {
+      "Flags": 4,
+      "Type": 2
+    },
+    "Open": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "StartActivated": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "LinkedObject": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "BoomerangNodeNum": {
+      "Flags": 2,
+      "Type": 2
+    }
+  },
+  "StaticProperties": {
+    "Description": {
+      "Value": {
+        "classname": "KinematicActorDesc",
+        "properties": {
+          "Visual": "global_crossbladeswitch",
+          "Animations": {
+            "classname": "AnimationList",
+            "properties": {
+              "Animations": [
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 4,
+                    "Name": "activated",
+                    "AnimationName": "crossbladeswitch_opened",
+                    "Looping": true,
+                    "Triggers": [
+                      {
+                        "classname": "MaterialTrigger",
+                        "properties": {
+                          "Material": "crossbladeswitch",
+                          "OverrideMaterial": "crossbladeswitch_activated"
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "crossbladeswitch_activated",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50068
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 3,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50086,
+                          "TriggerFrame": 5
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 4
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "Name": "inactive",
+                    "AnimationName": "crossbladeswitch_closed",
+                    "Looping": true,
+                    "Triggers": [
+                      {
+                        "classname": "MaterialTrigger",
+                        "properties": {
+                          "Material": "crossbladeswitch",
+                          "OverrideMaterial": "crossbladeswitch"
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 8
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 1,
+                    "Name": "open",
+                    "AnimationName": "crossbladeswitch_open",
+                    "Triggers": [
+                      {
+                        "classname": "MaterialTrigger",
+                        "properties": {
+                          "Material": "crossbladeswitch",
+                          "OverrideMaterial": "crossbladeswitch"
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "crossbladeswitch_open",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50085
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 2,
+                    "Name": "ready",
+                    "AnimationName": "crossbladeswitch_opened",
+                    "Looping": true,
+                    "Triggers": [
+                      {
+                        "classname": "MaterialTrigger",
+                        "properties": {
+                          "Material": "crossbladeswitch",
+                          "OverrideMaterial": "crossbladeswitch_ready"
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 3
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "crossbladeswitch_ready",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50086,
+                          "TriggerFrame": 5
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 3,
+                    "Name": "tagged",
+                    "AnimationName": "crossbladeswitch_opened",
+                    "Looping": true,
+                    "Triggers": [
+                      {
+                        "classname": "MaterialTrigger",
+                        "properties": {
+                          "Material": "crossbladeswitch",
+                          "OverrideMaterial": "crossbladeswitch_tagged"
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "crossbladeswitch_tagged",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50068
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 5
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50086,
+                          "TriggerFrame": 5
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          "Sounds": {
+            "classname": "SoundList",
+            "properties": {
+              "Sounds": [
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50086,
+                    "Name": "crossbladeswitch_flash",
+                    "Volume": 0.39990234,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 3000.0,
+                    "Sounds": "crossblade_switch_flash_1,crossblade_switch_flash_2,crossblade_switch_flash_3",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50085,
+                    "Name": "crossbladeswitch_open",
+                    "EnableDSP": false,
+                    "Min": 1.0,
+                    "Max": 3000.0,
+                    "Sounds": "crossblade_switch_open",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50068,
+                    "Name": "crystal_impact",
+                    "RandomPitch": 1.0,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 1400.0,
+                    "Priority": 0,
+                    "Sounds": "impact_sword_stone_4,impact_sword_stone_1,impact_sword_stone_2,impact_sword_stone_3",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50076,
+                    "Name": "crystal_insert_impact",
+                    "Volume": 0.9199219,
+                    "EnableDSP": false,
+                    "Min": 1.0,
+                    "Priority": 20,
+                    "Sounds": "crystal_switch_impact_set_3,crystal_switch_impact_set_1,crystal_switch_impact_set_2",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 4,
+                    "Name": "crystal_switch_impact_active",
+                    "Volume": 0.89990234,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 1450.0,
+                    "Priority": 1,
+                    "Sounds": "crystal_switch_impact_active",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 5,
+                    "Name": "crystal_switch_impact_passive",
+                    "Volume": 0.89990234,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 1450.0,
+                    "Priority": 1,
+                    "Sounds": "crystal_switch_impact_passive",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 3,
+                    "Name": "crystal_switch_loop_chimes",
+                    "Volume": 0.5,
+                    "Loop": true,
+                    "EnableDSP": false,
+                    "FadeInTime": 1.0,
+                    "FadeOutTime": 1.0,
+                    "Offset": true,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 1500.0,
+                    "Priority": 0,
+                    "Sounds": "crystal_switch_loop_chimes",
+                    "Group": "doodads"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "Methods": [
+    "activateNodeBoomerang",
+    "deactivateNodeBoomerang",
+    "onInit",
+    "onRemove",
+    "reset",
+    "activate",
+    "close",
+    "activateLinkedObject"
+  ],
+  "PackageName": "crossblade_switch",
+  "DefaultValues": {
+    "StartActivated": false,
+    "Open": false,
+    "TagCount": 1,
+    "MultiTagTarget": false,
+    "TagGroup": 0,
+    "BoomerangNodeNum": 1
+  },
+  "States": {
+    "Tagged": {
+      "methods": [
+        "onTag",
+        "onTimer",
+        "onEnter"
+      ]
+    },
+    "Opening": {
+      "methods": [
+        "onAnimationComplete",
+        "onEnter"
+      ]
+    },
+    "Activated": {
+      "methods": [
+        "onEnter"
+      ]
+    },
+    "Ready": {
+      "methods": [
+        "onHit",
+        "onEnter"
+      ]
+    },
+    "Closed": {
+      "methods": [
+        "open",
+        "onEnter"
+      ]
+    },
+    "Closing": {
+      "methods": [
+        "onEnter"
+      ]
+    },
+    "FalseTagged": {
+      "methods": [
+        "onTimer",
+        "onEnter"
+      ]
+    }
+  }
+}

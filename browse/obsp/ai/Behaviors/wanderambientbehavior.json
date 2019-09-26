@@ -1,0 +1,362 @@
+{
+  "Parent": "base/standardbehavior",
+  "Name": "base/wanderambientbehavior",
+  "Properties": {
+    "WanderTurnPauseAngle": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "WanderMinRestTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "WanderMaxRestTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "WanderMinTravelPeriod": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "WanderMaxTravelPeriod": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "WanderDistCutoffToRest": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AllowRangedTargets": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "ScanAlertDistance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ScanInterval": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachMoveStateMove": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "ApproachForceCloseRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachForceCompleteRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMoveStateIdle": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleMoveStateFidget": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleFidgetChance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleFidgetMinTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleFidgetMaxTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMinTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMaxTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "BlockEnabled": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "BlockChance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "BlockMoveStateBlock": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "BlockMinDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "BlockMaxDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "BlockAttackTypes": {
+      "Flags": 4,
+      "Type": 1
+    },
+    "BlockUseMonsterBlockChance": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "ClearObstacleMoveState": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "WanderPoint": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "WanderTimerStarted": {
+      "Flags": 0,
+      "Type": 4
+    }
+  },
+  "StaticProperties": {},
+  "Methods": [
+    "PickWanderPoint",
+    "begin",
+    "end",
+    "onTargetUnreachable",
+    "setIdle"
+  ],
+  "PackageName": "base",
+  "DefaultValues": {
+    "BlockAttackTypes": [
+      2,
+      3,
+      4
+    ],
+    "ApproachForceCompleteRange": -1,
+    "WanderPoint": null,
+    "IdleMinTime": 2,
+    "WanderMaxRestTime": 3.5,
+    "BlockChance": 0.8,
+    "BlockEnabled": false,
+    "IdleFidgetChance": 0,
+    "IdleFidgetMinTime": 3,
+    "WanderDistCutoffToRest": 300,
+    "ApproachMoveStateMove": "",
+    "AllowRangedTargets": true,
+    "BlockUseMonsterBlockChance": false,
+    "WanderTimerStarted": false,
+    "ID": "WanderAmbientBehavior",
+    "BlockMoveStateBlock": "",
+    "BackgroundActions": [
+      {
+        "classname": "base/homescanaction",
+        "properties": {
+          "OnScanAcquiredTarget": "FoundMeleeTarget",
+          "OnScanAcquiredRangedTarget": "FoundRangedTarget",
+          "OnScanLostTarget": "",
+          "ScanLOSCheck": true,
+          "ScanMeleeOnly": false,
+          "ScanAllowRescansWithTarget": true,
+          "ID": "HomeScanForTarget",
+          "ValidStates": [
+            "MovingIntoPosition"
+          ],
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/scanaction",
+        "properties": {
+          "OnScanAcquiredTarget": "FoundMeleeTarget",
+          "OnScanAcquiredRangedTarget": "FoundRangedTarget",
+          "OnScanLostTarget": "",
+          "ScanLOSCheck": true,
+          "ScanMeleeOnly": false,
+          "ScanAllowRescansWithTarget": true,
+          "ID": "Scan",
+          "ValidStates": [
+            "Wander",
+            "Resting",
+            "NoWanderRegion"
+          ],
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "IdleMoveStateFidget": "",
+    "BlockMaxDelay": 3.0,
+    "ClearObstacleMoveState": "usecombat",
+    "BlockMinDelay": 1.0,
+    "ScanInterval": 1.5,
+    "IdleMoveStateIdle": "",
+    "ApproachRange": 150,
+    "WanderTurnPauseAngle": 90,
+    "OnAttackHandler": [
+      {
+        "classname": "base/blockaction",
+        "properties": {
+          "ID": "Block",
+          "ActionCode": 5,
+          "Priority": 16,
+          "InterruptibleBy": [
+            "Death",
+            "Exit",
+            "Interactive",
+            "Impact"
+          ],
+          "ResourceLock": "Block",
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "WanderMaxTravelPeriod": 16,
+    "PathBlockedBreakableHandler": {
+      "classname": "base/clearobstacleaction",
+      "properties": {
+        "ID": "Clear Obstacle",
+        "ActionCode": 5,
+        "Priority": 16,
+        "InterruptibleBy": [
+          "Death",
+          "Exit",
+          "Interactive",
+          "Impact"
+        ],
+        "Position": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "UpdateInterval": -1,
+    "IdleMaxTime": 3,
+    "WanderMinRestTime": 1.0,
+    "ComponentActions": [
+      {
+        "classname": "base/approachwanderaction",
+        "properties": {
+          "IgnoreZTolerance": true,
+          "Priority": 9,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "ValidStates": [
+            "Wander",
+            "MovingIntoPosition"
+          ],
+          "OnCompleteState": "WanderPointReached",
+          "Position": [
+            0.0,
+            0.0,
+            -1.038998e-7
+          ]
+        }
+      },
+      {
+        "classname": "base/defaultaction",
+        "properties": {
+          "ID": "WanderTooClose",
+          "Priority": 8,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "ValidStates": [
+            "Wander",
+            "MovingIntoPosition"
+          ],
+          "OnCompleteState": "WanderPointReached",
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/idleaction",
+        "properties": {
+          "ID": "Idle",
+          "Priority": 1,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "ApproachForceCloseRange": -1,
+    "IdleFidgetMaxTime": 5,
+    "ScanAlertDistance": -1,
+    "WanderMinTravelPeriod": 8
+  },
+  "States": {
+    "Wander": {
+      "methods": [
+        "onTravelRestTimer",
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "NoWanderRegion": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "Resting": {
+      "methods": [
+        "onTravelRestTimer",
+        "onRestOverTimer",
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "FoundRangedTarget": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "FoundMeleeTarget": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "MovingIntoPosition": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "WanderPointReached": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    }
+  }
+}

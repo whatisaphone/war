@@ -1,0 +1,432 @@
+{
+  "Parent": "base/standardbehavior",
+  "Name": "crowdmale1/crowdfleebehavior",
+  "Properties": {
+    "WanderPoint": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "IdleMoveStateFidget": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleFidgetMinTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleFidgetMaxTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AnimMaxAngleDiff": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "FleeType": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "HasPickedFleePoint": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "ClearObstacleMoveState": {
+      "Flags": 4,
+      "Type": 5
+    }
+  },
+  "StaticProperties": {},
+  "Methods": [
+    "begin",
+    "unlockFidgetActions",
+    "PickFleePoint",
+    "RecalculateFleePoint",
+    "onEnemyActorCollision",
+    "onPathBlocked",
+    "clearApproachAction"
+  ],
+  "PackageName": "crowdmale1",
+  "DefaultValues": {
+    "WanderPoint": null,
+    "AnimMaxAngleDiff": 180,
+    "HasPickedFleePoint": false,
+    "IdleFidgetMinTime": -1,
+    "ID": "CrowdFleeBehavior",
+    "BackgroundActions": [],
+    "IdleMoveStateFidget": "",
+    "ClearObstacleMoveState": "StandardAttack",
+    "OnAttackHandler": [],
+    "PathBlockedBreakableHandler": {
+      "classname": "base/clearobstacleaction",
+      "properties": {
+        "ID": "Clear Obstacle",
+        "ActionCode": 12,
+        "Priority": 16,
+        "InterruptibleBy": [
+          "Death",
+          "Exit",
+          "Interactive",
+          "Impact"
+        ]
+      }
+    },
+    "FleeType": 0,
+    "ComponentActions": [
+      {
+        "classname": "base/animaction",
+        "properties": {
+          "AnimMoveState": "Standing - Turn Around",
+          "ID": "StandingTurn",
+          "Priority": 9,
+          "InterruptibleBy": [
+            "Death",
+            "Interactive",
+            "Impact"
+          ],
+          "ValidStates": [
+            "StandingTurnAround"
+          ],
+          "ResourceLock": "StandingTurn",
+          "MinLockTime": 5.0,
+          "MaxLockTime": 10.0,
+          "OnCompleteState": "Walking"
+        }
+      },
+      {
+        "classname": "base/defaultaction",
+        "properties": {
+          "OnBeginState": "StandingCower",
+          "ID": "Cower",
+          "Priority": 1,
+          "ValidStates": [
+            "StandingTurnAround"
+          ]
+        }
+      },
+      {
+        "classname": "base/animaction",
+        "properties": {
+          "AnimMoveState": "Standing - Trip",
+          "ID": "Trip",
+          "ActionCode": 2,
+          "Priority": 8,
+          "Chance": 0.001,
+          "InterruptibleBy": [
+            "Death",
+            "Interactive",
+            "Impact"
+          ],
+          "ValidStates": [
+            "Walking"
+          ],
+          "ResourceLock": "Trip",
+          "MinLockTime": 15.0,
+          "MaxLockTime": 25.0,
+          "OnCompleteState": "Fallen"
+        }
+      },
+      {
+        "classname": "base/animaction",
+        "properties": {
+          "AnimMoveState": "Standing - Stumble",
+          "ID": "Stumble",
+          "ActionCode": 2,
+          "Priority": 7,
+          "Chance": 0.01,
+          "InterruptibleBy": [
+            "Death",
+            "Interactive",
+            "Impact"
+          ],
+          "ValidStates": [
+            "Walking"
+          ],
+          "ResourceLock": "Stumble",
+          "MinLockTime": 5.0,
+          "MaxLockTime": 10.0
+        }
+      },
+      {
+        "classname": "base/approachwanderaction",
+        "properties": {
+          "ApproachRange": 50,
+          "ApproachMoveStateMove": "Standing - Move",
+          "ApproachForceCloseRange": 50000,
+          "ApproachForceCompleteRange": 40,
+          "ID": "WalkingApproach",
+          "Priority": 6,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "ValidStates": [
+            "Walking"
+          ]
+        }
+      },
+      {
+        "classname": "base/idleaction",
+        "properties": {
+          "IdleMoveStateIdle": "Standing - Random Idle",
+          "IdleMinTime": 1,
+          "IdleMaxTime": 5,
+          "IdleMoveStateFidget": "NA",
+          "IdleFidgetChance": 0,
+          "ID": "WalkingIdle",
+          "ActionCode": 1,
+          "Priority": 1,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "ValidStates": [
+            "Walking"
+          ],
+          "OnCompleteState": "DestinationReachedWalking"
+        }
+      },
+      {
+        "classname": "base/idleaction",
+        "properties": {
+          "IdleMoveStateIdle": "Standing - Cower",
+          "IdleMinTime": 1,
+          "IdleMaxTime": 5,
+          "IdleMoveStateFidget": "NA",
+          "IdleFidgetChance": 0,
+          "ID": "StandingCower",
+          "Priority": 1,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "ValidStates": [
+            "StandingCower"
+          ]
+        }
+      },
+      {
+        "classname": "base/animaction",
+        "properties": {
+          "AnimMoveState": "Kneeling - TransitionToStanding",
+          "ID": "Stand",
+          "ActionCode": 6,
+          "Priority": 7,
+          "Chance": 0.7,
+          "InterruptibleBy": [
+            "Death",
+            "Interactive",
+            "Impact"
+          ],
+          "ValidStates": [
+            "Kneeling"
+          ],
+          "ResourceLock": "Stand",
+          "MinLockTime": 5.0,
+          "MaxLockTime": 10.0,
+          "OnCompleteState": "Walking"
+        }
+      },
+      {
+        "classname": "base/approachwanderaction",
+        "properties": {
+          "ApproachRange": 50,
+          "ApproachMoveStateMove": "Kneeling - Move",
+          "ApproachForceCloseRange": 50000,
+          "ApproachForceCompleteRange": 40,
+          "ID": "KneelingApproach",
+          "Priority": 6,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "ValidStates": [
+            "Kneeling"
+          ]
+        }
+      },
+      {
+        "classname": "base/idleaction",
+        "properties": {
+          "IdleMoveStateIdle": "Kneeling - Idle",
+          "IdleMinTime": 1,
+          "IdleMaxTime": 5,
+          "IdleMoveStateFidget": "NA",
+          "IdleFidgetChance": 0,
+          "ID": "KneelingIdle",
+          "ActionCode": 5,
+          "Priority": 1,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "ValidStates": [
+            "Kneeling"
+          ],
+          "OnCompleteState": "DestinationReachedKneeling"
+        }
+      },
+      {
+        "classname": "base/idleaction",
+        "properties": {
+          "IdleMoveStateIdle": "Kneeling - Cower",
+          "IdleMinTime": 1,
+          "IdleMaxTime": 5,
+          "IdleMoveStateFidget": "NA",
+          "IdleFidgetChance": 0,
+          "ID": "KneelingCower",
+          "Priority": 1,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "ValidStates": [
+            "KneelingCower"
+          ]
+        }
+      },
+      {
+        "classname": "base/animaction",
+        "properties": {
+          "AnimMoveState": "Fallen - TransitionToKneeling",
+          "ID": "Kneel",
+          "ActionCode": 10,
+          "Priority": 7,
+          "Chance": 0.7,
+          "InterruptibleBy": [
+            "Death",
+            "Interactive",
+            "Impact"
+          ],
+          "ValidStates": [
+            "Fallen"
+          ],
+          "ResourceLock": "Kneel",
+          "MinLockTime": 5.0,
+          "MaxLockTime": 10.0,
+          "OnCompleteState": "Kneeling"
+        }
+      },
+      {
+        "classname": "base/approachwanderaction",
+        "properties": {
+          "ApproachRange": 50,
+          "ApproachMoveStateMove": "Fallen - Move",
+          "ApproachForceCloseRange": 50000,
+          "ApproachForceCompleteRange": 40,
+          "ID": "FallenApproach",
+          "Priority": 6,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "ValidStates": [
+            "Fallen"
+          ]
+        }
+      },
+      {
+        "classname": "base/idleaction",
+        "properties": {
+          "IdleMoveStateIdle": "Fallen - Idle",
+          "IdleMinTime": 1,
+          "IdleMaxTime": 5,
+          "IdleMoveStateFidget": "NA",
+          "IdleFidgetChance": 0,
+          "ID": "FallenIdle",
+          "ActionCode": 9,
+          "Priority": 1,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "ValidStates": [
+            "Fallen"
+          ],
+          "OnCompleteState": "DestinationReachedFallen"
+        }
+      },
+      {
+        "classname": "base/idleaction",
+        "properties": {
+          "IdleMoveStateIdle": "Fallen - Cower",
+          "IdleMinTime": 1,
+          "IdleMaxTime": 99,
+          "IdleMoveStateFidget": "NA",
+          "IdleFidgetChance": 0,
+          "ID": "FallenCower",
+          "Priority": 1,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "ValidStates": [
+            "FallenCower"
+          ]
+        }
+      }
+    ],
+    "IdleFidgetMaxTime": -1
+  },
+  "States": {
+    "Flee": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "Fallen": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "DestinationReachedWalking": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "Walking": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "DestinationReachedKneeling": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "FallenCower": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "DestinationReachedFallen": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "StandingTurnAround": {
+      "methods": [
+        "getCurrentState",
+        "RecalculateFleePoint",
+        "onEnter",
+        "onEnemyActorCollision",
+        "onPathBlocked"
+      ]
+    },
+    "StandingCower": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "KneelingCower": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "Kneeling": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    }
+  }
+}

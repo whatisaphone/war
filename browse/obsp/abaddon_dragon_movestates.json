@@ -1,0 +1,1001 @@
+{
+  "classname": "CharacterMoveStateList",
+  "properties": {
+    "MoveStates": [
+      {
+        "classname": "MonsterMoveToDesc",
+        "properties": {
+          "PathBlockedThreshold": 0.75,
+          "Range": 600.0,
+          "Name": "Charge",
+          "ID": 27,
+          "AnimController": {
+            "classname": "HAimAnimController",
+            "properties": {
+              "AngleEase": 0.1,
+              "LeftAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 50,
+                  "Ease": 0.33
+                }
+              },
+              "ForwardAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 41,
+                  "Ease": 0.33
+                }
+              },
+              "RightAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 43,
+                  "Ease": 0.33
+                }
+              },
+              "BlendTime": 2.0,
+              "Ease": 0.33
+            }
+          },
+          "Acceleration": 1000.0,
+          "Deceleration": 1000.0,
+          "MaxSpeed": 800.0,
+          "TurnSpeed": 150.0,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterMoveToDesc",
+        "properties": {
+          "PathBlockedThreshold": 0.75,
+          "Name": "ChargeAround",
+          "ID": 43,
+          "AnimController": {
+            "classname": "HAimAnimController",
+            "properties": {
+              "LeftAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 50,
+                  "Ease": 0.33
+                }
+              },
+              "ForwardAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 41,
+                  "Ease": 0.33
+                }
+              },
+              "RightAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 43,
+                  "Ease": 0.33
+                }
+              },
+              "BlendTime": 2.0,
+              "Ease": 0.33
+            }
+          },
+          "Acceleration": 1000.0,
+          "Deceleration": 1000.0,
+          "MaxSpeed": 1300.0,
+          "TurnSpeed": 50.0,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "CharacterDoInteractiveDesc",
+        "properties": {
+          "Mounted": true,
+          "TargetType": "war/war",
+          "ConvergeTime": 0.0,
+          "AnimationID": 115,
+          "TargetAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 115,
+              "Ease": 0.0,
+              "EnableTriggers": false
+            }
+          },
+          "UseCameraNode": true,
+          "AnimationSource": 0,
+          "ForceDisperseMount": true,
+          "Name": "ChargeInteractiveClashCrash",
+          "ID": 52,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 115,
+              "Ease": 0.0
+            }
+          }
+        }
+      },
+      {
+        "classname": "CharacterDoInteractiveDesc",
+        "properties": {
+          "Mounted": true,
+          "TargetType": "war/war",
+          "ConvergeTime": 0.25,
+          "LoopCount": 10,
+          "ButtonMash": true,
+          "MashDecayArray": [
+            {
+              "classname": "ButtonMashPoint",
+              "properties": {
+                "ButtonMashDecrement": 0.15
+              }
+            }
+          ],
+          "AnimationID": 101,
+          "TargetAnimController": {
+            "classname": "SpeedBlendController",
+            "properties": {
+              "SpeedRef": 1.0,
+              "AnimController1": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 101,
+                  "EnableTriggers": false
+                }
+              },
+              "AnimController2": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 100,
+                  "EnableTriggers": false
+                }
+              }
+            }
+          },
+          "OnMashSuccess": 49,
+          "OnMashFailure": 49,
+          "UseCameraNode": true,
+          "AnimationSource": 0,
+          "ForceDisperseMount": true,
+          "Name": "ChargeInteractiveClashLoop",
+          "ID": 48,
+          "AnimController": {
+            "classname": "SpeedBlendController",
+            "properties": {
+              "SpeedRef": 1.0,
+              "AnimController1": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 101
+                }
+              },
+              "AnimController2": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 100,
+                  "EnableTriggers": false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "classname": "CharacterDoInteractiveDesc",
+        "properties": {
+          "Mounted": true,
+          "TargetType": "war/war",
+          "ConvergeTime": 0.0,
+          "AnimationID": 99,
+          "TargetAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 99,
+              "Ease": 0.0,
+              "EnableTriggers": false
+            }
+          },
+          "OnComplete": 48,
+          "UseCameraNode": true,
+          "AnimationSource": 0,
+          "ForceDisperseMount": true,
+          "Name": "ChargeInteractiveClashStart",
+          "ID": 47,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 99,
+              "Ease": 0.0
+            }
+          }
+        }
+      },
+      {
+        "classname": "CharacterDoInteractiveDesc",
+        "properties": {
+          "Mounted": true,
+          "TargetType": "war/war",
+          "ConvergeTime": 0.0,
+          "AnimationID": 105,
+          "TargetAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 105,
+              "Ease": 0.0,
+              "EnableTriggers": false
+            }
+          },
+          "OnComplete": 52,
+          "UseCameraNode": true,
+          "AnimationSource": 0,
+          "ForceDisperseMount": true,
+          "Name": "ChargeInteractiveClashTransform",
+          "ID": 51,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 105,
+              "Ease": 0.0
+            }
+          }
+        }
+      },
+      {
+        "classname": "CharacterDoInteractiveDesc",
+        "properties": {
+          "Mounted": true,
+          "TargetType": "war/war",
+          "ConvergeTime": 0.0,
+          "AnimationID": 95,
+          "TargetAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 95,
+              "EnableTriggers": false
+            }
+          },
+          "OnComplete": 51,
+          "UseCameraNode": true,
+          "AnimationSource": 0,
+          "ForceDisperseMount": true,
+          "Name": "ChargeInteractiveClashWin",
+          "ID": 49,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 95
+            }
+          }
+        }
+      },
+      {
+        "classname": "CharacterDoInteractiveDesc",
+        "properties": {
+          "MountedRequired": false,
+          "TargetType": "war/war",
+          "ConvergeTime": 0.0,
+          "AnimationID": 51,
+          "TargetAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 51,
+              "Ease": 0.0,
+              "EnableTriggers": false
+            }
+          },
+          "OnCompleteOther": 0,
+          "UseCameraNode": true,
+          "AnimationSource": 0,
+          "ForceDisperseMount": true,
+          "OnDisperseMountState": 20,
+          "ClampWorldContextDistance": 750.0,
+          "Name": "ChargeInteractiveEnd",
+          "ID": 33,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 51,
+              "Ease": 0.0
+            }
+          }
+        }
+      },
+      {
+        "classname": "CharacterDoInteractiveDesc",
+        "properties": {
+          "Mounted": true,
+          "TargetType": "war/war",
+          "ConvergeTime": 0.0,
+          "AnimationID": 48,
+          "TargetAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 48,
+              "Ease": 0.0,
+              "EnableTriggers": false
+            }
+          },
+          "OnComplete": 32,
+          "UseCameraNode": true,
+          "CameraNode": "Interactive01 Camera",
+          "HideUI": false,
+          "AnimationSource": 0,
+          "ShowWorldContext": true,
+          "ClampWorldContextDistance": 750.0,
+          "Name": "ChargeInteractiveFail",
+          "ID": 31,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 48,
+              "Ease": 0.0
+            }
+          }
+        }
+      },
+      {
+        "classname": "CharacterDoInteractiveDesc",
+        "properties": {
+          "Mounted": true,
+          "TargetType": "war/war",
+          "ConvergeTime": 0.0,
+          "AnimationID": 119,
+          "TargetAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 119,
+              "Ease": 0.0,
+              "EnableTriggers": false
+            }
+          },
+          "OnComplete": 32,
+          "UseCameraNode": true,
+          "CameraNode": "Interactive01 Camera",
+          "HideUI": false,
+          "AnimationSource": 0,
+          "ForceDisperseMount": true,
+          "ShowWorldContext": true,
+          "ClampWorldContextDistance": 750.0,
+          "Name": "ChargeInteractiveNoRuinFail",
+          "ID": 54,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 119,
+              "Ease": 0.0
+            }
+          }
+        }
+      },
+      {
+        "classname": "CharacterDoInteractiveDesc",
+        "properties": {
+          "Mounted": true,
+          "TargetType": "war/war",
+          "ConvergeTime": 0.0,
+          "MashIncrement": 0.0,
+          "MashDecayArray": [
+            {
+              "classname": "ButtonMashPoint",
+              "properties": {
+                "ButtonMashDecrement": 0.0
+              }
+            }
+          ],
+          "AnimationID": 118,
+          "TargetAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 118,
+              "Ease": 0.0,
+              "EnableTriggers": false
+            }
+          },
+          "OnComplete": 54,
+          "UseCameraNode": true,
+          "Transitions": [
+            {
+              "classname": "InteractiveTransition",
+              "properties": {
+                "StartFrame": 0,
+                "Duration": 100,
+                "OnSuccess": 55,
+                "OnFailure": 0
+              }
+            }
+          ],
+          "AnimationSource": 0,
+          "ForceDisperseMount": true,
+          "OnDisperseMountState": 20,
+          "ShowWorldContext": true,
+          "ClampWorldContextDistance": 10000.0,
+          "InteractiveType": 2,
+          "Name": "ChargeInteractiveNoRuinStart",
+          "ID": 53,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 118,
+              "Ease": 0.0
+            }
+          }
+        }
+      },
+      {
+        "classname": "CharacterDoInteractiveDesc",
+        "properties": {
+          "Mounted": true,
+          "TargetType": "war/war",
+          "ConvergeTime": 0.0,
+          "AnimationID": 120,
+          "TargetAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 120,
+              "Ease": 0.0,
+              "EnableTriggers": false
+            }
+          },
+          "OnComplete": 47,
+          "UseCameraNode": true,
+          "CameraNode": "Interactive01 Camera",
+          "AnimationSource": 0,
+          "ForceDisperseMount": true,
+          "ShowWorldContext": true,
+          "ClampWorldContextDistance": 750.0,
+          "Name": "ChargeInteractiveNoRuinWin",
+          "ID": 55,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 120,
+              "Ease": 0.0
+            }
+          }
+        }
+      },
+      {
+        "classname": "CharacterDoInteractiveDesc",
+        "properties": {
+          "Mounted": true,
+          "TargetType": "war/war",
+          "ConvergeTime": 0.0,
+          "AnimationID": 42,
+          "TargetAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 42,
+              "Ease": 0.0,
+              "EnableTriggers": false
+            }
+          },
+          "OnComplete": 33,
+          "UseCameraNode": true,
+          "AnimationSource": 0,
+          "ForceDisperseMount": true,
+          "OnDisperseMountState": 20,
+          "ClampWorldContextDistance": 750.0,
+          "Name": "ChargeInteractiveReturn",
+          "ID": 32,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 42,
+              "Ease": 0.0
+            }
+          }
+        }
+      },
+      {
+        "classname": "CharacterDoInteractiveDesc",
+        "properties": {
+          "Mounted": true,
+          "TargetType": "war/war",
+          "ConvergeTime": 0.0,
+          "MashIncrement": 0.0,
+          "MashDecayArray": [
+            {
+              "classname": "ButtonMashPoint",
+              "properties": {
+                "ButtonMashDecrement": 0.0
+              }
+            }
+          ],
+          "AnimationID": 61,
+          "TargetAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 61,
+              "Ease": 0.0,
+              "EnableTriggers": false
+            }
+          },
+          "OnComplete": 31,
+          "UseCameraNode": true,
+          "Transitions": [
+            {
+              "classname": "InteractiveTransition",
+              "properties": {
+                "StartFrame": 0,
+                "Duration": 100,
+                "OnSuccess": 42,
+                "OnFailure": 0
+              }
+            }
+          ],
+          "AnimationSource": 0,
+          "ShowWorldContext": true,
+          "ClampWorldContextDistance": 10000.0,
+          "InteractiveType": 2,
+          "Name": "ChargeInteractiveStart",
+          "ID": 30,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 61,
+              "Ease": 0.0
+            }
+          }
+        }
+      },
+      {
+        "classname": "CharacterDoInteractiveDesc",
+        "properties": {
+          "Mounted": true,
+          "TargetType": "war/war",
+          "ConvergeTime": 0.0,
+          "AnimationID": 90,
+          "TargetAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 90,
+              "Ease": 0.0,
+              "EnableTriggers": false
+            }
+          },
+          "OnComplete": 47,
+          "UseCameraNode": true,
+          "CameraNode": "Interactive01 Camera",
+          "AnimationSource": 0,
+          "ShowWorldContext": true,
+          "ClampWorldContextDistance": 750.0,
+          "Name": "ChargeInteractiveWin",
+          "ID": 42,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 90,
+              "Ease": 0.0
+            }
+          }
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "Name": "ChargeStart",
+          "ID": 45,
+          "AnimController": {
+            "classname": "HAimAnimController",
+            "properties": {
+              "LeftAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 102
+                }
+              },
+              "ForwardAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 92
+                }
+              },
+              "RightAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 97
+                }
+              }
+            }
+          },
+          "TurnSpeed": 100.0,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "Name": "ChargeStop",
+          "ID": 28,
+          "AnimController": {
+            "classname": "HAimAnimController",
+            "properties": {
+              "LeftAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 68
+                }
+              },
+              "ForwardAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 63
+                }
+              },
+              "RightAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 70
+                }
+              }
+            }
+          },
+          "TurnSpeed": 75.0,
+          "UseMotionNode": true,
+          "UseMotionNodeRotation": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "Name": "ChargeSwipeL",
+          "ID": 34,
+          "AnimController": {
+            "classname": "HAimAnimController",
+            "properties": {
+              "LeftAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 94
+                }
+              },
+              "ForwardAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 67
+                }
+              },
+              "RightAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 67,
+                  "EnableTriggers": false
+                }
+              }
+            }
+          },
+          "UseMotionNode": true,
+          "UseMotionNodeRotation": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "Name": "ChargeSwipeR",
+          "ID": 29,
+          "AnimController": {
+            "classname": "HAimAnimController",
+            "properties": {
+              "LeftAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 54,
+                  "EnableTriggers": false
+                }
+              },
+              "ForwardAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 54
+                }
+              },
+              "RightAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 96
+                }
+              }
+            }
+          },
+          "UseMotionNode": true,
+          "UseMotionNodeRotation": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "Name": "ChargeTailSwipe",
+          "ID": 44,
+          "AnimController": {
+            "classname": "HAimAnimController",
+            "properties": {
+              "LeftAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 98
+                }
+              },
+              "ForwardAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 91
+                }
+              },
+              "RightAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 93
+                }
+              }
+            }
+          },
+          "TurnSpeed": 50.0,
+          "UseMotionNode": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterFallDesc",
+        "properties": {
+          "Name": "CometFall",
+          "ID": 41,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 87
+            }
+          },
+          "GravityScale": 8.0,
+          "FaceOnStart": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "Name": "CometLand",
+          "ID": 40,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 86,
+              "Ease": 0.0
+            }
+          },
+          "UseMotionNode": true,
+          "UseMotionNodeRotation": true,
+          "FaceOnStart": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "DoCollision": false,
+          "Name": "CometLaunch",
+          "ID": 39,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 85
+            }
+          },
+          "GravityScale": 0.0,
+          "UseMotionNode": true,
+          "UseMotionNodeRotation": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "Name": "Idle",
+          "ID": 17,
+          "AnimController": {
+            "classname": "HAimAnimController",
+            "properties": {
+              "LeftAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 56
+                }
+              },
+              "ForwardAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 60
+                }
+              },
+              "RightAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 52
+                }
+              },
+              "BlendTime": 1.0
+            }
+          }
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1
+          ],
+          "ElapsedTimeMin": 5.0,
+          "ElapsedTimeMax": 5.0,
+          "Name": "StaggerGroundedIdle",
+          "ID": 36,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 72
+            }
+          },
+          "UseMotionNode": true,
+          "UseMotionNodeRotation": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            46
+          ],
+          "ElapsedTimeMin": 5.0,
+          "ElapsedTimeMax": 5.0,
+          "Name": "StaggerGroundedImpact",
+          "ID": 46,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 77,
+              "Ease": 0.0
+            }
+          },
+          "OnActionComplete": 36,
+          "UseMotionNode": true,
+          "UseMotionNodeRotation": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "Name": "StaggerLeftStart",
+          "ID": 35,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 74
+            }
+          },
+          "UseMotionNode": true,
+          "UseMotionNodeRotation": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "Name": "StaggerRecover",
+          "ID": 37,
+          "AnimController": {
+            "classname": "HAimAnimController",
+            "properties": {
+              "LeftAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 78
+                }
+              },
+              "ForwardAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 79
+                }
+              },
+              "RightAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 80
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "Name": "StaggerRecoverNoImpact",
+          "ID": 56,
+          "AnimController": {
+            "classname": "HAimAnimController",
+            "properties": {
+              "LeftAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 81
+                }
+              },
+              "ForwardAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 83
+                }
+              },
+              "RightAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 82
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "Name": "StaggerRightStart",
+          "ID": 38,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 76
+            }
+          },
+          "UseMotionNode": true,
+          "UseMotionNodeRotation": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "Name": "Taunt",
+          "ID": 26,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 53
+            }
+          },
+          "TurnSpeed": 200.0,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "Name": "TauntStart",
+          "ID": 25,
+          "AnimController": {
+            "classname": "HAimAnimController",
+            "properties": {
+              "LeftAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 44
+                }
+              },
+              "ForwardAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 57
+                }
+              },
+              "RightAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 62
+                }
+              }
+            }
+          },
+          "TurnSpeed": 100.0,
+          "OnActionComplete": 26,
+          "UseMotionNode": true,
+          "FaceTarget": true
+        }
+      }
+    ]
+  }
+}

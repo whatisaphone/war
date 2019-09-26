@@ -1,0 +1,339 @@
+{
+  "Parent": "GrabbableActor",
+  "Name": "al_com/al_lantern_loose",
+  "Properties": {
+    "isInstigatorPlayer": {
+      "Flags": 0,
+      "Type": 1
+    }
+  },
+  "StaticProperties": {
+    "Description": {
+      "Value": {
+        "classname": "GrabbableActorDesc",
+        "properties": {
+          "HitPointMultiplier": 0.1,
+          "LurcherMultiplier": 0.0,
+          "TempIsUpdated": true,
+          "HitInfos": {
+            "classname": "HitInfoList",
+            "properties": {
+              "HitInfos": [
+                {
+                  "classname": "HitInfo",
+                  "properties": {
+                    "ID": 8,
+                    "Name": "Explosion (60)",
+                    "Power": 2,
+                    "Damage": 60.0,
+                    "KnockBackPower": 250.0,
+                    "KnockUpPower": 250.0,
+                    "EnvPowerScale": 5.0
+                  }
+                }
+              ]
+            }
+          },
+          "Animations": {
+            "classname": "AnimationList",
+            "properties": {
+              "Animations": [
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 10,
+                    "Name": "Break_1",
+                    "AnimationName": "AL_Lantern_Loose_Explode",
+                    "Length": 60,
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "AL_Lantern_Idle"
+                        }
+                      },
+                      {
+                        "classname": "EventTrigger",
+                        "properties": {
+                          "EventName": "doLaternExplode"
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 1,
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 11,
+                    "Name": "Break_2",
+                    "AnimationName": "AL_Lantern_Loose_Explode",
+                    "Length": 60,
+                    "Triggers": [
+                      {
+                        "classname": "WeaponPhantomTrigger",
+                        "properties": {
+                          "Duration": 60,
+                          "WeaponPhantom": "ExplodeWeaponPhantom",
+                          "HitInfoID": 8,
+                          "HitTimeout": 3.0,
+                          "OverrideFactionID": -2,
+                          "TriggerFrame": 1,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "TrackEffect": false,
+                          "EffectName": "AL_Lantern_Explode"
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 1,
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 5,
+                    "Name": "Hit_0",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 6
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 4,
+                    "Name": "Idle_0",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "AL_Lantern_Idle"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 2,
+                    "Name": "Impact_0",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 6
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 3,
+                    "Name": "Pickup_0",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 7
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 1,
+                    "Name": "Throw_0",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 8
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          "Sounds": {
+            "classname": "SoundList",
+            "properties": {
+              "Sounds": [
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 1,
+                    "Name": "ashland_lantern_explode",
+                    "Volume": 0.85009766,
+                    "FollowActor": true,
+                    "ExclusiveActor": true,
+                    "Min": 1.0,
+                    "Max": 3000.0,
+                    "Priority": 10,
+                    "Sounds": "AL_Lantern_Explode_01",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 6,
+                    "Name": "ashland_lantern_impact",
+                    "Volume": 0.19995117,
+                    "RandomPitch": 5.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 3000.0,
+                    "Priority": 10,
+                    "Sounds": "AL_Lantern_Impact_Hard_01",
+                    "Group": "Impacts"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 0,
+                    "Name": "ashland_lantern_loop",
+                    "Volume": 0.099975586,
+                    "Loop": true,
+                    "FadeInTime": 1.0,
+                    "FadeOutTime": 1.0,
+                    "Offset": true,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 1250.0,
+                    "Priority": 10,
+                    "Sounds": "AL_Lantern_Idle_01",
+                    "Group": "AL_Lantern_Idle"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 7,
+                    "Name": "ashland_lantern_pickup",
+                    "Volume": 0.39990234,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 3000.0,
+                    "Priority": 10,
+                    "Sounds": "AL_Lantern_Pickup_01",
+                    "Group": "Impacts"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 8,
+                    "Name": "ashland_lantern_throw",
+                    "Volume": 0.30004883,
+                    "Pitch": -2.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 3000.0,
+                    "Priority": 10,
+                    "Sounds": "AL_Lantern_Pickup_01",
+                    "Group": "Impacts"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 2,
+                    "Name": "Lantern_Holder_break",
+                    "Volume": 0.9501953,
+                    "Pitch": -2.0,
+                    "FadeOutTime": 5.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 2000.0,
+                    "Priority": 5,
+                    "Sounds": "Al_LanternHolder_Break_2,Al_LanternHolder_Break_1",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 3,
+                    "Name": "Lantern_Holder_Impact",
+                    "Volume": 0.39990234,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 2000.0,
+                    "Priority": 10,
+                    "Sounds": "Imp_Default_Wood_4,Imp_Default_Wood_3,Imp_Default_Wood_2,Imp_Default_Wood_1",
+                    "Group": "Impacts"
+                  }
+                }
+              ]
+            }
+          },
+          "Visuals": {
+            "classname": "VisualList",
+            "properties": {
+              "Visuals": [
+                {
+                  "classname": "VisualDesc",
+                  "properties": {
+                    "ID": 0,
+                    "VisualName": "AL_Lantern_Loose"
+                  }
+                },
+                {
+                  "classname": "VisualDesc",
+                  "properties": {
+                    "ID": 1,
+                    "VisualName": "AL_Lantern_Loose_Exploded"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "Methods": [
+    "doLaternExplode",
+    "shouldAwardLurchers",
+    "onExplodeTimer",
+    "onRemove",
+    "onGrab",
+    "onDrop",
+    "onThrow"
+  ],
+  "PackageName": "al_com",
+  "DefaultValues": {
+    "isInstigatorPlayer": false
+  },
+  "States": {}
+}

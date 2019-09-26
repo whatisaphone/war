@@ -1,0 +1,139 @@
+{
+  "Parent": "Actor",
+  "Name": "spawner/spawner_vulnerablepoint",
+  "Properties": {
+    "InactiveTime": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "DamageToInactive": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "DamageInflicted": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "Owner": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "ID": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "materialName": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "materialParameter": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "activeIntensity": {
+      "Flags": 2,
+      "Type": 3
+    },
+    "inactiveIntensity": {
+      "Flags": 2,
+      "Type": 3
+    },
+    "currentIntensityR": {
+      "Flags": 2,
+      "Type": 3
+    },
+    "currentIntensityG": {
+      "Flags": 2,
+      "Type": 3
+    },
+    "currentIntensityB": {
+      "Flags": 2,
+      "Type": 3
+    },
+    "intensityChangePulseTime": {
+      "Flags": 2,
+      "Type": 3
+    },
+    "activeFadeTime": {
+      "Flags": 2,
+      "Type": 3
+    },
+    "inactiveFadeTime": {
+      "Flags": 2,
+      "Type": 3
+    },
+    "halfActiveFadeTime": {
+      "Flags": 2,
+      "Type": 3
+    },
+    "halfActiveIntensity": {
+      "Flags": 2,
+      "Type": 3
+    },
+    "isTargetable": {
+      "Flags": 2,
+      "Type": 4
+    }
+  },
+  "StaticProperties": {
+    "Description": {
+      "Value": {
+        "classname": "ActorDesc",
+        "properties": {
+          "Visual": "Locator_WeakPoint"
+        }
+      }
+    }
+  },
+  "Methods": [
+    "onAttachToObject",
+    "setActive",
+    "setMaterialName",
+    "setOwner",
+    "setID",
+    "onInitMaterial"
+  ],
+  "PackageName": "spawner",
+  "DefaultValues": {
+    "currentIntensityB": 0.1,
+    "materialParameter": "EmissiveColor",
+    "currentIntensityG": 0.1,
+    "halfActiveIntensity": 2.5,
+    "currentIntensityR": 0.1,
+    "inactiveFadeTime": 0.25,
+    "DamageToInactive": 1,
+    "inactiveIntensity": 0.1,
+    "isTargetable": false,
+    "intensityChangePulseTime": 0.04,
+    "activeFadeTime": 3.0,
+    "DamageInflicted": 0,
+    "materialName": "",
+    "InactiveTime": 2.0,
+    "activeIntensity": 5.0,
+    "halfActiveFadeTime": 1.0
+  },
+  "States": {
+    "Inactive": {
+      "methods": [
+        "onReactivate",
+        "canTarget",
+        "fadeToHalfActive",
+        "fadeToInactive",
+        "onQueryDamage",
+        "onEnter"
+      ]
+    },
+    "Active": {
+      "methods": [
+        "setTargetable",
+        "fadeToActive",
+        "canTarget",
+        "fadeToHalfActive",
+        "onHit",
+        "fadeToInactive",
+        "onQueryDamage",
+        "onEnter"
+      ]
+    }
+  }
+}

@@ -1,0 +1,386 @@
+{
+  "Parent": "base/standardbehavior",
+  "Name": "phantomguard_prisonguard/pgprisonguard_combatbehavior",
+  "Properties": {
+    "OutsiderMode": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "ScanAlertDistance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ScanInterval": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachMoveStateMove": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "ApproachForceCloseRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachForceCompleteRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "WalkbackEnabled": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "WalkbackMinRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "WalkbackMoveStateWalkback": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "WalkBackTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMoveStateIdle": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleMinTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMaxTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMoveStateFidget": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleFidgetChance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleFidgetMinTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleFidgetMaxTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "FaceTargetAngleDiff": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "FaceTargetMoveStateTurnLeft": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "FaceTargetMoveStateTurnRight": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "AnimMoveState": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "TauntMoveState": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "TauntMinDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "TauntMaxDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "TauntMaxAngleDiff": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "BlockEnabled": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "BlockChance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "BlockMoveStateBlock": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "BlockMinDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "BlockMaxDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "BlockAttackTypes": {
+      "Flags": 4,
+      "Type": 1
+    },
+    "BlockUseMonsterBlockChance": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "ClearObstacleMoveState": {
+      "Flags": 4,
+      "Type": 5
+    }
+  },
+  "StaticProperties": {},
+  "Methods": [
+    "begin",
+    "onCinematicStart",
+    "onTargetUnreachable"
+  ],
+  "PackageName": "phantomguard_prisonguard",
+  "DefaultValues": {
+    "BlockAttackTypes": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "ApproachForceCompleteRange": -1,
+    "OutsiderMode": true,
+    "IdleMinTime": 2.0,
+    "BlockChance": 0.5,
+    "BlockEnabled": true,
+    "IdleFidgetChance": 0,
+    "IdleFidgetMinTime": 2,
+    "ApproachMoveStateMove": "Heavy WalkForward",
+    "FaceTargetMoveStateTurnRight": "Heavy TurnToFace Right",
+    "TauntMoveState": "Heavy Standard Taunt",
+    "FaceTargetAngleDiff": 60,
+    "BlockUseMonsterBlockChance": false,
+    "ID": "PGPrisonguard_combatbehavior",
+    "BlockMoveStateBlock": "Heavy Block",
+    "BackgroundActions": [
+      {
+        "classname": "base/scanaction",
+        "properties": {}
+      }
+    ],
+    "IdleMoveStateFidget": "",
+    "BlockMaxDelay": 5.0,
+    "ClearObstacleMoveState": "Heavy Standard Attack",
+    "BlockMinDelay": 5.0,
+    "AnimMoveState": "",
+    "TauntMaxAngleDiff": 90,
+    "TauntMaxDelay": 10,
+    "ScanInterval": 1.5,
+    "IdleMoveStateIdle": "Heavy Idle",
+    "ApproachRange": 175,
+    "TauntMinDelay": 8,
+    "WalkbackMoveStateWalkback": "Heavy WalkBackward",
+    "OnAttackHandler": [
+      {
+        "classname": "base/blockaction",
+        "properties": {
+          "ID": "Block",
+          "ActionCode": 5,
+          "Priority": 16,
+          "InterruptibleBy": [
+            "Death",
+            "Exit",
+            "Interactive",
+            "Impact"
+          ],
+          "ResourceLock": "Block",
+          "Position": [
+            7.0677907e28,
+            6.976842e22,
+            3.252631e24
+          ]
+        }
+      }
+    ],
+    "PathBlockedBreakableHandler": {
+      "classname": "base/clearobstacleaction",
+      "properties": {
+        "ID": "Clear Obstacle",
+        "ActionCode": 5,
+        "Priority": 16,
+        "InterruptibleBy": [
+          "Death",
+          "Exit",
+          "Interactive",
+          "Impact"
+        ]
+      }
+    },
+    "FaceTargetMoveStateTurnLeft": "Heavy TurnToFace Left",
+    "WalkbackMinRange": 100,
+    "WalkBackTime": 1.0,
+    "IdleMaxTime": 3.0,
+    "WalkbackEnabled": true,
+    "ComponentActions": [
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "AttackType": 1,
+          "Pressure": 5,
+          "MaxRange": 180.0,
+          "MaxHealth": 50.0,
+          "MoveState": "Heavy Attack 3 Start",
+          "RequireLOS": true,
+          "ID": "Desperation Attack",
+          "Priority": 9,
+          "Chance": 0.5,
+          "ResourceLock": "Attack",
+          "MinLockTime": 5.0,
+          "MaxLockTime": 6.0,
+          "Position": [
+            1.2796823e-30,
+            -2.8514437e28,
+            5.217865e-11
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "AttackType": 1,
+          "Pressure": 5,
+          "MinRange": 500.0,
+          "MaxRange": 1000.0,
+          "MinAngle": -45.0,
+          "MaxAngle": 45.0,
+          "MoveState": "Heavy Attack Spin Start",
+          "RequireLOS": true,
+          "ID": "Whirlwind Attack",
+          "Priority": 8,
+          "ResourceLock": "Attack",
+          "MinLockTime": 12.0,
+          "MaxLockTime": 14.0,
+          "Position": [
+            1.2796823e-30,
+            -2.8514437e28,
+            5.217865e-11
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "AttackType": 1,
+          "Pressure": 4,
+          "MaxRange": 200.0,
+          "MinAngle": -45.0,
+          "MaxAngle": 45.0,
+          "MoveState": "Heavy Standard Attack",
+          "RequireLOS": true,
+          "ID": "Melee Attack",
+          "Priority": 7,
+          "ResourceLock": "Attack",
+          "MinLockTime": 5.0,
+          "MaxLockTime": 7.0
+        }
+      },
+      {
+        "classname": "base/approachaction",
+        "properties": {
+          "ID": "Approach Simple",
+          "Priority": 6,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "ValidStates": [
+            "Insider",
+            "Outsider"
+          ]
+        }
+      },
+      {
+        "classname": "base/walkbackaction",
+        "properties": {
+          "ID": "Walkback",
+          "ActionCode": 3,
+          "Priority": 5,
+          "Chance": 0.65,
+          "InterruptibleBy": [
+            "ANY"
+          ]
+        }
+      },
+      {
+        "classname": "base/facetargetaction",
+        "properties": {
+          "ID": "Face Target",
+          "Priority": 1,
+          "InterruptibleBy": [
+            "Death",
+            "Interactive",
+            "Impact"
+          ]
+        }
+      },
+      {
+        "classname": "base/animaction",
+        "properties": {
+          "ID": "Taunt",
+          "ActionCode": 2,
+          "Priority": 1,
+          "Chance": 0.9,
+          "InterruptibleBy": [
+            "Death",
+            "Interactive",
+            "Impact"
+          ],
+          "ResourceLock": "Taunt"
+        }
+      },
+      {
+        "classname": "base/idleaction",
+        "properties": {
+          "ID": "Idle",
+          "ActionCode": 1,
+          "Priority": 1,
+          "InterruptibleBy": [
+            "ANY"
+          ]
+        }
+      }
+    ],
+    "ApproachForceCloseRange": -1,
+    "IdleFidgetMaxTime": 4,
+    "ScanAlertDistance": 5000
+  },
+  "States": {
+    "Outsider": {
+      "methods": [
+        "getCurrentState"
+      ]
+    },
+    "Insider": {
+      "methods": [
+        "getCurrentState"
+      ]
+    },
+    "Cinematic": {
+      "methods": [
+        "getCurrentState",
+        "onCinematicInLOS",
+        "onEnter"
+      ]
+    },
+    "LostTarget": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    }
+  }
+}

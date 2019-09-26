@@ -1,0 +1,89 @@
+.method In
+0x0001 .param_count 0
+0x0001 .line 31
+0x0006     inc_scope
+0x0007 .line 33
+0x000c     int 0
+0x0011     var_assign cnt
+0x001f .line 34
+0x0024     string "ObjectNames"
+0x003a     int 1
+0x003f     identifier this
+0x004e     method hasVariableIn
+0x0066     bool true
+0x0068     equal
+0x0069     branch_false 0x01e4
+0x006e .line 36
+0x0073     nop
+0x0074     identifier this
+0x0083     property objarray
+0x0096     string "ObjectNames"
+0x00ac     int 1
+0x00b1     identifier this
+0x00c0     method getVariableValue
+0x00db     assign
+0x00dc     pop
+0x00dd .line 38
+0x00e2     identifier this
+0x00f1     property objarray
+0x0104     int 0
+0x0109     method_chain size
+0x0118     int 0
+0x011d     greater
+0x011e     branch_false 0x01d9
+0x0123 .line 40
+0x0128     nop
+0x0129 .line 41
+0x012e     identifier this
+0x013d     property objarray
+0x0150     iterator
+0x0151 .label 0x05f3
+0x0156     iterator_test
+0x0157     branch_false 0x01c8
+0x015c     iterator_assign obji
+0x016b .line 42
+0x0170     nop
+0x0171     identifier obji
+0x0180     null_object
+0x0181     not_equal
+0x0182     branch_false 0x01bc
+0x0187 .line 45
+0x018c     nop
+0x018d     identifier cnt
+0x019b     identifier cnt
+0x01a9     int 1
+0x01ae     add
+0x01af     assign
+0x01b0     pop
+0x01b1 .line 46
+0x01b6     nop
+0x01b7 .line 47
+0x01bc .label 0x05f5
+0x01c1     nop
+0x01c2     inc
+0x01c3     goto 0x0151
+0x01c8 .label 0x05f4
+0x01cd     pop
+0x01ce .line 48
+0x01d3     nop
+0x01d4 .line 49
+0x01d9 .label 0x05f2
+0x01de     nop
+0x01df .line 51
+0x01e4 .label 0x05f1
+0x01e9     string "Size"
+0x01f8     identifier cnt
+0x0206     int 2
+0x020b     identifier this
+0x021a     method setVariableValue
+0x0235     pop
+0x0236 .line 52
+0x023b     string "Out"
+0x0249     int 1
+0x024e     identifier this
+0x025d     method doEvent
+0x026f     pop
+0x0270 .line 53
+0x0275     dec_scope
+0x0276     return_null
+

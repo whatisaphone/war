@@ -1,0 +1,716 @@
+{
+  "Parent": "base/standardbehavior",
+  "Name": "mayhem_cop/mayhem_cop_behavior",
+  "Properties": {
+    "WanderPoint": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "IdleMoveStateFidget": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleFidgetMinTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleFidgetMaxTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AnimMaxAngleDiff": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "FleeType": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "ClearObstacleMoveState": {
+      "Flags": 4,
+      "Type": 5
+    }
+  },
+  "StaticProperties": {},
+  "Methods": [
+    "begin",
+    "unlockFidgetActions",
+    "PickFleePoint",
+    "RecalculateFleePoint",
+    "onFleeB",
+    "onEnemyActorCollision",
+    "onPathBlocked",
+    "clearApproachAction"
+  ],
+  "PackageName": "mayhem_cop",
+  "DefaultValues": {
+    "WanderPoint": null,
+    "AnimMaxAngleDiff": 180,
+    "IdleFidgetMinTime": -1,
+    "ID": "CrowdFleeBehavior",
+    "BackgroundActions": [],
+    "IdleMoveStateFidget": "",
+    "ClearObstacleMoveState": "StandardAttack",
+    "OnAttackHandler": [],
+    "PathBlockedBreakableHandler": {
+      "classname": "base/clearobstacleaction",
+      "properties": {
+        "ID": "Clear Obstacle",
+        "ActionCode": 5,
+        "Priority": 16,
+        "InterruptibleBy": [
+          "Death",
+          "Exit",
+          "Interactive",
+          "Impact"
+        ],
+        "Position": [
+          7.7131474e31,
+          6.976948e22,
+          6.800025e-33
+        ]
+      }
+    },
+    "FleeType": 0,
+    "ComponentActions": [
+      {
+        "classname": "base/animaction",
+        "properties": {
+          "AnimMoveState": "Standing - Pull Gun",
+          "AnimMinDistance": 300,
+          "AnimMaxDistance": 3000,
+          "ID": "PullGun",
+          "ActionCode": 2,
+          "Priority": 13,
+          "InterruptibleBy": [
+            "Death",
+            "Interactive",
+            "Impact"
+          ],
+          "ValidStates": [
+            "Flee",
+            "Walking"
+          ],
+          "OnCompleteState": "ShootGun",
+          "Position": [
+            1.5113662e-13,
+            1.5113662e-13,
+            1.5113662e-13
+          ]
+        }
+      },
+      {
+        "classname": "base/animaction",
+        "properties": {
+          "AnimMoveState": "Standing - Kneel Gun",
+          "AnimMinDistance": 300,
+          "AnimMaxDistance": 3000,
+          "ID": "KneelGun",
+          "ActionCode": 2,
+          "Priority": 14,
+          "Chance": 0.1,
+          "InterruptibleBy": [
+            "Death",
+            "Interactive",
+            "Impact"
+          ],
+          "ValidStates": [
+            "ShootGun"
+          ],
+          "OnCompleteState": "ShootGunKneeling",
+          "Position": [
+            1.5113662e-13,
+            1.5113662e-13,
+            1.5113662e-13
+          ]
+        }
+      },
+      {
+        "classname": "base/animaction",
+        "properties": {
+          "AnimMoveState": "Standing - Shoot",
+          "AnimMinDistance": 300,
+          "AnimMaxDistance": 3000,
+          "NoRepeat": false,
+          "ID": "ShootGun",
+          "Priority": 13,
+          "Chance": 0.75,
+          "InterruptibleBy": [
+            "Death",
+            "Interactive",
+            "Impact"
+          ],
+          "ValidStates": [
+            "ShootGun"
+          ],
+          "Position": [
+            7.398231e31,
+            7.55536e28,
+            1.5007414e-19
+          ]
+        }
+      },
+      {
+        "classname": "base/animaction",
+        "properties": {
+          "AnimMoveState": "Standing - Gun Idle",
+          "AnimMinDistance": 300,
+          "AnimMaxDistance": 3000,
+          "ID": "GunIdle",
+          "ActionCode": 3,
+          "Priority": 12,
+          "InterruptibleBy": [
+            "Death",
+            "Interactive",
+            "Impact"
+          ],
+          "ValidStates": [
+            "ShootGun"
+          ],
+          "Position": [
+            1.4841929e25,
+            1.7443726e28,
+            1.4348403e-19
+          ]
+        }
+      },
+      {
+        "classname": "base/animaction",
+        "properties": {
+          "AnimMoveState": "Standing - Holster Gun",
+          "ID": "Holster",
+          "Priority": 11,
+          "InterruptibleBy": [
+            "Death",
+            "Interactive",
+            "Impact"
+          ],
+          "ValidStates": [
+            "ShootGun"
+          ],
+          "OnCompleteState": "Flee",
+          "Position": [
+            2.8168842e20,
+            1.4263722e-19,
+            1.8492489e31
+          ]
+        }
+      },
+      {
+        "classname": "base/animaction",
+        "properties": {
+          "AnimMoveState": "Standing - Kneel Shoot",
+          "AnimMinDistance": 300,
+          "AnimMaxDistance": 3000,
+          "NoRepeat": false,
+          "ID": "ShootKneeling",
+          "Priority": 13,
+          "Chance": 0.75,
+          "InterruptibleBy": [
+            "Death",
+            "Interactive",
+            "Impact"
+          ],
+          "ValidStates": [
+            "ShootGunKneeling"
+          ],
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/animaction",
+        "properties": {
+          "AnimMoveState": "Standing - Kneel Idle",
+          "AnimMinDistance": 300,
+          "AnimMaxDistance": 3000,
+          "ID": "KneelIdle",
+          "ActionCode": 2,
+          "Priority": 12,
+          "InterruptibleBy": [
+            "Death",
+            "Interactive",
+            "Impact"
+          ],
+          "ValidStates": [
+            "ShootGunKneeling"
+          ],
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/animaction",
+        "properties": {
+          "AnimMoveState": "Standing - Stand Gun",
+          "ID": "EndKneeling",
+          "Priority": 11,
+          "InterruptibleBy": [
+            "Death",
+            "Interactive",
+            "Impact"
+          ],
+          "ValidStates": [
+            "ShootGunKneeling"
+          ],
+          "OnCompleteState": "ShootGun",
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/animaction",
+        "properties": {
+          "AnimMoveState": "Standing - Turn Around",
+          "ID": "StandingTurn",
+          "Priority": 9,
+          "InterruptibleBy": [
+            "Death",
+            "Interactive",
+            "Impact"
+          ],
+          "ValidStates": [
+            "StandingTurnAround"
+          ],
+          "ResourceLock": "StandingTurn",
+          "MinLockTime": 5.0,
+          "MaxLockTime": 10.0,
+          "OnCompleteState": "Walking",
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/defaultaction",
+        "properties": {
+          "OnBeginState": "StandingCower",
+          "ID": "Cower",
+          "Priority": 1,
+          "ValidStates": [
+            "StandingTurnAround"
+          ],
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/animaction",
+        "properties": {
+          "AnimMoveState": "Standing - Trip",
+          "ID": "Trip",
+          "ActionCode": 2,
+          "Priority": 8,
+          "Chance": 0.001,
+          "InterruptibleBy": [
+            "Death",
+            "Interactive",
+            "Impact"
+          ],
+          "ValidStates": [
+            "Walking"
+          ],
+          "ResourceLock": "Trip",
+          "MinLockTime": 15.0,
+          "MaxLockTime": 25.0,
+          "OnCompleteState": "Fallen",
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/animaction",
+        "properties": {
+          "AnimMoveState": "Standing - Stumble",
+          "ID": "Stumble",
+          "ActionCode": 2,
+          "Priority": 7,
+          "Chance": 0.01,
+          "InterruptibleBy": [
+            "Death",
+            "Interactive",
+            "Impact"
+          ],
+          "ValidStates": [
+            "Walking"
+          ],
+          "ResourceLock": "Stumble",
+          "MinLockTime": 5.0,
+          "MaxLockTime": 10.0,
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/approachwanderaction",
+        "properties": {
+          "ApproachRange": 40,
+          "ApproachMoveStateMove": "Standing - Move",
+          "ApproachForceCloseRange": 50000,
+          "ApproachForceCompleteRange": 40,
+          "ID": "WalkingApproach",
+          "Priority": 6,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "ValidStates": [
+            "Walking"
+          ],
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/idleaction",
+        "properties": {
+          "IdleMoveStateIdle": "Standing - Random Idle",
+          "IdleMinTime": 1,
+          "IdleMaxTime": 5,
+          "IdleMoveStateFidget": "NA",
+          "IdleFidgetChance": 0,
+          "ID": "WalkingIdle",
+          "ActionCode": 1,
+          "Priority": 1,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "ValidStates": [
+            "Walking"
+          ],
+          "OnCompleteState": "DestinationReachedWalking",
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/idleaction",
+        "properties": {
+          "IdleMoveStateIdle": "Standing - Cower",
+          "IdleMinTime": 1,
+          "IdleMaxTime": 5,
+          "IdleMoveStateFidget": "NA",
+          "IdleFidgetChance": 0,
+          "ID": "StandingCower",
+          "Priority": 1,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "ValidStates": [
+            "StandingCower"
+          ],
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/animaction",
+        "properties": {
+          "AnimMoveState": "Kneeling - TransitionToStanding",
+          "ID": "Stand",
+          "ActionCode": 2,
+          "Priority": 7,
+          "Chance": 0.7,
+          "InterruptibleBy": [
+            "Death",
+            "Interactive",
+            "Impact"
+          ],
+          "ValidStates": [
+            "Kneeling"
+          ],
+          "ResourceLock": "Stand",
+          "MinLockTime": 5.0,
+          "MaxLockTime": 10.0,
+          "OnCompleteState": "Walking",
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/approachwanderaction",
+        "properties": {
+          "ApproachRange": 40,
+          "ApproachMoveStateMove": "Kneeling - Move",
+          "ApproachForceCloseRange": 50000,
+          "ApproachForceCompleteRange": 100,
+          "ID": "KneelingApproach",
+          "Priority": 6,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "ValidStates": [
+            "Kneeling"
+          ],
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/idleaction",
+        "properties": {
+          "IdleMoveStateIdle": "Kneeling - Idle",
+          "IdleMinTime": 1,
+          "IdleMaxTime": 5,
+          "IdleMoveStateFidget": "NA",
+          "IdleFidgetChance": 0,
+          "ID": "KneelingIdle",
+          "ActionCode": 1,
+          "Priority": 1,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "ValidStates": [
+            "Kneeling"
+          ],
+          "OnCompleteState": "DestinationReachedKneeling",
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/idleaction",
+        "properties": {
+          "IdleMoveStateIdle": "Kneeling - Cower",
+          "IdleMinTime": 1,
+          "IdleMaxTime": 5,
+          "IdleMoveStateFidget": "NA",
+          "IdleFidgetChance": 0,
+          "ID": "KneelingCower",
+          "Priority": 1,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "ValidStates": [
+            "KneelingCower"
+          ],
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/animaction",
+        "properties": {
+          "AnimMoveState": "Fallen - TransitionToKneeling",
+          "ID": "Kneel",
+          "ActionCode": 2,
+          "Priority": 7,
+          "Chance": 0.7,
+          "InterruptibleBy": [
+            "Death",
+            "Interactive",
+            "Impact"
+          ],
+          "ValidStates": [
+            "Fallen"
+          ],
+          "ResourceLock": "Kneel",
+          "MinLockTime": 5.0,
+          "MaxLockTime": 10.0,
+          "OnCompleteState": "Kneeling",
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/approachwanderaction",
+        "properties": {
+          "ApproachRange": 40,
+          "ApproachMoveStateMove": "Fallen - Move",
+          "ApproachForceCloseRange": 50000,
+          "ApproachForceCompleteRange": 100,
+          "ID": "FallenApproach",
+          "Priority": 6,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "ValidStates": [
+            "Fallen"
+          ],
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/idleaction",
+        "properties": {
+          "IdleMoveStateIdle": "Fallen - Idle",
+          "IdleMinTime": 1,
+          "IdleMaxTime": 5,
+          "IdleMoveStateFidget": "NA",
+          "IdleFidgetChance": 0,
+          "ID": "FallenIdle",
+          "ActionCode": 1,
+          "Priority": 1,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "ValidStates": [
+            "Fallen"
+          ],
+          "OnCompleteState": "DestinationReachedFallen",
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/idleaction",
+        "properties": {
+          "IdleMoveStateIdle": "Fallen - Cower",
+          "IdleMinTime": 1,
+          "IdleMaxTime": 99,
+          "IdleMoveStateFidget": "NA",
+          "IdleFidgetChance": 0,
+          "ID": "FallenCower",
+          "Priority": 1,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "ValidStates": [
+            "FallenCower"
+          ],
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "IdleFidgetMaxTime": -1
+  },
+  "States": {
+    "Flee": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "Fallen": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "ShootGunKneeling": {
+      "methods": [
+        "getCurrentState",
+        "RecalculateFleePoint",
+        "onEnter"
+      ]
+    },
+    "DestinationReachedWalking": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "Walking": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "DestinationReachedKneeling": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "ShootGun": {
+      "methods": [
+        "getCurrentState",
+        "RecalculateFleePoint",
+        "onEnter"
+      ]
+    },
+    "FallenCower": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "DestinationReachedFallen": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "StandingTurnAround": {
+      "methods": [
+        "getCurrentState",
+        "RecalculateFleePoint",
+        "onEnter",
+        "onEnemyActorCollision",
+        "onPathBlocked"
+      ]
+    },
+    "StandingCower": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "KneelingCower": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "Kneeling": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    }
+  }
+}

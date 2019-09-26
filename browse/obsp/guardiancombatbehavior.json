@@ -1,0 +1,352 @@
+{
+  "Parent": "base/standardbehavior",
+  "Name": "guardian/guardiancombatbehavior",
+  "Properties": {
+    "ScanAlertDistance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ScanInterval": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachMoveStateMove": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "ApproachForceCloseRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachForceCompleteRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AttackMoveStateAttack": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "AttackMinDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AttackMaxDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AttackMinRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AttackMaxRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AttackPredictTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AttackPressure": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AttackCloseMoveStateAttack": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "AttackCloseMinDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AttackCloseMaxDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AttackCloseMinRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AttackCloseMaxRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AttackCloseLockDelayMin": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AttackCloseLockDelayMax": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AttackClosePredictTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AttackClosePressure": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AnimMoveState": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "TauntMoveState": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "TauntMinDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "TauntMaxDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "TauntMaxAngleDiff": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "FaceTargetAngleDiff": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "FaceTargetMoveStateTurnLeft": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "FaceTargetMoveStateTurnRight": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleMoveStateIdle": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleMinTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMaxTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMoveStateFidget": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleFidgetChance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleFidgetMinTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleFidgetMaxTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ClearObstacleMoveState": {
+      "Flags": 4,
+      "Type": 5
+    }
+  },
+  "StaticProperties": {},
+  "Methods": [
+    "begin",
+    "unlockSmashAttack",
+    "onTargetUnreachable"
+  ],
+  "PackageName": "guardian",
+  "DefaultValues": {
+    "AttackCloseLockDelayMax": -1,
+    "ApproachForceCompleteRange": -1,
+    "AttackMinDelay": 7.0,
+    "IdleMinTime": 2,
+    "AttackMaxDelay": 8.0,
+    "AttackCloseMinDelay": 1.0,
+    "IdleFidgetChance": 0,
+    "IdleFidgetMinTime": 2,
+    "AttackPredictTime": 0.0,
+    "AttackCloseMaxDelay": 2.0,
+    "ApproachMoveStateMove": "Move - MoveToTarget",
+    "AttackCloseLockDelayMin": -1,
+    "FaceTargetMoveStateTurnRight": "TurnToFace - Right",
+    "TauntMoveState": "",
+    "FaceTargetAngleDiff": 60,
+    "ID": "GuardianDualCombatBehavior",
+    "BackgroundActions": [
+      {
+        "classname": "base/scanaction",
+        "properties": {
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "IdleMoveStateFidget": "",
+    "AttackCloseMoveStateAttack": "",
+    "ClearObstacleMoveState": "Attack - Swipe",
+    "AttackPressure": -1,
+    "AnimMoveState": "",
+    "TauntMaxAngleDiff": 70,
+    "TauntMaxDelay": 5,
+    "ScanInterval": 1.5,
+    "AttackClosePressure": -1,
+    "IdleMoveStateIdle": "Idle",
+    "ApproachRange": 150,
+    "TauntMinDelay": 5,
+    "OnAttackHandler": [],
+    "AttackCloseMaxRange": 250,
+    "PathBlockedBreakableHandler": {
+      "classname": "base/animaction",
+      "properties": {
+        "AnimMaxAngleDiff": 180,
+        "ID": "Clear Obstacle",
+        "ActionCode": 5,
+        "Priority": 8,
+        "InterruptibleBy": [
+          "Death",
+          "Exit",
+          "Interactive",
+          "Impact"
+        ],
+        "Position": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "AttackClosePredictTime": 0.0,
+    "FaceTargetMoveStateTurnLeft": "TurnToFace - Left",
+    "IdleMaxTime": 3,
+    "AttackCloseMinRange": 100,
+    "AttackMaxRange": 500,
+    "ComponentActions": [
+      {
+        "classname": "base/attackaction",
+        "properties": {
+          "ID": "Melee Close Attack",
+          "Priority": 17,
+          "InterruptibleBy": [
+            "Death",
+            "Interactive",
+            "Impact"
+          ],
+          "ResourceLock": "AttackClose",
+          "Position": [
+            -6.2343606e-38,
+            8.433785e-38,
+            8.339657e-11
+          ]
+        }
+      },
+      {
+        "classname": "base/attackaction",
+        "properties": {
+          "ID": "Melee Attack",
+          "Priority": 15,
+          "InterruptibleBy": [
+            "Death",
+            "Interactive",
+            "Impact"
+          ],
+          "ResourceLock": "Attack",
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/approachaction",
+        "properties": {
+          "ID": "Approach Target",
+          "Priority": 7,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/animaction",
+        "properties": {
+          "ID": "Taunt",
+          "ActionCode": 2,
+          "Priority": 2,
+          "Chance": 0.9,
+          "InterruptibleBy": [
+            "Death",
+            "Interactive",
+            "Impact"
+          ],
+          "ResourceLock": "Taunt",
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/facetargetaction",
+        "properties": {
+          "ID": "Face Target",
+          "Priority": 2,
+          "InterruptibleBy": [
+            "Death",
+            "Interactive",
+            "Impact",
+            "Exit"
+          ],
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/idleaction",
+        "properties": {
+          "ID": "Idle",
+          "Priority": 1,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "ApproachForceCloseRange": -1,
+    "AttackMoveStateAttack": "",
+    "IdleFidgetMaxTime": 4,
+    "ScanAlertDistance": -1,
+    "AttackMinRange": 300
+  },
+  "States": {
+    "LostTarget": {
+      "methods": [
+        "onEnter"
+      ]
+    }
+  }
+}

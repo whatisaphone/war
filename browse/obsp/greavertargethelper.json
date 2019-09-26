@@ -1,0 +1,111 @@
+{
+  "Parent": "Monster",
+  "Name": "greaver/greavertargethelper",
+  "Properties": {},
+  "StaticProperties": {
+    "Description": {
+      "Value": {
+        "classname": "MonsterDesc",
+        "properties": {
+          "MoveStates": {
+            "classname": "CharacterMoveStateList",
+            "properties": {
+              "MoveStates": [
+                {
+                  "classname": "MonsterIdleDesc",
+                  "properties": {
+                    "Name": "2",
+                    "ID": 1,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {}
+                    }
+                  }
+                },
+                {
+                  "classname": "MonsterMoveToDesc",
+                  "properties": {
+                    "Range": 0.0,
+                    "UsePathing": false,
+                    "Name": "Follow",
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {}
+                    },
+                    "Acceleration": 10000.0,
+                    "Deceleration": 10000.0,
+                    "TurnSpeed": 125.0
+                  }
+                },
+                {
+                  "classname": "MonsterFlyToDesc",
+                  "properties": {
+                    "HeightOffset": 0.0,
+                    "ClimbAcceleration": 100.0,
+                    "DiveAcceleration": 100.0,
+                    "TurningSlowdownFactor": 0.0,
+                    "Range": 0.0,
+                    "UsePathing": false,
+                    "DoCollision": false,
+                    "Name": "FollowFly",
+                    "ID": 4,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {}
+                    },
+                    "Acceleration": 10000.0,
+                    "Deceleration": 10000.0,
+                    "GravityScale": 0.0,
+                    "TurnSpeed": 125.0,
+                    "InAir": true,
+                    "FaceOnStart": true
+                  }
+                },
+                {
+                  "classname": "MonsterFlySplineDesc",
+                  "properties": {
+                    "MinimumSpeed": 200.0,
+                    "TerminalSpeed": 600.0,
+                    "Name": "FlySpline",
+                    "ID": 612,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {}
+                    },
+                    "GravityScale": 0.0,
+                    "MaxSpeed": 750.0,
+                    "InAir": true,
+                    "FaceOnStart": false
+                  }
+                }
+              ]
+            }
+          },
+          "Visual": "GreaverTargetHelper",
+          "MoveWeight": 50.0
+        }
+      }
+    },
+    "FollowDelay": {
+      "Value": 0.1
+    }
+  },
+  "Methods": [
+    "onInit",
+    "onRemove",
+    "followDelay",
+    "spawnSpline"
+  ],
+  "PackageName": "greaver",
+  "DefaultValues": {
+    "Name": "GreaverTargetHelper"
+  },
+  "States": {
+    "Spline": {
+      "methods": [
+        "followDelay",
+        "onSplineComplete"
+      ]
+    }
+  }
+}

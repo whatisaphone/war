@@ -1,0 +1,842 @@
+{
+  "classname": "CharacterMoveStateList",
+  "properties": {
+    "MoveStates": [
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1
+          ],
+          "AllowImpacts": false,
+          "Name": "Attack - Rampage Finish",
+          "ID": 10029,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 60046,
+              "Ease": 0.3
+            }
+          },
+          "TurnSpeed": 45.0,
+          "ImpulseDamage": 120,
+          "ImpulsePeriod": 2.0,
+          "ConstrainToGround": true,
+          "UseMotionNode": true,
+          "UseMotionNodeRotation": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1
+          ],
+          "AllowImpacts": false,
+          "Name": "Attack - Rampage Front",
+          "ID": 10026,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 60043,
+              "Ease": 0.3
+            }
+          },
+          "TurnSpeed": 120.0,
+          "ImpulseDamage": 120,
+          "ImpulsePeriod": 2.0,
+          "ConstrainToGround": true,
+          "UseMotionNode": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1
+          ],
+          "AllowImpacts": false,
+          "Name": "Attack - Rampage Left",
+          "ID": 10027,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 60044,
+              "Ease": 0.3
+            }
+          },
+          "TurnSpeed": 120.0,
+          "ImpulseDamage": 120,
+          "ImpulsePeriod": 2.0,
+          "ConstrainToGround": true,
+          "UseMotionNode": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1
+          ],
+          "AllowImpacts": false,
+          "Name": "Attack - Rampage Right",
+          "ID": 10028,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 60045,
+              "Ease": 0.3
+            }
+          },
+          "TurnSpeed": 120.0,
+          "ImpulseDamage": 120,
+          "ImpulsePeriod": 2.0,
+          "ConstrainToGround": true,
+          "UseMotionNode": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterAttackDesc",
+        "properties": {
+          "StopTurnFrame": 55,
+          "FollowupFrame": 50,
+          "OnImpact": [
+            -1,
+            -1,
+            -1,
+            50
+          ],
+          "Name": "Attack 1 - Swipe",
+          "ID": 110,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 110,
+              "Ease": 2.0
+            }
+          },
+          "TurnSpeed": 20.0,
+          "ImpulseDamage": 80,
+          "ImpulsePeriod": 2.0,
+          "OnImpulseImpact": 50,
+          "ConstrainToGround": true,
+          "UseMotionNode": true,
+          "FaceOnStart": false
+        }
+      },
+      {
+        "classname": "MonsterAttackDesc",
+        "properties": {
+          "StopTurnFrame": 31,
+          "OnImpact": [
+            -1
+          ],
+          "VulnerableEndTime": 2.25,
+          "Name": "Attack 3 - Desperation",
+          "ID": 112,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 112,
+              "Ease": 1.0
+            }
+          },
+          "TurnSpeed": 20.0,
+          "ImpulseDamage": 120,
+          "ImpulsePeriod": 2.0,
+          "ConstrainToGround": true,
+          "UseMotionNode": true,
+          "FaceOnStart": false
+        }
+      },
+      {
+        "classname": "MonsterRandDesc",
+        "properties": {
+          "StateOneChance": 33,
+          "OnStateOne": 10026,
+          "StateTwoChance": 33,
+          "OnStateTwo": 10027,
+          "StateThreeChance": 34,
+          "OnStateThree": 10028,
+          "Name": "Attack Rampage Pattern 1",
+          "ID": 10030,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {}
+          }
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "AllowImpacts": false,
+          "AllowDeath": false,
+          "Name": "Death",
+          "ID": 60,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 60,
+              "Ease": 0.5
+            }
+          },
+          "GravityScale": 0.0,
+          "TurnSpeed": 0.0,
+          "ConstrainToGround": true,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "MonsterFallDesc",
+        "properties": {
+          "Name": "Fall",
+          "ID": 10013,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 0
+            }
+          },
+          "OnActionComplete": 10014
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "Name": "Fall_Land",
+          "ID": 10014,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {}
+          }
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "AllowImpacts": false,
+          "AllowDeath": false,
+          "Name": "First Stunned Enter",
+          "ID": 10034,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 60017
+            }
+          },
+          "OnActionComplete": 10010,
+          "ConstrainToGround": true,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "MonsterGhostHookGrabDesc",
+        "properties": {
+          "PlayerInteractiveState": 10002,
+          "Name": "Ghost Hook Grab",
+          "ID": 600,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 50,
+              "Ease": 0.1
+            }
+          },
+          "OnActionComplete": 0
+        }
+      },
+      {
+        "classname": "MonsterIdleDesc",
+        "properties": {
+          "TurnThreshold": 110.0,
+          "IdleTime": 1.0,
+          "AllowStartTimeVariance": false,
+          "OnImpact": [
+            -1,
+            -1,
+            -1,
+            50
+          ],
+          "Name": "Idle",
+          "AnimController": {
+            "classname": "HAimAnimController",
+            "properties": {
+              "MaxAngle": 125.0,
+              "LeftAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 60028,
+                  "Ease": 0.5
+                }
+              },
+              "ForwardAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 0,
+                  "Ease": 0.5
+                }
+              },
+              "RightAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 60027,
+                  "Ease": 0.5
+                }
+              },
+              "BlendTime": 1.5,
+              "Ease": 0.5
+            }
+          },
+          "Deceleration": 10000.0,
+          "TurnSpeed": 0.0,
+          "ImpulseDamage": 120,
+          "OnImpulseImpact": 50,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterImpactDesc",
+        "properties": {
+          "UseDirectionalImpacts": true,
+          "BackAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 50,
+              "Ease": 0.3
+            }
+          },
+          "LeftAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 53,
+              "Ease": 0.3
+            }
+          },
+          "RightAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 52,
+              "Ease": 0.3
+            }
+          },
+          "FrontAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 51,
+              "Ease": 0.3
+            }
+          },
+          "UpAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 54,
+              "Ease": 0.3
+            }
+          },
+          "AllowImpacts": false,
+          "Name": "Impact",
+          "ID": 50,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 50
+            }
+          },
+          "OnActionComplete": 0,
+          "ImpulseDamage": 80,
+          "LimitPeriodToTimeInState": true,
+          "OnImpulseImpact": 50,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "CharacterDoInteractiveDesc",
+        "properties": {
+          "TargetType": "war/war",
+          "Initiator": 1,
+          "MaxErrorDistance": 200.0,
+          "Arc": 270.0,
+          "IgnoreTime": 10.0,
+          "ImmediateInterrupt": true,
+          "MashAdvances": false,
+          "AnimationID": 60035,
+          "TargetAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 60041
+            }
+          },
+          "OnComplete": 10035,
+          "UseCameraNode": true,
+          "FreezeCameraOnExit": true,
+          "AnimationSource": 0,
+          "Priority": 4,
+          "ShowWorldContext": true,
+          "ClampWorldContextDistance": 750.0,
+          "Name": "Interactive Death",
+          "ID": 10033,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 60035
+            }
+          }
+        }
+      },
+      {
+        "classname": "CharacterDoInteractiveDesc",
+        "properties": {
+          "TargetType": "war/war",
+          "MaxErrorDistance": 200.0,
+          "Arc": 270.0,
+          "IgnoreTime": 10.0,
+          "ImmediateInterrupt": true,
+          "MashAdvances": false,
+          "AnimationID": 60052,
+          "TargetAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 60054
+            }
+          },
+          "OnCompleteOther": 0,
+          "ShowCinematicBars": false,
+          "HideUI": false,
+          "AnimationSource": 0,
+          "MoveTransitionFrame": 10,
+          "OnMoveTransition": 0,
+          "OverridesHavocForm": false,
+          "Priority": 4,
+          "ClampWorldContextDistance": 750.0,
+          "Name": "Interactive Death End",
+          "ID": 10035,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 60052
+            }
+          }
+        }
+      },
+      {
+        "classname": "MonsterAttackDesc",
+        "properties": {
+          "StopTurnFrame": 50,
+          "Name": "PathBlockedAttack",
+          "ID": 10031,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 60049
+            }
+          },
+          "TurnSpeed": 30.0,
+          "FaceOnStart": false
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1,
+            50
+          ],
+          "Name": "Reactivate WeakPoints",
+          "ID": 10032,
+          "AnimController": {
+            "classname": "HAimAnimController",
+            "properties": {
+              "RotateActorOnExtent": true,
+              "LeftAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 60026,
+                  "Ease": 0.5
+                }
+              },
+              "ForwardAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 60050,
+                  "Ease": 0.5
+                }
+              },
+              "RightAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 60029,
+                  "Ease": 0.5
+                }
+              },
+              "Ease": 0.5
+            }
+          },
+          "TurnSpeed": 0.0,
+          "ConstrainToGround": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "Name": "Spawn Fall In",
+          "ID": 10024,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 60037
+            }
+          },
+          "OnActionComplete": 10032
+        }
+      },
+      {
+        "classname": "MonsterAttackDesc",
+        "properties": {
+          "StopTurnFrame": 3,
+          "FollowupFrame": 15,
+          "OnImpact": [
+            -1,
+            -1,
+            -1,
+            50
+          ],
+          "AllowImpacts": false,
+          "Name": "SpecialAttack",
+          "ID": 111,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 111,
+              "Ease": 1.0
+            }
+          },
+          "ImpulseDamage": 80,
+          "ImpulsePeriod": 2.0,
+          "ConstrainToGround": true,
+          "UseMotionNode": true,
+          "FaceOnStart": false
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "AllowImpacts": false,
+          "AllowDeath": false,
+          "Name": "Stunned Death",
+          "ID": 10015,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 60,
+              "Ease": 2.0
+            }
+          },
+          "GravityScale": 0.0,
+          "ConstrainToGround": true,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "AllowImpacts": false,
+          "AllowDeath": false,
+          "Name": "Stunned Enter",
+          "ID": 10009,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 60017
+            }
+          },
+          "OnActionComplete": 10010,
+          "ConstrainToGround": true,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "MonsterBlockDesc",
+        "properties": {
+          "DamageScale": 1.0,
+          "BlockAngle": 360.0,
+          "BlockTime": 999.0,
+          "IdleAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 60018,
+              "Ease": 0.0
+            }
+          },
+          "BreakOnFirstMissedBlock": false,
+          "OnDeath": 10015,
+          "Name": "Stunned Idle",
+          "ID": 10010,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 60018,
+              "Ease": 0.1
+            }
+          },
+          "TurnSpeed": 0.0,
+          "ImpulseDamage": 100,
+          "DamageMitigation": -25
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnDeath": 10015,
+          "Name": "Stunned Impact",
+          "ID": 10025,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 60019
+            }
+          },
+          "TurnSpeed": 0.0,
+          "OnActionComplete": 10010,
+          "DamageMitigation": -25,
+          "ConstrainToGround": true,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "AllowImpacts": false,
+          "AllowDeath": false,
+          "Name": "Stunned Impact Out",
+          "ID": 10023,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 60040
+            }
+          },
+          "ConstrainToGround": true,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1
+          ],
+          "AllowImpacts": false,
+          "AllowDeath": false,
+          "Name": "Stunned No Impact Out",
+          "ID": 10020,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 60021
+            }
+          },
+          "ConstrainToGround": true,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "MonsterAttackDesc",
+        "properties": {
+          "StopTurnFrame": 10,
+          "OnImpact": [
+            -1
+          ],
+          "AllowImpacts": false,
+          "Name": "Stunned Rampage Start",
+          "ID": 10021,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 60047,
+              "Ease": 0.3
+            }
+          },
+          "TurnSpeed": 50.0,
+          "OnActionComplete": 10030,
+          "ImpulseDamage": 120,
+          "ImpulsePeriod": 2.0,
+          "ConstrainToGround": true,
+          "UseMotionNode": true,
+          "FaceOnStart": false
+        }
+      },
+      {
+        "classname": "MonsterRandDesc",
+        "properties": {
+          "StateOneChance": 100,
+          "OnStateOne": 500,
+          "Name": "Taunt",
+          "ID": 22,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {}
+          }
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1,
+            50
+          ],
+          "Name": "Taunt1",
+          "ID": 500,
+          "AnimController": {
+            "classname": "HAimAnimController",
+            "properties": {
+              "RotateActorOnExtent": true,
+              "LeftAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 60026,
+                  "Ease": 0.5
+                }
+              },
+              "ForwardAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 500,
+                  "Ease": 0.5
+                }
+              },
+              "RightAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 60029,
+                  "Ease": 0.5
+                }
+              },
+              "Ease": 0.5
+            }
+          },
+          "TurnSpeed": 0.0,
+          "ConstrainToGround": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1,
+            50
+          ],
+          "Name": "Turn 180 Left",
+          "ID": 10018,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 60031,
+              "Ease": 1.0
+            }
+          },
+          "TurnSpeed": 60.0,
+          "OnFall": 10013,
+          "UseMotionNode": true,
+          "UseMotionNodeRotation": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "OnImpact": [
+            -1,
+            -1,
+            -1,
+            50
+          ],
+          "Name": "Turn 180 Right",
+          "ID": 10019,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 60030,
+              "Ease": 1.0
+            }
+          },
+          "TurnSpeed": 60.0,
+          "OnFall": 10013,
+          "UseMotionNode": true,
+          "UseMotionNodeRotation": true,
+          "FaceTarget": true
+        }
+      },
+      {
+        "classname": "MonsterMoveToDesc",
+        "properties": {
+          "MaxFallDist": 10000.0,
+          "OnPathBlocked": 10031,
+          "Range": 145.0,
+          "CloseTurnAngle": 30.0,
+          "OnImpact": [
+            -1,
+            -1,
+            -1,
+            50
+          ],
+          "MoveBeforeTurn": true,
+          "GroundRayDistance": 100.0,
+          "Name": "WalkToTarget",
+          "ID": 11,
+          "AnimController": {
+            "classname": "HAimAnimController",
+            "properties": {
+              "RotateActorOnExtent": true,
+              "LeftAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 60022,
+                  "Ease": 1.0
+                }
+              },
+              "ForwardAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 11,
+                  "Ease": 1.0
+                }
+              },
+              "RightAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 60023,
+                  "Ease": 1.0
+                }
+              },
+              "BlendTime": 1.0,
+              "DeadzoneThreshold": 30.0,
+              "Ease": 1.0
+            }
+          },
+          "Acceleration": 800.0,
+          "Deceleration": 100.0,
+          "MaxSpeed": 0.0,
+          "TurnSpeed": 100.0,
+          "OnFall": 10013,
+          "ImpulseDamage": 140,
+          "ImpulsePeriod": 2.0,
+          "UseMotionNode": true
+        }
+      }
+    ]
+  }
+}

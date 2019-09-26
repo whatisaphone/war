@@ -1,0 +1,126 @@
+{
+  "Parent": "base/standardbehavior",
+  "Name": "base/spawnsplinebehavior",
+  "Properties": {
+    "SplineMoveStateFly": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "SplineOffsetLR": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "SplineOffsetUD": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "SplineSnapToStart": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMoveStateIdle": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleMoveStateFidget": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleFidgetChance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleFidgetMinTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleFidgetMaxTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMinTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMaxTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "SplineName": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "SplineMoveStateOverride": {
+      "Flags": 2,
+      "Type": 5
+    },
+    "SplineRangedAttackOverride": {
+      "Flags": 2,
+      "Type": 5
+    }
+  },
+  "StaticProperties": {},
+  "Methods": [
+    "setFlyMovestate",
+    "setRangedAttackMovestate",
+    "setAttackMode",
+    "begin"
+  ],
+  "PackageName": "base",
+  "DefaultValues": {
+    "IdleMinTime": 2,
+    "IdleFidgetChance": 0,
+    "IdleFidgetMinTime": 3,
+    "SplineOffsetLR": 0,
+    "SplineRangedAttackOverride": "",
+    "SplineMoveStateFly": "",
+    "SplineName": "",
+    "ID": "SpawnSplineBehavior",
+    "IdleMoveStateFidget": "",
+    "IdleMoveStateIdle": "",
+    "SplineOffsetUD": 0,
+    "PathBlockedBreakableHandler": null,
+    "IdleMaxTime": 3,
+    "SplineSnapToStart": false,
+    "ComponentActions": [
+      {
+        "classname": "base/splineaction",
+        "properties": {
+          "SplineAllowOverrides": true,
+          "ID": "SplineAction",
+          "Priority": 9,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "ValidStates": [
+            "SpawnPath"
+          ],
+          "OnCompleteState": "FinishedSpawnPath"
+        }
+      },
+      {
+        "classname": "base/idleaction",
+        "properties": {
+          "ID": "Idle",
+          "ActionCode": 1,
+          "Priority": 1
+        }
+      }
+    ],
+    "IdleFidgetMaxTime": 5,
+    "SplineMoveStateOverride": ""
+  },
+  "States": {
+    "FinishedSpawnPath": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "SpawnPath": {
+      "methods": [
+        "getCurrentState"
+      ]
+    }
+  }
+}

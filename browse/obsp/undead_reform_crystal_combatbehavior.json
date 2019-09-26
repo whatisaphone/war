@@ -1,0 +1,158 @@
+{
+  "classname": "base/tbehavior",
+  "properties": {
+    "ComponentActions": [
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "MoveState": "Strafe",
+          "ExitOnComplete": false,
+          "ID": "Strafe",
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "AttackType": 1,
+          "Pressure": 8,
+          "MaxRange": 300.0,
+          "MaxHeight": 120.0,
+          "MinAngle": -45.0,
+          "MaxAngle": 45.0,
+          "MoveState": "Armored Attack - DoubleStrike Start",
+          "RequireInView": true,
+          "ID": "Attack1",
+          "Priority": 5,
+          "Chance": 0.5,
+          "InterruptibleBy": [
+            "Exit"
+          ],
+          "ResourceLock": "Attack",
+          "MinLockTime": 2.0,
+          "MaxLockTime": 5.0,
+          "GlobalResourceLock": "PowerAttack",
+          "GlobalMinLockTime": 0.5,
+          "GlobalMaxLockTime": 1.0,
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "AttackType": 1,
+          "Pressure": 8,
+          "MaxRange": 300.0,
+          "MaxHeight": 120.0,
+          "MinAngle": -45.0,
+          "MaxAngle": 45.0,
+          "MoveState": "Armored Attack - OverheadChop",
+          "RequireInView": true,
+          "ID": "Attack2",
+          "Priority": 5,
+          "Chance": 0.5,
+          "InterruptibleBy": [
+            "Exit"
+          ],
+          "ResourceLock": "Attack",
+          "MinLockTime": 2.0,
+          "MaxLockTime": 5.0,
+          "GlobalResourceLock": "PowerAttack",
+          "GlobalMinLockTime": 0.5,
+          "GlobalMaxLockTime": 1.0,
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "MinRange": 50.0,
+          "MaxRange": 200.0,
+          "MinAngle": -30.0,
+          "MaxAngle": 30.0,
+          "MoveState": "Fidget",
+          "ID": "Fidget",
+          "Priority": 10,
+          "Chance": 0.05,
+          "InterruptibleBy": [
+            "Exit"
+          ],
+          "ResourceLock": "Fidget",
+          "MinLockTime": 20.0,
+          "MaxLockTime": 30.0,
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "MoveState": "StaggerStart",
+          "ID": "Stunned",
+          "Priority": -1,
+          "Position": [
+            0.0026884205,
+            1.6495501e-33,
+            1.7433325e28
+          ]
+        }
+      }
+    ],
+    "BackgroundActions": [
+      {
+        "classname": "base/onhithandler",
+        "properties": {
+          "ActionID": "Stunned",
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "InterruptHandler": {
+      "classname": "base/oninterrupthandler",
+      "properties": {
+        "Position": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "ExitBehaviorHandler": {
+      "classname": "ExitBehaviorAction",
+      "properties": {
+        "Position": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "Position": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  }
+}

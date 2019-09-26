@@ -1,0 +1,149 @@
+{
+  "classname": "base/tbehavior",
+  "properties": {
+    "ComponentActions": [
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "MoveState": "Strafe",
+          "ExitOnComplete": false,
+          "ID": "Strafe",
+          "InterruptibleBy": [
+            "ANY"
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "AttackType": 1,
+          "Pressure": 12,
+          "MaxRange": 300.0,
+          "MaxHeight": 120.0,
+          "MinAngle": -45.0,
+          "MaxAngle": 45.0,
+          "MoveState": "Attack 6 - SwipeLeft",
+          "RequireInView": true,
+          "ID": "Attack1",
+          "Priority": 5,
+          "ResourceLock": "Attack1",
+          "MinLockTime": 5.0,
+          "MaxLockTime": 6.0
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "AttackType": 1,
+          "Pressure": 12,
+          "MaxRange": 300.0,
+          "MaxHeight": 120.0,
+          "MinAngle": -45.0,
+          "MaxAngle": 45.0,
+          "MoveState": "Attack 7 - SwipeRight",
+          "RequireInView": true,
+          "ID": "Attack1a",
+          "Priority": 5,
+          "ResourceLock": "Attack1a",
+          "MinLockTime": 5.0,
+          "MaxLockTime": 6.0
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "AttackType": 1,
+          "Pressure": 12,
+          "MaxRange": 200.0,
+          "MaxHeight": 120.0,
+          "MinAngle": -45.0,
+          "MaxAngle": 45.0,
+          "MoveState": "Attack 4 - Ground Smash",
+          "RequireInView": true,
+          "AutoClose": true,
+          "PreferredDistance": 80.0,
+          "ID": "Attack3",
+          "Priority": 6,
+          "ResourceLock": "Attack4",
+          "MinLockTime": 10.0,
+          "MaxLockTime": 15.0
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "AttackType": 1,
+          "Pressure": 12,
+          "MinRange": 100.0,
+          "MaxRange": 600.0,
+          "MaxHeight": 120.0,
+          "MinAngle": -45.0,
+          "MaxAngle": 45.0,
+          "MoveState": "Attack 3 - Double Uppercut",
+          "RequireInView": true,
+          "ID": "Attack2",
+          "Priority": 5,
+          "Chance": 0.5,
+          "ResourceLock": "AttackU",
+          "MinLockTime": 20.0,
+          "MaxLockTime": 30.0
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "MinAngle": -45.0,
+          "MaxAngle": 45.0,
+          "MoveState": "Taunt",
+          "RequireInView": true,
+          "ID": "Taunt",
+          "Priority": 5,
+          "ResourceLock": "Taunt",
+          "MinLockTime": 10.0,
+          "MaxLockTime": 20.0
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "MoveState": "Weakened Start",
+          "ID": "Stunned",
+          "Priority": -1,
+          "Position": [
+            null,
+            1.3315163e21,
+            2.1524e-41
+          ]
+        }
+      }
+    ],
+    "BackgroundActions": [
+      {
+        "classname": "base/onhithandler",
+        "properties": {
+          "ActionID": "Stunned",
+          "DamageThreshold": 75
+        }
+      }
+    ],
+    "InterruptHandler": {
+      "classname": "base/oninterrupthandler",
+      "properties": {}
+    },
+    "ExitBehaviorHandler": {
+      "classname": "ExitBehaviorAction",
+      "properties": {
+        "Position": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "Position": [
+      -3.0527917e-33,
+      -2.024568,
+      5.1879497e-30
+    ]
+  }
+}

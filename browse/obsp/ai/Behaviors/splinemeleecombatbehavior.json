@@ -1,0 +1,228 @@
+{
+  "Parent": "base/standardbehavior",
+  "Name": "base/splinemeleecombatbehavior",
+  "Properties": {
+    "SplineAttackMoveStateLeft": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "SplineAttackMoveStateRight": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "SplineAttackMinDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "SplineAttackMaxDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "SplineAttackMinRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "SplineAttackMaxRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "SplineAttackLockDelayMin": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "SplineAttackLockDelayMax": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "SplineAttackAngleDiff": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "SplineMoveStateFly": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "SplineOffsetLR": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "SplineOffsetUD": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "SplineSnapToStart": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "SplineMoveStateFlySlow": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "SplineMoveStateFlyFast": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "FlySpeed": {
+      "Flags": 0,
+      "Type": 2
+    },
+    "IdleMoveStateIdle": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleMoveStateFidget": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleFidgetChance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleFidgetMinTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleFidgetMaxTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMinTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMaxTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "SplineName": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "SplineMoveStateOverride": {
+      "Flags": 2,
+      "Type": 5
+    },
+    "SplineRangedAttackOverride": {
+      "Flags": 2,
+      "Type": 5
+    }
+  },
+  "StaticProperties": {},
+  "Methods": [
+    "setFlyMovestate",
+    "setAttackMovestate",
+    "setAttackMode",
+    "begin"
+  ],
+  "PackageName": "base",
+  "DefaultValues": {
+    "SplineAttackMoveStateRight": "",
+    "IdleMinTime": 2,
+    "IdleFidgetChance": 0,
+    "IdleFidgetMinTime": 3,
+    "SplineAttackMinDelay": -1,
+    "SplineAttackMaxDelay": -1,
+    "SplineOffsetLR": 0,
+    "SplineRangedAttackOverride": "",
+    "SplineMoveStateFly": "",
+    "SplineName": "",
+    "ID": "SplineMeleeCombatBehavior",
+    "BackgroundActions": [],
+    "FlySpeed": 2,
+    "IdleMoveStateFidget": "",
+    "SplineMoveStateFlySlow": "",
+    "SplineAttackMoveStateLeft": "",
+    "SplineMoveStateFlyFast": "",
+    "SplineAttackLockDelayMin": -1,
+    "IdleMoveStateIdle": "",
+    "OnAttackHandler": [],
+    "SplineOffsetUD": 0,
+    "PathBlockedBreakableHandler": null,
+    "SplineAttackMaxRange": -1,
+    "SplineAttackMinRange": -1,
+    "IdleMaxTime": 3,
+    "SplineSnapToStart": false,
+    "SplineAttackAngleDiff": -1,
+    "ComponentActions": [
+      {
+        "classname": "base/splineattackaction",
+        "properties": {
+          "OnSplineCompleteState": "FinishedSpline",
+          "ID": "Attack",
+          "Priority": 3,
+          "InterruptibleBy": [
+            "Death",
+            "Interactive",
+            "Impact"
+          ],
+          "ValidStates": [
+            "FollowSpline"
+          ],
+          "ResourceLock": "Attack",
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/splineaction",
+        "properties": {
+          "SplineAllowOverrides": true,
+          "ID": "SplineAction",
+          "Priority": 2,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "ValidStates": [
+            "FollowSpline",
+            "FollowSplineNoAttack"
+          ],
+          "OnCompleteState": "FinishedSpline",
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/idleaction",
+        "properties": {
+          "ID": "Idle",
+          "ActionCode": 1,
+          "Priority": 1,
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "SplineAttackLockDelayMax": -1,
+    "IdleFidgetMaxTime": 5,
+    "SplineMoveStateOverride": ""
+  },
+  "States": {
+    "FollowSpline": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "FinishedSpline": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "FollowSplineNoAttack": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    }
+  }
+}

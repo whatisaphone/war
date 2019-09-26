@@ -1,0 +1,129 @@
+{
+  "Parent": "base/standardbehavior",
+  "Name": "base/spawnemergebehavior",
+  "Properties": {
+    "MoveStateIdle": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "MoveStateEmerge": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "MoveStateTransition": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "MoveStateSpawn": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "AnimMoveState": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "AnimMaxAngleDiff": {
+      "Flags": 4,
+      "Type": 3
+    }
+  },
+  "StaticProperties": {},
+  "Methods": [
+    "begin"
+  ],
+  "PackageName": "base",
+  "DefaultValues": {
+    "MoveStateSpawn": "",
+    "AnimMaxAngleDiff": 180,
+    "MoveStateEmerge": "",
+    "MoveStateTransition": "",
+    "MoveStateIdle": "",
+    "ID": "SpawnEmergeBehavior",
+    "AnimMoveState": "",
+    "ImpactHandler": {
+      "classname": "base/impactaction",
+      "properties": {
+        "ID": "Impact",
+        "Priority": 620,
+        "InterruptibleBy": [
+          "Death",
+          "Interactive"
+        ],
+        "OnCompleteState": "DoneSpawn",
+        "Position": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "ComponentActions": [
+      {
+        "classname": "base/animaction",
+        "properties": {
+          "ID": "TransitionAction",
+          "Priority": -1,
+          "InterruptibleBy": [
+            "Death",
+            "Interactive",
+            "Impact"
+          ],
+          "ValidStates": [
+            "Spawning"
+          ],
+          "OnCompleteState": "DoneSpawn",
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/animaction",
+        "properties": {
+          "ID": "SpawnAction",
+          "ActionCode": 1,
+          "Priority": 1,
+          "InterruptibleBy": [
+            "Death",
+            "Interactive",
+            "Impact"
+          ],
+          "ValidStates": [
+            "Spawning"
+          ],
+          "OnCompleteAction": "TransitionAction",
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "ExitBehaviorHandler": {
+      "classname": "base/exitbehavioraction",
+      "properties": {
+        "ID": "Exit",
+        "Position": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    }
+  },
+  "States": {
+    "Spawning": {
+      "methods": [
+        "getCurrentState"
+      ]
+    },
+    "DoneSpawn": {
+      "methods": [
+        "onEnter"
+      ]
+    }
+  }
+}

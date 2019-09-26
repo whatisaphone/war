@@ -1,0 +1,123 @@
+{
+  "Parent": "base/componentaction",
+  "Name": "base/dashattackaction",
+  "Properties": {
+    "DashAttackMissAngle": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "DashAttackTimeout": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "DashAttackMoveStateEndDash": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "DashAttackMoveStateEndDashFar": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "DashAttackMoveStateAttack": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "DashAttackMoveStateDash": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "DashAttackMinDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "DashAttackMaxDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "DashAttackMinRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "DashAttackMaxRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "DashAttackEndFarRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "DashAttackPredictTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "DashAttackPressure": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "DashAttackThinkHeartbeat": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "DashAttackInteractiveMoveStateID": {
+      "Flags": 4,
+      "Type": 2
+    },
+    "Interrupted": {
+      "Flags": 2,
+      "Type": 4
+    }
+  },
+  "StaticProperties": {},
+  "Methods": [
+    "InitVars",
+    "InitDashAttackAction",
+    "validate",
+    "begin",
+    "end"
+  ],
+  "PackageName": "base",
+  "DefaultValues": {
+    "DashAttackMoveStateEndDash": "",
+    "DashAttackInteractiveMoveStateID": 0,
+    "DashAttackPressure": -1,
+    "DashAttackMinRange": -1,
+    "DashAttackMaxRange": -1,
+    "ID": "Dashattack",
+    "DashAttackEndFarRange": -1,
+    "Interrupted": true,
+    "DashAttackThinkHeartbeat": 0.1,
+    "DashAttackMaxDelay": -1,
+    "DashAttackPredictTime": -1,
+    "DashAttackMoveStateDash": "",
+    "DashAttackMissAngle": -1,
+    "DashAttackMoveStateEndDashFar": "",
+    "DashAttackMinDelay": -1,
+    "DashAttackTimeout": -1,
+    "DashAttackMoveStateAttack": ""
+  },
+  "States": {
+    "DashAttack": {
+      "methods": [
+        "onActionComplete",
+        "getDashState",
+        "onEnter"
+      ]
+    },
+    "Dash": {
+      "methods": [
+        "DashTimeOut",
+        "onActionComplete",
+        "DashAttackThink",
+        "getDashState",
+        "onEnter"
+      ]
+    },
+    "DashEnd": {
+      "methods": [
+        "onActionComplete",
+        "getDashState",
+        "onEnter"
+      ]
+    }
+  }
+}

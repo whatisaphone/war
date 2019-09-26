@@ -1,0 +1,90 @@
+.method validateAttackTypes
+0x0001 .param_count 0
+0x0001 .line 22
+0x0006     inc_scope
+0x0007 .line 24
+0x000c     bool false
+0x000e     var_assign rtn
+0x001c .line 27
+0x0021     identifier this
+0x0030     property AttackTypes
+0x0046     int 0
+0x004b     method_chain size
+0x005a     int 0
+0x005f     greater
+0x0060     branch_false 0x0129
+0x0065 .line 29
+0x006a     nop
+0x006b .line 30
+0x0070     identifier this
+0x007f     property AttackTypes
+0x0095     iterator
+0x0096 .label 0x00eb
+0x009b     iterator_test
+0x009c     branch_false 0x0113
+0x00a1     iterator_assign atype
+0x00b1 .line 32
+0x00b6     nop
+0x00b7     identifier this
+0x00c6     property type
+0x00d5     identifier atype
+0x00e5     equal
+0x00e6     branch_false 0x0107
+0x00eb .line 33
+0x00f0     identifier rtn
+0x00fe     bool true
+0x0100     assign
+0x0101     pop
+0x0102 .line 34
+0x0107 .label 0x00ed
+0x010c     nop
+0x010d     inc
+0x010e     goto 0x0096
+0x0113 .label 0x00ec
+0x0118     pop
+0x0119 .line 35
+0x011e     nop
+0x011f .line 36
+0x0124     goto 0x0145
+0x0129 .label 0x00ea
+0x012e .line 37
+0x0133     identifier rtn
+0x0141     bool true
+0x0143     assign
+0x0144     pop
+0x0145 .label 0x00ee
+0x014a .line 39
+0x014f     identifier rtn
+0x015d     return
+0x015e .line 40
+0x0163     dec_scope
+0x0164     return_null
+
+.method validateAttackers
+0x0001 .param_count 0
+0x0001 .line 42
+0x0006     inc_scope
+0x0007 .line 44
+0x000c     bool true
+0x000e     var_assign rtn
+0x001c .line 45
+0x0021     identifier rtn
+0x002f     return
+0x0030 .line 46
+0x0035     dec_scope
+0x0036     return_null
+
+.method end
+0x0001 .param_count 0
+0x0001 .line 48
+0x0006     nop
+0x0007 .line 50
+0x000c     identifier this
+0x001b     property attacker
+0x002e     null_object
+0x002f     assign
+0x0030     pop
+0x0031 .line 51
+0x0036     nop
+0x0037     return_null
+

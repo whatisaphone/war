@@ -1,0 +1,149 @@
+{
+  "Parent": "base/tbehavior",
+  "Name": "gholen_charge/gcharge_combatbehavior",
+  "Properties": {},
+  "StaticProperties": {},
+  "Methods": [
+    "onBegin"
+  ],
+  "PackageName": "gholen_charge",
+  "DefaultValues": {
+    "BackgroundActions": [
+      {
+        "classname": "base/onhithandler",
+        "properties": {
+          "ActionID": "Stunned",
+          "DamageThreshold": 75
+        }
+      }
+    ],
+    "ComponentActions": [
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "MoveState": "Strafe",
+          "ExitOnComplete": false,
+          "ID": "Strafe",
+          "InterruptibleBy": [
+            "ANY"
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "AttackType": 1,
+          "Pressure": 8,
+          "MaxRange": 190.0,
+          "MaxHeight": 120.0,
+          "MinAngle": -45.0,
+          "MaxAngle": 45.0,
+          "MoveState": "Interactive - Grab",
+          "RequireInView": true,
+          "PreferredDistance": 80.0,
+          "ID": "Attack5",
+          "Priority": 6,
+          "Chance": 0.5,
+          "ResourceLock": "AttackClap",
+          "MinLockTime": 8.0,
+          "MaxLockTime": 10.0,
+          "GlobalResourceLock": "PowerAttack",
+          "GlobalMinLockTime": 15.0,
+          "GlobalMaxLockTime": 20.0
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "AttackType": 1,
+          "Pressure": 8,
+          "MaxRange": 250.0,
+          "MaxHeight": 120.0,
+          "MinAngle": -75.0,
+          "MaxAngle": 75.0,
+          "MoveState": "Attack 1 - Right Hand Swipe Start",
+          "RequireInView": true,
+          "PreferredDistance": 140.0,
+          "ID": "Attack1",
+          "Priority": 5,
+          "Chance": 0.5,
+          "ResourceLock": "Attack",
+          "MinLockTime": 3.0,
+          "MaxLockTime": 4.0,
+          "Position": [
+            null,
+            0.0,
+            9.024735e-29
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "AttackType": 1,
+          "Pressure": 8,
+          "MaxRange": 250.0,
+          "MaxHeight": 120.0,
+          "MinAngle": -75.0,
+          "MaxAngle": 75.0,
+          "MoveState": "Attack 2 - Left Hand Swipe Start",
+          "RequireInView": true,
+          "PreferredDistance": 150.0,
+          "ID": "Attack2",
+          "Priority": 5,
+          "Chance": 0.5,
+          "ResourceLock": "Attack",
+          "MinLockTime": 3.0,
+          "MaxLockTime": 4.0,
+          "Position": [
+            5.412777e-10,
+            6e-45,
+            -6e-45
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "AttackType": 1,
+          "Pressure": 10,
+          "MinRange": 200.0,
+          "MaxRange": 600.0,
+          "MaxHeight": 120.0,
+          "MinAngle": -45.0,
+          "MaxAngle": 45.0,
+          "MoveState": "Shoulder Bash Start",
+          "RequireInView": true,
+          "RequireLOS": true,
+          "PreferredDistance": 150.0,
+          "ID": "AttackCharge",
+          "Priority": 5,
+          "Chance": 0.33,
+          "ResourceLock": "AttackCharge",
+          "MinLockTime": 20.0,
+          "MaxLockTime": 40.0,
+          "Position": [
+            1.4e-44,
+            0.0,
+            null
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "MoveState": "Weakened Start",
+          "ID": "Stunned",
+          "Priority": -1,
+          "Position": [
+            null,
+            1.3315163e21,
+            2.1524e-41
+          ]
+        }
+      }
+    ],
+    "ScanAlertDistance": 15000
+  },
+  "States": {}
+}

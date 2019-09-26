@@ -1,0 +1,327 @@
+{
+  "Parent": "base/simpleinteractive",
+  "Name": "subway_common/sw_gearcrank",
+  "Properties": {},
+  "StaticProperties": {
+    "Description": {
+      "Value": {
+        "classname": "base/simpleinteractivedesc",
+        "properties": {
+          "MoveStates": {
+            "classname": "CharacterMoveStateList",
+            "properties": {
+              "MoveStates": [
+                {
+                  "classname": "CharacterGenericStateDesc",
+                  "properties": {
+                    "Name": "FinishedIdle",
+                    "ID": 2,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 3
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                },
+                {
+                  "classname": "CharacterGenericStateDesc",
+                  "properties": {
+                    "Name": "Idle",
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 0
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                },
+                {
+                  "classname": "CharacterDoInteractiveDesc",
+                  "properties": {
+                    "TargetType": "war/war",
+                    "Initiator": 1,
+                    "MaxErrorDistance": 80.0,
+                    "Arc": 140.0,
+                    "IgnoreTime": 0.01,
+                    "DoCollision": false,
+                    "UseWeapon": 0,
+                    "AnimationID": 1,
+                    "TargetAnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 2
+                      }
+                    },
+                    "OnComplete": 2,
+                    "OnCompleteOther": 0,
+                    "AnimationSource": 0,
+                    "UseAnchorNode": true,
+                    "CanPlayDuringCinematic": true,
+                    "Name": "Interactive",
+                    "ID": 1,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 1
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                },
+                {
+                  "classname": "CharacterGenericStateDesc",
+                  "properties": {
+                    "Name": "UserAction1",
+                    "ID": 4,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 4
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                },
+                {
+                  "classname": "CharacterGenericStateDesc",
+                  "properties": {
+                    "Name": "UserAction2",
+                    "ID": 5,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 5
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                },
+                {
+                  "classname": "CharacterGenericStateDesc",
+                  "properties": {
+                    "Name": "UserAction3",
+                    "ID": 6,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 6
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                }
+              ]
+            }
+          },
+          "CanTraverse": true,
+          "Visual": "sw_gearcrank",
+          "Animations": {
+            "classname": "AnimationList",
+            "properties": {
+              "Animations": [
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "Name": "sw_gearcrank_idle",
+                    "AnimationName": "sw_gearcrank_idle"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 3,
+                    "Name": "sw_gearcrank_idle_activated",
+                    "AnimationName": "sw_gearcrank_idle_activated"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 1,
+                    "Name": "sw_gearcrank_interact",
+                    "AnimationName": "sw_gearcrank_interact",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50086,
+                          "TriggerFrame": 21
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "SW_GearCrank_Interact"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 2,
+                    "Name": "sw_gearcrank_interact - 1",
+                    "AnimationName": "sw_gearcrank_interact"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 4,
+                    "Name": "sw_gearcrank_revert",
+                    "AnimationName": "sw_gearcrank_revert",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50089,
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50089,
+                          "TriggerFrame": 8
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50089,
+                          "TriggerFrame": 15
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50087,
+                          "TriggerFrame": 29
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "SW_GearCrank_Revert"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 5,
+                    "Name": "sw_gearcrank_revert_idle",
+                    "AnimationName": "sw_gearcrank_revert_idle"
+                  }
+                }
+              ]
+            }
+          },
+          "Sounds": {
+            "classname": "SoundList",
+            "properties": {
+              "Sounds": [
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50088,
+                    "Name": "GearCranck_click",
+                    "Volume": 0.75,
+                    "Pitch": -2.0,
+                    "FadeOutTime": 0.099975586,
+                    "Duration": 0.19995117,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Sounds": "SW_ChainSwitchFail",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50086,
+                    "Name": "GearCrank",
+                    "FollowActor": true,
+                    "Priority": 1,
+                    "Sounds": "SW_Chainswitch",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50089,
+                    "Name": "GearCrank_chain_only",
+                    "FadeOutTime": 0.30004883,
+                    "Duration": 0.5,
+                    "FollowActor": true,
+                    "Priority": 1,
+                    "Sounds": "SW_Chainswitch",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50087,
+                    "Name": "GearCrankFail",
+                    "FollowActor": true,
+                    "Max": 2500.0,
+                    "Priority": 1,
+                    "Sounds": "SW_ChainSwitchFail",
+                    "Group": "doodads"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "Methods": [
+    "onInit",
+    "onQueryInteractive",
+    "reset"
+  ],
+  "PackageName": "subway_common",
+  "DefaultValues": {},
+  "States": {
+    "Activated": {
+      "methods": [
+        "onEnter",
+        "reset"
+      ]
+    },
+    "Ready": {
+      "methods": [
+        "onInteractive",
+        "onQueryInteractive",
+        "onEnter"
+      ]
+    },
+    "Interacting": {
+      "methods": [
+        "onInteractiveComplete"
+      ]
+    },
+    "Reset": {
+      "methods": [
+        "onActionComplete",
+        "onEnter"
+      ]
+    },
+    "Inert": {
+      "methods": [
+        "activate",
+        "onEnter"
+      ]
+    }
+  }
+}

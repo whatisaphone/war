@@ -1,0 +1,75 @@
+{
+  "Parent": "KinematicActor",
+  "Name": "ot_com/ot_looming_rock",
+  "Properties": {
+    "FxAnimationID": {
+      "Flags": 2,
+      "Type": 1
+    }
+  },
+  "StaticProperties": {
+    "Description": {
+      "Value": {
+        "classname": "KinematicActorDesc",
+        "properties": {
+          "Visual": "looming_rock",
+          "Animations": {
+            "classname": "AnimationList",
+            "properties": {
+              "Animations": [
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 1,
+                    "Name": "looming_rock_Idle",
+                    "AnimationName": "looming_rock_Idle"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 2,
+                    "Name": "looming_rock_Fx",
+                    "Looping": true,
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "looming_rock_idle",
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "Methods": [
+    "onInit",
+    "onRemove",
+    "onMaskOfShadowsToggle",
+    "onMaskShows",
+    "onMaskHides"
+  ],
+  "PackageName": "ot_com",
+  "DefaultValues": {
+    "FxAnimationID": -1
+  },
+  "States": {
+    "Hidden": {
+      "methods": [
+        "onEnter"
+      ]
+    },
+    "Visible": {
+      "methods": [
+        "onEnter"
+      ]
+    }
+  }
+}

@@ -1,0 +1,272 @@
+{
+  "Parent": "Monster",
+  "Name": "chainspider/silithabomb",
+  "Properties": {
+    "FallDelay": {
+      "Flags": 4,
+      "Type": 3
+    }
+  },
+  "StaticProperties": {
+    "Description": {
+      "Value": {
+        "classname": "MonsterDesc",
+        "properties": {
+          "AutoDecayOnDeath": true,
+          "MoveStates": {
+            "classname": "CharacterMoveStateList",
+            "properties": {
+              "MoveStates": [
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "Name": "Birth",
+                    "ID": 4,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 2
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "Name": "Explode",
+                    "ID": 2,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 0
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                },
+                {
+                  "classname": "MonsterFallDesc",
+                  "properties": {
+                    "InheritGravity": true,
+                    "Name": "Fall",
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 1
+                      }
+                    },
+                    "GravityScale": 0.02999878
+                  }
+                },
+                {
+                  "classname": "MonsterFallDesc",
+                  "properties": {
+                    "InheritGravity": true,
+                    "Name": "FallFast",
+                    "ID": 3,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 3
+                      }
+                    },
+                    "GravityScale": 3.0
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "Name": "Hover",
+                    "ID": 1,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 2
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                }
+              ]
+            }
+          },
+          "CharacterClass": "Greaver",
+          "IsFlyingCreature": true,
+          "Visual": "SilithaGhostHookBomb",
+          "FactionID": 1,
+          "AimOffsetHeight": 0.0,
+          "Animations": {
+            "classname": "AnimationList",
+            "properties": {
+              "Animations": [
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "Name": "Explode",
+                    "Length": 10,
+                    "Triggers": [
+                      {
+                        "classname": "CombatEffectTrigger",
+                        "properties": {
+                          "CombatEffect": {
+                            "classname": "AOEInstantCombatEffect",
+                            "properties": {
+                              "Radius": 500.0,
+                              "Damage": 20.0,
+                              "WeaponType": 0,
+                              "HitType": 5
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Silitha_Bomb_Explode"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 1,
+                    "Name": "Fall",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Silitha_Bomb_Fall"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 3,
+                    "Name": "Fall Fast",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Silitha_Bomb_FallFast",
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 2,
+                    "Name": "Hover",
+                    "Length": 10,
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Silitha_Bomb_Hover"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          "Sounds": {
+            "classname": "SoundList",
+            "properties": {
+              "Sounds": [
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 0,
+                    "Name": "silitha_bomb",
+                    "Volume": 0.85009766,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "Min": 800.0,
+                    "Max": 3500.0,
+                    "Priority": 0,
+                    "Sounds": "silitha_bomb_explosion_3,silitha_bomb_explosion_1,silitha_bomb_explosion_2",
+                    "Group": "Explosions"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 1,
+                    "Name": "silitha_bomb_pitched",
+                    "Volume": 0.85009766,
+                    "Pitch": 8.0,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "Min": 800.0,
+                    "Max": 3500.0,
+                    "Priority": 0,
+                    "Sounds": "silitha_bomb_explosion_3,silitha_bomb_explosion_1,silitha_bomb_explosion_2",
+                    "Group": "Explosions"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "BirthTimer": {
+      "Value": 1
+    },
+    "FallTime1": {
+      "Value": 5
+    },
+    "FallTime2": {
+      "Value": 0.5
+    },
+    "HoverTime": {
+      "Value": 3
+    }
+  },
+  "Methods": [
+    "onInit",
+    "onQueryAllowEnhancement",
+    "invalidateSelf",
+    "onFallTimer",
+    "onExplodeTimer"
+  ],
+  "PackageName": "chainspider",
+  "DefaultValues": {},
+  "States": {
+    "FallAndExplode": {
+      "methods": [
+        "onRemoveTimer",
+        "onExplodeTimer",
+        "onEnter"
+      ]
+    },
+    "Birth": {
+      "methods": [
+        "onBirthTimer",
+        "onEnter"
+      ]
+    },
+    "Hover": {
+      "methods": [
+        "onHoverTimer",
+        "onEnter"
+      ]
+    },
+    "FallIntoPlace": {
+      "methods": [
+        "onFallTimer",
+        "onEnter"
+      ]
+    }
+  }
+}

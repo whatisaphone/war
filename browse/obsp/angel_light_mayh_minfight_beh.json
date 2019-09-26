@@ -1,0 +1,195 @@
+{
+  "Parent": "base/standardbehavior",
+  "Name": "angel_light/angel_light_mayh_minfight_beh",
+  "Properties": {
+    "TurretMode": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "TurretBreakoutProximity": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ScanAlertDistance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ScanInterval": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "FaceTargetAngleDiff": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "FaceTargetMoveStateTurnLeft": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "FaceTargetMoveStateTurnRight": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "RangedAttackMoveStateAttack": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "RangedAttackMinDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "RangedAttackMaxDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "RangedAttackMinRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "RangedAttackMaxRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "RangedAttackPredictTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "RangedAttackPressure": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "RangedAttackAngleDiff": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "RangedLockOtherModifier": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMoveStateIdle": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleMinTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMaxTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMoveStateFidget": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleFidgetChance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleFidgetMinTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleFidgetMaxTime": {
+      "Flags": 4,
+      "Type": 3
+    }
+  },
+  "StaticProperties": {},
+  "Methods": [
+    "begin"
+  ],
+  "PackageName": "angel_light",
+  "DefaultValues": {
+    "RangedAttackMinRange": 0,
+    "IdleMinTime": 2,
+    "RangedAttackMaxRange": 3000,
+    "IdleFidgetChance": 0,
+    "IdleFidgetMinTime": 2,
+    "FaceTargetMoveStateTurnRight": "FaceRight",
+    "FaceTargetAngleDiff": 180,
+    "RangedAttackAngleDiff": -1,
+    "ID": "MayhemMinionBehavior",
+    "BackgroundActions": [],
+    "RangedAttackPressure": -1,
+    "IdleMoveStateFidget": "",
+    "TurretBreakoutProximity": 0,
+    "RangedLockOtherModifier": 1.0,
+    "RangedAttackMoveStateAttack": "Attack - Attack 2 - Minion Shoot Start",
+    "ScanInterval": 1.5,
+    "IdleMoveStateIdle": "Idle",
+    "OnAttackHandler": [],
+    "FaceTargetMoveStateTurnLeft": "FaceLeft",
+    "IdleMaxTime": 3,
+    "TurretMode": true,
+    "RangedAttackMaxDelay": 0.0,
+    "ComponentActions": [
+      {
+        "classname": "base/facetargetaction",
+        "properties": {
+          "ID": "FaceTarget",
+          "Priority": 2,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "Position": [
+            null,
+            0.039169725,
+            -1.5924013e-19
+          ]
+        }
+      },
+      {
+        "classname": "base/rangedattackaction",
+        "properties": {
+          "ActionCode": 2,
+          "Priority": 7,
+          "InterruptibleBy": [
+            "Death"
+          ],
+          "ResourceLock": "RangedAttack"
+        }
+      },
+      {
+        "classname": "base/idleaction",
+        "properties": {
+          "ActionCode": 1,
+          "Priority": 1,
+          "InterruptibleBy": [
+            "ANY"
+          ]
+        }
+      }
+    ],
+    "IdleFidgetMaxTime": 4,
+    "RangedAttackPredictTime": 0.0,
+    "RangedAttackMinDelay": 0.0,
+    "ScanAlertDistance": 1600
+  },
+  "States": {
+    "FoundMeleeTarget": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "TurretMode": {
+      "methods": [
+        "getCurrentState",
+        "onEnter",
+        "checkRange"
+      ]
+    },
+    "TargetUnreachableMode": {
+      "methods": [
+        "getCurrentState"
+      ]
+    },
+    "LostTarget": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    }
+  }
+}

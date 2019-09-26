@@ -1,0 +1,205 @@
+{
+  "Parent": "base/standardbehavior",
+  "Name": "base/spawnpathbehavior",
+  "Properties": {
+    "ApproachRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachMoveStateMove": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "ApproachForceCloseRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachForceCompleteRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMoveStateIdle": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleMoveStateFidget": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleFidgetChance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleFidgetMinTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleFidgetMaxTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMinTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMaxTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "BlockEnabled": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "BlockChance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "BlockMoveStateBlock": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "BlockMinDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "BlockMaxDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "BlockAttackTypes": {
+      "Flags": 4,
+      "Type": 1
+    },
+    "BlockUseMonsterBlockChance": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "doInvokeInitialBehavior": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "ClearObstacleMoveState": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "PathName": {
+      "Flags": 0,
+      "Type": 1
+    }
+  },
+  "StaticProperties": {},
+  "Methods": [
+    "begin"
+  ],
+  "PackageName": "base",
+  "DefaultValues": {
+    "BlockAttackTypes": [
+      2,
+      3,
+      4
+    ],
+    "ApproachForceCompleteRange": -1,
+    "IdleMinTime": 2,
+    "BlockChance": 0.8,
+    "BlockEnabled": false,
+    "IdleFidgetChance": 0,
+    "doInvokeInitialBehavior": true,
+    "IdleFidgetMinTime": 3,
+    "ApproachMoveStateMove": "",
+    "BlockUseMonsterBlockChance": false,
+    "ID": "SpawnPathBehavior",
+    "BlockMoveStateBlock": "",
+    "IdleMoveStateFidget": "",
+    "BlockMaxDelay": 3.0,
+    "ClearObstacleMoveState": "usecombat",
+    "BlockMinDelay": 1.0,
+    "IdleMoveStateIdle": "",
+    "ApproachRange": 150,
+    "OnAttackHandler": [
+      {
+        "classname": "base/blockaction",
+        "properties": {
+          "ID": "Block",
+          "ActionCode": 5,
+          "Priority": 16,
+          "InterruptibleBy": [
+            "Death",
+            "Exit",
+            "Interactive",
+            "Impact"
+          ],
+          "ResourceLock": "Block"
+        }
+      }
+    ],
+    "PathBlockedBreakableHandler": {
+      "classname": "base/clearobstacleaction",
+      "properties": {
+        "ID": "Clear Obstacle",
+        "Priority": 16,
+        "InterruptibleBy": [
+          "Death",
+          "Exit",
+          "Interactive",
+          "Impact"
+        ],
+        "Position": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "IdleMaxTime": 3,
+    "PathName": "",
+    "ComponentActions": [
+      {
+        "classname": "base/approachpatrolaction",
+        "properties": {
+          "IgnoreZTolerance": true,
+          "ID": "SimplePatrol",
+          "Priority": 9,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "ValidStates": [
+            "SpawnPath"
+          ],
+          "OnCompleteState": "FinishedSpawnPath",
+          "Position": [
+            null,
+            0.003632192,
+            -6.2343606e-38
+          ]
+        }
+      },
+      {
+        "classname": "base/idleaction",
+        "properties": {
+          "ID": "Idle",
+          "ActionCode": 1,
+          "Priority": 1,
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "ApproachForceCloseRange": -1,
+    "IdleFidgetMaxTime": 5
+  },
+  "States": {
+    "FinishedSpawnPath": {
+      "methods": [
+        "onEnter"
+      ]
+    },
+    "SpawnPath": {
+      "methods": [
+        "getCurrentState"
+      ]
+    }
+  }
+}

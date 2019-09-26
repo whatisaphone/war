@@ -1,0 +1,541 @@
+{
+  "Parent": "base/elementalattributeactor",
+  "Name": "al_com/al_grate",
+  "Properties": {
+    "DetectRegion": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "BlockerRegion": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "TimeOpened": {
+      "Flags": 2,
+      "Type": 3
+    },
+    "Telegraph": {
+      "Flags": 2,
+      "Type": 3
+    },
+    "NumberOnGrate": {
+      "Flags": 2,
+      "Type": 2
+    }
+  },
+  "StaticProperties": {
+    "Description": {
+      "Value": {
+        "classname": "KinematicActorDesc",
+        "properties": {
+          "HitInfos": {
+            "classname": "HitInfoList",
+            "properties": {
+              "HitInfos": [
+                {
+                  "classname": "HitInfo",
+                  "properties": {
+                    "ID": 8,
+                    "Name": "Explosion (1)",
+                    "Power": -1,
+                    "Damage": 1.0,
+                    "EnvPowerScale": 5.0,
+                    "AlwaysApplyCombatEffect": true,
+                    "CombatEffect": "war/heavyfireenhancementeffect"
+                  }
+                },
+                {
+                  "classname": "HitInfo",
+                  "properties": {
+                    "ID": 9,
+                    "Name": "NPCExplosion (25)",
+                    "Power": 4,
+                    "Damage": 25.0,
+                    "KnockBackPower": 150.0
+                  }
+                },
+                {
+                  "classname": "HitInfo",
+                  "properties": {
+                    "ID": 10,
+                    "Name": "NPCJet (10)",
+                    "Power": -1,
+                    "Damage": 10.0
+                  }
+                }
+              ]
+            }
+          },
+          "Visual": "AL_Grate",
+          "Animations": {
+            "classname": "AnimationList",
+            "properties": {
+              "Animations": [
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "Name": "Closed_Idle",
+                    "AnimationName": "AL_Grate_closed",
+                    "Looping": true
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 3,
+                    "Name": "Closing",
+                    "AnimationName": "AL_Grate_close",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 9,
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 2,
+                    "Name": "Opened_Idle",
+                    "AnimationName": "AL_Grate_opened",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "AL_Grate_Smoke",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 6,
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 7,
+                    "Name": "Opened_Idle_Cooldown",
+                    "AnimationName": "AL_Grate_opened",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "AL_Grate_Cooldown"
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 10,
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 5,
+                    "Name": "Opened_Idle_Telegraph",
+                    "AnimationName": "AL_Grate_opened",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "AL_Grate_Telegraph"
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 6,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 3,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 8,
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 4,
+                    "Name": "Opened_Idle_Weaponized",
+                    "AnimationName": "AL_Grate_opened",
+                    "Triggers": [
+                      {
+                        "classname": "WeaponPhantomTrigger",
+                        "properties": {
+                          "WeaponPhantom": "NPCWeaponPhantom",
+                          "HitInfoID": 10,
+                          "HitTimeout": 0.1,
+                          "OverrideFactionID": 0
+                        }
+                      },
+                      {
+                        "classname": "WeaponPhantomTrigger",
+                        "properties": {
+                          "WeaponPhantom": "WeaponPhantom",
+                          "HitInfoID": 8,
+                          "HitTimeout": 0.1
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "AL_Grate_Fire",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 5,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 7,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 4,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "CombatEffectTrigger",
+                        "properties": {
+                          "CombatEffect": {
+                            "classname": "AOEInstantCombatEffect",
+                            "properties": {
+                              "HitInfoID": 9,
+                              "FactionOverrideID": 0
+                            }
+                          },
+                          "TriggerFrame": 1,
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 1,
+                    "Name": "Opening",
+                    "AnimationName": "AL_Grate_open",
+                    "Length": 60,
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "AL_Grate_Smoke",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 2
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          "Sounds": {
+            "classname": "SoundList",
+            "properties": {
+              "Sounds": [
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 3,
+                    "Name": "Grate_Armed",
+                    "Volume": 0.35009766,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 3000.0,
+                    "Priority": 10,
+                    "Sounds": "AL_Grate_Armed_01",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 9,
+                    "Name": "Grate_Close",
+                    "Volume": 0.75,
+                    "FollowActor": true,
+                    "Max": 3000.0,
+                    "Sounds": "AL_Grate_Close_01",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 6,
+                    "Name": "Grate_Idle_Loop",
+                    "Volume": 0.30004883,
+                    "Pitch": -5.0,
+                    "Loop": true,
+                    "FadeInTime": 0.5,
+                    "FadeOutTime": 1.0,
+                    "Offset": true,
+                    "FollowActor": true,
+                    "Max": 3000.0,
+                    "Sounds": "AL_Grate_Weaponize_Loop_01",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 8,
+                    "Name": "Grate_Idle_Loop_Close",
+                    "Volume": 0.39990234,
+                    "Pitch": 12.0,
+                    "Loop": true,
+                    "FadeInTime": 1.0,
+                    "FadeOutTime": 1.0,
+                    "Offset": true,
+                    "FollowActor": true,
+                    "Max": 1500.0,
+                    "Sounds": "AL_Grate_Weaponize_Loop_01",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 2,
+                    "Name": "Grate_Open",
+                    "Volume": 0.5,
+                    "RandomPitch": 3.0,
+                    "FollowActor": true,
+                    "Max": 1500.0,
+                    "Sounds": "AL_Grate_Open_01",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 5,
+                    "Name": "Grate_Weaponized_Loop",
+                    "Volume": 0.60009766,
+                    "Loop": true,
+                    "FadeInTime": 0.5,
+                    "FadeOutTime": 4.0,
+                    "Offset": true,
+                    "FollowActor": true,
+                    "ExclusiveActor": true,
+                    "Min": 1.0,
+                    "Max": 1500.0,
+                    "Sounds": "AL_Grate_Weaponize_Loop_01",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 7,
+                    "Name": "Grate_Weaponized_Loop_Close",
+                    "Volume": 0.7998047,
+                    "Pitch": 10.0,
+                    "Loop": true,
+                    "FadeInTime": 2.0,
+                    "FadeOutTime": 4.0,
+                    "Offset": true,
+                    "FollowActor": true,
+                    "Min": 250.0,
+                    "Max": 750.0,
+                    "Sounds": "AL_Grate_Weaponize_Loop_01",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 4,
+                    "Name": "Grate_Weaponized_Start",
+                    "Volume": 0.75,
+                    "FollowActor": true,
+                    "Min": 250.0,
+                    "Max": 3000.0,
+                    "Sounds": "AL_Grate_Weaponize_Start_01",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 10,
+                    "Name": "Grate_Weaponized_Stop",
+                    "Volume": 0.75,
+                    "FollowActor": true,
+                    "Min": 250.0,
+                    "Max": 3000.0,
+                    "Sounds": "AL_Grate_Weaponize_Stop_01",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 1,
+                    "Name": "Torch_Loop",
+                    "Volume": 0.2199707,
+                    "RandomPitch": 3.0,
+                    "Loop": true,
+                    "Offset": true,
+                    "FollowActor": true,
+                    "ExclusiveActor": true,
+                    "Min": 50.0,
+                    "Max": 950.0,
+                    "Priority": 10,
+                    "Sounds": "Torch_Fire",
+                    "Group": "doodads max 6"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 11,
+                    "Name": "Wooden_Bridge_Collapse",
+                    "Volume": 0.85009766,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "ExclusiveActor": true,
+                    "Min": 250.0,
+                    "Max": 2500.0,
+                    "Priority": 50,
+                    "Sounds": "AL_WoodBridgeDestruct",
+                    "Group": "breakable_debris"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "DetectScale": {
+      "Value": [
+        160.0,
+        162.0,
+        100.0
+      ]
+    },
+    "FilterList": {
+      "Value": [
+        "Player",
+        "Monster"
+      ]
+    }
+  },
+  "Methods": [
+    "onInit",
+    "onRemove",
+    "onEnterRegion",
+    "onExitRegion",
+    "doTelegraph",
+    "onPlayFire",
+    "open",
+    "scriptedFlareUp",
+    "close"
+  ],
+  "PackageName": "al_com",
+  "DefaultValues": {
+    "TimeOpened": 2.5,
+    "Telegraph": 1.5,
+    "BlockerRegion": null,
+    "NumberOnGrate": 0,
+    "DetectRegion": null
+  },
+  "States": {
+    "Opening": {
+      "methods": [
+        "onEnterRegion",
+        "doTelegraph",
+        "onAnimationComplete",
+        "onEnter"
+      ]
+    },
+    "Telegraph": {
+      "methods": [
+        "onWeaponize",
+        "onEnter"
+      ]
+    },
+    "ClosedIdle": {
+      "methods": [
+        "onEnter"
+      ]
+    },
+    "Cooldown": {
+      "methods": [
+        "onCheckFire",
+        "onTurnOffBlocker",
+        "onExit",
+        "onEnter"
+      ]
+    },
+    "Closing": {
+      "methods": [
+        "onAnimationComplete",
+        "onEnter"
+      ]
+    },
+    "OpenedWeaponized": {
+      "methods": [
+        "onEnterRegion",
+        "onCheckFire",
+        "onTurnOnBlocker",
+        "onEnter"
+      ]
+    },
+    "OpenedIdle": {
+      "methods": [
+        "onEnterRegion",
+        "doTelegraph",
+        "onEnter"
+      ]
+    }
+  }
+}

@@ -1,0 +1,38 @@
+.method In
+0x0001 .param_count 0
+0x0001 .line 10
+0x0006     nop
+0x0007 .line 12
+0x000c     identifier Player
+0x001d     property WatcherDialogManager
+0x003c     int 0
+0x0041     method_chain isWatcherSpeaking
+0x005d     bool false
+0x005f     equal
+0x0060     branch_false 0x00af
+0x0065 .line 14
+0x006a     nop
+0x006b     string "No"
+0x0078     int 1
+0x007d     identifier this
+0x008c     method doEvent
+0x009e     pop
+0x009f .line 15
+0x00a4     nop
+0x00a5 .line 16
+0x00aa     goto 0x00f5
+0x00af .label 0x07b4
+0x00b4 .line 18
+0x00b9     nop
+0x00ba     string "Yes"
+0x00c8     int 1
+0x00cd     identifier this
+0x00dc     method doEvent
+0x00ee     pop
+0x00ef .line 19
+0x00f4     nop
+0x00f5 .label 0x07b5
+0x00fa .line 20
+0x00ff     nop
+0x0100     return_null
+

@@ -1,0 +1,352 @@
+{
+  "Parent": "Projectile",
+  "Name": "bfg_fracturecannon/weapon_bfg_fracture_projectile",
+  "Properties": {
+    "Gun": {
+      "Flags": 2,
+      "Type": 1
+    }
+  },
+  "StaticProperties": {
+    "Description": {
+      "Value": {
+        "classname": "ProjectileDesc",
+        "properties": {
+          "BoxSize": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "MeshID": 0,
+          "Speed": 2000.0,
+          "SeekTarget": true,
+          "SeekStartTime": 0.1,
+          "SeekMaxSpeed": 600.0,
+          "SeekAcceleration": 200.0,
+          "AutoAcquireRadius": 2000.0,
+          "Lifespan": 5.0,
+          "HitInfoID": 0,
+          "ScatterShot": false,
+          "ScatterHitChance": 0,
+          "ScatterRadius": 0.0,
+          "CorkscrewRotationTime": 0.1,
+          "CorkscrewRadius": 10.0,
+          "CorkscrewExpandTime": 0.1,
+          "HitMaterial": 7,
+          "HitInfos": {
+            "classname": "HitInfoList",
+            "properties": {
+              "HitInfos": [
+                {
+                  "classname": "HitInfo",
+                  "properties": {
+                    "Name": "Gun_Fracture_Projectile",
+                    "WType": 1,
+                    "HType": 1,
+                    "Damage": 10.0,
+                    "KnockBackPower": 300.0,
+                    "KnockUpPower": 300.0,
+                    "EnvPowerScale": 1.95
+                  }
+                }
+              ]
+            }
+          },
+          "StickToTarget": true,
+          "Visual": "bfg_fracturecannon_projectile",
+          "Animations": {
+            "classname": "AnimationList",
+            "properties": {
+              "Animations": [
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 1,
+                    "Name": "OnEmbedded",
+                    "Looping": true,
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "FractureCannon_Shard_Embedded"
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 11
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "Name": "OnWarning",
+                    "Looping": true,
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "FractureCannon_Shard_Warning",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 12
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 2,
+                    "Name": "InFlight",
+                    "Looping": true,
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "fracturecannon_shard_projectile"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          "Sounds": {
+            "classname": "SoundList",
+            "properties": {
+              "Sounds": [
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 9,
+                    "Name": "BFG_fracture_bulletrespawn",
+                    "Volume": 0.44995117,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Sounds": "fracture_cannon_reload",
+                    "Group": "Weapons"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 4,
+                    "Name": "BFG_fracture_ground",
+                    "Volume": 0.5,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Priority": 20,
+                    "Sounds": "fracture_cannon_drop",
+                    "Group": "Weapons"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 1,
+                    "Name": "BFG_fracture_no_ammo",
+                    "Volume": 0.19995117,
+                    "Pitch": -6.0,
+                    "FollowActor": true,
+                    "ExclusiveActor": true,
+                    "Min": 100.0,
+                    "Priority": 20,
+                    "Sounds": "fracture_cannon_no_ammo",
+                    "Group": "Weapons"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 2,
+                    "Name": "BFG_fracture_pickup",
+                    "Volume": 0.5,
+                    "RandomPitch": 0.5,
+                    "FollowActor": true,
+                    "Min": 100.0,
+                    "Priority": 20,
+                    "Sounds": "fracture_cannon_pickup",
+                    "Group": "Weapons"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 8,
+                    "Name": "BFG_fracture_reload",
+                    "Volume": 0.39990234,
+                    "RandomPitch": 0.5,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Priority": 20,
+                    "Sounds": "fracture_cannon_reload",
+                    "Group": "Weapons"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 14,
+                    "Name": "BFG_fracture_scream",
+                    "Volume": 0.52001953,
+                    "RandomPitch": 2.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 2000.0,
+                    "Sounds": "fracture_cannon_scream",
+                    "Group": "Weapons"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 11,
+                    "Name": "BFG_fracture_shard_embed",
+                    "Volume": 0.5498047,
+                    "RandomPitch": 2.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 2500.0,
+                    "Priority": 20,
+                    "Sounds": "fracture_cannon_shard_embed_2,fracture_cannon_shard_embed",
+                    "Group": "Impacts"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 13,
+                    "Name": "BFG_fracture_shard_explode",
+                    "Volume": 0.7998047,
+                    "RandomPitch": 2.5,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 2000.0,
+                    "Sounds": "fracture_cannon_shard_explode",
+                    "Group": "BFG explosions"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 10,
+                    "Name": "BFG_fracture_shard_travel",
+                    "Volume": 0.6201172,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "ExclusiveActor": true,
+                    "Min": 1.0,
+                    "Max": 2800.0,
+                    "Priority": 20,
+                    "Sounds": "fracture_cannon_shard_travel",
+                    "Group": "BFG_Travel"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 16,
+                    "Name": "BFG_fracture_shard_travel_loop",
+                    "Volume": 0.64990234,
+                    "Pitch": 3.0,
+                    "RandomPitch": 1.0,
+                    "Loop": true,
+                    "FadeInTime": 0.75,
+                    "FadeOutTime": 0.099975586,
+                    "Offset": true,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 2500.0,
+                    "Priority": 50,
+                    "Sounds": "fracture_cannon_shard_travel_lp",
+                    "Group": "BFG_Travel"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 12,
+                    "Name": "BFG_fracture_shard_warning",
+                    "Volume": 0.39990234,
+                    "RandomPitch": 1.0,
+                    "Loop": true,
+                    "FadeOutTime": 0.19995117,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 1200.0,
+                    "Priority": 50,
+                    "Sounds": "fracture_cannon_shard_warning",
+                    "Group": "BFG_Charge"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 3,
+                    "Name": "BFG_fracture_shoot",
+                    "Volume": 0.39990234,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 2000.0,
+                    "Priority": 0,
+                    "Sounds": "fracture_cannon_fire",
+                    "Group": "War"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 15,
+                    "Name": "BFG_fracture_shoot_distant",
+                    "Volume": 0.22998047,
+                    "Pitch": -1.0,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 5000.0,
+                    "Priority": 50,
+                    "Sounds": "fracture_cannon_fire",
+                    "Group": "War"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "ExplodeTimer": {
+      "Value": 7
+    },
+    "WarningTimer": {
+      "Value": 3
+    }
+  },
+  "Methods": [
+    "onInit",
+    "onRemove",
+    "doExplode",
+    "onCombatEffect",
+    "onEnvCombatEffect",
+    "detonate",
+    "onDetonate",
+    "onExplode",
+    "onWarning"
+  ],
+  "PackageName": "bfg_fracturecannon",
+  "DefaultValues": {},
+  "States": {}
+}

@@ -1,0 +1,320 @@
+{
+  "Parent": "GhostHookProxyPiece",
+  "Name": "gear_ghosthook/ghosthookproxy_hand",
+  "Properties": {},
+  "StaticProperties": {
+    "Description": {
+      "Value": {
+        "classname": "gear_ghosthook/ghosthookproxydescbase",
+        "properties": {
+          "FireAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 0,
+              "Ease": 0.0
+            }
+          },
+          "RetractAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 2
+            }
+          },
+          "FullyRetractedAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 3
+            }
+          },
+          "Visual": "GhostHook_Hand",
+          "Animations": {
+            "classname": "AnimationList",
+            "properties": {
+              "Animations": [
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "Name": "Fire",
+                    "AnimationName": "GhostHook_Fire"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 1,
+                    "Name": "Fire Idle",
+                    "AnimationName": "GhostHook_Fired_POSE"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 2,
+                    "Name": "Retract",
+                    "AnimationName": "GhostHook_Retract",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 10
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 3,
+                    "Name": "Retract Idle",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 9
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          "Sounds": {
+            "classname": "SoundList",
+            "properties": {
+              "Sounds": [
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 13,
+                    "Name": "ghost_hook_body_slam",
+                    "Volume": 0.60009766,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "Min": 200.0,
+                    "Max": 3000.0,
+                    "Priority": 0,
+                    "Sounds": "wicked_interactive_body_slam_1,wicked_interactive_body_slam_2,wicked_interactive_body_slam_3",
+                    "Group": "Weapons"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 14,
+                    "Name": "ghost_hook_body_slam_sweetener",
+                    "Volume": 0.7998047,
+                    "RandomPitch": 1.0,
+                    "Min": 200.0,
+                    "Max": 2000.0,
+                    "Sounds": "hit_ground_lite_double_1,hit_ground_lite_double_2,hit_ground_lite_double_3",
+                    "Group": "Weapons"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 2,
+                    "Name": "ghost_hook_chain_out",
+                    "Volume": 0.5,
+                    "RandomPitch": 0.7001953,
+                    "FollowActor": true,
+                    "Min": 100.0,
+                    "Max": 3000.0,
+                    "Priority": 25,
+                    "Sounds": "ghost_hook_chain_out",
+                    "Group": "Ghosthook launch"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 1,
+                    "Name": "ghost_hook_connect_with_flesh_enemy",
+                    "Volume": 0.75,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "Min": 100.0,
+                    "Max": 3000.0,
+                    "Priority": 10,
+                    "Sounds": "ghost_hook_connect_with_flesh_enemy",
+                    "Group": "Ghosthook launch"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 3,
+                    "Name": "ghost_hook_connect_with_hook_point",
+                    "Volume": 0.75,
+                    "RandomPitch": 0.5,
+                    "FollowActor": true,
+                    "Min": 100.0,
+                    "Max": 3000.0,
+                    "Priority": 10,
+                    "Sounds": "ghost_hook_connect_with_hook_point",
+                    "Group": "Ghosthook launch"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 5,
+                    "Name": "ghost_hook_equipped",
+                    "Volume": 0.7998047,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "Positional": false,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 5,
+                    "Sounds": "gui_ghosthook_equipped",
+                    "Group": "GUI",
+                    "MasterEQ": false
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 0,
+                    "Name": "ghost_hook_launch",
+                    "Volume": 0.7001953,
+                    "FollowActor": true,
+                    "Min": 100.0,
+                    "Max": 3000.0,
+                    "Priority": 10,
+                    "Sounds": "ghost_hook_launch",
+                    "Group": "Weapons"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 10,
+                    "Name": "ghost_hook_retract",
+                    "Volume": 0.7001953,
+                    "RandomPitch": 0.25,
+                    "FadeOutTime": 0.5,
+                    "FollowActor": true,
+                    "Min": 100.0,
+                    "Max": 3000.0,
+                    "Priority": 20,
+                    "Sounds": "ghost_hook_retract",
+                    "Group": "Ghosthook retract"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 9,
+                    "Name": "ghost_hook_retract_lock",
+                    "Volume": 0.60009766,
+                    "RandomPitch": 0.099975586,
+                    "FollowActor": true,
+                    "Min": 100.0,
+                    "Max": 3000.0,
+                    "Priority": 5,
+                    "Sounds": "ghost_hook_retract_lock",
+                    "Group": "Ghosthook retract"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 6,
+                    "Name": "ghost_hook_swing_chain_loop",
+                    "Volume": 0.15002441,
+                    "Loop": true,
+                    "FadeInTime": 0.19995117,
+                    "FadeOutTime": 0.19995117,
+                    "Offset": true,
+                    "FollowActor": true,
+                    "Min": 100.0,
+                    "Max": 3000.0,
+                    "Priority": 10,
+                    "Sounds": "ghost_hook_chain_dangle_loop",
+                    "Group": "Weapons"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 7,
+                    "Name": "ghost_hook_swing_swoosh_in",
+                    "Volume": 0.39990234,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "Min": 100.0,
+                    "Max": 3000.0,
+                    "Priority": 10,
+                    "Sounds": "ghost_hook_swing_swoosh_in",
+                    "Group": "Weapons"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 8,
+                    "Name": "ghost_hook_swing_swoosh_out",
+                    "Volume": 0.39990234,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "Min": 100.0,
+                    "Max": 3000.0,
+                    "Priority": 10,
+                    "Sounds": "ghost_hook_swing_swoosh_out",
+                    "Group": "Weapons"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 17,
+                    "Name": "gui_ghosthook_node_loop",
+                    "Volume": 0.32495117,
+                    "Pitch": -6.0,
+                    "Loop": true,
+                    "FadeInTime": 1.0,
+                    "FadeOutTime": 1.0,
+                    "Min": 100.0,
+                    "Max": 3000.0,
+                    "Priority": 20,
+                    "Sounds": "ghosthook_active_loop",
+                    "Group": "GUI max 2"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 16,
+                    "Name": "gui_ghosthook_node_off",
+                    "FollowActor": true,
+                    "Max": 3000.0,
+                    "Sounds": "gui_ghosthook_node_off",
+                    "Group": "GUI max 2"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 15,
+                    "Name": "gui_ghosthook_node_on",
+                    "FollowActor": true,
+                    "Max": 3000.0,
+                    "Sounds": "gui_ghosthook_node_on",
+                    "Group": "GUI max 2"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "Methods": [],
+  "PackageName": "gear_ghosthook",
+  "DefaultValues": {},
+  "States": {}
+}

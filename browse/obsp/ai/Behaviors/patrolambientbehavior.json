@@ -1,0 +1,255 @@
+{
+  "Parent": "base/standardbehavior",
+  "Name": "base/patrolambientbehavior",
+  "Properties": {
+    "ScanAlertDistance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ScanInterval": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AllowRun": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "AllowRangedTargets": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "ApproachRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachMoveStateMove": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "ApproachForceCloseRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachForceCompleteRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMoveStateIdle": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleMoveStateFidget": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleFidgetChance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleFidgetMinTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleFidgetMaxTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMinTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMaxTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "BlockEnabled": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "BlockChance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "BlockMoveStateBlock": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "BlockMinDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "BlockMaxDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "BlockAttackTypes": {
+      "Flags": 4,
+      "Type": 1
+    },
+    "BlockUseMonsterBlockChance": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "ClearObstacleMoveState": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "PathName": {
+      "Flags": 0,
+      "Type": 1
+    }
+  },
+  "StaticProperties": {},
+  "Methods": [
+    "begin"
+  ],
+  "PackageName": "base",
+  "DefaultValues": {
+    "BlockAttackTypes": [
+      2,
+      3,
+      4
+    ],
+    "ApproachForceCompleteRange": -1,
+    "IdleMinTime": 2,
+    "BlockChance": 0.8,
+    "BlockEnabled": false,
+    "IdleFidgetChance": 0,
+    "IdleFidgetMinTime": 3,
+    "ApproachMoveStateMove": "",
+    "AllowRun": false,
+    "AllowRangedTargets": true,
+    "BlockUseMonsterBlockChance": false,
+    "ID": "PatrolAmbientBehavior",
+    "BlockMoveStateBlock": "",
+    "BackgroundActions": [
+      {
+        "classname": "base/homescanaction",
+        "properties": {
+          "OnScanAcquiredTarget": "FoundMeleeTarget",
+          "OnScanAcquiredRangedTarget": "FoundRangedTarget",
+          "OnScanLostTarget": "",
+          "ScanLOSCheck": true,
+          "ScanMeleeOnly": false,
+          "ScanAllowRescansWithTarget": true,
+          "ID": "HomeScanForTarget",
+          "ValidStates": [
+            "MovingIntoPosition"
+          ]
+        }
+      },
+      {
+        "classname": "base/scanaction",
+        "properties": {
+          "OnScanAcquiredTarget": "FoundMeleeTarget",
+          "OnScanAcquiredRangedTarget": "FoundRangedTarget",
+          "OnScanLostTarget": "",
+          "ScanLOSCheck": true,
+          "ScanMeleeOnly": false,
+          "ScanAllowRescansWithTarget": true,
+          "ID": "Scan",
+          "ValidStates": [
+            "Patrol"
+          ]
+        }
+      }
+    ],
+    "IdleMoveStateFidget": "",
+    "BlockMaxDelay": 3.0,
+    "ClearObstacleMoveState": "usecombat",
+    "BlockMinDelay": 1.0,
+    "ScanInterval": 1.5,
+    "IdleMoveStateIdle": "",
+    "ApproachRange": 150,
+    "OnAttackHandler": [
+      {
+        "classname": "base/blockaction",
+        "properties": {
+          "ID": "Block",
+          "ActionCode": 5,
+          "Priority": 16,
+          "InterruptibleBy": [
+            "Death",
+            "Exit",
+            "Interactive",
+            "Impact"
+          ],
+          "ResourceLock": "Block"
+        }
+      }
+    ],
+    "PathBlockedBreakableHandler": {
+      "classname": "base/clearobstacleaction",
+      "properties": {
+        "ID": "Clear Obstacle",
+        "ActionCode": 5,
+        "Priority": 16,
+        "InterruptibleBy": [
+          "Death",
+          "Exit",
+          "Interactive",
+          "Impact"
+        ]
+      }
+    },
+    "IdleMaxTime": 3,
+    "PathName": "",
+    "ComponentActions": [
+      {
+        "classname": "base/approachpatrolaction",
+        "properties": {
+          "IgnoreZTolerance": true,
+          "ID": "ApproachPatrol",
+          "Priority": 9,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "OnCompleteState": "Patrol",
+          "Position": [
+            null,
+            7.7135135e31,
+            -21.848436
+          ]
+        }
+      },
+      {
+        "classname": "base/idleaction",
+        "properties": {
+          "ID": "Idle",
+          "ActionCode": 1,
+          "Priority": 1,
+          "InterruptibleBy": [
+            "ANY"
+          ]
+        }
+      }
+    ],
+    "ApproachForceCloseRange": -1,
+    "IdleFidgetMaxTime": 5,
+    "ScanAlertDistance": -1
+  },
+  "States": {
+    "Patrol": {
+      "methods": [
+        "getCurrentState"
+      ]
+    },
+    "FoundRangedTarget": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "FoundMeleeTarget": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "MovingIntoPosition": {
+      "methods": [
+        "getCurrentState"
+      ]
+    }
+  }
+}

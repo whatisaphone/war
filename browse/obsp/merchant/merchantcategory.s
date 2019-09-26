@@ -1,0 +1,69 @@
+.method testEmpty
+0x0001 .param_count 0
+0x0001 .line 23
+0x0006     inc_scope
+0x0007 .line 26
+0x000c     bool true
+0x000e     var_assign ret
+0x001c .line 28
+0x0021     identifier this
+0x0030     property Items
+0x0040     int 0
+0x0045     method_chain size
+0x0054     int 0
+0x0059     greater
+0x005a     branch_false 0x01a8
+0x005f .line 30
+0x0064     nop
+0x0065 .line 31
+0x006a     identifier this
+0x0079     property Items
+0x0089     iterator
+0x008a .label 0x0413
+0x008f     iterator_test
+0x0090     branch_false 0x0197
+0x0095     iterator_assign i
+0x00a1 .line 32
+0x00a6     nop
+0x00a7     string "base/merchantitemitem"
+0x00c7     int 1
+0x00cc     identifier i
+0x00d8     method instanceOf
+0x00ed     branch_false 0x018b
+0x00f2 .line 34
+0x00f7     inc_scope
+0x00f8     int 0
+0x00fd     identifier i
+0x0109     method getItem
+0x011b     var_assign item
+0x012a .line 35
+0x012f     identifier ret
+0x013d     identifier ret
+0x014b     identifier i
+0x0157     property Purchased
+0x016b     identifier item
+0x017a     null_object
+0x017b     equal
+0x017c     or
+0x017d     and
+0x017e     assign
+0x017f     pop
+0x0180 .line 37
+0x0185     dec_scope
+0x0186 .line 38
+0x018b .label 0x0415
+0x0190     nop
+0x0191     inc
+0x0192     goto 0x008a
+0x0197 .label 0x0414
+0x019c     pop
+0x019d .line 39
+0x01a2     nop
+0x01a3 .line 41
+0x01a8 .label 0x0412
+0x01ad     identifier ret
+0x01bb     return
+0x01bc .line 42
+0x01c1     dec_scope
+0x01c2     return_null
+

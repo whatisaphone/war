@@ -1,0 +1,124 @@
+{
+  "Parent": "base/tbehavior",
+  "Name": "phantomguard_prisonguard/prisonguard_combatbehavior",
+  "Properties": {},
+  "StaticProperties": {},
+  "Methods": [
+    "onBegin"
+  ],
+  "PackageName": "phantomguard_prisonguard",
+  "DefaultValues": {
+    "BackgroundActions": [
+      {
+        "classname": "base/onblockhandler",
+        "properties": {
+          "ActionID": "Parry",
+          "Position": [
+            0.002688419,
+            1.6495501e-33,
+            1.20817075e33
+          ]
+        }
+      }
+    ],
+    "ComponentActions": [
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "MoveState": "Strafe",
+          "ExitOnComplete": false,
+          "ID": "Strafe",
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "AttackType": 1,
+          "Pressure": 5,
+          "MaxRange": 160.0,
+          "MoveState": "Heavy Attack 3 Start",
+          "RequireLOS": true,
+          "ID": "Desperation Attack",
+          "Priority": 9,
+          "Chance": 0.65,
+          "ResourceLock": "Attack2",
+          "MinLockTime": 3.0,
+          "MaxLockTime": 4.0,
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "AttackType": 1,
+          "Pressure": 4,
+          "MaxRange": 200.0,
+          "MinAngle": -45.0,
+          "MaxAngle": 45.0,
+          "MoveState": "Heavy Standard Attack",
+          "RequireLOS": true,
+          "ID": "Melee Attack",
+          "Priority": 7,
+          "ResourceLock": "Attack1",
+          "MinLockTime": 2.0,
+          "MaxLockTime": 3.0,
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "MaxRange": 2000.0,
+          "MinAngle": -45.0,
+          "MaxAngle": 45.0,
+          "MoveState": "Heavy Standard Taunt",
+          "ID": "Taunt",
+          "Priority": 13,
+          "ResourceLock": "Taunt",
+          "MinLockTime": 20.0,
+          "MaxLockTime": 30.0,
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "MoveState": "Heavy Block",
+          "ID": "Parry",
+          "Priority": -1,
+          "InterruptibleBy": [
+            "Parry"
+          ],
+          "MinLockTime": 5.0,
+          "MaxLockTime": 5.0,
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ]
+  },
+  "States": {}
+}

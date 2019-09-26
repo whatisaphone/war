@@ -1,0 +1,225 @@
+.method In
+0x0001 .param_count 0
+0x0001 .line 23
+0x0006     inc_scope
+0x0007 .line 25
+0x000c     int 0
+0x0011     var_assign cnt
+0x001f .line 26
+0x0024     string "Monsters"
+0x0037     int 1
+0x003c     identifier this
+0x004b     method hasVariableIn
+0x0063     bool true
+0x0065     equal
+0x0066     branch_false 0x05c9
+0x006b .line 28
+0x0070     inc_scope
+0x0071     identifier this
+0x0080     property objarray
+0x0093     string "Monsters"
+0x00a6     int 1
+0x00ab     identifier this
+0x00ba     method getVariableValue
+0x00d5     assign
+0x00d6     pop
+0x00d7 .line 31
+0x00dc     bool false
+0x00de     var_assign someoneTargetsWar
+0x00fa .line 33
+0x00ff     identifier this
+0x010e     property objarray
+0x0121     iterator
+0x0122 .label 0x0734
+0x0127     iterator_test
+0x0128     branch_false 0x031c
+0x012d     iterator_assign obji
+0x013c .line 34
+0x0141     nop
+0x0142     identifier obji
+0x0151     null_object
+0x0152     not_equal
+0x0153     branch_false 0x0310
+0x0158 .line 36
+0x015d     nop
+0x015e     int 0
+0x0163     identifier obji
+0x0172     method isDead
+0x0183     not
+0x0184     branch_false 0x0305
+0x0189 .line 38
+0x018e     inc_scope
+0x018f     bool true
+0x0191     var_assign targetisnotwar
+0x01aa .line 39
+0x01af     int 0
+0x01b4     identifier obji
+0x01c3     method getCurrentTarget
+0x01de     var_assign target
+0x01ef .line 40
+0x01f4     identifier target
+0x0205     null_object
+0x0206     not_equal
+0x0207     branch_false 0x0287
+0x020c .line 42
+0x0211     nop
+0x0212     string "Monster"
+0x0224     int 1
+0x0229     identifier target
+0x023a     method instanceOf
+0x024f     not
+0x0250     branch_false 0x027c
+0x0255 .line 43
+0x025a     identifier targetisnotwar
+0x0273     bool false
+0x0275     assign
+0x0276     pop
+0x0277 .line 44
+0x027c .label 0x0739
+0x0281     nop
+0x0282 .line 46
+0x0287 .label 0x0738
+0x028c     identifier targetisnotwar
+0x02a5     not
+0x02a6     identifier someoneTargetsWar
+0x02c2     not
+0x02c3     and
+0x02c4     branch_false 0x02fa
+0x02c9 .line 48
+0x02ce     nop
+0x02cf     identifier someoneTargetsWar
+0x02eb     bool true
+0x02ed     assign
+0x02ee     pop
+0x02ef .line 50
+0x02f4     nop
+0x02f5 .line 51
+0x02fa .label 0x073a
+0x02ff     dec_scope
+0x0300 .line 53
+0x0305 .label 0x0737
+0x030a     nop
+0x030b .line 54
+0x0310 .label 0x0736
+0x0315     nop
+0x0316     inc
+0x0317     goto 0x0122
+0x031c .label 0x0735
+0x0321     pop
+0x0322 .line 56
+0x0327     identifier someoneTargetsWar
+0x0343     not
+0x0344     branch_false 0x05be
+0x0349 .line 59
+0x034e     inc_scope
+0x034f     bool false
+0x0351     var_assign done
+0x0360 .line 61
+0x0365     identifier this
+0x0374     property objarray
+0x0387     iterator
+0x0388 .label 0x073c
+0x038d     iterator_test
+0x038e     branch_false 0x05ad
+0x0393     iterator_assign objj
+0x03a2 .line 62
+0x03a7     nop
+0x03a8     identifier objj
+0x03b7     null_object
+0x03b8     not_equal
+0x03b9     branch_false 0x05a1
+0x03be .line 64
+0x03c3     nop
+0x03c4     int 0
+0x03c9     identifier objj
+0x03d8     method isDead
+0x03e9     not
+0x03ea     identifier done
+0x03f9     not
+0x03fa     and
+0x03fb     branch_false 0x0596
+0x0400 .line 66
+0x0405     inc_scope
+0x0406     bool true
+0x0408     var_assign targetisnotwar
+0x0421 .line 67
+0x0426     int 0
+0x042b     identifier objj
+0x043a     method getCurrentTarget
+0x0455     var_assign target
+0x0466 .line 68
+0x046b     identifier target
+0x047c     null_object
+0x047d     not_equal
+0x047e     branch_false 0x04fe
+0x0483 .line 70
+0x0488     nop
+0x0489     string "Monster"
+0x049b     int 1
+0x04a0     identifier target
+0x04b1     method instanceOf
+0x04c6     not
+0x04c7     branch_false 0x04f3
+0x04cc .line 71
+0x04d1     identifier targetisnotwar
+0x04ea     bool false
+0x04ec     assign
+0x04ed     pop
+0x04ee .line 72
+0x04f3 .label 0x0741
+0x04f8     nop
+0x04f9 .line 74
+0x04fe .label 0x0740
+0x0503     identifier targetisnotwar
+0x051c     branch_false 0x058b
+0x0521 .line 76
+0x0526     nop
+0x0527     identifier Player
+0x0538     int 1
+0x053d     identifier objj
+0x054c     method setCurrentTarget
+0x0567     pop
+0x0568 .line 77
+0x056d     identifier done
+0x057c     bool true
+0x057e     assign
+0x057f     pop
+0x0580 .line 79
+0x0585     nop
+0x0586 .line 80
+0x058b .label 0x0742
+0x0590     dec_scope
+0x0591 .line 81
+0x0596 .label 0x073f
+0x059b     nop
+0x059c .line 82
+0x05a1 .label 0x073e
+0x05a6     nop
+0x05a7     inc
+0x05a8     goto 0x0388
+0x05ad .label 0x073d
+0x05b2     pop
+0x05b3 .line 83
+0x05b8     dec_scope
+0x05b9 .line 84
+0x05be .label 0x073b
+0x05c3     dec_scope
+0x05c4 .line 86
+0x05c9 .label 0x0733
+0x05ce     string "Out"
+0x05dc     int 1
+0x05e1     identifier this
+0x05f0     method doEvent
+0x0602     pop
+0x0603 .line 87
+0x0608     dec_scope
+0x0609     return_null
+
+.method onEnd
+0x0001 .param_count 0
+0x0001 .line 89
+0x0006     nop
+0x0007 .line 91
+0x000c     nop
+0x000d     return_null
+

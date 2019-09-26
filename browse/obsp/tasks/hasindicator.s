@@ -1,0 +1,39 @@
+.method In
+0x0001 .param_count 0
+0x0001 .line 10
+0x0006     nop
+0x0007 .line 12
+0x000c     int 0
+0x0011     identifier Player
+0x0022     method getSaveData
+0x0038     identifier this
+0x0047     property Indicator
+0x005b     int 1
+0x0060     method_chain hasIndicator
+0x0077     branch_false 0x00c7
+0x007c .line 14
+0x0081     nop
+0x0082     string "Yes"
+0x0090     int 1
+0x0095     identifier this
+0x00a4     method doEvent
+0x00b6     pop
+0x00b7 .line 15
+0x00bc     nop
+0x00bd .line 16
+0x00c2     goto 0x010c
+0x00c7 .label 0x06df
+0x00cc .line 18
+0x00d1     nop
+0x00d2     string "No"
+0x00df     int 1
+0x00e4     identifier this
+0x00f3     method doEvent
+0x0105     pop
+0x0106 .line 19
+0x010b     nop
+0x010c .label 0x06e0
+0x0111 .line 20
+0x0116     nop
+0x0117     return_null
+

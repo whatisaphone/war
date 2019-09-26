@@ -1,0 +1,230 @@
+{
+  "Parent": "base/tmonster",
+  "Name": "minion_common/minion_common",
+  "Properties": {
+    "RagdollMovestate1": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "RagdollMovestate2": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "RagdollMovestate3": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "DeathInteractive2ID": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "combatmode": {
+      "Flags": 0,
+      "Type": 1
+    }
+  },
+  "StaticProperties": {
+    "ScriptedTauntBehavior": {
+      "Value": {
+        "classname": "base/mssbehavior",
+        "properties": {
+          "MSSMoveStates": [
+            "Fidget1"
+          ],
+          "MSSStateTimers": [
+            0
+          ],
+          "DeathBlowHandler": {
+            "classname": "base/deathblowaction",
+            "properties": {
+              "ID": "Death",
+              "ActionCode": 660,
+              "Priority": 660
+            }
+          },
+          "InteractiveHandler": {
+            "classname": "base/interactivestallaction",
+            "properties": {
+              "ID": "Interactive",
+              "Priority": 630,
+              "InterruptibleBy": [
+                "Death"
+              ]
+            }
+          },
+          "ImpactHandler": {
+            "classname": "base/impactaction",
+            "properties": {
+              "ID": "Impact",
+              "Priority": 620,
+              "InterruptibleBy": [
+                "Death",
+                "Interactive"
+              ]
+            }
+          },
+          "ComponentActions": [
+            {
+              "classname": "base/mssaction",
+              "properties": {
+                "ID": "RepeatOnImpact",
+                "ActionCode": 1,
+                "Priority": 1,
+                "InterruptibleBy": [
+                  "ANY"
+                ],
+                "OnCompleteState": "Exit"
+              }
+            },
+            {
+              "classname": "base/mssaction",
+              "properties": {
+                "ID": "StopOnImpact",
+                "ActionCode": 1,
+                "Priority": -1,
+                "InterruptibleBy": [
+                  "Death",
+                  "Interactive",
+                  "Exit"
+                ],
+                "OnCompleteState": "Exit"
+              }
+            }
+          ],
+          "ExitBehaviorHandler": {
+            "classname": "base/exitbehavioraction",
+            "properties": {
+              "ID": "Exit",
+              "Priority": 640
+            }
+          },
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "ScriptedTaunt2Behavior": {
+      "Value": {
+        "classname": "base/mssbehavior",
+        "properties": {
+          "MSSMoveStates": [
+            "Fidget2"
+          ],
+          "MSSStateTimers": [
+            0
+          ],
+          "DeathBlowHandler": {
+            "classname": "base/deathblowaction",
+            "properties": {
+              "ID": "Death",
+              "ActionCode": 660,
+              "Priority": 660
+            }
+          },
+          "InteractiveHandler": {
+            "classname": "base/interactivestallaction",
+            "properties": {
+              "ID": "Interactive",
+              "Priority": 630,
+              "InterruptibleBy": [
+                "Death"
+              ]
+            }
+          },
+          "ImpactHandler": {
+            "classname": "base/impactaction",
+            "properties": {
+              "ID": "Impact",
+              "Priority": 620,
+              "InterruptibleBy": [
+                "Death",
+                "Interactive"
+              ]
+            }
+          },
+          "ComponentActions": [
+            {
+              "classname": "base/mssaction",
+              "properties": {
+                "ID": "RepeatOnImpact",
+                "ActionCode": 1,
+                "Priority": 1,
+                "InterruptibleBy": [
+                  "ANY"
+                ],
+                "OnCompleteState": "Exit"
+              }
+            },
+            {
+              "classname": "base/mssaction",
+              "properties": {
+                "ID": "StopOnImpact",
+                "ActionCode": 1,
+                "Priority": -1,
+                "InterruptibleBy": [
+                  "Death",
+                  "Interactive",
+                  "Exit"
+                ],
+                "OnCompleteState": "Exit",
+                "Position": [
+                  3e-45,
+                  -3e-45,
+                  5.196827e-30
+                ]
+              }
+            }
+          ],
+          "ExitBehaviorHandler": {
+            "classname": "base/exitbehavioraction",
+            "properties": {
+              "ID": "Exit",
+              "Priority": 640
+            }
+          },
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    }
+  },
+  "Methods": [
+    "onCustomInit",
+    "onQueryDamage",
+    "ScriptedTaunt",
+    "ScriptedTaunt2",
+    "setVisScripted",
+    "setBehaviorRanged",
+    "setBehaviorMelee",
+    "getCombatBehavior",
+    "prepareInteractive",
+    "spawnHead",
+    "sliceVertical"
+  ],
+  "PackageName": "minion_common",
+  "DefaultValues": {
+    "DeathInteractive2ID": -1,
+    "combatmode": 0,
+    "RagdollMovestate2": null,
+    "RagdollMovestate3": null,
+    "RagdollMovestate1": null
+  },
+  "States": {
+    "Combat": {
+      "methods": [
+        "onBehaviorComplete"
+      ]
+    },
+    "Dead": {
+      "methods": [
+        "onEnter"
+      ]
+    }
+  }
+}

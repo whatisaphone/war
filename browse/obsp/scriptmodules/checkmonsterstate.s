@@ -1,0 +1,80 @@
+.method In
+0x0001 .param_count 0
+0x0001 .line 24
+0x0006     nop
+0x0007 .line 26
+0x000c     string "Monster"
+0x001e     int 1
+0x0023     identifier this
+0x0032     method hasVariableIn
+0x004a     bool true
+0x004c     equal
+0x004d     branch_false 0x0242
+0x0052 .line 28
+0x0057     inc_scope
+0x0058     string "Monster"
+0x006a     int 1
+0x006f     identifier this
+0x007e     method getVariableValue
+0x0099     var_assign object
+0x00aa .line 30
+0x00af     identifier object
+0x00c0     null_object
+0x00c1     not_equal
+0x00c2     branch_false 0x01ec
+0x00c7 .line 32
+0x00cc     inc_scope
+0x00cd     int 0
+0x00d2     identifier object
+0x00e3     method getCurrentState
+0x00fd     var_assign objstate
+0x0110 .line 33
+0x0115     identifier objstate
+0x0128     identifier this
+0x0137     property StateName
+0x014b     equal
+0x014c     branch_false 0x0196
+0x0151 .line 34
+0x0156     string "True"
+0x0165     int 1
+0x016a     identifier this
+0x0179     method doEvent
+0x018b     pop
+0x018c .line 35
+0x0191     goto 0x01d7
+0x0196 .label 0x061e
+0x019b .line 36
+0x01a0     string "False"
+0x01b0     int 1
+0x01b5     identifier this
+0x01c4     method doEvent
+0x01d6     pop
+0x01d7 .label 0x061f
+0x01dc .line 37
+0x01e1     dec_scope
+0x01e2 .line 38
+0x01e7     goto 0x022d
+0x01ec .label 0x061d
+0x01f1 .line 39
+0x01f6     string "False"
+0x0206     int 1
+0x020b     identifier this
+0x021a     method doEvent
+0x022c     pop
+0x022d .label 0x0620
+0x0232 .line 40
+0x0237     dec_scope
+0x0238 .line 41
+0x023d     goto 0x0283
+0x0242 .label 0x061c
+0x0247 .line 42
+0x024c     string "False"
+0x025c     int 1
+0x0261     identifier this
+0x0270     method doEvent
+0x0282     pop
+0x0283 .label 0x0621
+0x0288 .line 43
+0x028d     nop
+0x028e     return_null
+

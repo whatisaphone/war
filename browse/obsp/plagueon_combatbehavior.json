@@ -1,0 +1,178 @@
+{
+  "Parent": "base/standardbehavior",
+  "Name": "undead_plague/plagueon_combatbehavior",
+  "Properties": {
+    "OutsiderMode": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "ScanAlertDistance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ScanInterval": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ClearObstacleMoveState": {
+      "Flags": 4,
+      "Type": 5
+    }
+  },
+  "StaticProperties": {},
+  "Methods": [
+    "begin",
+    "onTargetUnreachable"
+  ],
+  "PackageName": "undead_plague",
+  "DefaultValues": {
+    "OutsiderMode": false,
+    "ID": "PlagueON_CombatBehavior",
+    "BackgroundActions": [
+      {
+        "classname": "base/scanaction",
+        "properties": {
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "ClearObstacleMoveState": "Plague StandardAttack",
+    "ScanInterval": 1.5,
+    "ImpactHandler": {
+      "classname": "base/impactaction",
+      "properties": {
+        "ID": "Impact",
+        "Priority": 640,
+        "InterruptibleBy": [
+          "Death",
+          "Interactive",
+          "Exit"
+        ],
+        "Position": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "OnAttackHandler": [],
+    "PathBlockedBreakableHandler": {
+      "classname": "base/clearobstacleaction",
+      "properties": {
+        "ID": "Clear Obstacle",
+        "ActionCode": 5,
+        "Priority": 16,
+        "InterruptibleBy": [
+          "Death",
+          "Exit",
+          "Interactive",
+          "Impact"
+        ],
+        "Position": [
+          1.0256231e-30,
+          3.59e-43,
+          null
+        ]
+      }
+    },
+    "ComponentActions": [
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "MoveState": "Strafe",
+          "ExitOnComplete": false,
+          "ID": "Strafe",
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "MinRange": 400.0,
+          "MaxRange": 10000.0,
+          "MoveState": "MoveFast",
+          "ID": "MoveFast",
+          "Priority": 2,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "AttackType": 2,
+          "Pressure": 5,
+          "MaxRange": 350.0,
+          "MoveState": "Plague RangedAttack",
+          "RequireInView": true,
+          "ID": "Ranged Attack",
+          "Priority": 10,
+          "ResourceLock": "RangedAttack",
+          "MinLockTime": 8.0,
+          "MaxLockTime": 12.0,
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "AttackType": 1,
+          "Pressure": 3,
+          "MaxRange": 150.0,
+          "MoveState": "Plague StandardAttack",
+          "RequireInView": true,
+          "ID": "Melee Attack",
+          "Priority": 9,
+          "ResourceLock": "Attack",
+          "MinLockTime": 1.0,
+          "MaxLockTime": 2.0,
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "ScanAlertDistance": 5000
+  },
+  "States": {
+    "Outsider": {
+      "methods": [
+        "getCurrentState"
+      ]
+    },
+    "Insider": {
+      "methods": [
+        "getCurrentState"
+      ]
+    },
+    "LostTarget": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    }
+  }
+}

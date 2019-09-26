@@ -1,0 +1,56 @@
+{
+  "Parent": "base/backgroundaction",
+  "Name": "base/oninterrupthandler",
+  "Properties": {
+    "Action": {
+      "Flags": 2,
+      "Type": 1
+    }
+  },
+  "StaticProperties": {},
+  "Methods": [
+    "begin",
+    "end",
+    "exitActionNextFrame"
+  ],
+  "PackageName": "base",
+  "DefaultValues": {
+    "ID": "onInterrupt",
+    "Action": {
+      "classname": "AIGenericAction",
+      "properties": {
+        "InterruptibleBy": [
+          ""
+        ],
+        "Position": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    }
+  },
+  "States": {
+    "DeathBlow": {
+      "methods": [
+        "onEnter"
+      ]
+    },
+    "Interrupt": {
+      "methods": [
+        "onActionComplete",
+        "onUninterruptibleStateEnd",
+        "onBehaviorActionChange"
+      ]
+    },
+    "Default": {
+      "methods": [
+        "onImpact",
+        "onInteractive",
+        "onInterrupt",
+        "onUninterruptibleStateStart",
+        "onDeathBlow"
+      ]
+    }
+  }
+}

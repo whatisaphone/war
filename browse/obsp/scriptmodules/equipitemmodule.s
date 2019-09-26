@@ -1,0 +1,56 @@
+.method In
+0x0001 .param_count 0
+0x0001 .line 11
+0x0006     inc_scope
+0x0007 .line 13
+0x000c     int 0
+0x0011     identifier Player
+0x0022     method getInventory
+0x0039     identifier this
+0x0048     property Item
+0x0057     int 1
+0x005c     method_chain getItemByType
+0x0074     var_assign item
+0x0083 .line 14
+0x0088     identifier item
+0x0097     null_object
+0x0098     not_equal
+0x0099     branch_false 0x015a
+0x009e .line 16
+0x00a3     nop
+0x00a4     identifier this
+0x00b3     property Exclusive
+0x00c7     branch_false 0x0110
+0x00cc .line 18
+0x00d1     nop
+0x00d2     int 0
+0x00d7     identifier item
+0x00e6     method equipExclusive
+0x00ff     pop
+0x0100 .line 19
+0x0105     nop
+0x0106 .line 20
+0x010b     goto 0x014a
+0x0110 .label 0x03cd
+0x0115 .line 22
+0x011a     nop
+0x011b     int 0
+0x0120     identifier item
+0x012f     method autoEquip
+0x0143     pop
+0x0144 .line 24
+0x0149     nop
+0x014a .label 0x03ce
+0x014f .line 25
+0x0154     nop
+0x0155 .line 27
+0x015a .label 0x03cc
+0x015f     string "Out"
+0x016d     int 1
+0x0172     identifier this
+0x0181     method doEvent
+0x0193     pop
+0x0194 .line 28
+0x0199     dec_scope
+0x019a     return_null
+

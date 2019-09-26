@@ -1,0 +1,2629 @@
+{
+  "Parent": "Gripper",
+  "Name": "gripper/gripper",
+  "Properties": {
+    "DetectRegionName": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "StrikeRegionName": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "InitialObjToGrabName": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "CanAttackDuringCinematic": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "SpawnLurchersDuringCinematic": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "IdleAfterCinematic": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "InitialTargetZ": {
+      "Flags": 0,
+      "Type": 3
+    },
+    "DistToStopAttack": {
+      "Flags": 0,
+      "Type": 3
+    },
+    "detectRegion": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "strikeRegion": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "hasSpawnedStrikeRegion": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "hasSpawnedDetectRegion": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "frenzyActive": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "TargetGrabbable": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "playerLostStruggle": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "foundQuicksilver": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "detectedTrueVictim": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "ateTarget": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "chompCount": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "disableChomp": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "assignedDetectRegion": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "assignedStrikeRegion": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "currentMeal": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "ignoreDamage": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "stunDuration": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "ignoreGrabbableDamage": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "isForcedToRetract": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "vfxNode": {
+      "Flags": 0,
+      "Type": 1
+    }
+  },
+  "StaticProperties": {
+    "Description": {
+      "Value": {
+        "classname": "GripperDesc",
+        "properties": {
+          "AttackSpeed": 1600.0,
+          "RetractSpeed": 400.0,
+          "NeckBone": "Bone_bottom01",
+          "WeaponPhantomName": "WeaponPhantom",
+          "MeleeRange": 500.0,
+          "MaxStrikeDist": 4000.0,
+          "OnPlayerInteractive": 6,
+          "TargetBody": "gripper_BBox",
+          "MaxAggressionTime": 2.2,
+          "InteractiveDamage": 0.5,
+          "GroundDist": -9000.0,
+          "IsGhostHookTargetable": false,
+          "FearFactor": 0,
+          "AlertDistance": 2000.0,
+          "HuntDistance": 2000.0,
+          "MoveStates": {
+            "classname": "CharacterMoveStateList",
+            "properties": {
+              "MoveStates": [
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "Alarmed",
+                    "ID": 1,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 2,
+                        "Ease": 0.5
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "AlarmedIdleHack",
+                    "ID": 12,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 1,
+                        "Ease": 0.5
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "OnActionComplete": 1,
+                    "OnIdle": 1
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "Ceiling Chomp",
+                    "ID": 28,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 33,
+                        "Ease": 0.0
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "Chomp Retract",
+                    "ID": 29,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 34,
+                        "Ease": 0.0
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "CloseRangeAttack",
+                    "ID": 9,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 7,
+                        "Ease": 0.3
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "MoveWeight": 20.0,
+                    "ImpulseDamage": 50,
+                    "ImpulsePeriod": 0.5
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "CloseRangeAttackNormal",
+                    "ID": 10,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 7,
+                        "Ease": 0.4
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "Emerge",
+                    "ID": 16,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 19,
+                        "Ease": 0.0
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "OnActionComplete": 24
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "Emerge Transition",
+                    "ID": 24,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 26,
+                        "Ease": 0.0
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                },
+                {
+                  "classname": "MonsterPickupDesc",
+                  "properties": {
+                    "PickupFrame": 0,
+                    "DoCollision": false,
+                    "Name": "Grab Actor",
+                    "ID": 4,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 31,
+                        "Ease": 0.5
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "HasGrabbable": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "Grab Actor Idle",
+                    "ID": 5,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 30,
+                        "Ease": 0.5
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "HasGrabbable": true
+                  }
+                },
+                {
+                  "classname": "MonsterPickupDesc",
+                  "properties": {
+                    "PickupFrame": 0,
+                    "DoCollision": false,
+                    "Name": "Grab Actor Retract",
+                    "ID": 14,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 29,
+                        "Ease": 0.5
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "HasGrabbable": true
+                  }
+                },
+                {
+                  "classname": "MonsterPickupDesc",
+                  "properties": {
+                    "PickupFrame": 0,
+                    "DoCollision": false,
+                    "Name": "Grab Statue Head",
+                    "ID": 21,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 23,
+                        "Ease": 0.5
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "HasGrabbable": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "Grabbable Seek",
+                    "ID": 13,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 31,
+                        "Ease": 0.5
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                },
+                {
+                  "classname": "CharacterDoInteractiveDesc",
+                  "properties": {
+                    "TargetType": "war/war",
+                    "Initiator": 1,
+                    "MaxErrorDistance": 400.0,
+                    "Arc": 180.0,
+                    "DoCollision": false,
+                    "UseWeapon": 0,
+                    "AnimationID": 18,
+                    "TargetAnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 18
+                      }
+                    },
+                    "OnComplete": 18,
+                    "ShowCinematicBars": false,
+                    "AnimationSource": 0,
+                    "UseAnchorNode": true,
+                    "DestroyOtherOnCinematic": false,
+                    "Name": "Gripper Grab Interactive",
+                    "ID": 17,
+                    "CameraStateDesc": {
+                      "classname": "PlatformCameraStateDesc",
+                      "properties": {
+                        "MaxTiltAngle": 75.0,
+                        "MaxFocusActorDistance": 1200.0,
+                        "MinFocusActorDistance": 600.0,
+                        "AllowAimMode": false,
+                        "AllowFocusMode": false,
+                        "ForceExitCombatCameras": true
+                      }
+                    },
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 18
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "Gripper Recluse",
+                    "ID": 8,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 0,
+                        "Ease": 0.0
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "Gripper Recoil",
+                    "ID": 6,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 9,
+                        "Ease": 0.4
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "OnActionComplete": 15
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "Gripper Stunned",
+                    "ID": 7,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 10,
+                        "Ease": 0.4
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                },
+                {
+                  "classname": "CharacterDoInteractiveDesc",
+                  "properties": {
+                    "TargetType": "war/war",
+                    "MaxErrorDistance": 3000.0,
+                    "Arc": 360.0,
+                    "UseWeapon": 0,
+                    "LoopCount": 10,
+                    "ButtonMash": true,
+                    "InitialMashValue": 0.3,
+                    "MashSuccessValue": 0.84,
+                    "MashIncrement": 0.12,
+                    "MashDecayArray": [
+                      {
+                        "classname": "ButtonMashPoint",
+                        "properties": {
+                          "ButtonMashDecrement": 0.0
+                        }
+                      },
+                      {
+                        "classname": "ButtonMashPoint",
+                        "properties": {
+                          "ButtonMashDecrement": 0.25,
+                          "Time": 15
+                        }
+                      },
+                      {
+                        "classname": "ButtonMashPoint",
+                        "properties": {
+                          "ButtonMashDecrement": 0.45,
+                          "Time": 33
+                        }
+                      },
+                      {
+                        "classname": "ButtonMashPoint",
+                        "properties": {
+                          "ButtonMashDecrement": 0.45,
+                          "Time": 52
+                        }
+                      },
+                      {
+                        "classname": "ButtonMashPoint",
+                        "properties": {
+                          "Time": 63
+                        }
+                      },
+                      {
+                        "classname": "ButtonMashPoint",
+                        "properties": {
+                          "ButtonMashDecrement": 1.2,
+                          "Time": 80
+                        }
+                      }
+                    ],
+                    "AnimationID": 17,
+                    "TargetAnimController": {
+                      "classname": "SpeedBlendController",
+                      "properties": {
+                        "SpeedRef": 1.0,
+                        "AnimController1": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 17,
+                            "Ease": 0.1
+                          }
+                        },
+                        "AnimController2": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 21,
+                            "Ease": 0.1
+                          }
+                        },
+                        "Ease": 0.1
+                      }
+                    },
+                    "OnMashSuccess": 19,
+                    "OnMashFailure": 20,
+                    "ShowCinematicBars": false,
+                    "AnimationSource": 0,
+                    "UseAnchorNode": true,
+                    "ShowWorldContext": true,
+                    "DestroyOtherOnCinematic": false,
+                    "Name": "Gripper_Interactive_Losing_Loop",
+                    "ID": 18,
+                    "CameraStateDesc": {
+                      "classname": "PlatformCameraStateDesc",
+                      "properties": {
+                        "MaxTiltAngle": 75.0,
+                        "MaxFocusActorDistance": 1200.0,
+                        "MinFocusActorDistance": 600.0,
+                        "AllowAimMode": false,
+                        "AllowFocusMode": false,
+                        "ForceExitCombatCameras": true
+                      }
+                    },
+                    "AnimController": {
+                      "classname": "SpeedBlendController",
+                      "properties": {
+                        "SpeedRef": 1.0,
+                        "AnimController1": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 17,
+                            "Ease": 0.1
+                          }
+                        },
+                        "AnimController2": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 21,
+                            "Ease": 0.1
+                          }
+                        },
+                        "Ease": 0.1
+                      }
+                    },
+                    "InAir": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "GripperRecoilDefense",
+                    "ID": 15,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 16,
+                        "Ease": 0.0
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "OnActionComplete": 8
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "Idle",
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 1
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "Lost Interactive",
+                    "ID": 22,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 24,
+                        "Ease": 0.5
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "OnActionComplete": 25
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "Lost Interactive Transition",
+                    "ID": 25,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 27,
+                        "Ease": 0.5
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "MonsterAttack",
+                    "ID": 27,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 32,
+                        "Ease": 0.3
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "RetrackAfterHitVictim",
+                    "ID": 3,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 1,
+                        "Ease": 0.4
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "OnIdle": 0
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "StandardAttack",
+                    "ID": 2,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 2,
+                        "Ease": 0.3
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "MoveWeight": 20.0,
+                    "ImpulseDamage": 50,
+                    "ImpulsePeriod": 0.5
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "StandardAttackNormal",
+                    "ID": 11,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 2,
+                        "Ease": 0.3
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                },
+                {
+                  "classname": "CharacterDoInteractiveDesc",
+                  "properties": {
+                    "TargetType": "war/war",
+                    "MaxErrorDistance": 3000.0,
+                    "Arc": 360.0,
+                    "UseWeapon": 0,
+                    "AnimationID": 22,
+                    "TargetAnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 22
+                      }
+                    },
+                    "AnimationSource": 0,
+                    "UseAnchorNode": true,
+                    "DestroyOtherOnCinematic": false,
+                    "Name": "War Lose",
+                    "ID": 20,
+                    "CameraStateDesc": {
+                      "classname": "PlatformCameraStateDesc",
+                      "properties": {
+                        "MaxTiltAngle": 75.0,
+                        "MaxFocusActorDistance": 1200.0,
+                        "MinFocusActorDistance": 600.0,
+                        "AllowAimMode": false,
+                        "AllowFocusMode": false,
+                        "ForceExitCombatCameras": true
+                      }
+                    },
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 22
+                      }
+                    },
+                    "InAir": true
+                  }
+                },
+                {
+                  "classname": "CharacterDoInteractiveDesc",
+                  "properties": {
+                    "TargetType": "war/war",
+                    "Arc": 360.0,
+                    "UseWeapon": 0,
+                    "AnimationID": 20,
+                    "TargetAnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 20
+                      }
+                    },
+                    "AnimationSource": 0,
+                    "UseAnchorNode": true,
+                    "DestroyOtherOnCinematic": false,
+                    "Name": "War Win Left",
+                    "ID": 19,
+                    "CameraStateDesc": {
+                      "classname": "PlatformCameraStateDesc",
+                      "properties": {
+                        "MaxTiltAngle": 75.0,
+                        "MaxFocusActorDistance": 1200.0,
+                        "MinFocusActorDistance": 600.0,
+                        "AllowAimMode": false,
+                        "AllowFocusMode": false,
+                        "ForceExitCombatCameras": true
+                      }
+                    },
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 20
+                      }
+                    },
+                    "InAir": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "Won Interactive",
+                    "ID": 23,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 25,
+                        "Ease": 0.5
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "OnActionComplete": 26
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "Won Interactive Transition",
+                    "ID": 26,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 28,
+                        "Ease": 0.5
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                }
+              ]
+            }
+          },
+          "Invincible": true,
+          "PickupNodes": [
+            "GrabNode"
+          ],
+          "CharacterClass": "Gripper",
+          "Label": "Gripper",
+          "NotifyOnStrike": true,
+          "InteractivesEnabled": false,
+          "RagdollTranslationSpeed": 6.0,
+          "RagdollRotationSpeed": 2.0,
+          "RagdollMagnitudeMin": 2.0,
+          "RagdollUpdateType": 2,
+          "AllowRagdollVelocity": false,
+          "RagdollNode": "RagdollNode",
+          "PreferredBoneName": "Bone_Head",
+          "PrefersRootBone": true,
+          "HitInfos": {
+            "classname": "HitInfoList",
+            "properties": {
+              "HitInfos": [
+                {
+                  "classname": "HitInfo",
+                  "properties": {
+                    "ID": 1,
+                    "Name": "Gripper Strike(20)",
+                    "WType": 1,
+                    "HType": 2,
+                    "StrikeDirection": 40,
+                    "Power": 2,
+                    "KnockBackPower": 650.0,
+                    "KnockUpPower": 50.0,
+                    "IsUnblockable": true
+                  }
+                },
+                {
+                  "classname": "HitInfo",
+                  "properties": {
+                    "ID": 3,
+                    "Name": "Hit Monster",
+                    "KnockUpPower": 50.0,
+                    "IsUnblockable": true
+                  }
+                },
+                {
+                  "classname": "HitInfo",
+                  "properties": {
+                    "ID": 4,
+                    "Name": "Player Lost",
+                    "Power": 2,
+                    "Damage": 25.0,
+                    "KnockBackPower": 350.0,
+                    "IsUnblockable": true
+                  }
+                },
+                {
+                  "classname": "HitInfo",
+                  "properties": {
+                    "ID": 2,
+                    "Name": "Tail Swipe(20)",
+                    "Power": 3,
+                    "KnockBackPower": 100.0,
+                    "KnockUpPower": 1000.0,
+                    "IsUnblockable": true
+                  }
+                }
+              ]
+            }
+          },
+          "Visual": "gripper",
+          "FactionID": 1,
+          "TargetCenterNode": false,
+          "Animations": {
+            "classname": "AnimationList",
+            "properties": {
+              "Animations": [
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 7,
+                    "Name": "gripper_attack",
+                    "AnimationName": "gripper_attack",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 3
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Gripper_Drips",
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 33,
+                    "Name": "gripper_cielingchomp",
+                    "AnimationName": "gripper_cielingchomp",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Gripper_Drips",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50073
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 7,
+                          "TriggerFrame": 15
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Gripper_Grab",
+                          "TriggerFrame": 16
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Gripper_Grab",
+                          "TriggerFrame": 45
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Gripper_Grab",
+                          "TriggerFrame": 65
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Gripper_Grab",
+                          "TriggerFrame": 105
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 19,
+                    "Name": "gripper_emerge",
+                    "AnimationName": "gripper_emerge",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 9
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 8
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Gripper_Emerge"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 26,
+                    "Name": "gripper_emerge_transition",
+                    "AnimationName": "gripper_emerge_transition"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 31,
+                    "Name": "gripper_grabblock",
+                    "AnimationName": "gripper_grabblock",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Gripper_Drips_GrabBlock",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50071
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Gripper_GrabBlock"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 30,
+                    "Name": "gripper_grabblock_idle",
+                    "AnimationName": "gripper_grabblock_idle",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Gripper_Drips_GrabBlock",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 4
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 4,
+                          "TriggerFrame": 100
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 9
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 9,
+                          "TriggerFrame": 100
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 29,
+                    "Name": "gripper_grabblock_retract",
+                    "AnimationName": "gripper_grabblock_retract",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Gripper_Drips_GrabBlock",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 3,
+                          "TriggerFrame": 10
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 32,
+                    "Name": "gripper_groundchomp",
+                    "AnimationName": "gripper_groundchomp",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Gripper_Drips",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 3
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 3,
+                          "TriggerFrame": 58
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Gripper_Grab",
+                          "TriggerFrame": 12
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Gripper_Grab",
+                          "TriggerFrame": 33
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Gripper_Grab",
+                          "TriggerFrame": 62
+                        }
+                      },
+                      {
+                        "classname": "EventTrigger",
+                        "properties": {
+                          "EventName": "Chomp",
+                          "TriggerFrame": 33
+                        }
+                      },
+                      {
+                        "classname": "EventTrigger",
+                        "properties": {
+                          "EventName": "Chomp",
+                          "TriggerFrame": 62
+                        }
+                      },
+                      {
+                        "classname": "EventTrigger",
+                        "properties": {
+                          "EventName": "Chomp"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 34,
+                    "Name": "gripper_groundchomp_retract",
+                    "AnimationName": "gripper_groundchomp_retract",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Gripper_Drips",
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 1,
+                    "Name": "gripper_idle",
+                    "AnimationName": "gripper_idle",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Gripper_Drips",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 4
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 4,
+                          "TriggerFrame": 150
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 9,
+                          "TriggerFrame": 50
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 9,
+                          "TriggerFrame": 200
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 2,
+                    "Name": "gripper_idle_aggressive",
+                    "AnimationName": "gripper_idle_aggressive",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Gripper_Drips",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 8
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 8,
+                          "TriggerFrame": 60
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 8,
+                          "TriggerFrame": 120
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 8,
+                          "TriggerFrame": 180
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 3,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 9,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 9,
+                          "TriggerFrame": 110,
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "Name": "gripper_idle_defensive",
+                    "AnimationName": "gripper_idle_defensive",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 4
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 9,
+                          "TriggerFrame": 100
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 14,
+                    "Name": "gripper_idle_gripped",
+                    "AnimationName": "gripper_idle_gripped",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Gripper_Drips",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 4
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 4,
+                          "TriggerFrame": 100
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 9
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 9,
+                          "TriggerFrame": 100
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 23,
+                    "Name": "gripper_idle_gripped_statuehead",
+                    "AnimationName": "gripper_idle_gripped_statuehead",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Gripper_Drips",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 4
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 4,
+                          "TriggerFrame": 100
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 9,
+                          "TriggerFrame": 20
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 9,
+                          "TriggerFrame": 150
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 18,
+                    "Name": "Gripper_Interactive_Grab",
+                    "AnimationName": "Gripper_Interactive_Grab",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 3
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50068
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50033
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Gripper_Grab",
+                          "TriggerFrame": 6
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 22,
+                    "Name": "Gripper_Interactive_Lose",
+                    "AnimationName": "Gripper_Interactive_Lose",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50068
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50033,
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 9
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 8
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50067,
+                          "TriggerFrame": 27
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 6,
+                          "TriggerFrame": 23
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Gripper_Grab",
+                          "TriggerFrame": 6
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Gripper_Grab",
+                          "TriggerFrame": 32
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 24,
+                    "Name": "Gripper_Interactive_Lose_GripOnly",
+                    "AnimationName": "Gripper_Interactive_Lose_GripOnly",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Gripper_Drips",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 9
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 2
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 8
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50067
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 6
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Gripper_Grab"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 27,
+                    "Name": "gripper_interactive_lose_transition",
+                    "AnimationName": "gripper_interactive_lose_transition"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 17,
+                    "Name": "Gripper_Interactive_Losing_Loop",
+                    "AnimationName": "Gripper_Interactive_Losing_Loop",
+                    "Length": 8,
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 7
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50028,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 9,
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 20,
+                    "Name": "Gripper_Interactive_Win",
+                    "AnimationName": "Gripper_Interactive_Win",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 9
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50067,
+                          "TriggerFrame": 15
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50069,
+                          "TriggerFrame": 5
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 5
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Gripper_Grab",
+                          "TriggerFrame": 8
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 25,
+                    "Name": "Gripper_Interactive_Win_GripOnly",
+                    "AnimationName": "Gripper_Interactive_Win_GripOnly",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Gripper_Drips",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 2
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 9
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 3
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 28,
+                    "Name": "gripper_interactive_win_transition",
+                    "AnimationName": "gripper_interactive_win_transition"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 21,
+                    "Name": "Gripper_Interactive_Winning_Loop",
+                    "AnimationName": "Gripper_Interactive_Winning_Loop",
+                    "Length": 8,
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 7
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50028,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 9,
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 3,
+                    "Name": "gripper_neck_extend",
+                    "AnimationName": "gripper_neck_extend",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Gripper_Emerge",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 2
+                        }
+                      },
+                      {
+                        "classname": "WeaponPhantomTrigger",
+                        "properties": {
+                          "Duration": 13,
+                          "WeaponPhantom": "WeaponPhantom",
+                          "HitInfoID": 1,
+                          "ForceImpactDir": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 5,
+                    "Name": "gripper_neck_retract",
+                    "AnimationName": "gripper_neck_retract",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Gripper_Emerge",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 2
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 9,
+                    "Name": "gripper_recoil",
+                    "AnimationName": "gripper_recoil",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Gripper_Drips",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50070
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 2
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Gripper_Grab"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 16,
+                    "Name": "gripper_recoil_retract",
+                    "AnimationName": "gripper_recoil_retract",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Gripper_Emerge"
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50070
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 6
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 12,
+                    "Name": "gripper_stab",
+                    "AnimationName": "gripper_stab",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Gripper_Drips",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 3
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 8,
+                    "Name": "gripper_strike_rock",
+                    "AnimationName": "gripper_gripped_retract",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Gripper_Drips",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 4
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50068,
+                          "TriggerFrame": 5
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          "Sounds": {
+            "classname": "SoundList",
+            "properties": {
+              "Sounds": [
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 1,
+                    "Name": "DissolveSound",
+                    "Volume": 0.19995117,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Sounds": "death_dissolve_A_3,death_dissolve_A_1,death_dissolve_A_2",
+                    "Group": "Dissolve sfx"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50068,
+                    "Name": "grab",
+                    "Volume": 0.72998047,
+                    "RandomPitch": 1.0,
+                    "Min": 100.0,
+                    "Max": 1400.0,
+                    "Sounds": "sword_vs_wicked_4,sword_vs_wicked_1,sword_vs_wicked_2,sword_vs_wicked_3",
+                    "Group": "Creatures"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 9,
+                    "Name": "gripper_gore",
+                    "Volume": 0.30004883,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 2500.0,
+                    "Priority": 20,
+                    "Sounds": "gripper_gore_3,gripper_gore_1,gripper_gore_2",
+                    "Group": "Creatures"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50072,
+                    "Name": "gripper_gore_loop",
+                    "Volume": 0.6699219,
+                    "Pitch": -6.0,
+                    "Loop": true,
+                    "Offset": true,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 2500.0,
+                    "Priority": 20,
+                    "Sounds": "gripper_gore_loop_01",
+                    "Group": "Creatures"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50071,
+                    "Name": "gripper_grab_block",
+                    "Volume": 0.9501953,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 2000.0,
+                    "Priority": 20,
+                    "Sounds": "gripper_grab_block_01",
+                    "Group": "Creatures"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 2,
+                    "Name": "gripper_stretch",
+                    "Volume": 0.39990234,
+                    "RandomPitch": 0.5,
+                    "FadeInTime": 0.39990234,
+                    "FadeOutTime": 0.39990234,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 1100.0,
+                    "Priority": 50,
+                    "Sounds": "gripper_stretch_3,gripper_stretch_1,gripper_stretch_2",
+                    "Group": "Creatures"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 3,
+                    "Name": "voc_gripper_attack",
+                    "Volume": 0.7001953,
+                    "RandomPitch": 0.5,
+                    "Min": 1.0,
+                    "Max": 1700.0,
+                    "Priority": 20,
+                    "Sounds": "voc_gripper_attack_4,voc_gripper_attack_1,voc_gripper_attack_2,voc_gripper_attack_3",
+                    "Group": "Creature Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50073,
+                    "Name": "voc_gripper_ceiling_chomp",
+                    "Volume": 0.30004883,
+                    "Pitch": -3.0,
+                    "FollowActor": true,
+                    "Sounds": "voc_gripper_attack_4,voc_gripper_attack_1,voc_gripper_attack_2,voc_gripper_attack_3"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 4,
+                    "Name": "voc_gripper_idle",
+                    "Volume": 0.30004883,
+                    "RandomPitch": 0.5,
+                    "Min": 1.0,
+                    "Max": 3000.0,
+                    "Priority": 10,
+                    "Sounds": "voc_gripper_idle_7,voc_gripper_idle_1,voc_gripper_idle_2,voc_gripper_idle_3,voc_gripper_idle_4,voc_gripper_idle_5,voc_gripper_idle_6",
+                    "Group": "Creature Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 8,
+                    "Name": "voc_gripper_idle_higher",
+                    "Volume": 0.44995117,
+                    "Pitch": 8.0,
+                    "Max": 3000.0,
+                    "Priority": 20,
+                    "Sounds": "voc_gripper_idle_7,voc_gripper_idle_1,voc_gripper_idle_2,voc_gripper_idle_3,voc_gripper_idle_4,voc_gripper_idle_5,voc_gripper_idle_6",
+                    "Group": "Creature Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 7,
+                    "Name": "voc_gripper_idle_less",
+                    "Volume": 0.30004883,
+                    "RandomPitch": 0.30004883,
+                    "Min": 5.0,
+                    "Max": 1400.0,
+                    "Priority": 50,
+                    "Sounds": "voc_gripper_idle_7,voc_gripper_idle_1,voc_gripper_idle_2,voc_gripper_idle_3,voc_gripper_idle_4,voc_gripper_idle_5,voc_gripper_idle_6",
+                    "Group": "Creature Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 5,
+                    "Name": "voc_gripper_pain",
+                    "Volume": 0.85009766,
+                    "RandomPitch": 0.5,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 2000.0,
+                    "Priority": 20,
+                    "Sounds": "voc_gripper_pain_3,voc_gripper_pain_1,voc_gripper_pain_2",
+                    "Group": "Creature Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 51555,
+                    "Name": "voc_gripper_pain",
+                    "Volume": 0.85009766,
+                    "Pitch": 2.0,
+                    "RandomPitch": 0.5,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 2000.0,
+                    "Priority": 20,
+                    "Sounds": "voc_gripper_pain_3,voc_gripper_pain_1,voc_gripper_pain_2",
+                    "Group": "Creature Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50070,
+                    "Name": "voc_gripper_pain_fast",
+                    "Volume": 0.9501953,
+                    "Pitch": -5.0,
+                    "FollowActor": true,
+                    "Min": 500.0,
+                    "Max": 2000.0,
+                    "Priority": 20,
+                    "Sounds": "voc_gripper_pain_4",
+                    "Group": "Creatures"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 6,
+                    "Name": "voc_gripper_stun",
+                    "Volume": 0.7998047,
+                    "Pitch": -4.0,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "Min": 500.0,
+                    "Max": 2100.0,
+                    "Priority": 0,
+                    "Sounds": "voc_gripper_stun_1,voc_gripper_stun_3,voc_gripper_stun_2",
+                    "Group": "Creature Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50067,
+                    "Name": "voc_war_attack_finish",
+                    "Volume": 0.99902344,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Priority": 0,
+                    "Sounds": "voc_war_attack_long_5,voc_war_attack_long_3,voc_war_attack_long_4",
+                    "Group": "War Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50028,
+                    "Name": "voc_war_breath",
+                    "Volume": 0.3798828,
+                    "RandomVolume": 1.0,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "Priority": 50,
+                    "Sounds": "voc_war_breath_4,voc_war_breath_1,voc_war_breath_2,voc_war_breath_3",
+                    "Group": "War"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50033,
+                    "Name": "voc_war_pain",
+                    "Volume": 0.79003906,
+                    "RandomVolume": 1.0,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Priority": 50,
+                    "Sounds": "voc_war_pain_6,voc_war_pain_1,voc_war_pain_2,voc_war_pain_3,voc_war_pain_4,voc_war_pain_5",
+                    "Group": "War Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50069,
+                    "Name": "war_break_free",
+                    "Volume": 0.99902344,
+                    "RandomPitch": 0.5,
+                    "Min": 100.0,
+                    "Max": 2000.0,
+                    "Priority": 0,
+                    "Sounds": "war_break_free",
+                    "Group": "one"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "timeToRemainRecluse": {
+      "Value": 4
+    },
+    "UseRegionForInteractive": {
+      "Value": true
+    },
+    "grabInteractiveOffset": {
+      "Value": 140
+    },
+    "RetractSpeedMultiplier": {
+      "Value": 0.0
+    },
+    "AttackSpeedMultiplier": {
+      "Value": 0.0
+    },
+    "PlayerSnareRange": {
+      "Value": 180.0
+    },
+    "VictimSnareRangeHeight": {
+      "Value": 80.0
+    },
+    "VictimSnareXY": {
+      "Value": 85.0
+    },
+    "ChompInterval": {
+      "Value": 0.5
+    },
+    "ChompDuration": {
+      "Value": 20.0
+    },
+    "LostDraggableTimer": {
+      "Value": 3.0
+    },
+    "VictimSnareOffset": {
+      "Value": 8
+    },
+    "DetectSize": {
+      "Value": [
+        1200,
+        1200,
+        800.0
+      ]
+    },
+    "StrikeDetectSize": {
+      "Value": [
+        198.0,
+        198.0,
+        800.0
+      ]
+    },
+    "moveStateAlarmed": {
+      "Value": 1
+    },
+    "moveStateIdle": {
+      "Value": 0
+    },
+    "moveStateCloseRangeAttk": {
+      "Value": 9
+    },
+    "moveStateAttack": {
+      "Value": 2
+    },
+    "moveStatePickup": {
+      "Value": 13
+    },
+    "moveStateGrabBlock": {
+      "Value": 4
+    },
+    "moveStateGrabIdle": {
+      "Value": 5
+    },
+    "moveStateGrabRetract": {
+      "Value": 14
+    },
+    "moveStateEmerge": {
+      "Value": 16
+    },
+    "moveStateRecoil": {
+      "Value": 6
+    },
+    "moveStateInteractive": {
+      "Value": 17
+    },
+    "moveStateStatueHeadHeld": {
+      "Value": 21
+    },
+    "moveStateTossPlayerLost": {
+      "Value": 22
+    },
+    "moveStateTossPlayerWon": {
+      "Value": 23
+    },
+    "moveStateChomp": {
+      "Value": 27
+    },
+    "moveStateCeilingChomp": {
+      "Value": 28
+    },
+    "moveStateChompRetract": {
+      "Value": 29
+    },
+    "impactDirAwayFromGripper": {
+      "Value": 0
+    },
+    "impactDirTowardGripper": {
+      "Value": 1
+    },
+    "ENVIRONMENTSTATIC": {
+      "Value": 1
+    },
+    "ENVIRONMENT": {
+      "Value": 2
+    },
+    "ENVIRONMENTKEYFRAMED": {
+      "Value": 3
+    },
+    "ENVIRONMENTNOCAMERA": {
+      "Value": 26
+    },
+    "ACTOR": {
+      "Value": 5
+    },
+    "DEBRIS": {
+      "Value": 6
+    },
+    "MOVEMENTBLOCKER": {
+      "Value": 7
+    },
+    "CAMERABLOCKER": {
+      "Value": 12
+    },
+    "MOVEANDCAMERABLOCKER": {
+      "Value": 8
+    },
+    "NOCOLLISION": {
+      "Value": 4
+    },
+    "GUNSTRIFESPISTOL": {
+      "Value": 33
+    },
+    "GUNSTRIFESPISTOLSTUNDURATION": {
+      "Value": 1.5
+    },
+    "ModeIdle": {
+      "Value": 0
+    },
+    "ModeDropDown": {
+      "Value": 1
+    },
+    "ModeRaiseUp": {
+      "Value": 2
+    }
+  },
+  "Methods": [
+    "onAddToWorld",
+    "onGroundCheckPassed",
+    "onAddDetectRegions",
+    "onInit",
+    "onRemove",
+    "onSuspendAI",
+    "onResumeAI",
+    "onGripperDisabled",
+    "onGripperReenabled",
+    "shouldAwardLurchers",
+    "onKilled",
+    "doGrabbableSearch",
+    "onEnterRegion",
+    "onExitRegion",
+    "isWatchingCinematic",
+    "discardMeal",
+    "checkRegions",
+    "testForAlarm",
+    "HandleActorCollision",
+    "shouldHandleCollision",
+    "checkForTarget",
+    "Chomp",
+    "DoChomp",
+    "onActorCollision",
+    "beginAttacking",
+    "queryRegion",
+    "onEnableDamage",
+    "onDisableDamage",
+    "canCrossbladeTarget",
+    "shouldBombgrowthAttachToSkin",
+    "onGripperQueryDamage",
+    "stopDashAndMount",
+    "getFrenzyItem",
+    "onHitVictim"
+  ],
+  "PackageName": "gripper",
+  "DefaultValues": {
+    "DistToStopAttack": 0.0,
+    "hasSpawnedStrikeRegion": false,
+    "foundQuicksilver": false,
+    "playerLostStruggle": false,
+    "assignedDetectRegion": null,
+    "isForcedToRetract": false,
+    "hasSpawnedDetectRegion": false,
+    "SpawnLurchersDuringCinematic": true,
+    "vfxNode": null,
+    "detectedTrueVictim": false,
+    "CanAttackDuringCinematic": true,
+    "assignedStrikeRegion": null,
+    "detectRegion": null,
+    "ignoreGrabbableDamage": false,
+    "disableChomp": false,
+    "InitialTargetZ": 0.0,
+    "IdleAfterCinematic": false,
+    "frenzyActive": false,
+    "ignoreDamage": false,
+    "chompCount": 0,
+    "stunDuration": 0,
+    "ateTarget": false,
+    "currentMeal": null,
+    "strikeRegion": null,
+    "FilterList": [
+      "Player"
+    ]
+  },
+  "States": {
+    "CheckPrey": {
+      "methods": [
+        "onEnter",
+        "onHasDetected"
+      ]
+    },
+    "Retracting": {
+      "methods": [
+        "onEnterRegion",
+        "onTimeExpired",
+        "onEnter"
+      ]
+    },
+    "GrabObjectSearch": {
+      "methods": [
+        "onEnterRegion",
+        "OnDraggableMovingAway",
+        "onAttackSpeedAdjusted",
+        "onChildDetachFromObject",
+        "onExit",
+        "onTentacleMovedTo",
+        "onReachedTop",
+        "onVerifyTargetTimer",
+        "onTentacleMaxRangeReached",
+        "onEnter",
+        "onHasDetected"
+      ]
+    },
+    "Emerge": {
+      "methods": [
+        "onEnterRegion",
+        "onActionComplete",
+        "onEnter"
+      ]
+    },
+    "GrabBlock": {
+      "methods": [
+        "onEnterRegion",
+        "onActionComplete",
+        "onChildDetachFromObject",
+        "onExit",
+        "onReachedTop",
+        "onSuspendAI",
+        "onResumeAI",
+        "onEnter"
+      ]
+    },
+    "Alarmed": {
+      "methods": [
+        "onEnterRegion",
+        "onVerifyStatusTimer",
+        "onEnter",
+        "onExitRegion"
+      ]
+    },
+    "PostCinematicPause": {
+      "methods": [
+        "onEnterRegion",
+        "onPauseEnded",
+        "onEnter",
+        "onExitRegion"
+      ]
+    },
+    "RetractingNoCheckPrey": {
+      "methods": [
+        "onExit",
+        "onReachedTop",
+        "onEnter"
+      ]
+    },
+    "AlertIdle": {
+      "methods": [
+        "onEnter"
+      ]
+    },
+    "CinematicIdle": {
+      "methods": [
+        "onEnterRegion",
+        "onEnter",
+        "onExitRegion"
+      ]
+    },
+    "PlayInteractive": {
+      "methods": [
+        "onEnterRegion",
+        "onGoalDistReached",
+        "onInteractive",
+        "onActionComplete",
+        "onExit",
+        "onMashSuccess",
+        "onEnvironmentCollision",
+        "onGripperQueryDamage",
+        "onMashFailure",
+        "onEnter"
+      ]
+    },
+    "GrabObject": {
+      "methods": [
+        "onEnterRegion",
+        "onSuspendAI",
+        "onResumeAI",
+        "onEnter",
+        "onGrabFailed"
+      ]
+    },
+    "LostDraggable": {
+      "methods": [
+        "onEnterRegion",
+        "onStunTimer",
+        "onGripperQueryDamage",
+        "onEnter"
+      ]
+    },
+    "Defensive": {
+      "methods": [
+        "onEnterRegion",
+        "onStunTimer",
+        "canCrossbladeTarget",
+        "onGripperQueryDamage",
+        "onEnter"
+      ]
+    },
+    "Recoil": {
+      "methods": [
+        "onEnterRegion",
+        "onActionComplete",
+        "canCrossbladeTarget",
+        "onGripperQueryDamage",
+        "onEnter"
+      ]
+    },
+    "ReapTarget": {
+      "methods": [
+        "onEnterRegion",
+        "onTossMeal",
+        "onActionComplete",
+        "onSuspendAI",
+        "onGripperQueryDamage",
+        "onResumeAI",
+        "onEnter",
+        "onExitRegion"
+      ]
+    },
+    "GrabObjectIdle": {
+      "methods": [
+        "onEnterRegion",
+        "onChildDetachFromObject",
+        "onSuspendAI",
+        "onResumeAI",
+        "onEnter"
+      ]
+    },
+    "RetractingLostStruggle": {
+      "methods": [
+        "onReachedTop",
+        "onEnter"
+      ]
+    },
+    "AttackPrey": {
+      "methods": [
+        "onEnterRegion",
+        "onActorCollision",
+        "onGoalDistReached",
+        "onHitVictim",
+        "onMaxAggressionReached",
+        "onReachedTop",
+        "onEnvironmentCollision",
+        "onMobChompTimer",
+        "onEnter",
+        "onExitRegion"
+      ]
+    },
+    "ChompRetracting": {
+      "methods": [
+        "onEnterRegion",
+        "onGoalDistReached",
+        "onChompRetractTimer",
+        "DoChomp",
+        "onReachedTop",
+        "onEnvironmentCollision",
+        "HandleActorCollision",
+        "onEnter"
+      ]
+    },
+    "Idle": {
+      "methods": [
+        "onEnter"
+      ]
+    },
+    "Attacking": {
+      "methods": [
+        "onEnterRegion",
+        "onActorCollision",
+        "onGoalDistReached",
+        "onActionComplete",
+        "onExit",
+        "onMeleeRangeReached",
+        "onReachedTop",
+        "onEnvironmentCollision",
+        "onEnter",
+        "onHasDetected",
+        "onExitRegion"
+      ]
+    },
+    "InitialGrabObjectIdle": {
+      "methods": [
+        "onEnterRegion",
+        "onActionComplete",
+        "onGrabObjIdleTimer",
+        "onSuspendAI",
+        "onResumeAI",
+        "onEnter"
+      ]
+    },
+    "GrabFailed": {
+      "methods": [
+        "onEnterRegion",
+        "onSuspendAI",
+        "onResumeAI",
+        "onEnter"
+      ]
+    },
+    "Dormant": {
+      "methods": [
+        "onEnterRegion",
+        "onMoveStateCheck",
+        "onEnter"
+      ]
+    }
+  }
+}

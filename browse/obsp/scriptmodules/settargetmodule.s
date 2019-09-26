@@ -1,0 +1,195 @@
+.method In
+0x0001 .param_count 0
+0x0001 .line 35
+0x0006     inc_scope
+0x0007 .line 37
+0x000c     null_object
+0x000d     var_assign targetobj
+0x0021 .line 38
+0x0026     identifier this
+0x0035     property ClearTarget
+0x004b     not
+0x004c     branch_false 0x0176
+0x0051 .line 40
+0x0056     nop
+0x0057     identifier targetobj
+0x006b     identifier this
+0x007a     property Target
+0x008b     int 1
+0x0090     identifier World
+0x00a0     method findObjectByName
+0x00bb     assign
+0x00bc     pop
+0x00bd .line 41
+0x00c2     string "Target"
+0x00d3     int 1
+0x00d8     identifier this
+0x00e7     method hasVariableIn
+0x00ff     branch_false 0x016b
+0x0104 .line 43
+0x0109     nop
+0x010a     identifier targetobj
+0x011e     string "Target"
+0x012f     int 1
+0x0134     identifier this
+0x0143     method getVariableValue
+0x015e     assign
+0x015f     pop
+0x0160 .line 44
+0x0165     nop
+0x0166 .line 45
+0x016b .label 0x0525
+0x0170     nop
+0x0171 .line 47
+0x0176 .label 0x0524
+0x017b     identifier targetobj
+0x018f     null_object
+0x0190     not_equal
+0x0191     identifier this
+0x01a0     property ClearTarget
+0x01b6     or
+0x01b7     branch_false 0x05e3
+0x01bc .line 49
+0x01c1     inc_scope
+0x01c2     identifier this
+0x01d1     property Monster
+0x01e3     int 1
+0x01e8     identifier World
+0x01f8     method findObjectByName
+0x0213     var_assign monsterobj
+0x0228 .line 51
+0x022d     bool false
+0x022f     var_assign verifytarget
+0x0246 .line 52
+0x024b     identifier this
+0x025a     property ClearTarget
+0x0270     branch_false 0x029a
+0x0275 .line 53
+0x027a     identifier verifytarget
+0x0291     bool true
+0x0293     assign
+0x0294     pop
+0x0295 .line 55
+0x029a .label 0x0527
+0x029f     identifier targetobj
+0x02b3     null_object
+0x02b4     not_equal
+0x02b5     branch_false 0x0330
+0x02ba .line 56
+0x02bf     string "Character"
+0x02d3     int 1
+0x02d8     identifier targetobj
+0x02ec     method instanceOf
+0x0301     branch_false 0x032b
+0x0306 .line 57
+0x030b     identifier verifytarget
+0x0322     bool true
+0x0324     assign
+0x0325     pop
+0x0326 .line 59
+0x032b .label 0x0529
+0x0330 .label 0x0528
+0x0335     identifier verifytarget
+0x034c     branch_false 0x05d3
+0x0351 .line 61
+0x0356     nop
+0x0357     string "ObjectNames"
+0x036d     int 1
+0x0372     identifier this
+0x0381     method hasVariableIn
+0x0399     bool true
+0x039b     equal
+0x039c     branch_false 0x04be
+0x03a1 .line 63
+0x03a6     inc_scope
+0x03a7     string "ObjectNames"
+0x03bd     int 1
+0x03c2     identifier this
+0x03d1     method getVariableValue
+0x03ec     var_assign objarray
+0x03ff .line 66
+0x0404     identifier objarray
+0x0417     iterator
+0x0418 .label 0x052c
+0x041d     iterator_test
+0x041e     branch_false 0x04a8
+0x0423     iterator_assign obji
+0x0432 .line 67
+0x0437     nop
+0x0438     identifier obji
+0x0447     null_object
+0x0448     not_equal
+0x0449     branch_false 0x049c
+0x044e .line 68
+0x0453     identifier targetobj
+0x0467     int 1
+0x046c     identifier obji
+0x047b     method setCurrentTarget
+0x0496     pop
+0x0497 .line 69
+0x049c .label 0x052e
+0x04a1     nop
+0x04a2     inc
+0x04a3     goto 0x0418
+0x04a8 .label 0x052d
+0x04ad     pop
+0x04ae .line 70
+0x04b3     dec_scope
+0x04b4 .line 71
+0x04b9     goto 0x05c3
+0x04be .label 0x052b
+0x04c3     identifier monsterobj
+0x04d8     null_object
+0x04d9     not_equal
+0x04da     branch_false 0x053f
+0x04df .line 73
+0x04e4     nop
+0x04e5     identifier targetobj
+0x04f9     int 1
+0x04fe     identifier monsterobj
+0x0513     method setCurrentTarget
+0x052e     pop
+0x052f .line 74
+0x0534     nop
+0x0535 .line 75
+0x053a     goto 0x05be
+0x053f .label 0x0530
+0x0544 .line 77
+0x0549     nop
+0x054a     string "SetTarget.oc: Set Monster Target module could not find monster \'"
+0x0595     identifier this
+0x05a4     property Monster
+0x05b6     cat
+0x05b7     print
+0x05b8 .line 78
+0x05bd     nop
+0x05be .label 0x0531
+0x05c3 .label 0x052f
+0x05c8 .line 79
+0x05cd     nop
+0x05ce .line 80
+0x05d3 .label 0x052a
+0x05d8     dec_scope
+0x05d9 .line 81
+0x05de     goto 0x0660
+0x05e3 .label 0x0526
+0x05e8 .line 83
+0x05ed     nop
+0x05ee     string "SetTarget.oc: Set Monster Target module could not find target \'"
+0x0638     identifier this
+0x0647     property Target
+0x0658     cat
+0x0659     print
+0x065a .line 84
+0x065f     nop
+0x0660 .label 0x0532
+0x0665 .line 86
+0x066a     string "Out"
+0x0678     int 1
+0x067d     identifier this
+0x068c     method doEvent
+0x069e     pop
+0x069f .line 87
+0x06a4     dec_scope
+0x06a5     return_null
+

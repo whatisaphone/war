@@ -1,0 +1,101 @@
+{
+  "Parent": "base/monsterbase",
+  "Name": "vermin/vermin",
+  "Properties": {
+    "TakeOffBehavior": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "FleePosition": {
+      "Flags": 4,
+      "Type": 1
+    },
+    "Waypoint": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "WarTargetDistance": {
+      "Flags": 4,
+      "Type": 1
+    },
+    "EnemyTargetDistance": {
+      "Flags": 4,
+      "Type": 1
+    },
+    "FleeEnemy": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "ScanInterval": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ScanModifyScanTimeByDist": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "ScanTimerMod": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "LastX": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "LastY": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "maxiterations": {
+      "Flags": 0,
+      "Type": 1
+    }
+  },
+  "StaticProperties": {
+    "ShouldFlee": {
+      "Value": false
+    }
+  },
+  "Methods": [
+    "fleeToPoint",
+    "absoluteValue",
+    "onLeavingVerminRegion"
+  ],
+  "PackageName": "vermin",
+  "DefaultValues": {
+    "LastY": 0,
+    "LastX": 0,
+    "maxiterations": 4,
+    "FleePosition": null,
+    "Waypoint": null,
+    "EnemyTargetDistance": 180,
+    "WarTargetDistance": 550,
+    "ScanModifyScanTimeByDist": true,
+    "TakeOffBehavior": null,
+    "ScanInterval": 1.5,
+    "ScanTimerMod": 0.5,
+    "FleeEnemy": null
+  },
+  "States": {
+    "Flee": {
+      "methods": [
+        "scanForEnemies",
+        "onTakeOffDelay",
+        "onActionComplete",
+        "findFleePosition",
+        "onExit",
+        "onBehaviorComplete",
+        "onEnter"
+      ]
+    },
+    "Ambient": {
+      "methods": [
+        "scanForEnemies",
+        "calcScanTimer",
+        "onBehaviorComplete",
+        "onQueryDamage",
+        "onEnter"
+      ]
+    }
+  }
+}

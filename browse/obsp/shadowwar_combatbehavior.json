@@ -1,0 +1,288 @@
+{
+  "Parent": "base/standardbehavior",
+  "Name": "shadowwar/shadowwar_combatbehavior",
+  "Properties": {
+    "ScanAlertDistance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ScanInterval": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "DashAttackMissAngle": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "DashAttackTimeout": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "DashAttackMoveStateEndDash": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "DashAttackMoveStateAttack": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "DashAttackMoveStateDash": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "DashAttackMinDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "DashAttackMaxDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "DashAttackMinRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "DashAttackMaxRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "DashAttackInteractiveMoveStateID": {
+      "Flags": 4,
+      "Type": 2
+    },
+    "DashAttackMoveStateEndDashFar": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "DashAttackEndFarRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "DashAttackPredictTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "DashAttackPressure": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AvoidMoveStateRight": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "AvoidMoveStateLeft": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "AvoidMaxRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AvoidMinRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AvoidMinDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AvoidMaxDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AvoidAttackTypes": {
+      "Flags": 4,
+      "Type": 1
+    },
+    "ClearObstacleMoveState": {
+      "Flags": 4,
+      "Type": 5
+    }
+  },
+  "StaticProperties": {},
+  "Methods": [
+    "begin",
+    "onTargetUnreachable"
+  ],
+  "PackageName": "shadowwar",
+  "DefaultValues": {
+    "DashAttackMoveStateEndDash": "Dash - End",
+    "DashAttackInteractiveMoveStateID": 0,
+    "AvoidMinRange": 0,
+    "AvoidMoveStateRight": "DashRight",
+    "DashAttackPressure": -1,
+    "AvoidMaxRange": 300,
+    "DashAttackMinRange": 300,
+    "DashAttackMaxRange": 1000,
+    "ID": "Shadow CombatBehavior",
+    "BackgroundActions": [
+      {
+        "classname": "base/scanaction",
+        "properties": {
+          "Position": [
+            6.1784675e-30,
+            3.59e-43,
+            null
+          ]
+        }
+      },
+      {
+        "classname": "base/onblockhandler",
+        "properties": {
+          "ActionID": "Parry",
+          "BlockChance": 40,
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "DashAttackEndFarRange": 350,
+    "ClearObstacleMoveState": "Attack - Standard",
+    "DashAttackMaxDelay": 4.0,
+    "DashAttackPredictTime": 0.0,
+    "ScanInterval": 1.5,
+    "DashAttackMoveStateDash": "Dash - Start",
+    "DashAttackMissAngle": 45,
+    "DashAttackMoveStateEndDashFar": "Dash - End",
+    "DashAttackMinDelay": 2.5,
+    "OnAttackHandler": [
+      {
+        "classname": "base/avoidaction",
+        "properties": {
+          "ID": "AvoidDash",
+          "Priority": 17,
+          "InterruptibleBy": [
+            "Death",
+            "Exit",
+            "Interactive",
+            "Impact"
+          ],
+          "ResourceLock": "Block",
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "PathBlockedBreakableHandler": {
+      "classname": "base/clearobstacleaction",
+      "properties": {
+        "ID": "Clear Obstacle",
+        "ActionCode": 5,
+        "Priority": 16,
+        "InterruptibleBy": [
+          "Death",
+          "Exit",
+          "Interactive",
+          "Impact"
+        ],
+        "Position": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "AvoidMaxDelay": 3.5,
+    "AvoidAttackTypes": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "AvoidMinDelay": 2.0,
+    "DashAttackTimeout": 2.0,
+    "DashAttackMoveStateAttack": "Dash - Attack",
+    "ComponentActions": [
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "MoveState": "Strafe",
+          "ExitOnComplete": false,
+          "ID": "Strafe",
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "Position": [
+            null,
+            1.9433245e-19,
+            -0.0000012779454
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "AttackType": 1,
+          "Pressure": 7,
+          "MaxRange": 150.0,
+          "MinAngle": -150.0,
+          "MaxAngle": 150.0,
+          "MoveState": "Attack - Standard",
+          "ID": "Melee Attack",
+          "Priority": 7,
+          "Chance": 0.75,
+          "ResourceLock": "Attack",
+          "MinLockTime": 1.0,
+          "MaxLockTime": 2.0,
+          "Position": [
+            7.5550813e31,
+            7.006224e22,
+            2.1716403e-18
+          ]
+        }
+      },
+      {
+        "classname": "base/dashattackaction",
+        "properties": {
+          "ID": "DashAttack",
+          "Priority": 12,
+          "Chance": 0.5,
+          "InterruptibleBy": [
+            "Death",
+            "Interactive",
+            "Impact"
+          ],
+          "ResourceLock": "DashAttack",
+          "Position": [
+            5.31521e-31,
+            1.6495025e-33,
+            3.0337966e32
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "MoveState": "Block - Random",
+          "ID": "Parry",
+          "Priority": -1,
+          "InterruptibleBy": [
+            "Parry"
+          ],
+          "ResourceLock": "Block",
+          "Position": [
+            1e-45,
+            980582.9,
+            -2.7097548e14
+          ]
+        }
+      }
+    ],
+    "AvoidMoveStateLeft": "DashLeft",
+    "ScanAlertDistance": -1
+  },
+  "States": {
+    "LostTarget": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    }
+  }
+}

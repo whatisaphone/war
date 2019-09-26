@@ -1,0 +1,130 @@
+{
+  "classname": "base/tbehavior",
+  "properties": {
+    "ComponentActions": [
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "MoveState": "Strafe2",
+          "ExitOnComplete": false,
+          "ID": "Strafe",
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "AttackType": 1,
+          "Pressure": 12,
+          "MaxRange": 200.0,
+          "MaxHeight": 120.0,
+          "MinAngle": -45.0,
+          "MaxAngle": 45.0,
+          "MoveState": "Attack - OverheadChop Start",
+          "RequireInView": true,
+          "ID": "Attack1",
+          "Priority": 5,
+          "InterruptibleBy": [
+            "Exit"
+          ],
+          "ResourceLock": "AttackPound",
+          "MinLockTime": 2.0,
+          "MaxLockTime": 3.0,
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "AttackType": 1,
+          "Pressure": 8,
+          "MaxRange": 400.0,
+          "MaxHeight": 120.0,
+          "MinAngle": -45.0,
+          "MaxAngle": 45.0,
+          "MoveState": "Attack - Whirlwind",
+          "RequireLOS": true,
+          "ID": "Attack2",
+          "Priority": 6,
+          "InterruptibleBy": [
+            "Exit"
+          ],
+          "ResourceLock": "Attack",
+          "MinLockTime": 10.0,
+          "MaxLockTime": 15.0,
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "MoveState": "StaggerStart",
+          "ID": "Stunned",
+          "Priority": -1,
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "MoveState": "Impact",
+          "ID": "StunImpact",
+          "Priority": -1,
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "BackgroundActions": [
+      {
+        "classname": "base/onhithandler",
+        "properties": {
+          "ActionID": "Stunned",
+          "DamageThreshold": 75
+        }
+      }
+    ],
+    "InterruptHandler": {
+      "classname": "base/oninterrupthandler",
+      "properties": {}
+    },
+    "ExitBehaviorHandler": {
+      "classname": "ExitBehaviorAction",
+      "properties": {
+        "Position": [
+          0.0,
+          1e-45,
+          0.0
+        ]
+      }
+    },
+    "ID": "CombatBehaviorNS",
+    "Position": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "Parent": "base/backgroundaction",
+  "Name": "base/accumulatoraction",
+  "Properties": {
+    "AccumulatorActionName": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AccumulatorActionPriority": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AccumulatorDamageThreshold": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "DamageAccumulator": {
+      "Flags": 2,
+      "Type": 1
+    }
+  },
+  "StaticProperties": {},
+  "Methods": [
+    "InitVars",
+    "InitAccumulatorAction",
+    "begin",
+    "ResetAccumulator",
+    "validatestate"
+  ],
+  "PackageName": "base",
+  "DefaultValues": {
+    "DamageAccumulator": 0,
+    "ID": "AccumulatorAction",
+    "AccumulatorDamageThreshold": -1,
+    "AccumulatorActionPriority": -1,
+    "AccumulatorActionName": ""
+  },
+  "States": {
+    "WaitingForActionFinish": {
+      "methods": [
+        "onBehaviorActionChange"
+      ]
+    },
+    "Inactive": {
+      "methods": [
+        "onBehaviorStateChange"
+      ]
+    },
+    "Accumulating": {
+      "methods": [
+        "onHit",
+        "onBehaviorStateChange",
+        "onEnter"
+      ]
+    },
+    "WaitingForActionStart": {
+      "methods": [
+        "onBehaviorActionChange"
+      ]
+    }
+  }
+}

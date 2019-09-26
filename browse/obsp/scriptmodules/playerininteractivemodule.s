@@ -1,0 +1,38 @@
+.method In
+0x0001 .param_count 0
+0x0001 .line 8
+0x0006     nop
+0x0007 .line 10
+0x000c     int 0
+0x0011     identifier Player
+0x0022     method getCurrentMoveStateDesc
+0x0044     string "CharacterDoInteractiveDesc"
+0x0069     int 1
+0x006e     method_chain instanceOf
+0x0083     branch_false 0x00d3
+0x0088 .line 12
+0x008d     nop
+0x008e     string "Yes"
+0x009c     int 1
+0x00a1     identifier this
+0x00b0     method doEvent
+0x00c2     pop
+0x00c3 .line 13
+0x00c8     nop
+0x00c9 .line 14
+0x00ce     goto 0x0118
+0x00d3 .label 0x06e5
+0x00d8 .line 16
+0x00dd     nop
+0x00de     string "No"
+0x00eb     int 1
+0x00f0     identifier this
+0x00ff     method doEvent
+0x0111     pop
+0x0112 .line 17
+0x0117     nop
+0x0118 .label 0x06e6
+0x011d .line 18
+0x0122     nop
+0x0123     return_null
+

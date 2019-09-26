@@ -1,0 +1,50 @@
+.method In
+0x0001 .param_count 0
+0x0001 .line 10
+0x0006     inc_scope
+0x0007 .line 12
+0x000c     int 0
+0x0011     identifier Player
+0x0022     method getInventory
+0x0039     identifier this
+0x0048     property Task
+0x0057     int 1
+0x005c     method_chain getItemByType
+0x0074     var_assign task
+0x0083 .line 13
+0x0088     identifier task
+0x0097     null_object
+0x0098     not_equal
+0x0099     branch_false 0x00fd
+0x009e .line 15
+0x00a3     nop
+0x00a4     string "Yes"
+0x00b2     print
+0x00b3 .line 16
+0x00b8     string "Yes"
+0x00c6     int 1
+0x00cb     identifier this
+0x00da     method doEvent
+0x00ec     pop
+0x00ed .line 17
+0x00f2     nop
+0x00f3 .line 18
+0x00f8     goto 0x0155
+0x00fd .label 0x0416
+0x0102 .line 20
+0x0107     nop
+0x0108     string "No"
+0x0115     print
+0x0116 .line 21
+0x011b     string "No"
+0x0128     int 1
+0x012d     identifier this
+0x013c     method doEvent
+0x014e     pop
+0x014f .line 22
+0x0154     nop
+0x0155 .label 0x0417
+0x015a .line 23
+0x015f     dec_scope
+0x0160     return_null
+

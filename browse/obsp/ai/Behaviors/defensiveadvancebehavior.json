@@ -1,0 +1,322 @@
+{
+  "Parent": "base/standardbehavior",
+  "Name": "base/defensiveadvancebehavior",
+  "Properties": {
+    "DefensiveScanAlertDistance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "MoveStateTransition": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "AnimMoveState": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "AnimMaxAngleDiff": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ScanAlertDistance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ScanInterval": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachMoveStateMove": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "ApproachForceCloseRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachForceCompleteRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMoveStateIdle": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleMoveStateFidget": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleFidgetChance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleFidgetMinTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleFidgetMaxTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMinTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMaxTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "BlockEnabled": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "BlockChance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "BlockMoveStateBlock": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "BlockMinDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "BlockMaxDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "BlockAttackTypes": {
+      "Flags": 4,
+      "Type": 1
+    },
+    "BlockUseMonsterBlockChance": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "exitRequested": {
+      "Flags": 2,
+      "Type": 4
+    },
+    "doneTransition": {
+      "Flags": 2,
+      "Type": 4
+    }
+  },
+  "StaticProperties": {},
+  "Methods": [
+    "onHit",
+    "ScanAfterHit",
+    "begin"
+  ],
+  "PackageName": "base",
+  "DefaultValues": {
+    "BlockAttackTypes": [
+      2,
+      3,
+      4
+    ],
+    "ApproachForceCompleteRange": -1,
+    "DefensiveScanAlertDistance": -1,
+    "doneTransition": false,
+    "IdleMinTime": 2,
+    "BlockChance": 0.8,
+    "AnimMaxAngleDiff": 180,
+    "BlockEnabled": false,
+    "IdleFidgetChance": 0,
+    "IdleFidgetMinTime": 3,
+    "MoveStateTransition": "",
+    "ApproachMoveStateMove": "",
+    "BlockUseMonsterBlockChance": false,
+    "ID": "DefensiveBehavior",
+    "BlockMoveStateBlock": "Block",
+    "BackgroundActions": [
+      {
+        "classname": "base/scanaction",
+        "properties": {
+          "OnScanAcquiredTarget": "Transition",
+          "OnScanLostTarget": "",
+          "ID": "defensivescanaction",
+          "ValidStates": [
+            "Defensive"
+          ],
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/scanaction",
+        "properties": {
+          "OnScanAcquiredTarget": "Transition",
+          "OnScanLostTarget": "",
+          "ID": "scanaction",
+          "ValidStates": [
+            "FullScan"
+          ],
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "IdleMoveStateFidget": "",
+    "BlockMaxDelay": 3.0,
+    "exitRequested": false,
+    "BlockMinDelay": 1.0,
+    "AnimMoveState": "",
+    "ScanInterval": 1.5,
+    "ImpactHandler": {
+      "classname": "base/impactaction",
+      "properties": {
+        "ID": "Impact",
+        "Priority": 620,
+        "InterruptibleBy": [
+          "Death",
+          "Interactive"
+        ],
+        "OnCompleteState": "Exit",
+        "Position": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "IdleMoveStateIdle": "",
+    "ApproachRange": 150,
+    "OnAttackHandler": [
+      {
+        "classname": "base/blockaction",
+        "properties": {
+          "ActionCode": 5,
+          "Priority": 11,
+          "InterruptibleBy": [
+            "Death"
+          ],
+          "ResourceLock": "Block",
+          "OnCompleteState": "FullScan",
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "IdleMaxTime": 3,
+    "ComponentActions": [
+      {
+        "classname": "base/animaction",
+        "properties": {
+          "ID": "transitiontocombat",
+          "Priority": 11,
+          "InterruptibleBy": [
+            "Death",
+            "Interactive",
+            "Impact"
+          ],
+          "ValidStates": [
+            "Transition"
+          ],
+          "OnCompleteState": "Exit",
+          "Position": [
+            1e-45,
+            0.0,
+            -6.4460086e-9
+          ]
+        }
+      },
+      {
+        "classname": "base/approachhomeaction",
+        "properties": {
+          "IgnoreZTolerance": true,
+          "ID": "DefAdvReturnHome",
+          "Priority": 9,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/idleaction",
+        "properties": {
+          "Priority": 1,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "ApproachForceCloseRange": -1,
+    "ExitBehaviorHandler": {
+      "classname": "base/defaultaction",
+      "properties": {
+        "ID": "NotYetExit",
+        "Priority": 700,
+        "ValidStates": [
+          "Defensive",
+          "FullScan",
+          "Exit"
+        ],
+        "OnCompleteState": "ExitRequested",
+        "Position": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "IdleFidgetMaxTime": 5,
+    "ScanAlertDistance": -1
+  },
+  "States": {
+    "ExitRequested": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "Exit": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "Defensive": {
+      "methods": [
+        "getCurrentState"
+      ]
+    },
+    "Transition": {
+      "methods": [
+        "getCurrentState",
+        "onTransitionTime",
+        "onEnter"
+      ]
+    },
+    "FullScan": {
+      "methods": [
+        "getCurrentState"
+      ]
+    }
+  }
+}

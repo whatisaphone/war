@@ -1,0 +1,76 @@
+{
+  "Parent": "base/backgroundaction",
+  "Name": "base/grabbablescanaction",
+  "Properties": {
+    "OnScanAcquiredGrabbable": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "OnScanLostGrabbable": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "GrabbableDistGrabMin": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "GrabbableDistanceFactor": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "GrabbableScanInterval": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "GrabbableDeviationPercent": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "GrabbableCloseDistance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "GrabbableDistToTargetMax": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "scanTimerActive": {
+      "Flags": 2,
+      "Type": 4
+    }
+  },
+  "StaticProperties": {},
+  "Methods": [
+    "InitVars",
+    "InitScanAction",
+    "begin",
+    "onScanTimer"
+  ],
+  "PackageName": "base",
+  "DefaultValues": {
+    "OnScanAcquiredGrabbable": "",
+    "OnScanLostGrabbable": "",
+    "ID": "grabbablescanaction",
+    "scanTimerActive": false,
+    "GrabbableCloseDistance": 400,
+    "GrabbableDistanceFactor": -1,
+    "GrabbableDistGrabMin": -1,
+    "GrabbableDistToTargetMax": -1,
+    "GrabbableScanInterval": -1,
+    "GrabbableDeviationPercent": 1.15
+  },
+  "States": {
+    "Scanning": {
+      "methods": [
+        "doScan",
+        "FoundGrabbable",
+        "onScanTimer",
+        "onBehaviorStateChange",
+        "LostGrabbable",
+        "validate",
+        "onEnter",
+        "validatestate"
+      ]
+    }
+  }
+}

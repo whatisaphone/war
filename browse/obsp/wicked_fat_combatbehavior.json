@@ -1,0 +1,178 @@
+{
+  "classname": "base/tbehavior",
+  "properties": {
+    "ComponentActions": [
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "MoveState": "Strafe",
+          "ExitOnComplete": false,
+          "ID": "Strafe",
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "AttackType": 1,
+          "Pressure": 8,
+          "MaxRange": 300.0,
+          "MaxHeight": 120.0,
+          "MinAngle": -45.0,
+          "MaxAngle": 45.0,
+          "MoveState": "Attack1",
+          "RequireInView": true,
+          "ID": "Attack1",
+          "Priority": 5,
+          "Chance": 0.3,
+          "ResourceLock": "Attack",
+          "MinLockTime": 2.0,
+          "MaxLockTime": 3.0,
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "AttackType": 1,
+          "Pressure": 8,
+          "MaxRange": 150.0,
+          "MaxHeight": 120.0,
+          "MinAngle": -45.0,
+          "MaxAngle": 45.0,
+          "MoveState": "Attack3",
+          "RequireInView": true,
+          "ID": "Attack3",
+          "Priority": 5,
+          "Chance": 0.3,
+          "ResourceLock": "Attack3",
+          "MinLockTime": 2.0,
+          "MaxLockTime": 3.0,
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "AttackType": 1,
+          "Pressure": 8,
+          "MaxRange": 200.0,
+          "MaxHeight": 120.0,
+          "MinAngle": -45.0,
+          "MaxAngle": 45.0,
+          "MoveState": "Attack2",
+          "RequireInView": true,
+          "ID": "Attack2",
+          "Priority": 5,
+          "Chance": 0.3,
+          "ResourceLock": "Attack2",
+          "MinLockTime": 5.0,
+          "MaxLockTime": 10.0,
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "MaxHealth": 5.0,
+          "MoveState": "Wicked_Fat_BoomIntro",
+          "ID": "Explode",
+          "Priority": 100,
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "MinRange": 50.0,
+          "MaxRange": 400.0,
+          "MinAngle": -45.0,
+          "MaxAngle": 45.0,
+          "MoveState": "Fidget",
+          "ID": "Fidget",
+          "Priority": 3,
+          "Chance": 0.5,
+          "ResourceLock": "Fidget",
+          "MinLockTime": 5.0,
+          "MaxLockTime": 10.0,
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "MoveState": "Impact",
+          "ID": "Stunned",
+          "Priority": -1,
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "BackgroundActions": [
+      {
+        "classname": "base/onhithandler",
+        "properties": {
+          "ActionID": "Stunned",
+          "DamageThreshold": 25,
+          "DamageThresholdDecay": 1,
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "InterruptHandler": {
+      "classname": "base/oninterrupthandler",
+      "properties": {
+        "Position": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "ExitBehaviorHandler": {
+      "classname": "ExitBehaviorAction",
+      "properties": {
+        "Position": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    }
+  }
+}

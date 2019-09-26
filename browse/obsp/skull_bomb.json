@@ -1,0 +1,298 @@
+{
+  "Parent": "Character",
+  "Name": "skull_bomb/skull_bomb",
+  "Properties": {
+    "DetectRegion": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "ExplodeRegion": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "ActiveTimer": {
+      "Flags": 2,
+      "Type": 3
+    },
+    "ExplodeTimer": {
+      "Flags": 2,
+      "Type": 3
+    },
+    "IdleMoveState": {
+      "Flags": 2,
+      "Type": 2
+    },
+    "ActiveMoveState": {
+      "Flags": 2,
+      "Type": 2
+    },
+    "ExplodeMoveState": {
+      "Flags": 2,
+      "Type": 2
+    },
+    "AutoPersist": {
+      "Flags": 4,
+      "Type": 4
+    }
+  },
+  "StaticProperties": {
+    "Description": {
+      "Value": {
+        "classname": "CharacterDesc",
+        "properties": {
+          "MoveStates": {
+            "classname": "CharacterMoveStateList",
+            "properties": {
+              "MoveStates": [
+                {
+                  "classname": "CharacterGenericStateDesc",
+                  "properties": {
+                    "Name": "Active",
+                    "ID": 1,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 1
+                      }
+                    }
+                  }
+                },
+                {
+                  "classname": "CharacterGenericStateDesc",
+                  "properties": {
+                    "Name": "Explode",
+                    "ID": 2,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 2
+                      }
+                    }
+                  }
+                },
+                {
+                  "classname": "CharacterGenericStateDesc",
+                  "properties": {
+                    "Name": "Idle",
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 0
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "HitInfos": {
+            "classname": "HitInfoList",
+            "properties": {
+              "HitInfos": [
+                {
+                  "classname": "HitInfo",
+                  "properties": {
+                    "Name": "Hard (50)",
+                    "WType": 3,
+                    "StrikeDirection": 32,
+                    "Power": 4,
+                    "Damage": 50.0,
+                    "KnockBackPower": 250.0,
+                    "KnockUpPower": 200.0,
+                    "EnvPowerScale": 7.0,
+                    "IsUnblockable": true
+                  }
+                }
+              ]
+            }
+          },
+          "Visual": "skull_bomb",
+          "FactionID": 1,
+          "Animations": {
+            "classname": "AnimationList",
+            "properties": {
+              "Animations": [
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 1,
+                    "Name": "Active",
+                    "AnimationName": "skullbomb_shake",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "SkullBomb_Shake",
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 2,
+                    "Name": "Explode",
+                    "AnimationName": "skullbomb_idle",
+                    "Length": 150,
+                    "Looping": true,
+                    "Triggers": [
+                      {
+                        "classname": "VisualTrigger",
+                        "properties": {
+                          "VisualID": 1,
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "ExplodeTrigger",
+                        "properties": {
+                          "Power": 1500.0,
+                          "UpPower": 1000.0,
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "CameraShakeTrigger",
+                        "properties": {
+                          "HPower": 1.25,
+                          "VPower": 1.25,
+                          "HFreq": 45.0,
+                          "VFreq": 70.0,
+                          "Duration": 5.0,
+                          "AttenStart": 0.0,
+                          "AttenEnd": 500.0,
+                          "BlurPower": 0.25,
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "WeaponPhantomTrigger",
+                        "properties": {
+                          "Duration": 150,
+                          "WeaponPhantom": "Weapon Phantom",
+                          "HitInfoID": 0,
+                          "OverrideFactionID": -2
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "SkullBomb_Explode"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "Name": "Idle",
+                    "AnimationName": "skullbomb_idle",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "SkullBomb_Idle",
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          "Visuals": {
+            "classname": "VisualList",
+            "properties": {
+              "Visuals": [
+                {
+                  "classname": "VisualDesc",
+                  "properties": {
+                    "ID": 0,
+                    "VisualName": "skull_bomb"
+                  }
+                },
+                {
+                  "classname": "VisualDesc",
+                  "properties": {
+                    "ID": 1,
+                    "VisualName": "skull_bomb_pieces"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "DetectScale": {
+      "Value": [
+        250.0,
+        250.0,
+        250.0
+      ]
+    },
+    "ExplodeScale": {
+      "Value": [
+        100.0,
+        100.0,
+        100.0
+      ]
+    },
+    "FilterList": {
+      "Value": [
+        "Player"
+      ]
+    }
+  },
+  "Methods": [
+    "onInit",
+    "onRemove",
+    "createBombDetectRegion"
+  ],
+  "PackageName": "skull_bomb",
+  "DefaultValues": {
+    "ExplodeTimer": 2.0,
+    "AutoPersist": true,
+    "IdleMoveState": 0,
+    "ExplodeRegion": null,
+    "ExplodeMoveState": 2,
+    "ActiveTimer": 1.7,
+    "DetectRegion": null,
+    "ActiveMoveState": 1
+  },
+  "States": {
+    "Active": {
+      "methods": [
+        "onEnterRegion",
+        "onExplodeTimer",
+        "onEnter",
+        "onExitRegion"
+      ]
+    },
+    "ForceActive": {
+      "methods": [
+        "onEnterRegion",
+        "onExplodeTimer",
+        "onEnter",
+        "onExitRegion"
+      ]
+    },
+    "Explode": {
+      "methods": [
+        "onRemoveTimer",
+        "onEnter"
+      ]
+    },
+    "Idle": {
+      "methods": [
+        "onEnterRegion",
+        "onHit",
+        "onEnter"
+      ]
+    }
+  }
+}

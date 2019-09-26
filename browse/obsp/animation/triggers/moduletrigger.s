@@ -1,0 +1,49 @@
+.method onTrigger
+0x0001 .param_count 2
+0x0001 .line 5
+0x0006     inc_scope
+0x0007     param_assign time
+0x0016     param_assign worldPtr
+0x0029 .line 7
+0x002e     var modObj
+0x003f .line 9
+0x0044     identifier this
+0x0053     property ModuleList
+0x0068     iterator
+0x0069 .label 0x070f
+0x006e     iterator_test
+0x006f     branch_false 0x013b
+0x0074     iterator_assign a
+0x0080 .line 10
+0x0085     nop
+0x0086     identifier modObj
+0x0097     identifier a
+0x00a3     int 1
+0x00a8     identifier worldPtr
+0x00bb     method findObjectByName
+0x00d6     assign
+0x00d7     pop
+0x00d8 .line 11
+0x00dd     identifier modObj
+0x00ee     null_object
+0x00ef     not_equal
+0x00f0     branch_false 0x012f
+0x00f5 .line 13
+0x00fa     nop
+0x00fb     int 0
+0x0100     identifier modObj
+0x0111     method Execute
+0x0123     pop
+0x0124 .line 14
+0x0129     nop
+0x012a .line 15
+0x012f .label 0x0711
+0x0134     nop
+0x0135     inc
+0x0136     goto 0x0069
+0x013b .label 0x0710
+0x0140     pop
+0x0141 .line 16
+0x0146     dec_scope
+0x0147     return_null
+

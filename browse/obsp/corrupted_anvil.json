@@ -1,0 +1,668 @@
+{
+  "Parent": "Character",
+  "Name": "corrupted_anvil/corrupted_anvil",
+  "Properties": {
+    "SwordPiece": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "InteractiveDone": {
+      "Flags": 2,
+      "Type": 4
+    },
+    "WaitingToOpen": {
+      "Flags": 2,
+      "Type": 4
+    },
+    "EmissiveAnimation": {
+      "Flags": 2,
+      "Type": 2
+    },
+    "SwordPieceObject": {
+      "Flags": 2,
+      "Type": 1
+    }
+  },
+  "StaticProperties": {
+    "Description": {
+      "Value": {
+        "classname": "CharacterDesc",
+        "properties": {
+          "MoveStates": {
+            "classname": "CharacterMoveStateList",
+            "properties": {
+              "MoveStates": [
+                {
+                  "classname": "CharacterGenericStateDesc",
+                  "properties": {
+                    "Name": "Idle",
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 107
+                      }
+                    }
+                  }
+                },
+                {
+                  "classname": "CharacterGenericStateDesc",
+                  "properties": {
+                    "Name": "Idle_Dormant",
+                    "ID": 3,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 107,
+                        "EnableTriggers": false
+                      }
+                    }
+                  }
+                },
+                {
+                  "classname": "CharacterDoInteractiveDesc",
+                  "properties": {
+                    "TargetType": "war/war",
+                    "Initiator": 1,
+                    "MaxErrorDistance": 100.0,
+                    "Arc": 360.0,
+                    "DoRaycast": false,
+                    "ConvergeTime": 0.0,
+                    "UseWeapon": 0,
+                    "AnimationID": 108,
+                    "TargetAnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 109,
+                        "Ease": 0.0,
+                        "EnableTriggers": false
+                      }
+                    },
+                    "OnCompleteOther": 0,
+                    "UseCameraNode": true,
+                    "CameraNode": "Interactive Camera1",
+                    "AnimationSource": 0,
+                    "Name": "Open",
+                    "ID": 2,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 108,
+                        "Ease": 0.0
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "Invincible": true,
+          "UseProxy": false,
+          "Visual": "corrupted_anvil",
+          "FactionID": -1,
+          "CharacterShadow": true,
+          "Animations": {
+            "classname": "AnimationList",
+            "properties": {
+              "Animations": [
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 107,
+                    "Name": "corrupted_anvil_idle",
+                    "AnimationName": "corrupted_anvil_idle",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "corrupted_anvil_idle",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 60227,
+                          "TriggerFrame": 1
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 108,
+                    "Name": "corrupted_anvil_interact",
+                    "AnimationName": "corrupted_anvil_interact",
+                    "Triggers": [
+                      {
+                        "classname": "CameraCueTrigger",
+                        "properties": {
+                          "AnimationNode": "Interactive Camera2",
+                          "Ease": 0.0,
+                          "TriggerFrame": 49
+                        }
+                      },
+                      {
+                        "classname": "CameraCueTrigger",
+                        "properties": {
+                          "AnimationNode": "Interactive Camera3",
+                          "Ease": 0.0,
+                          "TriggerFrame": 141
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "corrupted_anvil_interact",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "EventTrigger",
+                        "properties": {
+                          "EventName": "anvilCleansed",
+                          "TriggerFrame": 135,
+                          "IsRequired": true
+                        }
+                      },
+                      {
+                        "classname": "FadeTrigger",
+                        "properties": {
+                          "NodeName": "corrupted_anvil",
+                          "Duration": 1,
+                          "TriggerFrame": 135
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50127,
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 60185,
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50047,
+                          "TriggerFrame": 22
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50051,
+                          "TriggerFrame": 22
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50126,
+                          "TriggerFrame": 33
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50105,
+                          "TriggerFrame": 115
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50108,
+                          "TriggerFrame": 135
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50172,
+                          "TriggerFrame": 145
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50070,
+                          "TriggerFrame": 145
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50126,
+                          "TriggerFrame": 109
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 60185,
+                          "TriggerFrame": 111
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 109,
+                    "Name": "corrupted_anvil_interact_war",
+                    "AnimationName": "corrupted_anvil_interact"
+                  }
+                }
+              ]
+            }
+          },
+          "Sounds": {
+            "classname": "SoundList",
+            "properties": {
+              "Sounds": [
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 60227,
+                    "Name": "anvil_loop",
+                    "Volume": 0.5,
+                    "Pitch": 10.0,
+                    "Loop": true,
+                    "FadeInTime": 2.0,
+                    "FadeOutTime": 10.0,
+                    "Offset": true,
+                    "FollowActor": true,
+                    "ExclusiveActor": true,
+                    "Min": 1.0,
+                    "Max": 1200.0,
+                    "Priority": 5,
+                    "Sounds": "mask_of_shadows_loop_mono_01",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50126,
+                    "Name": "armor_foley",
+                    "Volume": 0.39990234,
+                    "RandomPitch": 0.7001953,
+                    "FollowActor": true,
+                    "Min": 3000.0,
+                    "Max": 3000.0,
+                    "Priority": 50,
+                    "Sounds": "war_armor_foley_6,war_armor_foley_1,war_armor_foley_2,war_armor_foley_3,war_armor_foley_4,war_armor_foley_5",
+                    "Group": "War Foley"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50127,
+                    "Name": "armor_foley_jump",
+                    "Volume": 0.35009766,
+                    "RandomPitch": 0.7001953,
+                    "FollowActor": true,
+                    "ExclusiveActor": true,
+                    "Min": 3000.0,
+                    "Max": 3000.0,
+                    "Priority": 50,
+                    "Sounds": "war_armor_foley_jump_2,war_armor_foley_jump_1",
+                    "Group": "War Foley"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50047,
+                    "Name": "body_grab",
+                    "Volume": 0.30004883,
+                    "RandomVolume": 0.099975586,
+                    "RandomPitch": 2.0,
+                    "Min": 3000.0,
+                    "Max": 3000.0,
+                    "Priority": 50,
+                    "Sounds": "body_grab_4,body_grab_1,body_grab_2,body_grab_3",
+                    "Group": "War"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50055,
+                    "Name": "body_grab_low_volume",
+                    "Volume": 0.2199707,
+                    "RandomVolume": 0.049987793,
+                    "RandomPitch": 2.0,
+                    "Min": 1.0,
+                    "Max": 3000.0,
+                    "Priority": 50,
+                    "Sounds": "body_grab_4,body_grab_1,body_grab_2,body_grab_3",
+                    "Group": "War"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50105,
+                    "Name": "charge_release_3",
+                    "Volume": 0.99902344,
+                    "Pitch": -8.0,
+                    "RandomPitch": 0.5,
+                    "FollowActor": true,
+                    "Min": 3000.0,
+                    "Max": 3000.0,
+                    "Priority": 50,
+                    "Sounds": "charge_release_3",
+                    "Group": "War"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50106,
+                    "Name": "charge_release_4",
+                    "Volume": 0.60009766,
+                    "RandomPitch": 0.5,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 3000.0,
+                    "Priority": 50,
+                    "Sounds": "charge_release_4",
+                    "Group": "War"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50107,
+                    "Name": "charge_release_5",
+                    "Volume": 0.6201172,
+                    "RandomPitch": 0.5,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 3000.0,
+                    "Priority": 50,
+                    "Sounds": "charge_release_5",
+                    "Group": "War"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50108,
+                    "Name": "charge_release_6",
+                    "Volume": 0.99902344,
+                    "Pitch": -2.0,
+                    "RandomPitch": 0.5,
+                    "FollowActor": true,
+                    "Min": 3000.0,
+                    "Max": 3000.0,
+                    "Priority": 50,
+                    "Sounds": "charge_release_6",
+                    "Group": "War"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50070,
+                    "Name": "DissolveSound",
+                    "Volume": 0.39990234,
+                    "Pitch": -20.0,
+                    "Min": 1.0,
+                    "Max": 3000.0,
+                    "Priority": 50,
+                    "Sounds": "death_burn_3,death_burn_1,death_burn_2",
+                    "Group": "War"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50173,
+                    "Name": "havoc_AOE_sweetener",
+                    "Volume": 0.60009766,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 3000.0,
+                    "Priority": 20,
+                    "Sounds": "break_building_1,break_building_4,break_building_5",
+                    "Group": "War Havoc"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50172,
+                    "Name": "havoc_chaos_level_up",
+                    "Volume": 0.75,
+                    "FollowActor": true,
+                    "Min": 100.0,
+                    "Max": 3000.0,
+                    "Priority": 0,
+                    "Sounds": "havoc_chaos_1",
+                    "Group": "War Havoc NoDuck"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50171,
+                    "Name": "havoc_fire_loop",
+                    "Volume": 0.15002441,
+                    "Loop": true,
+                    "FadeInTime": 0.5,
+                    "FadeOutTime": 0.5,
+                    "Offset": true,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 3000.0,
+                    "Priority": 15,
+                    "Sounds": "havoc_fire_loop",
+                    "Group": "War Havoc"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50166,
+                    "Name": "havoc_jump_whooshes",
+                    "Volume": 0.7548828,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "ExclusiveActor": true,
+                    "Min": 1.0,
+                    "Max": 3000.0,
+                    "Priority": 0,
+                    "Sounds": "havoc_jump_whoosh_2,havoc_jump_whoosh_1",
+                    "Group": "War Havoc"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50169,
+                    "Name": "havoc_land",
+                    "Volume": 0.89990234,
+                    "Min": 300.0,
+                    "Max": 3000.0,
+                    "Priority": 1,
+                    "Sounds": "hit_ground_heavy_3,hit_ground_heavy_1,hit_ground_heavy_2",
+                    "Group": "War Havoc"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50168,
+                    "Name": "havoc_off",
+                    "Volume": 0.8198242,
+                    "Min": 100.0,
+                    "Max": 3000.0,
+                    "Priority": 0,
+                    "Sounds": "havoc_off",
+                    "Group": "War Havoc NoDuck"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50167,
+                    "Name": "havoc_on",
+                    "Min": 500.0,
+                    "Max": 3000.0,
+                    "Priority": 0,
+                    "Sounds": "havoc_on",
+                    "Group": "War Havoc Duck"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50170,
+                    "Name": "havoc_pain",
+                    "Volume": 0.60009766,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "ExclusiveActor": true,
+                    "Min": 1.0,
+                    "Max": 3000.0,
+                    "Chance": 75,
+                    "Priority": 10,
+                    "Sounds": "havoc_pain_3,havoc_pain_1,havoc_pain_2",
+                    "Group": "War Havoc"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 60177,
+                    "Name": "impact_energy",
+                    "Volume": 0.5,
+                    "FollowActor": true,
+                    "Max": 3000.0,
+                    "Sounds": "Imp_Barrier_02,Imp_Barrier_01",
+                    "Group": "Impacts"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50051,
+                    "Name": "rope_grab_hang",
+                    "Volume": 0.5498047,
+                    "RandomVolume": 1.0,
+                    "RandomPitch": 2.0,
+                    "Min": 1.0,
+                    "Max": 3000.0,
+                    "Priority": 50,
+                    "Sounds": "rope_grab_hang_1",
+                    "Group": "War"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50054,
+                    "Name": "rope_grab_move",
+                    "Volume": 0.60009766,
+                    "RandomVolume": 1.0,
+                    "Pitch": -4.0,
+                    "RandomPitch": 2.0,
+                    "Min": 1.0,
+                    "Max": 3000.0,
+                    "Priority": 50,
+                    "Sounds": "rope_grab_move_1",
+                    "Group": "War"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50052,
+                    "Name": "rope_hang_tension",
+                    "Volume": 0.5498047,
+                    "RandomVolume": 1.0,
+                    "RandomPitch": 3.0,
+                    "Min": 1.0,
+                    "Max": 3000.0,
+                    "Chance": 18,
+                    "Priority": 50,
+                    "Sounds": "rope_hang_tension_4",
+                    "Group": "War"
+                  }
+                }
+              ]
+            }
+          },
+          "Visuals": {
+            "classname": "VisualList",
+            "properties": {
+              "Visuals": [
+                {
+                  "classname": "VisualDesc",
+                  "properties": {
+                    "ID": 0,
+                    "VisualName": "corrupted_anvil"
+                  }
+                },
+                {
+                  "classname": "VisualDesc",
+                  "properties": {
+                    "ID": 1,
+                    "VisualName": "clean_anvil"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "Methods": [
+    "onInit",
+    "onRemove",
+    "onQueryInteractive",
+    "anvilCleansed"
+  ],
+  "PackageName": "corrupted_anvil",
+  "DefaultValues": {
+    "SwordPiece": "ArmageddonBlade_Shard1",
+    "EmissiveAnimation": -1,
+    "WaitingToOpen": false,
+    "InteractiveDone": false,
+    "SwordPieceObject": null
+  },
+  "States": {
+    "Cleansing": {
+      "methods": [
+        "onQueryInteractive",
+        "onInteractiveComplete"
+      ]
+    },
+    "Idle": {
+      "methods": [
+        "onInteractive",
+        "onEnter"
+      ]
+    },
+    "Cleansed": {
+      "methods": [
+        "onQueryInteractive",
+        "onEnter"
+      ]
+    }
+  }
+}

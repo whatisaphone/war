@@ -1,0 +1,422 @@
+.method Enable
+0x0001 .param_count 0
+0x0001 .line 32
+0x0006     nop
+0x0007 .line 34
+0x000c     identifier this
+0x001b     property Enabled
+0x002d     bool true
+0x002f     assign
+0x0030     pop
+0x0031 .line 35
+0x0036     nop
+0x0037     return_null
+
+.method Disable
+0x0001 .param_count 0
+0x0001 .line 37
+0x0006     nop
+0x0007 .line 39
+0x000c     int 0
+0x0011     identifier World
+0x0021     method getTimer
+0x0034     identifier this
+0x0043     int 1
+0x0048     method_chain unsubscribeAll
+0x0061     pop
+0x0062 .line 40
+0x0067     identifier this
+0x0076     property Enabled
+0x0088     bool false
+0x008a     assign
+0x008b     pop
+0x008c .line 41
+0x0091     nop
+0x0092     return_null
+
+.method TestDistances
+0x0001 .param_count 1
+0x0001 .line 43
+0x0006     inc_scope
+0x0007     param_assign dt
+0x0014 .line 45
+0x0019     identifier this
+0x0028     property DistanceTimerRunning
+0x0047     bool false
+0x0049     assign
+0x004a     pop
+0x004b .line 48
+0x0050     int 0
+0x0055     var_assign dist
+0x0064 .line 49
+0x0069     bool false
+0x006b     var_assign ret
+0x0079 .line 52
+0x007e     identifier this
+0x008d     property targetobj
+0x00a1     identifier this
+0x00b0     property Target
+0x00c1     int 1
+0x00c6     identifier World
+0x00d6     method findObjectByName
+0x00f1     assign
+0x00f2     pop
+0x00f3 .line 53
+0x00f8     identifier this
+0x0107     property targetobj
+0x011b     null_object
+0x011c     equal
+0x011d     identifier this
+0x012c     property Target
+0x013d     string "Home"
+0x014c     not_equal
+0x014d     and
+0x014e     branch_false 0x01cd
+0x0153 .line 55
+0x0158     nop
+0x0159     string "(DistanceDelay.oc) Error-Target \'"
+0x0185     identifier this
+0x0194     property Target
+0x01a5     cat
+0x01a6     string " not found"
+0x01bb     cat
+0x01bc     pop
+0x01bd .line 56
+0x01c2     nop
+0x01c3 .line 57
+0x01c8     goto 0x08c9
+0x01cd .label 0x0569
+0x01d2 .line 59
+0x01d7     nop
+0x01d8     identifier this
+0x01e7     property ForAll
+0x01f8     branch_false 0x021e
+0x01fd .line 60
+0x0202     identifier ret
+0x0210     bool true
+0x0212     assign
+0x0213     pop
+0x0214 .line 61
+0x0219     goto 0x023a
+0x021e .label 0x056b
+0x0223 .line 62
+0x0228     identifier ret
+0x0236     bool false
+0x0238     assign
+0x0239     pop
+0x023a .label 0x056c
+0x023f .line 64
+0x0244     identifier this
+0x0253     property Enabled
+0x0265     branch_false 0x08c3
+0x026a .line 66
+0x026f     nop
+0x0270 .line 67
+0x0275     identifier this
+0x0284     property objarray
+0x0297     iterator
+0x0298 .label 0x056e
+0x029d     iterator_test
+0x029e     branch_false 0x06fc
+0x02a3     iterator_assign obji
+0x02b2 .line 68
+0x02b7     nop
+0x02b8     identifier obji
+0x02c7     null_object
+0x02c8     not_equal
+0x02c9     branch_false 0x06f0
+0x02ce .line 70
+0x02d3     nop
+0x02d4     int 0
+0x02d9     identifier obji
+0x02e8     method isDead
+0x02f9     not
+0x02fa     branch_false 0x06e5
+0x02ff .line 72
+0x0304     nop
+0x0305     identifier this
+0x0314     property Target
+0x0325     string "Home"
+0x0334     equal
+0x0335     string "base/monsterbase"
+0x0350     int 1
+0x0355     identifier obji
+0x0364     method instanceOf
+0x0379     and
+0x037a     branch_false 0x0416
+0x037f .line 73
+0x0384     identifier dist
+0x0393     int 0
+0x0398     identifier obji
+0x03a7     method getPosition
+0x03bd     identifier obji
+0x03cc     property HomePoint
+0x03e0     int 2
+0x03e5     identifier obji
+0x03f4     method getDistance
+0x040a     assign
+0x040b     pop
+0x040c .line 74
+0x0411     goto 0x0481
+0x0416 .label 0x0572
+0x041b .line 75
+0x0420     identifier dist
+0x042f     identifier this
+0x043e     property targetobj
+0x0452     identifier obji
+0x0461     int 1
+0x0466     method_chain getDistToActor
+0x047f     assign
+0x0480     pop
+0x0481 .label 0x0573
+0x0486 .line 78
+0x048b     identifier this
+0x049a     property ForAll
+0x04ab     branch_false 0x05c5
+0x04b0 .line 80
+0x04b5     nop
+0x04b6     identifier this
+0x04c5     property Operator
+0x04d8     int 0
+0x04dd     equal
+0x04de     branch_false 0x054c
+0x04e3 .line 82
+0x04e8     nop
+0x04e9     identifier dist
+0x04f8     identifier this
+0x0507     property Distance
+0x051a     less
+0x051b     branch_false 0x053c
+0x0520 .line 83
+0x0525     identifier ret
+0x0533     bool false
+0x0535     assign
+0x0536     pop
+0x0537 .line 84
+0x053c .label 0x0576
+0x0541     nop
+0x0542 .line 85
+0x0547     goto 0x05b0
+0x054c .label 0x0575
+0x0551 .line 87
+0x0556     nop
+0x0557     identifier dist
+0x0566     identifier this
+0x0575     property Distance
+0x0588     greater
+0x0589     branch_false 0x05aa
+0x058e .line 88
+0x0593     identifier ret
+0x05a1     bool false
+0x05a3     assign
+0x05a4     pop
+0x05a5 .line 89
+0x05aa .label 0x0578
+0x05af     nop
+0x05b0 .label 0x0577
+0x05b5 .line 90
+0x05ba     nop
+0x05bb .line 91
+0x05c0     goto 0x06d5
+0x05c5 .label 0x0574
+0x05ca .line 93
+0x05cf     nop
+0x05d0     identifier this
+0x05df     property Operator
+0x05f2     int 0
+0x05f7     equal
+0x05f8     branch_false 0x0666
+0x05fd .line 95
+0x0602     nop
+0x0603     identifier dist
+0x0612     identifier this
+0x0621     property Distance
+0x0634     greater
+0x0635     branch_false 0x0656
+0x063a .line 96
+0x063f     identifier ret
+0x064d     bool true
+0x064f     assign
+0x0650     pop
+0x0651 .line 97
+0x0656 .label 0x057b
+0x065b     nop
+0x065c .line 98
+0x0661     goto 0x06ca
+0x0666 .label 0x057a
+0x066b .line 100
+0x0670     nop
+0x0671     identifier dist
+0x0680     identifier this
+0x068f     property Distance
+0x06a2     less
+0x06a3     branch_false 0x06c4
+0x06a8 .line 101
+0x06ad     identifier ret
+0x06bb     bool true
+0x06bd     assign
+0x06be     pop
+0x06bf .line 102
+0x06c4 .label 0x057d
+0x06c9     nop
+0x06ca .label 0x057c
+0x06cf .line 103
+0x06d4     nop
+0x06d5 .label 0x0579
+0x06da .line 104
+0x06df     nop
+0x06e0 .line 105
+0x06e5 .label 0x0571
+0x06ea     nop
+0x06eb .line 106
+0x06f0 .label 0x0570
+0x06f5     nop
+0x06f6     inc
+0x06f7     goto 0x0298
+0x06fc .label 0x056f
+0x0701     pop
+0x0702 .line 108
+0x0707     identifier ret
+0x0715     bool true
+0x0717     equal
+0x0718     branch_false 0x0768
+0x071d .line 115
+0x0722     nop
+0x0723     string "Out"
+0x0731     int 1
+0x0736     identifier this
+0x0745     method doEvent
+0x0757     pop
+0x0758 .line 116
+0x075d     nop
+0x075e .line 117
+0x0763     goto 0x08b3
+0x0768 .label 0x057e
+0x076d .line 119
+0x0772     nop
+0x0773     identifier this
+0x0782     property CheckInterval
+0x079a     int 0
+0x079f     greater
+0x07a0     identifier this
+0x07af     property DistanceTimerRunning
+0x07ce     not
+0x07cf     and
+0x07d0     branch_false 0x08ad
+0x07d5 .line 122
+0x07da     nop
+0x07db     identifier this
+0x07ea     property DistanceTimerRunning
+0x0809     bool true
+0x080b     assign
+0x080c     pop
+0x080d .line 123
+0x0812     int 0
+0x0817     identifier World
+0x0827     method getTimer
+0x083a     identifier this
+0x0849     string "TestDistances"
+0x0861     identifier this
+0x0870     property CheckInterval
+0x0888     int 3
+0x088d     method_chain subscribe
+0x08a1     pop
+0x08a2 .line 124
+0x08a7     nop
+0x08a8 .line 125
+0x08ad .label 0x0580
+0x08b2     nop
+0x08b3 .label 0x057f
+0x08b8 .line 126
+0x08bd     nop
+0x08be .line 127
+0x08c3 .label 0x056d
+0x08c8     nop
+0x08c9 .label 0x056a
+0x08ce .line 128
+0x08d3     dec_scope
+0x08d4     return_null
+
+.method In
+0x0001 .param_count 0
+0x0001 .line 130
+0x0006     nop
+0x0007 .line 134
+0x000c     identifier this
+0x001b     property DistanceTimerRunning
+0x003a     not
+0x003b     branch_false 0x02f6
+0x0040 .line 136
+0x0045     nop
+0x0046     string "ObjectNames"
+0x005c     int 1
+0x0061     identifier this
+0x0070     method hasVariableIn
+0x0088     bool true
+0x008a     equal
+0x008b     branch_false 0x029f
+0x0090 .line 138
+0x0095     nop
+0x0096     identifier this
+0x00a5     property objarray
+0x00b8     string "ObjectNames"
+0x00ce     int 1
+0x00d3     identifier this
+0x00e2     method getVariableValue
+0x00fd     assign
+0x00fe     pop
+0x00ff .line 140
+0x0104     identifier this
+0x0113     property targetobj
+0x0127     identifier this
+0x0136     property Target
+0x0147     int 1
+0x014c     identifier World
+0x015c     method findObjectByName
+0x0177     assign
+0x0178     pop
+0x0179 .line 141
+0x017e     identifier this
+0x018d     property targetobj
+0x01a1     null_object
+0x01a2     equal
+0x01a3     identifier this
+0x01b2     property Target
+0x01c3     string "Home"
+0x01d2     not_equal
+0x01d3     and
+0x01d4     branch_false 0x024e
+0x01d9 .line 142
+0x01de     string "(DistanceDelay.oc) ERROR - target \'"
+0x020c     identifier this
+0x021b     property Target
+0x022c     cat
+0x022d     string " not found"
+0x0242     cat
+0x0243     print
+0x0244 .line 143
+0x0249     goto 0x028a
+0x024e .label 0x0583
+0x0253 .line 144
+0x0258     int 0
+0x025d     int 1
+0x0262     identifier this
+0x0271     method TestDistances
+0x0289     pop
+0x028a .label 0x0584
+0x028f .line 145
+0x0294     nop
+0x0295 .line 146
+0x029a     goto 0x02e6
+0x029f .label 0x0582
+0x02a4 .line 147
+0x02a9     string "(DistanceDelay.oc) Warning - no objects specified"
+0x02e5     print
+0x02e6 .label 0x0585
+0x02eb .line 148
+0x02f0     nop
+0x02f1 .line 149
+0x02f6 .label 0x0581
+0x02fb     nop
+0x02fc     return_null
+

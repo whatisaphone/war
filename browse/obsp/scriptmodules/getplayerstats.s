@@ -1,0 +1,105 @@
+.method In
+0x0001 .param_count 0
+0x0001 .line 23
+0x0006     inc_scope
+0x0007 .line 25
+0x000c     identifier Player
+0x001d     property StatTracker
+0x0033     var_assign StatTracker
+0x0049 .line 29
+0x004e     identifier this
+0x005d     property Stat
+0x006c     int 0
+0x0071     equal
+0x0072     branch_false 0x00f5
+0x0077 .line 30
+0x007c     string "Count"
+0x008c     identifier StatTracker
+0x00a2     property NumberOfDashes
+0x00bb     int 2
+0x00c0     identifier this
+0x00cf     method setVariableValue
+0x00ea     pop
+0x00eb .line 31
+0x00f0     goto 0x03d5
+0x00f5 .label 0x06be
+0x00fa     identifier this
+0x0109     property Stat
+0x0118     int 1
+0x011d     equal
+0x011e     branch_false 0x01ad
+0x0123 .line 32
+0x0128     string "Count"
+0x0138     identifier StatTracker
+0x014e     property NumberOfEnvWeaponsPickedUp
+0x0173     int 2
+0x0178     identifier this
+0x0187     method setVariableValue
+0x01a2     pop
+0x01a3 .line 33
+0x01a8     goto 0x03d0
+0x01ad .label 0x06c0
+0x01b2     identifier this
+0x01c1     property Stat
+0x01d0     int 2
+0x01d5     equal
+0x01d6     branch_false 0x025c
+0x01db .line 34
+0x01e0     string "Count"
+0x01f0     identifier StatTracker
+0x0206     property NumberOfFocusUses
+0x0222     int 2
+0x0227     identifier this
+0x0236     method setVariableValue
+0x0251     pop
+0x0252 .line 35
+0x0257     goto 0x03cb
+0x025c .label 0x06c2
+0x0261     identifier this
+0x0270     property Stat
+0x027f     int 3
+0x0284     equal
+0x0285     branch_false 0x0311
+0x028a .line 36
+0x028f     string "Count"
+0x029f     int 33
+0x02a4     int 1
+0x02a9     identifier Player
+0x02ba     method getScriptAttribute
+0x02d7     int 2
+0x02dc     identifier this
+0x02eb     method setVariableValue
+0x0306     pop
+0x0307 .line 37
+0x030c     goto 0x03c6
+0x0311 .label 0x06c4
+0x0316     identifier this
+0x0325     property Stat
+0x0334     int 4
+0x0339     equal
+0x033a     branch_false 0x03c1
+0x033f .line 38
+0x0344     string "Count"
+0x0354     int 32
+0x0359     int 1
+0x035e     identifier Player
+0x036f     method getScriptAttribute
+0x038c     int 2
+0x0391     identifier this
+0x03a0     method setVariableValue
+0x03bb     pop
+0x03bc .line 40
+0x03c1 .label 0x06c6
+0x03c6 .label 0x06c5
+0x03cb .label 0x06c3
+0x03d0 .label 0x06c1
+0x03d5 .label 0x06bf
+0x03da     string "Out"
+0x03e8     int 1
+0x03ed     identifier this
+0x03fc     method doEvent
+0x040e     pop
+0x040f .line 41
+0x0414     dec_scope
+0x0415     return_null
+

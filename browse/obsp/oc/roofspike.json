@@ -1,0 +1,178 @@
+{
+  "Parent": "Monster",
+  "Name": "al_tns_2-3/roofspike",
+  "Properties": {
+    "velPredictTime": {
+      "Flags": 0,
+      "Type": 1
+    }
+  },
+  "StaticProperties": {
+    "Description": {
+      "Value": {
+        "classname": "MonsterDesc",
+        "properties": {
+          "MoveStates": {
+            "classname": "CharacterMoveStateList",
+            "properties": {
+              "MoveStates": [
+                {
+                  "classname": "MonsterFallDesc",
+                  "properties": {
+                    "Name": "Fall",
+                    "ID": 1,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 1
+                      }
+                    },
+                    "Acceleration": 0.0,
+                    "Deceleration": 0.0,
+                    "GravityScale": 5.0,
+                    "IgnoreSelectiveBlockers": false
+                  }
+                },
+                {
+                  "classname": "MonsterFallDesc",
+                  "properties": {
+                    "Name": "Warning",
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 0
+                      }
+                    },
+                    "GravityScale": 5.0
+                  }
+                }
+              ]
+            }
+          },
+          "CharacterClass": "Greaver",
+          "HitInfos": {
+            "classname": "HitInfoList",
+            "properties": {
+              "HitInfos": [
+                {
+                  "classname": "HitInfo",
+                  "properties": {
+                    "ID": 1,
+                    "Name": "Impact",
+                    "Power": 3,
+                    "Damage": 20.0,
+                    "KnockBackPower": 300.0,
+                    "KnockUpPower": 300.0,
+                    "IsUnblockable": true
+                  }
+                }
+              ]
+            }
+          },
+          "Visual": "spiketargethelper",
+          "FactionID": 1,
+          "MoveWeight": 0.0,
+          "Animations": {
+            "classname": "AnimationList",
+            "properties": {
+              "Animations": [
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 1,
+                    "Name": "Fall",
+                    "Length": 300,
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "Duration": 300,
+                          "EffectName": "Ashland_Spikes_Fall_Hit"
+                        }
+                      },
+                      {
+                        "classname": "CombatEffectTrigger",
+                        "properties": {
+                          "CombatEffect": {
+                            "classname": "AOEInstantCombatEffect",
+                            "properties": {
+                              "Radius": 100.0,
+                              "Power": 2,
+                              "WeaponType": 2
+                            }
+                          },
+                          "TriggerFrame": 27
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "Name": "Warning",
+                    "Length": 30,
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "Duration": 100,
+                          "EffectName": "Ashland_Spikes_Warning_Loop"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          "Sounds": {
+            "classname": "SoundList",
+            "properties": {
+              "Sounds": [
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 1,
+                    "Name": ".."
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 0,
+                    "Name": "Impact",
+                    "Min": 5000.0,
+                    "Max": 10000.0,
+                    "Sounds": "gen_imp_rck_lrg_1"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "Methods": [
+    "onInit"
+  ],
+  "PackageName": "al_tns_2-3",
+  "DefaultValues": {
+    "velPredictTime": 1.25
+  },
+  "States": {
+    "Fall": {
+      "methods": [
+        "onFallTimer",
+        "onEnter"
+      ]
+    },
+    "Warning": {
+      "methods": [
+        "onWarningTimer",
+        "onEnter"
+      ]
+    }
+  }
+}

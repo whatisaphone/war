@@ -1,0 +1,80 @@
+{
+  "Parent": "base/standardbehavior",
+  "Name": "base/mssbehavior",
+  "Properties": {
+    "MSSMoveStates": {
+      "Flags": 4,
+      "Type": 9
+    },
+    "MSSStateTimers": {
+      "Flags": 4,
+      "Type": 9
+    },
+    "doFinishedCallback": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "doStopOnImpact": {
+      "Flags": 4,
+      "Type": 4
+    }
+  },
+  "StaticProperties": {},
+  "Methods": [
+    "begin"
+  ],
+  "PackageName": "base",
+  "DefaultValues": {
+    "doFinishedCallback": false,
+    "doStopOnImpact": false,
+    "ID": "MoveStateSequenceBehavior",
+    "MSSStateTimers": [],
+    "ComponentActions": [
+      {
+        "classname": "base/mssaction",
+        "properties": {
+          "ID": "RepeatOnImpact",
+          "ActionCode": 1,
+          "Priority": 1,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "OnCompleteState": "Exit",
+          "Position": [
+            1.5113662e-13,
+            1.5113662e-13,
+            1.5113662e-13
+          ]
+        }
+      },
+      {
+        "classname": "base/mssaction",
+        "properties": {
+          "ID": "StopOnImpact",
+          "ActionCode": 1,
+          "Priority": -1,
+          "InterruptibleBy": [
+            "Death",
+            "Interactive",
+            "Exit"
+          ],
+          "OnCompleteState": "Exit",
+          "Position": [
+            1.5113662e-13,
+            1.5113662e-13,
+            1.5113662e-13
+          ]
+        }
+      }
+    ],
+    "MSSMoveStates": []
+  },
+  "States": {
+    "Exit": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    }
+  }
+}

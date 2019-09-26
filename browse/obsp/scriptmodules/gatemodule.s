@@ -1,0 +1,83 @@
+.method In
+0x0001 .param_count 0
+0x0001 .line 23
+0x0006     nop
+0x0007 .line 27
+0x000c     string "Enabled"
+0x001e     int 1
+0x0023     identifier this
+0x0032     method hasVariableIn
+0x004a     branch_false 0x00c0
+0x004f .line 29
+0x0054     nop
+0x0055     identifier this
+0x0064     property enable
+0x0075     string "Enabled"
+0x0087     int 1
+0x008c     identifier this
+0x009b     method getVariableIn
+0x00b3     assign
+0x00b4     pop
+0x00b5 .line 30
+0x00ba     nop
+0x00bb .line 32
+0x00c0 .label 0x0107
+0x00c5     identifier this
+0x00d4     property enable
+0x00e5     bool true
+0x00e7     equal
+0x00e8     branch_false 0x0138
+0x00ed .line 34
+0x00f2     nop
+0x00f3     string "Out"
+0x0101     int 1
+0x0106     identifier this
+0x0115     method doEvent
+0x0127     pop
+0x0128 .line 35
+0x012d     nop
+0x012e .line 36
+0x0133     goto 0x0181
+0x0138 .label 0x0108
+0x013d .line 38
+0x0142     nop
+0x0143     string "NotOut"
+0x0154     int 1
+0x0159     identifier this
+0x0168     method doEvent
+0x017a     pop
+0x017b .line 39
+0x0180     nop
+0x0181 .label 0x0109
+0x0186 .line 40
+0x018b     nop
+0x018c     return_null
+
+.method Enable
+0x0001 .param_count 0
+0x0001 .line 42
+0x0006     nop
+0x0007 .line 44
+0x000c     identifier this
+0x001b     property enable
+0x002c     bool true
+0x002e     assign
+0x002f     pop
+0x0030 .line 45
+0x0035     nop
+0x0036     return_null
+
+.method Disable
+0x0001 .param_count 0
+0x0001 .line 47
+0x0006     nop
+0x0007 .line 49
+0x000c     identifier this
+0x001b     property enable
+0x002c     bool false
+0x002e     assign
+0x002f     pop
+0x0030 .line 50
+0x0035     nop
+0x0036     return_null
+

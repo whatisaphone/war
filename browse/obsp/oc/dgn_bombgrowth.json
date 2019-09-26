@@ -1,0 +1,294 @@
+{
+  "Parent": "BombGrowth",
+  "Name": "dgn_bombgrowth/dgn_bombgrowth",
+  "Properties": {
+    "spawner": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "PickupCount": {
+      "Flags": 2,
+      "Type": 1
+    }
+  },
+  "StaticProperties": {
+    "Description": {
+      "Value": {
+        "classname": "BombGrowthDesc",
+        "properties": {
+          "ExplodeDelay": 1.0,
+          "ExplosionCombatEffect": {
+            "classname": "AOEInstantCombatEffect",
+            "properties": {
+              "Radius": 150.0,
+              "Height": 200.0,
+              "HitInfoID": 0,
+              "SelfDamageHitInfoID": 200,
+              "FactionOverrideID": -2,
+              "SourceOrTarget": 1,
+              "Particles": "bombgrowth_explode",
+              "CanDamageOwner": true,
+              "Effects": [
+                {
+                  "classname": "EnhancementEffect",
+                  "properties": {
+                    "Enhancement": "war/LightFireEnhancement"
+                  }
+                }
+              ]
+            }
+          },
+          "HitUnimbuedEffect": "bombgrowth_stuck_wall",
+          "HitImbuedEffect": "bombgrowth_stuck_hellgrowth",
+          "Visual": "dgn_bombgrowth",
+          "Animations": {
+            "classname": "AnimationList",
+            "properties": {
+              "Animations": [
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 3,
+                    "Name": "Activate",
+                    "Triggers": [
+                      {
+                        "classname": "MaterialTrigger",
+                        "properties": {
+                          "Material": "HellgrowthDetach",
+                          "OverrideMaterial": "dgn_bombgrowth_imbued"
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "Duration": 120,
+                          "EffectName": "bombgrowth_active_volatile"
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "bombgrowth_active_warning",
+                          "TriggerFrame": 120
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 64,
+                    "Name": "Activate just prior to explosion",
+                    "Triggers": [
+                      {
+                        "classname": "MaterialTrigger",
+                        "properties": {
+                          "Material": "HellgrowthDetach",
+                          "OverrideMaterial": "dgn_bombgrowth_activated"
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "Duration": 120,
+                          "EffectName": "bombgrowth_active_volatile"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 1,
+                    "Name": "Active, explode if hit",
+                    "Length": 2,
+                    "Triggers": [
+                      {
+                        "classname": "MaterialTrigger",
+                        "properties": {
+                          "Material": "HellgrowthDetach",
+                          "OverrideMaterial": "dgn_bombgrowth_imbued"
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "bombgrowth_active",
+                          "TriggerFrame": 1
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 5,
+                    "Name": "Dissolve"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 9,
+                    "Name": "Explode",
+                    "Triggers": [
+                      {
+                        "classname": "CameraShakeTrigger",
+                        "properties": {
+                          "VPower": 1.0,
+                          "Duration": 2.0,
+                          "AttenStart": 333.0,
+                          "AttenEnd": 1111.0,
+                          "BlurPower": 2.0
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 2,
+                    "Name": "Imbue",
+                    "Triggers": [
+                      {
+                        "classname": "MaterialTrigger",
+                        "properties": {
+                          "Material": "HellgrowthDetach",
+                          "OverrideMaterial": "dgn_bombgrowth_imbued"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "Name": "Inert",
+                    "Looping": true,
+                    "Triggers": [
+                      {
+                        "classname": "MaterialTrigger",
+                        "properties": {
+                          "Material": "HellgrowthDetach",
+                          "OverrideMaterial": "dgn_bombgrowth_notimbued"
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "bombgrowth_inert",
+                          "TriggerFrame": 1
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 10,
+                    "Name": "On Grow - Imbued",
+                    "Length": 30,
+                    "Triggers": [
+                      {
+                        "classname": "MaterialTrigger",
+                        "properties": {
+                          "Material": "HellgrowthDetach",
+                          "OverrideMaterial": "dgn_bombgrowth_imbued"
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "TrackEffect": false,
+                          "EffectName": "bombgrowth_grow"
+                        }
+                      },
+                      {
+                        "classname": "DissolveTrigger",
+                        "properties": {
+                          "Brightness": 2.0,
+                          "DissolveIn": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 20,
+                    "Name": "On Grow - Not Imbued",
+                    "Length": 31,
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "TrackEffect": false,
+                          "EffectName": "bombgrowth_grow_inert"
+                        }
+                      },
+                      {
+                        "classname": "MaterialTrigger",
+                        "properties": {
+                          "Material": "HellgrowthDetach",
+                          "OverrideMaterial": "bombgrowth_notimbued_dissolve"
+                        }
+                      },
+                      {
+                        "classname": "FadeTrigger",
+                        "properties": {
+                          "From": 0.0,
+                          "To": 1.0
+                        }
+                      },
+                      {
+                        "classname": "MaterialTrigger",
+                        "properties": {
+                          "Material": "HellgrowthDetach",
+                          "OverrideMaterial": "dgn_bombgrowth_notimbued",
+                          "TriggerFrame": 31
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "ExplodeHitInfo": {
+      "Value": {
+        "classname": "HitInfo",
+        "properties": {
+          "WType": 22,
+          "HType": 2,
+          "Power": 3,
+          "Damage": 50.0,
+          "KnockBackPower": 400.0,
+          "KnockUpPower": 500.0,
+          "EnvPowerScale": 3.5
+        }
+      }
+    }
+  },
+  "Methods": [
+    "setSpawner",
+    "onRemove",
+    "onExplode",
+    "getHitInfo",
+    "onGrab"
+  ],
+  "PackageName": "dgn_bombgrowth",
+  "DefaultValues": {
+    "PickupCount": 0,
+    "spawner": null
+  },
+  "States": {}
+}

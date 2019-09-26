@@ -1,0 +1,186 @@
+{
+  "Parent": "base/standardbehavior",
+  "Name": "abyssalhorsemen/abhorsepatrolbehavior",
+  "Properties": {
+    "ApproachRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachMoveStateMove": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "ApproachForceCloseRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachForceCompleteRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMoveStateIdle": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleMoveStateFidget": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleFidgetChance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleFidgetMinTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleFidgetMaxTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMinTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMaxTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "BlockEnabled": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "BlockChance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "BlockMoveStateBlock": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "BlockMinDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "BlockMaxDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "BlockAttackTypes": {
+      "Flags": 4,
+      "Type": 1
+    },
+    "ClearObstacleMoveState": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "PathName": {
+      "Flags": 0,
+      "Type": 1
+    }
+  },
+  "StaticProperties": {},
+  "Methods": [
+    "begin"
+  ],
+  "PackageName": "abyssalhorsemen",
+  "DefaultValues": {
+    "BlockAttackTypes": [
+      2,
+      3,
+      4
+    ],
+    "ApproachForceCompleteRange": -1,
+    "IdleMinTime": 2,
+    "BlockChance": 0.8,
+    "BlockEnabled": false,
+    "IdleFidgetChance": 0,
+    "IdleFidgetMinTime": 3,
+    "ApproachMoveStateMove": "",
+    "ID": "abhorsepatrolbehavior",
+    "BlockMoveStateBlock": "",
+    "BackgroundActions": [],
+    "IdleMoveStateFidget": "",
+    "BlockMaxDelay": 3.0,
+    "ClearObstacleMoveState": "StandardAttack",
+    "BlockMinDelay": 1.0,
+    "IdleMoveStateIdle": "Idle",
+    "ApproachRange": 150,
+    "OnAttackHandler": [
+      {
+        "classname": "base/blockaction",
+        "properties": {
+          "ID": "Block",
+          "ActionCode": 5,
+          "Priority": 16,
+          "InterruptibleBy": [
+            "Death",
+            "Exit",
+            "Interactive",
+            "Impact"
+          ],
+          "ResourceLock": "Block",
+          "Position": [
+            7.817167e28,
+            -0.0046433774,
+            2.4651903e-32
+          ]
+        }
+      }
+    ],
+    "PathBlockedBreakableHandler": {
+      "classname": "base/clearobstacleaction",
+      "properties": {
+        "ID": "Clear Obstacle",
+        "ActionCode": 5,
+        "Priority": 16,
+        "InterruptibleBy": [
+          "Death",
+          "Exit",
+          "Interactive",
+          "Impact"
+        ],
+        "Position": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "IdleMaxTime": 3,
+    "PathName": "",
+    "ComponentActions": [
+      {
+        "classname": "base/approachpatrolaction",
+        "properties": {
+          "ID": "ApproachPatrol",
+          "Priority": 9,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "Position": [
+            null,
+            0.0,
+            -6.2343606e-38
+          ]
+        }
+      },
+      {
+        "classname": "base/idleaction",
+        "properties": {
+          "ID": "Idle",
+          "ActionCode": 1,
+          "Priority": 1,
+          "Position": [
+            7.797252e-31,
+            4.0445684e22,
+            7.0705007e-31
+          ]
+        }
+      }
+    ],
+    "ApproachForceCloseRange": -1,
+    "IdleFidgetMaxTime": 5
+  },
+  "States": {}
+}

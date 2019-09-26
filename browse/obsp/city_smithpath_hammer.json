@@ -1,0 +1,382 @@
+{
+  "Parent": "Character",
+  "Name": "city_smithpath/city_smithpath_hammer",
+  "Properties": {
+    "NoGauntletMoveStateID": {
+      "Flags": 2,
+      "Type": 2
+    },
+    "GauntletMoveStateID": {
+      "Flags": 2,
+      "Type": 2
+    },
+    "CanInteract": {
+      "Flags": 2,
+      "Type": 4
+    },
+    "RemoveOnComplete": {
+      "Flags": 2,
+      "Type": 4
+    }
+  },
+  "StaticProperties": {
+    "Description": {
+      "Value": {
+        "classname": "CharacterDesc",
+        "properties": {
+          "MoveStates": {
+            "classname": "CharacterMoveStateList",
+            "properties": {
+              "MoveStates": [
+                {
+                  "classname": "CharacterGenericStateDesc",
+                  "properties": {
+                    "Name": "Idle",
+                    "ID": 608,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 13
+                      }
+                    }
+                  }
+                },
+                {
+                  "classname": "CharacterDoInteractiveDesc",
+                  "properties": {
+                    "TargetType": "war/war",
+                    "ConvergeTime": 0.0,
+                    "UseWeapon": 0,
+                    "LoopCount": 100,
+                    "ButtonMash": true,
+                    "ButtonMashButton": 5,
+                    "MashDecayArray": [
+                      {
+                        "classname": "ButtonMashPoint",
+                        "properties": {
+                          "ButtonMashDecrement": 0.25
+                        }
+                      }
+                    ],
+                    "AnimationID": 9,
+                    "TargetAnimController": {
+                      "classname": "SpeedBlendController",
+                      "properties": {
+                        "SpeedRef": 0.25,
+                        "AnimController1": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 9
+                          }
+                        },
+                        "AnimController2": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 7
+                          }
+                        },
+                        "Ease": 1.0
+                      }
+                    },
+                    "OnMashSuccess": 609,
+                    "OnMashFailure": 610,
+                    "AnimationSource": 0,
+                    "Name": "Interactive - Gauntlet",
+                    "ID": 605,
+                    "AnimController": {
+                      "classname": "SpeedBlendController",
+                      "properties": {
+                        "SpeedRef": 1.0,
+                        "AnimController1": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 9
+                          }
+                        },
+                        "AnimController2": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 7
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "classname": "CharacterDoInteractiveDesc",
+                  "properties": {
+                    "TargetType": "war/war",
+                    "UseWeapon": 0,
+                    "AnimationID": 6,
+                    "TargetAnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 6
+                      }
+                    },
+                    "OnComplete": 608,
+                    "OnCompleteOther": 0,
+                    "AnimationSource": 0,
+                    "Name": "Interactive - Gauntlet Fail",
+                    "ID": 610,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 6
+                      }
+                    }
+                  }
+                },
+                {
+                  "classname": "CharacterDoInteractiveDesc",
+                  "properties": {
+                    "TargetType": "war/war",
+                    "UseWeapon": 0,
+                    "AnimationID": 12,
+                    "TargetAnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 12
+                      }
+                    },
+                    "OnCompleteOther": 0,
+                    "AnimationSource": 0,
+                    "Name": "Interactive - Gauntlet Resolve",
+                    "ID": 609,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 12
+                      }
+                    }
+                  }
+                },
+                {
+                  "classname": "CharacterDoInteractiveDesc",
+                  "properties": {
+                    "TargetType": "war/war",
+                    "Initiator": 1,
+                    "MaxErrorDistance": 200.0,
+                    "Arc": 360.0,
+                    "UseWeapon": 0,
+                    "AnimationID": 10,
+                    "TargetAnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 10
+                      }
+                    },
+                    "OnComplete": 605,
+                    "AnimationSource": 0,
+                    "Name": "Interactive - Gauntlet Start",
+                    "ID": 604,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 10
+                      }
+                    }
+                  }
+                },
+                {
+                  "classname": "CharacterDoInteractiveDesc",
+                  "properties": {
+                    "TargetType": "war/war",
+                    "DoCollisionOther": true,
+                    "ConvergeTime": 0.0,
+                    "UseWeapon": 0,
+                    "InitialMashValue": 0.1,
+                    "MashIncrement": 0.1,
+                    "AnimationID": 11,
+                    "TargetAnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 11,
+                        "Ease": 0.0
+                      }
+                    },
+                    "OnComplete": 607,
+                    "AnimationSource": 0,
+                    "Name": "Interactive - No Gauntlet",
+                    "ID": 606,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 11,
+                        "Ease": 0.0
+                      }
+                    }
+                  }
+                },
+                {
+                  "classname": "CharacterDoInteractiveDesc",
+                  "properties": {
+                    "TargetType": "war/war",
+                    "IgnoreTime": 1.5,
+                    "DoCollisionOther": true,
+                    "UseWeapon": 0,
+                    "InitialMashValue": 0.1,
+                    "MashIncrement": 0.1,
+                    "AnimationID": 8,
+                    "TargetAnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 8
+                      }
+                    },
+                    "OnComplete": 608,
+                    "OnCompleteOther": 0,
+                    "AnimationSource": 0,
+                    "Name": "Interactive - No Gauntlet Resolve",
+                    "ID": 607,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 8
+                      }
+                    }
+                  }
+                },
+                {
+                  "classname": "CharacterDoInteractiveDesc",
+                  "properties": {
+                    "TargetType": "war/war",
+                    "Initiator": 1,
+                    "MaxErrorDistance": 200.0,
+                    "Arc": 360.0,
+                    "DoCollisionOther": true,
+                    "UseWeapon": 0,
+                    "AnimationID": 5,
+                    "TargetAnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 5
+                      }
+                    },
+                    "OnComplete": 606,
+                    "AnimationSource": 0,
+                    "Name": "Interactive - No Gauntlet Start",
+                    "ID": 601,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 5
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "Invincible": true,
+          "Visual": "city_smithpath_hammerlift",
+          "Animations": {
+            "classname": "AnimationList",
+            "properties": {
+              "Animations": [
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 8,
+                    "Name": "City_SmithPath_HammerLift_Fail",
+                    "AnimationName": "City_SmithPath_HammerLift_Fail"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 13,
+                    "Name": "City_SmithPath_HammerLift_Idle",
+                    "AnimationName": "City_SmithPath_HammerLift_Idle"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 11,
+                    "Name": "City_SmithPath_HammerLift_Loop",
+                    "AnimationName": "City_SmithPath_HammerLift_Loop"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 5,
+                    "Name": "City_SmithPath_HammerLift_Start",
+                    "AnimationName": "City_SmithPath_HammerLift_Start"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 6,
+                    "Name": "City_SmithPath_HammerLiftStr_Fail",
+                    "AnimationName": "City_SmithPath_HammerLiftStr_Fail"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 7,
+                    "Name": "City_SmithPath_HammerLiftStr_Lose",
+                    "AnimationName": "City_SmithPath_HammerLiftStr_Lose"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 12,
+                    "Name": "City_SmithPath_HammerLiftStr_Resolve",
+                    "AnimationName": "City_SmithPath_HammerLiftStr_Resolve",
+                    "Triggers": [
+                      {
+                        "classname": "EventTrigger",
+                        "properties": {
+                          "EventName": "hammerLiftSuccess",
+                          "IsRequired": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 10,
+                    "Name": "City_SmithPath_HammerLiftStr_Start",
+                    "AnimationName": "City_SmithPath_HammerLiftStr_Start"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 9,
+                    "Name": "City_SmithPath_HammerLiftStr_Win",
+                    "AnimationName": "City_SmithPath_HammerLiftStr_Win"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "Methods": [
+    "onInit",
+    "hammerLiftSuccess",
+    "onQueryInteractive",
+    "onInteractiveComplete",
+    "deactivateHammerInteractives",
+    "activateHammerInteractives"
+  ],
+  "PackageName": "city_smithpath",
+  "DefaultValues": {
+    "NoGauntletMoveStateID": 601,
+    "RemoveOnComplete": false,
+    "GauntletMoveStateID": 604,
+    "CanInteract": true
+  },
+  "States": {}
+}

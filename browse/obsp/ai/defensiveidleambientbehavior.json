@@ -1,0 +1,109 @@
+{
+  "Parent": "base/behavior",
+  "Name": "base/defensiveidleambientbehavior",
+  "Properties": {
+    "MoveStateIdle": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "MoveStateTransition": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "MoveStateTaunt": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "AlertDistance": {
+      "Flags": 4,
+      "Type": 1
+    },
+    "DefensiveAlertDistance": {
+      "Flags": 4,
+      "Type": 1
+    },
+    "CanTransition": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "CanTaunt": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "CanFollowSpawnPath": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "DefensiveTauntChance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "TauntMinTime": {
+      "Flags": 4,
+      "Type": 1
+    },
+    "TauntMaxTime": {
+      "Flags": 4,
+      "Type": 1
+    }
+  },
+  "StaticProperties": {},
+  "Methods": [
+    "begin",
+    "end",
+    "onDead",
+    "onDeathBlow",
+    "onInteractive"
+  ],
+  "PackageName": "base",
+  "DefaultValues": {
+    "MoveStateTransition": "Idle",
+    "MoveStateIdle": "Idle",
+    "TauntMinTime": 1.5,
+    "MoveStateTaunt": "Taunt",
+    "AlertDistance": -1,
+    "CanTaunt": false,
+    "CanFollowSpawnPath": false,
+    "DefensiveAlertDistance": 50,
+    "CanTransition": false,
+    "DefensiveTauntChance": 1.0,
+    "TauntMaxTime": 4
+  },
+  "States": {
+    "Scan": {
+      "methods": [
+        "onScanTimer",
+        "onEnter"
+      ]
+    },
+    "TransitionCombat": {
+      "methods": [
+        "onActionComplete",
+        "onEnter"
+      ]
+    },
+    "DefensiveScan": {
+      "methods": [
+        "onActionComplete",
+        "onHit",
+        "onDefScanTimer",
+        "onEnter",
+        "onTauntTimer"
+      ]
+    },
+    "Dead": {
+      "methods": []
+    },
+    "Interactive": {
+      "methods": [
+        "onEnter"
+      ]
+    },
+    "SpawnFollowPath": {
+      "methods": [
+        "onActionComplete",
+        "onEnter"
+      ]
+    }
+  }
+}

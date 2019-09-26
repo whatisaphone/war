@@ -1,0 +1,68 @@
+.method In
+0x0001 .param_count 0
+0x0001 .line 22
+0x0006     nop
+0x0007 .line 24
+0x000c     string "Indicator"
+0x0020     int 1
+0x0025     identifier this
+0x0034     method hasVariableIn
+0x004c     branch_false 0x0179
+0x0051 .line 26
+0x0056     inc_scope
+0x0057     string "Indicator"
+0x006b     int 1
+0x0070     identifier this
+0x007f     method getVariableValue
+0x009a     var_assign indicators
+0x00af .line 28
+0x00b4     identifier indicators
+0x00c9     iterator
+0x00ca .label 0x03c9
+0x00cf     iterator_test
+0x00d0     branch_false 0x0163
+0x00d5     iterator_assign indobj
+0x00e6 .line 29
+0x00eb     nop
+0x00ec     int 0
+0x00f1     identifier Player
+0x0102     method getSaveData
+0x0118     identifier indobj
+0x0129     property Name
+0x0138     int 1
+0x013d     method_chain clearIndicator
+0x0156     pop
+0x0157 .line 30
+0x015c     nop
+0x015d     inc
+0x015e     goto 0x00ca
+0x0163 .label 0x03ca
+0x0168     pop
+0x0169 .line 31
+0x016e     dec_scope
+0x016f .line 32
+0x0174     goto 0x01f8
+0x0179 .label 0x03c8
+0x017e .line 34
+0x0183     nop
+0x0184     int 0
+0x0189     identifier Player
+0x019a     method getSaveData
+0x01b0     identifier this
+0x01bf     property Indicator
+0x01d3     int 1
+0x01d8     method_chain clearIndicator
+0x01f1     pop
+0x01f2 .line 35
+0x01f7     nop
+0x01f8 .label 0x03cb
+0x01fd .line 37
+0x0202     string "Out"
+0x0210     int 1
+0x0215     identifier this
+0x0224     method doEvent
+0x0236     pop
+0x0237 .line 38
+0x023c     nop
+0x023d     return_null
+

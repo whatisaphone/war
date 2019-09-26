@@ -1,0 +1,69 @@
+.method onPickup
+0x0001 .param_count 0
+0x0001 .line 159
+0x0006     nop
+0x0007 .line 161
+0x000c     string "MercyAcquired"
+0x0024     int 1
+0x0029     identifier Player
+0x003a     method executeEvent
+0x0051     pop
+0x0052 .line 162
+0x0057     nop
+0x0058     return_null
+
+.method shouldTagTarget
+0x0001 .param_count 1
+0x0001 .line 164
+0x0006     inc_scope
+0x0007     param_assign actor
+0x0017 .line 166
+0x001c     bool false
+0x001e     var_assign ret
+0x002c .line 168
+0x0031     string "ic_props/ic_spidersac"
+0x0051     int 1
+0x0056     identifier actor
+0x0066     method instanceOf
+0x007b     branch_false 0x00a1
+0x0080 .line 169
+0x0085     identifier ret
+0x0093     bool true
+0x0095     assign
+0x0096     pop
+0x0097 .line 170
+0x009c     goto 0x0179
+0x00a1 .label 0x1799
+0x00a6     string "Character"
+0x00ba     int 1
+0x00bf     identifier actor
+0x00cf     method instanceOf
+0x00e4     branch_false 0x010a
+0x00e9 .line 171
+0x00ee     identifier ret
+0x00fc     bool true
+0x00fe     assign
+0x00ff     pop
+0x0100 .line 172
+0x0105     goto 0x0174
+0x010a .label 0x179b
+0x010f     string "Projectile"
+0x0124     int 1
+0x0129     identifier actor
+0x0139     method instanceOf
+0x014e     branch_false 0x016f
+0x0153 .line 173
+0x0158     identifier ret
+0x0166     bool true
+0x0168     assign
+0x0169     pop
+0x016a .line 175
+0x016f .label 0x179d
+0x0174 .label 0x179c
+0x0179 .label 0x179a
+0x017e     identifier ret
+0x018c     return
+0x018d .line 176
+0x0192     dec_scope
+0x0193     return_null
+

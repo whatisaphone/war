@@ -1,0 +1,359 @@
+{
+  "Parent": "base/standardbehavior",
+  "Name": "base/rangedonlybehavior",
+  "Properties": {
+    "TurretMode": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "TurretBreakoutProximity": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ScanAlertDistance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ScanInterval": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "FaceTargetAngleDiff": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "FaceTargetMoveStateTurnLeft": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "FaceTargetMoveStateTurnRight": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "RangedAttackMoveStateAttack": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "RangedAttackMinDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "RangedAttackMaxDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "RangedAttackMinRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "RangedAttackMaxRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "RangedAttackPredictTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "RangedAttackPressure": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "RangedAttackAngleDiff": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "RangedLockOtherModifier": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMoveStateIdle": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleMinTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMaxTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMoveStateFidget": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleFidgetChance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleFidgetMinTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleFidgetMaxTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "BlockEnabled": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "BlockChance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "BlockMoveStateBlock": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "BlockMinDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "BlockMaxDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "BlockAttackTypes": {
+      "Flags": 4,
+      "Type": 1
+    },
+    "BlockUseMonsterBlockChance": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "AvoidMoveStateRight": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "AvoidMoveStateLeft": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "AvoidMaxRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AvoidMinRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AvoidMinDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AvoidMaxDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AvoidAttackTypes": {
+      "Flags": 4,
+      "Type": 1
+    }
+  },
+  "StaticProperties": {},
+  "Methods": [
+    "begin"
+  ],
+  "PackageName": "base",
+  "DefaultValues": {
+    "BlockAttackTypes": [
+      2,
+      3,
+      4
+    ],
+    "RangedAttackMinRange": 0,
+    "IdleMinTime": 2,
+    "BlockChance": 0.8,
+    "RangedAttackMaxRange": 3000,
+    "BlockEnabled": false,
+    "IdleFidgetChance": 0,
+    "AvoidMinRange": -1,
+    "AvoidMoveStateRight": "",
+    "IdleFidgetMinTime": 2,
+    "AvoidMaxRange": -1,
+    "FaceTargetMoveStateTurnRight": "FaceRight",
+    "FaceTargetAngleDiff": 180,
+    "BlockUseMonsterBlockChance": false,
+    "RangedAttackAngleDiff": -1,
+    "ID": "RangedOnlyBehavior",
+    "BlockMoveStateBlock": "Block",
+    "BackgroundActions": [
+      {
+        "classname": "base/scanaction",
+        "properties": {
+          "OnScanAcquiredTarget": "FoundMeleeTarget",
+          "ScanMeleeOnly": false,
+          "ScanAllowRescansWithTarget": true,
+          "ID": "UnreachableScan",
+          "ValidStates": [
+            "TargetUnreachableMode"
+          ],
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/scanaction",
+        "properties": {
+          "OnScanLostTarget": "",
+          "ScanMeleeOnly": false,
+          "ScanAllowRescansWithTarget": true,
+          "ID": "TurretScan",
+          "ValidStates": [
+            "TurretMode"
+          ],
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "RangedAttackPressure": -1,
+    "IdleMoveStateFidget": "",
+    "TurretBreakoutProximity": 200,
+    "RangedLockOtherModifier": 1.0,
+    "RangedAttackMoveStateAttack": "RangedAttack",
+    "BlockMaxDelay": 3.0,
+    "BlockMinDelay": 1.0,
+    "ScanInterval": 1.5,
+    "IdleMoveStateIdle": "Idle",
+    "OnAttackHandler": [
+      {
+        "classname": "base/blockaction",
+        "properties": {
+          "ID": "Block",
+          "ActionCode": 5,
+          "Priority": 16,
+          "InterruptibleBy": [
+            "Death",
+            "Exit",
+            "Interactive",
+            "Impact"
+          ],
+          "ResourceLock": "Block",
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/avoidaction",
+        "properties": {
+          "ID": "AvoidDash",
+          "Priority": 17,
+          "InterruptibleBy": [
+            "Death",
+            "Exit",
+            "Interactive",
+            "Impact"
+          ],
+          "ResourceLock": "Block",
+          "Position": [
+            1.6126867e-10,
+            1.6153101e-10,
+            1.6152957e-10
+          ]
+        }
+      }
+    ],
+    "AvoidMaxDelay": -1,
+    "FaceTargetMoveStateTurnLeft": "FaceLeft",
+    "AvoidAttackTypes": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "IdleMaxTime": 3,
+    "AvoidMinDelay": -1,
+    "TurretMode": false,
+    "RangedAttackMaxDelay": 2.0,
+    "ComponentActions": [
+      {
+        "classname": "base/facetargetaction",
+        "properties": {
+          "ID": "FaceTarget",
+          "Priority": 2,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "Position": [
+            3.524483e-10,
+            6.800035e-33,
+            4e-45
+          ]
+        }
+      },
+      {
+        "classname": "base/rangedattackaction",
+        "properties": {
+          "ActionCode": 2,
+          "Priority": 7,
+          "InterruptibleBy": [
+            "Death"
+          ],
+          "ResourceLock": "RangedAttack",
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/idleaction",
+        "properties": {
+          "ActionCode": 1,
+          "Priority": 1,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "AvoidMoveStateLeft": "",
+    "IdleFidgetMaxTime": 4,
+    "RangedAttackPredictTime": 0.5,
+    "RangedAttackMinDelay": 1.0,
+    "ScanAlertDistance": -1
+  },
+  "States": {
+    "FoundMeleeTarget": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "TurretMode": {
+      "methods": [
+        "getCurrentState",
+        "onEnter",
+        "checkRange"
+      ]
+    },
+    "TargetUnreachableMode": {
+      "methods": [
+        "getCurrentState"
+      ]
+    },
+    "LostTarget": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    }
+  }
+}

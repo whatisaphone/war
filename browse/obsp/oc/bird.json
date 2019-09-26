@@ -1,0 +1,1844 @@
+{
+  "Parent": "Bird",
+  "Name": "bird/bird",
+  "Properties": {},
+  "StaticProperties": {
+    "Description": {
+      "Value": {
+        "classname": "BirdDesc",
+        "properties": {
+          "MountWeapon": "bird/BirdFireBreathWeapon",
+          "TargetPainterNodePos": "Bird_FireBreath_NodePos",
+          "TargetPainterNodeDir": "Bird_FireBreath_NodeDir",
+          "OnDeathMoveState": 6,
+          "StartMoveState": 1,
+          "PlayerStartMoveState": 3,
+          "DebugTimeStep": 0.02,
+          "MoveStates": {
+            "classname": "CharacterMoveStateList",
+            "properties": {
+              "MoveStates": [
+                {
+                  "classname": "BirdIdleDesc",
+                  "properties": {
+                    "Name": "Bird Dead",
+                    "ID": 6,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 50117
+                      }
+                    },
+                    "InAir": true,
+                    "UseMotionNode": true
+                  }
+                },
+                {
+                  "classname": "PlayerMountInteractiveDesc",
+                  "properties": {
+                    "PhantomName": "AngelicBeast_BBox",
+                    "PhantomErrorDistance": 200.0,
+                    "MountInteractive": true,
+                    "UseMountMoveStates": true,
+                    "TargetType": "war/war",
+                    "Initiator": 1,
+                    "MaxErrorDistance": 400.0,
+                    "Arc": 180.0,
+                    "DoCollision": false,
+                    "UseWeapon": 0,
+                    "AnimationID": 4,
+                    "TargetAnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 0
+                      }
+                    },
+                    "OnComplete": 0,
+                    "OnCompleteOther": 0,
+                    "UseCameraNode": true,
+                    "AnimationSource": 0,
+                    "Name": "Bird Dismount Interactive",
+                    "ID": 5,
+                    "CameraStateDesc": {
+                      "classname": "BirdCameraStateDesc",
+                      "properties": {
+                        "Zoom": 700.0,
+                        "UpDownOffset": 135.0,
+                        "MaxTiltAngle": 125.0,
+                        "MaxMouseReticleXoffset": 4.591404e-10,
+                        "MaxMouseReticleYoffset": 0.0,
+                        "CheckTargetRadius": 1.10277716e21
+                      }
+                    },
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 4
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "InAir": true
+                  }
+                },
+                {
+                  "classname": "BirdFlightDesc",
+                  "properties": {
+                    "FireAnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 3
+                      }
+                    },
+                    "SoarAnimController": {
+                      "classname": "SpeedBlendController",
+                      "properties": {
+                        "SpeedRef": 1.0,
+                        "AnimController1": {
+                          "classname": "SpeedBlendController",
+                          "properties": {
+                            "SpeedRef": -1.0,
+                            "AnimController1": {
+                              "classname": "AimAnimController",
+                              "properties": {
+                                "UpAnimController": {
+                                  "classname": "SimpleAnimController",
+                                  "properties": {
+                                    "Animation": 3
+                                  }
+                                },
+                                "ForwardAnimController": {
+                                  "classname": "SimpleAnimController",
+                                  "properties": {
+                                    "Animation": 3
+                                  }
+                                },
+                                "DownAnimController": {
+                                  "classname": "SimpleAnimController",
+                                  "properties": {
+                                    "Animation": 13
+                                  }
+                                },
+                                "DownAngle": 35.0
+                              }
+                            },
+                            "AnimController2": {
+                              "classname": "AimAnimController",
+                              "properties": {
+                                "UpAnimController": {
+                                  "classname": "SimpleAnimController",
+                                  "properties": {
+                                    "Animation": 15
+                                  }
+                                },
+                                "ForwardAnimController": {
+                                  "classname": "SimpleAnimController",
+                                  "properties": {
+                                    "Animation": 15
+                                  }
+                                },
+                                "DownAnimController": {
+                                  "classname": "SimpleAnimController",
+                                  "properties": {
+                                    "Animation": 8
+                                  }
+                                },
+                                "DownAngle": 35.0
+                              }
+                            }
+                          }
+                        },
+                        "AnimController2": {
+                          "classname": "AimAnimController",
+                          "properties": {
+                            "UpAnimController": {
+                              "classname": "SimpleAnimController",
+                              "properties": {
+                                "Animation": 11
+                              }
+                            },
+                            "ForwardAnimController": {
+                              "classname": "SimpleAnimController",
+                              "properties": {
+                                "Animation": 11
+                              }
+                            },
+                            "DownAnimController": {
+                              "classname": "SimpleAnimController",
+                              "properties": {
+                                "Animation": 10
+                              }
+                            },
+                            "DownAngle": 35.0
+                          }
+                        }
+                      }
+                    },
+                    "DashAnimController": {
+                      "classname": "TimeBlendAnimController",
+                      "properties": {
+                        "MaxTime": 6.3,
+                        "AnimController1": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 3
+                          }
+                        },
+                        "AnimController2": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 2
+                          }
+                        }
+                      }
+                    },
+                    "OnLanded": 0,
+                    "OnPlayerDismount": 4,
+                    "MinimumSpeed": 300.0,
+                    "TerminalSpeed": 600.0,
+                    "LeftRightHeadingAngle": 5.0,
+                    "LeftRightOffsetDist": 275.0,
+                    "LeftRightSpeed": 2.75,
+                    "LeftRightAccel": 10.0,
+                    "UpDownOffsetDist": 225.0,
+                    "UpDownSpeed": 2.75,
+                    "UpDownAccel": 10.0,
+                    "AutoBankAngle": 20.0,
+                    "BankAngle": 5.0,
+                    "BankSpeed": 12.0,
+                    "BankAccel": 24.0,
+                    "BankLevelSpeed": 12.0,
+                    "BankLevelAccel": 24.0,
+                    "PitchAngle": 10.0,
+                    "MaxFlapSpeed": 1.5,
+                    "EnvImpactTimeout": 0.5,
+                    "ImpactLeftAnim": 14,
+                    "ImpactRightAnim": 14,
+                    "ImpactUpAnim": 14,
+                    "ImpactDownAnim": 14,
+                    "MountSourceNode": "Node_WarLoc",
+                    "MountDestNode": "Bip01",
+                    "AimAnimController": {
+                      "classname": "HorseAimAnimController",
+                      "properties": {
+                        "LeftAnimController": {
+                          "classname": "HorseShootAnimController",
+                          "properties": {
+                            "SegmentAnimControllers": [
+                              {
+                                "classname": "HorseShootSegmentAnimController",
+                                "properties": {
+                                  "EndAngle": 90.0,
+                                  "StartAnimController": {
+                                    "classname": "HorseShootVerticalAnimController",
+                                    "properties": {
+                                      "UpAnimation": 50030,
+                                      "LevelAnimation": 50026,
+                                      "DownAnimation": 50027,
+                                      "IdleUpAnimation": 50031,
+                                      "IdleLevelAnimation": 50029,
+                                      "IdleDownAnimation": 50028,
+                                      "MaxSpeed": 1.0,
+                                      "Ease": 0.15
+                                    }
+                                  },
+                                  "EndAnimController": {
+                                    "classname": "HorseShootVerticalAnimController",
+                                    "properties": {
+                                      "UpAnimation": 50042,
+                                      "LevelAnimation": 50038,
+                                      "DownAnimation": 50039,
+                                      "IdleUpAnimation": 50043,
+                                      "IdleLevelAnimation": 50041,
+                                      "IdleDownAnimation": 50040,
+                                      "MaxSpeed": 1.0,
+                                      "Ease": 0.15
+                                    }
+                                  }
+                                }
+                              },
+                              {
+                                "classname": "HorseShootSegmentAnimController",
+                                "properties": {
+                                  "StartAngle": 150.0,
+                                  "EndAngle": 270.0,
+                                  "StartAnimController": {
+                                    "classname": "HorseShootVerticalAnimController",
+                                    "properties": {
+                                      "UpAnimation": 50024,
+                                      "LevelAnimation": 50020,
+                                      "DownAnimation": 50021,
+                                      "IdleUpAnimation": 50025,
+                                      "IdleLevelAnimation": 50023,
+                                      "IdleDownAnimation": 50022,
+                                      "MaxSpeed": 1.0,
+                                      "Ease": 0.15
+                                    }
+                                  },
+                                  "EndAnimController": {
+                                    "classname": "HorseShootVerticalAnimController",
+                                    "properties": {
+                                      "UpAnimation": 50036,
+                                      "LevelAnimation": 50032,
+                                      "DownAnimation": 50033,
+                                      "IdleUpAnimation": 50037,
+                                      "IdleLevelAnimation": 50035,
+                                      "IdleDownAnimation": 50034,
+                                      "MaxSpeed": 1.0,
+                                      "Ease": 0.15
+                                    }
+                                  }
+                                }
+                              },
+                              {
+                                "classname": "HorseShootSegmentAnimController",
+                                "properties": {
+                                  "StartAngle": 270.0,
+                                  "EndAngle": 360.0,
+                                  "StartAnimController": {
+                                    "classname": "HorseShootVerticalAnimController",
+                                    "properties": {
+                                      "UpAnimation": 50036,
+                                      "LevelAnimation": 50032,
+                                      "DownAnimation": 50033,
+                                      "IdleUpAnimation": 50037,
+                                      "IdleLevelAnimation": 50035,
+                                      "IdleDownAnimation": 50034,
+                                      "MaxSpeed": 1.0,
+                                      "Ease": 0.15
+                                    }
+                                  },
+                                  "EndAnimController": {
+                                    "classname": "HorseShootVerticalAnimController",
+                                    "properties": {
+                                      "UpAnimation": 50030,
+                                      "LevelAnimation": 50026,
+                                      "DownAnimation": 50027,
+                                      "IdleUpAnimation": 50031,
+                                      "IdleLevelAnimation": 50029,
+                                      "IdleDownAnimation": 50028,
+                                      "MaxSpeed": 1.0,
+                                      "Ease": 0.15
+                                    }
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        "RightAnimController": {
+                          "classname": "HorseShootAnimController",
+                          "properties": {
+                            "SegmentAnimControllers": [
+                              {
+                                "classname": "HorseShootSegmentAnimController",
+                                "properties": {
+                                  "EndAngle": 90.0,
+                                  "StartAnimController": {
+                                    "classname": "HorseShootVerticalAnimController",
+                                    "properties": {
+                                      "UpAnimation": 50014,
+                                      "LevelAnimation": 50006,
+                                      "DownAnimation": 50013,
+                                      "IdleUpAnimation": 50049,
+                                      "IdleLevelAnimation": 50048,
+                                      "IdleDownAnimation": 50047,
+                                      "MaxSpeed": 1.0,
+                                      "Ease": 0.15
+                                    }
+                                  },
+                                  "EndAnimController": {
+                                    "classname": "HorseShootVerticalAnimController",
+                                    "properties": {
+                                      "UpAnimation": 50018,
+                                      "LevelAnimation": 50008,
+                                      "DownAnimation": 50017,
+                                      "IdleUpAnimation": 50055,
+                                      "IdleLevelAnimation": 50054,
+                                      "IdleDownAnimation": 50053,
+                                      "MaxSpeed": 1.0,
+                                      "Ease": 0.15
+                                    }
+                                  }
+                                }
+                              },
+                              {
+                                "classname": "HorseShootSegmentAnimController",
+                                "properties": {
+                                  "StartAngle": 270.0,
+                                  "EndAngle": 360.0,
+                                  "StartAnimController": {
+                                    "classname": "HorseShootVerticalAnimController",
+                                    "properties": {
+                                      "UpAnimation": 50016,
+                                      "LevelAnimation": 50007,
+                                      "DownAnimation": 50015,
+                                      "IdleUpAnimation": 50052,
+                                      "IdleLevelAnimation": 50051,
+                                      "IdleDownAnimation": 50050,
+                                      "MaxSpeed": 1.0,
+                                      "Ease": 0.15
+                                    }
+                                  },
+                                  "EndAnimController": {
+                                    "classname": "HorseShootVerticalAnimController",
+                                    "properties": {
+                                      "UpAnimation": 50014,
+                                      "LevelAnimation": 50006,
+                                      "DownAnimation": 50013,
+                                      "IdleUpAnimation": 50049,
+                                      "IdleLevelAnimation": 50048,
+                                      "IdleDownAnimation": 50047,
+                                      "MaxSpeed": 1.0,
+                                      "Ease": 0.15
+                                    }
+                                  }
+                                }
+                              },
+                              {
+                                "classname": "HorseShootSegmentAnimController",
+                                "properties": {
+                                  "StartAngle": 90.0,
+                                  "EndAngle": 210.0,
+                                  "StartAnimController": {
+                                    "classname": "HorseShootVerticalAnimController",
+                                    "properties": {
+                                      "UpAnimation": 50018,
+                                      "LevelAnimation": 50008,
+                                      "DownAnimation": 50017,
+                                      "IdleUpAnimation": 50055,
+                                      "IdleLevelAnimation": 50054,
+                                      "IdleDownAnimation": 50053,
+                                      "MaxSpeed": 1.0,
+                                      "Ease": 0.15
+                                    }
+                                  },
+                                  "EndAnimController": {
+                                    "classname": "HorseShootVerticalAnimController",
+                                    "properties": {
+                                      "UpAnimation": 50010,
+                                      "LevelAnimation": 50004,
+                                      "DownAnimation": 50009,
+                                      "IdleUpAnimation": 50046,
+                                      "IdleLevelAnimation": 50045,
+                                      "IdleDownAnimation": 50044,
+                                      "MaxSpeed": 1.0,
+                                      "Ease": 0.15
+                                    }
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        "Ease": 0.15
+                      }
+                    },
+                    "DashTimeout": 10.0,
+                    "DashMultiplier": 2.0,
+                    "DashDuration": 3.0,
+                    "EnableEnvironmentCollision": 1,
+                    "CollideAccel": 0.2,
+                    "FlyFxAnim": 50119,
+                    "DiveFxAnim": 50118,
+                    "Name": "Bird Flight",
+                    "ID": 1,
+                    "AnimController": {
+                      "classname": "SpeedBlendController",
+                      "properties": {
+                        "SpeedRef": 1.0,
+                        "AnimController1": {
+                          "classname": "SpeedBlendController",
+                          "properties": {
+                            "SpeedRef": -1.0,
+                            "AnimController1": {
+                              "classname": "AimAnimController",
+                              "properties": {
+                                "UpAnimController": {
+                                  "classname": "SimpleAnimController",
+                                  "properties": {
+                                    "Animation": 2
+                                  }
+                                },
+                                "ForwardAnimController": {
+                                  "classname": "SimpleAnimController",
+                                  "properties": {
+                                    "Animation": 2
+                                  }
+                                },
+                                "DownAnimController": {
+                                  "classname": "SimpleAnimController",
+                                  "properties": {
+                                    "Animation": 13
+                                  }
+                                },
+                                "DownAngle": 35.0
+                              }
+                            },
+                            "AnimController2": {
+                              "classname": "AimAnimController",
+                              "properties": {
+                                "UpAnimController": {
+                                  "classname": "SimpleAnimController",
+                                  "properties": {
+                                    "Animation": 5
+                                  }
+                                },
+                                "ForwardAnimController": {
+                                  "classname": "SimpleAnimController",
+                                  "properties": {
+                                    "Animation": 5
+                                  }
+                                },
+                                "DownAnimController": {
+                                  "classname": "SimpleAnimController",
+                                  "properties": {
+                                    "Animation": 8
+                                  }
+                                },
+                                "DownAngle": 35.0
+                              }
+                            }
+                          }
+                        },
+                        "AnimController2": {
+                          "classname": "AimAnimController",
+                          "properties": {
+                            "UpAnimController": {
+                              "classname": "SimpleAnimController",
+                              "properties": {
+                                "Animation": 6
+                              }
+                            },
+                            "ForwardAnimController": {
+                              "classname": "SimpleAnimController",
+                              "properties": {
+                                "Animation": 6
+                              }
+                            },
+                            "DownAnimController": {
+                              "classname": "SimpleAnimController",
+                              "properties": {
+                                "Animation": 10
+                              }
+                            },
+                            "DownAngle": 35.0
+                          }
+                        }
+                      }
+                    },
+                    "Acceleration": 800.0,
+                    "Deceleration": 100.0,
+                    "MaxSpeed": 400.0,
+                    "InAir": true
+                  }
+                },
+                {
+                  "classname": "BirdIdleDesc",
+                  "properties": {
+                    "Name": "Bird Idle",
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 2
+                      }
+                    },
+                    "InAir": true
+                  }
+                },
+                {
+                  "classname": "PlayerMountInteractiveDesc",
+                  "properties": {
+                    "PhantomName": "AngelicBeast_BBox",
+                    "PhantomErrorDistance": 200.0,
+                    "MountMoveState": 1,
+                    "MountInteractive": true,
+                    "UseMountMoveStates": true,
+                    "PlayerMoveState": 3,
+                    "TargetType": "war/war",
+                    "Initiator": 1,
+                    "MaxErrorDistance": 400.0,
+                    "Arc": 180.0,
+                    "DoCollision": false,
+                    "UseWeapon": 0,
+                    "AnimationID": 4,
+                    "TargetAnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 0
+                      }
+                    },
+                    "UseCameraNode": true,
+                    "AnimationSource": 0,
+                    "Name": "Bird Mount Interactive",
+                    "ID": 2,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 4
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "InAir": true
+                  }
+                },
+                {
+                  "classname": "BirdRiderIdleDesc",
+                  "properties": {
+                    "AllowGearSwitch": false,
+                    "Name": "Bird Rider Dismount",
+                    "ID": 4,
+                    "CameraStateDesc": {
+                      "classname": "base/birdcamerastate",
+                      "properties": {}
+                    },
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 2
+                      }
+                    },
+                    "OnIdle": 0,
+                    "InAir": true
+                  }
+                },
+                {
+                  "classname": "BirdRiderIdleDesc",
+                  "properties": {
+                    "AllowGear": false,
+                    "AllowGearSwitch": false,
+                    "ShowWeapons": 6,
+                    "Name": "Bird Rider Idle",
+                    "ID": 3,
+                    "CameraStateDesc": {
+                      "classname": "base/birdcamerastate",
+                      "properties": {}
+                    },
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 2
+                      }
+                    },
+                    "InAir": true
+                  }
+                }
+              ]
+            }
+          },
+          "Invincible": true,
+          "Multithreaded": false,
+          "CharacterClass": "Bird",
+          "HitInfos": {
+            "classname": "HitInfoList",
+            "properties": {
+              "HitInfos": [
+                {
+                  "classname": "HitInfo",
+                  "properties": {
+                    "Name": "CollideWithEnvironment",
+                    "WType": 1,
+                    "StrikeDirection": 144,
+                    "Power": 1,
+                    "Damage": 15.0
+                  }
+                },
+                {
+                  "classname": "HitInfo",
+                  "properties": {
+                    "ID": 4,
+                    "Name": "DamageBreakable",
+                    "WType": 1,
+                    "StrikeDirection": 229,
+                    "Power": 1,
+                    "Damage": 305.0
+                  }
+                },
+                {
+                  "classname": "HitInfo",
+                  "properties": {
+                    "ID": 1,
+                    "Name": "FireBall Direct (80)",
+                    "WType": 1,
+                    "HType": 1,
+                    "StrikeDirection": 133,
+                    "Power": 2,
+                    "Damage": 40.0,
+                    "KnockBackPower": 175.0,
+                    "KnockUpPower": 175.0,
+                    "EnvPowerScale": 2.0
+                  }
+                },
+                {
+                  "classname": "HitInfo",
+                  "properties": {
+                    "ID": 2,
+                    "Name": "Fireball Inner AoE (80)",
+                    "WType": 1,
+                    "StrikeDirection": 133,
+                    "Power": 2,
+                    "Damage": 30.0,
+                    "KnockBackPower": 175.0,
+                    "KnockUpPower": 175.0,
+                    "EnvPowerScale": 5.0
+                  }
+                },
+                {
+                  "classname": "HitInfo",
+                  "properties": {
+                    "ID": 8,
+                    "Name": "Fireball Outter AoE (40)",
+                    "WType": 1,
+                    "StrikeDirection": 57,
+                    "Power": 2,
+                    "KnockBackPower": 125.0,
+                    "KnockUpPower": 125.0,
+                    "EnvPowerScale": 2.0
+                  }
+                },
+                {
+                  "classname": "HitInfo",
+                  "properties": {
+                    "ID": 3,
+                    "Name": "Gunfire Direct (20)",
+                    "WType": 1,
+                    "StrikeDirection": 133,
+                    "Power": 2,
+                    "Damage": 25.0,
+                    "KnockBackPower": 300.0,
+                    "KnockUpPower": 100.0,
+                    "EnvPowerScale": 1.95
+                  }
+                },
+                {
+                  "classname": "HitInfo",
+                  "properties": {
+                    "ID": 7,
+                    "Name": "Gunfire Inner AoE (20)",
+                    "WType": 1,
+                    "StrikeDirection": 35,
+                    "Power": 2,
+                    "Damage": 10.0,
+                    "KnockBackPower": 150.0,
+                    "KnockUpPower": 150.0,
+                    "EnvPowerScale": 2.0
+                  }
+                },
+                {
+                  "classname": "HitInfo",
+                  "properties": {
+                    "ID": 6,
+                    "Name": "Gunfire Outter AoE (10)",
+                    "WType": 1,
+                    "StrikeDirection": 63,
+                    "Power": 2,
+                    "Damage": 10.0,
+                    "KnockBackPower": 100.0,
+                    "KnockUpPower": 100.0,
+                    "EnvPowerScale": 0.0
+                  }
+                },
+                {
+                  "classname": "HitInfo",
+                  "properties": {
+                    "ID": 5,
+                    "Name": "TakeDamageFromBreakable",
+                    "WType": 1,
+                    "StrikeDirection": 8,
+                    "Power": 1,
+                    "Damage": 25.0
+                  }
+                }
+              ]
+            }
+          },
+          "Visual": "angelicbeast_bird",
+          "FactionID": 0,
+          "Animations": {
+            "classname": "AnimationList",
+            "properties": {
+              "Animations": [
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50020,
+                    "Name": "AB_ShootL_Back_Right",
+                    "AnimationName": "AB_ShootL_Back_Right"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50021,
+                    "Name": "AB_ShootL_Back_Right_Down",
+                    "AnimationName": "AB_ShootL_Back_Right_Down"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50022,
+                    "Name": "AB_ShootL_Back_Right_Down_Idle",
+                    "AnimationName": "AB_ShootL_Back_Right_Down_Idle"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50023,
+                    "Name": "AB_ShootL_Back_Right_Idle",
+                    "AnimationName": "AB_ShootL_Back_Right_Idle"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50024,
+                    "Name": "AB_ShootL_Back_Right_Up",
+                    "AnimationName": "AB_ShootL_Back_Right_Up"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50025,
+                    "Name": "AB_ShootL_Back_Right_Up_Idle",
+                    "AnimationName": "AB_ShootL_Back_Right_Up_Idle"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50026,
+                    "Name": "AB_ShootL_Forward",
+                    "AnimationName": "AB_ShootL_Forward"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50027,
+                    "Name": "AB_ShootL_Forward_Down",
+                    "AnimationName": "AB_ShootL_Forward_Down"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50028,
+                    "Name": "AB_ShootL_Forward_Down_Idle",
+                    "AnimationName": "AB_ShootL_Forward_Down_Idle"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50029,
+                    "Name": "AB_ShootL_Forward_Idle",
+                    "AnimationName": "AB_ShootL_Forward_Idle"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50030,
+                    "Name": "AB_ShootL_Forward_Up",
+                    "AnimationName": "AB_ShootL_Forward_Up"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50031,
+                    "Name": "AB_ShootL_Forward_Up_Idle",
+                    "AnimationName": "AB_ShootL_Forward_Up_Idle"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50114,
+                    "Name": "AB_ShootL_Forward_Up_Idle - 1",
+                    "AnimationName": "AB_ShootL_Forward_Up_Idle"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50032,
+                    "Name": "AB_ShootL_Left",
+                    "AnimationName": "AB_ShootL_Left"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50033,
+                    "Name": "AB_ShootL_Left_Down",
+                    "AnimationName": "AB_ShootL_Left_Down"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50034,
+                    "Name": "AB_ShootL_Left_Down_Idle",
+                    "AnimationName": "AB_ShootL_Left_Down_Idle"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50035,
+                    "Name": "AB_ShootL_Left_Idle",
+                    "AnimationName": "AB_ShootL_Left_Idle"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50036,
+                    "Name": "AB_ShootL_Left_Up",
+                    "AnimationName": "AB_ShootL_Left_Up"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50037,
+                    "Name": "AB_ShootL_Left_Up_Idle",
+                    "AnimationName": "AB_ShootL_Left_Up_Idle"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50109,
+                    "Name": "AB_ShootL_Light",
+                    "AnimationName": "AB_ShootL_Light"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50038,
+                    "Name": "AB_ShootL_Right",
+                    "AnimationName": "AB_ShootL_Right"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50039,
+                    "Name": "AB_ShootL_Right_Down",
+                    "AnimationName": "AB_ShootL_Right_Down"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50040,
+                    "Name": "AB_ShootL_Right_Down_Idle",
+                    "AnimationName": "AB_ShootL_Right_Down_Idle"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50041,
+                    "Name": "AB_ShootL_Right_Idle",
+                    "AnimationName": "AB_ShootL_Right_Idle"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50042,
+                    "Name": "AB_ShootL_Right_Up",
+                    "AnimationName": "AB_ShootL_Right_Up"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50043,
+                    "Name": "AB_ShootL_Right_Up_Idle",
+                    "AnimationName": "AB_ShootL_Right_Up_Idle"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50004,
+                    "Name": "AB_ShootR_Back_Left",
+                    "AnimationName": "AB_ShootR_Back_Left"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50009,
+                    "Name": "AB_ShootR_Back_Left_Down",
+                    "AnimationName": "AB_ShootR_Back_Left_Down"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50044,
+                    "Name": "AB_ShootR_Back_Left_Down_Idle",
+                    "AnimationName": "AB_ShootR_Back_Left_Down_Idle"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50045,
+                    "Name": "AB_ShootR_Back_Left_Idle",
+                    "AnimationName": "AB_ShootR_Back_Left_Idle"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50010,
+                    "Name": "AB_ShootR_Back_Left_Up",
+                    "AnimationName": "AB_ShootR_Back_Left_Up"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50046,
+                    "Name": "AB_ShootR_Back_Left_Up_Idle",
+                    "AnimationName": "AB_ShootR_Back_Left_Up_Idle"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50006,
+                    "Name": "AB_ShootR_Forward",
+                    "AnimationName": "AB_ShootR_Forward"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50013,
+                    "Name": "AB_ShootR_Forward_Down",
+                    "AnimationName": "AB_ShootR_Forward_Down"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50047,
+                    "Name": "AB_ShootR_Forward_Down_Idle",
+                    "AnimationName": "AB_ShootR_Forward_Down_Idle"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50048,
+                    "Name": "AB_ShootR_Forward_Idle",
+                    "AnimationName": "AB_ShootR_Forward_Idle"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50014,
+                    "Name": "AB_ShootR_Forward_Up",
+                    "AnimationName": "AB_ShootR_Forward_Up"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50049,
+                    "Name": "AB_ShootR_Forward_Up_Idle",
+                    "AnimationName": "AB_ShootR_Forward_Up_Idle"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50007,
+                    "Name": "AB_ShootR_Left",
+                    "AnimationName": "AB_ShootR_Left"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50015,
+                    "Name": "AB_ShootR_Left_Down",
+                    "AnimationName": "AB_ShootR_Left_Down"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50050,
+                    "Name": "AB_ShootR_Left_Down_Idle",
+                    "AnimationName": "AB_ShootR_Left_Down_Idle"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50051,
+                    "Name": "AB_ShootR_Left_Idle",
+                    "AnimationName": "AB_ShootR_Left_Idle"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50016,
+                    "Name": "AB_ShootR_Left_Up",
+                    "AnimationName": "AB_ShootR_Left_Up"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50052,
+                    "Name": "AB_ShootR_Left_Up_Idle",
+                    "AnimationName": "AB_ShootR_Left_Up_Idle"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50111,
+                    "Name": "AB_ShootR_Light",
+                    "AnimationName": "AB_ShootR_Light"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50008,
+                    "Name": "AB_ShootR_Right",
+                    "AnimationName": "AB_ShootR_Right"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50017,
+                    "Name": "AB_ShootR_Right_Down",
+                    "AnimationName": "AB_ShootR_Right_Down"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50053,
+                    "Name": "AB_ShootR_Right_Down_Idle",
+                    "AnimationName": "AB_ShootR_Right_Down_Idle"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50054,
+                    "Name": "AB_ShootR_Right_Idle",
+                    "AnimationName": "AB_ShootR_Right_Idle"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50018,
+                    "Name": "AB_ShootR_Right_Up",
+                    "AnimationName": "AB_ShootR_Right_Up"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50055,
+                    "Name": "AB_ShootR_Right_Up_Idle",
+                    "AnimationName": "AB_ShootR_Right_Up_Idle"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50115,
+                    "Name": "ABeast_Bird_Shoot",
+                    "AnimationName": "ABeast_Bird_Shoot",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Bird_FireBreath_Attack"
+                        }
+                      },
+                      {
+                        "classname": "RumbleTrigger",
+                        "properties": {
+                          "TriggerFrame": 4
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50112,
+                    "Name": "ABeast_Bird_Shoot_Charge",
+                    "AnimationName": "ABeast_Bird_Shoot_Charge",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Bird_FireBreath_Charge",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "RumbleTrigger",
+                        "properties": {
+                          "LoopRumble": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50116,
+                    "Name": "ABeast_Bird_Shoot_Start",
+                    "AnimationName": "ABeast_Bird_Shoot_Start"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 12,
+                    "Name": "ABeast_Dash",
+                    "AnimationName": "ABeast_Dash",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 6,
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50117,
+                    "Name": "abeast_death",
+                    "AnimationName": "abeast_death",
+                    "Triggers": [
+                      {
+                        "classname": "DissolveTrigger",
+                        "properties": {
+                          "Duration": 55,
+                          "TriggerFrame": 25
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Bird_Impact_Feathers",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Bird_Impact_Feathers",
+                          "TriggerFrame": 25,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 10,
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 13,
+                    "Name": "ABeast_Dive",
+                    "AnimationName": "ABeast_Dive",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 9,
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 8,
+                    "Name": "ABeast_DiveLeft",
+                    "AnimationName": "ABeast_DiveLeft",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 9,
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 10,
+                    "Name": "ABeast_DiveRight",
+                    "AnimationName": "ABeast_DiveRight",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 9,
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 2,
+                    "Name": "ABeast_Flap",
+                    "AnimationName": "ABeast_Flap",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 4,
+                          "TriggerFrame": 3
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 4,
+                          "TriggerFrame": 35
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 4,
+                          "TriggerFrame": 68
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 7,
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 5,
+                    "Name": "ABeast_FlapLeft",
+                    "AnimationName": "ABeast_FlapLeft",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 7,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 4,
+                          "TriggerFrame": 3
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 4,
+                          "TriggerFrame": 35
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 4,
+                          "TriggerFrame": 68
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 6,
+                    "Name": "ABeast_FlapRight",
+                    "AnimationName": "ABeast_FlapRight",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 7,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 4,
+                          "TriggerFrame": 3
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 4,
+                          "TriggerFrame": 35
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 4,
+                          "TriggerFrame": 68
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 3,
+                    "Name": "ABeast_Glide",
+                    "AnimationName": "ABeast_Glide",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 6,
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 15,
+                    "Name": "ABeast_GlideLeft",
+                    "AnimationName": "ABeast_GlideLeft",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 6,
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 11,
+                    "Name": "ABeast_GlideRight",
+                    "AnimationName": "ABeast_GlideRight",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 6,
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 14,
+                    "Name": "ABeast_HitFlinch",
+                    "AnimationName": "ABeast_HitFlinch",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Bird_Impact_Feathers",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 8,
+                          "TriggerFrame": 2
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 11
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50113,
+                    "Name": "ABeast_HitFlinchL",
+                    "AnimationName": "ABeast_HitFlinchL",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Bird_Impact_Feathers",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 8,
+                          "TriggerFrame": 2
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 11
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 9,
+                    "Name": "ABeast_HitFlinchR",
+                    "AnimationName": "ABeast_HitFlinchR",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Bird_Impact_Feathers",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 8,
+                          "TriggerFrame": 2
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 11
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 4,
+                    "Name": "ABeast_Interactive",
+                    "AnimationName": "ABeast_Interactive"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 7,
+                    "Name": "ABeast_Soar_Idle",
+                    "AnimationName": "ABeast_Soar_Idle",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 6,
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50118,
+                    "Name": "vfx_Bird_Dive",
+                    "Looping": true,
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Bird_Dive",
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 50119,
+                    "Name": "vfx_Bird_Fly",
+                    "Looping": true,
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Bird_Fly",
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          "Sounds": {
+            "classname": "SoundList",
+            "properties": {
+              "Sounds": [
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 11,
+                    "Name": "Angelic Beast take damage thud sweetener",
+                    "Volume": 0.5,
+                    "Pitch": 4.0,
+                    "RandomPitch": 2.0,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 2000.0,
+                    "Priority": 50,
+                    "Sounds": "bodyfall_flesh_large_ash_03,bodyfall_flesh_large_ash_01,bodyfall_flesh_large_ash_02",
+                    "Group": "Creatures"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 10,
+                    "Name": "Angelic_Beast_dies",
+                    "Volume": 0.64990234,
+                    "Pitch": -4.0,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 2000.0,
+                    "Priority": 2,
+                    "Sounds": "angelic_beast_takes_damage_3",
+                    "Group": "Creature Max 1"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 8,
+                    "Name": "Angelic_Beast_takes_damage",
+                    "Volume": 0.89990234,
+                    "Pitch": -1.0,
+                    "RandomPitch": 2.0,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 5000.0,
+                    "Sounds": "angelic_beast_takes_damage_3,angelic_beast_takes_damage_1,angelic_beast_takes_damage_2",
+                    "Group": "Creature Max 1"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 1,
+                    "Name": "DissolveSound",
+                    "RandomPitch": 1.0,
+                    "Min": 1.0,
+                    "Sounds": "death_burn_3,death_burn_1,death_burn_2",
+                    "Group": "Dissolve sfx"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 3,
+                    "Name": "Wind Loop",
+                    "Volume": 0.099975586,
+                    "Stream": true,
+                    "Loop": true,
+                    "FadeInTime": 1.0,
+                    "FadeOutTime": 1.0,
+                    "Offset": true,
+                    "Positional": false,
+                    "FollowActor": true,
+                    "Min": 1500.0,
+                    "Max": 2000.0,
+                    "Priority": 0,
+                    "Sounds": "bird_wind_loop",
+                    "Group": "Creatures"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 9,
+                    "Name": "Wing feather wind buffeting dive loop",
+                    "Volume": 0.64990234,
+                    "Pitch": -1.0,
+                    "Loop": true,
+                    "Offset": true,
+                    "FollowActor": true,
+                    "ExclusiveActor": true,
+                    "Min": 25.0,
+                    "Max": 2000.0,
+                    "Priority": 9,
+                    "Sounds": "angelic_beast_feather_wind_ruffle_dive_lp",
+                    "Group": "Angelic Flying Beast Glide"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 6,
+                    "Name": "Wing feather wind buffeting loop",
+                    "Volume": 0.39990234,
+                    "Pitch": -2.0,
+                    "Loop": true,
+                    "Offset": true,
+                    "FollowActor": true,
+                    "ExclusiveActor": true,
+                    "Min": 25.0,
+                    "Max": 2000.0,
+                    "Priority": 9,
+                    "Sounds": "angelic_beast_feather_wind_ruffle_lp",
+                    "Group": "Angelic Flying Beast Glide"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 7,
+                    "Name": "Wing feather wind buffeting loop quiet",
+                    "Volume": 0.19995117,
+                    "Pitch": -2.0,
+                    "Loop": true,
+                    "Offset": true,
+                    "FollowActor": true,
+                    "ExclusiveActor": true,
+                    "Min": 25.0,
+                    "Max": 4000.0,
+                    "Priority": 9,
+                    "Sounds": "angelic_beast_feather_wind_ruffle_lp",
+                    "Group": "Angelic Flying Beast Glide"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 2,
+                    "Name": "Wing Flaps",
+                    "FollowActor": true,
+                    "Min": 75.0,
+                    "Max": 7500.0,
+                    "Priority": 0,
+                    "Sounds": "bird_flap_1_1,bird_flap_1_2,bird_flap_1_3",
+                    "Group": "Wing Flaps"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 5,
+                    "Name": "Wing Flaps armor sweeteners",
+                    "Volume": 0.60009766,
+                    "FollowActor": true,
+                    "Min": 25.0,
+                    "Max": 7500.0,
+                    "Priority": 50,
+                    "Sounds": "angelic_beast_flap_armor_sweetener_1,angelic_beast_flap_armor_sweetener_3,angelic_beast_flap_armor_sweetener_2",
+                    "Group": "Angelic Flying Beast Armor"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 4,
+                    "Name": "Wing Flaps Slow",
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 7500.0,
+                    "Priority": 0,
+                    "Sounds": "angelic_beast_flap_wing_slow_1,angelic_beast_flap_wing_slow_2",
+                    "Group": "Angelic Flying Beast Wing Flaps"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "Methods": [
+    "onInit",
+    "onEnterChExtInteractive",
+    "onUnpauseEvent",
+    "onStopLoopingEvent",
+    "OnGrabPlayer",
+    "onKilled"
+  ],
+  "PackageName": "bird",
+  "DefaultValues": {},
+  "States": {
+    "Spawning": {
+      "methods": [
+        "onEnter"
+      ]
+    }
+  }
+}

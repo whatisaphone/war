@@ -1,0 +1,87 @@
+.method onOpen
+0x0001 .param_count 0
+0x0001 .line 17
+0x0006     nop
+0x0007 .line 20
+0x000c     identifier this
+0x001b     property ChestSize
+0x002f     int 1
+0x0034     equal
+0x0035     branch_false 0x00a6
+0x003a .line 22
+0x003f     nop
+0x0040     int 0
+0x0045     identifier this
+0x0054     property SmallSouls
+0x0069     int 2
+0x006e     identifier this
+0x007d     method spawnLurchers
+0x0095     pop
+0x0096 .line 23
+0x009b     nop
+0x009c .line 24
+0x00a1     goto 0x01e8
+0x00a6 .label 0x07f2
+0x00ab     identifier this
+0x00ba     property ChestSize
+0x00ce     int 2
+0x00d3     equal
+0x00d4     branch_false 0x0146
+0x00d9 .line 26
+0x00de     nop
+0x00df     int 0
+0x00e4     identifier this
+0x00f3     property MediumSouls
+0x0109     int 2
+0x010e     identifier this
+0x011d     method spawnLurchers
+0x0135     pop
+0x0136 .line 27
+0x013b     nop
+0x013c .line 28
+0x0141     goto 0x01e3
+0x0146 .label 0x07f4
+0x014b     identifier this
+0x015a     property ChestSize
+0x016e     int 3
+0x0173     equal
+0x0174     branch_false 0x01de
+0x0179 .line 30
+0x017e     nop
+0x017f     int 0
+0x0184     identifier this
+0x0193     property BigSouls
+0x01a6     int 2
+0x01ab     identifier this
+0x01ba     method spawnLurchers
+0x01d2     pop
+0x01d3 .line 31
+0x01d8     nop
+0x01d9 .line 33
+0x01de .label 0x07f6
+0x01e3 .label 0x07f5
+0x01e8 .label 0x07f3
+0x01ed     identifier Player
+0x01fe     property StatTracker
+0x0214     int 0
+0x0219     method_chain IncrementNumberOfChestsOpened
+0x0241     pop
+0x0242 .line 35
+0x0247     identifier this
+0x0256     property AutoPersist
+0x026c     branch_false 0x02c4
+0x0271 .line 40
+0x0276     nop
+0x0277     string "Triggered"
+0x028b     bool true
+0x028d     int 2
+0x0292     identifier this
+0x02a1     method setSaveValue
+0x02b8     pop
+0x02b9 .line 41
+0x02be     nop
+0x02bf .line 42
+0x02c4 .label 0x07f7
+0x02c9     nop
+0x02ca     return_null
+

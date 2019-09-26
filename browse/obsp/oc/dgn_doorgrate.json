@@ -1,0 +1,93 @@
+{
+  "Parent": "KinematicActor",
+  "Name": "dgn_door/dgn_doorgrate",
+  "Properties": {
+    "Open": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "LinkedDoor": {
+      "Flags": 4,
+      "Type": 5
+    }
+  },
+  "StaticProperties": {
+    "Description": {
+      "Value": {
+        "classname": "KinematicActorDesc",
+        "properties": {
+          "Animations": {
+            "classname": "AnimationList",
+            "properties": {
+              "Animations": [
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {}
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 1
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 2
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 3
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "Methods": [
+    "onInit",
+    "onQueryBoomerangTag",
+    "setOpen"
+  ],
+  "PackageName": "dgn_door",
+  "DefaultValues": {
+    "Open": false,
+    "LinkedDoor": ""
+  },
+  "States": {
+    "Opening": {
+      "methods": [
+        "close",
+        "onAnimationComplete",
+        "open",
+        "onEnter"
+      ]
+    },
+    "Open": {
+      "methods": [
+        "close",
+        "onEnter"
+      ]
+    },
+    "Closed": {
+      "methods": [
+        "activate",
+        "open",
+        "onEnter"
+      ]
+    },
+    "Closing": {
+      "methods": [
+        "close",
+        "onAnimationComplete",
+        "open",
+        "onEnter"
+      ]
+    }
+  }
+}

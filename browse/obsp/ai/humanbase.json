@@ -1,0 +1,465 @@
+{
+  "Parent": "RandomizedActor",
+  "Name": "base/humanbase",
+  "Properties": {
+    "UseInteractiveLurchers": {
+      "Flags": 2,
+      "Type": 4
+    },
+    "DestinationPoint": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "AmbScanStarted": {
+      "Flags": 2,
+      "Type": 4
+    },
+    "FleeScanStarted": {
+      "Flags": 2,
+      "Type": 4
+    },
+    "Waypoint": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "ScanDistance": {
+      "Flags": 4,
+      "Type": 1
+    },
+    "AmbientBehaviorType": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "CanEnterFlee": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "ScanInterval": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ScanModifyScanTimeByDist": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "ScanTimerMod": {
+      "Flags": 4,
+      "Type": 3
+    }
+  },
+  "StaticProperties": {
+    "AmbientBehaviorStanding": {
+      "Value": {
+        "classname": "base/idlebehavior",
+        "properties": {
+          "IdleMoveStateIdle": "Standing - Random Idle",
+          "IdleMinTime": 99999,
+          "IdleMaxTime": 99999,
+          "IdleMoveStateFidget": "NA",
+          "DeathBlowHandler": {
+            "classname": "base/deathblowaction",
+            "properties": {
+              "ID": "Death",
+              "ActionCode": 660,
+              "Priority": 660,
+              "Position": [
+                5.4982685e-9,
+                4.5904e-41,
+                null
+              ]
+            }
+          },
+          "InteractiveHandler": {
+            "classname": "base/interactivestallaction",
+            "properties": {
+              "ID": "Interactive",
+              "Priority": 630,
+              "InterruptibleBy": [
+                "Death"
+              ],
+              "Position": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "ImpactHandler": {
+            "classname": "base/impactaction",
+            "properties": {
+              "ID": "Impact",
+              "Priority": 620,
+              "InterruptibleBy": [
+                "Death",
+                "Interactive"
+              ],
+              "Position": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "ComponentActions": [
+            {
+              "classname": "base/idleaction",
+              "properties": {
+                "Priority": 1,
+                "InterruptibleBy": [
+                  "ANY"
+                ],
+                "Position": [
+                  7.4504e-30,
+                  3.59e-43,
+                  null
+                ]
+              }
+            }
+          ],
+          "ExitBehaviorHandler": {
+            "classname": "base/exitbehavioraction",
+            "properties": {
+              "ID": "Exit",
+              "Priority": 640,
+              "Position": [
+                1.1312714e-29,
+                3.59e-43,
+                6e-45
+              ]
+            }
+          },
+          "Position": [
+            null,
+            3.6182518e-29,
+            9.246473e-22
+          ]
+        }
+      }
+    },
+    "AmbientBehaviorKneeling": {
+      "Value": {
+        "classname": "base/idlebehavior",
+        "properties": {
+          "IdleMoveStateIdle": "Kneeling - Idle",
+          "IdleMinTime": 99999,
+          "IdleMaxTime": 99999,
+          "IdleMoveStateFidget": "NA",
+          "DeathBlowHandler": {
+            "classname": "base/deathblowaction",
+            "properties": {
+              "ID": "Death",
+              "ActionCode": 660,
+              "Priority": 660,
+              "Position": [
+                null,
+                0.0,
+                1.131e-42
+              ]
+            }
+          },
+          "InteractiveHandler": {
+            "classname": "base/interactivestallaction",
+            "properties": {
+              "ID": "Interactive",
+              "Priority": 630,
+              "InterruptibleBy": [
+                "Death"
+              ],
+              "Position": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "ImpactHandler": {
+            "classname": "base/impactaction",
+            "properties": {
+              "ID": "Impact",
+              "Priority": 620,
+              "InterruptibleBy": [
+                "Death",
+                "Interactive"
+              ],
+              "Position": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "ComponentActions": [
+            {
+              "classname": "base/idleaction",
+              "properties": {
+                "Priority": 1,
+                "InterruptibleBy": [
+                  "ANY"
+                ],
+                "Position": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            }
+          ],
+          "ExitBehaviorHandler": {
+            "classname": "base/exitbehavioraction",
+            "properties": {
+              "ID": "Exit",
+              "Priority": 640,
+              "Position": [
+                1.1312052e-29,
+                3.59e-43,
+                6e-45
+              ]
+            }
+          },
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "AmbientBehaviorFallen": {
+      "Value": {
+        "classname": "base/idlebehavior",
+        "properties": {
+          "IdleMoveStateIdle": "Fallen - Idle",
+          "IdleMinTime": 99999,
+          "IdleMaxTime": 99999,
+          "IdleMoveStateFidget": "NA",
+          "DeathBlowHandler": {
+            "classname": "base/deathblowaction",
+            "properties": {
+              "ID": "Death",
+              "ActionCode": 660,
+              "Priority": 660,
+              "Position": [
+                0.0,
+                -82158490000.0,
+                -2.129733e-35
+              ]
+            }
+          },
+          "InteractiveHandler": {
+            "classname": "base/interactivestallaction",
+            "properties": {
+              "ID": "Interactive",
+              "Priority": 630,
+              "InterruptibleBy": [
+                "Death"
+              ],
+              "Position": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "ImpactHandler": {
+            "classname": "base/impactaction",
+            "properties": {
+              "ID": "Impact",
+              "Priority": 620,
+              "InterruptibleBy": [
+                "Death",
+                "Interactive"
+              ],
+              "Position": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "ComponentActions": [
+            {
+              "classname": "base/idleaction",
+              "properties": {
+                "Priority": 1,
+                "InterruptibleBy": [
+                  "ANY"
+                ],
+                "Position": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            }
+          ],
+          "ExitBehaviorHandler": {
+            "classname": "base/exitbehavioraction",
+            "properties": {
+              "ID": "Exit",
+              "Priority": 640,
+              "Position": [
+                1.1311522e-29,
+                3.59e-43,
+                6e-45
+              ]
+            }
+          },
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "FleeBehavior": {
+      "Value": null
+    },
+    "MayhemFallenInteractive": {
+      "Value": {
+        "classname": "base/mssbehavior",
+        "properties": {
+          "MSSMoveStates": [
+            "Interactive - Fallen Pounce"
+          ],
+          "MSSStateTimers": [
+            0
+          ],
+          "DeathBlowHandler": {
+            "classname": "base/deathblowaction",
+            "properties": {
+              "ID": "Death",
+              "ActionCode": 660,
+              "Priority": 660
+            }
+          },
+          "InteractiveHandler": {
+            "classname": "base/interactivestallaction",
+            "properties": {
+              "ID": "Interactive",
+              "Priority": 630,
+              "InterruptibleBy": [
+                "Death"
+              ]
+            }
+          },
+          "ImpactHandler": {
+            "classname": "base/impactaction",
+            "properties": {
+              "ID": "Impact",
+              "Priority": 620,
+              "InterruptibleBy": [
+                "Death",
+                "Interactive"
+              ]
+            }
+          },
+          "ComponentActions": [
+            {
+              "classname": "base/mssaction",
+              "properties": {
+                "ID": "RepeatOnImpact",
+                "ActionCode": 1,
+                "Priority": 1,
+                "InterruptibleBy": [
+                  "ANY"
+                ],
+                "OnCompleteState": "Exit",
+                "Position": [
+                  9.671533e-30,
+                  3.59e-43,
+                  null
+                ]
+              }
+            },
+            {
+              "classname": "base/mssaction",
+              "properties": {
+                "ID": "StopOnImpact",
+                "ActionCode": 1,
+                "Priority": -1,
+                "InterruptibleBy": [
+                  "Death",
+                  "Interactive",
+                  "Exit"
+                ],
+                "OnCompleteState": "Exit"
+              }
+            }
+          ],
+          "ExitBehaviorHandler": {
+            "classname": "base/exitbehavioraction",
+            "properties": {
+              "ID": "Exit",
+              "Priority": 640
+            }
+          },
+          "ID": "Interactive - Fallen Pounce",
+          "Position": [
+            0.0024787446,
+            6.7907934e-33,
+            1.9274405e-33
+          ]
+        }
+      }
+    }
+  },
+  "Methods": [
+    "onBehaviorCanExit",
+    "onAttackTimer",
+    "onRangedAttackTimer",
+    "MarkAsAttacker",
+    "MarkAsRangedAttacker",
+    "checkOkToMeleeAttack",
+    "checkOkToRangedAttack",
+    "playVoiceOver",
+    "onKilledObject",
+    "onObjectImpacted",
+    "onHavocFormTriggered",
+    "onHavocFormExited",
+    "onDeathBlow",
+    "onInit",
+    "disableScan",
+    "restoreScan",
+    "scanForEnemies",
+    "scanForEnemiesAmb",
+    "onFlee",
+    "setMayhemInteractiveFallen"
+  ],
+  "PackageName": "base",
+  "DefaultValues": {
+    "UseInteractiveLurchers": false,
+    "Waypoint": null,
+    "CanEnterFlee": true,
+    "AmbientBehaviorType": 0,
+    "FleeScanStarted": false,
+    "ScanModifyScanTimeByDist": true,
+    "ScanInterval": 1.5,
+    "ScanTimerMod": 0.5,
+    "ScanDistance": 4000,
+    "AmbScanStarted": false
+  },
+  "States": {
+    "Flee": {
+      "methods": [
+        "scanForEnemies",
+        "onBehaviorComplete",
+        "onEnter"
+      ]
+    },
+    "MayhemInteractiveFallen": {
+      "methods": [
+        "onInteractiveComplete",
+        "onEnter"
+      ]
+    },
+    "Ambient": {
+      "methods": [
+        "onBehaviorComplete",
+        "scanForEnemiesAmb",
+        "onQueryDamage",
+        "onEnter"
+      ]
+    }
+  }
+}

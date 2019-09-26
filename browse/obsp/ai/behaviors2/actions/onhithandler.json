@@ -1,0 +1,66 @@
+{
+  "Parent": "base/backgroundaction",
+  "Name": "base/onhithandler",
+  "Properties": {
+    "ActionID": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "WeaponType": {
+      "Flags": 4,
+      "Type": 2
+    },
+    "HitType": {
+      "Flags": 4,
+      "Type": 2
+    },
+    "HitLocation": {
+      "Flags": 4,
+      "Type": 2
+    },
+    "DamageThreshold": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "DamageThresholdDecay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "Action": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "DamageAccumulator": {
+      "Flags": 2,
+      "Type": 1
+    }
+  },
+  "StaticProperties": {},
+  "Methods": [
+    "begin",
+    "end"
+  ],
+  "PackageName": "base",
+  "DefaultValues": {
+    "DamageThresholdDecay": 0.5,
+    "DamageAccumulator": 0,
+    "ID": "OnHit",
+    "DamageThreshold": 50,
+    "HitLocation": -1,
+    "WeaponType": -1,
+    "HitType": -1
+  },
+  "States": {
+    "Hit": {
+      "methods": [
+        "onActionComplete"
+      ]
+    },
+    "Default": {
+      "methods": [
+        "onHit",
+        "onEnter"
+      ]
+    }
+  }
+}

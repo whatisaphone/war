@@ -1,0 +1,3348 @@
+{
+  "Parent": "wicked_k/wicked_k_base",
+  "Name": "wicked_k/wicked_k2",
+  "Properties": {},
+  "StaticProperties": {
+    "Description": {
+      "Value": {
+        "classname": "wicked_k/wicked_k_desc",
+        "properties": {
+          "SpawnBehavior": {
+            "classname": "base/spawnemergebehavior",
+            "properties": {
+              "MoveStateSpawn": "SpawnEmerge",
+              "DeathBlowHandler": {
+                "classname": "base/deathblowaction",
+                "properties": {
+                  "ID": "Death",
+                  "ActionCode": 660,
+                  "Priority": 660
+                }
+              },
+              "InteractiveHandler": {
+                "classname": "base/interactivestallaction",
+                "properties": {
+                  "ID": "Interactive",
+                  "Priority": 630,
+                  "InterruptibleBy": [
+                    "Death"
+                  ]
+                }
+              },
+              "ImpactHandler": {
+                "classname": "base/impactaction",
+                "properties": {
+                  "ID": "Impact",
+                  "Priority": 620,
+                  "InterruptibleBy": [
+                    "Death",
+                    "Interactive"
+                  ],
+                  "OnCompleteState": "DoneSpawn"
+                }
+              },
+              "ComponentActions": [
+                {
+                  "classname": "base/animaction",
+                  "properties": {
+                    "ID": "TransitionAction",
+                    "Priority": -1,
+                    "InterruptibleBy": [
+                      "Death",
+                      "Interactive",
+                      "Impact"
+                    ],
+                    "ValidStates": [
+                      "Spawning"
+                    ],
+                    "OnCompleteState": "DoneSpawn"
+                  }
+                },
+                {
+                  "classname": "base/animaction",
+                  "properties": {
+                    "ID": "SpawnAction",
+                    "ActionCode": 1,
+                    "Priority": 1,
+                    "InterruptibleBy": [
+                      "Death",
+                      "Interactive",
+                      "Impact"
+                    ],
+                    "ValidStates": [
+                      "Spawning"
+                    ],
+                    "OnCompleteAction": "TransitionAction"
+                  }
+                }
+              ],
+              "ExitBehaviorHandler": {
+                "classname": "base/exitbehavioraction",
+                "properties": {
+                  "ID": "Exit"
+                }
+              }
+            }
+          },
+          "SpawnPathBehavior": {
+            "classname": "base/spawnpathbehavior",
+            "properties": {
+              "ApproachRange": 50,
+              "ApproachMoveStateMove": "MoveTo",
+              "ApproachForceCloseRange": 100,
+              "ApproachForceCompleteRange": 40,
+              "IdleMoveStateIdle": "Idle",
+              "BlockMoveStateBlock": "NA",
+              "ClearObstacleMoveState": "",
+              "PathBlockedBreakableHandler": {
+                "classname": "base/clearobstacleaction",
+                "properties": {
+                  "ID": "Clear Obstacle",
+                  "Priority": 16,
+                  "InterruptibleBy": [
+                    "Death",
+                    "Exit",
+                    "Interactive",
+                    "Impact"
+                  ],
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "DeathBlowHandler": {
+                "classname": "base/deathblowaction",
+                "properties": {
+                  "ID": "Death",
+                  "ActionCode": 660,
+                  "Priority": 660,
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "InteractiveHandler": {
+                "classname": "base/interactivestallaction",
+                "properties": {
+                  "ID": "Interactive",
+                  "Priority": 630,
+                  "InterruptibleBy": [
+                    "Death"
+                  ],
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "ImpactHandler": {
+                "classname": "base/impactaction",
+                "properties": {
+                  "ID": "Impact",
+                  "Priority": 620,
+                  "InterruptibleBy": [
+                    "Death",
+                    "Interactive"
+                  ],
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "ComponentActions": [
+                {
+                  "classname": "base/approachpatrolaction",
+                  "properties": {
+                    "IgnoreZTolerance": true,
+                    "ID": "SimplePatrol",
+                    "Priority": 9,
+                    "InterruptibleBy": [
+                      "ANY"
+                    ],
+                    "ValidStates": [
+                      "SpawnPath"
+                    ],
+                    "OnCompleteState": "FinishedSpawnPath",
+                    "Position": [
+                      null,
+                      0.003632192,
+                      -6.2343606e-38
+                    ]
+                  }
+                },
+                {
+                  "classname": "base/idleaction",
+                  "properties": {
+                    "ID": "Idle",
+                    "ActionCode": 1,
+                    "Priority": 1,
+                    "Position": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  }
+                }
+              ],
+              "ExitBehaviorHandler": {
+                "classname": "base/exitbehavioraction",
+                "properties": {
+                  "ID": "Exit",
+                  "Priority": 640,
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            }
+          },
+          "SpawnSplineBehavior": {
+            "classname": "base/spawnsplinebehavior",
+            "properties": {
+              "SplineMoveStateFly": "FlySpline",
+              "IdleMoveStateIdle": "Idle",
+              "DeathBlowHandler": {
+                "classname": "base/deathblowaction",
+                "properties": {
+                  "ID": "Death",
+                  "ActionCode": 660,
+                  "Priority": 660,
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "InteractiveHandler": {
+                "classname": "base/interactivestallaction",
+                "properties": {
+                  "ID": "Interactive",
+                  "Priority": 630,
+                  "InterruptibleBy": [
+                    "Death"
+                  ],
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "ImpactHandler": {
+                "classname": "base/impactaction",
+                "properties": {
+                  "ID": "Impact",
+                  "Priority": 620,
+                  "InterruptibleBy": [
+                    "Death",
+                    "Interactive"
+                  ],
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "ComponentActions": [
+                {
+                  "classname": "base/splineaction",
+                  "properties": {
+                    "SplineAllowOverrides": true,
+                    "ID": "SplineAction",
+                    "Priority": 9,
+                    "InterruptibleBy": [
+                      "ANY"
+                    ],
+                    "ValidStates": [
+                      "SpawnPath"
+                    ],
+                    "OnCompleteState": "FinishedSpawnPath",
+                    "Position": [
+                      9.246473e-22,
+                      2.842328e-13,
+                      4.7973914e-10
+                    ]
+                  }
+                },
+                {
+                  "classname": "base/idleaction",
+                  "properties": {
+                    "ID": "Idle",
+                    "ActionCode": 1,
+                    "Priority": 1,
+                    "Position": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  }
+                }
+              ],
+              "ExitBehaviorHandler": {
+                "classname": "base/exitbehavioraction",
+                "properties": {
+                  "ID": "Exit",
+                  "Priority": 640,
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            }
+          },
+          "AmbientBehaviorGuard": {
+            "classname": "base/guardambientbehavior",
+            "properties": {
+              "ApproachRange": 50,
+              "ApproachMoveStateMove": "MoveToNC",
+              "ApproachForceCloseRange": 100,
+              "ApproachForceCompleteRange": 40,
+              "IdleMoveStateIdle": "IdleNC",
+              "BlockMoveStateBlock": "NA",
+              "ClearObstacleMoveState": "",
+              "PathBlockedBreakableHandler": {
+                "classname": "base/clearobstacleaction",
+                "properties": {
+                  "ID": "Clear Obstacle",
+                  "ActionCode": 5,
+                  "Priority": 16,
+                  "InterruptibleBy": [
+                    "Death",
+                    "Exit",
+                    "Interactive",
+                    "Impact"
+                  ],
+                  "Position": [
+                    2.6208754e20,
+                    2.1714976e-18,
+                    1.8472921e20
+                  ]
+                }
+              },
+              "DeathBlowHandler": {
+                "classname": "base/deathblowaction",
+                "properties": {
+                  "ID": "Death",
+                  "ActionCode": 660,
+                  "Priority": 660,
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "InteractiveHandler": {
+                "classname": "base/interactivestallaction",
+                "properties": {
+                  "ID": "Interactive",
+                  "Priority": 630,
+                  "InterruptibleBy": [
+                    "Death"
+                  ],
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "ImpactHandler": {
+                "classname": "base/impactaction",
+                "properties": {
+                  "ID": "Impact",
+                  "Priority": 620,
+                  "InterruptibleBy": [
+                    "Death",
+                    "Interactive"
+                  ],
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "ComponentActions": [
+                {
+                  "classname": "base/approachhomeaction",
+                  "properties": {
+                    "IgnoreZTolerance": true,
+                    "ID": "ReturnHome",
+                    "Priority": 9,
+                    "InterruptibleBy": [
+                      "ANY"
+                    ],
+                    "OnCompleteState": "Guarding",
+                    "Position": [
+                      null,
+                      0.0,
+                      -1.5924013e-19
+                    ]
+                  }
+                },
+                {
+                  "classname": "base/idleaction",
+                  "properties": {
+                    "ID": "Idle",
+                    "ActionCode": 1,
+                    "Priority": 1,
+                    "InterruptibleBy": [
+                      "ANY"
+                    ],
+                    "Position": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  }
+                }
+              ],
+              "BackgroundActions": [
+                {
+                  "classname": "base/homescanaction",
+                  "properties": {
+                    "OnScanAcquiredTarget": "FoundMeleeTarget",
+                    "OnScanAcquiredRangedTarget": "FoundRangedTarget",
+                    "OnScanLostTarget": "",
+                    "ScanLOSCheck": true,
+                    "ScanMeleeOnly": false,
+                    "ScanAllowRescansWithTarget": true,
+                    "ID": "HomeScanForTarget",
+                    "ValidStates": [
+                      "MovingIntoPosition"
+                    ],
+                    "Position": [
+                      1.5113662e-13,
+                      1.5113662e-13,
+                      1.5113662e-13
+                    ]
+                  }
+                },
+                {
+                  "classname": "base/scanaction",
+                  "properties": {
+                    "OnScanAcquiredTarget": "FoundMeleeTarget",
+                    "OnScanAcquiredRangedTarget": "FoundRangedTarget",
+                    "OnScanLostTarget": "",
+                    "ScanLOSCheck": true,
+                    "ScanMeleeOnly": false,
+                    "ScanAllowRescansWithTarget": true,
+                    "ID": "Scan",
+                    "ValidStates": [
+                      "Guarding"
+                    ],
+                    "Position": [
+                      4.8613497e30,
+                      4.8603944e30,
+                      7.5550794e31
+                    ]
+                  }
+                }
+              ],
+              "ExitBehaviorHandler": {
+                "classname": "base/exitbehavioraction",
+                "properties": {
+                  "ID": "Exit",
+                  "Priority": 640,
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "Position": [
+                null,
+                6.800025e-33,
+                9.246473e-22
+              ]
+            }
+          },
+          "AmbientBehaviorWander": {
+            "classname": "base/wanderambientbehavior",
+            "properties": {
+              "ApproachRange": 50,
+              "ApproachMoveStateMove": "MoveToNC",
+              "ApproachForceCloseRange": 50000,
+              "ApproachForceCompleteRange": 40,
+              "IdleMoveStateIdle": "IdleNC",
+              "BlockMoveStateBlock": "NA",
+              "ClearObstacleMoveState": "",
+              "PathBlockedBreakableHandler": {
+                "classname": "base/clearobstacleaction",
+                "properties": {
+                  "ID": "Clear Obstacle",
+                  "ActionCode": 5,
+                  "Priority": 16,
+                  "InterruptibleBy": [
+                    "Death",
+                    "Exit",
+                    "Interactive",
+                    "Impact"
+                  ],
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "DeathBlowHandler": {
+                "classname": "base/deathblowaction",
+                "properties": {
+                  "ID": "Death",
+                  "ActionCode": 660,
+                  "Priority": 660,
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "InteractiveHandler": {
+                "classname": "base/interactivestallaction",
+                "properties": {
+                  "ID": "Interactive",
+                  "Priority": 630,
+                  "InterruptibleBy": [
+                    "Death"
+                  ],
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "ImpactHandler": {
+                "classname": "base/impactaction",
+                "properties": {
+                  "ID": "Impact",
+                  "Priority": 620,
+                  "InterruptibleBy": [
+                    "Death",
+                    "Interactive"
+                  ],
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "ComponentActions": [
+                {
+                  "classname": "base/approachwanderaction",
+                  "properties": {
+                    "IgnoreZTolerance": true,
+                    "Priority": 9,
+                    "InterruptibleBy": [
+                      "ANY"
+                    ],
+                    "ValidStates": [
+                      "Wander",
+                      "MovingIntoPosition"
+                    ],
+                    "OnCompleteState": "WanderPointReached",
+                    "Position": [
+                      0.0,
+                      0.0,
+                      -1.038998e-7
+                    ]
+                  }
+                },
+                {
+                  "classname": "base/defaultaction",
+                  "properties": {
+                    "ID": "WanderTooClose",
+                    "Priority": 8,
+                    "InterruptibleBy": [
+                      "ANY"
+                    ],
+                    "ValidStates": [
+                      "Wander",
+                      "MovingIntoPosition"
+                    ],
+                    "OnCompleteState": "WanderPointReached",
+                    "Position": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  }
+                },
+                {
+                  "classname": "base/idleaction",
+                  "properties": {
+                    "ID": "Idle",
+                    "Priority": 1,
+                    "InterruptibleBy": [
+                      "ANY"
+                    ],
+                    "Position": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  }
+                }
+              ],
+              "BackgroundActions": [
+                {
+                  "classname": "base/homescanaction",
+                  "properties": {
+                    "OnScanAcquiredTarget": "FoundMeleeTarget",
+                    "OnScanAcquiredRangedTarget": "FoundRangedTarget",
+                    "OnScanLostTarget": "",
+                    "ScanLOSCheck": true,
+                    "ScanMeleeOnly": false,
+                    "ScanAllowRescansWithTarget": true,
+                    "ID": "HomeScanForTarget",
+                    "ValidStates": [
+                      "MovingIntoPosition"
+                    ],
+                    "Position": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  }
+                },
+                {
+                  "classname": "base/scanaction",
+                  "properties": {
+                    "OnScanAcquiredTarget": "FoundMeleeTarget",
+                    "OnScanAcquiredRangedTarget": "FoundRangedTarget",
+                    "OnScanLostTarget": "",
+                    "ScanLOSCheck": true,
+                    "ScanMeleeOnly": false,
+                    "ScanAllowRescansWithTarget": true,
+                    "ID": "Scan",
+                    "ValidStates": [
+                      "Wander",
+                      "Resting",
+                      "NoWanderRegion"
+                    ],
+                    "Position": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  }
+                }
+              ],
+              "ExitBehaviorHandler": {
+                "classname": "base/exitbehavioraction",
+                "properties": {
+                  "ID": "Exit",
+                  "Priority": 640,
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "Position": [
+                0.0,
+                0.0,
+                -1169.6575
+              ]
+            }
+          },
+          "AmbientBehaviorPatrol": {
+            "classname": "base/patrolambientbehavior",
+            "properties": {
+              "ApproachRange": 50,
+              "ApproachMoveStateMove": "MoveToNC",
+              "ApproachForceCloseRange": 50000,
+              "ApproachForceCompleteRange": 40,
+              "IdleMoveStateIdle": "IdleNC",
+              "BlockMoveStateBlock": "NA",
+              "ClearObstacleMoveState": "",
+              "PathBlockedBreakableHandler": {
+                "classname": "base/clearobstacleaction",
+                "properties": {
+                  "ID": "Clear Obstacle",
+                  "ActionCode": 5,
+                  "Priority": 16,
+                  "InterruptibleBy": [
+                    "Death",
+                    "Exit",
+                    "Interactive",
+                    "Impact"
+                  ]
+                }
+              },
+              "DeathBlowHandler": {
+                "classname": "base/deathblowaction",
+                "properties": {
+                  "ID": "Death",
+                  "ActionCode": 660,
+                  "Priority": 660
+                }
+              },
+              "InteractiveHandler": {
+                "classname": "base/interactivestallaction",
+                "properties": {
+                  "ID": "Interactive",
+                  "Priority": 630,
+                  "InterruptibleBy": [
+                    "Death"
+                  ]
+                }
+              },
+              "ImpactHandler": {
+                "classname": "base/impactaction",
+                "properties": {
+                  "ID": "Impact",
+                  "Priority": 620,
+                  "InterruptibleBy": [
+                    "Death",
+                    "Interactive"
+                  ]
+                }
+              },
+              "ComponentActions": [
+                {
+                  "classname": "base/approachpatrolaction",
+                  "properties": {
+                    "IgnoreZTolerance": true,
+                    "ID": "ApproachPatrol",
+                    "Priority": 9,
+                    "InterruptibleBy": [
+                      "ANY"
+                    ],
+                    "OnCompleteState": "Patrol",
+                    "Position": [
+                      null,
+                      7.7135135e31,
+                      -21.848436
+                    ]
+                  }
+                },
+                {
+                  "classname": "base/idleaction",
+                  "properties": {
+                    "ID": "Idle",
+                    "ActionCode": 1,
+                    "Priority": 1,
+                    "InterruptibleBy": [
+                      "ANY"
+                    ]
+                  }
+                }
+              ],
+              "BackgroundActions": [
+                {
+                  "classname": "base/homescanaction",
+                  "properties": {
+                    "OnScanAcquiredTarget": "FoundMeleeTarget",
+                    "OnScanAcquiredRangedTarget": "FoundRangedTarget",
+                    "OnScanLostTarget": "",
+                    "ScanLOSCheck": true,
+                    "ScanMeleeOnly": false,
+                    "ScanAllowRescansWithTarget": true,
+                    "ID": "HomeScanForTarget",
+                    "ValidStates": [
+                      "MovingIntoPosition"
+                    ]
+                  }
+                },
+                {
+                  "classname": "base/scanaction",
+                  "properties": {
+                    "OnScanAcquiredTarget": "FoundMeleeTarget",
+                    "OnScanAcquiredRangedTarget": "FoundRangedTarget",
+                    "OnScanLostTarget": "",
+                    "ScanLOSCheck": true,
+                    "ScanMeleeOnly": false,
+                    "ScanAllowRescansWithTarget": true,
+                    "ID": "Scan",
+                    "ValidStates": [
+                      "Patrol"
+                    ]
+                  }
+                }
+              ],
+              "ExitBehaviorHandler": {
+                "classname": "base/exitbehavioraction",
+                "properties": {
+                  "ID": "Exit",
+                  "Priority": 640
+                }
+              }
+            }
+          },
+          "CombatBehavior": {
+            "classname": "base/tbehavior",
+            "properties": {
+              "ComponentActions": [
+                {
+                  "classname": "AIGenericAction",
+                  "properties": {
+                    "MoveState": "Strafe",
+                    "ExitOnComplete": false,
+                    "ID": "Strafe",
+                    "InterruptibleBy": [
+                      "ANY"
+                    ],
+                    "Position": [
+                      3.0353437e32,
+                      1.6019655e-19,
+                      4.4633257e30
+                    ]
+                  }
+                },
+                {
+                  "classname": "AIGenericAction",
+                  "properties": {
+                    "MinRange": 400.0,
+                    "MaxRange": 10000.0,
+                    "MoveState": "MoveTo",
+                    "ID": "MoveTo",
+                    "Priority": 2,
+                    "InterruptibleBy": [
+                      "ANY"
+                    ],
+                    "Position": [
+                      4.0060566e-11,
+                      0.002688419,
+                      1.6495501e-33
+                    ]
+                  }
+                },
+                {
+                  "classname": "AIGenericAction",
+                  "properties": {
+                    "AttackType": 1,
+                    "Pressure": 4,
+                    "MaxRange": 250.0,
+                    "MaxHeight": 120.0,
+                    "MoveState": "Attack - HatAttack",
+                    "RequireInView": true,
+                    "ID": "Attack1",
+                    "Priority": 5,
+                    "Chance": 0.5,
+                    "InterruptibleBy": [
+                      "Parry"
+                    ],
+                    "ResourceLock": "HatAttack",
+                    "MinLockTime": 5.0,
+                    "MaxLockTime": 10.0
+                  }
+                },
+                {
+                  "classname": "AIGenericAction",
+                  "properties": {
+                    "AttackType": 1,
+                    "Pressure": 4,
+                    "MaxRange": 250.0,
+                    "MaxHeight": 120.0,
+                    "MoveState": "Attack - CaneStrike",
+                    "RequireInView": true,
+                    "AutoClose": true,
+                    "PreferredDistance": 100.0,
+                    "ID": "Attack2",
+                    "Priority": 5,
+                    "Chance": 0.5,
+                    "InterruptibleBy": [
+                      "Parry"
+                    ],
+                    "ResourceLock": "Cane Strike",
+                    "MinLockTime": 2.0,
+                    "MaxLockTime": 3.0
+                  }
+                },
+                {
+                  "classname": "AIGenericAction",
+                  "properties": {
+                    "MoveState": "Parry",
+                    "ID": "Parry",
+                    "Priority": -1,
+                    "InterruptibleBy": [
+                      "Parry"
+                    ],
+                    "Position": [
+                      4e-45,
+                      11.316017,
+                      -6.647893e34
+                    ]
+                  }
+                }
+              ],
+              "BackgroundActions": [
+                {
+                  "classname": "base/onblockhandler",
+                  "properties": {
+                    "ActionID": "Parry",
+                    "BlockChance": 75,
+                    "Position": [
+                      1.1384448e37,
+                      1.661734e-33,
+                      3.0337966e32
+                    ]
+                  }
+                }
+              ],
+              "InterruptHandler": {
+                "classname": "base/oninterrupthandler",
+                "properties": {
+                  "Position": [
+                    7.0563854e-31,
+                    3.59e-43,
+                    null
+                  ]
+                }
+              },
+              "ExitBehaviorHandler": {
+                "classname": "ExitBehaviorAction",
+                "properties": {
+                  "Position": [
+                    null,
+                    1.3315163e21,
+                    0.0
+                  ]
+                }
+              }
+            }
+          },
+          "TargetUnreachableBehavior": {
+            "classname": "base/tauntunreachablebehavior",
+            "properties": {
+              "TauntMoveState": "Fidget",
+              "TauntMinDelay": 5,
+              "TauntMaxDelay": 10,
+              "TauntMaxAngleDiff": 35,
+              "IdleMinTime": 0.5,
+              "IdleMaxTime": 1.0,
+              "BlockMoveStateBlock": "NA",
+              "DeathBlowHandler": {
+                "classname": "base/deathblowaction",
+                "properties": {
+                  "ID": "Death",
+                  "ActionCode": 660,
+                  "Priority": 660,
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "InteractiveHandler": {
+                "classname": "base/interactivestallaction",
+                "properties": {
+                  "ID": "Interactive",
+                  "Priority": 630,
+                  "InterruptibleBy": [
+                    "Death"
+                  ],
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "ImpactHandler": {
+                "classname": "base/impactaction",
+                "properties": {
+                  "ID": "Impact",
+                  "Priority": 620,
+                  "InterruptibleBy": [
+                    "Death",
+                    "Interactive"
+                  ],
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "ComponentActions": [
+                {
+                  "classname": "base/animaction",
+                  "properties": {
+                    "ID": "Taunt",
+                    "ActionCode": 2,
+                    "Priority": 2,
+                    "Chance": 0.8,
+                    "InterruptibleBy": [
+                      "Death",
+                      "Interactive",
+                      "Impact"
+                    ],
+                    "ResourceLock": "Taunt",
+                    "Position": [
+                      null,
+                      1.2463289e-10,
+                      4.8590648e35
+                    ]
+                  }
+                },
+                {
+                  "classname": "base/facetargetaction",
+                  "properties": {
+                    "ID": "Face Target",
+                    "Priority": 1,
+                    "InterruptibleBy": [
+                      "Death",
+                      "Interactive",
+                      "Impact"
+                    ],
+                    "Position": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  }
+                },
+                {
+                  "classname": "base/idleaction",
+                  "properties": {
+                    "Priority": 1,
+                    "InterruptibleBy": [
+                      "ANY"
+                    ],
+                    "Position": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  }
+                }
+              ],
+              "BackgroundActions": [
+                {
+                  "classname": "base/scanaction",
+                  "properties": {
+                    "OnScanAcquiredTarget": "FoundMeleeTarget",
+                    "ScanMeleeOnly": false,
+                    "ScanAllowRescansWithTarget": true,
+                    "Position": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  }
+                }
+              ],
+              "ExitBehaviorHandler": {
+                "classname": "base/exitbehavioraction",
+                "properties": {
+                  "ID": "Exit",
+                  "Priority": 640,
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            }
+          },
+          "DefensiveIdleBehavior": {
+            "classname": "base/defensivebehavior",
+            "properties": {
+              "DefensiveScanAlertDistance": 350,
+              "DeathBlowHandler": {
+                "classname": "base/deathblowaction",
+                "properties": {
+                  "ID": "Death",
+                  "ActionCode": 660,
+                  "Priority": 660
+                }
+              },
+              "InteractiveHandler": {
+                "classname": "base/interactivestallaction",
+                "properties": {
+                  "ID": "Interactive",
+                  "Priority": 630,
+                  "InterruptibleBy": [
+                    "Death"
+                  ]
+                }
+              },
+              "ImpactHandler": {
+                "classname": "base/impactaction",
+                "properties": {
+                  "ID": "Impact",
+                  "Priority": 620,
+                  "InterruptibleBy": [
+                    "Death",
+                    "Interactive"
+                  ],
+                  "OnCompleteState": "Exit"
+                }
+              },
+              "ComponentActions": [
+                {
+                  "classname": "base/animaction",
+                  "properties": {
+                    "NoRepeat": false,
+                    "ID": "transitiontocombat",
+                    "Priority": 11,
+                    "InterruptibleBy": [
+                      "Death",
+                      "Interactive",
+                      "Impact"
+                    ],
+                    "ValidStates": [
+                      "Transition"
+                    ],
+                    "OnCompleteState": "Exit",
+                    "Position": [
+                      1e-45,
+                      0.0,
+                      -6.4460086e-9
+                    ]
+                  }
+                },
+                {
+                  "classname": "base/idleaction",
+                  "properties": {
+                    "Priority": 1,
+                    "InterruptibleBy": [
+                      "ANY"
+                    ]
+                  }
+                }
+              ],
+              "BackgroundActions": [
+                {
+                  "classname": "base/scanaction",
+                  "properties": {
+                    "OnScanAcquiredTarget": "Transition",
+                    "OnScanLostTarget": "",
+                    "ID": "defensivescanaction",
+                    "ValidStates": [
+                      "Defensive"
+                    ]
+                  }
+                },
+                {
+                  "classname": "base/scanaction",
+                  "properties": {
+                    "OnScanAcquiredTarget": "Transition",
+                    "OnScanLostTarget": "",
+                    "ID": "scanaction",
+                    "ValidStates": [
+                      "FullScan"
+                    ]
+                  }
+                }
+              ],
+              "ExitBehaviorHandler": {
+                "classname": "base/defaultaction",
+                "properties": {
+                  "ID": "NotYetExit",
+                  "Priority": 700,
+                  "ValidStates": [
+                    "Defensive",
+                    "FullScan",
+                    "Exit"
+                  ],
+                  "OnCompleteState": "ExitRequested"
+                }
+              },
+              "ID": "DefensiveIdleBehavior",
+              "Position": [
+                6.800025e-33,
+                1.2463648e-10,
+                2.4735123e32
+              ]
+            }
+          },
+          "AutoDecayOnDeath": false,
+          "MoveStates": {
+            "classname": "CharacterMoveStateList",
+            "properties": {
+              "MoveStates": [
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "Name": "Attack - AOE",
+                    "ID": 15,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 0
+                      }
+                    },
+                    "FaceOnStart": true
+                  }
+                },
+                {
+                  "classname": "MonsterAttackDesc",
+                  "properties": {
+                    "StopTurnFrame": 500,
+                    "OnRepulsed": 16,
+                    "AllowPenetration": true,
+                    "Name": "Attack - CaneStrike",
+                    "ID": 12,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 9
+                      }
+                    },
+                    "MoveWeight": 10.0,
+                    "TurnSpeed": 100.0,
+                    "UseMotionNode": true
+                  }
+                },
+                {
+                  "classname": "MonsterAttackDesc",
+                  "properties": {
+                    "StopTurnFrame": 30,
+                    "OnBlocked": 1,
+                    "OnRepulsed": 1,
+                    "Name": "Attack - HatAttack",
+                    "ID": 11,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 14
+                      }
+                    },
+                    "MoveWeight": 10.0,
+                    "TurnSpeed": 200.0,
+                    "UseMotionNode": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "Name": "Death",
+                    "ID": 18,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 22
+                      }
+                    }
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "UseCameraNode": true,
+                    "CameraNode": "Camera01",
+                    "Name": "Exit",
+                    "ID": 14,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 15
+                      }
+                    },
+                    "MoveWeight": 100.0
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "UseCameraNode": true,
+                    "CameraNode": "Camera01",
+                    "Name": "Greeting",
+                    "ID": 13,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 8
+                      }
+                    },
+                    "FaceTarget": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "UseCameraNode": true,
+                    "CameraNode": "Camera01",
+                    "Name": "Greeting Revisit",
+                    "ID": 17,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 23
+                      }
+                    },
+                    "FaceTarget": true
+                  }
+                },
+                {
+                  "classname": "MonsterIdleDesc",
+                  "properties": {
+                    "OnImpact": [
+                      1
+                    ],
+                    "Name": "Idle",
+                    "ID": 2,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 1
+                      }
+                    }
+                  }
+                },
+                {
+                  "classname": "MonsterIdleDesc",
+                  "properties": {
+                    "OnImpact": [
+                      1
+                    ],
+                    "Name": "IdleNC",
+                    "ID": 3,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 1
+                      }
+                    }
+                  }
+                },
+                {
+                  "classname": "MonsterImpactDesc",
+                  "properties": {
+                    "UseDirectionalImpacts": true,
+                    "BackAnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 4
+                      }
+                    },
+                    "LeftAnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 16
+                      }
+                    },
+                    "RightAnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 18
+                      }
+                    },
+                    "FrontAnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 3
+                      }
+                    },
+                    "OnImpact": [
+                      1
+                    ],
+                    "Name": "Impact",
+                    "ID": 1,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 4,
+                        "Ease": 0.0
+                      }
+                    },
+                    "ImpulseDamage": 100,
+                    "ImpulsePeriod": 20.0,
+                    "OnImpulseImpact": 12
+                  }
+                },
+                {
+                  "classname": "MonsterMoveToDesc",
+                  "properties": {
+                    "Range": 300.0,
+                    "Name": "MoveTo",
+                    "ID": 9,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 13
+                      }
+                    },
+                    "MaxSpeed": 350.0,
+                    "FaceTarget": true
+                  }
+                },
+                {
+                  "classname": "MonsterMoveToDesc",
+                  "properties": {
+                    "Name": "MoveToNC",
+                    "ID": 10,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 13
+                      }
+                    },
+                    "MaxSpeed": 200.0,
+                    "FaceTarget": true
+                  }
+                },
+                {
+                  "classname": "MonsterRandDesc",
+                  "properties": {
+                    "StateOneChance": 10,
+                    "OnStateOne": 5,
+                    "StateTwoChance": 10,
+                    "OnStateTwo": 6,
+                    "StateThreeChance": 10,
+                    "OnStateThree": 7,
+                    "Name": "Parry",
+                    "ID": 8,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {}
+                    }
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "Name": "Parry1",
+                    "ID": 5,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 5,
+                        "Ease": 0.0
+                      }
+                    },
+                    "MoveWeight": 10.0,
+                    "FaceOnStart": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "Name": "Parry2",
+                    "ID": 6,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 6,
+                        "Ease": 0.0
+                      }
+                    },
+                    "MoveWeight": 10.0,
+                    "FaceOnStart": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "Name": "Parry3",
+                    "ID": 7,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 7,
+                        "Ease": 0.0
+                      }
+                    },
+                    "MoveWeight": 10.0,
+                    "FaceOnStart": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "CameraNode": "Camera01",
+                    "OnImpact": [
+                      1
+                    ],
+                    "Name": "Stagger",
+                    "ID": 16,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 21
+                      }
+                    },
+                    "FaceTarget": true
+                  }
+                },
+                {
+                  "classname": "MonsterMoveToDesc",
+                  "properties": {
+                    "Strafe": true,
+                    "IdleAnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 1,
+                        "Ease": 0.15
+                      }
+                    },
+                    "BackSpeedMult": 1.0,
+                    "OnImpact": [
+                      1
+                    ],
+                    "Name": "Strafe",
+                    "AnimController": {
+                      "classname": "StrafeAnimController",
+                      "properties": {
+                        "ForwardAnimation": 2,
+                        "LeftAnimation": 19,
+                        "RightAnimation": 20,
+                        "BackAnimation": 11,
+                        "BackLeftAnimation": 17,
+                        "BackRightAnimation": 12,
+                        "MaxVelocity": 80.0,
+                        "ScaleAnimSpeed": true,
+                        "Ease": 0.15
+                      }
+                    },
+                    "MaxSpeed": 80.0
+                  }
+                }
+              ]
+            }
+          },
+          "CharacterClass": "wicked_k2",
+          "DecayAnimId": 149,
+          "HitInfos": {
+            "classname": "HitInfoList",
+            "properties": {
+              "HitInfos": [
+                {
+                  "classname": "HitInfo",
+                  "properties": {
+                    "ID": 2,
+                    "Name": "CaneImpact",
+                    "WType": 2,
+                    "Power": 1
+                  }
+                },
+                {
+                  "classname": "HitInfo",
+                  "properties": {
+                    "ID": 3,
+                    "Name": "CaneKnockback",
+                    "WType": 2,
+                    "Power": 2,
+                    "KnockBackPower": 200.0,
+                    "KnockUpPower": 200.0
+                  }
+                },
+                {
+                  "classname": "HitInfo",
+                  "properties": {
+                    "ID": 1,
+                    "Name": "Hat",
+                    "WType": 2,
+                    "Power": 1
+                  }
+                }
+              ]
+            }
+          },
+          "Animations": {
+            "classname": "AnimationList",
+            "properties": {
+              "Animations": [
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 9,
+                    "Name": "WickedK_CanFlurry",
+                    "AnimationName": "WickedK_CanFlurry",
+                    "Triggers": [
+                      {
+                        "classname": "WeaponPhantomTrigger",
+                        "properties": {
+                          "Duration": 8,
+                          "WeaponPhantom": "Weapon Phantom Cane",
+                          "HitInfoID": 2,
+                          "TriggerFrame": 22
+                        }
+                      },
+                      {
+                        "classname": "WeaponPhantomTrigger",
+                        "properties": {
+                          "Duration": 5,
+                          "WeaponPhantom": "Weapon Phantom Cane",
+                          "HitInfoID": 2,
+                          "TriggerFrame": 35
+                        }
+                      },
+                      {
+                        "classname": "WeaponPhantomTrigger",
+                        "properties": {
+                          "Duration": 9,
+                          "WeaponPhantom": "Weapon Phantom Cane",
+                          "HitInfoID": 3,
+                          "TriggerFrame": 40
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50096,
+                          "TriggerFrame": 20
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50096,
+                          "TriggerFrame": 30
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50096,
+                          "TriggerFrame": 42
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50096,
+                          "TriggerFrame": 2
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50095,
+                          "TriggerFrame": 22
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50095,
+                          "TriggerFrame": 32
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50095,
+                          "TriggerFrame": 44
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50098,
+                          "TriggerFrame": 60
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50097,
+                          "TriggerFrame": 65
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 60,
+                          "TriggerFrame": 26
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 60,
+                          "TriggerFrame": 38
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50106,
+                          "TriggerFrame": 66
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 101,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "WickedK_CaneFlurry"
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50125,
+                          "TriggerFrame": 22
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50125,
+                          "TriggerFrame": 32
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50125,
+                          "TriggerFrame": 44
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 24,
+                    "Name": "WickedK_Death"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 22,
+                    "Name": "WickedK_DeathDissolve",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "WickedK_Death"
+                        }
+                      },
+                      {
+                        "classname": "DissolveTrigger",
+                        "properties": {
+                          "Duration": 60,
+                          "Brightness": 1.5
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 15,
+                    "Name": "WickedK_Escape",
+                    "AnimationName": "WickedK_Escape",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50101,
+                          "TriggerFrame": 55
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50101
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50099,
+                          "TriggerFrame": 13
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 60,
+                          "TriggerFrame": 8
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 60,
+                          "TriggerFrame": 10
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 60,
+                          "TriggerFrame": 40
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 60,
+                          "TriggerFrame": 49
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "WickedK_Escape"
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50124,
+                          "TriggerFrame": 20
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 8,
+                    "Name": "WickedK_Greeting",
+                    "AnimationName": "WickedK_Greeting",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50103,
+                          "TriggerFrame": 2
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50105,
+                          "TriggerFrame": 20
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50104,
+                          "TriggerFrame": 5
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50106,
+                          "TriggerFrame": 58
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 60,
+                          "TriggerFrame": 10
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 60,
+                          "TriggerFrame": 52
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "WickedK_Greeting"
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 106,
+                          "TriggerFrame": 1
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 23,
+                    "Name": "WickedK_GreetingRevisit",
+                    "AnimationName": "WickedK_Greeting",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50103,
+                          "TriggerFrame": 2
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50105,
+                          "TriggerFrame": 20
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50104,
+                          "TriggerFrame": 5
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50106,
+                          "TriggerFrame": 58
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 60,
+                          "TriggerFrame": 10
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 60,
+                          "TriggerFrame": 52
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "WickedK_Greeting"
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 100,
+                          "TriggerFrame": 1
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 14,
+                    "Name": "WickedK_HatAttack",
+                    "AnimationName": "WickedK_HatAttack",
+                    "Triggers": [
+                      {
+                        "classname": "WeaponPhantomTrigger",
+                        "properties": {
+                          "Duration": 27,
+                          "WeaponPhantom": "Weapon Phantom Hat",
+                          "HitInfoID": 1,
+                          "TriggerFrame": 22
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50110
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50107,
+                          "TriggerFrame": 13
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50108,
+                          "TriggerFrame": 55
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50109,
+                          "TriggerFrame": 45
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50111,
+                          "TriggerFrame": 20
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 60,
+                          "TriggerFrame": 2
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 60,
+                          "TriggerFrame": 25
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "WickedK_HatAttack"
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 101,
+                          "TriggerFrame": 1
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 3,
+                    "Name": "WickedK_Hit_Back",
+                    "AnimationName": "WickedK_Hit_Back"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 4,
+                    "Name": "WickedK_Hit_Front",
+                    "AnimationName": "WickedK_Hit_Front",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50112
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 107,
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 16,
+                    "Name": "WickedK_Hit_Left",
+                    "AnimationName": "WickedK_Hit_Left"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 18,
+                    "Name": "WickedK_Hit_Right",
+                    "AnimationName": "WickedK_Hit_Right"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 1,
+                    "Name": "WickedK_Idle",
+                    "AnimationName": "WickedK_Idle",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50106,
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 5,
+                    "Name": "WickedK_Parry_1",
+                    "AnimationName": "WickedK_Parry_1",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50113
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50114,
+                          "TriggerFrame": 2
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "WickedK_Parry"
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50114,
+                          "TriggerFrame": 2
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50124,
+                          "TriggerFrame": 1
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 6,
+                    "Name": "WickedK_Parry_2",
+                    "AnimationName": "WickedK_Parry_2",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50113
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50114,
+                          "TriggerFrame": 2
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "WickedK_Parry"
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50124,
+                          "TriggerFrame": 1
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 7,
+                    "Name": "WickedK_Parry_3",
+                    "AnimationName": "WickedK_Parry_3",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50114
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50113,
+                          "TriggerFrame": 2
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "WickedK_Parry"
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50124,
+                          "TriggerFrame": 1
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "Name": "WickedK_Proper_AOE",
+                    "AnimationName": "WickedK_Proper_AOE",
+                    "Triggers": [
+                      {
+                        "classname": "CombatEffectTrigger",
+                        "properties": {
+                          "CombatEffect": {
+                            "classname": "AOEInstantCombatEffect",
+                            "properties": {
+                              "Radius": 200.0,
+                              "Height": 200.0,
+                              "HitInfoID": 3
+                            }
+                          },
+                          "TriggerFrame": 36
+                        }
+                      },
+                      {
+                        "classname": "CameraShakeTrigger",
+                        "properties": {
+                          "HPower": 5.0,
+                          "VPower": 5.0,
+                          "AttenStart": 1000.0,
+                          "AttenEnd": 3000.0,
+                          "BlurPower": 0.5,
+                          "TriggerFrame": 36
+                        }
+                      },
+                      {
+                        "classname": "RumbleTrigger",
+                        "properties": {
+                          "Effect": 3,
+                          "TriggerFrame": 36
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50116
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50117,
+                          "TriggerFrame": 45
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50118,
+                          "TriggerFrame": 68
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50115,
+                          "TriggerFrame": 35
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50106,
+                          "TriggerFrame": 62
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 60,
+                          "TriggerFrame": 11
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 60,
+                          "TriggerFrame": 58
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "WickedK_Proper_AOE"
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50121,
+                          "TriggerFrame": 34
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50125,
+                          "TriggerFrame": 34
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 101,
+                          "TriggerFrame": 1
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 10,
+                    "Name": "WickedK_Run_Back",
+                    "AnimationName": "WickedK_Run_Back"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 13,
+                    "Name": "WickedK_Run_Forward",
+                    "AnimationName": "WickedK_Run_Forward",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "WickedK_Run_Forward",
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 21,
+                    "Name": "WickedK_Stagger",
+                    "AnimationName": "WickedK_Stagger",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "WickedK_Stagger"
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50123
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 11,
+                    "Name": "WickedK_Walk_Back",
+                    "AnimationName": "WickedK_Walk_Back"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 17,
+                    "Name": "WickedK_Walk_BackLeft",
+                    "AnimationName": "WickedK_Walk_BackLeft"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 12,
+                    "Name": "WickedK_Walk_BackRight",
+                    "AnimationName": "WickedK_Walk_BackRight"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 2,
+                    "Name": "WickedK_Walk_Forward",
+                    "AnimationName": "WickedK_Walk_Forward",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50119
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50119,
+                          "TriggerFrame": 20
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50120
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 60,
+                          "TriggerFrame": 23
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 60
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 19,
+                    "Name": "WickedK_Walk_Left",
+                    "AnimationName": "WickedK_Walk_Left"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 20,
+                    "Name": "WickedK_Walk_Right",
+                    "AnimationName": "WickedK_Walk_Right"
+                  }
+                }
+              ]
+            }
+          },
+          "Sounds": {
+            "classname": "SoundList",
+            "properties": {
+              "Sounds": [
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50047,
+                    "Name": "body_grab",
+                    "Volume": 0.64990234,
+                    "RandomVolume": 1.0,
+                    "RandomPitch": 2.0,
+                    "Min": 200.0,
+                    "Priority": 100,
+                    "Sounds": "body_grab_4,body_grab_1,body_grab_2,body_grab_3",
+                    "Group": "War"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50093,
+                    "Name": "Death Dissolve",
+                    "Volume": 0.19995117,
+                    "Pitch": 1.0,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Priority": 100,
+                    "Sounds": "death_dissolve_A_3,death_dissolve_A_1,death_dissolve_A_2",
+                    "Group": "Dissolve sfx"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50076,
+                    "Name": "hand_traversal_flesh",
+                    "Volume": 0.5,
+                    "RandomPitch": 2.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Sounds": "hand_traversal_flesh_5,hand_traversal_flesh_1,hand_traversal_flesh_2,hand_traversal_flesh_3,hand_traversal_flesh_4",
+                    "Group": "War"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 63,
+                    "Name": "punch_ground",
+                    "Volume": 0.19995117,
+                    "RandomPitch": 1.0,
+                    "Min": 1.0,
+                    "Sounds": "CRE_GREAV_BODYDROP_1",
+                    "Group": "Creatures"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 100,
+                    "Name": "vo_wicked_killingont_revisit",
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 4500.0,
+                    "Priority": 1,
+                    "Sounds": "vo_wicked_killingont_revisit_04_a,vo_wicked_killingont_revisit_01,vo_wicked_killingont_revisit_01_a,vo_wicked_killingont_revisit_02,vo_wicked_killingont_revisit_02_a,vo_wicked_killingont_revisit_02_b,vo_wicked_killingont_revisit_02_c,vo_wicked_killingont_revisit_04",
+                    "Group": "dialogue_wicked_killington"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 101,
+                    "Name": "vo_wicked_killington_attack",
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 4500.0,
+                    "Chance": 20,
+                    "Priority": 1,
+                    "Sounds": "vo_wicked_killington_attack_05_a,vo_wicked_killington_attack_01,vo_wicked_killington_attack_01_a,vo_wicked_killington_attack_02,vo_wicked_killington_attack_02_a,vo_wicked_killington_attack_03,vo_wicked_killington_attack_03_a,vo_wicked_killington_attack_03_b,vo_wicked_killington_attack_03_c,vo_wicked_killington_attack_04,vo_wicked_killington_attack_04_a,vo_wicked_killington_attack_04_b,vo_wicked_killington_attack_05",
+                    "Group": "dialogue_wicked_killington"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 102,
+                    "Name": "vo_wicked_killington_death",
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 4500.0,
+                    "Priority": 1,
+                    "Sounds": "vo_wicked_killington_death_03_a,vo_wicked_killington_death_01,vo_wicked_killington_death_01_a,vo_wicked_killington_death_01_b,vo_wicked_killington_death_02,vo_wicked_killington_death_02_a,vo_wicked_killington_death_02_b,vo_wicked_killington_death_02_c,vo_wicked_killington_death_03",
+                    "Group": "dialogue_wicked_killington"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 103,
+                    "Name": "vo_wicked_killington_havoc_form",
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 4500.0,
+                    "Priority": 1,
+                    "Sounds": "vo_wicked_killington_havoc_form_03_a,vo_wicked_killington_havoc_form_01,vo_wicked_killington_havoc_form_01_a,vo_wicked_killington_havoc_form_01_b,vo_wicked_killington_havoc_form_02,vo_wicked_killington_havoc_form_02_a,vo_wicked_killington_havoc_form_02_b,vo_wicked_killington_havoc_form_02_c,vo_wicked_killington_havoc_form_03",
+                    "Group": "dialogue_wicked_killington"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 104,
+                    "Name": "vo_wicked_killington_kb_war",
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 4500.0,
+                    "Priority": 1,
+                    "Sounds": "vo_wicked_killington_kb_war_03_a,vo_wicked_killington_kb_war_01,vo_wicked_killington_kb_war_01_a,vo_wicked_killington_kb_war_01_b,vo_wicked_killington_kb_war_02,vo_wicked_killington_kb_war_02_a,vo_wicked_killington_kb_war_02_b,vo_wicked_killington_kb_war_02_c,vo_wicked_killington_kb_war_03",
+                    "Group": "dialogue_wicked_killington"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 105,
+                    "Name": "vo_wicked_killington_low_health",
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 4500.0,
+                    "Priority": 1,
+                    "Sounds": "vo_wicked_killington_low_health_03_a,vo_wicked_killington_low_health_01,vo_wicked_killington_low_health_01_a,vo_wicked_killington_low_health_02,vo_wicked_killington_low_health_02_a,vo_wicked_killington_low_health_02_b,vo_wicked_killington_low_health_02_c,vo_wicked_killington_low_health_03",
+                    "Group": "dialogue_wicked_killington"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 106,
+                    "Name": "vo_wicked_killington_on_sight",
+                    "Volume": 0.89990234,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 4500.0,
+                    "Priority": 1,
+                    "Sounds": "vo_wicked_killington_on_sight_01,vo_wicked_killington_on_sight_01_a,vo_wicked_killington_on_sight_01_b,vo_wicked_killington_on_sight_01_c,vo_wicked_killington_on_sight_03,vo_wicked_killington_on_sight_03_a,vo_wicked_killington_on_sight_03_b,vo_wicked_killington_on_sight_03_c",
+                    "Group": "dialogue_wicked_killington"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 107,
+                    "Name": "vo_wicked_killington_pain",
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 4500.0,
+                    "Chance": 20,
+                    "Priority": 1,
+                    "Sounds": "vo_wicked_killington_pain_05_c,vo_wicked_killington_pain_01,vo_wicked_killington_pain_01_a,vo_wicked_killington_pain_01_b,vo_wicked_killington_pain_02,vo_wicked_killington_pain_02_a,vo_wicked_killington_pain_03,vo_wicked_killington_pain_03_a,vo_wicked_killington_pain_04,vo_wicked_killington_pain_04_a,vo_wicked_killington_pain_04_b,vo_wicked_killington_pain_05,vo_wicked_killington_pain_05_a,vo_wicked_killington_pain_05_b",
+                    "Group": "dialogue_wicked_killington"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 108,
+                    "Name": "vo_wicked_killington_war_death",
+                    "Volume": 0.89990234,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 4500.0,
+                    "Priority": 1,
+                    "Group": "dialogue_wicked_killington"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50067,
+                    "Name": "voc_war_attack_finish",
+                    "Volume": 0.75,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "Min": 200.0,
+                    "Max": 12000.0,
+                    "Priority": 50,
+                    "Sounds": "voc_war_attack_long_5,voc_war_attack_long_3,voc_war_attack_long_4",
+                    "Group": "War"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50035,
+                    "Name": "voc_war_grab",
+                    "Volume": 0.0,
+                    "RandomVolume": 1.0,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "Min": 200.0,
+                    "Max": 1200.0,
+                    "Priority": 50,
+                    "Sounds": "voc_war_attack_short_4,voc_war_attack_short_1,voc_war_attack_short_2,voc_war_attack_short_3,voc_war_attack_long_5,voc_war_attack_long_1,voc_war_attack_long_2,voc_war_attack_long_3,voc_war_attack_long_4",
+                    "Group": "War"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 51,
+                    "Name": "voc_wicked_attack",
+                    "Volume": 0.60009766,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Sounds": "voc_wicked_attack_4,voc_wicked_attack_1,voc_wicked_attack_2,voc_wicked_attack_3,voc_wicked_attack_5",
+                    "Group": "wicked_male_vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 52,
+                    "Name": "voc_wicked_death",
+                    "Volume": 0.44995117,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Sounds": "voc_wicked_death_3,voc_wicked_death_1,voc_wicked_death_2",
+                    "Group": "wicked_male_vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 53,
+                    "Name": "voc_wicked_idle",
+                    "Volume": 0.10998535,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 900.0,
+                    "Sounds": "voc_wicked_idle_6,voc_wicked_idle_1,voc_wicked_idle_2,voc_wicked_idle_3,voc_wicked_idle_4,voc_wicked_idle_5",
+                    "Group": "wicked_male_vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 61,
+                    "Name": "voc_wicked_idle less",
+                    "Volume": 0.10998535,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 800.0,
+                    "Chance": 10,
+                    "Sounds": "voc_wicked_idle_6,voc_wicked_idle_1,voc_wicked_idle_2,voc_wicked_idle_3,voc_wicked_idle_4,voc_wicked_idle_5",
+                    "Group": "wicked_male_vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50094,
+                    "Name": "voc_wicked_idle_100",
+                    "Volume": 0.19995117,
+                    "FollowActor": true,
+                    "Sounds": "voc_wicked_idle_6,voc_wicked_idle_1,voc_wicked_idle_2,voc_wicked_idle_3,voc_wicked_idle_4,voc_wicked_idle_5",
+                    "Group": "wicked_male_vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50092,
+                    "Name": "voc_wicked_idle_less_more",
+                    "Volume": 0.10998535,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 800.0,
+                    "Chance": 20,
+                    "Sounds": "voc_wicked_idle_6,voc_wicked_idle_1,voc_wicked_idle_2,voc_wicked_idle_3,voc_wicked_idle_4,voc_wicked_idle_5",
+                    "Group": "wicked_male_vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 70,
+                    "Name": "voc_wicked_male_taunt",
+                    "Volume": 0.60009766,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 1050.0,
+                    "Sounds": "voc_wicked_male_taunt_2,voc_wicked_male_taunt_1",
+                    "Group": "wicked_male_vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 54,
+                    "Name": "voc_wicked_pain",
+                    "Volume": 0.52001953,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Sounds": "voc_wicked_pain_5,voc_wicked_pain_1,voc_wicked_pain_2,voc_wicked_pain_3,voc_wicked_pain_4",
+                    "Group": "wicked_male_vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 62,
+                    "Name": "voc_wicked_pain less",
+                    "Volume": 0.52001953,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Chance": 50,
+                    "Sounds": "voc_wicked_pain_5,voc_wicked_pain_1,voc_wicked_pain_2,voc_wicked_pain_3,voc_wicked_pain_4",
+                    "Group": "wicked_male_vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50039,
+                    "Name": "war_punch_impact",
+                    "Volume": 0.35009766,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 1050.0,
+                    "Sounds": "impact_body_wet_1,impact_body_wet_2,impact_body_wet_3",
+                    "Group": "War"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50088,
+                    "Name": "war_whooshes_gauntlet_melee_1",
+                    "Volume": 0.3798828,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Priority": 0,
+                    "Sounds": "war_whooshes_melee_1_3,war_whooshes_melee_1_1,war_whooshes_melee_1_2",
+                    "Group": "War"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50089,
+                    "Name": "war_whooshes_gauntlet_melee_2",
+                    "Volume": 0.41992188,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Priority": 0,
+                    "Sounds": "war_whooshes_melee_2_3,war_whooshes_melee_2_1,war_whooshes_melee_2_2",
+                    "Group": "War"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 56,
+                    "Name": "wicked_bodyfall",
+                    "Volume": 0.39990234,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Priority": 100,
+                    "Sounds": "wicked_bodyfall_3,wicked_bodyfall_1,wicked_bodyfall_2",
+                    "Group": "wicked_male_impacts"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50091,
+                    "Name": "wicked_bodyfall_land",
+                    "Volume": 0.39990234,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Priority": 100,
+                    "Sounds": "wicked_bodyfall_3,wicked_bodyfall_1",
+                    "Group": "wicked_male_impacts"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 68,
+                    "Name": "wicked_female_bodyfall_2",
+                    "Volume": 0.39990234,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Priority": 100,
+                    "Sounds": "wicked_female_bodyfall_2_3,wicked_female_bodyfall_2_1,wicked_female_bodyfall_2_2",
+                    "Group": "wicked_male_impacts"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 69,
+                    "Name": "wicked_female_foot_drag",
+                    "Volume": 0.11999512,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Sounds": "wicked_female_foot_drag_4,wicked_female_foot_drag_1,wicked_female_foot_drag_2,wicked_female_foot_drag_3",
+                    "Group": "wicked_male_foley"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 67,
+                    "Name": "wicked_female_ground_idle",
+                    "Volume": 0.099975586,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Sounds": "wicked_female_ground_idle_3,wicked_female_ground_idle_1,wicked_female_ground_idle_2",
+                    "Group": "wicked_male_foley"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 60,
+                    "Name": "wicked_footfalls",
+                    "Volume": 0.30004883,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 2000.0,
+                    "Sounds": "Flesh_Giblets_Kick_02,Flesh_Giblets_Kick_01",
+                    "Group": "wickedk_foley"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50090,
+                    "Name": "wicked_interactive_body_slam",
+                    "Volume": 0.7998047,
+                    "RandomVolume": 0.5,
+                    "RandomPitch": 0.5,
+                    "FollowActor": true,
+                    "Min": 200.0,
+                    "Max": 1100.0,
+                    "Priority": 0,
+                    "Sounds": "wicked_interactive_body_slam_3,wicked_interactive_body_slam_1,wicked_interactive_body_slam_2",
+                    "Group": "Interactives"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 59,
+                    "Name": "wicked_whoosh",
+                    "Volume": 0.60009766,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Sounds": "wicked_whoosh_4,wicked_whoosh_1,wicked_whoosh_2,wicked_whoosh_3",
+                    "Group": "Creature whooshes"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50106,
+                    "Name": "wickedk_body_greeting",
+                    "Volume": 0.30004883,
+                    "FollowActor": true,
+                    "Max": 2000.0,
+                    "Sounds": "wickedk_caneflurry_handgrab_01",
+                    "Group": "wickedk_foley"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50097,
+                    "Name": "wickedk_cane_flurry_end",
+                    "Volume": 0.5,
+                    "FollowActor": true,
+                    "Min": 500.0,
+                    "Max": 2000.0,
+                    "Sounds": "wickedk_caneflurry_cane_end_01",
+                    "Group": "wickedk_foley"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50095,
+                    "Name": "wickedk_cane_whoosh",
+                    "Volume": 0.7998047,
+                    "RandomPitch": 1.5,
+                    "FollowActor": true,
+                    "Min": 500.0,
+                    "Max": 2000.0,
+                    "Sounds": "wickedk_cane_whoosh_04,wickedk_cane_whoosh_01,wickedk_cane_whoosh_02,wickedk_cane_whoosh_03",
+                    "Group": "wickedk_whooshes"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50124,
+                    "Name": "wickedk_change",
+                    "Volume": 0.60009766,
+                    "RandomPitch": 1.0,
+                    "Max": 2000.0,
+                    "Sounds": "wickedk_change_01,wickedk_change_02,wickedk_change_03",
+                    "Group": "wickedk_foley"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50125,
+                    "Name": "wickedk_change_less",
+                    "Volume": 0.39990234,
+                    "Max": 2000.0,
+                    "Sounds": "wickedk_change_01,wickedk_change_02,wickedk_change_03",
+                    "Group": "wickedk_foley"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50102,
+                    "Name": "wickedk_foley"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50099,
+                    "Name": "wickedk_Foley_cane_escape",
+                    "Volume": 0.7998047,
+                    "FollowActor": true,
+                    "Min": 500.0,
+                    "Max": 2000.0,
+                    "Sounds": "wickedk_Foley_cane_escape_01",
+                    "Group": "wickedk_foley"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50105,
+                    "Name": "wickedk_Foley_cane_greeting",
+                    "FollowActor": true,
+                    "Min": 500.0,
+                    "Max": 2000.0,
+                    "Sounds": "wickedk_Foley_cane_greet_01",
+                    "Group": "wickedk_foley"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50113,
+                    "Name": "wickedk_Foley_cane_Parry",
+                    "Volume": 0.75,
+                    "RandomPitch": 1.5,
+                    "FollowActor": true,
+                    "Min": 500.0,
+                    "Max": 2000.0,
+                    "Sounds": "wickedk_Foley_cane_parry_01,wickedk_Foley_cane_parry_02,wickedk_Foley_cane_parry_03",
+                    "Group": "wickedk_impacts"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50118,
+                    "Name": "wickedk_Foley_cane_Proper_end",
+                    "Volume": 0.7998047,
+                    "FollowActor": true,
+                    "Min": 500.0,
+                    "Max": 2000.0,
+                    "Sounds": "wickedk_Foley_cane_proper_end_01",
+                    "Group": "wickedk_foley"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50120,
+                    "Name": "wickedk_Foley_cane_walk",
+                    "Volume": 0.7001953,
+                    "RandomPitch": 1.5,
+                    "FollowActor": true,
+                    "ExclusiveActor": true,
+                    "Min": 500.0,
+                    "Max": 2000.0,
+                    "Sounds": "wickedk_Foley_cane_walk_04,wickedk_Foley_cane_walk_01,wickedk_Foley_cane_walk_02,wickedk_Foley_cane_walk_03",
+                    "Group": "wickedk_foley"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50100,
+                    "Name": "wickedk_Foley_cloth_escape",
+                    "Volume": 0.7001953,
+                    "FollowActor": true,
+                    "Min": 500.0,
+                    "Max": 2000.0,
+                    "Sounds": "wickedk_Foley_cloth_escape_01",
+                    "Group": "wickedk_foley"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50098,
+                    "Name": "wickedk_Foley_cloth_flurry_end",
+                    "Volume": 0.5,
+                    "FollowActor": true,
+                    "Min": 500.0,
+                    "Max": 2000.0,
+                    "Sounds": "wickedk_Foley_cloth_walk_01",
+                    "Group": "wickedk_foley"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50112,
+                    "Name": "wickedk_Foley_cloth_impact",
+                    "Volume": 0.7998047,
+                    "RandomPitch": 5.0,
+                    "FollowActor": true,
+                    "Min": 500.0,
+                    "Max": 2000.0,
+                    "Sounds": "wickedk_Foley_cloth_impact_01",
+                    "Group": "wickedk_impacts"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50114,
+                    "Name": "wickedk_Foley_cloth_Parry",
+                    "Volume": 0.39990234,
+                    "FollowActor": true,
+                    "Min": 500.0,
+                    "Max": 2000.0,
+                    "Sounds": "wickedk_Foley_cloth_parry_01,wickedk_Foley_cloth_parry_02,wickedk_Foley_cloth_parry_03",
+                    "Group": "wickedk_foley"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50117,
+                    "Name": "wickedk_Foley_cloth_Proper_End",
+                    "Volume": 0.7001953,
+                    "FollowActor": true,
+                    "Min": 500.0,
+                    "Max": 2000.0,
+                    "Sounds": "wickedk_Foley_cloth_proper_end_01",
+                    "Group": "wickedk_foley"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50116,
+                    "Name": "wickedk_Foley_cloth_Proper_Start",
+                    "Volume": 0.7001953,
+                    "FollowActor": true,
+                    "Min": 500.0,
+                    "Max": 2000.0,
+                    "Sounds": "wickedk_Foley_cloth_proper_start_01",
+                    "Group": "wickedk_foley"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50110,
+                    "Name": "wickedk_Foley_cloth_throw",
+                    "Volume": 0.7001953,
+                    "FollowActor": true,
+                    "Min": 500.0,
+                    "Max": 2000.0,
+                    "Sounds": "wickedk_Foley_cloth_throw_01",
+                    "Group": "wickedk_foley"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50119,
+                    "Name": "wickedk_Foley_cloth_walk",
+                    "Volume": 0.25,
+                    "RandomPitch": 3.0,
+                    "FollowActor": true,
+                    "Min": 500.0,
+                    "Max": 2000.0,
+                    "Sounds": "wickedk_Foley_cloth_walk_04,wickedk_Foley_cloth_walk_01,wickedk_Foley_cloth_walk_02,wickedk_Foley_cloth_walk_03",
+                    "Group": "wickedk_foley"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50096,
+                    "Name": "wickedk_Foley_cloth_whoosh",
+                    "Volume": 0.30004883,
+                    "RandomPitch": 2.0,
+                    "FollowActor": true,
+                    "Min": 500.0,
+                    "Max": 2000.0,
+                    "Sounds": "wickedk_Foley_cloth_whoosh_02,wickedk_Foley_cloth_whoosh_01",
+                    "Group": "wickedk_foley"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50103,
+                    "Name": "wickedk_Foley_teeth_greeting",
+                    "Volume": 0.5,
+                    "FollowActor": true,
+                    "Min": 500.0,
+                    "Max": 2000.0,
+                    "Sounds": "wickedk_Foley_teeth_greeting_01",
+                    "Group": "wickedk_foley"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50101,
+                    "Name": "wickedk_Foley_tophat_escape",
+                    "Volume": 0.7001953,
+                    "FollowActor": true,
+                    "Min": 500.0,
+                    "Max": 2000.0,
+                    "Sounds": "wickedk_Foley_tophat_escape_01",
+                    "Group": "wickedk_foley"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50104,
+                    "Name": "wickedk_Foley_tophat_greeting",
+                    "Volume": 0.5,
+                    "FollowActor": true,
+                    "Min": 500.0,
+                    "Max": 2000.0,
+                    "Sounds": "wickedk_Foley_tophat_greet_01",
+                    "Group": "wickedk_foley"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50109,
+                    "Name": "wickedk_foley_tophat_throw_catch",
+                    "FollowActor": true,
+                    "Min": 500.0,
+                    "Max": 2000.0,
+                    "Sounds": "wickedk_Foley_tophat_catch_01",
+                    "Group": "wickedk_impacts"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50108,
+                    "Name": "wickedk_Foley_tophat_throw_end",
+                    "FollowActor": true,
+                    "Min": 500.0,
+                    "Max": 2000.0,
+                    "Sounds": "wickedk_Foley_tophat_throw_end_01",
+                    "Group": "wickedk_foley"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50107,
+                    "Name": "wickedk_Foley_tophat_throw_start",
+                    "Volume": 0.5,
+                    "FollowActor": true,
+                    "Min": 500.0,
+                    "Max": 2000.0,
+                    "Sounds": "wickedk_Foley_tophat_throw_start_01",
+                    "Group": "wickedk_foley"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50111,
+                    "Name": "wickedk_hat_projectile_loop_01",
+                    "Volume": 0.5,
+                    "Loop": true,
+                    "FadeOutTime": 0.25,
+                    "Duration": 1.0,
+                    "Offset": true,
+                    "FollowActor": true,
+                    "Min": 500.0,
+                    "Max": 2000.0,
+                    "Sounds": "wickedk_Foley_tophat_projectile_01",
+                    "Group": "wickedk_impacts"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50115,
+                    "Name": "wickedk_Impact_Proper_AOE",
+                    "FollowActor": true,
+                    "Max": 2000.0,
+                    "Sounds": "wickedk_impact_cane_proper_01",
+                    "Group": "wickedk_impacts"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50121,
+                    "Name": "wickedk_Impact_Proper_AOE_Hat",
+                    "FollowActor": true,
+                    "Max": 5000.0,
+                    "Sounds": "wickedk_Foley_cane_proper_AOE_01",
+                    "Group": "wickedk_impacts"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50122,
+                    "Name": "wickedk_portal",
+                    "FollowActor": true,
+                    "Min": 3000.0,
+                    "Max": 5000.0,
+                    "Sounds": "wickedk_portal_01",
+                    "Group": "wickedk_foley"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50123,
+                    "Name": "wickedk_stagger",
+                    "FollowActor": true,
+                    "Max": 3000.0,
+                    "Sounds": "wickedk_stagger_01",
+                    "Group": "wickedk_foley"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "Methods": [],
+  "PackageName": "wicked_k",
+  "DefaultValues": {
+    "GreetingMoveState": "Greeting Revisit"
+  },
+  "States": {}
+}

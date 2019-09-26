@@ -1,0 +1,2111 @@
+{
+  "Parent": "ScriptObject",
+  "Name": "base/watcherdialogmanager",
+  "Properties": {
+    "DefaultDialog": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "ActiveDialog": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "NudgeDialog": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "QueuedDialog": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "CurrentDialog": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "Listener": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "Watcher": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "Banishing": {
+      "Flags": 2,
+      "Type": 4
+    },
+    "Spawned": {
+      "Flags": 2,
+      "Type": 4
+    },
+    "Talking": {
+      "Flags": 2,
+      "Type": 4
+    },
+    "HasPOI": {
+      "Flags": 2,
+      "Type": 4
+    },
+    "AllowSummonWatcher": {
+      "Flags": 2,
+      "Type": 4
+    },
+    "POI": {
+      "Flags": 2,
+      "Type": 1
+    }
+  },
+  "StaticProperties": {
+    "DialogList": {
+      "Value": {
+        "classname": "base/dialoglist",
+        "properties": {
+          "Dialogs": [
+            {
+              "classname": "base/watcherdialog",
+              "properties": {
+                "Name": "vo_watcher_start_area_02",
+                "Captions": [
+                  {
+                    "classname": "base/dialogcaption",
+                    "properties": {
+                      "ID": 0,
+                      "Speaker": "Watcher",
+                      "Text": "$vo_watcher_start_area_02",
+                      "Sound": "vo_watcher_start_area_02"
+                    }
+                  },
+                  {
+                    "classname": "base/dialogcaption",
+                    "properties": {
+                      "ID": 1,
+                      "DisplayTime": 0.001,
+                      "DialogEvent": "onPingVulgrimQuest"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "classname": "base/watcherdialog",
+              "properties": {
+                "Name": "vo_watcher_start_area_03",
+                "Captions": [
+                  {
+                    "classname": "base/dialogcaption",
+                    "properties": {
+                      "ID": 0,
+                      "Speaker": "Watcher",
+                      "Text": "$vo_watcher_start_area_03",
+                      "Sound": "vo_watcher_start_area_03"
+                    }
+                  },
+                  {
+                    "classname": "base/dialogcaption",
+                    "properties": {
+                      "ID": 1,
+                      "DisplayTime": 0.001,
+                      "DialogEvent": "onPingVulgrimQuestFinish"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "classname": "base/watcherdialog",
+              "properties": {
+                "Name": "vo_watcher_start_area_04",
+                "Captions": [
+                  {
+                    "classname": "base/dialogcaption",
+                    "properties": {
+                      "ID": 0,
+                      "Speaker": "Watcher",
+                      "Text": "$vo_watcher_start_area_04",
+                      "Sound": "vo_watcher_start_area_04"
+                    }
+                  },
+                  {
+                    "classname": "base/dialogcaption",
+                    "properties": {
+                      "ID": 1,
+                      "DisplayTime": 0.001,
+                      "DialogEvent": "onPingVulgrimQuestFinish"
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "Sounds": {
+            "classname": "SoundList",
+            "properties": {
+              "Sounds": [
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 6,
+                    "Name": "vo_cut_18_watcher_01",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_cut_18_watcher_01",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 7,
+                    "Name": "vo_cut_18_watcher_02",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_cut_18_watcher_02",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 112,
+                    "Name": "vo_watcher_armageddon_blade_quest_default",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_armageddon_tip_01_b,vo_watcher_armageddon_tip_01,vo_watcher_armageddon_tip_01_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 111,
+                    "Name": "vo_watcher_armageddon_blade_quest_forced",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_armageddon_tip_02_a,vo_watcher_armageddon_tip_02",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 8,
+                    "Name": "vo_watcher_ashlands_01",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_ashlands_01,vo_watcher_ashlands_01_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 9,
+                    "Name": "vo_watcher_ashlands_02",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_ashlands_02,vo_watcher_ashlands_02_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 10,
+                    "Name": "vo_watcher_ashlands_03",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_ashlands_03",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 11,
+                    "Name": "vo_watcher_ashlands_04",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_ashlands_04_b,vo_watcher_ashlands_04,vo_watcher_ashlands_04_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 12,
+                    "Name": "vo_watcher_ashlands_05",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_ashlands_05,vo_watcher_ashlands_05_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 13,
+                    "Name": "vo_watcher_ashlands_06",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_ashlands_06",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 14,
+                    "Name": "vo_watcher_ashlands_07",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_ashlands_07,vo_watcher_ashlands_07_a,vo_watcher_ashlands_07_b",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 15,
+                    "Name": "vo_watcher_ashlands_08",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_ashlands_08",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 16,
+                    "Name": "vo_watcher_ashlands_09",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_ashlands_09",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 17,
+                    "Name": "vo_watcher_ashlands_10",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_ashlands_10,vo_watcher_ashlands_10_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 18,
+                    "Name": "vo_watcher_ashlands_11",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_ashlands_11",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 19,
+                    "Name": "vo_watcher_ashlands_12",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_ashlands_12",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 20,
+                    "Name": "vo_watcher_ashlands_13",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_ashlands_13,vo_watcher_ashlands_13_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 21,
+                    "Name": "vo_watcher_ashlands_14",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_ashlands_14,vo_watcher_ashlands_14_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 22,
+                    "Name": "vo_watcher_ashlands_15",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_ashlands_15,vo_watcher_ashlands_15_a,vo_watcher_ashlands_15_b",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 23,
+                    "Name": "vo_watcher_ashlands_16",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_ashlands_16",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 24,
+                    "Name": "vo_watcher_ashlands_17",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_ashlands_17,vo_watcher_ashlands_17_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 25,
+                    "Name": "vo_watcher_ashlands_18",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_ashlands_18,vo_watcher_ashlands_18_a,vo_watcher_ashlands_18_b",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 1,
+                    "Name": "vo_watcher_banish",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_banish_01,vo_watcher_banish_01_a,vo_watcher_banish_02,vo_watcher_banish_03,vo_watcher_banish_04",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 122,
+                    "Name": "vo_watcher_banish_01",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_banish_01,vo_watcher_banish_01_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 123,
+                    "Name": "vo_watcher_banish_04",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_banish_04",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 26,
+                    "Name": "vo_watcher_call_war",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_call_war_01,vo_watcher_call_war_02,vo_watcher_call_war_03,vo_watcher_call_war_03_a,vo_watcher_call_war_04,vo_watcher_call_war_05,vo_watcher_call_war_05_a,vo_watcher_call_war_06,vo_watcher_call_war_06_a,vo_watcher_call_war_07,vo_watcher_call_war_07_a,vo_watcher_call_war_08",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 27,
+                    "Name": "vo_watcher_church_ext_01",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_church_ext_01",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 28,
+                    "Name": "vo_watcher_church_ext_02",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_church_ext_02",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 29,
+                    "Name": "vo_watcher_church_ext_03",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_church_ext_03,vo_watcher_church_ext_03_a,vo_watcher_church_ext_03_b",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 30,
+                    "Name": "vo_watcher_church_ext_04",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_church_ext_04",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 31,
+                    "Name": "vo_watcher_church_ext_05",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_church_ext_05,vo_watcher_church_ext_05_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 32,
+                    "Name": "vo_watcher_church_int_01",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_church_int_01",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 33,
+                    "Name": "vo_watcher_church_int_02",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_church_int_02",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 34,
+                    "Name": "vo_watcher_church_int_03",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_church_int_03,vo_watcher_church_int_03_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 35,
+                    "Name": "vo_watcher_church_int_04",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_church_int_04,vo_watcher_church_int_04_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 36,
+                    "Name": "vo_watcher_church_int_05",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_church_int_05",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 37,
+                    "Name": "vo_watcher_church_int_06",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_church_int_06,vo_watcher_church_int_06_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 38,
+                    "Name": "vo_watcher_church_int_07",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_church_int_07",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 39,
+                    "Name": "vo_watcher_church_int_08",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_church_int_08,vo_watcher_church_int_08_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 40,
+                    "Name": "vo_watcher_church_int_09",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_church_int_09,vo_watcher_church_int_09_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 41,
+                    "Name": "vo_watcher_church_int_10",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_church_int_10,vo_watcher_church_int_10_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 42,
+                    "Name": "vo_watcher_church_int_11",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_church_int_11,vo_watcher_church_int_11_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 43,
+                    "Name": "vo_watcher_church_int_12",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_church_int_12",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 44,
+                    "Name": "vo_watcher_church_int_13",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_church_int_13",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 45,
+                    "Name": "vo_watcher_collect_pieces_01",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_collect_pieces_01,vo_watcher_collect_pieces_01_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 46,
+                    "Name": "vo_watcher_collect_pieces_02",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_collect_pieces_02,vo_watcher_collect_pieces_02_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 47,
+                    "Name": "vo_watcher_collect_pieces_03",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_collect_pieces_03",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 113,
+                    "Name": "vo_watcher_crystal_sword_forced",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_crystal_sword_02_b,vo_watcher_crystal_sword_01,vo_watcher_crystal_sword_01_a,vo_watcher_crystal_sword_01_b,vo_watcher_crystal_sword_02,vo_watcher_crystal_sword_02_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 48,
+                    "Name": "vo_watcher_eden_01",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_eden_01",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 49,
+                    "Name": "vo_watcher_eden_02",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_eden_02,vo_watcher_eden_02_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50,
+                    "Name": "vo_watcher_eden_03",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_eden_03",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 51,
+                    "Name": "vo_watcher_finale_01",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_finale_02_b,vo_watcher_finale_01_b,vo_watcher_finale_02,vo_watcher_finale_02_a,vo_watcher_finale_01_a,vo_watcher_finale_01",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 124,
+                    "Name": "vo_watcher_follow_me_04",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_follow_me_04,vo_watcher_follow_me_04_a,vo_watcher_follow_me_04_b",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 115,
+                    "Name": "vo_watcher_follow_me_gap",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_follow_me_06_f,vo_watcher_follow_me_03,vo_watcher_follow_me_03_a,vo_watcher_follow_me_06,vo_watcher_follow_me_06_a,vo_watcher_follow_me_06_b,vo_watcher_follow_me_06_c,vo_watcher_follow_me_06_d,vo_watcher_follow_me_06_e",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 116,
+                    "Name": "vo_watcher_follow_me_high",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_follow_me_07_b,vo_watcher_follow_me_07,vo_watcher_follow_me_07_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 114,
+                    "Name": "vo_watcher_follow_me_standard",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_follow_me_05_b,vo_watcher_follow_me_01,vo_watcher_follow_me_01_a,vo_watcher_follow_me_01_b,vo_watcher_follow_me_02,vo_watcher_follow_me_02_a,vo_watcher_follow_me_02_b,vo_watcher_follow_me_04,vo_watcher_follow_me_04_a,vo_watcher_follow_me_04_b,vo_watcher_follow_me_05,vo_watcher_follow_me_05_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 117,
+                    "Name": "vo_watcher_follow_me_thru",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_follow_me_08_a,vo_watcher_follow_me_08",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 52,
+                    "Name": "vo_watcher_iron_canopy_01",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_iron_canopy_01",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 53,
+                    "Name": "vo_watcher_iron_canopy_01_a",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_iron_canopy_01_a,vo_watcher_iron_canopy_01_b",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 54,
+                    "Name": "vo_watcher_iron_canopy_02",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_iron_canopy_02",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 55,
+                    "Name": "vo_watcher_iron_canopy_03",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_iron_canopy_03",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 56,
+                    "Name": "vo_watcher_iron_canopy_04",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_iron_canopy_04",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 57,
+                    "Name": "vo_watcher_iron_canopy_05",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_iron_canopy_05,vo_watcher_iron_canopy_05_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 58,
+                    "Name": "vo_watcher_iron_canopy_06",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_iron_canopy_06",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 59,
+                    "Name": "vo_watcher_iron_canopy_07",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_iron_canopy_07",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 60,
+                    "Name": "vo_watcher_iron_canopy_08",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_iron_canopy_08",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 61,
+                    "Name": "vo_watcher_iron_canopy_09",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_iron_canopy_09,vo_watcher_iron_canopy_09_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 62,
+                    "Name": "vo_watcher_iron_canopy_10",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_iron_canopy_10",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 101,
+                    "Name": "vo_watcher_mask_tip",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_mask_tip_01_a,vo_watcher_mask_tip_01",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 107,
+                    "Name": "vo_watcher_nudge_abaddon_low_HP",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_new_tip_10_b,vo_watcher_new_tip_08,vo_watcher_new_tip_08_a,vo_watcher_new_tip_08_b,vo_watcher_new_tip_10,vo_watcher_new_tip_10_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 106,
+                    "Name": "vo_watcher_nudge_abaddon_tip",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_new_tip_07_a,vo_watcher_new_tip_07",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 100,
+                    "Name": "vo_watcher_nudge_jailer_tip",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "Vo_Watcher_Jailer_Tip_01_c,Vo_Watcher_Jailer_Tip_01,Vo_Watcher_Jailer_Tip_01_a,Vo_Watcher_Jailer_Tip_01_b",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 102,
+                    "Name": "vo_watcher_nudge_silitha_tip",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_new_tip_05_a,vo_watcher_new_tip_04,vo_watcher_new_tip_04_a,vo_watcher_new_tip_04_b,vo_watcher_new_tip_05",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 109,
+                    "Name": "vo_watcher_nudge_smith_tip",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_smith_01_c,vo_watcher_smith_01,vo_watcher_smith_01_a,vo_watcher_smith_01_b",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 63,
+                    "Name": "vo_watcher_ruin_hint",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_ruin_hint_01,vo_watcher_ruin_hint_02,vo_watcher_ruin_hint_02_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 120,
+                    "Name": "vo_watcher_samaels_prison_forced",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_tip_05_b,vo_watcher_tip_03,vo_watcher_tip_03_a,vo_watcher_tip_03_b,vo_watcher_tip_03_c,vo_watcher_tip_05,vo_watcher_tip_05_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 103,
+                    "Name": "vo_watcher_shadow_arena",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_shadow_arena_c,vo_watcher_shadow_arena,vo_watcher_shadow_arena_a,vo_watcher_shadow_arena_b",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 121,
+                    "Name": "vo_watcher_shadow_arena_task",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_church_ext_03_b,vo_watcher_church_ext_03,vo_watcher_church_ext_03_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 104,
+                    "Name": "vo_watcher_shadow_fail",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_shadow_fail_03_b,vo_watcher_shadow_fail_01,vo_watcher_shadow_fail_01_a,vo_watcher_shadow_fail_01_b,vo_watcher_shadow_fail_02,vo_watcher_shadow_fail_02_a,vo_watcher_shadow_fail_02_b,vo_watcher_shadow_fail_02_c,vo_watcher_shadow_fail_03,vo_watcher_shadow_fail_03_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 105,
+                    "Name": "vo_watcher_shadow_victory",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_shadow_victory_03_b,vo_watcher_shadow_victory_01,vo_watcher_shadow_victory_01_a,vo_watcher_shadow_victory_01_b,vo_watcher_shadow_victory_02,vo_watcher_shadow_victory_02_a,vo_watcher_shadow_victory_02_b,vo_watcher_shadow_victory_03,vo_watcher_shadow_victory_03_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 108,
+                    "Name": "vo_watcher_smith2",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_smith2_01_b,vo_watcher_smith2_01,vo_watcher_smith2_01_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 64,
+                    "Name": "vo_watcher_smith_01",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_smith_01,vo_watcher_smith_01_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 65,
+                    "Name": "vo_watcher_smith_02",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_smith_02",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 66,
+                    "Name": "vo_watcher_smith_03",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_smith_03",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 67,
+                    "Name": "vo_watcher_start_area_01",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_start_area_01,vo_watcher_start_area_01_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 68,
+                    "Name": "vo_watcher_start_area_02",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_start_area_02,vo_watcher_start_area_02_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 69,
+                    "Name": "vo_watcher_start_area_03",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_start_area_03",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 70,
+                    "Name": "vo_watcher_start_area_04",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_start_area_04",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 71,
+                    "Name": "vo_watcher_start_area_05",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_start_area_05,vo_watcher_start_area_05_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 72,
+                    "Name": "vo_watcher_start_area_06",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_start_area_06,vo_watcher_start_area_06_a,vo_watcher_start_area_06_b",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 73,
+                    "Name": "vo_watcher_start_area_07",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_start_area_07,vo_watcher_start_area_07_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 74,
+                    "Name": "vo_watcher_start_area_08",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_start_area_08,vo_watcher_start_area_08_a,vo_watcher_start_area_08_b",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 75,
+                    "Name": "vo_watcher_start_area_09",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_start_area_09",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 76,
+                    "Name": "vo_watcher_subway_01",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_subway_01",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 77,
+                    "Name": "vo_watcher_subway_02",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_subway_02,vo_watcher_subway_02_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 78,
+                    "Name": "vo_watcher_subway_03",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_subway_03,vo_watcher_subway_03_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 79,
+                    "Name": "vo_watcher_subway_04",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_subway_04,vo_watcher_subway_04_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 80,
+                    "Name": "vo_watcher_subway_05",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_subway_05",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 81,
+                    "Name": "vo_watcher_subway_06",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_subway_06",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 82,
+                    "Name": "vo_watcher_subway_07",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_subway_07",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 83,
+                    "Name": "vo_watcher_summon_01",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_summon_01,vo_watcher_summon_01_a,vo_watcher_summon_06_a,vo_watcher_summon_02,vo_watcher_summon_02_a,vo_watcher_summon_02_b,vo_watcher_summon_03,vo_watcher_summon_04,vo_watcher_summon_05,vo_watcher_summon_06",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 84,
+                    "Name": "vo_watcher_to_samael_01",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_to_samael_01",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 85,
+                    "Name": "vo_watcher_to_samael_02",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_to_samael_02,vo_watcher_to_samael_02_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 86,
+                    "Name": "vo_watcher_to_samael_03",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_to_samael_03",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 87,
+                    "Name": "vo_watcher_to_samael_04",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_to_samael_04,vo_watcher_to_samael_04_a,vo_watcher_to_samael_04_b",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 88,
+                    "Name": "vo_watcher_to_samael_05",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_to_samael_05,vo_watcher_to_samael_05_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 89,
+                    "Name": "vo_watcher_to_samael_06",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_to_samael_06,vo_watcher_to_samael_06_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 90,
+                    "Name": "vo_watcher_to_samael_07",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_to_samael_07,vo_watcher_to_samael_07_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 91,
+                    "Name": "vo_watcher_tower_01",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_tower_01,vo_watcher_tower_01_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 92,
+                    "Name": "vo_watcher_tower_02",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_tower_02,vo_watcher_tower_02_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 93,
+                    "Name": "vo_watcher_tower_03",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_tower_03",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 94,
+                    "Name": "vo_watcher_tower_04",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_tower_04",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 95,
+                    "Name": "vo_watcher_tower_05",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_tower_05,vo_watcher_tower_05_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 96,
+                    "Name": "vo_watcher_tower_06",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_tower_06",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 97,
+                    "Name": "vo_watcher_tower_07",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_tower_07",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 98,
+                    "Name": "vo_watcher_tower_08",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_tower_08,vo_watcher_tower_08_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 99,
+                    "Name": "vo_watcher_tower_09",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_tower_09",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 118,
+                    "Name": "vo_watcher_waiting_on_war_POI",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_waiting_02_b,vo_watcher_follow_me_09,vo_watcher_follow_me_09_a,vo_watcher_follow_me_09_b,vo_watcher_tip_06,vo_watcher_tip_06_a,vo_watcher_tip_06_b,vo_watcher_tip_06_c,vo_watcher_waiting_01,vo_watcher_waiting_01_a,vo_watcher_waiting_01_b,vo_watcher_waiting_02,vo_watcher_waiting_02_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 119,
+                    "Name": "vo_watcher_war_POI",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_tip_02_b,vo_watcher_tip_01,vo_watcher_tip_01_a,vo_watcher_tip_01_b,vo_watcher_tip_01_c,vo_watcher_tip_02,vo_watcher_tip_02_a",
+                    "Group": "dialogue_watcher"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 110,
+                    "Name": "vo_watcher_war_walk_away_POI",
+                    "Stream": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FollowActor": true,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "vo_watcher_tip_06_c,vo_watcher_tip_03,vo_watcher_tip_03_a,vo_watcher_tip_03_b,vo_watcher_tip_03_c,vo_watcher_tip_05,vo_watcher_tip_05_a,vo_watcher_tip_05_b,vo_watcher_tip_06,vo_watcher_tip_06_a,vo_watcher_tip_06_b",
+                    "Group": "dialogue_watcher"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "Methods": [
+    "onInit",
+    "onRemove",
+    "onWatcherDialogFinish",
+    "onWatcherDialogCancel",
+    "onWatcherSpawned",
+    "onWatcherBanished",
+    "doDialog",
+    "setDefaultDialog",
+    "setActiveDialog",
+    "clearActiveDialog",
+    "setNudgeDialog",
+    "clearNudgeDialog",
+    "summonWatcher",
+    "setPOI",
+    "clearPOI",
+    "hudInit",
+    "hudDeinit",
+    "getDialog",
+    "startDialog",
+    "spawnWatcher",
+    "isWatcherVisible",
+    "onDeSpawnTimer",
+    "beginTalking",
+    "stopTalking",
+    "isWatcherSpeaking",
+    "onCinematicStart"
+  ],
+  "PackageName": "base",
+  "DefaultValues": {
+    "AllowSummonWatcher": false,
+    "Spawned": false,
+    "NudgeDialog": "",
+    "ActiveDialog": "",
+    "Banishing": false,
+    "DefaultDialog": "",
+    "Talking": false,
+    "HasPOI": false
+  },
+  "States": {}
+}

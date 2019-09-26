@@ -1,0 +1,611 @@
+{
+  "classname": "CharacterMoveStateList",
+  "properties": {
+    "MoveStates": [
+      {
+        "classname": "BirdIdleDesc",
+        "properties": {
+          "Name": "Bird Dead",
+          "ID": 6,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 50117
+            }
+          },
+          "InAir": true,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "PlayerMountInteractiveDesc",
+        "properties": {
+          "PhantomName": "AngelicBeast_BBox",
+          "PhantomErrorDistance": 200.0,
+          "MountInteractive": true,
+          "UseMountMoveStates": true,
+          "TargetType": "war/war",
+          "Initiator": 1,
+          "MaxErrorDistance": 400.0,
+          "Arc": 180.0,
+          "DoCollision": false,
+          "UseWeapon": 0,
+          "AnimationID": 4,
+          "TargetAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 0
+            }
+          },
+          "OnComplete": 0,
+          "OnCompleteOther": 0,
+          "UseCameraNode": true,
+          "AnimationSource": 0,
+          "Name": "Bird Dismount Interactive",
+          "ID": 5,
+          "CameraStateDesc": {
+            "classname": "BirdCameraStateDesc",
+            "properties": {
+              "Zoom": 700.0,
+              "UpDownOffset": 135.0,
+              "MaxTiltAngle": 125.0,
+              "MaxMouseReticleXoffset": 4.591404e-10,
+              "MaxMouseReticleYoffset": 0.0,
+              "CheckTargetRadius": 1.10277716e21
+            }
+          },
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 4
+            }
+          },
+          "GravityScale": 0.0,
+          "InAir": true
+        }
+      },
+      {
+        "classname": "BirdFlightDesc",
+        "properties": {
+          "FireAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 3
+            }
+          },
+          "SoarAnimController": {
+            "classname": "SpeedBlendController",
+            "properties": {
+              "SpeedRef": 1.0,
+              "AnimController1": {
+                "classname": "SpeedBlendController",
+                "properties": {
+                  "SpeedRef": -1.0,
+                  "AnimController1": {
+                    "classname": "AimAnimController",
+                    "properties": {
+                      "UpAnimController": {
+                        "classname": "SimpleAnimController",
+                        "properties": {
+                          "Animation": 3
+                        }
+                      },
+                      "ForwardAnimController": {
+                        "classname": "SimpleAnimController",
+                        "properties": {
+                          "Animation": 3
+                        }
+                      },
+                      "DownAnimController": {
+                        "classname": "SimpleAnimController",
+                        "properties": {
+                          "Animation": 13
+                        }
+                      },
+                      "DownAngle": 35.0
+                    }
+                  },
+                  "AnimController2": {
+                    "classname": "AimAnimController",
+                    "properties": {
+                      "UpAnimController": {
+                        "classname": "SimpleAnimController",
+                        "properties": {
+                          "Animation": 15
+                        }
+                      },
+                      "ForwardAnimController": {
+                        "classname": "SimpleAnimController",
+                        "properties": {
+                          "Animation": 15
+                        }
+                      },
+                      "DownAnimController": {
+                        "classname": "SimpleAnimController",
+                        "properties": {
+                          "Animation": 8
+                        }
+                      },
+                      "DownAngle": 35.0
+                    }
+                  }
+                }
+              },
+              "AnimController2": {
+                "classname": "AimAnimController",
+                "properties": {
+                  "UpAnimController": {
+                    "classname": "SimpleAnimController",
+                    "properties": {
+                      "Animation": 11
+                    }
+                  },
+                  "ForwardAnimController": {
+                    "classname": "SimpleAnimController",
+                    "properties": {
+                      "Animation": 11
+                    }
+                  },
+                  "DownAnimController": {
+                    "classname": "SimpleAnimController",
+                    "properties": {
+                      "Animation": 10
+                    }
+                  },
+                  "DownAngle": 35.0
+                }
+              }
+            }
+          },
+          "DashAnimController": {
+            "classname": "TimeBlendAnimController",
+            "properties": {
+              "MaxTime": 6.3,
+              "AnimController1": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 3
+                }
+              },
+              "AnimController2": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 2
+                }
+              }
+            }
+          },
+          "OnLanded": 0,
+          "OnPlayerDismount": 4,
+          "MinimumSpeed": 300.0,
+          "TerminalSpeed": 600.0,
+          "LeftRightHeadingAngle": 5.0,
+          "LeftRightOffsetDist": 275.0,
+          "LeftRightSpeed": 2.75,
+          "LeftRightAccel": 10.0,
+          "UpDownOffsetDist": 225.0,
+          "UpDownSpeed": 2.75,
+          "UpDownAccel": 10.0,
+          "AutoBankAngle": 20.0,
+          "BankAngle": 5.0,
+          "BankSpeed": 12.0,
+          "BankAccel": 24.0,
+          "BankLevelSpeed": 12.0,
+          "BankLevelAccel": 24.0,
+          "PitchAngle": 10.0,
+          "MaxFlapSpeed": 1.5,
+          "EnvImpactTimeout": 0.5,
+          "ImpactLeftAnim": 14,
+          "ImpactRightAnim": 14,
+          "ImpactUpAnim": 14,
+          "ImpactDownAnim": 14,
+          "MountSourceNode": "Node_WarLoc",
+          "MountDestNode": "Bip01",
+          "AimAnimController": {
+            "classname": "HorseAimAnimController",
+            "properties": {
+              "LeftAnimController": {
+                "classname": "HorseShootAnimController",
+                "properties": {
+                  "SegmentAnimControllers": [
+                    {
+                      "classname": "HorseShootSegmentAnimController",
+                      "properties": {
+                        "EndAngle": 90.0,
+                        "StartAnimController": {
+                          "classname": "HorseShootVerticalAnimController",
+                          "properties": {
+                            "UpAnimation": 50030,
+                            "LevelAnimation": 50026,
+                            "DownAnimation": 50027,
+                            "IdleUpAnimation": 50031,
+                            "IdleLevelAnimation": 50029,
+                            "IdleDownAnimation": 50028,
+                            "MaxSpeed": 1.0,
+                            "Ease": 0.15
+                          }
+                        },
+                        "EndAnimController": {
+                          "classname": "HorseShootVerticalAnimController",
+                          "properties": {
+                            "UpAnimation": 50042,
+                            "LevelAnimation": 50038,
+                            "DownAnimation": 50039,
+                            "IdleUpAnimation": 50043,
+                            "IdleLevelAnimation": 50041,
+                            "IdleDownAnimation": 50040,
+                            "MaxSpeed": 1.0,
+                            "Ease": 0.15
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "classname": "HorseShootSegmentAnimController",
+                      "properties": {
+                        "StartAngle": 150.0,
+                        "EndAngle": 270.0,
+                        "StartAnimController": {
+                          "classname": "HorseShootVerticalAnimController",
+                          "properties": {
+                            "UpAnimation": 50024,
+                            "LevelAnimation": 50020,
+                            "DownAnimation": 50021,
+                            "IdleUpAnimation": 50025,
+                            "IdleLevelAnimation": 50023,
+                            "IdleDownAnimation": 50022,
+                            "MaxSpeed": 1.0,
+                            "Ease": 0.15
+                          }
+                        },
+                        "EndAnimController": {
+                          "classname": "HorseShootVerticalAnimController",
+                          "properties": {
+                            "UpAnimation": 50036,
+                            "LevelAnimation": 50032,
+                            "DownAnimation": 50033,
+                            "IdleUpAnimation": 50037,
+                            "IdleLevelAnimation": 50035,
+                            "IdleDownAnimation": 50034,
+                            "MaxSpeed": 1.0,
+                            "Ease": 0.15
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "classname": "HorseShootSegmentAnimController",
+                      "properties": {
+                        "StartAngle": 270.0,
+                        "EndAngle": 360.0,
+                        "StartAnimController": {
+                          "classname": "HorseShootVerticalAnimController",
+                          "properties": {
+                            "UpAnimation": 50036,
+                            "LevelAnimation": 50032,
+                            "DownAnimation": 50033,
+                            "IdleUpAnimation": 50037,
+                            "IdleLevelAnimation": 50035,
+                            "IdleDownAnimation": 50034,
+                            "MaxSpeed": 1.0,
+                            "Ease": 0.15
+                          }
+                        },
+                        "EndAnimController": {
+                          "classname": "HorseShootVerticalAnimController",
+                          "properties": {
+                            "UpAnimation": 50030,
+                            "LevelAnimation": 50026,
+                            "DownAnimation": 50027,
+                            "IdleUpAnimation": 50031,
+                            "IdleLevelAnimation": 50029,
+                            "IdleDownAnimation": 50028,
+                            "MaxSpeed": 1.0,
+                            "Ease": 0.15
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "RightAnimController": {
+                "classname": "HorseShootAnimController",
+                "properties": {
+                  "SegmentAnimControllers": [
+                    {
+                      "classname": "HorseShootSegmentAnimController",
+                      "properties": {
+                        "EndAngle": 90.0,
+                        "StartAnimController": {
+                          "classname": "HorseShootVerticalAnimController",
+                          "properties": {
+                            "UpAnimation": 50014,
+                            "LevelAnimation": 50006,
+                            "DownAnimation": 50013,
+                            "IdleUpAnimation": 50049,
+                            "IdleLevelAnimation": 50048,
+                            "IdleDownAnimation": 50047,
+                            "MaxSpeed": 1.0,
+                            "Ease": 0.15
+                          }
+                        },
+                        "EndAnimController": {
+                          "classname": "HorseShootVerticalAnimController",
+                          "properties": {
+                            "UpAnimation": 50018,
+                            "LevelAnimation": 50008,
+                            "DownAnimation": 50017,
+                            "IdleUpAnimation": 50055,
+                            "IdleLevelAnimation": 50054,
+                            "IdleDownAnimation": 50053,
+                            "MaxSpeed": 1.0,
+                            "Ease": 0.15
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "classname": "HorseShootSegmentAnimController",
+                      "properties": {
+                        "StartAngle": 270.0,
+                        "EndAngle": 360.0,
+                        "StartAnimController": {
+                          "classname": "HorseShootVerticalAnimController",
+                          "properties": {
+                            "UpAnimation": 50016,
+                            "LevelAnimation": 50007,
+                            "DownAnimation": 50015,
+                            "IdleUpAnimation": 50052,
+                            "IdleLevelAnimation": 50051,
+                            "IdleDownAnimation": 50050,
+                            "MaxSpeed": 1.0,
+                            "Ease": 0.15
+                          }
+                        },
+                        "EndAnimController": {
+                          "classname": "HorseShootVerticalAnimController",
+                          "properties": {
+                            "UpAnimation": 50014,
+                            "LevelAnimation": 50006,
+                            "DownAnimation": 50013,
+                            "IdleUpAnimation": 50049,
+                            "IdleLevelAnimation": 50048,
+                            "IdleDownAnimation": 50047,
+                            "MaxSpeed": 1.0,
+                            "Ease": 0.15
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "classname": "HorseShootSegmentAnimController",
+                      "properties": {
+                        "StartAngle": 90.0,
+                        "EndAngle": 210.0,
+                        "StartAnimController": {
+                          "classname": "HorseShootVerticalAnimController",
+                          "properties": {
+                            "UpAnimation": 50018,
+                            "LevelAnimation": 50008,
+                            "DownAnimation": 50017,
+                            "IdleUpAnimation": 50055,
+                            "IdleLevelAnimation": 50054,
+                            "IdleDownAnimation": 50053,
+                            "MaxSpeed": 1.0,
+                            "Ease": 0.15
+                          }
+                        },
+                        "EndAnimController": {
+                          "classname": "HorseShootVerticalAnimController",
+                          "properties": {
+                            "UpAnimation": 50010,
+                            "LevelAnimation": 50004,
+                            "DownAnimation": 50009,
+                            "IdleUpAnimation": 50046,
+                            "IdleLevelAnimation": 50045,
+                            "IdleDownAnimation": 50044,
+                            "MaxSpeed": 1.0,
+                            "Ease": 0.15
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "Ease": 0.15
+            }
+          },
+          "DashTimeout": 10.0,
+          "DashMultiplier": 2.0,
+          "DashDuration": 3.0,
+          "EnableEnvironmentCollision": 1,
+          "CollideAccel": 0.2,
+          "FlyFxAnim": 50119,
+          "DiveFxAnim": 50118,
+          "Name": "Bird Flight",
+          "ID": 1,
+          "AnimController": {
+            "classname": "SpeedBlendController",
+            "properties": {
+              "SpeedRef": 1.0,
+              "AnimController1": {
+                "classname": "SpeedBlendController",
+                "properties": {
+                  "SpeedRef": -1.0,
+                  "AnimController1": {
+                    "classname": "AimAnimController",
+                    "properties": {
+                      "UpAnimController": {
+                        "classname": "SimpleAnimController",
+                        "properties": {
+                          "Animation": 2
+                        }
+                      },
+                      "ForwardAnimController": {
+                        "classname": "SimpleAnimController",
+                        "properties": {
+                          "Animation": 2
+                        }
+                      },
+                      "DownAnimController": {
+                        "classname": "SimpleAnimController",
+                        "properties": {
+                          "Animation": 13
+                        }
+                      },
+                      "DownAngle": 35.0
+                    }
+                  },
+                  "AnimController2": {
+                    "classname": "AimAnimController",
+                    "properties": {
+                      "UpAnimController": {
+                        "classname": "SimpleAnimController",
+                        "properties": {
+                          "Animation": 5
+                        }
+                      },
+                      "ForwardAnimController": {
+                        "classname": "SimpleAnimController",
+                        "properties": {
+                          "Animation": 5
+                        }
+                      },
+                      "DownAnimController": {
+                        "classname": "SimpleAnimController",
+                        "properties": {
+                          "Animation": 8
+                        }
+                      },
+                      "DownAngle": 35.0
+                    }
+                  }
+                }
+              },
+              "AnimController2": {
+                "classname": "AimAnimController",
+                "properties": {
+                  "UpAnimController": {
+                    "classname": "SimpleAnimController",
+                    "properties": {
+                      "Animation": 6
+                    }
+                  },
+                  "ForwardAnimController": {
+                    "classname": "SimpleAnimController",
+                    "properties": {
+                      "Animation": 6
+                    }
+                  },
+                  "DownAnimController": {
+                    "classname": "SimpleAnimController",
+                    "properties": {
+                      "Animation": 10
+                    }
+                  },
+                  "DownAngle": 35.0
+                }
+              }
+            }
+          },
+          "Acceleration": 800.0,
+          "Deceleration": 100.0,
+          "MaxSpeed": 400.0,
+          "InAir": true
+        }
+      },
+      {
+        "classname": "BirdIdleDesc",
+        "properties": {
+          "Name": "Bird Idle",
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 2
+            }
+          },
+          "InAir": true
+        }
+      },
+      {
+        "classname": "PlayerMountInteractiveDesc",
+        "properties": {
+          "PhantomName": "AngelicBeast_BBox",
+          "PhantomErrorDistance": 200.0,
+          "MountMoveState": 1,
+          "MountInteractive": true,
+          "UseMountMoveStates": true,
+          "PlayerMoveState": 3,
+          "TargetType": "war/war",
+          "Initiator": 1,
+          "MaxErrorDistance": 400.0,
+          "Arc": 180.0,
+          "DoCollision": false,
+          "UseWeapon": 0,
+          "AnimationID": 4,
+          "TargetAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 0
+            }
+          },
+          "UseCameraNode": true,
+          "AnimationSource": 0,
+          "Name": "Bird Mount Interactive",
+          "ID": 2,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 4
+            }
+          },
+          "GravityScale": 0.0,
+          "InAir": true
+        }
+      },
+      {
+        "classname": "BirdRiderIdleDesc",
+        "properties": {
+          "AllowGearSwitch": false,
+          "Name": "Bird Rider Dismount",
+          "ID": 4,
+          "CameraStateDesc": {
+            "classname": "base/birdcamerastate",
+            "properties": {}
+          },
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 2
+            }
+          },
+          "OnIdle": 0,
+          "InAir": true
+        }
+      },
+      {
+        "classname": "BirdRiderIdleDesc",
+        "properties": {
+          "AllowGear": false,
+          "AllowGearSwitch": false,
+          "ShowWeapons": 6,
+          "Name": "Bird Rider Idle",
+          "ID": 3,
+          "CameraStateDesc": {
+            "classname": "base/birdcamerastate",
+            "properties": {}
+          },
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 2
+            }
+          },
+          "InAir": true
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,66 @@
+.method onInit
+0x0001 .param_count 0
+0x0001 .line 38
+0x0006     nop
+0x0007 .line 42
+0x000c     int 0
+0x0011     identifier this
+0x0020     method getObject
+0x0034 .line 43
+0x0039     property Bodies
+0x004a     iterator
+0x004b .label 0x1522
+0x0050     iterator_test
+0x0051     branch_false 0x00e4
+0x0056     iterator_assign body
+0x0065 .line 44
+0x006a     nop
+0x006b     identifier body
+0x007a     property BodyType
+0x008d     int 3
+0x0092     equal
+0x0093     branch_false 0x00d8
+0x0098 .line 46
+0x009d     nop
+0x009e     int 0
+0x00a3     identifier body
+0x00b2     method removeFromWorld
+0x00cc     pop
+0x00cd .line 47
+0x00d2     nop
+0x00d3 .line 48
+0x00d8 .label 0x1524
+0x00dd     nop
+0x00de     inc
+0x00df     goto 0x004b
+0x00e4 .label 0x1523
+0x00e9     pop
+0x00ea .line 50
+0x00ef     bool true
+0x00f1     int 1
+0x00f6     identifier this
+0x0105     method setEthereal
+0x011b     pop
+0x011c .line 51
+0x0121     int 0
+0x0126     int 1
+0x012b     identifier this
+0x013a     method state
+0x014a     pop
+0x014b .line 52
+0x0150     nop
+0x0151     return_null
+
+.method onActionComplete
+0x0001 .param_count 0
+0x0001 .line 54
+0x0006     nop
+0x0007 .line 57
+0x000c     int 0
+0x0011     identifier this
+0x0020     method removeObjectFromWorld
+0x0040     pop
+0x0041 .line 58
+0x0046     nop
+0x0047     return_null
+

@@ -1,0 +1,677 @@
+{
+  "Parent": "KinematicActor",
+  "Name": "barnacles/barnacles",
+  "Properties": {
+    "Jets": {
+      "Flags": 4,
+      "Type": 9
+    },
+    "Enable": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "maxJetCount": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "isActive": {
+      "Flags": 2,
+      "Type": 4
+    },
+    "warningAnimId": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "jetSmallId1": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "jetLargeId1": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "jetSmallId2": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "jetLargeId2": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "jetSmallId3": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "jetLargeId3": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "jetSmallId4": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "jetLargeId4": {
+      "Flags": 0,
+      "Type": 1
+    }
+  },
+  "StaticProperties": {
+    "Description": {
+      "Value": {
+        "classname": "KinematicActorDesc",
+        "properties": {
+          "HitInfos": {
+            "classname": "HitInfoList",
+            "properties": {
+              "HitInfos": [
+                {
+                  "classname": "HitInfo",
+                  "properties": {
+                    "Name": "Hard (20)",
+                    "Damage": 20.0,
+                    "KnockBackPower": 250.0,
+                    "KnockUpPower": 200.0,
+                    "IsUnblockable": true
+                  }
+                },
+                {
+                  "classname": "HitInfo",
+                  "properties": {
+                    "ID": 1,
+                    "Name": "Light (10)",
+                    "Damage": 10.0,
+                    "KnockBackPower": 150.0,
+                    "KnockUpPower": 150.0
+                  }
+                },
+                {
+                  "classname": "HitInfo",
+                  "properties": {
+                    "ID": 2,
+                    "Name": "Med (15)",
+                    "Damage": 20.0,
+                    "KnockBackPower": 150.0,
+                    "KnockUpPower": 100.0
+                  }
+                }
+              ]
+            }
+          },
+          "Visual": "hazard_barnacle",
+          "FactionID": -1,
+          "Animations": {
+            "classname": "AnimationList",
+            "properties": {
+              "Animations": [
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 7,
+                    "Name": "jet01_Shoot_Large",
+                    "Looping": true,
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 0
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 5
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Barnacle_Jet01_Large",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "WeaponPhantomTrigger",
+                        "properties": {
+                          "Duration": 999,
+                          "WeaponPhantom": "WeaponPhantom_L01",
+                          "HitInfoID": 2,
+                          "OverrideFactionID": 1
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 1,
+                    "Name": "jet01_Shoot_Small",
+                    "Looping": true,
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Barnacle_Jet01_Small",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "WeaponPhantomTrigger",
+                        "properties": {
+                          "Duration": 999,
+                          "WeaponPhantom": "WeaponPhantom_S01",
+                          "HitInfoID": 0,
+                          "OverrideFactionID": 1
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 1
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 5
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 8,
+                    "Name": "jet02_Shoot_Large",
+                    "Looping": true,
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 5
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 0
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Barnacle_Jet02_Large",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "WeaponPhantomTrigger",
+                        "properties": {
+                          "Duration": 999,
+                          "WeaponPhantom": "WeaponPhantom_L02",
+                          "HitInfoID": 0,
+                          "OverrideFactionID": 1
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 3,
+                    "Name": "jet02_Shoot_Small",
+                    "Looping": true,
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Barnacle_Jet02_Small",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "WeaponPhantomTrigger",
+                        "properties": {
+                          "Duration": 999,
+                          "WeaponPhantom": "WeaponPhantom_S02",
+                          "HitInfoID": 0,
+                          "OverrideFactionID": 1
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 1
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 5
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 9,
+                    "Name": "jet03_Shoot_Large",
+                    "Looping": true,
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 5
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 0
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Barnacle_Jet03_Large",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "WeaponPhantomTrigger",
+                        "properties": {
+                          "Duration": 999,
+                          "WeaponPhantom": "WeaponPhantom_L03",
+                          "HitInfoID": 0,
+                          "OverrideFactionID": 1
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 4,
+                    "Name": "jet03_Shoot_Small",
+                    "Looping": true,
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 5
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 1
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Barnacle_Jet03_Small",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "WeaponPhantomTrigger",
+                        "properties": {
+                          "Duration": 999,
+                          "WeaponPhantom": "WeaponPhantom_S03",
+                          "HitInfoID": 0,
+                          "OverrideFactionID": 1
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 10,
+                    "Name": "jet04_Shoot_Large",
+                    "Looping": true,
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 5
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 0
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Barnacle_Jet04_Large",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "WeaponPhantomTrigger",
+                        "properties": {
+                          "Duration": 999,
+                          "WeaponPhantom": "WeaponPhantom_L04",
+                          "HitInfoID": 0,
+                          "OverrideFactionID": 1
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 5,
+                    "Name": "jet04_Shoot_Small",
+                    "Looping": true,
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 5
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 1
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Barnacle_Jet04_Small",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "WeaponPhantomTrigger",
+                        "properties": {
+                          "Duration": 999,
+                          "WeaponPhantom": "WeaponPhantom_S04",
+                          "HitInfoID": 0,
+                          "OverrideFactionID": 1
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 6,
+                    "Name": "jet_Idle",
+                    "AnimationName": "Hazard_Barnacle_Idle",
+                    "Looping": true,
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 2
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Barnacle_Idle",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "WeaponPhantomTrigger",
+                        "properties": {
+                          "Duration": 99,
+                          "WeaponPhantom": "WeaponPhantom_S01",
+                          "HitInfoID": 0
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 11,
+                    "Name": "jet_stop",
+                    "Looping": true,
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 4
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "Name": "jet_warning",
+                    "AnimationName": "Hazard_Barnacle_Idle",
+                    "Looping": true,
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 3
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "Duration": 60,
+                          "EffectName": "Barnacle_Jet_Warning",
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          "Sounds": {
+            "classname": "SoundList",
+            "properties": {
+              "Sounds": [
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 6,
+                    "Name": "Barnacle break",
+                    "Volume": 0.7998047,
+                    "Pitch": -1.0,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "Min": 5.0,
+                    "Max": 1700.0,
+                    "Priority": 75,
+                    "Sounds": "barnacle_break_1,barnacle_break_2",
+                    "Group": "Breakables"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 7,
+                    "Name": "Barnacle hit",
+                    "Volume": 0.5498047,
+                    "Pitch": -1.0,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "Min": 5.0,
+                    "Max": 1600.0,
+                    "Priority": 75,
+                    "Sounds": "StoneWallHit_2,StoneWallHit_1",
+                    "Group": "Impacts"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 2,
+                    "Name": "Barnacle idle lp",
+                    "Volume": 0.39990234,
+                    "Loop": true,
+                    "FadeInTime": 0.19995117,
+                    "FadeOutTime": 0.19995117,
+                    "Offset": true,
+                    "FollowActor": true,
+                    "ExclusiveActor": true,
+                    "Min": 1.0,
+                    "Max": 1100.0,
+                    "Priority": 25,
+                    "Sounds": "barnacle_idle_lp",
+                    "Group": "Creatures"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 0,
+                    "Name": "Barnacle shoot large lp",
+                    "Volume": 0.39990234,
+                    "Loop": true,
+                    "FadeOutTime": 0.19995117,
+                    "FollowActor": true,
+                    "ExclusiveActor": true,
+                    "Min": 1.0,
+                    "Max": 1100.0,
+                    "Priority": 25,
+                    "Sounds": "barnacle_shoot_lp",
+                    "Group": "Creatures"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 1,
+                    "Name": "Barnacle shoot small lp",
+                    "Volume": 0.39990234,
+                    "Pitch": 3.0,
+                    "Loop": true,
+                    "FadeOutTime": 0.19995117,
+                    "FollowActor": true,
+                    "ExclusiveActor": true,
+                    "Min": 1.0,
+                    "Max": 1100.0,
+                    "Priority": 25,
+                    "Sounds": "barnacle_shoot_lp",
+                    "Group": "Creatures"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 5,
+                    "Name": "Barnacle shoot start",
+                    "Volume": 0.39990234,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 1100.0,
+                    "Priority": 25,
+                    "Sounds": "barnacle_shoot_start",
+                    "Group": "Creatures"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 4,
+                    "Name": "Barnacle shoot stop",
+                    "Volume": 0.39990234,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 1100.0,
+                    "Priority": 20,
+                    "Sounds": "barnacle_shoot_stop",
+                    "Group": "Creatures"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 3,
+                    "Name": "Barnacle warning lp",
+                    "Volume": 0.39990234,
+                    "Loop": true,
+                    "FadeInTime": 0.099975586,
+                    "FadeOutTime": 0.099975586,
+                    "FollowActor": true,
+                    "ExclusiveActor": true,
+                    "Min": 1.0,
+                    "Max": 1100.0,
+                    "Priority": 25,
+                    "Sounds": "barnacle_warning_lp",
+                    "Group": "Creatures"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "Methods": [
+    "onInit",
+    "startJet",
+    "playWarning",
+    "stopJet",
+    "enableBarnacle",
+    "disableBarnacle",
+    "onRemove"
+  ],
+  "PackageName": "barnacles",
+  "DefaultValues": {
+    "jetSmallId3": 4,
+    "jetSmallId2": 3,
+    "jetSmallId1": 1,
+    "jetSmallId4": 5,
+    "jetLargeId3": 9,
+    "Enable": true,
+    "jetLargeId2": 8,
+    "jetLargeId1": 7,
+    "jetLargeId4": 10,
+    "isActive": true,
+    "maxJetCount": 0,
+    "warningAnimId": 0,
+    "Jets": [
+      {
+        "classname": "barnacles/barnaclejet",
+        "properties": {}
+      },
+      {
+        "classname": "barnacles/barnaclejet",
+        "properties": {}
+      },
+      {
+        "classname": "barnacles/barnaclejet",
+        "properties": {}
+      },
+      {
+        "classname": "barnacles/barnaclejet",
+        "properties": {}
+      }
+    ]
+  },
+  "States": {
+    "Start": {
+      "methods": [
+        "onEnter"
+      ]
+    }
+  }
+}

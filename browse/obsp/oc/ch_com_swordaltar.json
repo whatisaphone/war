@@ -1,0 +1,749 @@
+{
+  "Parent": "base/simpleinteractive",
+  "Name": "ch_com/ch_com_swordaltar",
+  "Properties": {
+    "SwordGone": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "Active": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "Sword": {
+      "Flags": 2,
+      "Type": 1
+    }
+  },
+  "StaticProperties": {
+    "Description": {
+      "Value": {
+        "classname": "base/simpleinteractivedesc",
+        "properties": {
+          "MoveStates": {
+            "classname": "CharacterMoveStateList",
+            "properties": {
+              "MoveStates": [
+                {
+                  "classname": "CharacterGenericStateDesc",
+                  "properties": {
+                    "Name": "FinishedIdle",
+                    "ID": 2,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 3
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                },
+                {
+                  "classname": "CharacterGenericStateDesc",
+                  "properties": {
+                    "Name": "Idle",
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 0
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                },
+                {
+                  "classname": "CharacterDoInteractiveDesc",
+                  "properties": {
+                    "TargetType": "war/war",
+                    "Initiator": 1,
+                    "MaxErrorDistance": 80.0,
+                    "Arc": 140.0,
+                    "IgnoreTime": 0.01,
+                    "DoCollision": false,
+                    "UseWeapon": 0,
+                    "AnimationID": 1,
+                    "TargetAnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 2
+                      }
+                    },
+                    "OnComplete": 2,
+                    "OnCompleteOther": 0,
+                    "UseCameraNode": true,
+                    "CameraNode": "Camera01",
+                    "FreezeCameraOnExit": true,
+                    "AnimationSource": 0,
+                    "UseAnchorNode": true,
+                    "CanPlayDuringCinematic": true,
+                    "Name": "Interactive",
+                    "ID": 1,
+                    "CameraStateDesc": {
+                      "classname": "PlatformCameraStateDesc",
+                      "properties": {
+                        "DoSlopeAdjust": false
+                      }
+                    },
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 1
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                },
+                {
+                  "classname": "CharacterGenericStateDesc",
+                  "properties": {
+                    "Name": "UserAction1",
+                    "ID": 4,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 4
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                },
+                {
+                  "classname": "CharacterGenericStateDesc",
+                  "properties": {
+                    "Name": "UserAction2",
+                    "ID": 5,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 5
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                },
+                {
+                  "classname": "CharacterGenericStateDesc",
+                  "properties": {
+                    "Name": "UserAction3",
+                    "ID": 6,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 6
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                }
+              ]
+            }
+          },
+          "CanTraverse": true,
+          "Visual": "ch_com_swordaltar",
+          "Animations": {
+            "classname": "AnimationList",
+            "properties": {
+              "Animations": [
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 1,
+                    "Name": "sword_pickup_altar",
+                    "AnimationName": "ch_com_swordaltar_pickup",
+                    "Triggers": [
+                      {
+                        "classname": "EventTrigger",
+                        "properties": {
+                          "EventName": "onTrigger",
+                          "TriggerFrame": 200,
+                          "IsRequired": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 1
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "ch_com_swordaltar_pickup"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "Name": "sword_pickup_idle",
+                    "AnimationName": "Ch_Com_SwordAltar_Active",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "ch_com_swordaltar_idle",
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 3,
+                    "Name": "sword_pickup_idle_nosword",
+                    "AnimationName": "Ch_Com_SwordAltar_Inactive",
+                    "Triggers": [
+                      {
+                        "classname": "MaterialTrigger",
+                        "properties": {
+                          "Material": "Ch_SwordAltar",
+                          "OverrideMaterial": "Ch_SwordAltar_nosword"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 2,
+                    "Name": "sword_pickup_war",
+                    "AnimationName": "ch_com_swordaltar_pickup"
+                  }
+                }
+              ]
+            }
+          },
+          "Sounds": {
+            "classname": "SoundList",
+            "properties": {
+              "Sounds": [
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 109,
+                    "Name": "Angel closes hands",
+                    "Volume": 0.89990234,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Priority": 0,
+                    "Sounds": "statue_arms_close",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 110,
+                    "Name": "batqueen_interactive_loop",
+                    "Stream": true,
+                    "Loop": true,
+                    "FadeInTime": 1.0,
+                    "FadeOutTime": 2.0,
+                    "Offset": true,
+                    "Min": 2.0,
+                    "Max": 2100.0,
+                    "Priority": 0,
+                    "Sounds": "batqueen_interactive_loop",
+                    "Group": "War"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 111,
+                    "Name": "break_building",
+                    "RandomVolume": 3.0,
+                    "Pitch": -12.0,
+                    "Max": 2000.0,
+                    "Priority": 0,
+                    "Sounds": "break_building_3,break_building_1,break_building_2",
+                    "Group": "Impacts"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 60084,
+                    "Name": "CandelabraBreak",
+                    "Volume": 0.60009766,
+                    "Pitch": -3.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 6000.0,
+                    "Priority": 1,
+                    "Sounds": "CandelabraBreak_1,CandelabraBreak_2",
+                    "Group": "Breakables"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 60083,
+                    "Name": "CandelabraHit",
+                    "Volume": 0.39990234,
+                    "Pitch": 12.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 2500.0,
+                    "Priority": 1,
+                    "Sounds": "CandelabraBreak_1,CandelabraBreak_2",
+                    "Group": "Breakables"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50075,
+                    "Name": "crossblade_switch_open",
+                    "Min": 140.0,
+                    "Max": 2900.0,
+                    "Priority": 1,
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50068,
+                    "Name": "crystal_impact",
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 1400.0,
+                    "Priority": 0,
+                    "Sounds": "impact_sword_stone_4,impact_sword_stone_1,impact_sword_stone_2,impact_sword_stone_3",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50076,
+                    "Name": "crystal_insert_impact",
+                    "Volume": 0.9199219,
+                    "Min": 1.0,
+                    "Priority": 20,
+                    "Sounds": "sword_switch_impact_1",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 4,
+                    "Name": "crystal_switch_impact_active",
+                    "Volume": 0.89990234,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 1450.0,
+                    "Priority": 1,
+                    "Sounds": "ch_switch_impact_active",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 5,
+                    "Name": "crystal_switch_impact_passive",
+                    "Volume": 0.89990234,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 1450.0,
+                    "Priority": 1,
+                    "Sounds": "ch_switch_impact_passive",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 3,
+                    "Name": "crystal_switch_loop_chimes",
+                    "Volume": 0.72021484,
+                    "Loop": true,
+                    "FadeInTime": 1.0,
+                    "FadeOutTime": 1.0,
+                    "Offset": true,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 550.0,
+                    "Priority": 0,
+                    "Sounds": "ch_switch_loop_chimes",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 8,
+                    "Name": "crystal_switch_loop_chimes_low",
+                    "Volume": 0.89990234,
+                    "Loop": true,
+                    "FadeInTime": 1.0,
+                    "FadeOutTime": 1.0,
+                    "Offset": true,
+                    "FollowActor": true,
+                    "Max": 1250.0,
+                    "Priority": 0,
+                    "Sounds": "ch_switch_loop_chimes_low",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 112,
+                    "Name": "drag_stone",
+                    "Volume": 0.32006836,
+                    "Stream": true,
+                    "Loop": true,
+                    "FadeInTime": 1.0,
+                    "FadeOutTime": 0.5,
+                    "FollowActor": true,
+                    "Min": 5.0,
+                    "Priority": 0,
+                    "Sounds": "stone_drag_loop",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 113,
+                    "Name": "drag_stone_HPF",
+                    "Volume": 0.11999512,
+                    "Stream": true,
+                    "Loop": true,
+                    "FadeInTime": 1.0,
+                    "FadeOutTime": 0.7998047,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Priority": 0,
+                    "Sounds": "stone_drag_HPF_loop",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 60089,
+                    "Name": "FenceBreak",
+                    "Volume": 0.7998047,
+                    "Pitch": -3.0,
+                    "RandomPitch": 1.0,
+                    "Delay": 200.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 6000.0,
+                    "Priority": 1,
+                    "Sounds": "CandelabraBreak_1,CandelabraBreak_2",
+                    "Group": "Breakables"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 60088,
+                    "Name": "FenceHit",
+                    "Volume": 0.5,
+                    "Pitch": 12.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 2500.0,
+                    "Priority": 1,
+                    "Sounds": "CandelabraBreak_1,CandelabraBreak_2",
+                    "Group": "Breakables"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 60086,
+                    "Name": "FenceSpikeBreak",
+                    "Volume": 0.39990234,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 6000.0,
+                    "Priority": 0,
+                    "Sounds": "Imp_ConcreteHit_11,Imp_ConcreteHit_1,Imp_ConcreteHit_2,Imp_ConcreteHit_3,Imp_ConcreteHit_10",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 60087,
+                    "Name": "FenceSpikeImp",
+                    "Volume": 0.39990234,
+                    "Pitch": 12.0,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 2500.0,
+                    "Priority": 1,
+                    "Sounds": "StoneWallBreak_1,StoneWallBreak_2",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50084,
+                    "Name": "grate_opening",
+                    "Volume": 0.75,
+                    "FollowActor": true,
+                    "Min": 5000.0,
+                    "Max": 10000.0,
+                    "Sounds": "CH_Grate_Open_01",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 103,
+                    "Name": "PillarBreak",
+                    "Volume": 0.7998047,
+                    "RandomVolume": 0.30004883,
+                    "RandomPitch": 0.5,
+                    "Min": 50.0,
+                    "Max": 3500.0,
+                    "Priority": 0,
+                    "Sounds": "StoneWallBreak_1,StoneWallBreak_2",
+                    "Group": "Breakables"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50083,
+                    "Name": "statue_head_release_impact",
+                    "Volume": 0.89990234,
+                    "Positional": false,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Priority": 0,
+                    "Sounds": "statue_head_release_impact",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 104,
+                    "Name": "StatueAngleDrag",
+                    "Volume": 0.8598633,
+                    "Loop": true,
+                    "FadeInTime": 1.0,
+                    "FadeOutTime": 0.5,
+                    "Offset": true,
+                    "FollowActor": true,
+                    "Min": 5.0,
+                    "Priority": 0,
+                    "Sounds": "push_stone_loop",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50079,
+                    "Name": "StatueBreak",
+                    "Volume": 0.7001953,
+                    "Sounds": "StoneWallHit_1,StoneWallHit_2",
+                    "Group": "Breakables"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 105,
+                    "Name": "StatueDropCourtyard",
+                    "RandomVolume": 0.5,
+                    "RandomPitch": 0.5,
+                    "Reverb": false,
+                    "Min": 50.0,
+                    "Priority": 0,
+                    "Sounds": "StatueDropInCourtyard",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 106,
+                    "Name": "StatueDropPit",
+                    "Volume": 0.7001953,
+                    "RandomVolume": 0.5,
+                    "RandomPitch": 0.5,
+                    "Stream": true,
+                    "Reverb": false,
+                    "Priority": 0,
+                    "Sounds": "StatueDropDeepInPit",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50082,
+                    "Name": "StatueHeadDrop",
+                    "Positional": false,
+                    "Min": 10000.0,
+                    "Max": 10000.0,
+                    "Sounds": "StatueHeadDrop",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50092,
+                    "Name": "Stone_Pillar_Impact_Cat_RM_04",
+                    "Volume": 0.7998047,
+                    "Pitch": -3.0,
+                    "Positional": false,
+                    "Min": 5000.0,
+                    "Max": 10000.0,
+                    "Sounds": "Cat04_Stone_Pillar_Impact",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50091,
+                    "Name": "Stone_Pillar_Loop_Cat_RM_04",
+                    "Volume": 0.7998047,
+                    "Pitch": -1.0,
+                    "Loop": true,
+                    "FadeInTime": 1.0,
+                    "FadeOutTime": 0.25,
+                    "Positional": false,
+                    "Min": 6500.0,
+                    "Max": 7500.0,
+                    "Priority": 50,
+                    "Sounds": "CH_RotatingBridge_Loop",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50085,
+                    "Name": "switch active",
+                    "Volume": 0.7998047,
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 60082,
+                    "Name": "sword_flash",
+                    "Volume": 0.5,
+                    "FollowActor": true,
+                    "Max": 1500.0,
+                    "Sounds": "sword_altar_flash_1",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 2,
+                    "Name": "sword_key_place",
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Priority": 0,
+                    "Sounds": "sword_key_place",
+                    "Group": "Interactives"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 1,
+                    "Name": "sword_key_pull",
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Priority": 0,
+                    "Sounds": "sword_key_pull",
+                    "Group": "Interactives"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 51,
+                    "Name": "Water_drip",
+                    "Volume": 0.010002136,
+                    "RandomPitch": 5.0,
+                    "FollowActor": true,
+                    "Min": 1.0,
+                    "Max": 600.0,
+                    "Chance": 10,
+                    "Sounds": "CH_Water_Drip_01,CH_Water_Drip_02,CH_Water_Drip_04,CH_Water_Drip_05,CH_Water_Drip_06,CH_Water_Drip_07,CH_Water_Drip_03",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 107,
+                    "Name": "WoodPewBreak",
+                    "RandomVolume": 0.5,
+                    "RandomPitch": 0.5,
+                    "Min": 50.0,
+                    "Max": 6000.0,
+                    "Priority": 0,
+                    "Sounds": "WoodPewBreak_5,WoodPewBreak_6,Imp_WoodFurnitureBreak_04,Imp_WoodFurnitureBreak_01,Imp_WoodFurnitureBreak_02,Imp_WoodFurnitureBreak_03",
+                    "Group": "Breakables"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 108,
+                    "Name": "WoodPewHit",
+                    "RandomVolume": 0.5,
+                    "RandomPitch": 0.5,
+                    "Min": 50.0,
+                    "Max": 2500.0,
+                    "Priority": 0,
+                    "Sounds": "WoodPewHit_1,WoodPewHit_2,WoodPewHit_3,WoodPewHit_4",
+                    "Group": "Breakables"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "Methods": [
+    "onInit",
+    "onRemove",
+    "onQueryInteractive",
+    "onInteractive",
+    "onInteractiveComplete",
+    "onTrigger",
+    "attachSword",
+    "detachSword",
+    "deactivate",
+    "activate"
+  ],
+  "PackageName": "ch_com",
+  "DefaultValues": {
+    "Active": true,
+    "SwordGone": false
+  },
+  "States": {}
+}

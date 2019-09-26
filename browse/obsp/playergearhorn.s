@@ -1,0 +1,142 @@
+.method onUnload
+0x0001 .param_count 0
+0x0001 .line 32
+0x0006     nop
+0x0007 .line 38
+0x000c     int 0
+0x0011     identifier Player
+0x0022     method getCurrentMoveStateID
+0x0042     int 112061
+0x0047     equal
+0x0048     branch_false 0x0122
+0x004d .line 40
+0x0052     nop
+0x0053     int 0
+0x0058     identifier Player
+0x0069     method getObject
+0x007d     null_object
+0x007e     not_equal
+0x007f     branch_false 0x0117
+0x0084 .line 42
+0x0089     nop
+0x008a     int 0
+0x008f     identifier Player
+0x00a0     method getObject
+0x00b4     float 0
+0x00b9     int 1
+0x00be     method_chain stopAllAnimations
+0x00da     pop
+0x00db .line 43
+0x00e0     int 4
+0x00e5     int 1
+0x00ea     identifier Player
+0x00fb     method state
+0x010b     pop
+0x010c .line 44
+0x0111     nop
+0x0112 .line 45
+0x0117 .label 0x1910
+0x011c     nop
+0x011d .line 48
+0x0122 .label 0x190f
+0x0127     int 0
+0x012c     identifier Player
+0x013d     method getCurrentMoveStateID
+0x015d     int 103241
+0x0162     equal
+0x0163     branch_false 0x023d
+0x0168 .line 50
+0x016d     nop
+0x016e     int 0
+0x0173     identifier Player
+0x0184     method getObject
+0x0198     null_object
+0x0199     not_equal
+0x019a     branch_false 0x0232
+0x019f .line 52
+0x01a4     nop
+0x01a5     int 0
+0x01aa     identifier Player
+0x01bb     method getObject
+0x01cf     float 0
+0x01d4     int 1
+0x01d9     method_chain stopAllAnimations
+0x01f5     pop
+0x01f6 .line 53
+0x01fb     int 0
+0x0200     int 1
+0x0205     identifier Player
+0x0216     method state
+0x0226     pop
+0x0227 .line 54
+0x022c     nop
+0x022d .line 55
+0x0232 .label 0x1912
+0x0237     nop
+0x0238 .line 58
+0x023d .label 0x1911
+0x0242     int 0
+0x0247     identifier Player
+0x0258     method getCurrentMoveStateID
+0x0278     int 103144
+0x027d     equal
+0x027e     branch_false 0x0358
+0x0283 .line 60
+0x0288     nop
+0x0289     int 0
+0x028e     identifier Player
+0x029f     method getObject
+0x02b3     null_object
+0x02b4     not_equal
+0x02b5     branch_false 0x034d
+0x02ba .line 62
+0x02bf     nop
+0x02c0     int 0
+0x02c5     identifier Player
+0x02d6     method getObject
+0x02ea     float 0
+0x02ef     int 1
+0x02f4     method_chain stopAllAnimations
+0x0310     pop
+0x0311 .line 63
+0x0316     int 0
+0x031b     int 1
+0x0320     identifier Player
+0x0331     method state
+0x0341     pop
+0x0342 .line 64
+0x0347     nop
+0x0348 .line 65
+0x034d .label 0x1914
+0x0352     nop
+0x0353 .line 66
+0x0358 .label 0x1913
+0x035d     nop
+0x035e     return_null
+
+.method onEquip
+0x0001 .param_count 0
+0x0001 .line 68
+0x0006     nop
+0x0007 .line 70
+0x000c     string "onHornEquip"
+0x0022     int 1
+0x0027     identifier Player
+0x0038     method executeEvent
+0x004f     pop
+0x0050 .line 73
+0x0055     int 3
+0x005a     int 1
+0x005f     identifier this
+0x006e     method setMountPoint
+0x0086     pop
+0x0087 .line 74
+0x008c     int 2
+0x0091     int 1
+0x0096     identifier this
+0x00a5     method setMountPoint
+0x00bd     pop
+0x00be .line 75
+0x00c3     nop
+0x00c4     return_null
+

@@ -1,0 +1,68 @@
+{
+  "Parent": "base/standardbehavior",
+  "Name": "vermin/verminfleebehavior",
+  "Properties": {
+    "ScanAlertDistance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ScanInterval": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachMoveStateMove": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "ApproachForceCloseRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachForceCompleteRange": {
+      "Flags": 4,
+      "Type": 3
+    }
+  },
+  "StaticProperties": {},
+  "Methods": [],
+  "PackageName": "vermin",
+  "DefaultValues": {
+    "ApproachForceCompleteRange": -1,
+    "ApproachMoveStateMove": "",
+    "ID": "VerminFleeBehavior",
+    "BackgroundActions": [],
+    "ScanInterval": 1.0,
+    "ApproachRange": -1,
+    "ComponentActions": [
+      {
+        "classname": "base/approachfleepoint",
+        "properties": {
+          "Priority": 1,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "OnCompleteState": "ReachedLocation",
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "ApproachForceCloseRange": -1,
+    "ScanAlertDistance": -1
+  },
+  "States": {
+    "ReachedLocation": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    }
+  }
+}

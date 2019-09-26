@@ -1,0 +1,314 @@
+{
+  "Parent": "base/standardbehavior",
+  "Name": "abyssalhorsemen/abhorseoutsiderbehavior",
+  "Properties": {
+    "ScanAlertDistance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ScanInterval": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachMoveStateMove": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "ApproachForceCloseRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachForceCompleteRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "FaceTargetAngleDiff": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "FaceTargetMoveStateTurnLeft": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "FaceTargetMoveStateTurnRight": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "AnimMoveState": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "TauntMoveState": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "TauntMinDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "TauntMaxDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "TauntMaxAngleDiff": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMoveStateIdle": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleMinTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMaxTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMoveStateFidget": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleFidgetChance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleFidgetMinTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleFidgetMaxTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "BreakoffRangeMin": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "BreakoffRangeMax": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachBreakoffRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachBreakoffMoveStateMove": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "ApproachBreakoffForceCloseRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachBreakoffForceCompleteRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "WanderPoint": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "ClearObstacleMoveState": {
+      "Flags": 4,
+      "Type": 5
+    }
+  },
+  "StaticProperties": {},
+  "Methods": [
+    "begin",
+    "goToWander"
+  ],
+  "PackageName": "abyssalhorsemen",
+  "DefaultValues": {
+    "ApproachForceCompleteRange": -1,
+    "WanderPoint": null,
+    "IdleMinTime": -1,
+    "ApproachBreakoffForceCloseRange": -1,
+    "IdleFidgetChance": 0,
+    "ApproachBreakoffRange": 150,
+    "IdleFidgetMinTime": 2,
+    "ApproachBreakoffMoveStateMove": "GallopMove",
+    "ApproachMoveStateMove": "GallopMove",
+    "FaceTargetMoveStateTurnRight": "RearUp - Start",
+    "TauntMoveState": "",
+    "FaceTargetAngleDiff": 165,
+    "ID": "Horse Outsider Combat",
+    "BackgroundActions": [
+      {
+        "classname": "base/scanaction",
+        "properties": {
+          "Position": [
+            0.0,
+            1e-45,
+            10.0
+          ]
+        }
+      }
+    ],
+    "IdleMoveStateFidget": "",
+    "ClearObstacleMoveState": "Attack - Clear Obstacle",
+    "AnimMoveState": "",
+    "TauntMaxAngleDiff": 180,
+    "TauntMaxDelay": 5,
+    "ScanInterval": 1.5,
+    "BreakoffRangeMax": 2000,
+    "IdleMoveStateIdle": "",
+    "ApproachRange": 150,
+    "TauntMinDelay": 5,
+    "PathBlockedBreakableHandler": {
+      "classname": "base/clearobstacleaction",
+      "properties": {
+        "ID": "Clear Obstacle",
+        "ActionCode": 5,
+        "Priority": 16,
+        "InterruptibleBy": [
+          "Death",
+          "Exit",
+          "Interactive",
+          "Impact"
+        ],
+        "Position": [
+          3.6e-43,
+          0.0,
+          0.053710938
+        ]
+      }
+    },
+    "FaceTargetMoveStateTurnLeft": "RearUp - Start",
+    "ApproachBreakoffForceCompleteRange": 250,
+    "IdleMaxTime": -1,
+    "ComponentActions": [
+      {
+        "classname": "base/approachwanderaction",
+        "properties": {
+          "IgnoreZTolerance": true,
+          "ID": "ApproachBreakoff",
+          "Priority": 17,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "ValidStates": [
+            "Breakoff"
+          ],
+          "OnCompleteState": "Attacking",
+          "Position": [
+            0.0,
+            null,
+            null
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "AttackType": 1,
+          "MinRange": 300.0,
+          "MaxRange": 600.0,
+          "MinHeight": -100.0,
+          "MaxHeight": 400.0,
+          "MinAngle": -100.0,
+          "MaxAngle": 100.0,
+          "MoveState": "Attack 01 - Charge Start",
+          "RequireInView": true,
+          "ID": "Charge Attack",
+          "Priority": 13,
+          "InterruptibleBy": [
+            "Death",
+            "Interactive",
+            "Impact"
+          ],
+          "ResourceLock": "ChargeAttack",
+          "MinLockTime": 6.0,
+          "MaxLockTime": 12.0,
+          "Position": [
+            0.5,
+            0.0,
+            -57290.203
+          ]
+        }
+      },
+      {
+        "classname": "base/facetargetaction",
+        "properties": {
+          "ID": "Face Target",
+          "ActionCode": 6,
+          "Priority": 6,
+          "InterruptibleBy": [
+            "Death",
+            "Interactive",
+            "Impact"
+          ]
+        }
+      },
+      {
+        "classname": "base/approachaction",
+        "properties": {
+          "ID": "Approach Target",
+          "Priority": 5,
+          "InterruptibleBy": [
+            "ANY"
+          ]
+        }
+      },
+      {
+        "classname": "base/animaction",
+        "properties": {
+          "ID": "Taunt",
+          "ActionCode": 2,
+          "Priority": 1,
+          "Chance": 0.9,
+          "InterruptibleBy": [
+            "Death",
+            "Interactive",
+            "Impact"
+          ],
+          "ResourceLock": "Taunt"
+        }
+      },
+      {
+        "classname": "base/idleaction",
+        "properties": {
+          "ID": "Idle",
+          "ActionCode": 1,
+          "Priority": 1,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "Position": [
+            300.0,
+            0.85,
+            425.0
+          ]
+        }
+      }
+    ],
+    "BreakoffRangeMin": 1000,
+    "ApproachForceCloseRange": -1,
+    "IdleFidgetMaxTime": 4,
+    "ScanAlertDistance": -1
+  },
+  "States": {
+    "AttackCooldown": {
+      "methods": [
+        "onBreakoff",
+        "onEnter"
+      ]
+    },
+    "Attacking": {
+      "methods": [
+        "onEnter"
+      ]
+    },
+    "Breakoff": {
+      "methods": [
+        "onEnter"
+      ]
+    }
+  }
+}

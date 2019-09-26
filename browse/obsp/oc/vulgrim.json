@@ -1,0 +1,4260 @@
+{
+  "Parent": "Monster",
+  "Name": "vulgrim/vulgrim",
+  "Properties": {
+    "Spawned": {
+      "Flags": 2,
+      "Type": 4
+    },
+    "SpawnMoveState": {
+      "Flags": 2,
+      "Type": 5
+    },
+    "SpawnSaveValue": {
+      "Flags": 2,
+      "Type": 5
+    },
+    "ConstantEffectID": {
+      "Flags": 2,
+      "Type": 1
+    }
+  },
+  "StaticProperties": {
+    "Description": {
+      "Value": {
+        "classname": "MonsterDesc",
+        "properties": {
+          "EnableCameraCollision": true,
+          "FearFactor": 0,
+          "MoveStates": {
+            "classname": "CharacterMoveStateList",
+            "properties": {
+              "MoveStates": [
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "Name": "Cinematic - More Souls",
+                    "ID": 4,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 19,
+                        "Ease": 0.5
+                      }
+                    },
+                    "FaceTarget": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "Despawn",
+                    "ID": 2,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 0
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "InAir": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "OnElapsedTime": 6,
+                    "ElapsedTimeMin": 10.0,
+                    "ElapsedTimeMax": 15.0,
+                    "DoCollision": false,
+                    "Name": "Idle",
+                    "ID": 3,
+                    "AnimController": {
+                      "classname": "HAimAnimController",
+                      "properties": {
+                        "LeftAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 20
+                          }
+                        },
+                        "ForwardAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 1
+                          }
+                        },
+                        "RightAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 21
+                          }
+                        },
+                        "BlendTime": 1.0
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "TurnSpeed": 50.0,
+                    "InAir": true,
+                    "FaceTarget": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "Idle - Fidget",
+                    "ID": 6,
+                    "AnimController": {
+                      "classname": "HAimAnimController",
+                      "properties": {
+                        "LeftAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 20
+                          }
+                        },
+                        "ForwardAnimController": {
+                          "classname": "RandomAnimController",
+                          "properties": {
+                            "AnimationList": [
+                              23,
+                              24,
+                              25,
+                              26,
+                              27,
+                              28
+                            ],
+                            "AnimationChance": [
+                              16,
+                              16,
+                              17,
+                              17,
+                              17,
+                              17
+                            ]
+                          }
+                        },
+                        "RightAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 21
+                          }
+                        },
+                        "BlendTime": 1.0
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "TurnSpeed": 50.0,
+                    "OnActionComplete": 3,
+                    "FaceTarget": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "Spawn",
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 2
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "TurnSpeed": 50.0,
+                    "OnActionComplete": 14,
+                    "InAir": true,
+                    "FaceTarget": true,
+                    "FaceOnStart": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "Spawn - Greaver",
+                    "ID": 10,
+                    "AnimController": {
+                      "classname": "SequentialAnimController",
+                      "properties": {
+                        "AnimControllerList": [
+                          {
+                            "classname": "SimpleAnimController",
+                            "properties": {
+                              "Animation": 2,
+                              "Ease": 0.0
+                            }
+                          },
+                          {
+                            "classname": "SimpleAnimController",
+                            "properties": {
+                              "Animation": 36
+                            }
+                          }
+                        ],
+                        "Ease": 0.0
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "TurnSpeed": 50.0,
+                    "InAir": true,
+                    "FaceTarget": true,
+                    "FaceOnStart": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "Name": "Spawn - Random Greeting",
+                    "ID": 14,
+                    "AnimController": {
+                      "classname": "RandomAnimController",
+                      "properties": {
+                        "AnimationList": [
+                          9,
+                          12
+                        ],
+                        "AnimationChance": [
+                          50,
+                          50
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "Spawn - Samael",
+                    "ID": 12,
+                    "AnimController": {
+                      "classname": "SequentialAnimController",
+                      "properties": {
+                        "AnimControllerList": [
+                          {
+                            "classname": "SimpleAnimController",
+                            "properties": {
+                              "Animation": 2,
+                              "Ease": 0.0
+                            }
+                          },
+                          {
+                            "classname": "SimpleAnimController",
+                            "properties": {
+                              "Animation": 37
+                            }
+                          }
+                        ],
+                        "Ease": 0.0
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "TurnSpeed": 50.0,
+                    "InAir": true,
+                    "FaceTarget": true,
+                    "FaceOnStart": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "Spawn - Silitha",
+                    "ID": 8,
+                    "AnimController": {
+                      "classname": "SequentialAnimController",
+                      "properties": {
+                        "AnimControllerList": [
+                          {
+                            "classname": "SimpleAnimController",
+                            "properties": {
+                              "Animation": 2,
+                              "Ease": 0.0
+                            }
+                          },
+                          {
+                            "classname": "SimpleAnimController",
+                            "properties": {
+                              "Animation": 38
+                            }
+                          }
+                        ],
+                        "Ease": 0.0
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "TurnSpeed": 50.0,
+                    "InAir": true,
+                    "FaceTarget": true,
+                    "FaceOnStart": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "Spawn - Straga",
+                    "ID": 7,
+                    "AnimController": {
+                      "classname": "SequentialAnimController",
+                      "properties": {
+                        "AnimControllerList": [
+                          {
+                            "classname": "SimpleAnimController",
+                            "properties": {
+                              "Animation": 2,
+                              "Ease": 0.0
+                            }
+                          },
+                          {
+                            "classname": "SimpleAnimController",
+                            "properties": {
+                              "Animation": 39
+                            }
+                          }
+                        ],
+                        "Ease": 0.0
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "TurnSpeed": 50.0,
+                    "InAir": true,
+                    "FaceTarget": true,
+                    "FaceOnStart": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "Spawn - Stygian",
+                    "ID": 9,
+                    "AnimController": {
+                      "classname": "SequentialAnimController",
+                      "properties": {
+                        "AnimControllerList": [
+                          {
+                            "classname": "SimpleAnimController",
+                            "properties": {
+                              "Animation": 2,
+                              "Ease": 0.0
+                            }
+                          },
+                          {
+                            "classname": "SimpleAnimController",
+                            "properties": {
+                              "Animation": 40
+                            }
+                          }
+                        ],
+                        "Ease": 0.0
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "TurnSpeed": 50.0,
+                    "InAir": true,
+                    "FaceTarget": true,
+                    "FaceOnStart": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "Spawn - Tiamat",
+                    "ID": 11,
+                    "AnimController": {
+                      "classname": "SequentialAnimController",
+                      "properties": {
+                        "AnimControllerList": [
+                          {
+                            "classname": "SimpleAnimController",
+                            "properties": {
+                              "Animation": 2,
+                              "Ease": 0.0
+                            }
+                          },
+                          {
+                            "classname": "SimpleAnimController",
+                            "properties": {
+                              "Animation": 41
+                            }
+                          }
+                        ],
+                        "Ease": 0.0
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "TurnSpeed": 50.0,
+                    "InAir": true,
+                    "FaceTarget": true,
+                    "FaceOnStart": true
+                  }
+                }
+              ]
+            }
+          },
+          "Label": "Vulgrim",
+          "SeparationDistance": 40.0,
+          "Visual": "vulgrim",
+          "FactionID": 0,
+          "TriggerType": 1,
+          "MoveWeight": 200.0,
+          "CharacterShadow": true,
+          "Animations": {
+            "classname": "AnimationList",
+            "properties": {
+              "Animations": [
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 43,
+                    "Name": "vo_vulgrim_gamestop_01",
+                    "AnimationName": "vo_vulgrim_gamestop_01",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 65
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 78,
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 81,
+                          "TriggerFrame": 115
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 78,
+                          "TriggerFrame": 95
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 78,
+                          "TriggerFrame": 52
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 82,
+                          "TriggerFrame": 73
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 84,
+                          "TriggerFrame": 100
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 81,
+                          "TriggerFrame": 18
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 85,
+                          "TriggerFrame": 132
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 83,
+                          "TriggerFrame": 158
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 90
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 85,
+                          "TriggerFrame": 186
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "Name": "vulgrim_banish",
+                    "AnimationName": "vulgrim_banish",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Vulgrim_Banish",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 13,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 63,
+                          "TriggerFrame": 10
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 78,
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 80,
+                          "TriggerFrame": 27
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 81,
+                          "TriggerFrame": 29
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 30
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 83,
+                          "TriggerFrame": 3
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 1
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 11,
+                    "Name": "vulgrim_banish_01",
+                    "AnimationName": "vulgrim_banish_01",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Vulgrim_Banish",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 0,
+                          "TriggerFrame": 10
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 83,
+                          "TriggerFrame": 18
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 84,
+                          "TriggerFrame": 60
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 83,
+                          "TriggerFrame": 91
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 78,
+                          "TriggerFrame": 4
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 78,
+                          "TriggerFrame": 70
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 85,
+                          "TriggerFrame": 93
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 81,
+                          "TriggerFrame": 6
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 3
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 10,
+                    "Name": "vulgrim_banish_02",
+                    "AnimationName": "vulgrim_banish_02",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 1,
+                          "TriggerFrame": 10
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Vulgrim_Banish",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 81,
+                          "TriggerFrame": 10
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 78,
+                          "TriggerFrame": 5
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 83,
+                          "TriggerFrame": 75
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 5
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 78,
+                          "TriggerFrame": 50
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 7,
+                    "Name": "vulgrim_buy_item_02",
+                    "AnimationName": "vulgrim_buy_item_02",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 2
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 83,
+                          "TriggerFrame": 3
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 82,
+                          "TriggerFrame": 49
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 84,
+                          "TriggerFrame": 68
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 85,
+                          "TriggerFrame": 107
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 78,
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 81,
+                          "TriggerFrame": 10
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 81,
+                          "TriggerFrame": 62
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 78,
+                          "TriggerFrame": 65
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 108
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 6,
+                    "Name": "vulgrim_buy_item_03",
+                    "AnimationName": "vulgrim_buy_item_03",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 3
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 78,
+                          "TriggerFrame": 10
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 78,
+                          "TriggerFrame": 65
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 84,
+                          "TriggerFrame": 23
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 83,
+                          "TriggerFrame": 86
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 5
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 98
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 5,
+                    "Name": "vulgrim_buy_item_04",
+                    "AnimationName": "vulgrim_buy_item_04",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 4
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 78,
+                          "TriggerFrame": 5
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 81,
+                          "TriggerFrame": 30
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 10
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 83,
+                          "TriggerFrame": 12
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 85,
+                          "TriggerFrame": 100
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 23,
+                    "Name": "vulgrim_env_fidget_01",
+                    "AnimationName": "vulgrim_idle",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 45,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 81,
+                          "TriggerFrame": 5
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 40
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 24,
+                    "Name": "vulgrim_env_fidget_02",
+                    "AnimationName": "vulgrim_idle",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 46,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 81,
+                          "TriggerFrame": 10
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 45
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 25,
+                    "Name": "vulgrim_env_fidget_03",
+                    "AnimationName": "vulgrim_idle",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 47,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 81,
+                          "TriggerFrame": 7
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 35
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 26,
+                    "Name": "vulgrim_env_fidget_04",
+                    "AnimationName": "vulgrim_idle",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 48,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 81,
+                          "TriggerFrame": 3
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 50
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 27,
+                    "Name": "vulgrim_env_fidget_05",
+                    "AnimationName": "vulgrim_idle",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 49,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 81,
+                          "TriggerFrame": 5
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 35
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 28,
+                    "Name": "vulgrim_env_fidget_06",
+                    "AnimationName": "vulgrim_idle",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 81,
+                          "TriggerFrame": 10
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 40
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 1,
+                    "Name": "vulgrim_idle",
+                    "AnimationName": "vulgrim_idle"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 13,
+                    "Name": "vulgrim_idle_02",
+                    "AnimationName": "vulgrim_idle_02",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 15
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 84,
+                          "TriggerFrame": 60
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 85,
+                          "TriggerFrame": 71
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 81,
+                          "TriggerFrame": 15
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 84,
+                          "TriggerFrame": 108
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 85,
+                          "TriggerFrame": 43
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 83,
+                          "TriggerFrame": 145
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 14,
+                    "Name": "vulgrim_idle_03",
+                    "AnimationName": "vulgrim_idle_03",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 81,
+                          "TriggerFrame": 75
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 83,
+                          "TriggerFrame": 85
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 72
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 83,
+                          "TriggerFrame": 203
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 81,
+                          "TriggerFrame": 178
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 180
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 16,
+                    "Name": "vulgrim_idle_04",
+                    "AnimationName": "vulgrim_idle_04",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 81,
+                          "TriggerFrame": 45
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 120
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 17,
+                    "Name": "vulgrim_idle_05",
+                    "AnimationName": "vulgrim_idle_05",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 83,
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 81,
+                          "TriggerFrame": 60
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 25
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 85,
+                          "TriggerFrame": 63
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 78,
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 78,
+                          "TriggerFrame": 46
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 20,
+                    "Name": "vulgrim_idle_l",
+                    "AnimationName": "vulgrim_idle_l"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 21,
+                    "Name": "vulgrim_idle_r",
+                    "AnimationName": "vulgrim_idle_r"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 4,
+                    "Name": "vulgrim_lack_funds_01",
+                    "AnimationName": "vulgrim_lack_funds_01",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 5
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 83,
+                          "TriggerFrame": 30
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 83,
+                          "TriggerFrame": 100
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 85,
+                          "TriggerFrame": 136
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 81,
+                          "TriggerFrame": 30
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 47
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 120
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 78,
+                          "TriggerFrame": 5
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 78,
+                          "TriggerFrame": 95
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 3,
+                    "Name": "vulgrim_lack_funds_02",
+                    "AnimationName": "vulgrim_lack_funds_02",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 6
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 78,
+                          "TriggerFrame": 2
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 78,
+                          "TriggerFrame": 90
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 82,
+                          "TriggerFrame": 22
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 83,
+                          "TriggerFrame": 86
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 30
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 85,
+                          "TriggerFrame": 119
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 29,
+                    "Name": "vulgrim_menu_fidget_01",
+                    "AnimationName": "vulgrim_idle_02",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 51,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 85,
+                          "TriggerFrame": 52
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 82,
+                          "TriggerFrame": 55
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 84,
+                          "TriggerFrame": 102
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 83,
+                          "TriggerFrame": 143
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 76
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 150
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 30,
+                    "Name": "vulgrim_menu_fidget_02",
+                    "AnimationName": "vulgrim_idle_03",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 52,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 78,
+                          "TriggerFrame": 86
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 78,
+                          "TriggerFrame": 187
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 85,
+                          "TriggerFrame": 205
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 96
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 81,
+                          "TriggerFrame": 85
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 210
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 31,
+                    "Name": "vulgrim_menu_fidget_03",
+                    "AnimationName": "vulgrim_idle_04",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 53,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 33
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 32,
+                    "Name": "vulgrim_menu_fidget_04",
+                    "AnimationName": "vulgrim_idle_05",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 54,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 78,
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 78,
+                          "TriggerFrame": 45
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 85,
+                          "TriggerFrame": 65
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 25
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 69
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 33,
+                    "Name": "vulgrim_menu_fidget_05",
+                    "AnimationName": "vulgrim_idle_02",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 55,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 75
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 84,
+                          "TriggerFrame": 55
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 85,
+                          "TriggerFrame": 71
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 84,
+                          "TriggerFrame": 108
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 83,
+                          "TriggerFrame": 145
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 148
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 34,
+                    "Name": "vulgrim_menu_fidget_06",
+                    "AnimationName": "vulgrim_idle_03",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 56,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 81,
+                          "TriggerFrame": 75
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 83,
+                          "TriggerFrame": 85
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 72
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 83,
+                          "TriggerFrame": 203
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 81,
+                          "TriggerFrame": 178
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 180
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 35,
+                    "Name": "vulgrim_menu_fidget_07",
+                    "AnimationName": "vulgrim_idle_04",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 57,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 81,
+                          "TriggerFrame": 45
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 120
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 19,
+                    "Name": "vulgrim_more_souls",
+                    "AnimationName": "vulgrim_bring_more_souls_02b",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 76
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 83,
+                          "TriggerFrame": 7
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 85,
+                          "TriggerFrame": 23
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 85,
+                          "TriggerFrame": 37
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 85,
+                          "TriggerFrame": 46
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 78,
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 83,
+                          "TriggerFrame": 107
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 78,
+                          "TriggerFrame": 100
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 107
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 140
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 85,
+                          "TriggerFrame": 187
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 8,
+                    "Name": "vulgrim_new_04",
+                    "AnimationName": "vulgrim_new_04",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 7
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 78,
+                          "TriggerFrame": 10
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 81,
+                          "TriggerFrame": 18
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 83,
+                          "TriggerFrame": 12
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 82,
+                          "TriggerFrame": 54
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 84,
+                          "TriggerFrame": 84
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 85,
+                          "TriggerFrame": 138
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 140
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 96
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 2,
+                    "Name": "vulgrim_summon",
+                    "AnimationName": "vulgrim_summon",
+                    "Length": 85,
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Vulgrim_Summon",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 12
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 81,
+                          "TriggerFrame": 29
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 83,
+                          "TriggerFrame": 77
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 85,
+                          "TriggerFrame": 84
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 78,
+                          "TriggerFrame": 59
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 90
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 9,
+                    "Name": "vulgrim_summon_01",
+                    "AnimationName": "vulgrim_summon_01",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Vulgrim_Summon",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 8
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 45
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 12,
+                    "Name": "vulgrim_summon_02",
+                    "AnimationName": "vulgrim_summon_02",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Vulgrim_Summon",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 9
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 54
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 36,
+                    "Name": "vulgrim_summon_greaver",
+                    "AnimationName": "Vo_Vulgrim_Greaver_01",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Vulgrim_Summon",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 67,
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 83,
+                          "TriggerFrame": 13
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 85,
+                          "TriggerFrame": 70
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 81,
+                          "TriggerFrame": 73
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 81,
+                          "TriggerFrame": 93
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 83,
+                          "TriggerFrame": 128
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 82,
+                          "TriggerFrame": 178
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 84,
+                          "TriggerFrame": 228
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 85,
+                          "TriggerFrame": 175
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 36
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 81,
+                          "TriggerFrame": 203
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 140
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 78,
+                          "TriggerFrame": 114
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 78,
+                          "TriggerFrame": 190
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 37,
+                    "Name": "vulgrim_summon_samael",
+                    "AnimationName": "vo_vulgrim_samael_01",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Vulgrim_Summon",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 68,
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 78,
+                          "TriggerFrame": 32
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 81,
+                          "TriggerFrame": 196
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 10
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 117
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 83,
+                          "TriggerFrame": 35
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 83,
+                          "TriggerFrame": 77
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 85,
+                          "TriggerFrame": 230
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 82,
+                          "TriggerFrame": 129
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 135
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 38,
+                    "Name": "vulgrim_summon_silitha",
+                    "AnimationName": "Vulgrim_Silitha",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Vulgrim_Summon",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 71,
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 83,
+                          "TriggerFrame": 13
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 83,
+                          "TriggerFrame": 58
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 83,
+                          "TriggerFrame": 98
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 82,
+                          "TriggerFrame": 130
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 84,
+                          "TriggerFrame": 191
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 83,
+                          "TriggerFrame": 260
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 83,
+                          "TriggerFrame": 287
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 83,
+                          "TriggerFrame": 304
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 291
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 135
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 78
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 78,
+                          "TriggerFrame": 88
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 78,
+                          "TriggerFrame": 185
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 20
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 67
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 308
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 85,
+                          "TriggerFrame": 349
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 39,
+                    "Name": "vulgrim_summon_straga",
+                    "AnimationName": "vo_Vulgrim_Straga",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Vulgrim_Summon",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 72,
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 83,
+                          "TriggerFrame": 14
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 85,
+                          "TriggerFrame": 68
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 85,
+                          "TriggerFrame": 254
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 22
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 70
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 78
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 81,
+                          "TriggerFrame": 120
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 40,
+                    "Name": "vulgrim_summon_stygian",
+                    "AnimationName": "vo_vulgrim_Stygian",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Vulgrim_Summon",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 73,
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 78,
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 78,
+                          "TriggerFrame": 138
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 83,
+                          "TriggerFrame": 22
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 82,
+                          "TriggerFrame": 44
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 82,
+                          "TriggerFrame": 85
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 83,
+                          "TriggerFrame": 135
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 84,
+                          "TriggerFrame": 195
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 85,
+                          "TriggerFrame": 249
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 85,
+                          "TriggerFrame": 322
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 89
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 162
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 81,
+                          "TriggerFrame": 27
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 81,
+                          "TriggerFrame": 187
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 41,
+                    "Name": "vulgrim_summon_tiamat",
+                    "AnimationName": "Vo_Vulgrim_Tiamat_01",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Vulgrim_Summon",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 74,
+                          "TriggerFrame": 1
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 28
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 81,
+                          "TriggerFrame": 88
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 81,
+                          "TriggerFrame": 143
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 242
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 83,
+                          "TriggerFrame": 27
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 85,
+                          "TriggerFrame": 49
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 82,
+                          "TriggerFrame": 74
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 85,
+                          "TriggerFrame": 258
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 84,
+                          "TriggerFrame": 290
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 85,
+                          "TriggerFrame": 313
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 78
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 22,
+                    "Name": "vulgrim_task_artifacts_01",
+                    "AnimationName": "vulgrim_task_artifacts_01",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 44
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 2
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 81,
+                          "TriggerFrame": 28
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 81,
+                          "TriggerFrame": 206
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 108
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 81,
+                          "TriggerFrame": 362
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 84,
+                          "TriggerFrame": 84
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 83,
+                          "TriggerFrame": 117
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 82,
+                          "TriggerFrame": 152
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 83,
+                          "TriggerFrame": 193
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 84,
+                          "TriggerFrame": 435
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 83,
+                          "TriggerFrame": 450
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 82,
+                          "TriggerFrame": 480
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 83,
+                          "TriggerFrame": 535
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 85,
+                          "TriggerFrame": 556
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 392
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 485
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 44,
+                    "Name": "vulgrim_unique_01",
+                    "AnimationName": "vulgrim_unique_01",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 75
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 81,
+                          "TriggerFrame": 5
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 81,
+                          "TriggerFrame": 90
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 78,
+                          "TriggerFrame": 3
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 78,
+                          "TriggerFrame": 71
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 84,
+                          "TriggerFrame": 18
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 82,
+                          "TriggerFrame": 89
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 83,
+                          "TriggerFrame": 136
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 85,
+                          "TriggerFrame": 177
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 142
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 78,
+                          "TriggerFrame": 124
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 45,
+                    "Name": "vulgrim_unique_02",
+                    "AnimationName": "vulgrim_unique_02",
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 77
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 81,
+                          "TriggerFrame": 5
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 85,
+                          "TriggerFrame": 97
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 78,
+                          "TriggerFrame": 3
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 78,
+                          "TriggerFrame": 71
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 84,
+                          "TriggerFrame": 18
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 79,
+                          "TriggerFrame": 23
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          "Sounds": {
+            "classname": "SoundList",
+            "properties": {
+              "Sounds": [
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 14,
+                    "Name": "vo_vulgrim_artifact_complete",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_artifact_complete",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 15,
+                    "Name": "vo_vulgrim_artifact_complete_a",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_artifact_complete_a",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 16,
+                    "Name": "vo_vulgrim_artifact_return_01",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_artifact_return_01",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 17,
+                    "Name": "vo_vulgrim_artifact_return_01_a",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_artifact_return_01_a",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 18,
+                    "Name": "vo_vulgrim_artifact_return_02",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_artifact_return_02",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 19,
+                    "Name": "vo_vulgrim_artifact_return_02_a",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_artifact_return_02_a",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 20,
+                    "Name": "vo_vulgrim_artifact_return_03",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_artifact_return_03",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 21,
+                    "Name": "vo_vulgrim_artifact_return_03_a",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_artifact_return_03_a",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 22,
+                    "Name": "vo_vulgrim_artifact_return_04",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_artifact_return_04",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 23,
+                    "Name": "vo_vulgrim_artifact_return_04_a",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_artifact_return_04_a",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 0,
+                    "Name": "vo_vulgrim_banish_01",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_banish_01",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 24,
+                    "Name": "vo_vulgrim_banish_01_a",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_banish_01_a",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 25,
+                    "Name": "vo_vulgrim_banish_01_b",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_banish_01_b",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 26,
+                    "Name": "vo_vulgrim_banish_01_c",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_banish_01_c",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 1,
+                    "Name": "vo_vulgrim_banish_02",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_banish_02",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 27,
+                    "Name": "vo_vulgrim_banish_02_a",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_banish_02_a",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 59,
+                    "Name": "vo_vulgrim_banish_02_b",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_banish_02_b",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 60,
+                    "Name": "vo_vulgrim_banish_02_c",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_banish_02_c",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 63,
+                    "Name": "vo_vulgrim_banish_ALL",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_banish_02_c,vo_vulgrim_banish_01_a,vo_vulgrim_banish_01_b,vo_vulgrim_banish_01_c,vo_vulgrim_banish_02_a,vo_vulgrim_banish_02_b",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 64,
+                    "Name": "vo_vulgrim_bring_more_souls_01",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_bring_more_souls_01,vo_vulgrim_bring_more_souls_01_a,vo_vulgrim_bring_more_souls_01_b,vo_vulgrim_bring_more_souls_01_c",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 76,
+                    "Name": "vo_vulgrim_bring_more_souls_02",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_bring_more_souls_02_b,vo_vulgrim_bring_more_souls_02",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 2,
+                    "Name": "vo_vulgrim_buy_item_01",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_buy_item_01",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 28,
+                    "Name": "vo_vulgrim_buy_item_01_a",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_buy_item_01_a",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 3,
+                    "Name": "vo_vulgrim_buy_item_02",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_buy_item_02",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 29,
+                    "Name": "vo_vulgrim_buy_item_02_a",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_buy_item_02_a",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 4,
+                    "Name": "vo_vulgrim_buy_item_03",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_buy_item_03",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 30,
+                    "Name": "vo_vulgrim_buy_item_03_a",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_buy_item_03_a",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 65,
+                    "Name": "vo_vulgrim_gamestop",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_gamestop_01_c,vo_vulgrim_gamestop_01,vo_vulgrim_gamestop_01_a,vo_vulgrim_gamestop_01_b",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 5,
+                    "Name": "vo_vulgrim_lack_funds_01",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_lack_funds_01",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 31,
+                    "Name": "vo_vulgrim_lack_funds_01_a",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_lack_funds_01_a",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 32,
+                    "Name": "vo_vulgrim_lack_funds_01_b",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_lack_funds_01_b",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 6,
+                    "Name": "vo_vulgrim_lack_funds_02",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_lack_funds_02",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 33,
+                    "Name": "vo_vulgrim_lack_funds_02_a",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_lack_funds_02_a",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 7,
+                    "Name": "vo_vulgrim_new_item_01",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_new_item_01",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 34,
+                    "Name": "vo_vulgrim_new_item_01_a",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_new_item_01_a",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 35,
+                    "Name": "vo_vulgrim_new_item_02",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_new_item_02",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 36,
+                    "Name": "vo_vulgrim_new_item_02_a",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_new_item_02_a",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 70,
+                    "Name": "vo_vulgrim_serpentholes_arrive",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_serpentholes_02_c,vo_vulgrim_serpentholes_02,vo_vulgrim_serpentholes_02_a,vo_vulgrim_serpentholes_02_b",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 69,
+                    "Name": "vo_vulgrim_serpentholes_leave",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_serpentholes_01,vo_vulgrim_serpentholes_01_a,vo_vulgrim_serpentholes_01_b",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 8,
+                    "Name": "vo_vulgrim_summon_01",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_summon_01",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 37,
+                    "Name": "vo_vulgrim_summon_01_a",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_summon_01_a",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 38,
+                    "Name": "vo_vulgrim_summon_01_b",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_summon_01_b",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 39,
+                    "Name": "vo_vulgrim_summon_01_c",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_summon_01_c",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 40,
+                    "Name": "vo_vulgrim_summon_01_d",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_summon_01_d",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 41,
+                    "Name": "vo_vulgrim_summon_01_e",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_summon_01_e",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 9,
+                    "Name": "vo_vulgrim_summon_02",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_summon_02",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 42,
+                    "Name": "vo_vulgrim_summon_02_a",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_summon_02_a",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 43,
+                    "Name": "vo_vulgrim_summon_02_b",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_summon_02_b",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 62,
+                    "Name": "Vo_vulgrim_summon_ALL",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_summon_01_a,vo_vulgrim_summon_01_b,vo_vulgrim_summon_01_c,vo_vulgrim_summon_01_d,vo_vulgrim_summon_01_e,vo_vulgrim_summon_02_a,vo_vulgrim_summon_02_b",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 67,
+                    "Name": "vo_vulgrim_summon_griever",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_griever_01",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 68,
+                    "Name": "vo_vulgrim_summon_samael",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_samael_01",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 71,
+                    "Name": "vo_vulgrim_summon_silitha",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_silitha_01",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 72,
+                    "Name": "vo_vulgrim_summon_straga",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_straga_01",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 73,
+                    "Name": "vo_vulgrim_summon_stygian",
+                    "Volume": 0.75,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_stygian_01",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 74,
+                    "Name": "vo_vulgrim_summon_tiamat",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_tiamat_01",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 44,
+                    "Name": "vo_vulgrim_task_artifacts_01",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_task_artifacts_01",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 75,
+                    "Name": "vo_vulgrim_unique",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_unique_01,vo_vulgrim_unique_01_a,vo_vulgrim_unique_01_b",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 77,
+                    "Name": "vo_vulgrim_unique_2",
+                    "Volume": 0.72021484,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "vo_vulgrim_unique_02_b,vo_vulgrim_unique_02,vo_vulgrim_unique_02_a",
+                    "Group": "Vulgrim Vox"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 45,
+                    "Name": "voc_vulgrim_menu_idle_01",
+                    "Volume": 0.60009766,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "voc_vulgrim_menu_idle_01",
+                    "Group": "Vulgrim Vox Idle"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 46,
+                    "Name": "voc_vulgrim_menu_idle_02",
+                    "Volume": 0.60009766,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "voc_vulgrim_menu_idle_02",
+                    "Group": "Vulgrim Vox Idle"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 47,
+                    "Name": "voc_vulgrim_menu_idle_03",
+                    "Volume": 0.60009766,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "voc_vulgrim_menu_idle_03",
+                    "Group": "Vulgrim Vox Idle"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 48,
+                    "Name": "voc_vulgrim_menu_idle_04",
+                    "Volume": 0.60009766,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "voc_vulgrim_menu_idle_04",
+                    "Group": "Vulgrim Vox Idle"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 49,
+                    "Name": "voc_vulgrim_menu_idle_05",
+                    "Volume": 0.60009766,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "voc_vulgrim_menu_idle_05",
+                    "Group": "Vulgrim Vox Idle"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50,
+                    "Name": "voc_vulgrim_menu_idle_06",
+                    "Volume": 0.60009766,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "voc_vulgrim_menu_idle_06",
+                    "Group": "Vulgrim Vox Idle"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 66,
+                    "Name": "voc_vulgrim_menu_idle_all",
+                    "Volume": 0.60009766,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "voc_vulgrim_menu_idle_D_07,vo_vulgrim_idle_env_01,vo_vulgrim_idle_env_01_a,vo_vulgrim_idle_env_01_b,vo_vulgrim_idle_env_01_c,vo_vulgrim_idle_env_02,vo_vulgrim_idle_env_02_a,vo_vulgrim_idle_env_02_b,vo_vulgrim_idle_env_02_c,vo_vulgrim_idle_env_03,vo_vulgrim_idle_env_03_a,vo_vulgrim_idle_env_03_b,vo_vulgrim_idle_env_03_c,voc_vulgrim_menu_idle_01,voc_vulgrim_menu_idle_02,voc_vulgrim_menu_idle_03,voc_vulgrim_menu_idle_04,voc_vulgrim_menu_idle_05,voc_vulgrim_menu_idle_06,voc_vulgrim_menu_idle_D_01,voc_vulgrim_menu_idle_D_02,voc_vulgrim_menu_idle_D_03,voc_vulgrim_menu_idle_D_04,voc_vulgrim_menu_idle_D_05,voc_vulgrim_menu_idle_D_06",
+                    "Group": "Vulgrim Vox Idle"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 51,
+                    "Name": "voc_vulgrim_menu_idle_D_01",
+                    "Volume": 0.60009766,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "voc_vulgrim_menu_idle_D_01",
+                    "Group": "Vulgrim Vox Idle"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 52,
+                    "Name": "voc_vulgrim_menu_idle_D_02",
+                    "Volume": 0.60009766,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "voc_vulgrim_menu_idle_D_02",
+                    "Group": "Vulgrim Vox Idle"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 53,
+                    "Name": "voc_vulgrim_menu_idle_D_03",
+                    "Volume": 0.60009766,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "voc_vulgrim_menu_idle_D_03",
+                    "Group": "Vulgrim Vox Idle"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 54,
+                    "Name": "voc_vulgrim_menu_idle_D_04",
+                    "Volume": 0.60009766,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "voc_vulgrim_menu_idle_D_04",
+                    "Group": "Vulgrim Vox Idle"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 55,
+                    "Name": "voc_vulgrim_menu_idle_D_05",
+                    "Volume": 0.60009766,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "voc_vulgrim_menu_idle_D_05",
+                    "Group": "Vulgrim Vox Idle"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 56,
+                    "Name": "voc_vulgrim_menu_idle_D_06",
+                    "Volume": 0.60009766,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "voc_vulgrim_menu_idle_D_06",
+                    "Group": "Vulgrim Vox Idle"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 57,
+                    "Name": "voc_vulgrim_menu_idle_D_07",
+                    "Volume": 0.60009766,
+                    "Stream": true,
+                    "FollowActor": true,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 1,
+                    "Sounds": "voc_vulgrim_menu_idle_D_07",
+                    "Group": "Vulgrim Vox Idle"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 13,
+                    "Name": "vulgrim_desummon",
+                    "Volume": 0.60009766,
+                    "FadeOutTime": 6.0,
+                    "Min": 50.0,
+                    "Max": 1400.0,
+                    "Priority": 10,
+                    "Sounds": "Vulgrim_desummon",
+                    "Group": "Creatures"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 81,
+                    "Name": "vulgrim_Foley_bottle",
+                    "Volume": 0.13000488,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "Min": 25.0,
+                    "Max": 2000.0,
+                    "Sounds": "Vulgrim_bottle_2,Vulgrim_bottle_1",
+                    "Group": "Creatures"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 78,
+                    "Name": "vulgrim_Foley_cloth",
+                    "Volume": 0.05999756,
+                    "Pitch": 5.0,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "Min": 25.0,
+                    "Max": 2000.0,
+                    "Sounds": "Vulgrim_anim_cloth_2,Vulgrim_anim_cloth_1",
+                    "Group": "Creatures"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 82,
+                    "Name": "vulgrim_Foley_gauntlet_clasp",
+                    "Volume": 0.44995117,
+                    "Pitch": 1.0,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "Min": 25.0,
+                    "Max": 2000.0,
+                    "Sounds": "Vulgrim_gauntlet_clasp_2,Vulgrim_gauntlet_clasp_1",
+                    "Group": "Creatures"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 83,
+                    "Name": "vulgrim_Foley_gauntlet_move",
+                    "Volume": 0.44995117,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "Min": 25.0,
+                    "Max": 2000.0,
+                    "Sounds": "Vulgrim_gauntlet_move_2,Vulgrim_gauntlet_move_1",
+                    "Group": "Creatures"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 84,
+                    "Name": "vulgrim_Foley_gauntlet_rub",
+                    "Volume": 0.44995117,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "Min": 25.0,
+                    "Max": 2000.0,
+                    "Sounds": "Vulgrim_gauntlet_rub_1",
+                    "Group": "Creatures"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 85,
+                    "Name": "vulgrim_Foley_gauntlet_tap",
+                    "Volume": 0.30004883,
+                    "RandomPitch": 1.0,
+                    "FollowActor": true,
+                    "Min": 25.0,
+                    "Max": 2000.0,
+                    "Sounds": "Vulgrim_gauntlet_tap_2,Vulgrim_gauntlet_tap_1",
+                    "Group": "Creatures"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 79,
+                    "Name": "vulgrim_Foley_ring",
+                    "Volume": 0.19995117,
+                    "Pitch": -2.0,
+                    "RandomPitch": 3.0,
+                    "FollowActor": true,
+                    "Min": 25.0,
+                    "Max": 2000.0,
+                    "Sounds": "Vulgrim_anim_ring_2,Vulgrim_anim_ring_1",
+                    "Group": "Creatures"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 11,
+                    "Name": "vulgrim_loop",
+                    "Volume": 0.44995117,
+                    "Loop": true,
+                    "FadeInTime": 0.30004883,
+                    "FadeOutTime": 0.30004883,
+                    "Offset": true,
+                    "FollowActor": true,
+                    "Min": 500.0,
+                    "Max": 1500.0,
+                    "Priority": 10,
+                    "Sounds": "vulgrim_loop",
+                    "Group": "Creatures"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 12,
+                    "Name": "vulgrim_summon",
+                    "Volume": 0.60009766,
+                    "FollowActor": true,
+                    "Min": 500.0,
+                    "Max": 1400.0,
+                    "Priority": 10,
+                    "Sounds": "Vulgrim_summon",
+                    "Group": "Creatures"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "ConstantEffect": {
+      "Value": "Vulgrim_Idle_Smoke"
+    }
+  },
+  "Methods": [
+    "onInit",
+    "onDeInit",
+    "onQueryInteractive",
+    "onTeleport",
+    "spawn",
+    "testSpawnState",
+    "pickSpawnState"
+  ],
+  "PackageName": "vulgrim",
+  "DefaultValues": {
+    "Spawned": false,
+    "SpawnSaveValue": "",
+    "Name": "VulgrimTheMerchant",
+    "SpawnMoveState": "Spawn"
+  },
+  "States": {
+    "Spawned": {
+      "methods": [
+        "spawn",
+        "deSpawn"
+      ]
+    },
+    "Spawn": {
+      "methods": [
+        "onTeleport",
+        "onActionComplete",
+        "spawn",
+        "deSpawn",
+        "onEnter"
+      ]
+    },
+    "DespawnForRealz": {
+      "methods": [
+        "onActionComplete",
+        "spawn",
+        "deSpawn",
+        "onEnter"
+      ]
+    },
+    "Despawn": {
+      "methods": [
+        "onDespawnTimer",
+        "spawn",
+        "deSpawn",
+        "onEnter"
+      ]
+    }
+  }
+}

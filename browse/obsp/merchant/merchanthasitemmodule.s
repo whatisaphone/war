@@ -1,0 +1,40 @@
+.method In
+0x0001 .param_count 0
+0x0001 .line 10
+0x0006     nop
+0x0007 .line 12
+0x000c     identifier Player
+0x001d     property MerchantInventory
+0x0039     identifier this
+0x0048     property ItemType
+0x005b     int 1
+0x0060     method_chain getMerchantItem
+0x007a     null_object
+0x007b     not_equal
+0x007c     branch_false 0x00cc
+0x0081 .line 14
+0x0086     nop
+0x0087     string "Yes"
+0x0095     int 1
+0x009a     identifier this
+0x00a9     method doEvent
+0x00bb     pop
+0x00bc .line 15
+0x00c1     nop
+0x00c2 .line 16
+0x00c7     goto 0x0111
+0x00cc .label 0x0622
+0x00d1 .line 18
+0x00d6     nop
+0x00d7     string "No"
+0x00e4     int 1
+0x00e9     identifier this
+0x00f8     method doEvent
+0x010a     pop
+0x010b .line 19
+0x0110     nop
+0x0111 .label 0x0623
+0x0116 .line 20
+0x011b     nop
+0x011c     return_null
+

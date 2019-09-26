@@ -1,0 +1,137 @@
+{
+  "classname": "base/tbehavior",
+  "properties": {
+    "ComponentActions": [
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "MoveState": "Strafe",
+          "ExitOnComplete": false,
+          "ID": "Strafe",
+          "InterruptibleBy": [
+            "ANY"
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "MinRange": 400.0,
+          "MaxRange": 10000.0,
+          "MoveState": "MoveTo",
+          "ID": "MoveTo",
+          "Priority": 2,
+          "InterruptibleBy": [
+            "ANY"
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "AttackType": 1,
+          "Pressure": 4,
+          "MaxRange": 300.0,
+          "MaxHeight": 120.0,
+          "MoveState": "Attack - AOE",
+          "RequireInView": true,
+          "AutoClose": true,
+          "PreferredDistance": 100.0,
+          "ID": "AttackAOE",
+          "Priority": 6,
+          "InterruptibleBy": [
+            "Parry"
+          ],
+          "ResourceLock": "AOE",
+          "MinLockTime": 10.0,
+          "MaxLockTime": 15.0
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "AttackType": 1,
+          "Pressure": 4,
+          "MaxRange": 250.0,
+          "MaxHeight": 120.0,
+          "MoveState": "Attack - HatAttack",
+          "RequireInView": true,
+          "ID": "Attack1",
+          "Priority": 5,
+          "InterruptibleBy": [
+            "Parry"
+          ],
+          "ResourceLock": "HatAttack",
+          "MinLockTime": 5.0,
+          "MaxLockTime": 10.0
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "AttackType": 1,
+          "Pressure": 4,
+          "MaxRange": 250.0,
+          "MaxHeight": 120.0,
+          "MoveState": "Attack - CaneStrike",
+          "RequireInView": true,
+          "AutoClose": true,
+          "PreferredDistance": 100.0,
+          "ID": "Attack2",
+          "Priority": 5,
+          "Chance": 0.5,
+          "InterruptibleBy": [
+            "Parry"
+          ],
+          "ResourceLock": "Cane Strike",
+          "MinLockTime": 2.0,
+          "MaxLockTime": 3.0
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "MoveState": "Parry",
+          "ID": "Parry",
+          "Priority": -1,
+          "InterruptibleBy": [
+            "Parry"
+          ]
+        }
+      }
+    ],
+    "BackgroundActions": [
+      {
+        "classname": "base/onblockhandler",
+        "properties": {
+          "ActionID": "Parry",
+          "BlockChance": 75,
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "InterruptHandler": {
+      "classname": "base/oninterrupthandler",
+      "properties": {
+        "Position": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "ExitBehaviorHandler": {
+      "classname": "ExitBehaviorAction",
+      "properties": {}
+    },
+    "Position": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  }
+}

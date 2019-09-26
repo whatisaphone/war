@@ -1,0 +1,298 @@
+{
+  "Parent": "Character",
+  "Name": "lasher/lasher_common",
+  "Properties": {
+    "DetectRegion": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "AttackRegionBR": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "AttackRegionUR": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "AttackRegionBL": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "AttackRegionUL": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "AttackRegionR": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "AttackRegionU": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "AttackRegionL": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "AttackRegionB": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "NumberOfHits": {
+      "Flags": 2,
+      "Type": 2
+    },
+    "InAttackRegion": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "InDetectRegion": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "AttackState": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "NumRegionsEntered": {
+      "Flags": 2,
+      "Type": 2
+    },
+    "IsIdling": {
+      "Flags": 2,
+      "Type": 4
+    },
+    "AttackOnCooldown": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "HasAttacked": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "Rampage": {
+      "Flags": 2,
+      "Type": 4
+    }
+  },
+  "StaticProperties": {
+    "DetectScale": {
+      "Value": [
+        400.0,
+        400.0,
+        400.0
+      ]
+    },
+    "AttackScale": {
+      "Value": [
+        40.0,
+        79.0,
+        40.0
+      ]
+    },
+    "VerticleAttackScale": {
+      "Value": [
+        60.0,
+        79.0,
+        40.0
+      ]
+    },
+    "HorizAttackScale": {
+      "Value": [
+        60.0,
+        79.0,
+        40.0
+      ]
+    },
+    "FilterList": {
+      "Value": [
+        "Player"
+      ]
+    },
+    "IdleMoveState": {
+      "Value": 0
+    },
+    "ActiveMoveState": {
+      "Value": 4
+    },
+    "RetractMoveState": {
+      "Value": 5
+    },
+    "AttackBRMoveState": {
+      "Value": 6
+    },
+    "AttackURMoveState": {
+      "Value": 8
+    },
+    "AttackBLMoveState": {
+      "Value": 7
+    },
+    "AttackULMoveState": {
+      "Value": 9
+    },
+    "AttackRMoveState": {
+      "Value": 13
+    },
+    "AttackLMoveState": {
+      "Value": 12
+    },
+    "AttackUMoveState": {
+      "Value": 11
+    },
+    "AttackBMoveState": {
+      "Value": 10
+    },
+    "RampageMoveState": {
+      "Value": 14
+    },
+    "AttackTelegraphMoveState": {
+      "Value": "Attack - Telegraph"
+    },
+    "AttackCooldown": {
+      "Value": 0
+    },
+    "TelegraphTime": {
+      "Value": 1.5
+    }
+  },
+  "Methods": [
+    "onInit",
+    "onQueryAllowEnhancement",
+    "onRemove",
+    "onQueryGhostHookHit",
+    "createLasherDetectRegion",
+    "onEnterRegion",
+    "onExitRegion",
+    "CooldownTimer",
+    "TelegraphTimer"
+  ],
+  "PackageName": "lasher",
+  "DefaultValues": {
+    "InDetectRegion": false,
+    "AttackRegionBL": null,
+    "AttackRegionBR": null,
+    "AttackOnCooldown": false,
+    "AttackState": "",
+    "HasAttacked": false,
+    "Rampage": false,
+    "DetectRegion": null,
+    "NumRegionsEntered": 0,
+    "IsIdling": true,
+    "InAttackRegion": false,
+    "AttackRegionUL": null,
+    "AttackRegionU": null,
+    "AttackRegionR": null,
+    "AttackRegionUR": null,
+    "AttackRegionB": null,
+    "AttackRegionL": null,
+    "NumberOfHits": 0
+  },
+  "States": {
+    "Retract": {
+      "methods": [
+        "onEnterRegion",
+        "onRetractComplete",
+        "onActionComplete",
+        "onExit",
+        "onHit",
+        "onEnter",
+        "onExitRegion"
+      ]
+    },
+    "AttackBL": {
+      "methods": [
+        "onActionComplete",
+        "onEnter",
+        "onExitRegion"
+      ]
+    },
+    "AttackBR": {
+      "methods": [
+        "onActionComplete",
+        "onEnter",
+        "onExitRegion"
+      ]
+    },
+    "Telegraph": {
+      "methods": [
+        "onEnterRegion",
+        "TelegraphTimer",
+        "onHit",
+        "onEnter"
+      ]
+    },
+    "Active": {
+      "methods": [
+        "onAttackTimer",
+        "onHit",
+        "onEnter",
+        "onExitRegion"
+      ]
+    },
+    "Rampage": {
+      "methods": [
+        "onEnterRegion",
+        "CooldownTimer",
+        "onActionComplete",
+        "onHit",
+        "onEnter",
+        "onExitRegion"
+      ]
+    },
+    "AttackUL": {
+      "methods": [
+        "onActionComplete",
+        "onEnter",
+        "onExitRegion"
+      ]
+    },
+    "Recoil": {
+      "methods": [
+        "onEnterRegion",
+        "onEnter"
+      ]
+    },
+    "AttackUR": {
+      "methods": [
+        "onActionComplete",
+        "onEnter",
+        "onExitRegion"
+      ]
+    },
+    "AttackL": {
+      "methods": [
+        "onActionComplete",
+        "onEnter",
+        "onExitRegion"
+      ]
+    },
+    "AttackB": {
+      "methods": [
+        "onActionComplete",
+        "onEnter",
+        "onExitRegion"
+      ]
+    },
+    "AttackU": {
+      "methods": [
+        "onActionComplete",
+        "onEnter",
+        "onExitRegion"
+      ]
+    },
+    "AttackR": {
+      "methods": [
+        "onActionComplete",
+        "onEnter",
+        "onExitRegion"
+      ]
+    },
+    "Idle": {
+      "methods": [
+        "CooldownTimer",
+        "onHit",
+        "onEnter"
+      ]
+    }
+  }
+}

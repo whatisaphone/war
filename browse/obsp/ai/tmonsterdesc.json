@@ -1,0 +1,982 @@
+{
+  "Parent": "base/combatmonsterdesc",
+  "Name": "base/tmonsterdesc",
+  "Properties": {},
+  "StaticProperties": {},
+  "Methods": [],
+  "PackageName": "base",
+  "DefaultValues": {
+    "SpawnSplineBehavior": {
+      "classname": "base/spawnsplinebehavior",
+      "properties": {
+        "SplineMoveStateFly": "FlySpline",
+        "IdleMoveStateIdle": "Idle",
+        "DeathBlowHandler": {
+          "classname": "base/deathblowaction",
+          "properties": {
+            "ID": "Death",
+            "ActionCode": 660,
+            "Priority": 660
+          }
+        },
+        "InteractiveHandler": {
+          "classname": "base/interactivestallaction",
+          "properties": {
+            "ID": "Interactive",
+            "Priority": 630,
+            "InterruptibleBy": [
+              "Death"
+            ]
+          }
+        },
+        "ImpactHandler": {
+          "classname": "base/impactaction",
+          "properties": {
+            "ID": "Impact",
+            "Priority": 620,
+            "InterruptibleBy": [
+              "Death",
+              "Interactive"
+            ]
+          }
+        },
+        "ComponentActions": [
+          {
+            "classname": "base/splineaction",
+            "properties": {
+              "SplineAllowOverrides": true,
+              "ID": "SplineAction",
+              "Priority": 9,
+              "InterruptibleBy": [
+                "ANY"
+              ],
+              "ValidStates": [
+                "SpawnPath"
+              ],
+              "OnCompleteState": "FinishedSpawnPath"
+            }
+          },
+          {
+            "classname": "base/idleaction",
+            "properties": {
+              "ID": "Idle",
+              "ActionCode": 1,
+              "Priority": 1
+            }
+          }
+        ],
+        "ExitBehaviorHandler": {
+          "classname": "base/exitbehavioraction",
+          "properties": {
+            "ID": "Exit",
+            "Priority": 640
+          }
+        }
+      }
+    },
+    "TargetUnreachableBehavior": {
+      "classname": "base/tauntunreachablebehavior",
+      "properties": {
+        "TauntMoveState": "Fidget",
+        "TauntMinDelay": 5,
+        "TauntMaxDelay": 10,
+        "TauntMaxAngleDiff": 35,
+        "IdleMinTime": 0.5,
+        "IdleMaxTime": 1.0,
+        "BlockMoveStateBlock": "NA",
+        "DeathBlowHandler": {
+          "classname": "base/deathblowaction",
+          "properties": {
+            "ID": "Death",
+            "ActionCode": 660,
+            "Priority": 660,
+            "Position": [
+              1e-45,
+              0.0,
+              1.8576e-41
+            ]
+          }
+        },
+        "InteractiveHandler": {
+          "classname": "base/interactivestallaction",
+          "properties": {
+            "ID": "Interactive",
+            "Priority": 630,
+            "InterruptibleBy": [
+              "Death"
+            ],
+            "Position": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "ImpactHandler": {
+          "classname": "base/impactaction",
+          "properties": {
+            "ID": "Impact",
+            "Priority": 620,
+            "InterruptibleBy": [
+              "Death",
+              "Interactive"
+            ],
+            "Position": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "ComponentActions": [
+          {
+            "classname": "base/animaction",
+            "properties": {
+              "ID": "Taunt",
+              "ActionCode": 2,
+              "Priority": 2,
+              "Chance": 0.8,
+              "InterruptibleBy": [
+                "Death",
+                "Interactive",
+                "Impact"
+              ],
+              "ResourceLock": "Taunt",
+              "Position": [
+                null,
+                1.2463289e-10,
+                4.8590648e35
+              ]
+            }
+          },
+          {
+            "classname": "base/facetargetaction",
+            "properties": {
+              "ID": "Face Target",
+              "Priority": 1,
+              "InterruptibleBy": [
+                "Death",
+                "Interactive",
+                "Impact"
+              ],
+              "Position": [
+                null,
+                1.2463289e-10,
+                4.8590648e35
+              ]
+            }
+          },
+          {
+            "classname": "base/idleaction",
+            "properties": {
+              "Priority": 1,
+              "InterruptibleBy": [
+                "ANY"
+              ],
+              "Position": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          }
+        ],
+        "BackgroundActions": [
+          {
+            "classname": "base/scanaction",
+            "properties": {
+              "OnScanAcquiredTarget": "FoundMeleeTarget",
+              "ScanMeleeOnly": false,
+              "ScanAllowRescansWithTarget": true,
+              "Position": [
+                7.3866335e-30,
+                3.59e-43,
+                null
+              ]
+            }
+          }
+        ],
+        "ExitBehaviorHandler": {
+          "classname": "base/exitbehavioraction",
+          "properties": {
+            "ID": "Exit",
+            "Priority": 640,
+            "Position": [
+              7.382469e-30,
+              3.59e-43,
+              null
+            ]
+          }
+        }
+      }
+    },
+    "AmbientBehaviorGuard": {
+      "classname": "base/guardambientbehavior",
+      "properties": {
+        "ApproachRange": 50,
+        "ApproachMoveStateMove": "MoveToNC",
+        "ApproachForceCloseRange": 100,
+        "ApproachForceCompleteRange": 40,
+        "IdleMoveStateIdle": "IdleNC",
+        "BlockMoveStateBlock": "NA",
+        "ClearObstacleMoveState": "",
+        "PathBlockedBreakableHandler": {
+          "classname": "base/clearobstacleaction",
+          "properties": {
+            "ID": "Clear Obstacle",
+            "ActionCode": 5,
+            "Priority": 16,
+            "InterruptibleBy": [
+              "Death",
+              "Exit",
+              "Interactive",
+              "Impact"
+            ],
+            "Position": [
+              2.6208754e20,
+              2.1714976e-18,
+              1.8472921e20
+            ]
+          }
+        },
+        "DeathBlowHandler": {
+          "classname": "base/deathblowaction",
+          "properties": {
+            "ID": "Death",
+            "ActionCode": 660,
+            "Priority": 660,
+            "Position": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "InteractiveHandler": {
+          "classname": "base/interactivestallaction",
+          "properties": {
+            "ID": "Interactive",
+            "Priority": 630,
+            "InterruptibleBy": [
+              "Death"
+            ],
+            "Position": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "ImpactHandler": {
+          "classname": "base/impactaction",
+          "properties": {
+            "ID": "Impact",
+            "Priority": 620,
+            "InterruptibleBy": [
+              "Death",
+              "Interactive"
+            ],
+            "Position": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "ComponentActions": [
+          {
+            "classname": "base/approachhomeaction",
+            "properties": {
+              "IgnoreZTolerance": true,
+              "ID": "ReturnHome",
+              "Priority": 9,
+              "InterruptibleBy": [
+                "ANY"
+              ],
+              "OnCompleteState": "Guarding",
+              "Position": [
+                null,
+                0.0,
+                -1.5924013e-19
+              ]
+            }
+          },
+          {
+            "classname": "base/idleaction",
+            "properties": {
+              "ID": "Idle",
+              "ActionCode": 1,
+              "Priority": 1,
+              "InterruptibleBy": [
+                "ANY"
+              ],
+              "Position": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          }
+        ],
+        "BackgroundActions": [
+          {
+            "classname": "base/homescanaction",
+            "properties": {
+              "OnScanAcquiredTarget": "FoundMeleeTarget",
+              "OnScanAcquiredRangedTarget": "FoundRangedTarget",
+              "OnScanLostTarget": "",
+              "ScanLOSCheck": true,
+              "ScanMeleeOnly": false,
+              "ScanAllowRescansWithTarget": true,
+              "ID": "HomeScanForTarget",
+              "ValidStates": [
+                "MovingIntoPosition"
+              ],
+              "Position": [
+                1.5113662e-13,
+                1.5113662e-13,
+                1.5113662e-13
+              ]
+            }
+          },
+          {
+            "classname": "base/scanaction",
+            "properties": {
+              "OnScanAcquiredTarget": "FoundMeleeTarget",
+              "OnScanAcquiredRangedTarget": "FoundRangedTarget",
+              "OnScanLostTarget": "",
+              "ScanLOSCheck": true,
+              "ScanMeleeOnly": false,
+              "ScanAllowRescansWithTarget": true,
+              "ID": "Scan",
+              "ValidStates": [
+                "Guarding"
+              ],
+              "Position": [
+                4.8613497e30,
+                4.8603944e30,
+                7.5550794e31
+              ]
+            }
+          }
+        ],
+        "ExitBehaviorHandler": {
+          "classname": "base/exitbehavioraction",
+          "properties": {
+            "ID": "Exit",
+            "Priority": 640,
+            "Position": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "Position": [
+          null,
+          6.800025e-33,
+          9.246473e-22
+        ]
+      }
+    },
+    "SpawnBehavior": {
+      "classname": "base/spawnemergebehavior",
+      "properties": {
+        "MoveStateSpawn": "SpawnEmerge",
+        "DeathBlowHandler": {
+          "classname": "base/deathblowaction",
+          "properties": {
+            "ID": "Death",
+            "ActionCode": 660,
+            "Priority": 660
+          }
+        },
+        "InteractiveHandler": {
+          "classname": "base/interactivestallaction",
+          "properties": {
+            "ID": "Interactive",
+            "Priority": 630,
+            "InterruptibleBy": [
+              "Death"
+            ]
+          }
+        },
+        "ImpactHandler": {
+          "classname": "base/impactaction",
+          "properties": {
+            "ID": "Impact",
+            "Priority": 620,
+            "InterruptibleBy": [
+              "Death",
+              "Interactive"
+            ],
+            "OnCompleteState": "DoneSpawn"
+          }
+        },
+        "ComponentActions": [
+          {
+            "classname": "base/animaction",
+            "properties": {
+              "ID": "TransitionAction",
+              "Priority": -1,
+              "InterruptibleBy": [
+                "Death",
+                "Interactive",
+                "Impact"
+              ],
+              "ValidStates": [
+                "Spawning"
+              ],
+              "OnCompleteState": "DoneSpawn"
+            }
+          },
+          {
+            "classname": "base/animaction",
+            "properties": {
+              "ID": "SpawnAction",
+              "ActionCode": 1,
+              "Priority": 1,
+              "InterruptibleBy": [
+                "Death",
+                "Interactive",
+                "Impact"
+              ],
+              "ValidStates": [
+                "Spawning"
+              ],
+              "OnCompleteAction": "TransitionAction"
+            }
+          }
+        ],
+        "ExitBehaviorHandler": {
+          "classname": "base/exitbehavioraction",
+          "properties": {
+            "ID": "Exit"
+          }
+        }
+      }
+    },
+    "SpawnPathBehavior": {
+      "classname": "base/spawnpathbehavior",
+      "properties": {
+        "ApproachRange": 50,
+        "ApproachMoveStateMove": "MoveTo",
+        "ApproachForceCloseRange": 100,
+        "ApproachForceCompleteRange": 40,
+        "IdleMoveStateIdle": "Idle",
+        "BlockMoveStateBlock": "NA",
+        "ClearObstacleMoveState": "",
+        "PathBlockedBreakableHandler": {
+          "classname": "base/clearobstacleaction",
+          "properties": {
+            "ID": "Clear Obstacle",
+            "Priority": 16,
+            "InterruptibleBy": [
+              "Death",
+              "Exit",
+              "Interactive",
+              "Impact"
+            ],
+            "Position": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "DeathBlowHandler": {
+          "classname": "base/deathblowaction",
+          "properties": {
+            "ID": "Death",
+            "ActionCode": 660,
+            "Priority": 660,
+            "Position": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "InteractiveHandler": {
+          "classname": "base/interactivestallaction",
+          "properties": {
+            "ID": "Interactive",
+            "Priority": 630,
+            "InterruptibleBy": [
+              "Death"
+            ],
+            "Position": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "ImpactHandler": {
+          "classname": "base/impactaction",
+          "properties": {
+            "ID": "Impact",
+            "Priority": 620,
+            "InterruptibleBy": [
+              "Death",
+              "Interactive"
+            ],
+            "Position": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "ComponentActions": [
+          {
+            "classname": "base/approachpatrolaction",
+            "properties": {
+              "IgnoreZTolerance": true,
+              "ID": "SimplePatrol",
+              "Priority": 9,
+              "InterruptibleBy": [
+                "ANY"
+              ],
+              "ValidStates": [
+                "SpawnPath"
+              ],
+              "OnCompleteState": "FinishedSpawnPath",
+              "Position": [
+                null,
+                0.003632192,
+                -6.2343606e-38
+              ]
+            }
+          },
+          {
+            "classname": "base/idleaction",
+            "properties": {
+              "ID": "Idle",
+              "ActionCode": 1,
+              "Priority": 1,
+              "Position": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          }
+        ],
+        "ExitBehaviorHandler": {
+          "classname": "base/exitbehavioraction",
+          "properties": {
+            "ID": "Exit",
+            "Priority": 640,
+            "Position": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      }
+    },
+    "InteractiveDeathPct": 0.3,
+    "DefensiveIdleBehavior": {
+      "classname": "base/defensivebehavior",
+      "properties": {
+        "DefensiveScanAlertDistance": 350,
+        "DeathBlowHandler": {
+          "classname": "base/deathblowaction",
+          "properties": {
+            "ID": "Death",
+            "ActionCode": 660,
+            "Priority": 660
+          }
+        },
+        "InteractiveHandler": {
+          "classname": "base/interactivestallaction",
+          "properties": {
+            "ID": "Interactive",
+            "Priority": 630,
+            "InterruptibleBy": [
+              "Death"
+            ],
+            "Position": [
+              2.70817e23,
+              1.8393144e25,
+              4.4898698e21
+            ]
+          }
+        },
+        "ImpactHandler": {
+          "classname": "base/impactaction",
+          "properties": {
+            "ID": "Impact",
+            "Priority": 620,
+            "InterruptibleBy": [
+              "Death",
+              "Interactive"
+            ],
+            "OnCompleteState": "Exit"
+          }
+        },
+        "ComponentActions": [
+          {
+            "classname": "base/animaction",
+            "properties": {
+              "NoRepeat": false,
+              "ID": "transitiontocombat",
+              "Priority": 11,
+              "InterruptibleBy": [
+                "Death",
+                "Interactive",
+                "Impact"
+              ],
+              "ValidStates": [
+                "Transition"
+              ],
+              "OnCompleteState": "Exit",
+              "Position": [
+                1e-45,
+                0.0,
+                -6.4460086e-9
+              ]
+            }
+          },
+          {
+            "classname": "base/idleaction",
+            "properties": {
+              "Priority": 1,
+              "InterruptibleBy": [
+                "ANY"
+              ],
+              "Position": [
+                null,
+                -1.572302e-7,
+                2.594644e-34
+              ]
+            }
+          }
+        ],
+        "BackgroundActions": [
+          {
+            "classname": "base/scanaction",
+            "properties": {
+              "OnScanAcquiredTarget": "Transition",
+              "OnScanLostTarget": "",
+              "ID": "defensivescanaction",
+              "ValidStates": [
+                "Defensive"
+              ]
+            }
+          },
+          {
+            "classname": "base/scanaction",
+            "properties": {
+              "OnScanAcquiredTarget": "Transition",
+              "OnScanLostTarget": "",
+              "ID": "scanaction",
+              "ValidStates": [
+                "FullScan"
+              ],
+              "Position": [
+                null,
+                1.8179596e31,
+                0.0
+              ]
+            }
+          }
+        ],
+        "ExitBehaviorHandler": {
+          "classname": "base/defaultaction",
+          "properties": {
+            "ID": "NotYetExit",
+            "Priority": 700,
+            "ValidStates": [
+              "Defensive",
+              "FullScan",
+              "Exit"
+            ],
+            "OnCompleteState": "ExitRequested"
+          }
+        },
+        "ID": "DefensiveIdleBehavior",
+        "Position": [
+          6.800025e-33,
+          1.2463648e-10,
+          2.4735123e32
+        ]
+      }
+    },
+    "AmbientBehaviorPatrol": {
+      "classname": "base/patrolambientbehavior",
+      "properties": {
+        "ApproachRange": 50,
+        "ApproachMoveStateMove": "MoveToNC",
+        "ApproachForceCloseRange": 50000,
+        "ApproachForceCompleteRange": 40,
+        "IdleMoveStateIdle": "IdleNC",
+        "BlockMoveStateBlock": "NA",
+        "ClearObstacleMoveState": "",
+        "PathBlockedBreakableHandler": {
+          "classname": "base/clearobstacleaction",
+          "properties": {
+            "ID": "Clear Obstacle",
+            "ActionCode": 5,
+            "Priority": 16,
+            "InterruptibleBy": [
+              "Death",
+              "Exit",
+              "Interactive",
+              "Impact"
+            ]
+          }
+        },
+        "DeathBlowHandler": {
+          "classname": "base/deathblowaction",
+          "properties": {
+            "ID": "Death",
+            "ActionCode": 660,
+            "Priority": 660
+          }
+        },
+        "InteractiveHandler": {
+          "classname": "base/interactivestallaction",
+          "properties": {
+            "ID": "Interactive",
+            "Priority": 630,
+            "InterruptibleBy": [
+              "Death"
+            ]
+          }
+        },
+        "ImpactHandler": {
+          "classname": "base/impactaction",
+          "properties": {
+            "ID": "Impact",
+            "Priority": 620,
+            "InterruptibleBy": [
+              "Death",
+              "Interactive"
+            ]
+          }
+        },
+        "ComponentActions": [
+          {
+            "classname": "base/approachpatrolaction",
+            "properties": {
+              "IgnoreZTolerance": true,
+              "ID": "ApproachPatrol",
+              "Priority": 9,
+              "InterruptibleBy": [
+                "ANY"
+              ],
+              "OnCompleteState": "Patrol",
+              "Position": [
+                null,
+                7.7135135e31,
+                -21.848436
+              ]
+            }
+          },
+          {
+            "classname": "base/idleaction",
+            "properties": {
+              "ID": "Idle",
+              "ActionCode": 1,
+              "Priority": 1,
+              "InterruptibleBy": [
+                "ANY"
+              ]
+            }
+          }
+        ],
+        "BackgroundActions": [
+          {
+            "classname": "base/homescanaction",
+            "properties": {
+              "OnScanAcquiredTarget": "FoundMeleeTarget",
+              "OnScanAcquiredRangedTarget": "FoundRangedTarget",
+              "OnScanLostTarget": "",
+              "ScanLOSCheck": true,
+              "ScanMeleeOnly": false,
+              "ScanAllowRescansWithTarget": true,
+              "ID": "HomeScanForTarget",
+              "ValidStates": [
+                "MovingIntoPosition"
+              ]
+            }
+          },
+          {
+            "classname": "base/scanaction",
+            "properties": {
+              "OnScanAcquiredTarget": "FoundMeleeTarget",
+              "OnScanAcquiredRangedTarget": "FoundRangedTarget",
+              "OnScanLostTarget": "",
+              "ScanLOSCheck": true,
+              "ScanMeleeOnly": false,
+              "ScanAllowRescansWithTarget": true,
+              "ID": "Scan",
+              "ValidStates": [
+                "Patrol"
+              ]
+            }
+          }
+        ],
+        "ExitBehaviorHandler": {
+          "classname": "base/exitbehavioraction",
+          "properties": {
+            "ID": "Exit",
+            "Priority": 640
+          }
+        }
+      }
+    },
+    "AmbientBehaviorWander": {
+      "classname": "base/wanderambientbehavior",
+      "properties": {
+        "ApproachRange": 50,
+        "ApproachMoveStateMove": "MoveToNC",
+        "ApproachForceCloseRange": 50000,
+        "ApproachForceCompleteRange": 40,
+        "IdleMoveStateIdle": "IdleNC",
+        "BlockMoveStateBlock": "NA",
+        "ClearObstacleMoveState": "",
+        "PathBlockedBreakableHandler": {
+          "classname": "base/clearobstacleaction",
+          "properties": {
+            "ID": "Clear Obstacle",
+            "ActionCode": 5,
+            "Priority": 16,
+            "InterruptibleBy": [
+              "Death",
+              "Exit",
+              "Interactive",
+              "Impact"
+            ]
+          }
+        },
+        "DeathBlowHandler": {
+          "classname": "base/deathblowaction",
+          "properties": {
+            "ID": "Death",
+            "ActionCode": 660,
+            "Priority": 660
+          }
+        },
+        "InteractiveHandler": {
+          "classname": "base/interactivestallaction",
+          "properties": {
+            "ID": "Interactive",
+            "Priority": 630,
+            "InterruptibleBy": [
+              "Death"
+            ]
+          }
+        },
+        "ImpactHandler": {
+          "classname": "base/impactaction",
+          "properties": {
+            "ID": "Impact",
+            "Priority": 620,
+            "InterruptibleBy": [
+              "Death",
+              "Interactive"
+            ]
+          }
+        },
+        "ComponentActions": [
+          {
+            "classname": "base/approachwanderaction",
+            "properties": {
+              "IgnoreZTolerance": true,
+              "Priority": 9,
+              "InterruptibleBy": [
+                "ANY"
+              ],
+              "ValidStates": [
+                "Wander",
+                "MovingIntoPosition"
+              ],
+              "OnCompleteState": "WanderPointReached",
+              "Position": [
+                0.0,
+                0.0,
+                -1.038998e-7
+              ]
+            }
+          },
+          {
+            "classname": "base/defaultaction",
+            "properties": {
+              "ID": "WanderTooClose",
+              "Priority": 8,
+              "InterruptibleBy": [
+                "ANY"
+              ],
+              "ValidStates": [
+                "Wander",
+                "MovingIntoPosition"
+              ],
+              "OnCompleteState": "WanderPointReached"
+            }
+          },
+          {
+            "classname": "base/idleaction",
+            "properties": {
+              "ID": "Idle",
+              "Priority": 1,
+              "InterruptibleBy": [
+                "ANY"
+              ]
+            }
+          }
+        ],
+        "BackgroundActions": [
+          {
+            "classname": "base/homescanaction",
+            "properties": {
+              "OnScanAcquiredTarget": "FoundMeleeTarget",
+              "OnScanAcquiredRangedTarget": "FoundRangedTarget",
+              "OnScanLostTarget": "",
+              "ScanLOSCheck": true,
+              "ScanMeleeOnly": false,
+              "ScanAllowRescansWithTarget": true,
+              "ID": "HomeScanForTarget",
+              "ValidStates": [
+                "MovingIntoPosition"
+              ]
+            }
+          },
+          {
+            "classname": "base/scanaction",
+            "properties": {
+              "OnScanAcquiredTarget": "FoundMeleeTarget",
+              "OnScanAcquiredRangedTarget": "FoundRangedTarget",
+              "OnScanLostTarget": "",
+              "ScanLOSCheck": true,
+              "ScanMeleeOnly": false,
+              "ScanAllowRescansWithTarget": true,
+              "ID": "Scan",
+              "ValidStates": [
+                "Wander",
+                "Resting",
+                "NoWanderRegion"
+              ]
+            }
+          }
+        ],
+        "ExitBehaviorHandler": {
+          "classname": "base/exitbehavioraction",
+          "properties": {
+            "ID": "Exit",
+            "Priority": 640
+          }
+        },
+        "Position": [
+          0.0,
+          0.0,
+          -1169.6575
+        ]
+      }
+    }
+  },
+  "States": {}
+}

@@ -1,0 +1,146 @@
+{
+  "classname": "base/tbehavior",
+  "properties": {
+    "ComponentActions": [
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "MoveState": "Strafe",
+          "ExitOnComplete": false,
+          "ID": "Strafe",
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "Position": [
+            null,
+            null,
+            null
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "AttackType": 1,
+          "Pressure": 12,
+          "MaxRange": 275.0,
+          "MaxHeight": 120.0,
+          "MinAngle": -45.0,
+          "MaxAngle": 45.0,
+          "MoveState": "AttackGroundSlam",
+          "RequireInView": true,
+          "ID": "AttackGroundSlam",
+          "Priority": 6,
+          "Chance": 0.5,
+          "ResourceLock": "AttackGroundSlam",
+          "MinLockTime": 3.0,
+          "MaxLockTime": 10.0,
+          "GlobalResourceLock": "PowerAttack",
+          "GlobalMinLockTime": 1.0,
+          "GlobalMaxLockTime": 2.0,
+          "Position": [
+            70.0,
+            1.0,
+            1.0
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "AttackType": 1,
+          "Pressure": 12,
+          "MaxRange": 300.0,
+          "MaxHeight": 120.0,
+          "MinAngle": -45.0,
+          "MaxAngle": 45.0,
+          "MaxHealth": 50.0,
+          "MoveState": "AttackCombo",
+          "RequireInView": true,
+          "ID": "AttackCombo",
+          "Priority": 6,
+          "Chance": 0.5,
+          "ResourceLock": "AttackCombo",
+          "MinLockTime": 5.0,
+          "MaxLockTime": 10.0,
+          "GlobalResourceLock": "PowerAttack",
+          "GlobalMinLockTime": 1.0,
+          "GlobalMaxLockTime": 2.0,
+          "Position": [
+            null,
+            null,
+            null
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "AttackType": 1,
+          "Pressure": 12,
+          "MaxRange": 400.0,
+          "MinAngle": -45.0,
+          "MaxAngle": 45.0,
+          "MoveState": "Fidget",
+          "RequireInView": true,
+          "AutoClose": true,
+          "PreferredDistance": 120.0,
+          "ID": "Fidget",
+          "Priority": 6,
+          "Chance": 0.5,
+          "ResourceLock": "Attack",
+          "MinLockTime": 1.0,
+          "MaxLockTime": 3.0,
+          "GlobalResourceLock": "PowerAttack",
+          "GlobalMinLockTime": 1.0,
+          "GlobalMaxLockTime": 2.0,
+          "Position": [
+            0.0,
+            -1.0,
+            null
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "MoveState": "StaggerStart",
+          "ID": "Stunned",
+          "Priority": -1,
+          "Position": [
+            null,
+            null,
+            null
+          ]
+        }
+      }
+    ],
+    "BackgroundActions": [
+      {
+        "classname": "base/onhithandler",
+        "properties": {
+          "ActionID": "Stunned",
+          "Position": [
+            1.1118912e-9,
+            1.734511e28,
+            -196883.89
+          ]
+        }
+      }
+    ],
+    "InterruptHandler": {
+      "classname": "base/oninterrupthandler",
+      "properties": {}
+    },
+    "ExitBehaviorHandler": {
+      "classname": "ExitBehaviorAction",
+      "properties": {
+        "Position": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    }
+  }
+}

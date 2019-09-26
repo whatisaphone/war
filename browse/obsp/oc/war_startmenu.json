@@ -1,0 +1,178 @@
+{
+  "Parent": "KinematicActor",
+  "Name": "ui_startmenu/war_startmenu",
+  "Properties": {
+    "currAnim": {
+      "Flags": 0,
+      "Type": 2
+    }
+  },
+  "StaticProperties": {
+    "Description": {
+      "Value": {
+        "classname": "KinematicActorDesc",
+        "properties": {
+          "Visual": "war",
+          "CharacterShadow": true,
+          "Animations": {
+            "classname": "AnimationList",
+            "properties": {
+              "Animations": [
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 1,
+                    "Name": "War_GL_CrouchLoop",
+                    "AnimationName": "War_GL_CrouchLoop",
+                    "Looping": true,
+                    "Triggers": [
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 1,
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 4,
+                    "Name": "War_GL_StandLoop",
+                    "AnimationName": "War_GL_StandLoop",
+                    "Looping": true
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 2,
+                    "Name": "War_GL_StandUp",
+                    "AnimationName": "War_GL_StandUp",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "TrackEffect": false,
+                          "EffectName": "UI_StartMenu_War_StandUp",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 0
+                        }
+                      },
+                      {
+                        "classname": "CameraShakeTrigger",
+                        "properties": {
+                          "HPower": 2.0,
+                          "VPower": 4.0,
+                          "Duration": 10.0,
+                          "EaseOut": 3.0,
+                          "AttenEnd": 2000.0,
+                          "BlurPower": 0.5,
+                          "TriggerFrame": 79
+                        }
+                      },
+                      {
+                        "classname": "RumbleTrigger",
+                        "properties": {
+                          "Effect": 1,
+                          "TriggerFrame": 22
+                        }
+                      },
+                      {
+                        "classname": "RumbleTrigger",
+                        "properties": {
+                          "Effect": 3,
+                          "TriggerFrame": 80
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          "Sounds": {
+            "classname": "SoundList",
+            "properties": {
+              "Sounds": [
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 2,
+                    "Name": "start_menu_ambience",
+                    "Volume": 0.5,
+                    "Stream": true,
+                    "Loop": true,
+                    "Reverb": false,
+                    "EnableDSP": false,
+                    "FadeInTime": 1.5,
+                    "FadeOutTime": 1.5,
+                    "Offset": true,
+                    "Positional": false,
+                    "Sounds": "start_menu_ambience",
+                    "Group": "Ambient 2D"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 1,
+                    "Name": "start_menu_war_crouch",
+                    "Volume": 0.7998047,
+                    "Max": 2000.0,
+                    "Priority": 0,
+                    "Sounds": "start_menu_war_crouch_3,start_menu_war_crouch_1,start_menu_war_crouch_2",
+                    "Group": "War"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 3,
+                    "Name": "start_menu_war_groundstab",
+                    "Volume": 0.9902344,
+                    "Max": 2000.0,
+                    "Priority": 0,
+                    "Sounds": "start_sword_strike_heavy_02",
+                    "Group": "War"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 0,
+                    "Name": "start_menu_war_stand",
+                    "Volume": 0.9501953,
+                    "Max": 2000.0,
+                    "Priority": 0,
+                    "Sounds": "start_menu_war_stand",
+                    "Group": "Creature Max 1"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "Methods": [
+    "onInit",
+    "gotoStanding",
+    "gotoCrouching",
+    "onAnimationComplete"
+  ],
+  "PackageName": "ui_startmenu",
+  "DefaultValues": {
+    "Name": "StartActor",
+    "currAnim": 1
+  },
+  "States": {}
+}

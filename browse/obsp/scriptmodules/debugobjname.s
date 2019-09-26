@@ -1,0 +1,86 @@
+.method In
+0x0001 .param_count 0
+0x0001 .line 24
+0x0006     inc_scope
+0x0007 .line 26
+0x000c     int 0
+0x0011     var_assign cnt
+0x001f .line 27
+0x0024     string "ObjectNames"
+0x003a     int 1
+0x003f     identifier this
+0x004e     method hasVariableIn
+0x0066     bool true
+0x0068     equal
+0x0069     branch_false 0x0206
+0x006e .line 29
+0x0073     inc_scope
+0x0074     string "ObjectNames"
+0x008a     int 1
+0x008f     identifier this
+0x009e     method getVariableValue
+0x00b9     var_assign objarray
+0x00cc .line 32
+0x00d1     identifier objarray
+0x00e4     iterator
+0x00e5 .label 0x0696
+0x00ea     iterator_test
+0x00eb     branch_false 0x01f5
+0x00f0     iterator_assign obji
+0x00ff .line 33
+0x0104     nop
+0x0105     identifier cnt
+0x0113     identifier cnt
+0x0121     int 1
+0x0126     add
+0x0127     assign
+0x0128     pop
+0x0129 .line 34
+0x012e     identifier obji
+0x013d     null_object
+0x013e     not_equal
+0x013f     branch_false 0x019e
+0x0144 .line 35
+0x0149     identifier this
+0x0158     property PrefixDebugString
+0x0174     identifier obji
+0x0183     property Name
+0x0192     cat
+0x0193     print
+0x0194 .line 36
+0x0199     goto 0x01e4
+0x019e .label 0x0698
+0x01a3 .line 37
+0x01a8     identifier this
+0x01b7     property PrefixDebugString
+0x01d3     string "null"
+0x01e2     cat
+0x01e3     print
+0x01e4 .label 0x0699
+0x01e9 .line 38
+0x01ee     nop
+0x01ef     inc
+0x01f0     goto 0x00e5
+0x01f5 .label 0x0697
+0x01fa     pop
+0x01fb .line 39
+0x0200     dec_scope
+0x0201 .line 41
+0x0206 .label 0x0695
+0x020b     string "Out"
+0x0219     int 1
+0x021e     identifier this
+0x022d     method doEvent
+0x023f     pop
+0x0240 .line 43
+0x0245     dec_scope
+0x0246     return_null
+
+.method onEnd
+0x0001 .param_count 0
+0x0001 .line 45
+0x0006     nop
+0x0007 .line 47
+0x000c     nop
+0x000d     return_null
+

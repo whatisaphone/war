@@ -1,0 +1,131 @@
+{
+  "Parent": "base/standardbehavior",
+  "Name": "canopy_spider/canopyspiderwaypointbehavior",
+  "Properties": {
+    "ScanAlertDistance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ScanInterval": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachMoveStateMove": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "ApproachForceCloseRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachForceCompleteRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMoveStateIdle": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleMinTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMaxTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMoveStateFidget": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleFidgetChance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleFidgetMinTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleFidgetMaxTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ClearObstacleMoveState": {
+      "Flags": 4,
+      "Type": 5
+    }
+  },
+  "StaticProperties": {},
+  "Methods": [],
+  "PackageName": "canopy_spider",
+  "DefaultValues": {
+    "ApproachForceCompleteRange": -1,
+    "IdleMinTime": 0.15,
+    "IdleFidgetChance": 0,
+    "IdleFidgetMinTime": 2,
+    "ApproachMoveStateMove": "",
+    "ID": "CanopySpiderWaypointBehavior",
+    "BackgroundActions": [],
+    "IdleMoveStateFidget": "",
+    "ClearObstacleMoveState": "",
+    "ScanInterval": 0.5,
+    "IdleMoveStateIdle": "",
+    "ApproachRange": -1,
+    "PathBlockedBreakableHandler": {
+      "classname": "base/clearobstacleaction",
+      "properties": {
+        "ActionCode": 8,
+        "Priority": 16,
+        "InterruptibleBy": [
+          "Death",
+          "Exit",
+          "Interactive",
+          "Impact"
+        ]
+      }
+    },
+    "IdleMaxTime": 0.25,
+    "ComponentActions": [
+      {
+        "classname": "canopy_spider/approachwaypointaction",
+        "properties": {
+          "Priority": 10,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "OnCompleteState": "WaypointReached",
+          "Position": [
+            4.4632477e30,
+            1.094709e27,
+            6.810606e-33
+          ]
+        }
+      },
+      {
+        "classname": "base/idleaction",
+        "properties": {
+          "Priority": 1,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "OnCompleteState": "WaypointReached"
+        }
+      }
+    ],
+    "ApproachForceCloseRange": -1,
+    "IdleFidgetMaxTime": 4,
+    "ScanAlertDistance": -1
+  },
+  "States": {
+    "WaypointReached": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    }
+  }
+}

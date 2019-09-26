@@ -1,0 +1,257 @@
+{
+  "Parent": "base/standardbehavior",
+  "Name": "base/defensivebehavior",
+  "Properties": {
+    "DefensiveScanAlertDistance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "MoveStateTransition": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "AnimMoveState": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "AnimMaxAngleDiff": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ScanAlertDistance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ScanInterval": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMoveStateIdle": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleMinTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMaxTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMoveStateFidget": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleFidgetChance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleFidgetMinTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleFidgetMaxTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "BlockEnabled": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "BlockChance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "BlockMoveStateBlock": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "BlockMinDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "BlockMaxDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "BlockAttackTypes": {
+      "Flags": 4,
+      "Type": 1
+    },
+    "BlockUseMonsterBlockChance": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "exitRequested": {
+      "Flags": 2,
+      "Type": 4
+    },
+    "doneTransition": {
+      "Flags": 2,
+      "Type": 4
+    }
+  },
+  "StaticProperties": {},
+  "Methods": [
+    "begin"
+  ],
+  "PackageName": "base",
+  "DefaultValues": {
+    "BlockAttackTypes": [
+      2,
+      3,
+      4
+    ],
+    "DefensiveScanAlertDistance": -1,
+    "doneTransition": false,
+    "IdleMinTime": 2,
+    "BlockChance": 0.8,
+    "AnimMaxAngleDiff": 180,
+    "BlockEnabled": false,
+    "IdleFidgetChance": -1,
+    "IdleFidgetMinTime": -1,
+    "MoveStateTransition": "",
+    "BlockUseMonsterBlockChance": false,
+    "ID": "DefensiveBehavior",
+    "BlockMoveStateBlock": "Block",
+    "BackgroundActions": [
+      {
+        "classname": "base/scanaction",
+        "properties": {
+          "OnScanAcquiredTarget": "Transition",
+          "OnScanLostTarget": "",
+          "ID": "defensivescanaction",
+          "ValidStates": [
+            "Defensive"
+          ]
+        }
+      },
+      {
+        "classname": "base/scanaction",
+        "properties": {
+          "OnScanAcquiredTarget": "Transition",
+          "OnScanLostTarget": "",
+          "ID": "scanaction",
+          "ValidStates": [
+            "FullScan"
+          ]
+        }
+      }
+    ],
+    "IdleMoveStateFidget": "",
+    "BlockMaxDelay": 3.0,
+    "exitRequested": false,
+    "BlockMinDelay": 1.0,
+    "AnimMoveState": "",
+    "ScanInterval": 1.5,
+    "ImpactHandler": {
+      "classname": "base/impactaction",
+      "properties": {
+        "ID": "Impact",
+        "Priority": 620,
+        "InterruptibleBy": [
+          "Death",
+          "Interactive"
+        ],
+        "OnCompleteState": "Exit"
+      }
+    },
+    "IdleMoveStateIdle": "Idle",
+    "OnAttackHandler": [
+      {
+        "classname": "base/blockaction",
+        "properties": {
+          "ActionCode": 5,
+          "Priority": 11,
+          "InterruptibleBy": [
+            "Death"
+          ],
+          "ResourceLock": "Block",
+          "OnCompleteState": "FullScan"
+        }
+      }
+    ],
+    "IdleMaxTime": 3,
+    "ComponentActions": [
+      {
+        "classname": "base/animaction",
+        "properties": {
+          "NoRepeat": false,
+          "ID": "transitiontocombat",
+          "Priority": 11,
+          "InterruptibleBy": [
+            "Death",
+            "Interactive",
+            "Impact"
+          ],
+          "ValidStates": [
+            "Transition"
+          ],
+          "OnCompleteState": "Exit",
+          "Position": [
+            1e-45,
+            0.0,
+            -6.4460086e-9
+          ]
+        }
+      },
+      {
+        "classname": "base/idleaction",
+        "properties": {
+          "Priority": 1,
+          "InterruptibleBy": [
+            "ANY"
+          ]
+        }
+      }
+    ],
+    "ExitBehaviorHandler": {
+      "classname": "base/defaultaction",
+      "properties": {
+        "ID": "NotYetExit",
+        "Priority": 700,
+        "ValidStates": [
+          "Defensive",
+          "FullScan",
+          "Exit"
+        ],
+        "OnCompleteState": "ExitRequested"
+      }
+    },
+    "IdleFidgetMaxTime": -1,
+    "ScanAlertDistance": -1
+  },
+  "States": {
+    "ExitRequested": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "Exit": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "Defensive": {
+      "methods": [
+        "ScanAfterHit",
+        "onHit",
+        "getCurrentState"
+      ]
+    },
+    "Transition": {
+      "methods": [
+        "getCurrentState",
+        "onTransitionTime",
+        "onEnter"
+      ]
+    },
+    "FullScan": {
+      "methods": [
+        "getCurrentState"
+      ]
+    }
+  }
+}

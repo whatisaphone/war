@@ -1,0 +1,1193 @@
+{
+  "Parent": "towerhead/towerhead",
+  "Name": "towerhead/towerhead_master",
+  "Properties": {
+    "Slave1": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "Slave2": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "Waypoint": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "BeamCooldownMin": {
+      "Flags": 2,
+      "Type": 2
+    },
+    "BeamCooldownMax": {
+      "Flags": 2,
+      "Type": 2
+    },
+    "HoldBeamTime": {
+      "Flags": 2,
+      "Type": 2
+    },
+    "SSlave1": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "SSlave2": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "TargetHelper": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "Beam": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "FightStarted": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "HitCount": {
+      "Flags": 2,
+      "Type": 2
+    }
+  },
+  "StaticProperties": {
+    "Description": {
+      "Value": {
+        "classname": "base/combatmonsterdesc",
+        "properties": {
+          "AmbientBehaviorGuard": {
+            "classname": "base/guardambientbehavior",
+            "properties": {
+              "PathBlockedBreakableHandler": {
+                "classname": "base/clearobstacleaction",
+                "properties": {
+                  "ID": "Clear Obstacle",
+                  "ActionCode": 5,
+                  "Priority": 16,
+                  "InterruptibleBy": [
+                    "Death",
+                    "Exit",
+                    "Interactive",
+                    "Impact"
+                  ],
+                  "Position": [
+                    2.6208754e20,
+                    2.1714976e-18,
+                    1.8472921e20
+                  ]
+                }
+              },
+              "DeathBlowHandler": {
+                "classname": "base/deathblowaction",
+                "properties": {
+                  "ID": "Death",
+                  "ActionCode": 660,
+                  "Priority": 660,
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "InteractiveHandler": {
+                "classname": "base/interactivestallaction",
+                "properties": {
+                  "ID": "Interactive",
+                  "Priority": 630,
+                  "InterruptibleBy": [
+                    "Death"
+                  ],
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "ImpactHandler": {
+                "classname": "base/impactaction",
+                "properties": {
+                  "ID": "Impact",
+                  "Priority": 620,
+                  "InterruptibleBy": [
+                    "Death",
+                    "Interactive"
+                  ],
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "ComponentActions": [
+                {
+                  "classname": "base/approachhomeaction",
+                  "properties": {
+                    "IgnoreZTolerance": true,
+                    "ID": "ReturnHome",
+                    "Priority": 9,
+                    "InterruptibleBy": [
+                      "ANY"
+                    ],
+                    "OnCompleteState": "Guarding",
+                    "Position": [
+                      null,
+                      0.0,
+                      -1.5924013e-19
+                    ]
+                  }
+                },
+                {
+                  "classname": "base/idleaction",
+                  "properties": {
+                    "ID": "Idle",
+                    "ActionCode": 1,
+                    "Priority": 1,
+                    "InterruptibleBy": [
+                      "ANY"
+                    ],
+                    "Position": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  }
+                }
+              ],
+              "BackgroundActions": [
+                {
+                  "classname": "base/homescanaction",
+                  "properties": {
+                    "OnScanAcquiredTarget": "FoundMeleeTarget",
+                    "OnScanAcquiredRangedTarget": "FoundRangedTarget",
+                    "OnScanLostTarget": "",
+                    "ScanLOSCheck": true,
+                    "ScanMeleeOnly": false,
+                    "ScanAllowRescansWithTarget": true,
+                    "ID": "HomeScanForTarget",
+                    "ValidStates": [
+                      "MovingIntoPosition"
+                    ],
+                    "Position": [
+                      1.5113662e-13,
+                      1.5113662e-13,
+                      1.5113662e-13
+                    ]
+                  }
+                },
+                {
+                  "classname": "base/scanaction",
+                  "properties": {
+                    "OnScanAcquiredTarget": "FoundMeleeTarget",
+                    "OnScanAcquiredRangedTarget": "FoundRangedTarget",
+                    "OnScanLostTarget": "",
+                    "ScanLOSCheck": true,
+                    "ScanMeleeOnly": false,
+                    "ScanAllowRescansWithTarget": true,
+                    "ID": "Scan",
+                    "ValidStates": [
+                      "Guarding"
+                    ],
+                    "Position": [
+                      4.8613497e30,
+                      4.8603944e30,
+                      7.5550794e31
+                    ]
+                  }
+                }
+              ],
+              "ExitBehaviorHandler": {
+                "classname": "base/exitbehavioraction",
+                "properties": {
+                  "ID": "Exit",
+                  "Priority": 640,
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "Position": [
+                1.8615984e25,
+                0.0024787446,
+                6.7907934e-33
+              ]
+            }
+          },
+          "AmbientBehaviorWander": {
+            "classname": "base/wanderambientbehavior",
+            "properties": {
+              "PathBlockedBreakableHandler": {
+                "classname": "base/clearobstacleaction",
+                "properties": {
+                  "ID": "Clear Obstacle",
+                  "ActionCode": 5,
+                  "Priority": 16,
+                  "InterruptibleBy": [
+                    "Death",
+                    "Exit",
+                    "Interactive",
+                    "Impact"
+                  ]
+                }
+              },
+              "DeathBlowHandler": {
+                "classname": "base/deathblowaction",
+                "properties": {
+                  "ID": "Death",
+                  "ActionCode": 660,
+                  "Priority": 660
+                }
+              },
+              "InteractiveHandler": {
+                "classname": "base/interactivestallaction",
+                "properties": {
+                  "ID": "Interactive",
+                  "Priority": 630,
+                  "InterruptibleBy": [
+                    "Death"
+                  ]
+                }
+              },
+              "ImpactHandler": {
+                "classname": "base/impactaction",
+                "properties": {
+                  "ID": "Impact",
+                  "Priority": 620,
+                  "InterruptibleBy": [
+                    "Death",
+                    "Interactive"
+                  ]
+                }
+              },
+              "ComponentActions": [
+                {
+                  "classname": "base/approachwanderaction",
+                  "properties": {
+                    "IgnoreZTolerance": true,
+                    "Priority": 9,
+                    "InterruptibleBy": [
+                      "ANY"
+                    ],
+                    "ValidStates": [
+                      "Wander",
+                      "MovingIntoPosition"
+                    ],
+                    "OnCompleteState": "WanderPointReached",
+                    "Position": [
+                      0.0,
+                      0.0,
+                      -1.038998e-7
+                    ]
+                  }
+                },
+                {
+                  "classname": "base/defaultaction",
+                  "properties": {
+                    "ID": "WanderTooClose",
+                    "Priority": 8,
+                    "InterruptibleBy": [
+                      "ANY"
+                    ],
+                    "ValidStates": [
+                      "Wander",
+                      "MovingIntoPosition"
+                    ],
+                    "OnCompleteState": "WanderPointReached",
+                    "Position": [
+                      6.235198e-31,
+                      3.59e-43,
+                      null
+                    ]
+                  }
+                },
+                {
+                  "classname": "base/idleaction",
+                  "properties": {
+                    "ID": "Idle",
+                    "Priority": 1,
+                    "InterruptibleBy": [
+                      "ANY"
+                    ],
+                    "Position": [
+                      6.2946613e-31,
+                      3.59e-43,
+                      null
+                    ]
+                  }
+                }
+              ],
+              "BackgroundActions": [
+                {
+                  "classname": "base/homescanaction",
+                  "properties": {
+                    "OnScanAcquiredTarget": "FoundMeleeTarget",
+                    "OnScanAcquiredRangedTarget": "FoundRangedTarget",
+                    "OnScanLostTarget": "",
+                    "ScanLOSCheck": true,
+                    "ScanMeleeOnly": false,
+                    "ScanAllowRescansWithTarget": true,
+                    "ID": "HomeScanForTarget",
+                    "ValidStates": [
+                      "MovingIntoPosition"
+                    ]
+                  }
+                },
+                {
+                  "classname": "base/scanaction",
+                  "properties": {
+                    "OnScanAcquiredTarget": "FoundMeleeTarget",
+                    "OnScanAcquiredRangedTarget": "FoundRangedTarget",
+                    "OnScanLostTarget": "",
+                    "ScanLOSCheck": true,
+                    "ScanMeleeOnly": false,
+                    "ScanAllowRescansWithTarget": true,
+                    "ID": "Scan",
+                    "ValidStates": [
+                      "Wander",
+                      "Resting",
+                      "NoWanderRegion"
+                    ]
+                  }
+                }
+              ],
+              "ExitBehaviorHandler": {
+                "classname": "base/exitbehavioraction",
+                "properties": {
+                  "ID": "Exit",
+                  "Priority": 640
+                }
+              },
+              "Position": [
+                1.6617275e-33,
+                2.8365938e20,
+                7.0601806e28
+              ]
+            }
+          },
+          "AmbientBehaviorPatrol": {
+            "classname": "base/patrolambientbehavior",
+            "properties": {
+              "PathBlockedBreakableHandler": {
+                "classname": "base/clearobstacleaction",
+                "properties": {
+                  "ID": "Clear Obstacle",
+                  "ActionCode": 5,
+                  "Priority": 16,
+                  "InterruptibleBy": [
+                    "Death",
+                    "Exit",
+                    "Interactive",
+                    "Impact"
+                  ],
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "DeathBlowHandler": {
+                "classname": "base/deathblowaction",
+                "properties": {
+                  "ID": "Death",
+                  "ActionCode": 660,
+                  "Priority": 660,
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "InteractiveHandler": {
+                "classname": "base/interactivestallaction",
+                "properties": {
+                  "ID": "Interactive",
+                  "Priority": 630,
+                  "InterruptibleBy": [
+                    "Death"
+                  ],
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "ImpactHandler": {
+                "classname": "base/impactaction",
+                "properties": {
+                  "ID": "Impact",
+                  "Priority": 620,
+                  "InterruptibleBy": [
+                    "Death",
+                    "Interactive"
+                  ],
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "ComponentActions": [
+                {
+                  "classname": "base/approachpatrolaction",
+                  "properties": {
+                    "IgnoreZTolerance": true,
+                    "ID": "ApproachPatrol",
+                    "Priority": 9,
+                    "InterruptibleBy": [
+                      "ANY"
+                    ],
+                    "OnCompleteState": "Patrol",
+                    "Position": [
+                      null,
+                      7.7135135e31,
+                      -21.848436
+                    ]
+                  }
+                },
+                {
+                  "classname": "base/idleaction",
+                  "properties": {
+                    "ID": "Idle",
+                    "ActionCode": 1,
+                    "Priority": 1,
+                    "InterruptibleBy": [
+                      "ANY"
+                    ],
+                    "Position": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  }
+                }
+              ],
+              "BackgroundActions": [
+                {
+                  "classname": "base/homescanaction",
+                  "properties": {
+                    "OnScanAcquiredTarget": "FoundMeleeTarget",
+                    "OnScanAcquiredRangedTarget": "FoundRangedTarget",
+                    "OnScanLostTarget": "",
+                    "ScanLOSCheck": true,
+                    "ScanMeleeOnly": false,
+                    "ScanAllowRescansWithTarget": true,
+                    "ID": "HomeScanForTarget",
+                    "ValidStates": [
+                      "MovingIntoPosition"
+                    ],
+                    "Position": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  }
+                },
+                {
+                  "classname": "base/scanaction",
+                  "properties": {
+                    "OnScanAcquiredTarget": "FoundMeleeTarget",
+                    "OnScanAcquiredRangedTarget": "FoundRangedTarget",
+                    "OnScanLostTarget": "",
+                    "ScanLOSCheck": true,
+                    "ScanMeleeOnly": false,
+                    "ScanAllowRescansWithTarget": true,
+                    "ID": "Scan",
+                    "ValidStates": [
+                      "Patrol"
+                    ],
+                    "Position": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  }
+                }
+              ],
+              "ExitBehaviorHandler": {
+                "classname": "base/exitbehavioraction",
+                "properties": {
+                  "ID": "Exit",
+                  "Priority": 640,
+                  "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "Position": [
+                null,
+                8.9087774e-15,
+                5.4388207e34
+              ]
+            }
+          },
+          "AutoDecayOnDeath": true,
+          "BossTitle": "$Boss.TowerHead",
+          "SuppressBossHealthBar": true,
+          "FearFactor": 3,
+          "MoveStates": {
+            "classname": "CharacterMoveStateList",
+            "properties": {
+              "MoveStates": [
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "UseCameraNode": true,
+                    "Name": "Dead",
+                    "ID": 11,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 3,
+                        "Ease": 0.1
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "Idle",
+                    "ID": 2,
+                    "AnimController": {
+                      "classname": "AimAnimController",
+                      "properties": {
+                        "UpAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 0
+                          }
+                        },
+                        "ForwardAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 2
+                          }
+                        },
+                        "DownAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 1
+                          }
+                        },
+                        "UpAngle": 60.0
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "TurnSpeed": 100.0,
+                    "EnableIK": false,
+                    "InAir": true,
+                    "FaceTarget": true
+                  }
+                },
+                {
+                  "classname": "CharacterGenericStateDesc",
+                  "properties": {
+                    "Name": "Idle - Charge",
+                    "ID": 13,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 13
+                      }
+                    }
+                  }
+                },
+                {
+                  "classname": "MonsterIdleDesc",
+                  "properties": {
+                    "Name": "Idle Clone",
+                    "ID": 1,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {}
+                    }
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "IdleNoFace",
+                    "ID": 12,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 2
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "TurnSpeed": 100.0,
+                    "EnableIK": false,
+                    "InAir": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "UseCameraNode": true,
+                    "Name": "Impact",
+                    "ID": 10,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 5,
+                        "Ease": 0.1
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                },
+                {
+                  "classname": "CharacterGenericStateDesc",
+                  "properties": {
+                    "Name": "Impact - Charge",
+                    "ID": 15,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 15
+                      }
+                    }
+                  }
+                },
+                {
+                  "classname": "MonsterHoverStrafeDesc",
+                  "properties": {
+                    "StrafeHeightOffset": 0.0,
+                    "Name": "MoveTo",
+                    "ID": 9,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 2
+                      }
+                    },
+                    "MaxSpeed": 240.0,
+                    "FaceTarget": true
+                  }
+                },
+                {
+                  "classname": "CharacterGenericStateDesc",
+                  "properties": {
+                    "Name": "Shoot",
+                    "ID": 14,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 2
+                      }
+                    }
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "ShootBuildup",
+                    "ID": 3,
+                    "AnimController": {
+                      "classname": "AimAnimController",
+                      "properties": {
+                        "UpAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 8
+                          }
+                        },
+                        "ForwardAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 6
+                          }
+                        },
+                        "DownAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 7
+                          }
+                        },
+                        "UpAngle": 60.0
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "EnableIK": false,
+                    "InAir": true,
+                    "FaceTarget": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "ShootCommit",
+                    "ID": 4,
+                    "AnimController": {
+                      "classname": "AimAnimController",
+                      "properties": {
+                        "UpAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 0
+                          }
+                        },
+                        "ForwardAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 2
+                          }
+                        },
+                        "DownAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 1
+                          }
+                        },
+                        "UpAngle": 60.0
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "EnableIK": false,
+                    "InAir": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "ShootEnd",
+                    "ID": 6,
+                    "AnimController": {
+                      "classname": "AimAnimController",
+                      "properties": {
+                        "UpAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 0
+                          }
+                        },
+                        "ForwardAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 2
+                          }
+                        },
+                        "DownAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 1
+                          }
+                        },
+                        "UpAngle": 60.0
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "EnableIK": false,
+                    "InAir": true,
+                    "FaceTarget": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "ShootLoop",
+                    "ID": 5,
+                    "AnimController": {
+                      "classname": "AimAnimController",
+                      "properties": {
+                        "UpAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 10
+                          }
+                        },
+                        "ForwardAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 4
+                          }
+                        },
+                        "DownAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 9
+                          }
+                        },
+                        "UpAngle": 60.0
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "EnableIK": false,
+                    "InAir": true,
+                    "FaceTarget": true
+                  }
+                }
+              ]
+            }
+          },
+          "CharacterClass": "TowerHead",
+          "IsFlyingCreature": true,
+          "HitInfos": {
+            "classname": "HitInfoList",
+            "properties": {}
+          },
+          "Visual": "towerhead",
+          "FactionID": 1,
+          "AimOffsetHeight": 0.0,
+          "ActorScale": 1.5,
+          "Animations": {
+            "classname": "AnimationList",
+            "properties": {
+              "Animations": [
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 13,
+                    "Name": "TowerHead_Charge_Idle",
+                    "AnimationName": "TowerHead_Charge_Idle",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "TowerHead_Charge_Idle"
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 0
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 2,
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 15,
+                    "Name": "TowerHead_Charge_Impact",
+                    "AnimationName": "TowerHead_Charge_Impact",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "TowerHead_Charge_Impact"
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 1
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 3
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 3,
+                    "Name": "TowerHead_Death",
+                    "AnimationName": "TowerHead_Death"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 4,
+                    "Name": "TowerHead_Idle",
+                    "AnimationName": "TowerHead_Idle"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 1,
+                    "Name": "TowerHead_IdleD",
+                    "AnimationName": "TowerHead_IdleD"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "Name": "TowerHead_IdleU",
+                    "AnimationName": "TowerHead_IdleU"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 5,
+                    "Name": "TowerHead_Impact",
+                    "AnimationName": "TowerHead_Impact"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 12,
+                    "Name": "TowerHead_Move_Lt",
+                    "AnimationName": "TowerHead_Move_Lt"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 14,
+                    "Name": "TowerHead_Move_Rt",
+                    "AnimationName": "TowerHead_Move_Rt"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 2,
+                    "Name": "TowerHead_Shoot",
+                    "AnimationName": "TowerHead_Shoot"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 6,
+                    "Name": "TowerHead_Shoot_Intro",
+                    "AnimationName": "TowerHead_Shoot_Intro"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 9,
+                    "Name": "TowerHead_ShootD",
+                    "AnimationName": "TowerHead_ShootD"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 7,
+                    "Name": "TowerHead_ShootD_Intro",
+                    "AnimationName": "TowerHead_ShootD_Intro"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 10,
+                    "Name": "TowerHead_ShootU",
+                    "AnimationName": "TowerHead_ShootU"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 8,
+                    "Name": "TowerHead_ShootU_Intro",
+                    "AnimationName": "TowerHead_ShootU_Intro"
+                  }
+                }
+              ]
+            }
+          },
+          "Sounds": {
+            "classname": "SoundList",
+            "properties": {
+              "Sounds": [
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 0,
+                    "Name": "towerhead_electrical_crawl_loop",
+                    "Volume": 0.39990234,
+                    "Pitch": -2.0,
+                    "RandomPitch": 1.0,
+                    "Loop": true,
+                    "FadeInTime": 1.0,
+                    "FadeOutTime": 1.0,
+                    "Offset": true,
+                    "FollowActor": true,
+                    "Min": 500.0,
+                    "Max": 3500.0,
+                    "Priority": 1,
+                    "Sounds": "OT_Electrical_loop03,OT_Electrical_loop01,OT_Electrical_loop02",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 3,
+                    "Name": "towerhead_electrical_impact_arcs",
+                    "Volume": 0.9501953,
+                    "Pitch": -4.0,
+                    "RandomPitch": 2.0,
+                    "FollowActor": true,
+                    "Min": 500.0,
+                    "Max": 3000.0,
+                    "Priority": 0,
+                    "Sounds": "OT_elec_arc11,OT_elec_arc01,OT_elec_arc02,OT_elec_arc03,OT_elec_arc04,OT_elec_arc05,OT_elec_arc06,OT_elec_arc07,OT_elec_arc08,OT_elec_arc09,OT_elec_arc10",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 2,
+                    "Name": "towerhead_laser_absorbed_loop",
+                    "Volume": 0.5,
+                    "Loop": true,
+                    "Offset": true,
+                    "FollowActor": true,
+                    "Min": 750.0,
+                    "Max": 3000.0,
+                    "Priority": 0,
+                    "Sounds": "ot_laser_absorb_loop",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 1,
+                    "Name": "towerhead_laser_impact",
+                    "Volume": 0.9501953,
+                    "Pitch": -4.0,
+                    "RandomPitch": 2.0,
+                    "FollowActor": true,
+                    "Max": 3000.0,
+                    "Priority": 0,
+                    "Sounds": "ot_laser_impact_1",
+                    "Group": "doodads"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "Methods": [
+    "onStartFight",
+    "onFight",
+    "onRemove",
+    "getDamagePerHit",
+    "onQueryDamage",
+    "onSlaveHit",
+    "onDelayImpact",
+    "onDelayDeath",
+    "onSlaveActionComplete",
+    "getSlave1",
+    "getSlave2",
+    "getHealthPercent",
+    "extend"
+  ],
+  "PackageName": "towerhead",
+  "DefaultValues": {
+    "BeamCooldownMin": 3,
+    "Waypoint": "",
+    "Slave1": "TowerHeadSlave1",
+    "Slave2": "TowerHeadSlave2",
+    "BeamCooldownMax": 6,
+    "HoldBeamTime": 6,
+    "FightStarted": false,
+    "HitCount": 0
+  },
+  "States": {
+    "SlavesShootWar": {
+      "methods": [
+        "onEnter",
+        "onSlaveActionComplete"
+      ]
+    },
+    "ShootWarCommit": {
+      "methods": [
+        "onShootWarCommitTimer",
+        "onEnter"
+      ]
+    },
+    "Slave2ShootWar": {
+      "methods": [
+        "onEnter",
+        "onSlaveActionComplete"
+      ]
+    },
+    "EveryoneShootsWar": {
+      "methods": [
+        "onEnter"
+      ]
+    },
+    "SlaveImpact": {
+      "methods": [
+        "onEnter",
+        "onSlaveActionComplete"
+      ]
+    },
+    "Dead": {
+      "methods": [
+        "onActionComplete",
+        "onSlaveHit",
+        "onQueryDamage",
+        "onEnter"
+      ]
+    },
+    "Slave1ShootWar": {
+      "methods": [
+        "onEnter",
+        "onSlaveActionComplete"
+      ]
+    },
+    "ShootWarLoop": {
+      "methods": [
+        "extend",
+        "onExit",
+        "onShootWarLoopTimer",
+        "onEnter"
+      ]
+    },
+    "Idle": {
+      "methods": [
+        "onShootTimer",
+        "onEnter"
+      ]
+    },
+    "ShootWar": {
+      "methods": [
+        "onActionComplete",
+        "onEnter"
+      ]
+    },
+    "Impact": {
+      "methods": [
+        "onActionComplete",
+        "onEnter"
+      ]
+    }
+  }
+}

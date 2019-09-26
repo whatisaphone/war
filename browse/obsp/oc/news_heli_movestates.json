@@ -1,0 +1,107 @@
+{
+  "classname": "CharacterMoveStateList",
+  "properties": {
+    "MoveStates": [
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "Name": "Destroyed",
+          "ID": 3,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 7
+            }
+          },
+          "GravityScale": 0.0
+        }
+      },
+      {
+        "classname": "MonsterFallDesc",
+        "properties": {
+          "HeightAboveGround": 50.0,
+          "LandAnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 7
+            }
+          },
+          "OnElapsedTime": 3,
+          "ElapsedTimeMin": 3.0,
+          "ElapsedTimeMax": 5.0,
+          "InheritSpeed": true,
+          "Name": "Fall",
+          "ID": 1,
+          "AnimController": {
+            "classname": "PlayOnceAndIdleAnimController",
+            "properties": {
+              "StartAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 6,
+                  "Ease": 0.0
+                }
+              },
+              "IdleAnimController": {
+                "classname": "SimpleAnimController",
+                "properties": {
+                  "Animation": 5,
+                  "Ease": 0.0
+                }
+              }
+            }
+          },
+          "GravityScale": 0.25,
+          "OnActionComplete": 3,
+          "UseMotionNode": true
+        }
+      },
+      {
+        "classname": "MonsterFlySplineDesc",
+        "properties": {
+          "MinimumSpeed": 250.0,
+          "TerminalSpeed": 900.0,
+          "AutoBankHeadingRef": 5.0,
+          "AutoBankAngle": 35.0,
+          "AutoBankSpeed": 16.0,
+          "AutoBankAccel": 32.0,
+          "RangedAttackDist": 350.0,
+          "RequireScriptCallback": false,
+          "AlwaysFaceTarget": false,
+          "InheritSpeed": true,
+          "Name": "FlySpline",
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 0
+            }
+          },
+          "Acceleration": 225.0,
+          "Deceleration": 920.0,
+          "MaxSpeed": 600.0,
+          "InAir": true,
+          "FaceOnStart": false
+        }
+      },
+      {
+        "classname": "MonsterGenericStateDesc",
+        "properties": {
+          "GroundRayDistance": 9999999.0,
+          "InheritSpeed": true,
+          "Name": "FlySpline Damaged",
+          "ID": 2,
+          "AnimController": {
+            "classname": "SimpleAnimController",
+            "properties": {
+              "Animation": 3,
+              "Ease": 1.0
+            }
+          },
+          "Acceleration": 225.0,
+          "Deceleration": 920.0,
+          "MaxSpeed": 600.0
+        }
+      }
+    ]
+  }
+}

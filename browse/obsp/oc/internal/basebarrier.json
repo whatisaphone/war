@@ -1,0 +1,96 @@
+{
+  "Parent": "KinematicActor",
+  "Name": "dgn_door/basebarrier",
+  "Properties": {
+    "AutoPersist": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "StartOn": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "LinkedDoor": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "CanRepulse": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "Dormant": {
+      "Flags": 2,
+      "Type": 4
+    },
+    "Dissolved": {
+      "Flags": 2,
+      "Type": 4
+    },
+    "IdleSoundID": {
+      "Flags": 2,
+      "Type": 2
+    },
+    "DissolveAnimationID": {
+      "Flags": 2,
+      "Type": 2
+    },
+    "LinkedDoorReactivate": {
+      "Flags": 2,
+      "Type": 4
+    }
+  },
+  "StaticProperties": {},
+  "Methods": [
+    "onInit",
+    "turnOn",
+    "turnOff",
+    "onLayeredAnimationComplete",
+    "onActivate",
+    "onDeactivate",
+    "onHit"
+  ],
+  "PackageName": "dgn_door",
+  "DefaultValues": {
+    "IdleSoundID": -1,
+    "AutoPersist": true,
+    "LinkedDoorReactivate": false,
+    "LinkedDoor": "",
+    "Dissolved": false,
+    "StartOn": true,
+    "DissolveAnimationID": -1,
+    "CanRepulse": true,
+    "Dormant": false
+  },
+  "States": {
+    "Emerge": {
+      "methods": [
+        "onAnimationComplete",
+        "onEnter"
+      ]
+    },
+    "Dissolve": {
+      "methods": [
+        "onEnter"
+      ]
+    },
+    "Idle": {
+      "methods": [
+        "activate",
+        "onExit",
+        "onEnter"
+      ]
+    },
+    "EmergeNoAnim": {
+      "methods": [
+        "onAnimationComplete",
+        "onEnter"
+      ]
+    },
+    "Dormant": {
+      "methods": [
+        "onExit",
+        "onEnter"
+      ]
+    }
+  }
+}

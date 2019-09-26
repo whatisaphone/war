@@ -1,0 +1,165 @@
+{
+  "Parent": "base/tmonster",
+  "Name": "phantomguard/phantomguard_common",
+  "Properties": {
+    "RagdollMoveState": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "AL04VisScriptName": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "AL04AggroCountVarName": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "AL04AggroMaxVarName": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "LowLODAggroOrDeath": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "CrowdExitting": {
+      "Flags": 2,
+      "Type": 4
+    },
+    "CrankAccumulator": {
+      "Flags": 2,
+      "Type": 3
+    }
+  },
+  "StaticProperties": {
+    "AL04CheerBehavior": {
+      "Value": {
+        "classname": "base/idlebehavior",
+        "properties": {
+          "IdleMoveStateIdle": "Crowd Cheer Rand",
+          "DeathBlowHandler": {
+            "classname": "base/deathblowaction",
+            "properties": {
+              "ID": "Death",
+              "ActionCode": 660,
+              "Priority": 660
+            }
+          },
+          "InteractiveHandler": {
+            "classname": "base/interactivestallaction",
+            "properties": {
+              "ID": "Interactive",
+              "Priority": 630,
+              "InterruptibleBy": [
+                "Death"
+              ]
+            }
+          },
+          "ImpactHandler": {
+            "classname": "base/impactaction",
+            "properties": {
+              "ID": "Impact",
+              "Priority": 620,
+              "InterruptibleBy": [
+                "Death",
+                "Interactive"
+              ]
+            }
+          },
+          "ComponentActions": [
+            {
+              "classname": "base/idleaction",
+              "properties": {
+                "Priority": 1,
+                "InterruptibleBy": [
+                  "ANY"
+                ]
+              }
+            }
+          ],
+          "ExitBehaviorHandler": {
+            "classname": "base/exitbehavioraction",
+            "properties": {
+              "ID": "Exit",
+              "Priority": 640
+            }
+          },
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    }
+  },
+  "Methods": [
+    "ScriptedPatrol",
+    "ScriptedTaunt",
+    "setAmbientTypeGuard",
+    "setAmbientModeWander",
+    "cutFeetInteractive",
+    "cutInHalfInteractive",
+    "swapToInteractiveModel",
+    "sliceHoriztonal",
+    "explodeParts",
+    "onCustomRemove",
+    "AL04LowLOD",
+    "AL06LowLOD",
+    "forceLowLODVisual",
+    "restoreHighLODVisual",
+    "setAl06CheerMode",
+    "AL04GearCrank",
+    "AL04RingGong",
+    "tauntWar"
+  ],
+  "PackageName": "phantomguard",
+  "DefaultValues": {
+    "AL04AggroMaxVarName": "AggroReinforcementMax",
+    "AL04AggroCountVarName": "AggroReinforcementCount",
+    "CrowdExitting": false,
+    "RagdollMoveState": "",
+    "AL04VisScriptName": "AL_04Arena_Reinforcements_Script",
+    "LowLODAggroOrDeath": false,
+    "CrankAccumulator": 0
+  },
+  "States": {
+    "Spawning": {
+      "methods": [
+        "ScriptedTaunt",
+        "setBehaviorMantle"
+      ]
+    },
+    "GearCrank": {
+      "methods": [
+        "onBehaviorComplete",
+        "onQueryDamage",
+        "onEnter"
+      ]
+    },
+    "Dead": {
+      "methods": [
+        "onEnter"
+      ]
+    },
+    "RingGong": {
+      "methods": [
+        "goToAmbient",
+        "onBehaviorComplete",
+        "onQueryDamage",
+        "onEnter"
+      ]
+    },
+    "LowLOD": {
+      "methods": [
+        "doKnockbackToCombat",
+        "onExit",
+        "onHit",
+        "removeResistanceItem",
+        "doKnockbackKill",
+        "onQueryDamage",
+        "onEnter"
+      ]
+    }
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "classname": "base/tbehavior",
+  "properties": {
+    "ComponentActions": [
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "MoveState": "Strafe_Air",
+          "ExitOnComplete": false,
+          "ID": "Strafe",
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "AttackType": 2,
+          "Pressure": 5,
+          "MinRange": 125.0,
+          "MaxRange": 400.0,
+          "MoveState": "Air - Attack - Grenade Toss Air Start",
+          "RequireInView": true,
+          "RequireLOS": true,
+          "AutoClose": true,
+          "PreferredHeight": 120.0,
+          "ID": "GrenadeAttack",
+          "Priority": 12,
+          "ResourceLock": "GrenadeAttack",
+          "MinLockTime": 4.0,
+          "MaxLockTime": 7.0,
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "AttackType": 1,
+          "Pressure": 4,
+          "MaxRange": 200.0,
+          "MinHeight": 80.0,
+          "MaxHeight": 160.0,
+          "MoveState": "Air - Sword Slash Start",
+          "RequireInView": true,
+          "RequireLOS": true,
+          "AutoClose": true,
+          "PreferredDistance": 150.0,
+          "ID": "StandardSlash",
+          "Priority": 7,
+          "ResourceLock": "Attack",
+          "MinLockTime": 1.0,
+          "MaxLockTime": 3.0,
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "MoveState": "StaggerStart",
+          "ID": "Stunned",
+          "Priority": -1,
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "BackgroundActions": [
+      {
+        "classname": "base/onhithandler",
+        "properties": {
+          "ActionID": "Stunned",
+          "DamageThreshold": 75
+        }
+      }
+    ],
+    "InterruptHandler": {
+      "classname": "base/oninterrupthandler",
+      "properties": {}
+    },
+    "ExitBehaviorHandler": {
+      "classname": "ExitBehaviorAction",
+      "properties": {
+        "Position": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "Position": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  }
+}

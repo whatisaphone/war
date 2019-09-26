@@ -1,0 +1,84 @@
+{
+  "Parent": "Monster",
+  "Name": "generictargethelper/statictargethelper",
+  "Properties": {},
+  "StaticProperties": {
+    "Description": {
+      "Value": {
+        "classname": "MonsterDesc",
+        "properties": {
+          "MoveStates": {
+            "classname": "CharacterMoveStateList",
+            "properties": {
+              "MoveStates": [
+                {
+                  "classname": "MonsterFlySplineDesc",
+                  "properties": {
+                    "TerminalSpeed": 800.0,
+                    "Name": "AL04FollowSpline",
+                    "ID": 19,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {}
+                    },
+                    "MaxSpeed": 700.0,
+                    "FaceOnStart": false
+                  }
+                },
+                {
+                  "classname": "CharacterGenericStateDesc",
+                  "properties": {
+                    "Name": "Idle",
+                    "ID": 18,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {}
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "Visual": "GenericTargetHelper",
+          "MoveWeight": 0.0,
+          "Animations": {
+            "classname": "AnimationList",
+            "properties": {}
+          }
+        }
+      }
+    },
+    "MoveStateIdle": {
+      "Value": "Idle"
+    },
+    "AL04SplineName": {
+      "Value": "AL_04_EncRuin01_CamSpline"
+    },
+    "AL04SplineMoveState": {
+      "Value": "AL04FollowSpline"
+    }
+  },
+  "Methods": [
+    "onInit",
+    "AL04FollowSpline",
+    "RemoveHelper",
+    "onRemoveHelper"
+  ],
+  "PackageName": "generictargethelper",
+  "DefaultValues": {
+    "Name": "StaticTargetHelper"
+  },
+  "States": {
+    "AL04FollowSpline": {
+      "methods": [
+        "onEnter",
+        "onSplineComplete"
+      ]
+    },
+    "Idle": {
+      "methods": [
+        "onEnter"
+      ]
+    }
+  }
+}

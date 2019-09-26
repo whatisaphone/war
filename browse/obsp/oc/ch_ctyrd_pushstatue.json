@@ -1,0 +1,227 @@
+{
+  "Parent": "base/simpleinteractive",
+  "Name": "ch_int_rm02/ch_ctyrd_pushstatue",
+  "Properties": {},
+  "StaticProperties": {
+    "Description": {
+      "Value": {
+        "classname": "base/simpleinteractivedesc",
+        "properties": {
+          "MoveStates": {
+            "classname": "CharacterMoveStateList",
+            "properties": {
+              "MoveStates": [
+                {
+                  "classname": "CharacterGenericStateDesc",
+                  "properties": {
+                    "Name": "Finished Idle",
+                    "ID": 2,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {}
+                    },
+                    "GravityScale": 0.0
+                  }
+                },
+                {
+                  "classname": "CharacterGenericStateDesc",
+                  "properties": {
+                    "Name": "Idle",
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {}
+                    },
+                    "GravityScale": 0.0
+                  }
+                },
+                {
+                  "classname": "CharacterDoInteractiveDesc",
+                  "properties": {
+                    "TargetType": "war/war",
+                    "Initiator": 1,
+                    "MaxErrorDistance": 60.0,
+                    "Arc": 180.0,
+                    "DoCollision": false,
+                    "UseWeapon": 0,
+                    "AnimationID": 1,
+                    "TargetAnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 3
+                      }
+                    },
+                    "OnComplete": 6,
+                    "UseCameraNode": true,
+                    "CameraNode": "Interactive Camera_PtA",
+                    "AnimationSource": 0,
+                    "UseAnchorNode": true,
+                    "Name": "Interactive",
+                    "ID": 1,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 1
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                },
+                {
+                  "classname": "CharacterDoInteractiveDesc",
+                  "properties": {
+                    "TargetType": "war/war",
+                    "MaxErrorDistance": 60.0,
+                    "Arc": 180.0,
+                    "DoCollision": false,
+                    "UseWeapon": 0,
+                    "AnimationID": 2,
+                    "TargetAnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 4
+                      }
+                    },
+                    "OnComplete": 2,
+                    "OnCompleteOther": 0,
+                    "UseCameraNode": true,
+                    "CameraNode": "Interactive Camera PtB",
+                    "AnimationSource": 0,
+                    "UseAnchorNode": true,
+                    "ClampWorldContextDistance": 750.0,
+                    "Name": "Interactive2",
+                    "ID": 6,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 2
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                }
+              ]
+            }
+          },
+          "Visual": "Ch_Ctyrd_pushstatue",
+          "Animations": {
+            "classname": "AnimationList",
+            "properties": {
+              "Animations": [
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 1,
+                    "Name": "War_Push_Statue_PrtA",
+                    "AnimationName": "War_Push_Statue_PrtA",
+                    "Triggers": [
+                      {
+                        "classname": "CameraShakeTrigger",
+                        "properties": {
+                          "VPower": 0.0,
+                          "AttenStart": 10000.0,
+                          "AttenEnd": 100000.0,
+                          "BlurPower": 0.25,
+                          "TriggerFrame": 20
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 50081
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "ch_ctyrd_pushstatue"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 3,
+                    "Name": "War_Push_Statue_PrtA War",
+                    "AnimationName": "War_Push_Statue_PrtA"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 2,
+                    "Name": "War_Push_Statue_PrtB",
+                    "AnimationName": "War_Push_Statue_PrtB",
+                    "Triggers": [
+                      {
+                        "classname": "CameraShakeTrigger",
+                        "properties": {
+                          "VPower": 0.0,
+                          "AttenStart": 10000.0,
+                          "AttenEnd": 100000.0,
+                          "BlurPower": 1.0,
+                          "TriggerFrame": 30
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 4,
+                    "Name": "War_Push_Statue_PrtB War",
+                    "AnimationName": "War_Push_Statue_PrtB"
+                  }
+                }
+              ]
+            }
+          },
+          "Sounds": {
+            "classname": "SoundList",
+            "properties": {
+              "Sounds": [
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 50081,
+                    "Name": "statue_kick",
+                    "Reverb": false,
+                    "Min": 30000.0,
+                    "Max": 30000.0,
+                    "Priority": 0,
+                    "Sounds": "statue_kick",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 104,
+                    "Name": "StatueAngleDrag",
+                    "Volume": 0.8598633,
+                    "Stream": true,
+                    "Loop": true,
+                    "FadeInTime": 1.0,
+                    "FadeOutTime": 0.5,
+                    "Offset": true,
+                    "FollowActor": true,
+                    "Min": 5.0,
+                    "Priority": 0,
+                    "Sounds": "stone_drag_loop",
+                    "Group": "doodads"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "Methods": [],
+  "PackageName": "ch_int_rm02",
+  "DefaultValues": {},
+  "States": {}
+}

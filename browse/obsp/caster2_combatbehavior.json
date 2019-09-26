@@ -1,0 +1,117 @@
+{
+  "classname": "base/tbehavior",
+  "properties": {
+    "ComponentActions": [
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "MoveState": "Strafe",
+          "ExitOnComplete": false,
+          "ID": "Strafe",
+          "InterruptibleBy": [
+            "ANY"
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "AttackType": 2,
+          "Pressure": 8,
+          "MinRange": 150.0,
+          "MaxRange": 2000.0,
+          "MinAngle": -45.0,
+          "MaxAngle": 45.0,
+          "MoveState": "Attack - AirDFB Start",
+          "RequireInView": true,
+          "ID": "Attack1",
+          "Priority": 6,
+          "ResourceLock": "RangedAttack",
+          "MinLockTime": 3.0,
+          "MaxLockTime": 5.0,
+          "Position": [
+            0.0,
+            2.3509887e-38,
+            null
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "MaxRange": 200.0,
+          "MoveState": "DashLeft",
+          "ID": "DashLeft",
+          "Priority": 8,
+          "Chance": 0.5,
+          "ResourceLock": "Dash",
+          "MinLockTime": 1.0,
+          "MaxLockTime": 3.0,
+          "Position": [
+            5.686347e-10,
+            3e-45,
+            -3e-45
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "MaxRange": 200.0,
+          "MoveState": "DashRight",
+          "ID": "DashRight",
+          "Priority": 8,
+          "Chance": 0.5,
+          "ResourceLock": "Dash",
+          "MinLockTime": 1.0,
+          "MaxLockTime": 3.0,
+          "Position": [
+            null,
+            200.0,
+            360.0
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "MoveState": "Stagger",
+          "ID": "Stunned",
+          "Priority": -1,
+          "Position": [
+            null,
+            1.3315163e21,
+            2.095e-41
+          ]
+        }
+      }
+    ],
+    "BackgroundActions": [
+      {
+        "classname": "base/onhithandler",
+        "properties": {
+          "ActionID": "Stunned",
+          "Position": [
+            0.0,
+            0.05,
+            0.0
+          ]
+        }
+      }
+    ],
+    "InterruptHandler": {
+      "classname": "base/oninterrupthandler",
+      "properties": {}
+    },
+    "ExitBehaviorHandler": {
+      "classname": "ExitBehaviorAction",
+      "properties": {
+        "Position": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    }
+  }
+}

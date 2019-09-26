@@ -1,0 +1,148 @@
+{
+  "Parent": "base/standardbehavior",
+  "Name": "base/patrolunreachablebehavior",
+  "Properties": {
+    "ScanAlertDistance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ScanInterval": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AllowRun": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "ApproachRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachMoveStateMove": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "ApproachForceCloseRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachForceCompleteRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMoveStateIdle": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleMoveStateFidget": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleFidgetChance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleFidgetMinTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleFidgetMaxTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMinTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMaxTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "PathName": {
+      "Flags": 0,
+      "Type": 1
+    }
+  },
+  "StaticProperties": {},
+  "Methods": [
+    "begin"
+  ],
+  "PackageName": "base",
+  "DefaultValues": {
+    "ApproachForceCompleteRange": -1,
+    "IdleMinTime": 2,
+    "IdleFidgetChance": 0,
+    "IdleFidgetMinTime": 3,
+    "ApproachMoveStateMove": "",
+    "AllowRun": false,
+    "ID": "PatrolAmbientBehavior",
+    "BackgroundActions": [
+      {
+        "classname": "base/scanaction",
+        "properties": {
+          "OnScanAcquiredTarget": "FoundMeleeTarget",
+          "ScanAllowRescansWithTarget": true
+        }
+      }
+    ],
+    "IdleMoveStateFidget": "",
+    "ScanInterval": 1.5,
+    "IdleMoveStateIdle": "",
+    "ApproachRange": 150,
+    "OnAttackHandler": [],
+    "IdleMaxTime": 3,
+    "PathName": "",
+    "ComponentActions": [
+      {
+        "classname": "base/approachpatrolaction",
+        "properties": {
+          "IgnoreZTolerance": true,
+          "ID": "ApproachPatrol",
+          "Priority": 9,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "OnCompleteState": "Patrol"
+        }
+      },
+      {
+        "classname": "base/idleaction",
+        "properties": {
+          "ID": "Idle",
+          "ActionCode": 1,
+          "Priority": 1,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "ApproachForceCloseRange": -1,
+    "IdleFidgetMaxTime": 5,
+    "ScanAlertDistance": -1
+  },
+  "States": {
+    "Patrol": {
+      "methods": [
+        "getCurrentState"
+      ]
+    },
+    "FoundMeleeTarget": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "LostTarget": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    }
+  }
+}

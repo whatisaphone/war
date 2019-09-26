@@ -1,0 +1,55 @@
+.method In
+0x0001 .param_count 0
+0x0001 .line 23
+0x0006     inc_scope
+0x0007 .line 25
+0x000c     int 0
+0x0011     identifier Player
+0x0022     method getMount
+0x0035     var_assign ruin
+0x0044 .line 26
+0x0049     identifier ruin
+0x0058     null_object
+0x0059     equal
+0x005a     branch_false 0x00ae
+0x005f .line 28
+0x0064     nop
+0x0065     string "No Ruin"
+0x0077     int 1
+0x007c     identifier this
+0x008b     method doEvent
+0x009d     pop
+0x009e .line 29
+0x00a3     nop
+0x00a4 .line 30
+0x00a9     goto 0x0147
+0x00ae .label 0x0612
+0x00b3 .line 32
+0x00b8     nop
+0x00b9     string "Ruin"
+0x00c8     identifier ruin
+0x00d7     int 2
+0x00dc     identifier this
+0x00eb     method setVariableValue
+0x0106     pop
+0x0107 .line 33
+0x010c     string "Out"
+0x011a     int 1
+0x011f     identifier this
+0x012e     method doEvent
+0x0140     pop
+0x0141 .line 34
+0x0146     nop
+0x0147 .label 0x0613
+0x014c .line 36
+0x0151     dec_scope
+0x0152     return_null
+
+.method onEnd
+0x0001 .param_count 0
+0x0001 .line 38
+0x0006     nop
+0x0007 .line 40
+0x000c     nop
+0x000d     return_null
+

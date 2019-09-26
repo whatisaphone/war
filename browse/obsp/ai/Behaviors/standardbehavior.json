@@ -1,0 +1,165 @@
+{
+  "Parent": "AIBehavior",
+  "Name": "base/standardbehavior",
+  "Properties": {
+    "AttackLockDelayMin": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AttackLockDelayMax": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "PlayerAttackHandler": {
+      "Flags": 4,
+      "Type": 1
+    },
+    "PathBlockedBreakableHandler": {
+      "Flags": 4,
+      "Type": 1
+    },
+    "FallBlockedHandler": {
+      "Flags": 4,
+      "Type": 1
+    },
+    "OnAttackHandler": {
+      "Flags": 4,
+      "Type": 1
+    },
+    "PlayLowHealthWarning": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "DeathBlowHandler": {
+      "Flags": 4,
+      "Type": 1
+    },
+    "InteractiveHandler": {
+      "Flags": 4,
+      "Type": 1
+    },
+    "ImpactHandler": {
+      "Flags": 4,
+      "Type": 1
+    },
+    "PathBlockedReentryDelay": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "PathBlockedReentryBlocked": {
+      "Flags": 2,
+      "Type": 4
+    }
+  },
+  "StaticProperties": {},
+  "Methods": [
+    "findCompActionByID",
+    "findOnAttackedByID",
+    "onAttach",
+    "onDetach",
+    "begin",
+    "end",
+    "onBegin",
+    "onEnd",
+    "HeartbeatThink",
+    "isActionOKForState",
+    "onHit",
+    "onImpact",
+    "activateImpactHandler",
+    "onPlayerAttack",
+    "activatePlayerAttackHandler",
+    "onAttacked",
+    "activateOnAttackHandler",
+    "onPathBlockedBreakable",
+    "clearPathBlockedReentry",
+    "onInteractive",
+    "activateInteractiveHandler",
+    "onFallBlocked",
+    "activateFallBlockedHandler",
+    "onCinematicInLOS",
+    "onCinematicStart",
+    "onDeathBlow",
+    "getCurrentState"
+  ],
+  "PackageName": "base",
+  "DefaultValues": {
+    "AttackLockDelayMax": -1,
+    "AutoUpdateComponentActions": false,
+    "AttackLockDelayMin": -1,
+    "PathBlockedReentryBlocked": false,
+    "ID": "StandardBehavior",
+    "PlayerAttackHandler": null,
+    "FallBlockedHandler": null,
+    "PathBlockedReentryDelay": 1.2,
+    "ImpactHandler": {
+      "classname": "base/impactaction",
+      "properties": {
+        "ID": "Impact",
+        "Priority": 620,
+        "InterruptibleBy": [
+          "Death",
+          "Interactive"
+        ],
+        "Position": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "DeathBlowHandler": {
+      "classname": "base/deathblowaction",
+      "properties": {
+        "ID": "Death",
+        "ActionCode": 660,
+        "Priority": 660,
+        "Position": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "PlayLowHealthWarning": true,
+    "OnAttackHandler": [],
+    "PathBlockedBreakableHandler": null,
+    "UpdateInterval": 1.5,
+    "ExitBehaviorHandler": {
+      "classname": "base/exitbehavioraction",
+      "properties": {
+        "ID": "Exit",
+        "Priority": 640,
+        "Position": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "InteractiveHandler": {
+      "classname": "base/interactivestallaction",
+      "properties": {
+        "ID": "Interactive",
+        "Priority": 630,
+        "InterruptibleBy": [
+          "Death"
+        ],
+        "Position": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    }
+  },
+  "States": {
+    "Dead": {
+      "methods": [
+        "trySetAction",
+        "HeartbeatThink",
+        "updateComponentActions",
+        "onEnter"
+      ]
+    }
+  }
+}

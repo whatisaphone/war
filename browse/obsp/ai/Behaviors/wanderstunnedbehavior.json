@@ -1,0 +1,230 @@
+{
+  "Parent": "base/standardbehavior",
+  "Name": "base/wanderstunnedbehavior",
+  "Properties": {
+    "ApproachRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachMoveStateMove": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "ApproachForceCloseRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachForceCompleteRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMoveStateIdle": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleMoveStateFidget": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleFidgetChance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleFidgetMinTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleFidgetMaxTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMinTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMaxTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AnimMoveState": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "AnimMaxAngleDiff": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "StartMoveState": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "ClearObstacleMoveState": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "WanderPoint": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "WanderTimerStarted": {
+      "Flags": 0,
+      "Type": 4
+    }
+  },
+  "StaticProperties": {},
+  "Methods": [
+    "PickWanderPoint",
+    "begin",
+    "end",
+    "setIdle"
+  ],
+  "PackageName": "base",
+  "DefaultValues": {
+    "ApproachForceCompleteRange": -1,
+    "WanderPoint": null,
+    "IdleMinTime": 2,
+    "AnimMaxAngleDiff": -1,
+    "IdleFidgetChance": 0,
+    "IdleFidgetMinTime": 3,
+    "ApproachMoveStateMove": "",
+    "WanderTimerStarted": false,
+    "ID": "WanderAmbientBehavior",
+    "IdleMoveStateFidget": "",
+    "ClearObstacleMoveState": "usecombat",
+    "AnimMoveState": "",
+    "IdleMoveStateIdle": "",
+    "ApproachRange": 150,
+    "StartMoveState": "",
+    "PathBlockedBreakableHandler": {
+      "classname": "base/clearobstacleaction",
+      "properties": {
+        "ID": "Clear Obstacle",
+        "ActionCode": 5,
+        "Priority": 16,
+        "InterruptibleBy": [
+          "Death",
+          "Exit",
+          "Interactive",
+          "Impact"
+        ]
+      }
+    },
+    "UpdateInterval": -1,
+    "IdleMaxTime": 3,
+    "ComponentActions": [
+      {
+        "classname": "base/animaction",
+        "properties": {
+          "ID": "StunnedStart",
+          "Priority": 10,
+          "InterruptibleBy": [
+            "AND"
+          ],
+          "ValidStates": [
+            "Start"
+          ],
+          "OnCompleteState": "Wander",
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/approachwanderaction",
+        "properties": {
+          "IgnoreZTolerance": true,
+          "Priority": 9,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "ValidStates": [
+            "Wander",
+            "MovingIntoPosition"
+          ],
+          "OnCompleteState": "WanderPointReached",
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/defaultaction",
+        "properties": {
+          "ID": "WanderTooClose",
+          "Priority": 8,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "ValidStates": [
+            "Wander",
+            "MovingIntoPosition"
+          ],
+          "OnCompleteState": "WanderPointReached",
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/idleaction",
+        "properties": {
+          "ID": "Idle",
+          "Priority": 1,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "ApproachForceCloseRange": -1,
+    "IdleFidgetMaxTime": 5
+  },
+  "States": {
+    "Start": {
+      "methods": [
+        "getCurrentState"
+      ]
+    },
+    "Wander": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "NoWanderRegion": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "Resting": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "MovingIntoPosition": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "WanderPointReached": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    }
+  }
+}

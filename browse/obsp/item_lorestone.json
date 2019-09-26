@@ -1,0 +1,78 @@
+{
+  "Parent": "Item",
+  "Name": "item_lorestone/item_lorestone",
+  "Properties": {},
+  "StaticProperties": {
+    "Description": {
+      "Value": {
+        "classname": "ItemDesc",
+        "properties": {
+          "Label": "$LoreStone.PickupTitle",
+          "Description": "$LoreStone.PickupDetails",
+          "Container": "HealthStones",
+          "PickupIcon": "icon_lorestone",
+          "PickupTitle": "$LoreStone.PickupTitle",
+          "PickupDetails": "$LoreStone.PickupDetails",
+          "AddMethod": 4,
+          "MaxNumber": 10,
+          "DisplayDefaultPickupInfo": false,
+          "AutoGrab": true,
+          "GrabDistance": 100.0,
+          "Visual": "lorestone",
+          "Animations": {
+            "classname": "AnimationList",
+            "properties": {
+              "Animations": [
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "Name": "OnGround",
+                    "AnimationName": "LoreStone_Idle",
+                    "Looping": true,
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Lorestone_OnGround",
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 1,
+                    "Name": "OnPickup",
+                    "AnimationName": "LoreStone_Spin",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "Lorestone_OnPickup"
+                        }
+                      },
+                      {
+                        "classname": "DissolveTrigger",
+                        "properties": {
+                          "Duration": 45
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "Methods": [
+    "onPickup"
+  ],
+  "PackageName": "item_lorestone",
+  "DefaultValues": {},
+  "States": {}
+}

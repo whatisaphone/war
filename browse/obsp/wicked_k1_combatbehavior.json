@@ -1,0 +1,116 @@
+{
+  "classname": "base/tbehavior",
+  "properties": {
+    "ComponentActions": [
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "MoveState": "Strafe",
+          "ExitOnComplete": false,
+          "ID": "Strafe",
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "MinRange": 400.0,
+          "MaxRange": 10000.0,
+          "MoveState": "MoveTo",
+          "ID": "MoveTo",
+          "Priority": 2,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "AttackType": 1,
+          "Pressure": 4,
+          "MaxRange": 250.0,
+          "MaxHeight": 120.0,
+          "MoveState": "Attack - CaneStrike",
+          "RequireInView": true,
+          "AutoClose": true,
+          "PreferredDistance": 100.0,
+          "ID": "Attack2",
+          "Priority": 5,
+          "Chance": 0.5,
+          "InterruptibleBy": [
+            "Parry"
+          ],
+          "ResourceLock": "Cane Strike",
+          "MinLockTime": 2.0,
+          "MaxLockTime": 3.0,
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "AIGenericAction",
+        "properties": {
+          "MoveState": "Parry",
+          "ID": "Parry",
+          "Priority": -1,
+          "InterruptibleBy": [
+            "Parry"
+          ],
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "BackgroundActions": [
+      {
+        "classname": "base/onblockhandler",
+        "properties": {
+          "ActionID": "Parry",
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "InterruptHandler": {
+      "classname": "base/oninterrupthandler",
+      "properties": {
+        "Position": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "ExitBehaviorHandler": {
+      "classname": "ExitBehaviorAction",
+      "properties": {}
+    },
+    "Position": [
+      1.6715329e-10,
+      1.6715196e-10,
+      1.6715052e-10
+    ]
+  }
+}

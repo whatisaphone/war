@@ -1,0 +1,100 @@
+{
+  "Parent": "base/tmonster",
+  "Name": "bat_common/bat_common",
+  "Properties": {
+    "Grounded": {
+      "Flags": 2,
+      "Type": 4
+    },
+    "TransitionTime": {
+      "Flags": 2,
+      "Type": 3
+    },
+    "RagdollMoveState": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "ConstantEffectID": {
+      "Flags": 2,
+      "Type": 1
+    }
+  },
+  "StaticProperties": {
+    "AirRecoveryStates": {
+      "Value": [
+        604,
+        633
+      ]
+    },
+    "ConstantEffect": {
+      "Value": "Duskbat_Dust"
+    }
+  },
+  "Methods": [
+    "onCustomInit",
+    "onCustomRemove",
+    "onQueryHit",
+    "onQueryDamage",
+    "onAirRecovery",
+    "onCrossbladeGrindStart",
+    "DefensiveHover"
+  ],
+  "PackageName": "bat_common",
+  "DefaultValues": {
+    "TransitionTime": -1,
+    "Grounded": false,
+    "RagdollMoveState": ""
+  },
+  "States": {
+    "Combat": {
+      "methods": [
+        "onEnter"
+      ]
+    },
+    "Spawning": {
+      "methods": [
+        "CeilingDrop",
+        "CeilingIdle",
+        "SetDropDistance300",
+        "ShortCeilingIdle",
+        "SpawnDrop",
+        "SetDropDistance100",
+        "GroundGetUp",
+        "GroundIdle",
+        "CeilingInactive",
+        "WallIdle"
+      ]
+    },
+    "GroundWalkToTakeoff": {
+      "methods": [
+        "onBehaviorComplete",
+        "onEnter"
+      ]
+    },
+    "Dead": {
+      "methods": [
+        "onEnter"
+      ]
+    },
+    "Ambient": {
+      "methods": [
+        "onEnter"
+      ]
+    },
+    "CeilingInactive": {
+      "methods": [
+        "CeilingDrop",
+        "CeilingIdle",
+        "SetDropDistance300",
+        "canTarget",
+        "ShortCeilingIdle",
+        "onExit",
+        "onQueryInteractive",
+        "onBehaviorComplete",
+        "SetDropDistance100",
+        "onQueryDamage",
+        "onEnter"
+      ]
+    }
+  }
+}

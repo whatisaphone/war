@@ -1,0 +1,58 @@
+{
+  "Parent": "KinematicActor",
+  "Name": "dgn_door/dgn_keybarrier",
+  "Properties": {
+    "AutoPersist": {
+      "Flags": 4,
+      "Type": 4
+    }
+  },
+  "StaticProperties": {
+    "Description": {
+      "Value": {
+        "classname": "KinematicActorDesc",
+        "properties": {
+          "Visual": "KeyDoor_Ballroom_Medium",
+          "Animations": {
+            "classname": "AnimationList",
+            "properties": {
+              "Animations": [
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {}
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 1
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "Methods": [
+    "onInit"
+  ],
+  "PackageName": "dgn_door",
+  "DefaultValues": {
+    "AutoPersist": true
+  },
+  "States": {
+    "Open": {
+      "methods": [
+        "activate",
+        "onEnter"
+      ]
+    },
+    "Activated": {
+      "methods": [
+        "onAnimationComplete",
+        "onEnter"
+      ]
+    }
+  }
+}

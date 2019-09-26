@@ -1,0 +1,591 @@
+{
+  "Parent": "MonsterDesc",
+  "Name": "base/monsterbasedesc",
+  "Properties": {
+    "Ragdolls": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "AltModels": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "NearVolumeRadius": {
+      "Flags": 0,
+      "Type": 3
+    },
+    "SpawnBehavior": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "SpawnPathBehavior": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "SpawnSplineBehavior": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "AmbientBehaviorGuard": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "AmbientBehaviorWander": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "AmbientBehaviorPatrol": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "CombatBehavior": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "CombatOutBehavior": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "TargetUnreachableBehavior": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "DefensiveIdleBehavior": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "CinematicBehavior": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "AirRecoveryBehavior": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "InitialBehaviors": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "VOAlertedID": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "VOLowHealthID": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "VOWarDeathID": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "VOWarKnockbackID": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "VOHavocFormID": {
+      "Flags": 0,
+      "Type": 1
+    },
+    "VOOnDeathID": {
+      "Flags": 0,
+      "Type": 1
+    }
+  },
+  "StaticProperties": {},
+  "Methods": [],
+  "PackageName": "base",
+  "DefaultValues": {
+    "AmbientBehaviorGuard": {
+      "classname": "base/guardambientbehavior",
+      "properties": {
+        "PathBlockedBreakableHandler": {
+          "classname": "base/clearobstacleaction",
+          "properties": {
+            "ID": "Clear Obstacle",
+            "ActionCode": 5,
+            "Priority": 16,
+            "InterruptibleBy": [
+              "Death",
+              "Exit",
+              "Interactive",
+              "Impact"
+            ],
+            "Position": [
+              2.6208754e20,
+              2.1714976e-18,
+              1.8472921e20
+            ]
+          }
+        },
+        "DeathBlowHandler": {
+          "classname": "base/deathblowaction",
+          "properties": {
+            "ID": "Death",
+            "ActionCode": 660,
+            "Priority": 660,
+            "Position": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "InteractiveHandler": {
+          "classname": "base/interactivestallaction",
+          "properties": {
+            "ID": "Interactive",
+            "Priority": 630,
+            "InterruptibleBy": [
+              "Death"
+            ],
+            "Position": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "ImpactHandler": {
+          "classname": "base/impactaction",
+          "properties": {
+            "ID": "Impact",
+            "Priority": 620,
+            "InterruptibleBy": [
+              "Death",
+              "Interactive"
+            ],
+            "Position": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "ComponentActions": [
+          {
+            "classname": "base/approachhomeaction",
+            "properties": {
+              "IgnoreZTolerance": true,
+              "ID": "ReturnHome",
+              "Priority": 9,
+              "InterruptibleBy": [
+                "ANY"
+              ],
+              "OnCompleteState": "Guarding",
+              "Position": [
+                null,
+                0.0,
+                -1.5924013e-19
+              ]
+            }
+          },
+          {
+            "classname": "base/idleaction",
+            "properties": {
+              "ID": "Idle",
+              "ActionCode": 1,
+              "Priority": 1,
+              "InterruptibleBy": [
+                "ANY"
+              ],
+              "Position": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          }
+        ],
+        "BackgroundActions": [
+          {
+            "classname": "base/homescanaction",
+            "properties": {
+              "OnScanAcquiredTarget": "FoundMeleeTarget",
+              "OnScanAcquiredRangedTarget": "FoundRangedTarget",
+              "OnScanLostTarget": "",
+              "ScanLOSCheck": true,
+              "ScanMeleeOnly": false,
+              "ScanAllowRescansWithTarget": true,
+              "ID": "HomeScanForTarget",
+              "ValidStates": [
+                "MovingIntoPosition"
+              ],
+              "Position": [
+                1.5113662e-13,
+                1.5113662e-13,
+                1.5113662e-13
+              ]
+            }
+          },
+          {
+            "classname": "base/scanaction",
+            "properties": {
+              "OnScanAcquiredTarget": "FoundMeleeTarget",
+              "OnScanAcquiredRangedTarget": "FoundRangedTarget",
+              "OnScanLostTarget": "",
+              "ScanLOSCheck": true,
+              "ScanMeleeOnly": false,
+              "ScanAllowRescansWithTarget": true,
+              "ID": "Scan",
+              "ValidStates": [
+                "Guarding"
+              ],
+              "Position": [
+                4.8613497e30,
+                4.8603944e30,
+                7.5550794e31
+              ]
+            }
+          }
+        ],
+        "ExitBehaviorHandler": {
+          "classname": "base/exitbehavioraction",
+          "properties": {
+            "ID": "Exit",
+            "Priority": 640,
+            "Position": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "Position": [
+          1.8615984e25,
+          0.0024787446,
+          6.7907934e-33
+        ]
+      }
+    },
+    "TargetingFarRange": 5000,
+    "VOLowHealthID": -1,
+    "VOWarDeathID": -1,
+    "VOAlertedID": -1,
+    "TargetDamageScore": 100,
+    "InitialBehaviors": [
+      "setBehaviorAmbient",
+      "setBehaviorCombat",
+      "setBehaviorCinematic",
+      "setBehaviorDefensiveIdle"
+    ],
+    "TargetingCloseRange": 600,
+    "ShadowEffectName": "vfx_imbued_creature_shadow_md",
+    "VOWarKnockbackID": -1,
+    "NearVolumeRadius": -1,
+    "VOOnDeathID": -1,
+    "TargetDamageTimeLimit": 10.0,
+    "TargetFarDistanceScore": 25,
+    "Ragdolls": [],
+    "AmbientBehaviorPatrol": {
+      "classname": "base/patrolambientbehavior",
+      "properties": {
+        "PathBlockedBreakableHandler": {
+          "classname": "base/clearobstacleaction",
+          "properties": {
+            "ID": "Clear Obstacle",
+            "ActionCode": 5,
+            "Priority": 16,
+            "InterruptibleBy": [
+              "Death",
+              "Exit",
+              "Interactive",
+              "Impact"
+            ],
+            "Position": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "DeathBlowHandler": {
+          "classname": "base/deathblowaction",
+          "properties": {
+            "ID": "Death",
+            "ActionCode": 660,
+            "Priority": 660,
+            "Position": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "InteractiveHandler": {
+          "classname": "base/interactivestallaction",
+          "properties": {
+            "ID": "Interactive",
+            "Priority": 630,
+            "InterruptibleBy": [
+              "Death"
+            ],
+            "Position": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "ImpactHandler": {
+          "classname": "base/impactaction",
+          "properties": {
+            "ID": "Impact",
+            "Priority": 620,
+            "InterruptibleBy": [
+              "Death",
+              "Interactive"
+            ],
+            "Position": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "ComponentActions": [
+          {
+            "classname": "base/approachpatrolaction",
+            "properties": {
+              "IgnoreZTolerance": true,
+              "ID": "ApproachPatrol",
+              "Priority": 9,
+              "InterruptibleBy": [
+                "ANY"
+              ],
+              "OnCompleteState": "Patrol",
+              "Position": [
+                null,
+                7.7135135e31,
+                -21.848436
+              ]
+            }
+          },
+          {
+            "classname": "base/idleaction",
+            "properties": {
+              "ID": "Idle",
+              "ActionCode": 1,
+              "Priority": 1,
+              "InterruptibleBy": [
+                "ANY"
+              ],
+              "Position": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          }
+        ],
+        "BackgroundActions": [
+          {
+            "classname": "base/homescanaction",
+            "properties": {
+              "OnScanAcquiredTarget": "FoundMeleeTarget",
+              "OnScanAcquiredRangedTarget": "FoundRangedTarget",
+              "OnScanLostTarget": "",
+              "ScanLOSCheck": true,
+              "ScanMeleeOnly": false,
+              "ScanAllowRescansWithTarget": true,
+              "ID": "HomeScanForTarget",
+              "ValidStates": [
+                "MovingIntoPosition"
+              ],
+              "Position": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          {
+            "classname": "base/scanaction",
+            "properties": {
+              "OnScanAcquiredTarget": "FoundMeleeTarget",
+              "OnScanAcquiredRangedTarget": "FoundRangedTarget",
+              "OnScanLostTarget": "",
+              "ScanLOSCheck": true,
+              "ScanMeleeOnly": false,
+              "ScanAllowRescansWithTarget": true,
+              "ID": "Scan",
+              "ValidStates": [
+                "Patrol"
+              ],
+              "Position": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          }
+        ],
+        "ExitBehaviorHandler": {
+          "classname": "base/exitbehavioraction",
+          "properties": {
+            "ID": "Exit",
+            "Priority": 640,
+            "Position": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "Position": [
+          null,
+          8.9087774e-15,
+          5.4388207e34
+        ]
+      }
+    },
+    "TargetMaxMeleeDist": 6000,
+    "TargetCloseDistanceScore": 55,
+    "FireEffectName": "vfx_imbued_creature_fire_md",
+    "AltModels": [],
+    "AmbientBehaviorWander": {
+      "classname": "base/wanderambientbehavior",
+      "properties": {
+        "PathBlockedBreakableHandler": {
+          "classname": "base/clearobstacleaction",
+          "properties": {
+            "ID": "Clear Obstacle",
+            "ActionCode": 5,
+            "Priority": 16,
+            "InterruptibleBy": [
+              "Death",
+              "Exit",
+              "Interactive",
+              "Impact"
+            ]
+          }
+        },
+        "DeathBlowHandler": {
+          "classname": "base/deathblowaction",
+          "properties": {
+            "ID": "Death",
+            "ActionCode": 660,
+            "Priority": 660
+          }
+        },
+        "InteractiveHandler": {
+          "classname": "base/interactivestallaction",
+          "properties": {
+            "ID": "Interactive",
+            "Priority": 630,
+            "InterruptibleBy": [
+              "Death"
+            ]
+          }
+        },
+        "ImpactHandler": {
+          "classname": "base/impactaction",
+          "properties": {
+            "ID": "Impact",
+            "Priority": 620,
+            "InterruptibleBy": [
+              "Death",
+              "Interactive"
+            ]
+          }
+        },
+        "ComponentActions": [
+          {
+            "classname": "base/approachwanderaction",
+            "properties": {
+              "IgnoreZTolerance": true,
+              "Priority": 9,
+              "InterruptibleBy": [
+                "ANY"
+              ],
+              "ValidStates": [
+                "Wander",
+                "MovingIntoPosition"
+              ],
+              "OnCompleteState": "WanderPointReached",
+              "Position": [
+                0.0,
+                0.0,
+                -1.038998e-7
+              ]
+            }
+          },
+          {
+            "classname": "base/defaultaction",
+            "properties": {
+              "ID": "WanderTooClose",
+              "Priority": 8,
+              "InterruptibleBy": [
+                "ANY"
+              ],
+              "ValidStates": [
+                "Wander",
+                "MovingIntoPosition"
+              ],
+              "OnCompleteState": "WanderPointReached"
+            }
+          },
+          {
+            "classname": "base/idleaction",
+            "properties": {
+              "ID": "Idle",
+              "Priority": 1,
+              "InterruptibleBy": [
+                "ANY"
+              ]
+            }
+          }
+        ],
+        "BackgroundActions": [
+          {
+            "classname": "base/homescanaction",
+            "properties": {
+              "OnScanAcquiredTarget": "FoundMeleeTarget",
+              "OnScanAcquiredRangedTarget": "FoundRangedTarget",
+              "OnScanLostTarget": "",
+              "ScanLOSCheck": true,
+              "ScanMeleeOnly": false,
+              "ScanAllowRescansWithTarget": true,
+              "ID": "HomeScanForTarget",
+              "ValidStates": [
+                "MovingIntoPosition"
+              ]
+            }
+          },
+          {
+            "classname": "base/scanaction",
+            "properties": {
+              "OnScanAcquiredTarget": "FoundMeleeTarget",
+              "OnScanAcquiredRangedTarget": "FoundRangedTarget",
+              "OnScanLostTarget": "",
+              "ScanLOSCheck": true,
+              "ScanMeleeOnly": false,
+              "ScanAllowRescansWithTarget": true,
+              "ID": "Scan",
+              "ValidStates": [
+                "Wander",
+                "Resting",
+                "NoWanderRegion"
+              ]
+            }
+          }
+        ],
+        "ExitBehaviorHandler": {
+          "classname": "base/exitbehavioraction",
+          "properties": {
+            "ID": "Exit",
+            "Priority": 640
+          }
+        },
+        "Position": [
+          1.6617275e-33,
+          2.8365938e20,
+          7.0601806e28
+        ]
+      }
+    },
+    "IceEffectName": "vfx_imbued_creature_ice_md",
+    "VOHavocFormID": -1,
+    "HolyEffectName": "vfx_imbued_creature_holy_md"
+  },
+  "States": {}
+}

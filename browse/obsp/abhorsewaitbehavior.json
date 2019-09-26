@@ -1,0 +1,138 @@
+{
+  "Parent": "base/standardbehavior",
+  "Name": "abyssalhorsemen/abhorsewaitbehavior",
+  "Properties": {
+    "ApproachRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachMoveStateMove": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "ApproachForceCloseRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachForceCompleteRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMoveStateIdle": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleMoveStateFidget": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleFidgetChance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleFidgetMinTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleFidgetMaxTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMinTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMaxTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ClearObstacleMoveState": {
+      "Flags": 4,
+      "Type": 5
+    }
+  },
+  "StaticProperties": {},
+  "Methods": [
+    "begin"
+  ],
+  "PackageName": "abyssalhorsemen",
+  "DefaultValues": {
+    "ApproachForceCompleteRange": -1,
+    "IdleMinTime": 2,
+    "IdleFidgetChance": 0,
+    "IdleFidgetMinTime": 3,
+    "ApproachMoveStateMove": "",
+    "ID": "abhorsewaitbehavior",
+    "BackgroundActions": [],
+    "IdleMoveStateFidget": "",
+    "ClearObstacleMoveState": "StandardAttack",
+    "IdleMoveStateIdle": "",
+    "ApproachRange": 150,
+    "OnAttackHandler": [],
+    "PathBlockedBreakableHandler": {
+      "classname": "base/clearobstacleaction",
+      "properties": {
+        "ID": "Clear Obstacle",
+        "ActionCode": 5,
+        "Priority": 16,
+        "InterruptibleBy": [
+          "Death",
+          "Exit",
+          "Interactive",
+          "Impact"
+        ]
+      }
+    },
+    "IdleMaxTime": 3,
+    "ComponentActions": [
+      {
+        "classname": "base/approachaction",
+        "properties": {
+          "ID": "ApproachPatrol",
+          "Priority": 9,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "ValidStates": [
+            "SeekWaitPosition"
+          ],
+          "OnCompleteState": "Wait",
+          "Position": [
+            0.0,
+            0.0,
+            -1.038998e-7
+          ]
+        }
+      },
+      {
+        "classname": "base/idleaction",
+        "properties": {
+          "ID": "Idle",
+          "Priority": 1,
+          "ValidStates": [
+            "Wait"
+          ],
+          "Position": [
+            null,
+            0.0,
+            5.4388207e34
+          ]
+        }
+      }
+    ],
+    "ApproachForceCloseRange": -1,
+    "IdleFidgetMaxTime": 5
+  },
+  "States": {
+    "SeekWaitPosition": {
+      "methods": [
+        "getCurrentState"
+      ]
+    },
+    "Wait": {
+      "methods": [
+        "getCurrentState"
+      ]
+    }
+  }
+}

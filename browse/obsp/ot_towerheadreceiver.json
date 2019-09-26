@@ -1,0 +1,603 @@
+{
+  "Parent": "Character",
+  "Name": "towerhead/ot_towerheadreceiver",
+  "Properties": {
+    "HasBeam": {
+      "Flags": 2,
+      "Type": 4
+    },
+    "Shattered": {
+      "Flags": 2,
+      "Type": 4
+    }
+  },
+  "StaticProperties": {
+    "Description": {
+      "Value": {
+        "classname": "CharacterDesc",
+        "properties": {
+          "MoveStates": {
+            "classname": "CharacterMoveStateList",
+            "properties": {
+              "MoveStates": [
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "UseCameraNode": true,
+                    "Name": "Dead",
+                    "ID": 11,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 3,
+                        "Ease": 0.1
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "Idle",
+                    "ID": 2,
+                    "AnimController": {
+                      "classname": "AimAnimController",
+                      "properties": {
+                        "UpAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 0
+                          }
+                        },
+                        "ForwardAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 2
+                          }
+                        },
+                        "DownAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 1
+                          }
+                        },
+                        "UpAngle": 60.0
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "TurnSpeed": 100.0,
+                    "EnableIK": false,
+                    "InAir": true,
+                    "FaceTarget": true
+                  }
+                },
+                {
+                  "classname": "CharacterGenericStateDesc",
+                  "properties": {
+                    "Name": "Idle - Charge",
+                    "ID": 13,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 13
+                      }
+                    }
+                  }
+                },
+                {
+                  "classname": "MonsterIdleDesc",
+                  "properties": {
+                    "Name": "Idle Clone",
+                    "ID": 1,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {}
+                    }
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "IdleNoFace",
+                    "ID": 12,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 2
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "TurnSpeed": 100.0,
+                    "EnableIK": false,
+                    "InAir": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "UseCameraNode": true,
+                    "Name": "Impact",
+                    "ID": 10,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 5,
+                        "Ease": 0.1
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                },
+                {
+                  "classname": "CharacterGenericStateDesc",
+                  "properties": {
+                    "Name": "Impact - Charge",
+                    "ID": 15,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 15
+                      }
+                    }
+                  }
+                },
+                {
+                  "classname": "MonsterHoverStrafeDesc",
+                  "properties": {
+                    "StrafeHeightOffset": 0.0,
+                    "Name": "MoveTo",
+                    "ID": 9,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 2
+                      }
+                    },
+                    "MaxSpeed": 240.0,
+                    "FaceTarget": true
+                  }
+                },
+                {
+                  "classname": "CharacterGenericStateDesc",
+                  "properties": {
+                    "Name": "Shoot",
+                    "ID": 14,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 2
+                      }
+                    }
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "ShootBuildup",
+                    "ID": 3,
+                    "AnimController": {
+                      "classname": "AimAnimController",
+                      "properties": {
+                        "UpAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 8
+                          }
+                        },
+                        "ForwardAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 6
+                          }
+                        },
+                        "DownAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 7
+                          }
+                        },
+                        "UpAngle": 60.0
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "EnableIK": false,
+                    "InAir": true,
+                    "FaceTarget": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "ShootCommit",
+                    "ID": 4,
+                    "AnimController": {
+                      "classname": "AimAnimController",
+                      "properties": {
+                        "UpAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 0
+                          }
+                        },
+                        "ForwardAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 2
+                          }
+                        },
+                        "DownAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 1
+                          }
+                        },
+                        "UpAngle": 60.0
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "EnableIK": false,
+                    "InAir": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "ShootEnd",
+                    "ID": 6,
+                    "AnimController": {
+                      "classname": "AimAnimController",
+                      "properties": {
+                        "UpAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 0
+                          }
+                        },
+                        "ForwardAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 2
+                          }
+                        },
+                        "DownAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 1
+                          }
+                        },
+                        "UpAngle": 60.0
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "EnableIK": false,
+                    "InAir": true,
+                    "FaceTarget": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "DoCollision": false,
+                    "Name": "ShootLoop",
+                    "ID": 5,
+                    "AnimController": {
+                      "classname": "AimAnimController",
+                      "properties": {
+                        "UpAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 10
+                          }
+                        },
+                        "ForwardAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 4
+                          }
+                        },
+                        "DownAnimController": {
+                          "classname": "SimpleAnimController",
+                          "properties": {
+                            "Animation": 9
+                          }
+                        },
+                        "UpAngle": 60.0
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "EnableIK": false,
+                    "InAir": true,
+                    "FaceTarget": true
+                  }
+                }
+              ]
+            }
+          },
+          "Invincible": true,
+          "Visual": "towerhead",
+          "FactionID": 0,
+          "Animations": {
+            "classname": "AnimationList",
+            "properties": {
+              "Animations": [
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 13,
+                    "Name": "TowerHead_Charge_Idle",
+                    "AnimationName": "TowerHead_Charge_Idle",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "TowerHead_Charge_Idle"
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 0
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 2,
+                          "NoLoop": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 15,
+                    "Name": "TowerHead_Charge_Impact",
+                    "AnimationName": "TowerHead_Charge_Impact",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "TowerHead_Charge_Impact"
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 1
+                        }
+                      },
+                      {
+                        "classname": "SoundTrigger",
+                        "properties": {
+                          "SoundID": 3
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 3,
+                    "Name": "TowerHead_Death",
+                    "AnimationName": "TowerHead_Death"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 4,
+                    "Name": "TowerHead_Idle",
+                    "AnimationName": "TowerHead_Idle"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 1,
+                    "Name": "TowerHead_IdleD",
+                    "AnimationName": "TowerHead_IdleD"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "Name": "TowerHead_IdleU",
+                    "AnimationName": "TowerHead_IdleU"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 5,
+                    "Name": "TowerHead_Impact",
+                    "AnimationName": "TowerHead_Impact"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 12,
+                    "Name": "TowerHead_Move_Lt",
+                    "AnimationName": "TowerHead_Move_Lt"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 14,
+                    "Name": "TowerHead_Move_Rt",
+                    "AnimationName": "TowerHead_Move_Rt"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 2,
+                    "Name": "TowerHead_Shoot",
+                    "AnimationName": "TowerHead_Shoot"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 6,
+                    "Name": "TowerHead_Shoot_Intro",
+                    "AnimationName": "TowerHead_Shoot_Intro"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 9,
+                    "Name": "TowerHead_ShootD",
+                    "AnimationName": "TowerHead_ShootD"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 7,
+                    "Name": "TowerHead_ShootD_Intro",
+                    "AnimationName": "TowerHead_ShootD_Intro"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 10,
+                    "Name": "TowerHead_ShootU",
+                    "AnimationName": "TowerHead_ShootU"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 8,
+                    "Name": "TowerHead_ShootU_Intro",
+                    "AnimationName": "TowerHead_ShootU_Intro"
+                  }
+                }
+              ]
+            }
+          },
+          "Sounds": {
+            "classname": "SoundList",
+            "properties": {
+              "Sounds": [
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 0,
+                    "Name": "towerhead_electrical_crawl_loop",
+                    "Volume": 0.39990234,
+                    "Pitch": -2.0,
+                    "RandomPitch": 1.0,
+                    "Loop": true,
+                    "FadeInTime": 1.0,
+                    "FadeOutTime": 1.0,
+                    "Offset": true,
+                    "FollowActor": true,
+                    "Min": 500.0,
+                    "Max": 3500.0,
+                    "Priority": 1,
+                    "Sounds": "OT_Electrical_loop03,OT_Electrical_loop01,OT_Electrical_loop02",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 3,
+                    "Name": "towerhead_electrical_impact_arcs",
+                    "Volume": 0.9501953,
+                    "Pitch": -4.0,
+                    "RandomPitch": 2.0,
+                    "FollowActor": true,
+                    "Min": 500.0,
+                    "Max": 3000.0,
+                    "Priority": 0,
+                    "Sounds": "OT_elec_arc11,OT_elec_arc01,OT_elec_arc02,OT_elec_arc03,OT_elec_arc04,OT_elec_arc05,OT_elec_arc06,OT_elec_arc07,OT_elec_arc08,OT_elec_arc09,OT_elec_arc10",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 2,
+                    "Name": "towerhead_laser_absorbed_loop",
+                    "Volume": 0.5,
+                    "Loop": true,
+                    "Offset": true,
+                    "FollowActor": true,
+                    "Min": 750.0,
+                    "Max": 3000.0,
+                    "Priority": 0,
+                    "Sounds": "ot_laser_absorb_loop",
+                    "Group": "doodads"
+                  }
+                },
+                {
+                  "classname": "SoundDesc",
+                  "properties": {
+                    "ID": 1,
+                    "Name": "towerhead_laser_impact",
+                    "Volume": 0.9501953,
+                    "Pitch": -4.0,
+                    "RandomPitch": 2.0,
+                    "FollowActor": true,
+                    "Max": 3000.0,
+                    "Priority": 0,
+                    "Sounds": "ot_laser_impact_1",
+                    "Group": "doodads"
+                  }
+                }
+              ]
+            }
+          },
+          "Visuals": {
+            "classname": "VisualList",
+            "properties": {
+              "Visuals": [
+                {
+                  "classname": "VisualDesc",
+                  "properties": {
+                    "ID": 0,
+                    "VisualName": "OT_TowerHeadBreak"
+                  }
+                }
+              ]
+            }
+          },
+          "ForceBeamProjectileBlock": true
+        }
+      }
+    }
+  },
+  "Methods": [
+    "onInit",
+    "onBeamContactStart",
+    "onInteractiveComplete"
+  ],
+  "PackageName": "towerhead",
+  "DefaultValues": {
+    "Shattered": false,
+    "HasBeam": false
+  },
+  "States": {
+    "ContactStart": {
+      "methods": [
+        "onActionComplete",
+        "onEnter"
+      ]
+    }
+  }
+}

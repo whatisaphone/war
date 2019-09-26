@@ -1,0 +1,544 @@
+{
+  "Parent": "Monster",
+  "Name": "abyssalhorsemen/abyssal_napalm",
+  "Properties": {
+    "distThreshold": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "lifeTimer": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "currentTargetLoc": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "targetedObject": {
+      "Flags": 2,
+      "Type": 1
+    },
+    "moveMode": {
+      "Flags": 2,
+      "Type": 4
+    }
+  },
+  "StaticProperties": {
+    "Description": {
+      "Value": {
+        "classname": "MonsterDesc",
+        "properties": {
+          "MoveStates": {
+            "classname": "CharacterMoveStateList",
+            "properties": {
+              "MoveStates": [
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "AllowImpacts": false,
+                    "AllowDeath": false,
+                    "ElapsedTimeMin": 5.0,
+                    "ElapsedTimeMax": 5.0,
+                    "DoCollision": false,
+                    "Name": "DFB - Idle Warning",
+                    "ID": 3,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 12
+                      }
+                    },
+                    "GravityScale": 0.0
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "AllowImpacts": false,
+                    "AllowDeath": false,
+                    "Name": "Napalm - Death",
+                    "ID": 12,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 20
+                      }
+                    },
+                    "ConstrainToGround": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "AllowImpacts": false,
+                    "AllowDeath": false,
+                    "Name": "Napalm - Explode",
+                    "ID": 4,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 14
+                      }
+                    },
+                    "GravityScale": 10.0,
+                    "TurnSpeed": 0.0,
+                    "OnActionComplete": 11,
+                    "InAir": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "AllowImpacts": false,
+                    "AllowDeath": false,
+                    "Name": "Napalm - Explode to MoveTo",
+                    "ID": 14,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 14
+                      }
+                    },
+                    "GravityScale": 10.0,
+                    "TurnSpeed": 0.0,
+                    "OnActionComplete": 13,
+                    "InAir": true
+                  }
+                },
+                {
+                  "classname": "MonsterFallDesc",
+                  "properties": {
+                    "AllowImpacts": false,
+                    "AllowDeath": false,
+                    "Name": "Napalm - Fall",
+                    "ID": 5,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 19
+                      }
+                    },
+                    "GravityScale": 100.0
+                  }
+                },
+                {
+                  "classname": "MonsterIdleDesc",
+                  "properties": {
+                    "IdleTime": 3.0,
+                    "AllowStartTimeVariance": false,
+                    "Name": "Napalm - Firepillar",
+                    "ID": 11,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 19
+                      }
+                    },
+                    "GravityScale": 100.0,
+                    "TurnSpeed": 0.0,
+                    "InAir": true
+                  }
+                },
+                {
+                  "classname": "MonsterMoveToDesc",
+                  "properties": {
+                    "Range": 0.0,
+                    "UsePathing": false,
+                    "AllowImpacts": false,
+                    "AllowDeath": false,
+                    "Name": "Napalm - Firepillar Move",
+                    "ID": 13,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 19,
+                        "Ease": 0.0
+                      }
+                    },
+                    "Acceleration": 400.0,
+                    "MaxSpeed": 500.0,
+                    "TurnSpeed": 60.0,
+                    "ConstrainToGround": true,
+                    "FaceTarget": true,
+                    "FaceOnStart": true
+                  }
+                },
+                {
+                  "classname": "MonsterJumpToDesc",
+                  "properties": {
+                    "FaceTargetOnWindup": false,
+                    "Name": "Napalm - Move To",
+                    "ID": 10,
+                    "AnimController": {
+                      "classname": "JumpAnimController",
+                      "properties": {
+                        "LaunchAnimation": 12,
+                        "ApexAnimation": 12,
+                        "FallAnimation": 12
+                      }
+                    },
+                    "GravityScale": 0.75,
+                    "MaxSpeed": 1000.0,
+                    "InAir": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "AllowImpacts": false,
+                    "AllowDeath": false,
+                    "ElapsedTimeMin": 5.0,
+                    "ElapsedTimeMax": 5.0,
+                    "DoCollision": false,
+                    "Name": "Napalm - Spawn",
+                    "ID": 2,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 18
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "OnActionComplete": 10,
+                    "InAir": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "AllowImpacts": false,
+                    "DoCollision": false,
+                    "Name": "Orb - Destroyed",
+                    "ID": 8,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 16,
+                        "Ease": 0.0
+                      }
+                    },
+                    "InAir": true
+                  }
+                },
+                {
+                  "classname": "MonsterHoverStrafeDesc",
+                  "properties": {
+                    "StrafeHeightOffset": 20.0,
+                    "Range": 15.0,
+                    "UsePathing": false,
+                    "AllowImpacts": false,
+                    "AllowDeath": false,
+                    "DoCollision": false,
+                    "SlowTurnFactor": 0.025,
+                    "FastTurnFactor": 1.8,
+                    "Name": "Orb - Float",
+                    "ID": 6,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 15
+                      }
+                    },
+                    "Acceleration": 1200.0,
+                    "GravityScale": 0.0,
+                    "MaxSpeed": 2000.0,
+                    "MoveStrength": 0.0,
+                    "TurnSpeed": 720.0,
+                    "FaceTarget": true,
+                    "FaceOnStart": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "ElapsedTimeMin": 5.0,
+                    "ElapsedTimeMax": 5.0,
+                    "DoCollision": false,
+                    "Name": "Orb - Idle",
+                    "ID": 7,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 15
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "InAir": true
+                  }
+                },
+                {
+                  "classname": "MonsterGenericStateDesc",
+                  "properties": {
+                    "ElapsedTimeMin": 5.0,
+                    "ElapsedTimeMax": 5.0,
+                    "DoCollision": false,
+                    "Name": "Orb - Spawn",
+                    "ID": 9,
+                    "AnimController": {
+                      "classname": "SimpleAnimController",
+                      "properties": {
+                        "Animation": 17
+                      }
+                    },
+                    "GravityScale": 0.0,
+                    "OnActionComplete": 6,
+                    "InAir": true
+                  }
+                }
+              ]
+            }
+          },
+          "CharacterClass": "TargetHelper",
+          "HitInfos": {
+            "classname": "HitInfoList",
+            "properties": {
+              "HitInfos": [
+                {
+                  "classname": "HitInfo",
+                  "properties": {
+                    "ID": 93,
+                    "Name": "Barrage Projectile (15)",
+                    "WType": 2,
+                    "StrikeDirection": 116,
+                    "Power": 1,
+                    "KnockBackPower": 200.0,
+                    "KnockUpPower": 250.0,
+                    "EnvPowerScale": 5.0,
+                    "IsUnblockable": true,
+                    "DamageMod": 50
+                  }
+                },
+                {
+                  "classname": "HitInfo",
+                  "properties": {
+                    "ID": 95,
+                    "Name": "Napalm - Explosion (10)",
+                    "WType": 2,
+                    "HType": 2,
+                    "StrikeDirection": 13,
+                    "Power": 3,
+                    "KnockBackPower": 300.0,
+                    "KnockUpPower": 300.0,
+                    "EnvPowerScale": 5.0,
+                    "IsUnblockable": true
+                  }
+                },
+                {
+                  "classname": "HitInfo",
+                  "properties": {
+                    "ID": 94,
+                    "Name": "Napalm - FirePillar (15)",
+                    "WType": 2,
+                    "HType": 2,
+                    "StrikeDirection": 115,
+                    "Power": 3,
+                    "KnockBackPower": 300.0,
+                    "KnockUpPower": 250.0,
+                    "EnvPowerScale": 5.0,
+                    "IsUnblockable": true,
+                    "DamageMod": 50
+                  }
+                }
+              ]
+            }
+          },
+          "Visual": "AbyssalHorseTargetHelper",
+          "FactionID": 1,
+          "MoveWeight": 20.0,
+          "Animations": {
+            "classname": "AnimationList",
+            "properties": {
+              "Animations": [
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 20,
+                    "Name": "Napalm_Death",
+                    "Length": 5,
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "abyssalrider_napalm_explosion"
+                        }
+                      },
+                      {
+                        "classname": "EventTrigger",
+                        "properties": {
+                          "EventName": "removeNapalm",
+                          "IsRequired": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 14,
+                    "Name": "Napalm_Explode",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "abyssalrider_napalm_explosion"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 19,
+                    "Name": "Napalm_FirePillar",
+                    "AnimationName": "Loop",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "abyssalrider_napalm_explosion",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "abyssalrider_napalm_firepillar",
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "WeaponPhantomTrigger",
+                        "properties": {
+                          "Duration": 1000,
+                          "WeaponPhantom": "WeaponPhantom",
+                          "HitInfoID": 94,
+                          "HitTimeout": 1.0,
+                          "ForceImpactDir": true,
+                          "ImpactDir": 60.0,
+                          "NoLoop": true
+                        }
+                      },
+                      {
+                        "classname": "CameraShakeTrigger",
+                        "properties": {
+                          "HPower": 0.1,
+                          "VPower": 0.1,
+                          "Duration": 1000.0,
+                          "AttenStart": 100.0,
+                          "AttenEnd": 500.0,
+                          "BlurPower": 0.05
+                        }
+                      },
+                      {
+                        "classname": "Rumble3DTrigger",
+                        "properties": {
+                          "Effect": 14,
+                          "Duration": 0.1
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 12,
+                    "Name": "Napalm_Idle",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "abyssalrider_napalm_projectile"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 18,
+                    "Name": "Napalm_Spawn",
+                    "Triggers": [
+                      {
+                        "classname": "EffectTrigger",
+                        "properties": {
+                          "EffectName": "abyssalrider_napalm_shoot"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 16,
+                    "Name": "Orb_Destroyed",
+                    "Length": 120
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 15,
+                    "Name": "Orb_Float"
+                  }
+                },
+                {
+                  "classname": "AnimationDesc",
+                  "properties": {
+                    "ID": 17,
+                    "Name": "Orb_Spawn",
+                    "Length": 30
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "Methods": [
+    "onInit",
+    "setMoveMode",
+    "setHelperTarget"
+  ],
+  "PackageName": "abyssalhorsemen",
+  "DefaultValues": {
+    "moveMode": false,
+    "targetedObject": null,
+    "lifeTimer": 3.0,
+    "Name": "Abyssal_Napalm",
+    "currentTargetLoc": null,
+    "distThreshold": 50
+  },
+  "States": {
+    "moveMode": {
+      "methods": [
+        "endFuse",
+        "onEnter"
+      ]
+    },
+    "removeNapalm": {
+      "methods": [
+        "onEnter"
+      ]
+    },
+    "flyTowardsTarget": {
+      "methods": [
+        "endFuse",
+        "checkDistToTarget",
+        "onEnter"
+      ]
+    },
+    "explode": {
+      "methods": [
+        "onActionComplete",
+        "onEnter"
+      ]
+    }
+  }
+}

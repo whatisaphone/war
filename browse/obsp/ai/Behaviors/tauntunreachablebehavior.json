@@ -1,0 +1,242 @@
+{
+  "Parent": "base/standardbehavior",
+  "Name": "base/tauntunreachablebehavior",
+  "Properties": {
+    "ScanAlertDistance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ScanInterval": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AnimMoveState": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "TauntMoveState": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "TauntMinDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "TauntMaxDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "TauntMaxAngleDiff": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "FaceTargetAngleDiff": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "FaceTargetMoveStateTurnLeft": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "FaceTargetMoveStateTurnRight": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleMoveStateIdle": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleMinTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMaxTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMoveStateFidget": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleFidgetChance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleFidgetMinTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleFidgetMaxTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "BlockEnabled": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "BlockChance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "BlockMoveStateBlock": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "BlockMinDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "BlockMaxDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "BlockAttackTypes": {
+      "Flags": 4,
+      "Type": 1
+    },
+    "BlockUseMonsterBlockChance": {
+      "Flags": 4,
+      "Type": 4
+    }
+  },
+  "StaticProperties": {},
+  "Methods": [
+    "begin"
+  ],
+  "PackageName": "base",
+  "DefaultValues": {
+    "BlockAttackTypes": [
+      2,
+      3,
+      4
+    ],
+    "IdleMinTime": 2,
+    "BlockChance": 0.8,
+    "BlockEnabled": false,
+    "IdleFidgetChance": -1,
+    "IdleFidgetMinTime": -1,
+    "FaceTargetMoveStateTurnRight": "",
+    "TauntMoveState": "",
+    "FaceTargetAngleDiff": 180,
+    "BlockUseMonsterBlockChance": false,
+    "ID": "TauntUnreachable",
+    "BlockMoveStateBlock": "Block",
+    "BackgroundActions": [
+      {
+        "classname": "base/scanaction",
+        "properties": {
+          "OnScanAcquiredTarget": "FoundMeleeTarget",
+          "ScanMeleeOnly": false,
+          "ScanAllowRescansWithTarget": true,
+          "Position": [
+            7.3866335e-30,
+            3.59e-43,
+            null
+          ]
+        }
+      }
+    ],
+    "IdleMoveStateFidget": "",
+    "BlockMaxDelay": 3.0,
+    "BlockMinDelay": 1.0,
+    "AnimMoveState": "",
+    "TauntMaxAngleDiff": 180,
+    "TauntMaxDelay": 3,
+    "ScanInterval": 1.0,
+    "IdleMoveStateIdle": "Idle",
+    "TauntMinDelay": 1,
+    "OnAttackHandler": [
+      {
+        "classname": "base/blockaction",
+        "properties": {
+          "Priority": 11,
+          "InterruptibleBy": [
+            "Death"
+          ],
+          "ResourceLock": "Block",
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "FaceTargetMoveStateTurnLeft": "",
+    "IdleMaxTime": 3,
+    "ComponentActions": [
+      {
+        "classname": "base/animaction",
+        "properties": {
+          "ID": "Taunt",
+          "ActionCode": 2,
+          "Priority": 2,
+          "Chance": 0.8,
+          "InterruptibleBy": [
+            "Death",
+            "Interactive",
+            "Impact"
+          ],
+          "ResourceLock": "Taunt",
+          "Position": [
+            null,
+            1.2463289e-10,
+            4.8590648e35
+          ]
+        }
+      },
+      {
+        "classname": "base/facetargetaction",
+        "properties": {
+          "ID": "Face Target",
+          "Priority": 1,
+          "InterruptibleBy": [
+            "Death",
+            "Interactive",
+            "Impact"
+          ],
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/idleaction",
+        "properties": {
+          "Priority": 1,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "IdleFidgetMaxTime": -1,
+    "ScanAlertDistance": -1
+  },
+  "States": {
+    "Ready": {
+      "methods": [
+        "getCurrentState"
+      ]
+    },
+    "FoundMeleeTarget": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "LostTarget": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    }
+  }
+}

@@ -1,0 +1,498 @@
+{
+  "Parent": "base/standardbehavior",
+  "Name": "trauma/traumatargetunreachablebehavior",
+  "Properties": {
+    "OutsiderMode": {
+      "Flags": 4,
+      "Type": 4
+    },
+    "ScanAlertDistance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ScanInterval": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "GrabbableScanInterval": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "GrabbableDistGrabMin": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "GrabbableDistanceFactor": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "GrabbableDistToTargetMax": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachMoveStateMove": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "ApproachForceCloseRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ApproachForceCompleteRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "GrabApproachMoveStateMove": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "GrabLeftMoveState": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "GrabRightMoveState": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "LeftRangedAttackMoveStateAttack": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "LeftRangedAttackMinDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "LeftRangedAttackMaxDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "LeftRangedAttackMinRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "LeftRangedAttackMaxRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "RightRangedAttackMoveStateAttack": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "RightRangedAttackMinDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "RightRangedAttackMaxDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "RightRangedAttackMinRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "RightRangedAttackMaxRange": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "AnimMoveState": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "TauntMoveState": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "TauntMinDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "TauntMaxDelay": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "TauntMaxAngleDiff": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMoveStateIdle": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleMinTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMaxTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleMoveStateFidget": {
+      "Flags": 4,
+      "Type": 5
+    },
+    "IdleFidgetChance": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleFidgetMinTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "IdleFidgetMaxTime": {
+      "Flags": 4,
+      "Type": 3
+    },
+    "ClearObstacleMoveState": {
+      "Flags": 4,
+      "Type": 5
+    }
+  },
+  "StaticProperties": {},
+  "Methods": [
+    "begin"
+  ],
+  "PackageName": "trauma",
+  "DefaultValues": {
+    "ApproachForceCompleteRange": -1,
+    "OutsiderMode": false,
+    "IdleMinTime": 1.5,
+    "GrabRightMoveState": "Grab Actor Right",
+    "IdleFidgetChance": 0,
+    "IdleFidgetMinTime": 2,
+    "GrabApproachMoveStateMove": "MoveToTarget",
+    "LeftRangedAttackMoveStateAttack": "Throw Left",
+    "ApproachMoveStateMove": "MoveTo",
+    "TauntMoveState": "Taunt",
+    "LeftRangedAttackMaxRange": 2000,
+    "LeftRangedAttackMinRange": 0,
+    "ID": "TraumaTargetUnreachableBehavior",
+    "BackgroundActions": [
+      {
+        "classname": "base/scanaction",
+        "properties": {
+          "OnScanAcquiredTarget": "FoundMeleeTarget",
+          "ScanMeleeOnly": false,
+          "ScanAllowRescansWithTarget": true,
+          "ID": "UnreachableScan",
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/grabbablescanaction",
+        "properties": {
+          "OnScanAcquiredGrabbable": "ApproachGrabbable",
+          "OnScanLostGrabbable": "TargetUnreachableMode",
+          "ValidStates": [
+            "ApproachGrabbable",
+            "Searching",
+            "TargetUnreachableMode"
+          ],
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "RightRangedAttackMinDelay": 1.0,
+    "RightRangedAttackMaxDelay": 2.0,
+    "IdleMoveStateFidget": "",
+    "GrabbableDistanceFactor": 0.8,
+    "RightRangedAttackMaxRange": 2000,
+    "ClearObstacleMoveState": "StandardAttack",
+    "RightRangedAttackMinRange": 0,
+    "AnimMoveState": "",
+    "TauntMaxAngleDiff": 180,
+    "RightRangedAttackMoveStateAttack": "Throw Right",
+    "TauntMaxDelay": 5,
+    "ScanInterval": 1.5,
+    "LeftRangedAttackMinDelay": 1.0,
+    "GrabbableDistGrabMin": 600,
+    "IdleMoveStateIdle": "Idle",
+    "GrabbableDistToTargetMax": 2500,
+    "ApproachRange": 200,
+    "TauntMinDelay": 5,
+    "LeftRangedAttackMaxDelay": 2.0,
+    "OnAttackHandler": [],
+    "GrabLeftMoveState": "Grab Actor Left",
+    "PathBlockedBreakableHandler": {
+      "classname": "base/clearobstacleaction",
+      "properties": {
+        "ID": "Clear Obstacle",
+        "ActionCode": 5,
+        "Priority": 16,
+        "InterruptibleBy": [
+          "Death",
+          "Exit",
+          "Interactive",
+          "Impact"
+        ],
+        "Position": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "GrabbableScanInterval": 1.5,
+    "IdleMaxTime": 2.25,
+    "ComponentActions": [
+      {
+        "classname": "base/rangedattackaction",
+        "properties": {
+          "ID": "Left Ranged Attack",
+          "ActionCode": 5,
+          "Priority": 13,
+          "InterruptibleBy": [
+            "Death",
+            "Interactive",
+            "Impact"
+          ],
+          "ValidStates": [
+            "CarryItemLeft"
+          ],
+          "ResourceLock": "Attack",
+          "OnCompleteState": "GrabbleThrown",
+          "Position": [
+            4.7240987e-12,
+            5.4540794e37,
+            1.1892054e-10
+          ]
+        }
+      },
+      {
+        "classname": "base/rangedattackaction",
+        "properties": {
+          "ID": "Right Ranged Attack",
+          "ActionCode": 5,
+          "Priority": 13,
+          "InterruptibleBy": [
+            "Death",
+            "Interactive",
+            "Impact"
+          ],
+          "ValidStates": [
+            "CarryItemRight"
+          ],
+          "ResourceLock": "Attack",
+          "OnCompleteState": "GrabbleThrown",
+          "Position": [
+            null,
+            7.006224e22,
+            5.863111e13
+          ]
+        }
+      },
+      {
+        "classname": "trauma/traumaapproachgrabbableaction",
+        "properties": {
+          "ID": "Approach Grabbable",
+          "Priority": 13,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "ValidStates": [
+            "ApproachGrabbable"
+          ],
+          "OnCompleteState": "PickupGrabbable",
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/grabaction",
+        "properties": {
+          "OnPickedUpLeft": "CarryItemLeft",
+          "OnPickedUpRight": "CarryItemRight",
+          "ID": "Grab Item",
+          "ActionCode": 7,
+          "Priority": 13,
+          "InterruptibleBy": [
+            "Death",
+            "Interactive",
+            "Impact"
+          ],
+          "ValidStates": [
+            "PickupGrabbable"
+          ],
+          "ResourceLock": "Grab",
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/defaultaction",
+        "properties": {
+          "ID": "TooClose",
+          "Priority": 11,
+          "ValidStates": [
+            "ApproachGrabbable"
+          ],
+          "OnCompleteState": "PickupGrabbable",
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/defaultaction",
+        "properties": {
+          "ID": "LostGrabbable",
+          "Priority": 11,
+          "ValidStates": [
+            "PickupGrabbable"
+          ],
+          "OnCompleteState": "TargetUnreachableMode",
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/approachaction",
+        "properties": {
+          "ID": "Approach Carry Left",
+          "Priority": 11,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "ValidStates": [
+            "CarryItemLeft"
+          ],
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/approachaction",
+        "properties": {
+          "ID": "Approach Carry Right",
+          "Priority": 11,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "ValidStates": [
+            "CarryItemRight"
+          ],
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/animaction",
+        "properties": {
+          "ID": "Taunt",
+          "ActionCode": 2,
+          "Priority": 2,
+          "Chance": 0.9,
+          "InterruptibleBy": [
+            "Death",
+            "Interactive",
+            "Impact"
+          ],
+          "ResourceLock": "Taunt",
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "classname": "base/idleaction",
+        "properties": {
+          "ID": "Idle",
+          "ActionCode": 1,
+          "Priority": 1,
+          "InterruptibleBy": [
+            "ANY"
+          ],
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "ApproachForceCloseRange": 50000,
+    "IdleFidgetMaxTime": 4,
+    "ScanAlertDistance": 1500
+  },
+  "States": {
+    "PickupGrabbable": {
+      "methods": [
+        "getCurrentState"
+      ]
+    },
+    "CarryItemLeft": {
+      "methods": [
+        "getCurrentState"
+      ]
+    },
+    "CarryItemRight": {
+      "methods": [
+        "getCurrentState"
+      ]
+    },
+    "ApproachGrabbable": {
+      "methods": [
+        "getCurrentState"
+      ]
+    },
+    "FoundMeleeTarget": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "GrabbleThrown": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "Searching": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    },
+    "TargetUnreachableMode": {
+      "methods": [
+        "getCurrentState"
+      ]
+    },
+    "LostTarget": {
+      "methods": [
+        "getCurrentState",
+        "onEnter"
+      ]
+    }
+  }
+}
