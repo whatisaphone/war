@@ -1,4 +1,4 @@
-# <img src="https://static.giantbomb.com/uploads/scale_super/5/59682/1668270-war_darksiders_ps3360_psd39191.png" width="40%" align="right"> war
+# <img src="docs/war.png" width="40%" align="right"> war
 
 A tool that lets you view/edit [Darksiders] save files and game assets.
 
