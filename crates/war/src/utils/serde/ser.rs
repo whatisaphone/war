@@ -1,7 +1,10 @@
 use crate::{darksiders1::gfc, utils::serde::repr};
 use indexmap::IndexMap;
 use serde::{Serialize, Serializer};
-use std::collections::{HashMap, HashSet};
+use std::{
+    collections::{hash_map::DefaultHasher, HashMap, HashSet},
+    hash::{Hash, Hasher},
+};
 
 impl Serialize for gfc::Object {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
@@ -24,13 +27,22 @@ fn build_object_database(object: &gfc::Object) -> HashMap<*const gfc::Object, i3
     }
 
     let mut out = HashMap::new();
-    let mut next_id = 1;
-    for (ptr, count) in counts {
+    let mut next_seed = 1;
+    for (obj_index, (ptr, count)) in counts.into_iter().enumerate() {
         if count <= 1 {
             continue;
         }
-        let id = next_id;
-        next_id += 1;
+        let seed = next_seed;
+        next_seed += 1;
+
+        // Try to generate a random-ish ID that is deterministic, short, and unlikely to
+        // collide with other IDs from other saves. This makes it easier to mix data
+        // from multiple save files.
+        let mut hasher = DefaultHasher::new();
+        (seed, obj_index).hash(&mut hasher);
+        #[allow(clippy::cast_possible_truncation)]
+        let id = (hasher.finish() & 0xffff) as i32;
+
         out.insert(ptr, id);
     }
     out
