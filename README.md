@@ -10,10 +10,18 @@ A tool that lets you view/edit [Darksiders] save files and game assets.
 
 ## How to use
 
-Run `war --help` for the full list of commands. Or, continue reading for the guided tour.
+You have a couple options:
 
-- [Save editing](#save-editing)
-- [Asset extracting](#asset-extracting)
+1. [View the worlds/scripts online][browse]. Nothing to download, nothing to install.
+
+   [browse]: https://github.com/whatisaphone/war/tree/browse/output
+
+2. Run `war --help` for the full list of options.
+
+3. Continue reading below for the guided tour.
+
+    - [Save editing](#save-editing)
+    - [Asset extracting](#asset-extracting)
 
 ### Save editing
 
@@ -63,16 +71,7 @@ The game's worlds are stored in `/path/to/Darksiders/media/worlds.mnfst`. To ext
 war worlds decode <path-to-worlds.mnfst> <output-dir>
 ```
 
-The game's universe is broken into a hierarchy of **World** > **Region** > **Layer**, and that hierarchy will be preserved in the output directory tree. For example, in this partial output, the world is **overworld**, the region is **Council**, and the layer is **Lights**:
-
-```text
-output-dir/
-├─ overworld.json
-└─ overworld/
-   ├─ Council.json
-   └─ Council/
-      └─ Lights.json
-```
+See the [browse] readme for more info on what exactly these files are.
 
 #### Scripts
 
