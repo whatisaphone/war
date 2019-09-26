@@ -4,6 +4,13 @@ use failure::Error;
 use scroll::{Endian, Pread};
 use std::{convert::TryFrom, fmt};
 
+impl gfc::ScriptFunctions {
+    pub fn the_only_one(&self) -> &gfc::ScriptFunction {
+        assert!(!self.functions.is_empty());
+        self.functions.values().next().unwrap()
+    }
+}
+
 // Loosely based on `gfc::InsExecutor::run`.
 pub fn disassemble(
     function: &gfc::ScriptFunction,

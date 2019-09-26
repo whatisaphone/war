@@ -1,4 +1,4 @@
-use crate::{darksiders1::gfc, utils::darksiders1::script::disassemble};
+use crate::darksiders1::gfc;
 use indexmap::{indexmap, IndexMap};
 use serde::{Serialize, Serializer};
 use std::borrow::Cow;
@@ -73,7 +73,7 @@ fn ser_script_class(class: &gfc::ScriptClass) -> Repr<'_> {
     let methods = class
         .methods
         .iter()
-        .map(|m| (m.name.as_str(), ser_script_method(m)))
+        .map(|m| Repr::string(&m.name))
         .collect();
     let default_values = class
         .default_values
@@ -90,7 +90,7 @@ fn ser_script_class(class: &gfc::ScriptClass) -> Repr<'_> {
         "Name" => Repr::string(&class.name),
         "Properties" => Repr::Object(properties),
         "StaticProperties" => Repr::Object(static_properties),
-        "Methods" => Repr::Object(methods),
+        "Methods" => Repr::Array(methods),
         "PackageName" => Repr::string(&class.package_name),
         "DefaultValues" => Repr::Object(default_values),
         "States" => Repr::Object(states),
@@ -110,25 +110,11 @@ fn ser_script_static_property(property: &gfc::ScriptStaticProperty) -> Repr<'_> 
     })
 }
 
-fn ser_script_method(method: &gfc::ScriptMethod) -> Repr<'_> {
-    assert!(method.script.functions.functions.len() == 1);
-    let function = method.script.functions.functions.values().next().unwrap();
-    let listing = disassemble(function)
-        .unwrap()
-        .iter()
-        .map(|i| Repr::string(format!("0x{:04x} {}", i.offset, i.ins)))
-        .collect();
-    Repr::Array(listing)
-}
-
 fn ser_script_state(script_state: &gfc::ScriptState) -> Repr<'_> {
-    Repr::Object(
-        script_state
-            .methods
-            .iter()
-            .map(|(name, method)| (name.as_str(), ser_script_method(method)))
-            .collect(),
-    )
+    let methods = script_state.methods.keys().map(Repr::string).collect();
+    Repr::Object(indexmap! {
+        "methods" => Repr::Array(methods),
+    })
 }
 
 // Use our own type instead of `serde_json::Value`, so we can use `f32` instead

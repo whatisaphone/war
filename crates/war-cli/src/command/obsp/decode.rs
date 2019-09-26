@@ -30,7 +30,7 @@ impl Command {
                 path = path.replace("../", "").into();
             }
 
-            let path = self.output_path.join(format!("{}{}", path, ".json"));
+            let path = self.output_path.join(&*path);
             fs::create_dir_all(path.parent().unwrap())?;
             fs::write(&path, &data)?;
         }
