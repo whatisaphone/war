@@ -14,7 +14,7 @@ You have a couple options:
 
 1. [View the worlds/scripts online][browse]. Nothing to download, nothing to install.
 
-   [browse]: https://github.com/whatisaphone/war/tree/browse/output
+   [browse]: https://github.com/whatisaphone/war/tree/browse/browse
 
 2. Run `war --help` for the full list of options.
 

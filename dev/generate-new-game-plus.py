@@ -38,7 +38,7 @@ def main():
 
         out_json_path = 'dsauto.json'
         out_dsav_path = 'dsauto.dsav'
-        Path(out_json_path).write_text(json.dumps(save), 'utf-8')
+        Path(out_json_path).write_text(json.dumps(save, indent=2), 'utf-8')
         run(['cargo', 'run', '--', 'dsav', 'encode', out_json_path, out_dsav_path])
 
 
