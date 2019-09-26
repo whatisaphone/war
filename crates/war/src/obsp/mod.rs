@@ -27,7 +27,9 @@ pub fn read(file: impl Read + Seek) -> Result<Vec<(String, String)>, Error> {
             files.push((path.clone() + ".json", json));
 
             let listing = build_listing(&class)?;
-            files.push((path + ".s", listing));
+            if !listing.is_empty() {
+                files.push((path + ".s", listing));
+            }
         } else {
             let object = gfc::OCClassManager::read_object(&mut packfile, &info)?;
             let json = serde_json::to_string_pretty(&Lossy(&object))?;
@@ -76,11 +78,25 @@ mod tests {
     fn smoke_test() -> Result<(), Error> {
         let files = obsp::read(open_fixture()?)?;
 
+        // Test a random class file
         let (_, war_json) = files.iter().find(|(k, _v)| k == "war.json").unwrap();
         assert!(war_json.contains("base/merchantinventorydefault"));
 
+        // Test a random object file
+        let (_, obj_json) = files.iter().find(|(k, _v)| k == "uisounds.json").unwrap();
+        assert!(obj_json.contains("Music_Darksiders_Secret04"));
+
+        // Test a random script file
         let (_, war_s) = files.iter().find(|(k, _v)| k == "war.s").unwrap();
         assert!(war_s.contains("IncrementNumberOfKills"));
+
+        // Test that a script exists, but its neighbor script with no methods is skipped
+        // (so we don't output a ton of zero-length files).
+        let non_empty = files.iter().find(|(k, _v)| k == "challenges/challenge.s");
+        let empty = files
+            .iter()
+            .find(|(k, _v)| k == "challenges/challenge_aerial.s");
+        assert!(non_empty.is_some() && empty.is_none());
         Ok(())
     }
 
