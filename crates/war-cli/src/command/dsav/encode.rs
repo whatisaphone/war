@@ -7,14 +7,20 @@ use war::dsav;
 #[derive(StructOpt)]
 pub struct Command {
     /// The source JSON file to read.
-    ///
-    /// The output .dsav file will be placed alongside this input file.
     input_path: PathBuf,
+    /// The path to the output .dsave file.
+    ///
+    /// If omitted, the output will be written in the same directory as the
+    /// input file.
+    output_path: Option<PathBuf>,
 }
 
 impl Command {
     pub fn run(self) -> Result<(), Error> {
-        let output_path = self.input_path.with_extension("dsav");
+        let output_path = match self.output_path {
+            Some(p) => p,
+            None => self.input_path.with_extension("dsav"),
+        };
 
         backup_file_if_no_backup_exists(&output_path)?;
 

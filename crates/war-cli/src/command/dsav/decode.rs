@@ -6,14 +6,20 @@ use war::dsav;
 #[derive(StructOpt)]
 pub struct Command {
     /// The source .dsav file to decode.
-    ///
-    /// The output JSON file will be placed alongside this input file.
     input_path: PathBuf,
+    /// The path to the output JSON file.
+    ///
+    /// If omitted, the output will be written in the same directory as the
+    /// input file.
+    output_path: Option<PathBuf>,
 }
 
 impl Command {
     pub fn run(self) -> Result<(), Error> {
-        let output_path = self.input_path.with_extension("json");
+        let output_path = match self.output_path {
+            Some(p) => p,
+            None => self.input_path.with_extension("json"),
+        };
 
         let mut file = io::BufReader::new(fs::File::open(&self.input_path)?);
         let save = dsav::read(&mut file)?;
