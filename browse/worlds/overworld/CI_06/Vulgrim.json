@@ -6,74 +6,533 @@
       "properties": {
         "Objects": [
           {
+            "classname": "base/waypoint",
+            "properties": {
+              "Position": [
+                27316.58,
+                -12580.18,
+                196.68
+              ],
+              "Rotation": [
+                0.0,
+                -0.0,
+                117.999916
+              ],
+              "Color": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "Render": true,
+              "ObjectID": 15,
+              "RegionID": 15,
+              "LayerID": 20,
+              "Name": "CI_06_SerpentHole_Start_01"
+            }
+          },
+          {
+            "classname": "base/triggerregion",
+            "properties": {
+              "FilterList": [
+                "Player"
+              ],
+              "Position": [
+                27776.225,
+                -12246.894,
+                357.33832
+              ],
+              "Scale": [
+                225.0,
+                225.0,
+                300.0
+              ],
+              "Shape": 3,
+              "ObjectID": 14,
+              "RegionID": 15,
+              "LayerID": 20,
+              "Name": "CI_06_SerpentHoleTrig"
+            }
+          },
+          {
+            "classname": "vulgrim/vulgriminteractiveregion",
+            "properties": {
+              "HUDText": "$Interact.TalkToVulgrim",
+              "HUDTextPowerAttack": "$Interact.SerpentHole",
+              "Position": [
+                27778.863,
+                -12244.287,
+                289.0883
+              ],
+              "Rotation": [
+                -3.0,
+                0.0,
+                0.0
+              ],
+              "Scale": [
+                250.0,
+                250.0,
+                100.0
+              ],
+              "Shape": 3,
+              "ObjectID": 13,
+              "RegionID": 15,
+              "LayerID": 20,
+              "Name": "VulgrimIntRegion_CI_06"
+            }
+          },
+          {
+            "classname": "base/monsterzonebarrier",
+            "properties": {
+              "FilterList": [
+                "wicked_male/wicked_male",
+                "wicked_female/wicked_female",
+                "wicked_fat/wicked_fat",
+                "wicked_fat_ravenous/ravenous",
+                "duskbat/duskbat"
+              ],
+              "Position": [
+                26795.88,
+                -12744.92,
+                233.07
+              ],
+              "Rotation": [
+                0.0,
+                -0.0,
+                38.0
+              ],
+              "Scale": [
+                278.0,
+                394.0,
+                376.0
+              ],
+              "Shape": 1,
+              "ObjectID": 9,
+              "RegionID": 15,
+              "LayerID": 20,
+              "Name": "CI_06_Vulgrim_MonsterBarrier"
+            }
+          },
+          {
             "classname": "base/visscriptmodulesystem",
             "properties": {
               "ModuleSystem": {
                 "classname": "ModuleSystem",
                 "properties": {
-                  "EntityIDGen": 3,
+                  "EntityIDGen": 45,
                   "Entities": [
                     {
-                      "classname": "ExternalCallModule",
+                      "classname": "base/merchantdismissmerchantmodule",
                       "properties": {
-                        "EventName": "SetWatcher",
-                        "EventLinks": [
-                          [
-                            0,
-                            2,
-                            0
-                          ]
-                        ],
                         "ID": 1,
-                        "LocationX": 168,
-                        "LocationY": 288
+                        "Comment": "Dismisses vulgrim",
+                        "LocationX": 308,
+                        "LocationY": 243
                       }
                     },
                     {
-                      "classname": "base/dowatcherdialogmodule",
+                      "classname": "InteractiveRegionModule",
                       "properties": {
-                        "Dialog": "vo_watcher_start_area_06",
+                        "InteractiveRegionList": [
+                          "VulgrimIntRegion_CI_06"
+                        ],
                         "EventLinks": [
+                          [
+                            0,
+                            41,
+                            0
+                          ],
+                          [
+                            1,
+                            42,
+                            0
+                          ]
+                        ],
+                        "ID": 3,
+                        "LocationX": 308,
+                        "LocationY": 103
+                      }
+                    },
+                    {
+                      "classname": "TriggerEventModule",
+                      "properties": {
+                        "WorldObjects": [
+                          "VulgrimTriggerRegion_CI_06"
+                        ],
+                        "WorldObject": "-CONVERTED-",
+                        "EventLinks": [
+                          [
+                            1,
+                            1,
+                            0
+                          ],
                           [
                             0,
                             3,
                             0
+                          ],
+                          [
+                            1,
+                            3,
+                            1
+                          ],
+                          [
+                            0,
+                            10,
+                            0
+                          ],
+                          [
+                            0,
+                            12,
+                            0
                           ]
                         ],
-                        "ID": 2,
-                        "Comment": "vo_watcher_start_area_06",
-                        "LocationX": 437,
-                        "LocationY": 288
+                        "ID": 9,
+                        "Comment": "CI_06_Trigger",
+                        "LocationX": -206,
+                        "LocationY": 103
                       }
                     },
                     {
-                      "classname": "base/setdefaultwatcherdialogmodule",
+                      "classname": "base/merchantsummonmerchantmodule",
                       "properties": {
-                        "Dialog": "vo_watcher_start_area_07",
-                        "ID": 3,
-                        "LocationX": 690,
-                        "LocationY": 288
+                        "SpawnPoint": "VulgrimSpawnPoint_CI_06",
+                        "ID": 10,
+                        "Comment": "Summon Vulgrim (ci06)",
+                        "LocationX": 307,
+                        "LocationY": -1
+                      }
+                    },
+                    {
+                      "classname": "VisScriptCallModule",
+                      "properties": {
+                        "VisualScriptSystemName": "VulgrimScript",
+                        "ExternalCallName": "LoadVulgrimItemList",
+                        "ID": 11,
+                        "Comment": "LoadVulgrimItemList",
+                        "LocationX": 606,
+                        "LocationY": -1
+                      }
+                    },
+                    {
+                      "classname": "SaveDataModule",
+                      "properties": {
+                        "FlagInfoList": [
+                          {
+                            "classname": "FlagInfo",
+                            "properties": {
+                              "FlagLevel": "Global",
+                              "FlagName": "CI_06_VulgrimLocated"
+                            }
+                          }
+                        ],
+                        "EventLinks": [
+                          [
+                            1,
+                            15,
+                            0
+                          ]
+                        ],
+                        "ID": 12,
+                        "Comment": "CI_06_VulgrimLocated",
+                        "LocationX": 307,
+                        "LocationY": -155
+                      }
+                    },
+                    {
+                      "classname": "SaveDataModule",
+                      "properties": {
+                        "FlagInfoList": [
+                          {
+                            "classname": "FlagInfo",
+                            "properties": {
+                              "FlagLevel": "Global",
+                              "FlagName": "CI_06_VulgrimLocated"
+                            }
+                          }
+                        ],
+                        "EventLinks": [
+                          [
+                            3,
+                            45,
+                            0
+                          ]
+                        ],
+                        "ID": 14,
+                        "Comment": "CI_06_VulgrimLocated",
+                        "LocationX": 715,
+                        "LocationY": -155
+                      }
+                    },
+                    {
+                      "classname": "base/giveitemmodule",
+                      "properties": {
+                        "Item": "base/CI_06_Teleport",
+                        "HidePopup": false,
+                        "EventLinks": [
+                          [
+                            0,
+                            14,
+                            1
+                          ]
+                        ],
+                        "ID": 15,
+                        "Comment": "CI_06_Teleport",
+                        "LocationX": 531,
+                        "LocationY": -132
+                      }
+                    },
+                    {
+                      "classname": "StartModule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            36,
+                            0
+                          ]
+                        ],
+                        "ID": 34,
+                        "LocationX": -1099,
+                        "LocationY": 80
+                      }
+                    },
+                    {
+                      "classname": "TriggerEventModule",
+                      "properties": {
+                        "WorldObjects": [
+                          "CI_06_SerpentHoleTrig",
+                          ""
+                        ],
+                        "Enable": false,
+                        "WorldObject": "-CONVERTED-",
+                        "EventLinks": [
+                          [
+                            0,
+                            37,
+                            1
+                          ],
+                          [
+                            1,
+                            40,
+                            0
+                          ],
+                          [
+                            1,
+                            9,
+                            0
+                          ]
+                        ],
+                        "ID": 35,
+                        "Comment": "disabled on start",
+                        "LocationX": -663,
+                        "LocationY": -66
+                      }
+                    },
+                    {
+                      "classname": "SaveDataModule",
+                      "properties": {
+                        "FlagInfoList": [
+                          {
+                            "classname": "FlagInfo",
+                            "properties": {
+                              "FlagLevel": "Global",
+                              "FlagName": "SerpentHoleTaken"
+                            }
+                          }
+                        ],
+                        "EventLinks": [
+                          [
+                            0,
+                            35,
+                            0
+                          ],
+                          [
+                            0,
+                            9,
+                            1
+                          ]
+                        ],
+                        "ID": 36,
+                        "Comment": "SerpentHoleTaken",
+                        "LocationX": -899,
+                        "LocationY": 80
+                      }
+                    },
+                    {
+                      "classname": "SaveDataModule",
+                      "properties": {
+                        "FlagInfoList": [
+                          {
+                            "classname": "FlagInfo",
+                            "properties": {
+                              "FlagLevel": "Global",
+                              "FlagName": "SerpentHoleTaken",
+                              "FlagValue": "False"
+                            }
+                          }
+                        ],
+                        "EventLinks": [
+                          [
+                            3,
+                            39,
+                            0
+                          ]
+                        ],
+                        "ID": 37,
+                        "Comment": "SerpentHoleTaken = false",
+                        "LocationX": -387,
+                        "LocationY": -138
+                      }
+                    },
+                    {
+                      "classname": "base/autosavemodule",
+                      "properties": {
+                        "ID": 38,
+                        "LocationX": 19,
+                        "LocationY": -92
+                      }
+                    },
+                    {
+                      "classname": "base/setspawnpointmodule",
+                      "properties": {
+                        "Region": "CI_06",
+                        "SpawnPoint": "CI_06_SerpentHole_Start_01",
+                        "SpawnLoadRegion": "StartLoadRegion_Vulgrim",
+                        "EventLinks": [
+                          [
+                            0,
+                            38,
+                            0
+                          ]
+                        ],
+                        "ID": 39,
+                        "LocationX": -190,
+                        "LocationY": -92
+                      }
+                    },
+                    {
+                      "classname": "base/oneshotmodule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            35,
+                            1
+                          ]
+                        ],
+                        "ID": 40,
+                        "LocationX": -618,
+                        "LocationY": 156
+                      }
+                    },
+                    {
+                      "classname": "base/gotovulgrimmodule",
+                      "properties": {
+                        "ID": 41,
+                        "LocationX": 628,
+                        "LocationY": 76
+                      }
+                    },
+                    {
+                      "classname": "base/showmenumodule",
+                      "properties": {
+                        "MenuName": "ui_teleport_menu/teleportmenu",
+                        "UICategory": "Teleport",
+                        "ID": 42,
+                        "Comment": "Teleport menu",
+                        "LocationX": 628,
+                        "LocationY": 160
+                      }
+                    },
+                    {
+                      "classname": "StartModule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            3,
+                            1
+                          ]
+                        ],
+                        "ID": 44,
+                        "LocationX": -149,
+                        "LocationY": 316
+                      }
+                    },
+                    {
+                      "classname": "VisScriptCallModule",
+                      "properties": {
+                        "VisualScriptSystemName": "CI_06_MM_VSM",
+                        "ExternalCallName": "ShowVulgrim",
+                        "ID": 45,
+                        "Comment": "ShowVulgrim",
+                        "LocationX": 940,
+                        "LocationY": -109
                       }
                     }
                   ],
-                  "ViewXOffset": -157.02534,
-                  "ViewYOffset": -15.583084,
-                  "ViewZoom": 1.2999998
+                  "ViewXOffset": 838.5637,
+                  "ViewYOffset": 168.51666,
+                  "ViewZoom": 0.88000095,
+                  "ModuleIDGen": 1065353216
                 }
               },
               "Position": [
-                -4359.503,
-                -27216.994,
-                494.39105
+                27731.139,
+                -12237.243,
+                371.08832
+              ],
+              "ObjectID": 5,
+              "RegionID": 15,
+              "LayerID": 20,
+              "Name": "CI_06_VulgrimScript"
+            }
+          },
+          {
+            "classname": "base/triggerregion",
+            "properties": {
+              "FilterList": [
+                "Player"
+              ],
+              "Position": [
+                27776.225,
+                -12246.894,
+                288.08832
+              ],
+              "Scale": [
+                591.0,
+                591.0,
+                300.0
+              ],
+              "Shape": 3,
+              "ObjectID": 3,
+              "RegionID": 15,
+              "LayerID": 20,
+              "Name": "VulgrimTriggerRegion_CI_06"
+            }
+          },
+          {
+            "classname": "base/waypoint",
+            "properties": {
+              "Position": [
+                27778.902,
+                -12243.535,
+                288.0883
+              ],
+              "Rotation": [
+                0.0,
+                -0.0,
+                178.00029
               ],
               "ObjectID": 2,
-              "LayerID": 36,
-              "Name": "CI_01_VSM_Watcher_PostGate"
+              "RegionID": 15,
+              "LayerID": 20,
+              "Name": "VulgrimSpawnPoint_CI_06"
             }
           }
         ]
       }
     },
-    "NextObjectID": 2
+    "NextObjectID": 15
   }
 }

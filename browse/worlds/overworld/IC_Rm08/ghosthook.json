@@ -3,8 +3,259 @@
   "properties": {
     "Root": {
       "classname": "WorldGroup",
-      "properties": {}
+      "properties": {
+        "Objects": [
+          {
+            "classname": "ic_rm08_gc/ic_gear_casket",
+            "properties": {
+              "ItemType": 3,
+              "Heading": -8.537736e-7,
+              "HitPoints": 75.0,
+              "Inventory": {
+                "classname": "Inventory",
+                "properties": {}
+              },
+              "Position": [
+                -30948.297,
+                20027.39,
+                1332.3168
+              ],
+              "Rotation": [
+                0.0,
+                0.0,
+                -8.537736e-7
+              ],
+              "ObjectID": 8,
+              "RegionID": 153,
+              "LayerID": 8,
+              "Name": "IC_Rm08_GhostHookChest"
+            }
+          },
+          {
+            "classname": "base/visscriptmodulesystem",
+            "properties": {
+              "ModuleSystem": {
+                "classname": "ModuleSystem",
+                "properties": {
+                  "EntityIDGen": 20,
+                  "Entities": [
+                    {
+                      "classname": "PopSpawnPointsModule",
+                      "properties": {
+                        "EncounterName": "IC_Rm08_GhostHookSpawns",
+                        "EventLinks": [
+                          [
+                            0,
+                            3,
+                            0
+                          ]
+                        ],
+                        "VariableLinks": [
+                          [
+                            false,
+                            0,
+                            2
+                          ]
+                        ],
+                        "ID": 1,
+                        "LocationX": 384,
+                        "LocationY": 187
+                      }
+                    },
+                    {
+                      "classname": "VisScriptVariableWorldObjectList",
+                      "properties": {
+                        "ID": 2,
+                        "LocationX": 563,
+                        "LocationY": 355
+                      }
+                    },
+                    {
+                      "classname": "SpawnMonsterEventModule",
+                      "properties": {
+                        "VariableLinks": [
+                          [
+                            true,
+                            0,
+                            2
+                          ]
+                        ],
+                        "ID": 3,
+                        "LocationX": 771,
+                        "LocationY": 187
+                      }
+                    },
+                    {
+                      "classname": "AttachEventModule",
+                      "properties": {
+                        "ObjectNames": [
+                          "IC_Rm08_GhostHookChest"
+                        ],
+                        "EventNames": [
+                          "onInteractiveComplete"
+                        ],
+                        "EventLinks": [
+                          [
+                            0,
+                            8,
+                            0
+                          ],
+                          [
+                            0,
+                            10,
+                            0
+                          ]
+                        ],
+                        "ID": 4,
+                        "LocationX": -161,
+                        "LocationY": 187
+                      }
+                    },
+                    {
+                      "classname": "InvokeMethodModule",
+                      "properties": {
+                        "ObjectNames": [
+                          "IC_Rm08_GhostHookCorpse"
+                        ],
+                        "MethodName": "onGhosthookInteractive",
+                        "ID": 5,
+                        "LocationX": 299,
+                        "LocationY": 22
+                      }
+                    },
+                    {
+                      "classname": "StartModule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            4,
+                            0
+                          ]
+                        ],
+                        "ID": 7,
+                        "LocationX": -333,
+                        "LocationY": 187
+                      }
+                    },
+                    {
+                      "classname": "base/oneshotmodule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            9,
+                            0
+                          ],
+                          [
+                            0,
+                            1,
+                            0
+                          ]
+                        ],
+                        "ID": 8,
+                        "LocationX": 101,
+                        "LocationY": 187
+                      }
+                    },
+                    {
+                      "classname": "VisScriptCallModule",
+                      "properties": {
+                        "VisualScriptSystemName": "VSM_Achievements",
+                        "ExternalCallName": "ReachOutAndTouchSomebody",
+                        "ID": 9,
+                        "Comment": "ReachOutAndTouchSomebody",
+                        "LocationX": 304,
+                        "LocationY": 346
+                      }
+                    },
+                    {
+                      "classname": "AccumulatorModule",
+                      "properties": {
+                        "CountTo": 2,
+                        "EventLinks": [
+                          [
+                            0,
+                            16,
+                            0
+                          ]
+                        ],
+                        "ID": 10,
+                        "LocationX": 110,
+                        "LocationY": 416
+                      }
+                    },
+                    {
+                      "classname": "DelayModule",
+                      "properties": {
+                        "ID": 16,
+                        "LocationX": 332,
+                        "LocationY": 416
+                      }
+                    }
+                  ],
+                  "ViewXOffset": -782.1577,
+                  "ViewYOffset": 82.82585,
+                  "ViewZoom": 1.4199995,
+                  "ModuleIDGen": 54
+                }
+              },
+              "Position": [
+                -30866.775,
+                20101.57,
+                1411.2874
+              ],
+              "ObjectID": 6,
+              "RegionID": 153,
+              "LayerID": 8,
+              "Name": "IC_Rm08_GhostHookScript"
+            }
+          },
+          {
+            "classname": "base/spawnpoint",
+            "properties": {
+              "InitialBehaviorEnum": 7,
+              "Position": [
+                -30948.01,
+                20025.04,
+                1334.7
+              ],
+              "Rotation": [
+                0.0,
+                -0.0,
+                90.0
+              ],
+              "ObjectID": 5,
+              "RegionID": 153,
+              "LayerID": 8,
+              "Name": "IC_Rm08_GhostHookCorpsePoint"
+            }
+          },
+          {
+            "classname": "base/spawnpoint",
+            "properties": {
+              "EncounterName": "IC_Rm08_GhostHookSpawns",
+              "ClassToSpawn": "ic_rm08_gc/ghosthookchain",
+              "InitialBehaviorEnum": 7,
+              "Position": [
+                -30948.3,
+                20027.39,
+                1332.32
+              ],
+              "Rotation": [
+                0.0,
+                -0.0,
+                90.0
+              ],
+              "ObjectID": 1,
+              "RegionID": 153,
+              "LayerID": 8,
+              "Name": "IC_Rm08_GhostHookChain"
+            }
+          }
+        ]
+      }
     },
-    "NextObjectID": 5
+    "NextObjectID": 8
   }
 }

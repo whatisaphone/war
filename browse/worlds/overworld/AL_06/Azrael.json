@@ -3,8 +3,961 @@
   "properties": {
     "Root": {
       "classname": "WorldGroup",
-      "properties": {}
+      "properties": {
+        "Objects": [
+          {
+            "classname": "base/triggerregion",
+            "properties": {
+              "FilterList": [
+                "Player"
+              ],
+              "Position": [
+                8541.56,
+                61235.168,
+                504.3275
+              ],
+              "Scale": [
+                560.0,
+                560.0,
+                560.0
+              ],
+              "ObjectID": 21,
+              "RegionID": 32,
+              "LayerID": 10,
+              "Name": "AL_06_TrgReg_FromEdenSH_01"
+            }
+          },
+          {
+            "classname": "base/waypoint",
+            "properties": {
+              "Position": [
+                8521.02,
+                61471.85,
+                504.33
+              ],
+              "Rotation": [
+                0.0,
+                -0.0,
+                -177.99992
+              ],
+              "Render": true,
+              "ObjectID": 19,
+              "RegionID": 32,
+              "LayerID": 10,
+              "Name": "AL_06_Az_SerpentHole_Start"
+            }
+          },
+          {
+            "classname": "base/waypoint",
+            "properties": {
+              "Position": [
+                8522.77,
+                61695.35,
+                504.33
+              ],
+              "Rotation": [
+                0.0,
+                -0.0,
+                173.99956
+              ],
+              "Render": true,
+              "ObjectID": 14,
+              "RegionID": 32,
+              "LayerID": 10,
+              "Name": "Start_PortalFromAL_06"
+            }
+          },
+          {
+            "classname": "base/visscriptmodulesystem",
+            "properties": {
+              "ModuleSystem": {
+                "classname": "ModuleSystem",
+                "properties": {
+                  "EntityIDGen": 62,
+                  "Entities": [
+                    {
+                      "classname": "TriggerEventModule",
+                      "properties": {
+                        "WorldObjects": [
+                          "AL_06_To_Eden_Teleporter_Trig"
+                        ],
+                        "WorldObject": "-CONVERTED-",
+                        "EventLinks": [
+                          [
+                            0,
+                            29,
+                            0
+                          ]
+                        ],
+                        "ID": 1,
+                        "Comment": "AL_06_To_Eden_Teleporter_Trig",
+                        "LocationX": 1114,
+                        "LocationY": 464
+                      }
+                    },
+                    {
+                      "classname": "TriggerEventModule",
+                      "properties": {
+                        "WorldObjects": [
+                          "AL_06_To_Eden_Teleporter_ExitTrig"
+                        ],
+                        "OneShot": true,
+                        "Enable": false,
+                        "WorldObject": "-CONVERTED-",
+                        "EventLinks": [
+                          [
+                            1,
+                            5,
+                            0
+                          ],
+                          [
+                            0,
+                            26,
+                            1
+                          ],
+                          [
+                            1,
+                            44,
+                            0
+                          ],
+                          [
+                            0,
+                            61,
+                            1
+                          ]
+                        ],
+                        "ID": 3,
+                        "Comment": "disabled on start",
+                        "LocationX": 593,
+                        "LocationY": 172
+                      }
+                    },
+                    {
+                      "classname": "SaveDataModule",
+                      "properties": {
+                        "FlagInfoList": [
+                          {
+                            "classname": "FlagInfo",
+                            "properties": {
+                              "FlagLevel": "Global",
+                              "FlagName": "WarpingToOrFromEden"
+                            }
+                          }
+                        ],
+                        "EventLinks": [
+                          [
+                            0,
+                            1,
+                            1
+                          ],
+                          [
+                            0,
+                            3,
+                            0
+                          ]
+                        ],
+                        "ID": 4,
+                        "Comment": "WarpingToOrFromEden",
+                        "LocationX": 322,
+                        "LocationY": 487
+                      }
+                    },
+                    {
+                      "classname": "base/oneshotmodule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            3,
+                            1
+                          ]
+                        ],
+                        "ID": 5,
+                        "LocationX": 619
+                      }
+                    },
+                    {
+                      "classname": "StartModule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            28,
+                            0
+                          ]
+                        ],
+                        "ID": 7,
+                        "LocationX": -221,
+                        "LocationY": 169
+                      }
+                    },
+                    {
+                      "classname": "ObjectToggleModule",
+                      "properties": {
+                        "ObjectList": [
+                          "Eden_To_AL_06_Teleporter_FX"
+                        ],
+                        "ID": 8,
+                        "Comment": "adds fx to world once you get warped there",
+                        "LocationX": 196,
+                        "LocationY": 146
+                      }
+                    },
+                    {
+                      "classname": "base/setspawnpointmodule",
+                      "properties": {
+                        "World": "Overworld",
+                        "Region": "OT_Int_Rm00",
+                        "SpawnPoint": "Start",
+                        "SpawnLoadRegion": "StartLoadRegion",
+                        "ID": 9,
+                        "Comment": "set spawn in tower int 00",
+                        "LocationX": 3677,
+                        "LocationY": 279
+                      }
+                    },
+                    {
+                      "classname": "base/commitsavedatamodule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            11,
+                            0
+                          ]
+                        ],
+                        "ID": 10,
+                        "LocationX": 3273,
+                        "LocationY": 250
+                      }
+                    },
+                    {
+                      "classname": "base/autosavemodule",
+                      "properties": {
+                        "ID": 11,
+                        "Comment": "load tower next",
+                        "LocationX": 3492,
+                        "LocationY": 250
+                      }
+                    },
+                    {
+                      "classname": "base/setcharactermovestate",
+                      "properties": {
+                        "MoveState": "Cutscene Teleport Out Azrael",
+                        "EventLinks": [
+                          [
+                            0,
+                            13,
+                            0
+                          ]
+                        ],
+                        "ID": 12,
+                        "LocationX": 3141,
+                        "LocationY": 510
+                      }
+                    },
+                    {
+                      "classname": "FadeSceneModule",
+                      "properties": {
+                        "FadeTime": 1.25,
+                        "StayFadedOut": true,
+                        "EventLinks": [
+                          [
+                            0,
+                            32,
+                            0
+                          ]
+                        ],
+                        "ID": 13,
+                        "LocationX": 3419,
+                        "LocationY": 510
+                      }
+                    },
+                    {
+                      "classname": "base/storesavedatamodule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            42,
+                            1
+                          ]
+                        ],
+                        "ID": 16,
+                        "LocationX": 2019,
+                        "LocationY": 464
+                      }
+                    },
+                    {
+                      "classname": "base/commitsavedatamodule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            20,
+                            0
+                          ]
+                        ],
+                        "ID": 19,
+                        "LocationX": 1785,
+                        "LocationY": 14
+                      }
+                    },
+                    {
+                      "classname": "base/autosavemodule",
+                      "properties": {
+                        "ID": 20,
+                        "LocationX": 2004,
+                        "LocationY": 14
+                      }
+                    },
+                    {
+                      "classname": "SaveDataModule",
+                      "properties": {
+                        "FlagInfoList": [
+                          {
+                            "classname": "FlagInfo",
+                            "properties": {
+                              "FlagLevel": "Global",
+                              "FlagName": "WarpingToOrFromEden",
+                              "FlagValue": "False"
+                            }
+                          }
+                        ],
+                        "EventLinks": [
+                          [
+                            3,
+                            31,
+                            0
+                          ],
+                          [
+                            3,
+                            39,
+                            0
+                          ]
+                        ],
+                        "ID": 26,
+                        "Comment": "WarpingToOrFromEden = false",
+                        "LocationX": 1109,
+                        "LocationY": 12
+                      }
+                    },
+                    {
+                      "classname": "TextModule",
+                      "properties": {
+                        "Text": "onExit Fired, DOH",
+                        "ID": 27,
+                        "LocationX": 1324,
+                        "LocationY": 305
+                      }
+                    },
+                    {
+                      "classname": "SaveDataModule",
+                      "properties": {
+                        "FlagInfoList": [
+                          {
+                            "classname": "FlagInfo",
+                            "properties": {
+                              "FlagLevel": "eden",
+                              "FlagName": "SeenTree"
+                            }
+                          }
+                        ],
+                        "EventLinks": [
+                          [
+                            0,
+                            8,
+                            1
+                          ],
+                          [
+                            1,
+                            8,
+                            2
+                          ]
+                        ],
+                        "ID": 28,
+                        "Comment": "SeenTree?",
+                        "LocationX": -36,
+                        "LocationY": 169
+                      }
+                    },
+                    {
+                      "classname": "SaveDataModule",
+                      "properties": {
+                        "FlagInfoList": [
+                          {
+                            "classname": "FlagInfo",
+                            "properties": {
+                              "FlagLevel": "eden",
+                              "FlagName": "SeenTree"
+                            }
+                          }
+                        ],
+                        "EventLinks": [
+                          [
+                            0,
+                            54,
+                            0
+                          ]
+                        ],
+                        "ID": 29,
+                        "Comment": "SeenTree?",
+                        "LocationX": 1368,
+                        "LocationY": 464
+                      }
+                    },
+                    {
+                      "classname": "ExternalCallModule",
+                      "properties": {
+                        "EventName": "onDoneLoading",
+                        "ID": 30,
+                        "Comment": "onDoneLoading",
+                        "LocationX": 1031,
+                        "LocationY": 739
+                      }
+                    },
+                    {
+                      "classname": "SaveDataModule",
+                      "properties": {
+                        "FlagInfoList": [
+                          {
+                            "classname": "FlagInfo",
+                            "properties": {
+                              "FlagLevel": "AL_06",
+                              "FlagName": "CutScene47_Played"
+                            }
+                          }
+                        ],
+                        "EventLinks": [
+                          [
+                            0,
+                            56,
+                            0
+                          ],
+                          [
+                            1,
+                            59,
+                            0
+                          ]
+                        ],
+                        "ID": 31,
+                        "Comment": "CutScene47_Played",
+                        "LocationX": 1322,
+                        "LocationY": 58
+                      }
+                    },
+                    {
+                      "classname": "VisScriptCallModule",
+                      "properties": {
+                        "VisualScriptSystemName": "SH_VSM_AL06_Ed",
+                        "ExternalCallName": "SH_Warp",
+                        "ID": 32,
+                        "Comment": "Calls to the Eden serpent hole",
+                        "LocationX": 3648,
+                        "LocationY": 510
+                      }
+                    },
+                    {
+                      "classname": "StartModule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            4,
+                            0
+                          ]
+                        ],
+                        "ID": 35,
+                        "LocationX": 131,
+                        "LocationY": 487
+                      }
+                    },
+                    {
+                      "classname": "VisScriptCallModule",
+                      "properties": {
+                        "VisualScriptSystemName": "AL_06_VSM_PostEdenAzrail",
+                        "ExternalCallName": "DoCutscene_47",
+                        "ID": 37,
+                        "Comment": "DoCutscene_47",
+                        "LocationX": 2178,
+                        "LocationY": 118
+                      }
+                    },
+                    {
+                      "classname": "base/enablecharactercontrolmodule",
+                      "properties": {
+                        "ID": 39,
+                        "LocationX": 1370,
+                        "LocationY": -107
+                      }
+                    },
+                    {
+                      "classname": "SaveDataModule",
+                      "properties": {
+                        "FlagInfoList": [
+                          {
+                            "classname": "FlagInfo",
+                            "properties": {
+                              "FlagLevel": "Global",
+                              "FlagName": "WarpingToOrFromEden"
+                            }
+                          }
+                        ],
+                        "EventLinks": [
+                          [
+                            3,
+                            48,
+                            0
+                          ]
+                        ],
+                        "ID": 42,
+                        "Comment": "WarpingToOrFromEden = false",
+                        "LocationX": 2228,
+                        "LocationY": 441
+                      }
+                    },
+                    {
+                      "classname": "SaveDataModule",
+                      "properties": {
+                        "FlagInfoList": [
+                          {
+                            "classname": "FlagInfo",
+                            "properties": {
+                              "FlagLevel": "AL_06",
+                              "FlagName": "CutScene47_Played"
+                            }
+                          }
+                        ],
+                        "EventLinks": [
+                          [
+                            0,
+                            1,
+                            0
+                          ]
+                        ],
+                        "ID": 44,
+                        "Comment": "CutScene47_Played",
+                        "LocationX": 870,
+                        "LocationY": 357
+                      }
+                    },
+                    {
+                      "classname": "ExternalCallModule",
+                      "properties": {
+                        "EventName": "ActivateEdenWarpTriggers",
+                        "EventLinks": [
+                          [
+                            0,
+                            1,
+                            0
+                          ]
+                        ],
+                        "ID": 45,
+                        "Comment": "ActivateEdenWarpTriggers",
+                        "LocationX": 738,
+                        "LocationY": 587
+                      }
+                    },
+                    {
+                      "classname": "base/havocformisactivemodule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            49,
+                            0
+                          ],
+                          [
+                            0,
+                            51,
+                            1
+                          ],
+                          [
+                            1,
+                            51,
+                            1
+                          ],
+                          [
+                            1,
+                            12,
+                            0
+                          ]
+                        ],
+                        "ID": 48,
+                        "LocationX": 2439,
+                        "LocationY": 487
+                      }
+                    },
+                    {
+                      "classname": "base/setcharactermovestate",
+                      "properties": {
+                        "MoveState": "Havoc Transition Out (Havoc Skeleton)",
+                        "EventLinks": [
+                          [
+                            0,
+                            50,
+                            0
+                          ]
+                        ],
+                        "ID": 49,
+                        "LocationX": 2709,
+                        "LocationY": 333
+                      }
+                    },
+                    {
+                      "classname": "DelayModule",
+                      "properties": {
+                        "Delay": 2.2,
+                        "EventLinks": [
+                          [
+                            0,
+                            12,
+                            0
+                          ]
+                        ],
+                        "ID": 50,
+                        "LocationX": 2962,
+                        "LocationY": 333
+                      }
+                    },
+                    {
+                      "classname": "base/enablecharactercontrolmodule",
+                      "properties": {
+                        "ID": 51,
+                        "LocationX": 2762,
+                        "LocationY": 607
+                      }
+                    },
+                    {
+                      "classname": "base/autosavemodule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            16,
+                            0
+                          ]
+                        ],
+                        "ID": 52,
+                        "LocationX": 1810,
+                        "LocationY": 464
+                      }
+                    },
+                    {
+                      "classname": "base/setspawnpointmodule",
+                      "properties": {
+                        "Region": "AL_06",
+                        "SpawnPoint": "AL_06_Wpt_FromEden_01",
+                        "SpawnLoadRegion": "StartLoadRegion_EdenWarp",
+                        "EventLinks": [
+                          [
+                            0,
+                            52,
+                            0
+                          ]
+                        ],
+                        "ID": 54,
+                        "Comment": "set spawn point in al_06",
+                        "LocationX": 1568,
+                        "LocationY": 464
+                      }
+                    },
+                    {
+                      "classname": "base/setspawnpointmodule",
+                      "properties": {
+                        "Region": "AL_06",
+                        "SpawnPoint": "AL_06_Wpt_FromEden_01",
+                        "SpawnLoadRegion": "StartLoadRegion_EdenWarp",
+                        "EventLinks": [
+                          [
+                            0,
+                            19,
+                            0
+                          ]
+                        ],
+                        "ID": 56,
+                        "Comment": "set spawn point in al_06",
+                        "LocationX": 1596,
+                        "LocationY": 14
+                      }
+                    },
+                    {
+                      "classname": "base/commitsavedatamodule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            58,
+                            0
+                          ]
+                        ],
+                        "ID": 57,
+                        "LocationX": 1785,
+                        "LocationY": 118
+                      }
+                    },
+                    {
+                      "classname": "base/autosavemodule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            37,
+                            0
+                          ]
+                        ],
+                        "ID": 58,
+                        "LocationX": 2005,
+                        "LocationY": 118
+                      }
+                    },
+                    {
+                      "classname": "base/setspawnpointmodule",
+                      "properties": {
+                        "Region": "AL_06",
+                        "SpawnPoint": "AL_06_Wpt_FromEden_01",
+                        "SpawnLoadRegion": "StartLoadRegion_EdenWarp",
+                        "EventLinks": [
+                          [
+                            0,
+                            57,
+                            0
+                          ]
+                        ],
+                        "ID": 59,
+                        "Comment": "set spawn point in al_06",
+                        "LocationX": 1596,
+                        "LocationY": 118
+                      }
+                    },
+                    {
+                      "classname": "TriggerEventModule",
+                      "properties": {
+                        "WorldObjects": [
+                          "AL_06_TrgReg_FromEdenSH_01",
+                          ""
+                        ],
+                        "OneShot": true,
+                        "WorldObject": "-CONVERTED-",
+                        "EventLinks": [
+                          [
+                            0,
+                            62,
+                            0
+                          ]
+                        ],
+                        "ID": 61,
+                        "LocationX": 662,
+                        "LocationY": -335
+                      }
+                    },
+                    {
+                      "classname": "SaveDataModule",
+                      "properties": {
+                        "FlagInfoList": [
+                          {
+                            "classname": "FlagInfo",
+                            "properties": {
+                              "FlagLevel": "AL_06",
+                              "FlagName": "CutScene47_Played"
+                            }
+                          }
+                        ],
+                        "EventLinks": [
+                          [
+                            1,
+                            26,
+                            1
+                          ]
+                        ],
+                        "ID": 62,
+                        "Comment": "CutScene47_Played",
+                        "LocationX": 912,
+                        "LocationY": -335
+                      }
+                    }
+                  ],
+                  "ViewXOffset": -1426.6138,
+                  "ViewYOffset": 205.22723,
+                  "ViewZoom": 0.94000226,
+                  "ModuleIDGen": 44264000
+                }
+              },
+              "Position": [
+                8546.998,
+                61573.27,
+                570.14856
+              ],
+              "ObjectID": 13,
+              "RegionID": 32,
+              "LayerID": 10,
+              "Name": "AL_06_To_Eden_VSM_WarpScript"
+            }
+          },
+          {
+            "classname": "EffectObject",
+            "properties": {
+              "Position": [
+                8523.77,
+                61698.39,
+                505.07745
+              ],
+              "PackageName": "vfx_shared",
+              "Effect": "Azreal_Teleporter",
+              "ObjectID": 12,
+              "RegionID": 32,
+              "LayerID": 10,
+              "Name": "AL_06_To_Eden_Teleporter_FX"
+            }
+          },
+          {
+            "classname": "base/triggerregion",
+            "properties": {
+              "FilterList": [
+                "Player"
+              ],
+              "Position": [
+                8524.77,
+                61695.3,
+                560.40607
+              ],
+              "Rotation": [
+                0.0,
+                -0.0,
+                0.0
+              ],
+              "Scale": [
+                42.0,
+                42.0,
+                140.0
+              ],
+              "Shape": 3,
+              "ObjectID": 11,
+              "RegionID": 32,
+              "LayerID": 10,
+              "Name": "AL_06_To_Eden_Teleporter_Trig"
+            }
+          },
+          {
+            "classname": "base/triggerregion",
+            "properties": {
+              "FilterList": [
+                "Player"
+              ],
+              "Position": [
+                8524.982,
+                61696.746,
+                525.07745
+              ],
+              "Rotation": [
+                0.0,
+                -0.0,
+                0.0
+              ],
+              "Scale": [
+                172.0,
+                172.0,
+                226.0
+              ],
+              "Shape": 3,
+              "ObjectID": 10,
+              "RegionID": 32,
+              "LayerID": 10,
+              "Name": "AL_06_To_Eden_Teleporter_ExitTrig"
+            }
+          },
+          {
+            "classname": "base/visscriptmodulesystem",
+            "properties": {
+              "ModuleSystem": {
+                "classname": "ModuleSystem",
+                "properties": {
+                  "EntityIDGen": 4,
+                  "Entities": [
+                    {
+                      "classname": "StartModule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            4,
+                            0
+                          ]
+                        ],
+                        "ID": 1,
+                        "LocationX": -23,
+                        "LocationY": 251
+                      }
+                    },
+                    {
+                      "classname": "SpawnMonsterEventModule",
+                      "properties": {
+                        "SpawnPoints": [
+                          "AL_06_Azrael"
+                        ],
+                        "NumberToSpawn": 1,
+                        "ID": 3,
+                        "LocationX": 352,
+                        "LocationY": 251
+                      }
+                    },
+                    {
+                      "classname": "DelayModule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            3,
+                            0
+                          ]
+                        ],
+                        "ID": 4,
+                        "LocationX": 167,
+                        "LocationY": 251
+                      }
+                    }
+                  ],
+                  "ViewXOffset": 405.86264,
+                  "ViewYOffset": 47.488007,
+                  "ViewZoom": 0.7,
+                  "ModuleIDGen": 0
+                }
+              },
+              "Position": [
+                8514.849,
+                60852.945,
+                522.9757
+              ],
+              "ObjectID": 9,
+              "RegionID": 32,
+              "LayerID": 10,
+              "Name": "AL_06_Azrael_Script"
+            }
+          },
+          {
+            "classname": "base/spawnpoint",
+            "properties": {
+              "NPCName": "Azrael",
+              "ClassToSpawn": "azrael/azrael",
+              "Position": [
+                8357.27,
+                61288.75,
+                550.3
+              ],
+              "Rotation": [
+                0.0,
+                -0.0,
+                -170.0
+              ],
+              "ObjectID": 7,
+              "RegionID": 32,
+              "LayerID": 10,
+              "Name": "AL_06_Azrael"
+            }
+          }
+        ]
+      }
     },
-    "NextObjectID": 6
+    "NextObjectID": 21
   }
 }

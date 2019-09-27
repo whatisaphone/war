@@ -6,49 +6,135 @@
       "properties": {
         "Objects": [
           {
-            "classname": "minionranged/minionranged",
+            "classname": "phantomguard_bfg/phantomguard_bfg_fracture",
             "properties": {
-              "SpeedScale": 0.0,
-              "FollowPatrolPath": true,
-              "Heading": 90.0,
-              "HitPoints": 100.0,
+              "StaggerBehavior": {
+                "classname": "base/mssbehavior",
+                "properties": {
+                  "MSSMoveStates": [
+                    "HeavyBFG StaggeredImpact",
+                    "HeavyBFG StaggeredIdle"
+                  ],
+                  "DeathBlowHandler": {
+                    "classname": "base/deathblowaction",
+                    "properties": {
+                      "ID": "Death",
+                      "ActionCode": 660,
+                      "Priority": 660,
+                      "VsNPCLockModifier": 0.01,
+                      "Position": [
+                        2.8168869e20,
+                        2.2821954e-18,
+                        1.6631257e22
+                      ]
+                    }
+                  },
+                  "InteractiveHandler": {
+                    "classname": "base/interactivestallaction",
+                    "properties": {
+                      "ID": "Interactive",
+                      "Priority": 630,
+                      "InterruptibleBy": [
+                        "Death"
+                      ],
+                      "VsNPCLockModifier": 0.01,
+                      "Position": [
+                        2.1744624e-18,
+                        5.077798e31,
+                        5.5345423e-11
+                      ]
+                    }
+                  },
+                  "ImpactHandler": {
+                    "classname": "base/impactaction",
+                    "properties": {
+                      "ID": "Impact",
+                      "Priority": 620,
+                      "InterruptibleBy": [
+                        "Death",
+                        "Interactive"
+                      ],
+                      "VsNPCLockModifier": 0.01,
+                      "Position": [
+                        1.546623e-33,
+                        8.903991e-15,
+                        1.8492489e31
+                      ]
+                    }
+                  },
+                  "ComponentActions": [
+                    {
+                      "classname": "base/mssaction",
+                      "properties": {
+                        "ID": "RepeatOnImpact",
+                        "ActionCode": 1,
+                        "Priority": 1,
+                        "InterruptibleBy": [
+                          "ANY"
+                        ],
+                        "VsNPCLockModifier": 0.01,
+                        "OnCompleteState": "Exit",
+                        "Position": [
+                          269411450000.0,
+                          2.7675684e-10,
+                          0.0
+                        ]
+                      }
+                    },
+                    {
+                      "classname": "base/mssaction",
+                      "properties": {
+                        "ID": "StopOnImpact",
+                        "ActionCode": 1,
+                        "Priority": -1,
+                        "InterruptibleBy": [
+                          "Death",
+                          "Interactive",
+                          "Exit"
+                        ],
+                        "VsNPCLockModifier": 0.01,
+                        "OnCompleteState": "Exit",
+                        "Position": [
+                          1.7563698e25,
+                          881247600000.0,
+                          2.816881e20
+                        ]
+                      }
+                    }
+                  ],
+                  "ExitBehaviorHandler": {
+                    "classname": "base/exitbehavioraction",
+                    "properties": {
+                      "ID": "Exit",
+                      "Priority": 640,
+                      "VsNPCLockModifier": 0.01,
+                      "Position": [
+                        6.384353e31,
+                        7e-45,
+                        3.7389752e-14
+                      ]
+                    }
+                  },
+                  "Position": [
+                    0.0,
+                    1.0,
+                    0.0
+                  ]
+                }
+              },
+              "HitPoints": 353.0,
               "Inventory": {
                 "classname": "Inventory",
                 "properties": {}
               },
               "Position": [
-                -283.98233,
-                -577.3857,
-                0.000030517578
+                -10.812561,
+                -471.40805,
+                -1.7273254
               ],
-              "Rotation": [
-                0.0,
-                0.0,
-                90.0
-              ],
-              "ObjectID": 1,
-              "RegionID": 1,
-              "Name": "MinionRanged1"
-            }
-          },
-          {
-            "classname": "minionranged/minionranged",
-            "properties": {
-              "SpeedScale": 0.0,
-              "FollowPatrolPath": true,
-              "HitPoints": 100.0,
-              "Inventory": {
-                "classname": "Inventory",
-                "properties": {}
-              },
-              "Position": [
-                227.59837,
-                -516.9288,
-                0.0
-              ],
-              "ObjectID": 2,
-              "RegionID": 1,
-              "Name": "MinionRanged"
+              "ObjectID": 32,
+              "RegionID": 2,
+              "Name": "phantomguard_bfg_fracture"
             }
           },
           {
@@ -61,8 +147,8 @@
               ],
               "ObjectName": "Playground",
               "PackageName": "playground",
-              "ObjectID": 3,
-              "RegionID": 1
+              "ObjectID": 1,
+              "RegionID": 2
             }
           },
           {
@@ -76,8 +162,8 @@
                 500.0
               ],
               "JitterAmount": 128.0,
-              "ObjectID": 4,
-              "RegionID": 1,
+              "ObjectID": 2,
+              "RegionID": 2,
               "Name": "OmniLight4"
             }
           },
@@ -89,8 +175,8 @@
                 0.0,
                 200.0
               ],
-              "ObjectID": 5,
-              "RegionID": 1,
+              "ObjectID": 3,
+              "RegionID": 2,
               "Name": "Start"
             }
           },
@@ -105,8 +191,8 @@
                 500.0
               ],
               "JitterAmount": 128.0,
-              "ObjectID": 6,
-              "RegionID": 1,
+              "ObjectID": 5,
+              "RegionID": 2,
               "Name": "OmniLight"
             }
           },
@@ -121,8 +207,8 @@
                 500.0
               ],
               "JitterAmount": 128.0,
-              "ObjectID": 7,
-              "RegionID": 1,
+              "ObjectID": 6,
+              "RegionID": 2,
               "Name": "OmniLight1"
             }
           },
@@ -137,8 +223,8 @@
                 500.0
               ],
               "JitterAmount": 128.0,
-              "ObjectID": 8,
-              "RegionID": 1,
+              "ObjectID": 7,
+              "RegionID": 2,
               "Name": "OmniLight2"
             }
           },
@@ -153,14 +239,32 @@
                 500.0
               ],
               "JitterAmount": 128.0,
-              "ObjectID": 9,
-              "RegionID": 1,
+              "ObjectID": 8,
+              "RegionID": 2,
               "Name": "OmniLight3"
+            }
+          },
+          {
+            "classname": "playground/traversalrestraint",
+            "properties": {
+              "Position": [
+                0.0,
+                -300.0,
+                0.0
+              ],
+              "Scale": [
+                500.0,
+                500.0,
+                500.0
+              ],
+              "ObjectID": 16,
+              "RegionID": 2,
+              "Name": "TraversalRestraint"
             }
           }
         ]
       }
     },
-    "NextObjectID": 9
+    "NextObjectID": 32
   }
 }

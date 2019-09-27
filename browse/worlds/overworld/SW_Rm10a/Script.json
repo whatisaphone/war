@@ -6,87 +6,94 @@
       "properties": {
         "Objects": [
           {
-            "classname": "base/visscriptmodulesystem",
+            "classname": "base/blocker",
             "properties": {
-              "ModuleSystem": {
-                "classname": "ModuleSystem",
-                "properties": {
-                  "EntityIDGen": 4,
-                  "Entities": [
-                    {
-                      "classname": "ObjectToggleModule",
-                      "properties": {
-                        "ObjectList": [
-                          "CI_01_Coll_Pit_Blocker"
-                        ],
-                        "ID": 1,
-                        "LocationX": 613,
-                        "LocationY": 321
-                      }
-                    },
-                    {
-                      "classname": "ExternalCallModule",
-                      "properties": {
-                        "EventName": "RemovePitBlocker",
-                        "EventLinks": [
-                          [
-                            0,
-                            1,
-                            2
-                          ]
-                        ],
-                        "ID": 3,
-                        "Comment": "Remove Pit Blocker",
-                        "LocationX": 335,
-                        "LocationY": 456
-                      }
-                    },
-                    {
-                      "classname": "ExternalCallModule",
-                      "properties": {
-                        "EventName": "AddPitBlocker",
-                        "EventLinks": [
-                          [
-                            0,
-                            1,
-                            1
-                          ]
-                        ],
-                        "ID": 4,
-                        "Comment": "Add Pit Blocker",
-                        "LocationX": 337,
-                        "LocationY": 265
-                      }
-                    }
-                  ],
-                  "ModuleIDGen": 916079112
-                }
-              },
               "Position": [
-                -3558.5537,
-                -31395.947,
-                139.47876
+                -29671.8,
+                -33331.67,
+                -840.67
               ],
-              "ObjectID": 431,
-              "LayerID": 9,
-              "Name": "CI_01_Coll_Pit_Blocker_Script"
+              "Rotation": [
+                -45.42,
+                0.1,
+                0.26
+              ],
+              "Scale": [
+                160.0,
+                120.0,
+                212.0
+              ],
+              "ObjectID": 27,
+              "RegionID": 292,
+              "LayerID": 3,
+              "Name": "SW_RM10a_BlockReg_02"
             }
           },
           {
-            "classname": "StaticObject",
+            "classname": "base/blocker",
             "properties": {
               "Position": [
-                -3561.022,
-                -31220.91,
-                148.94885
+                -30456.78,
+                -33163.45,
+                -917.52
               ],
-              "ObjectName": "col_pit_blocker",
-              "PackageName": "city01_streets",
-              "NoShadows": true,
-              "BakeLighting": false,
-              "ObjectID": 429,
-              "LayerID": 9,
-              "Name": "CI_01_Coll_Pit_Blocker"
+              "Rotation": [
+                0.0,
+                32.0,
+                0.0
+              ],
+              "Scale": [
+                160.0,
+                120.0,
+                212.0
+              ],
+              "ObjectID": 26,
+              "RegionID": 292,
+              "LayerID": 3,
+              "Name": "SW_RM10a_BlockReg_01"
+            }
+          },
+          {
+            "classname": "base/waypoint",
+            "properties": {
+              "Position": [
+                -29873.2,
+                -32438.76,
+                -1564.29
+              ],
+              "ObjectID": 24,
+              "RegionID": 292,
+              "LayerID": 3,
+              "Name": "SW_Rm10_Chasm01_LiquidRegion_02_Wypt"
+            }
+          },
+          {
+            "classname": "base/waypoint",
+            "properties": {
+              "Position": [
+                -29885.2,
+                -32577.76,
+                -1627.29
+              ],
+              "ObjectID": 21,
+              "RegionID": 292,
+              "LayerID": 3,
+              "Name": "SW_Rm10_Chasm01_LiquidRegion_01_Wypt"
+            }
+          },
+          {
+            "classname": "ItemActor",
+            "properties": {
+              "ItemType": "artifact_general/artifact_general",
+              "Position": [
+                -29902.459,
+                -31898.49,
+                -1446.7882
+              ],
+              "ObjectID": 18,
+              "RegionID": 292,
+              "LayerID": 3,
+              "Name": "SW_Rm10a_Artifact_General"
             }
           },
           {
@@ -96,18 +103,19 @@
                 "Player"
               ],
               "Position": [
-                -4065.248,
-                -28594.094,
-                34.90912
+                -30054.975,
+                -33244.168,
+                -1083.842
               ],
               "Scale": [
-                250.0,
-                250.0,
-                250.0
+                146.0,
+                146.0,
+                146.0
               ],
-              "ObjectID": 427,
-              "LayerID": 9,
-              "Name": "CI_01_StartBuildingFacade_Trg"
+              "ObjectID": 10,
+              "RegionID": 292,
+              "LayerID": 3,
+              "Name": "SW_Rm10_Items_Trigger"
             }
           },
           {
@@ -116,61 +124,98 @@
               "ModuleSystem": {
                 "classname": "ModuleSystem",
                 "properties": {
-                  "EntityIDGen": 7,
+                  "EntityIDGen": 11,
                   "Entities": [
                     {
                       "classname": "TriggerEventModule",
                       "properties": {
                         "WorldObjects": [
-                          "CI_01_StartBuildingFacade_Trg",
-                          ""
+                          "SW_Rm10_Items_Trigger"
                         ],
+                        "OneShot": true,
                         "WorldObject": "-CONVERTED-",
+                        "ID": 1,
+                        "LocationX": 10,
+                        "LocationY": 183
+                      }
+                    },
+                    {
+                      "classname": "base/giveitemmodule",
+                      "properties": {
+                        "Item": "wrath_bladegeyser/wrath_bladegeyser",
+                        "ID": 2,
+                        "LocationX": 298,
+                        "LocationY": 10
+                      }
+                    },
+                    {
+                      "classname": "base/giveitemmodule",
+                      "properties": {
+                        "Item": "gear_horn/playergearhorn",
+                        "ID": 3,
+                        "LocationX": 297,
+                        "LocationY": 81
+                      }
+                    },
+                    {
+                      "classname": "base/giveitemmodule",
+                      "properties": {
+                        "Item": "gear_tempestcloak/playergeartempestcloak",
+                        "ID": 4,
+                        "LocationX": 297,
+                        "LocationY": 149
+                      }
+                    },
+                    {
+                      "classname": "base/giveitemmodule",
+                      "properties": {
+                        "Item": "gear_crossblade/playergearcrossblade",
+                        "ID": 5,
+                        "LocationX": 299,
+                        "LocationY": 212
+                      }
+                    },
+                    {
+                      "classname": "base/giveitemmodule",
+                      "properties": {
+                        "Item": "items/item_healthstone",
+                        "ID": 6,
+                        "LocationX": 302,
+                        "LocationY": 288
+                      }
+                    },
+                    {
+                      "classname": "base/giveitemmodule",
+                      "properties": {
+                        "Item": "item_havocform/item_havocform",
+                        "ID": 7,
+                        "LocationX": 304,
+                        "LocationY": 365
+                      }
+                    },
+                    {
+                      "classname": "base/giveitemmodule",
+                      "properties": {
+                        "Item": "gauntlets/weapon_gauntlets",
                         "EventLinks": [
                           [
                             0,
-                            7,
+                            9,
                             0
                           ]
                         ],
-                        "ID": 1,
-                        "LocationX": 112,
-                        "LocationY": 211
+                        "ID": 8,
+                        "LocationX": 304,
+                        "LocationY": 435
                       }
                     },
                     {
-                      "classname": "ObjectToggleModule",
+                      "classname": "base/equipitemmodule",
                       "properties": {
-                        "ObjectList": [
-                          "CI_01_StartBuildingFacade"
-                        ],
-                        "ID": 2,
-                        "LocationX": 703,
-                        "LocationY": 211
-                      }
-                    },
-                    {
-                      "classname": "SaveDataModule",
-                      "properties": {
-                        "FlagInfoList": [
-                          {
-                            "classname": "FlagInfo",
-                            "properties": {
-                              "FlagLevel": "CI_01",
-                              "FlagName": "CI_01_StartBuildingFacade"
-                            }
-                          }
-                        ],
-                        "EventLinks": [
-                          [
-                            1,
-                            2,
-                            2
-                          ]
-                        ],
-                        "ID": 3,
-                        "LocationX": 451,
-                        "LocationY": 433
+                        "Item": "gauntlets/weapon_gauntlets",
+                        "ID": 9,
+                        "LocationX": 476,
+                        "LocationY": 434
                       }
                     },
                     {
@@ -179,472 +224,255 @@
                         "EventLinks": [
                           [
                             0,
-                            3,
+                            11,
                             0
                           ]
                         ],
-                        "ID": 4,
-                        "LocationX": 216,
-                        "LocationY": 433
+                        "ID": 10,
+                        "LocationX": -315,
+                        "LocationY": 206
                       }
                     },
                     {
-                      "classname": "SaveDataModule",
+                      "classname": "DelayModule",
                       "properties": {
-                        "FlagInfoList": [
-                          {
-                            "classname": "FlagInfo",
-                            "properties": {
-                              "FlagLevel": "CI_01",
-                              "FlagName": "CI_01_StartBuildingFacade"
-                            }
-                          }
-                        ],
-                        "ID": 6,
-                        "LocationX": 699,
-                        "LocationY": 63
-                      }
-                    },
-                    {
-                      "classname": "SaveDataModule",
-                      "properties": {
-                        "FlagInfoList": [
-                          {
-                            "classname": "FlagInfo",
-                            "properties": {
-                              "FlagLevel": "CI_01",
-                              "FlagName": "CI_01_StartBuildingFacade"
-                            }
-                          }
-                        ],
                         "EventLinks": [
                           [
+                            0,
                             1,
-                            6,
-                            1
-                          ],
-                          [
-                            1,
-                            2,
                             1
                           ]
                         ],
-                        "ID": 7,
-                        "LocationX": 368,
-                        "LocationY": 211
+                        "ID": 11,
+                        "LocationX": -142,
+                        "LocationY": 206
                       }
                     }
                   ],
-                  "ViewXOffset": 1.0,
-                  "ViewYOffset": 107.0,
-                  "ModuleIDGen": 916057912
+                  "ViewXOffset": 389.0,
+                  "ViewYOffset": 49.0,
+                  "ModuleIDGen": 1819044212
                 }
               },
               "Position": [
-                -1141.672,
-                -29366.309,
-                1263.2936
+                -30016.674,
+                -33319.273,
+                -1052.842
               ],
-              "ObjectID": 425,
-              "LayerID": 9,
-              "Name": "CI_01_StartBuildingFacade_Script"
+              "ObjectID": 9,
+              "RegionID": 292,
+              "LayerID": 3,
+              "Name": "SW_Rm10_Items_Script"
             }
           },
           {
-            "classname": "StaticObject",
+            "classname": "base/waypoint",
             "properties": {
               "Position": [
-                -4113.3315,
-                -28689.89,
-                -92.88623
-              ],
-              "ObjectName": "sb_exit_lo",
-              "PackageName": "city01_streets",
-              "ObjectID": 423,
-              "LayerID": 9,
-              "Name": "CI_01_StartBuildingFacade"
-            }
-          },
-          {
-            "classname": "base/planeoccluder",
-            "properties": {
-              "Position": [
-                -8586.189,
-                -26649.18,
-                508.85
-              ],
-              "Size": [
-                2796.0,
-                1600.0
-              ],
-              "ObjectID": 421,
-              "LayerID": 9,
-              "Name": "PlaneOccluder_66"
-            }
-          },
-          {
-            "classname": "base/planeoccluder",
-            "properties": {
-              "Position": [
-                717.81,
-                -26195.18,
-                181.84998
+                -30065.48,
+                -33254.99,
+                -1083.84
               ],
               "Rotation": [
                 0.0,
-                -0.0,
-                90.0
+                0.0,
+                -89.99991
               ],
-              "Size": [
-                1600.0,
-                1600.0
-              ],
-              "ObjectID": 420,
-              "LayerID": 9,
-              "Name": "PlaneOccluder_65"
+              "Render": true,
+              "ObjectID": 8,
+              "RegionID": 292,
+              "LayerID": 3,
+              "Name": "Start"
             }
           },
           {
-            "classname": "base/planeoccluder",
+            "classname": "base/liquidregion",
             "properties": {
               "Position": [
-                -6732.19,
-                -27400.18,
-                -8.15
+                -29885.2,
+                -32577.76,
+                -2422.29
               ],
-              "Rotation": [
-                -90.0,
-                -0.0,
-                180.0
+              "Scale": [
+                1380.0,
+                600.0,
+                1000.0
               ],
-              "Size": [
-                1170.0,
-                1287.0
-              ],
-              "ObjectID": 419,
-              "LayerID": 9,
-              "Name": "PlaneOccluder_64"
+              "Fog": {
+                "classname": "FogDesc",
+                "properties": {
+                  "Type": 1,
+                  "Color": [
+                    0.003921569,
+                    0.11764706,
+                    0.11764706
+                  ],
+                  "Density": 0.8,
+                  "Start": 0.0,
+                  "End": 1800.0,
+                  "BlendDuration": 0.0
+                }
+              },
+              "Ambient": {
+                "classname": "AmbientDesc",
+                "properties": {
+                  "LowerAmbientColor": [
+                    0.34117648,
+                    0.49803922,
+                    0.38039216
+                  ],
+                  "UpperAmbientColor": [
+                    0.2784314,
+                    0.3529412,
+                    0.69803923
+                  ],
+                  "BlendDuration": 0.0
+                }
+              },
+              "HDR": {
+                "classname": "HDRDesc",
+                "properties": {
+                  "ToneMap": true,
+                  "MidTone": 0.3,
+                  "MinToneMapMult": 1.0,
+                  "MaxToneMapMult": 1.5,
+                  "BrightPassValue": 0.9,
+                  "BloomPersistence": 0.0,
+                  "BlendDuration": 0.0
+                }
+              },
+              "DepthOfField": {
+                "classname": "DepthOfFieldDesc",
+                "properties": {}
+              },
+              "SoundID": -1,
+              "ObjectID": 7,
+              "RegionID": 292,
+              "LayerID": 3,
+              "Name": "SW_Rm10_Chasm01_LiquidRegion_01"
             }
           },
           {
-            "classname": "base/planeoccluder",
+            "classname": "base/liquidregion",
             "properties": {
               "Position": [
-                -4661.19,
-                -27999.18,
-                -873.15
+                -29873.2,
+                -32438.76,
+                -2464.29
+              ],
+              "Scale": [
+                800.0,
+                1960.0,
+                740.0
+              ],
+              "Fog": {
+                "classname": "FogDesc",
+                "properties": {
+                  "Type": 1,
+                  "Color": [
+                    0.003921569,
+                    0.11764706,
+                    0.11764706
+                  ],
+                  "Density": 0.8,
+                  "Start": 0.0,
+                  "End": 1800.0,
+                  "BlendDuration": 0.0
+                }
+              },
+              "Ambient": {
+                "classname": "AmbientDesc",
+                "properties": {
+                  "LowerAmbientColor": [
+                    0.34117648,
+                    0.49803922,
+                    0.38039216
+                  ],
+                  "UpperAmbientColor": [
+                    0.2784314,
+                    0.3529412,
+                    0.69803923
+                  ],
+                  "RimColor": [
+                    0.3882353,
+                    0.92156863,
+                    1.0
+                  ],
+                  "BlendDuration": 0.0
+                }
+              },
+              "HDR": {
+                "classname": "HDRDesc",
+                "properties": {
+                  "ToneMap": true,
+                  "MidTone": 0.3,
+                  "MinToneMapMult": 1.0,
+                  "MaxToneMapMult": 1.5,
+                  "BrightPassValue": 0.9,
+                  "BloomPersistence": 0.0,
+                  "BlendDuration": 0.0
+                }
+              },
+              "DepthOfField": {
+                "classname": "DepthOfFieldDesc",
+                "properties": {}
+              },
+              "SoundID": -1,
+              "ObjectID": 6,
+              "RegionID": 292,
+              "LayerID": 3,
+              "Name": "SW_Rm10_Chasm01_LiquidRegion_02"
+            }
+          },
+          {
+            "classname": "special_casket/chest_soulchest",
+            "properties": {
+              "ChestSize": 2,
+              "Heading": -90.0,
+              "HitPoints": 75.0,
+              "Inventory": {
+                "classname": "Inventory",
+                "properties": {}
+              },
+              "Position": [
+                -29475.96,
+                -33128.46,
+                -1083.84
               ],
               "Rotation": [
                 0.0,
-                -90.0,
-                -0.0
-              ],
-              "Size": [
-                1734.0,
-                3123.0
-              ],
-              "ObjectID": 417,
-              "LayerID": 9,
-              "Name": "PlaneOccluder_63"
-            }
-          },
-          {
-            "classname": "base/planeoccluder",
-            "properties": {
-              "Position": [
-                -3324.19,
-                -26957.18,
-                -835.15
-              ],
-              "Rotation": [
-                -90.0,
-                -90.0,
-                180.0
-              ],
-              "Size": [
-                1734.0,
-                2210.0
-              ],
-              "ObjectID": 416,
-              "LayerID": 9,
-              "Name": "PlaneOccluder_62"
-            }
-          },
-          {
-            "classname": "base/planeoccluder",
-            "properties": {
-              "Position": [
-                -1644.19,
-                -25975.18,
-                789.85
-              ],
-              "Rotation": [
                 0.0,
-                -0.0,
-                90.0
+                -90.0
               ],
-              "Size": [
-                1600.0,
-                1600.0
-              ],
-              "ObjectID": 415,
-              "LayerID": 9,
-              "Name": "PlaneOccluder_61"
+              "ObjectID": 5,
+              "RegionID": 292,
+              "LayerID": 3,
+              "Name": "SW_Rm10a_Chest_SoulChest"
             }
           },
           {
-            "classname": "base/planeoccluder",
+            "classname": "special_casket/chest_healthchest",
             "properties": {
+              "ChestSize": 2,
+              "HitPoints": 75.0,
+              "Inventory": {
+                "classname": "Inventory",
+                "properties": {}
+              },
               "Position": [
-                -2858.19,
-                -24868.18,
-                614.85
+                -29837.58,
+                -30014.06,
+                -954.99
               ],
-              "Rotation": [
-                0.0,
-                -0.0,
-                90.0
-              ],
-              "Size": [
-                3842.0,
-                1422.0
-              ],
-              "ObjectID": 414,
-              "LayerID": 9,
-              "Name": "PlaneOccluder_60"
-            }
-          },
-          {
-            "classname": "base/planeoccluder",
-            "properties": {
-              "Position": [
-                -4678.19,
-                -26957.18,
-                -8.150002
-              ],
-              "Rotation": [
-                -90.0,
-                -0.0,
-                180.0
-              ],
-              "Size": [
-                3059.0,
-                2210.0
-              ],
-              "ObjectID": 413,
-              "LayerID": 9,
-              "Name": "PlaneOccluder_59"
-            }
-          },
-          {
-            "classname": "base/planeoccluder",
-            "properties": {
-              "Position": [
-                549.81,
-                -28889.18,
-                789.85
-              ],
-              "Rotation": [
-                0.0,
-                -0.0,
-                0.0
-              ],
-              "Size": [
-                1600.0,
-                1600.0
-              ],
-              "ObjectID": 412,
-              "LayerID": 9,
-              "Name": "PlaneOccluder_58"
-            }
-          },
-          {
-            "classname": "base/planeoccluder",
-            "properties": {
-              "Position": [
-                -2116.19,
-                -31236.18,
-                789.85
-              ],
-              "Rotation": [
-                0.0,
-                -0.0,
-                90.0
-              ],
-              "Size": [
-                1600.0,
-                1600.0
-              ],
-              "ObjectID": 411,
-              "LayerID": 9,
-              "Name": "PlaneOccluder_57"
-            }
-          },
-          {
-            "classname": "base/planeoccluder",
-            "properties": {
-              "Position": [
-                -1385.19,
-                -29679.18,
-                228.85
-              ],
-              "Rotation": [
-                0.0,
-                -0.0,
-                36.0
-              ],
-              "Size": [
-                2796.0,
-                1600.0
-              ],
-              "ObjectID": 410,
-              "LayerID": 9,
-              "Name": "PlaneOccluder_56"
-            }
-          },
-          {
-            "classname": "base/planeoccluder",
-            "properties": {
-              "Position": [
-                -7206.19,
-                -28075.18,
-                508.85
-              ],
-              "Rotation": [
-                0.0,
-                -0.0,
-                90.0
-              ],
-              "Size": [
-                2796.0,
-                1600.0
-              ],
-              "ObjectID": 409,
-              "LayerID": 9,
-              "Name": "PlaneOccluder_55"
-            }
-          },
-          {
-            "classname": "base/planeoccluder",
-            "properties": {
-              "Position": [
-                -116.19,
-                -26012.18,
-                789.85
-              ],
-              "Rotation": [
-                0.0,
-                -0.0,
-                90.0
-              ],
-              "Size": [
-                1600.0,
-                1600.0
-              ],
-              "ObjectID": 406,
-              "LayerID": 9,
-              "Name": "PlaneOccluder_54"
-            }
-          },
-          {
-            "classname": "StaticObject",
-            "properties": {
-              "Position": [
-                -4120.0,
-                -28453.0,
-                0.0
-              ],
-              "ObjectName": "ci_shoppingstrip",
-              "PackageName": "city01_streets",
-              "ObjectID": 404,
-              "LayerID": 9,
-              "Name": "CI_ShoppingStrip"
-            }
-          },
-          {
-            "classname": "city01_streets/ci_hotelsign",
-            "properties": {
-              "Position": [
-                -1038.8008,
-                -28560.268,
-                372.01965
-              ],
-              "ObjectID": 400,
-              "LayerID": 9,
-              "Name": "CI_HotelSign_01"
-            }
-          },
-          {
-            "classname": "StaticObject",
-            "properties": {
-              "Position": [
-                -4096.0,
-                -28672.0,
-                0.0
-              ],
-              "ObjectName": "ci_startbuilding",
-              "PackageName": "city01_streets",
-              "ObjectID": 394,
-              "LayerID": 9,
-              "Name": "ci_startbuilding"
-            }
-          },
-          {
-            "classname": "StaticObject",
-            "properties": {
-              "Position": [
-                -882.0,
-                -26517.0,
-                0.0
-              ],
-              "ObjectName": "ci_bankbuilding",
-              "PackageName": "city01_streets",
-              "ObjectID": 385,
-              "LayerID": 9,
-              "Name": "ci_bankbuilding",
-              "LightGroup": 513
-            }
-          },
-          {
-            "classname": "StaticObject",
-            "properties": {
-              "Position": [
-                -4054.8035,
-                -28360.0,
-                80.0
-              ],
-              "ObjectName": "ci_library",
-              "PackageName": "city01_streets",
-              "ObjectID": 383,
-              "LayerID": 9,
-              "Name": "CI_Library"
-            }
-          },
-          {
-            "classname": "base/planeoccluder",
-            "properties": {
-              "Position": [
-                -5208.19,
-                -24868.18,
-                614.85
-              ],
-              "Rotation": [
-                0.0,
-                -0.0,
-                90.0
-              ],
-              "Size": [
-                3842.0,
-                1422.0
-              ],
-              "ObjectID": 360,
-              "LayerID": 9,
-              "Name": "PlaneOccluder_53"
+              "ObjectID": 3,
+              "RegionID": 292,
+              "LayerID": 3,
+              "Name": "SW_Rm10a_Chest_HealthChest"
             }
           }
         ]
       }
     },
-    "NextObjectID": 431
+    "NextObjectID": 27
   }
 }

@@ -6,53 +6,114 @@
       "properties": {
         "Objects": [
           {
-            "classname": "ci_vehicles01/ci_car03_red",
+            "classname": "base/respawnregion",
             "properties": {
+              "SpawnRegion": "Hallway",
+              "SpawnPoint": "Start",
               "Position": [
-                -1970.7418,
-                -1378.605,
-                -0.81438446
+                -1095.3,
+                -632.01,
+                92.0
               ],
-              "ObjectID": 80,
-              "RegionID": 1,
-              "Name": "CI_Car03_red"
+              "Scale": [
+                590.0,
+                1978.0,
+                224.0
+              ],
+              "ObjectID": 46,
+              "RegionID": 6,
+              "Name": "RespawnRegion"
             }
           },
           {
-            "classname": "ci_vehicles01/ci_car01",
+            "classname": "ItemActor",
             "properties": {
+              "ItemType": "artifact_pawn/artifact_pawn",
               "Position": [
-                -1873.8232,
-                -1380.4402,
-                0.000061035156
+                -1296.0745,
+                -98.96811,
+                0.0
               ],
-              "ObjectID": 78,
-              "RegionID": 1,
-              "Name": "CI_Car01"
+              "ObjectID": 43,
+              "RegionID": 6,
+              "Name": "Artifact_Pawn"
             }
           },
           {
-            "classname": "level_casket/chest_keychest",
+            "classname": "ItemActor",
             "properties": {
-              "Heading": -90.0,
-              "HitPoints": 100.0,
-              "Inventory": {
-                "classname": "Inventory",
-                "properties": {}
-              },
+              "ItemType": "artifact_master/artifact_master",
               "Position": [
-                -1845.7118,
-                -943.6323,
-                -0.000030517578
+                -1109.0415,
+                -82.30206,
+                0.0
               ],
-              "Rotation": [
-                0.0,
-                0.0,
-                -90.0
+              "ObjectID": 41,
+              "RegionID": 6,
+              "Name": "Artifact_Master"
+            }
+          },
+          {
+            "classname": "ItemActor",
+            "properties": {
+              "ItemType": "artifact_general/artifact_general",
+              "Position": [
+                -961.66785,
+                -106.13443,
+                0.0
               ],
-              "ObjectID": 76,
-              "RegionID": 1,
-              "Name": "Chest_KeyChest"
+              "ObjectID": 39,
+              "RegionID": 6,
+              "Name": "Artifact_General"
+            }
+          },
+          {
+            "classname": "base/spawnpoint",
+            "properties": {
+              "EncounterName": "test",
+              "ClassToSpawn": "angel_brute/angel_brute",
+              "InitialBehaviorEnum": 1,
+              "Position": [
+                -1005.89417,
+                -937.71924,
+                0.0
+              ],
+              "ObjectID": 37,
+              "RegionID": 6,
+              "Name": "SpawnPoint_02"
+            }
+          },
+          {
+            "classname": "base/spawnpoint",
+            "properties": {
+              "EncounterName": "test",
+              "ClassToSpawn": "angel_light/angel_light",
+              "InitialBehaviorEnum": 1,
+              "Position": [
+                -1196.8942,
+                -957.71924,
+                0.0
+              ],
+              "ObjectID": 36,
+              "RegionID": 6,
+              "Name": "SpawnPoint_01"
+            }
+          },
+          {
+            "classname": "base/spawnpoint",
+            "properties": {
+              "EncounterName": "spawnSmith",
+              "NPCName": "Smith1",
+              "ClassToSpawn": "smith/smith",
+              "InitialBehaviorEnum": 1,
+              "Position": [
+                -1105.8942,
+                -1326.7192,
+                0.0
+              ],
+              "ObjectID": 35,
+              "RegionID": 6,
+              "Name": "SpawnPoint"
             }
           },
           {
@@ -61,250 +122,79 @@
               "ModuleSystem": {
                 "classname": "ModuleSystem",
                 "properties": {
-                  "EntityIDGen": 12,
+                  "EntityIDGen": 20,
                   "Entities": [
                     {
-                      "classname": "StartModule",
+                      "classname": "SpawnMonsterEventModule",
                       "properties": {
+                        "DelayTime": 0.3,
+                        "EventLinks": [
+                          [
+                            2,
+                            14,
+                            0
+                          ],
+                          [
+                            0,
+                            16,
+                            0
+                          ]
+                        ],
+                        "VariableLinks": [
+                          [
+                            true,
+                            0,
+                            9
+                          ]
+                        ],
+                        "ID": 7,
+                        "LocationX": 206,
+                        "LocationY": 246
+                      }
+                    },
+                    {
+                      "classname": "PopSpawnPointsModule",
+                      "properties": {
+                        "EncounterName": "test",
                         "EventLinks": [
                           [
                             0,
                             7,
                             0
-                          ],
-                          [
-                            0,
-                            9,
-                            0
-                          ],
-                          [
-                            0,
-                            11,
-                            0
                           ]
                         ],
-                        "ID": 1,
-                        "LocationX": -232,
-                        "LocationY": 383
-                      }
-                    },
-                    {
-                      "classname": "AttachEventModule",
-                      "properties": {
-                        "ObjectNames": [
-                          "Chest_KeyChest"
-                        ],
-                        "EventNames": [
-                          "onInteractive"
-                        ],
-                        "EventLinks": [
+                        "VariableLinks": [
                           [
+                            false,
                             0,
-                            8,
-                            1
-                          ],
-                          [
-                            0,
-                            10,
-                            1
+                            9
                           ]
-                        ],
-                        "ID": 7,
-                        "LocationX": 53,
-                        "LocationY": 383
-                      }
-                    },
-                    {
-                      "classname": "ObjectToggleModule",
-                      "properties": {
-                        "ObjectList": [
-                          "KeyBarrier_IC_GHRoom",
-                          "Dgn_KeyLock"
                         ],
                         "ID": 8,
-                        "LocationX": 357,
-                        "LocationY": 519
+                        "LocationX": -126,
+                        "LocationY": 246
                       }
                     },
                     {
-                      "classname": "SaveDataModule",
+                      "classname": "VisScriptVariableWorldObjectList",
                       "properties": {
-                        "FlagInfoList": [
-                          {
-                            "classname": "FlagInfo",
-                            "properties": {
-                              "FlagLevel": "room1",
-                              "FlagName": "chestOpened"
-                            }
-                          }
-                        ],
-                        "EventLinks": [
-                          [
-                            1,
-                            8,
-                            2
-                          ]
-                        ],
                         "ID": 9,
-                        "LocationX": 52,
-                        "LocationY": 542
+                        "LocationX": -10,
+                        "LocationY": 384
                       }
                     },
                     {
-                      "classname": "SaveDataModule",
+                      "classname": "StartModule",
                       "properties": {
-                        "FlagInfoList": [
-                          {
-                            "classname": "FlagInfo",
-                            "properties": {
-                              "FlagLevel": "room1",
-                              "FlagName": "chestOpened"
-                            }
-                          }
-                        ],
                         "ID": 10,
-                        "LocationX": 327,
-                        "LocationY": 360
+                        "LocationX": -663,
+                        "LocationY": 247
                       }
                     },
                     {
-                      "classname": "AttachEventModule",
+                      "classname": "SpawnMonsterEventModule",
                       "properties": {
-                        "ObjectNames": [
-                          "Dgn_KeyLock"
-                        ],
-                        "EventNames": [
-                          "onTrigger"
-                        ],
-                        "EventLinks": [
-                          [
-                            0,
-                            12,
-                            1
-                          ]
-                        ],
-                        "ID": 11,
-                        "LocationX": 56,
-                        "LocationY": 199
-                      }
-                    },
-                    {
-                      "classname": "SaveDataModule",
-                      "properties": {
-                        "FlagInfoList": [
-                          {
-                            "classname": "FlagInfo",
-                            "properties": {
-                              "FlagLevel": "room1",
-                              "FlagName": "chestOpened",
-                              "FlagValue": "False"
-                            }
-                          }
-                        ],
-                        "ID": 12,
-                        "LocationX": 236,
-                        "LocationY": 176
-                      }
-                    }
-                  ],
-                  "ViewXOffset": 519.26715,
-                  "ViewYOffset": 3.623989,
-                  "ViewZoom": 0.93999994,
-                  "ModuleIDGen": 0
-                }
-              },
-              "Position": [
-                -2000.4087,
-                -907.3157,
-                129.0
-              ],
-              "ObjectID": 74,
-              "RegionID": 1,
-              "Name": "VisScriptModuleSystem_03"
-            }
-          },
-          {
-            "classname": "dgn_door/dgn_keylock",
-            "properties": {
-              "LinkedBarrier": "KeyBarrier_IC_GHRoom",
-              "Heading": -90.0,
-              "HitPoints": 100.0,
-              "Inventory": {
-                "classname": "Inventory",
-                "properties": {}
-              },
-              "Position": [
-                -1687.9751,
-                -1098.3448,
-                0.0
-              ],
-              "Rotation": [
-                0.0,
-                0.0,
-                -90.0
-              ],
-              "ObjectID": 73,
-              "RegionID": 1,
-              "Name": "Dgn_KeyLock"
-            }
-          },
-          {
-            "classname": "dgn_door/keybarrier_ic_ghroom",
-            "properties": {
-              "Position": [
-                -1687.9751,
-                -1107.9518,
-                -241.0
-              ],
-              "Rotation": [
-                0.0,
-                0.0,
-                -90.0
-              ],
-              "ObjectID": 71,
-              "RegionID": 1,
-              "Name": "KeyBarrier_IC_GHRoom"
-            }
-          },
-          {
-            "classname": "base/triggerregion",
-            "properties": {
-              "OneShot": true,
-              "FilterList": [
-                "Player"
-              ],
-              "Position": [
-                -2783.63,
-                -1096.35,
-                11.83
-              ],
-              "Scale": [
-                166.0,
-                166.0,
-                100.0
-              ],
-              "Shape": 3,
-              "ObjectID": 63,
-              "RegionID": 1,
-              "Name": "TriggerRegion"
-            }
-          },
-          {
-            "classname": "base/visscriptmodulesystem",
-            "properties": {
-              "ModuleSystem": {
-                "classname": "ModuleSystem",
-                "properties": {
-                  "EntityIDGen": 17,
-                  "Entities": [
-                    {
-                      "classname": "TriggerEventModule",
-                      "properties": {
-                        "WorldObjects": [
-                          "TriggerRegion",
-                          ""
-                        ],
-                        "WorldObject": "-CONVERTED-",
+                        "DelayTime": 0.3,
                         "EventLinks": [
                           [
                             0,
@@ -312,36 +202,149 @@
                             0
                           ]
                         ],
-                        "ID": 7,
-                        "LocationX": 36,
-                        "LocationY": 155
+                        "VariableLinks": [
+                          [
+                            true,
+                            0,
+                            13
+                          ]
+                        ],
+                        "ID": 11,
+                        "LocationX": 195,
+                        "LocationY": -45
                       }
                     },
                     {
-                      "classname": "VisScriptCallModule",
+                      "classname": "PopSpawnPointsModule",
                       "properties": {
-                        "VisualScriptSystemName": "SaveGameScript",
-                        "ExternalCallName": "SaveRoom1",
+                        "EncounterName": "spawnSmith",
+                        "EventLinks": [
+                          [
+                            0,
+                            11,
+                            0
+                          ]
+                        ],
+                        "VariableLinks": [
+                          [
+                            false,
+                            0,
+                            13
+                          ]
+                        ],
+                        "ID": 12,
+                        "LocationX": -134,
+                        "LocationY": -45
+                      }
+                    },
+                    {
+                      "classname": "VisScriptVariableWorldObjectList",
+                      "properties": {
+                        "ID": 13,
+                        "LocationX": -9,
+                        "LocationY": 124
+                      }
+                    },
+                    {
+                      "classname": "DelayModule",
+                      "properties": {
+                        "Delay": 3.0,
+                        "EventLinks": [
+                          [
+                            0,
+                            8,
+                            0
+                          ]
+                        ],
+                        "ID": 14,
+                        "LocationX": 144,
+                        "LocationY": 522
+                      }
+                    },
+                    {
+                      "classname": "InvokeMethodModule",
+                      "properties": {
+                        "ObjectNames": [
+                          "Smith1"
+                        ],
+                        "MethodName": "setBehaviorCombat",
+                        "ID": 15,
+                        "LocationX": 656,
+                        "LocationY": 246
+                      }
+                    },
+                    {
+                      "classname": "DelayModule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            15,
+                            0
+                          ]
+                        ],
+                        "ID": 16,
+                        "LocationX": 497,
+                        "LocationY": 246
+                      }
+                    },
+                    {
+                      "classname": "base/smithscorekeeper",
+                      "properties": {
+                        "SmithName": "Smith1",
                         "ID": 17,
-                        "LocationX": 282,
-                        "LocationY": 155
+                        "LocationX": 697,
+                        "LocationY": -45
+                      }
+                    },
+                    {
+                      "classname": "ExternalCallModule",
+                      "properties": {
+                        "EventName": "SaveKills",
+                        "EventLinks": [
+                          [
+                            0,
+                            17,
+                            2
+                          ]
+                        ],
+                        "ID": 19,
+                        "LocationX": 450,
+                        "LocationY": 55
+                      }
+                    },
+                    {
+                      "classname": "ExternalCallModule",
+                      "properties": {
+                        "EventName": "increaseKillCount",
+                        "EventLinks": [
+                          [
+                            0,
+                            17,
+                            1
+                          ]
+                        ],
+                        "ID": 20,
+                        "Comment": "Increase Kill Count - Sent From Angel oc files.",
+                        "LocationX": 449,
+                        "LocationY": -105
                       }
                     }
                   ],
-                  "ViewXOffset": -163.94891,
-                  "ViewYOffset": -74.67084,
-                  "ViewZoom": 1.5999997,
-                  "ModuleIDGen": 0
+                  "ViewXOffset": 732.03674,
+                  "ViewYOffset": -42.93698,
+                  "ViewZoom": 1.2999998,
+                  "ModuleIDGen": 529017039
                 }
               },
               "Position": [
-                -2608.4087,
-                -1090.3157,
-                129.0
+                -1101.0933,
+                -1115.3622,
+                142.99976
               ],
-              "ObjectID": 61,
-              "RegionID": 1,
-              "Name": "VisScriptModuleSystem_02"
+              "ObjectID": 33,
+              "RegionID": 6,
+              "Name": "SM_Rm01_VSM_Smith_Start"
             }
           },
           {
@@ -350,195 +353,974 @@
               "ModuleSystem": {
                 "classname": "ModuleSystem",
                 "properties": {
-                  "EntityIDGen": 9,
+                  "EntityIDGen": 71,
                   "Entities": [
                     {
-                      "classname": "StartModule",
+                      "classname": "ExternalCallModule",
                       "properties": {
+                        "EventName": "SaveRoom1",
                         "EventLinks": [
                           [
                             0,
-                            6,
-                            0
-                          ]
-                        ],
-                        "ID": 2,
-                        "LocationX": 16,
-                        "LocationY": 68
-                      }
-                    },
-                    {
-                      "classname": "AttachEventModule",
-                      "properties": {
-                        "ObjectNames": [
-                          "crossbladeswitch"
-                        ],
-                        "EventNames": [
-                          "onTrigger"
-                        ],
-                        "EventLinks": [
-                          [
-                            0,
-                            5,
-                            1
-                          ],
-                          [
-                            0,
-                            4,
+                            12,
                             0
                           ],
                           [
                             0,
-                            9,
-                            0
-                          ]
-                        ],
-                        "ID": 3,
-                        "LocationX": 443,
-                        "LocationY": 108
-                      }
-                    },
-                    {
-                      "classname": "ObjectMoverModule",
-                      "properties": {
-                        "ObjectName": "looming_rock",
-                        "MoveVal": 3.0,
-                        "RotationVector": [
-                          0.0,
-                          0.0,
-                          90.0
-                        ],
-                        "MoveObject": false,
-                        "RotateObject": true,
-                        "EventLinks": [
-                          [
-                            1,
-                            7,
-                            0
-                          ]
-                        ],
-                        "ID": 4,
-                        "LocationX": 748,
-                        "LocationY": -27
-                      }
-                    },
-                    {
-                      "classname": "SaveDataModule",
-                      "properties": {
-                        "FlagInfoList": [
-                          {
-                            "classname": "FlagInfo",
-                            "properties": {
-                              "FlagLevel": "room1",
-                              "FlagName": "looming_rock_Spin"
-                            }
-                          }
-                        ],
-                        "ID": 5,
-                        "LocationX": 746,
-                        "LocationY": 471
-                      }
-                    },
-                    {
-                      "classname": "SaveDataModule",
-                      "properties": {
-                        "FlagInfoList": [
-                          {
-                            "classname": "FlagInfo",
-                            "properties": {
-                              "FlagLevel": "room1",
-                              "FlagName": "looming_rock_Spin"
-                            }
-                          }
-                        ],
-                        "EventLinks": [
-                          [
-                            1,
-                            3,
-                            0
-                          ],
-                          [
-                            0,
-                            4,
-                            0
-                          ]
-                        ],
-                        "ID": 6,
-                        "LocationX": 193,
-                        "LocationY": 68
-                      }
-                    },
-                    {
-                      "classname": "ObjectMoverModule",
-                      "properties": {
-                        "ObjectName": "looming_rock",
-                        "MoveVal": 3.0,
-                        "MovementVector": [
-                          0.0,
-                          0.0,
-                          -300.0
-                        ],
-                        "RotationVector": [
-                          0.0,
-                          0.0,
-                          90.0
-                        ],
-                        "MoveObject": false,
-                        "RotateObject": true,
-                        "EventLinks": [
-                          [
-                            1,
-                            4,
+                            13,
                             0
                           ]
                         ],
                         "ID": 7,
-                        "LocationX": 748,
-                        "LocationY": 144
-                      }
-                    },
-                    {
-                      "classname": "InvokeMethodModule",
-                      "properties": {
-                        "ObjectNames": [
-                          "crossbladeswitch"
-                        ],
-                        "MethodName": "close",
-                        "ID": 8,
-                        "LocationX": 927,
-                        "LocationY": 303
+                        "LocationX": 36,
+                        "LocationY": 179
                       }
                     },
                     {
                       "classname": "DelayModule",
                       "properties": {
-                        "Delay": 2.0,
+                        "Delay": 3.0,
                         "EventLinks": [
                           [
                             0,
-                            8,
+                            15,
                             0
                           ]
                         ],
-                        "ID": 9,
-                        "LocationX": 747,
-                        "LocationY": 303
+                        "ID": 12,
+                        "LocationX": 288,
+                        "LocationY": 179
+                      }
+                    },
+                    {
+                      "classname": "TextModule",
+                      "properties": {
+                        "Text": "saving game process in 3 seconds",
+                        "Duration": 3.0,
+                        "ID": 13,
+                        "LocationX": 309,
+                        "LocationY": 110
+                      }
+                    },
+                    {
+                      "classname": "TextModule",
+                      "properties": {
+                        "Text": "now you die",
+                        "EventLinks": [
+                          [
+                            0,
+                            19,
+                            0
+                          ]
+                        ],
+                        "ID": 14,
+                        "LocationX": 1441,
+                        "LocationY": 179
+                      }
+                    },
+                    {
+                      "classname": "base/commitsavedatamodule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            16,
+                            0
+                          ]
+                        ],
+                        "ID": 15,
+                        "LocationX": 443,
+                        "LocationY": 179
+                      }
+                    },
+                    {
+                      "classname": "base/setspawnpointmodule",
+                      "properties": {
+                        "World": "Persistence",
+                        "Region": "Room1",
+                        "SpawnPoint": "Start",
+                        "SpawnLoadRegion": "StartLoadRegion",
+                        "EventLinks": [
+                          [
+                            0,
+                            70,
+                            0
+                          ],
+                          [
+                            0,
+                            71,
+                            0
+                          ]
+                        ],
+                        "ID": 16,
+                        "LocationX": 666,
+                        "LocationY": 179
+                      }
+                    },
+                    {
+                      "classname": "base/autosavemodule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            18,
+                            0
+                          ]
+                        ],
+                        "ID": 17,
+                        "LocationX": 1077,
+                        "LocationY": 179
+                      }
+                    },
+                    {
+                      "classname": "base/storesavedatamodule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            14,
+                            0
+                          ]
+                        ],
+                        "ID": 18,
+                        "LocationX": 1243,
+                        "LocationY": 179
+                      }
+                    },
+                    {
+                      "classname": "DelayModule",
+                      "properties": {
+                        "Delay": 3.0,
+                        "EventLinks": [
+                          [
+                            0,
+                            20,
+                            0
+                          ]
+                        ],
+                        "ID": 19,
+                        "LocationX": 1643,
+                        "LocationY": 179
+                      }
+                    },
+                    {
+                      "classname": "DamageActorModule",
+                      "properties": {
+                        "DamageAmount": 2000.0,
+                        "TargetActorNames": [
+                          "War"
+                        ],
+                        "ID": 20,
+                        "LocationX": 1790,
+                        "LocationY": 179
+                      }
+                    },
+                    {
+                      "classname": "ExternalCallModule",
+                      "properties": {
+                        "EventName": "SaveRoom2",
+                        "EventLinks": [
+                          [
+                            0,
+                            23,
+                            0
+                          ],
+                          [
+                            0,
+                            24,
+                            0
+                          ]
+                        ],
+                        "ID": 22,
+                        "LocationX": 38,
+                        "LocationY": 456
+                      }
+                    },
+                    {
+                      "classname": "DelayModule",
+                      "properties": {
+                        "Delay": 3.0,
+                        "EventLinks": [
+                          [
+                            0,
+                            26,
+                            0
+                          ]
+                        ],
+                        "ID": 23,
+                        "LocationX": 285,
+                        "LocationY": 456
+                      }
+                    },
+                    {
+                      "classname": "TextModule",
+                      "properties": {
+                        "Text": "saving game process in 3 seconds",
+                        "Duration": 3.0,
+                        "ID": 24,
+                        "LocationX": 287,
+                        "LocationY": 388
+                      }
+                    },
+                    {
+                      "classname": "TextModule",
+                      "properties": {
+                        "Text": "now you die",
+                        "EventLinks": [
+                          [
+                            0,
+                            30,
+                            0
+                          ]
+                        ],
+                        "ID": 25,
+                        "LocationX": 1464,
+                        "LocationY": 456
+                      }
+                    },
+                    {
+                      "classname": "base/commitsavedatamodule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            27,
+                            0
+                          ]
+                        ],
+                        "ID": 26,
+                        "LocationX": 428,
+                        "LocationY": 456
+                      }
+                    },
+                    {
+                      "classname": "base/setspawnpointmodule",
+                      "properties": {
+                        "World": "Persistence",
+                        "Region": "Room2",
+                        "SpawnPoint": "Start",
+                        "SpawnLoadRegion": "StartLoadRegion",
+                        "EventLinks": [
+                          [
+                            0,
+                            68,
+                            0
+                          ],
+                          [
+                            0,
+                            69,
+                            0
+                          ]
+                        ],
+                        "ID": 27,
+                        "LocationX": 645,
+                        "LocationY": 456
+                      }
+                    },
+                    {
+                      "classname": "base/autosavemodule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            29,
+                            0
+                          ]
+                        ],
+                        "ID": 28,
+                        "LocationX": 1083,
+                        "LocationY": 456
+                      }
+                    },
+                    {
+                      "classname": "base/storesavedatamodule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            25,
+                            0
+                          ]
+                        ],
+                        "ID": 29,
+                        "LocationX": 1246,
+                        "LocationY": 456
+                      }
+                    },
+                    {
+                      "classname": "DelayModule",
+                      "properties": {
+                        "Delay": 3.0,
+                        "EventLinks": [
+                          [
+                            0,
+                            31,
+                            0
+                          ]
+                        ],
+                        "ID": 30,
+                        "LocationX": 1669,
+                        "LocationY": 456
+                      }
+                    },
+                    {
+                      "classname": "DamageActorModule",
+                      "properties": {
+                        "DamageAmount": 2000.0,
+                        "TargetActorNames": [
+                          "War"
+                        ],
+                        "ID": 31,
+                        "LocationX": 1834,
+                        "LocationY": 456
+                      }
+                    },
+                    {
+                      "classname": "ExternalCallModule",
+                      "properties": {
+                        "EventName": "SaveRoom3",
+                        "EventLinks": [
+                          [
+                            0,
+                            35,
+                            0
+                          ],
+                          [
+                            0,
+                            36,
+                            0
+                          ]
+                        ],
+                        "ID": 32,
+                        "LocationX": 42,
+                        "LocationY": 770
+                      }
+                    },
+                    {
+                      "classname": "ExternalCallModule",
+                      "properties": {
+                        "EventName": "SaveRoom4",
+                        "EventLinks": [
+                          [
+                            0,
+                            44,
+                            0
+                          ],
+                          [
+                            0,
+                            45,
+                            0
+                          ]
+                        ],
+                        "ID": 33,
+                        "LocationX": 44,
+                        "LocationY": 1093
+                      }
+                    },
+                    {
+                      "classname": "ExternalCallModule",
+                      "properties": {
+                        "EventName": "SaveRoom5",
+                        "EventLinks": [
+                          [
+                            0,
+                            53,
+                            0
+                          ],
+                          [
+                            0,
+                            54,
+                            0
+                          ]
+                        ],
+                        "ID": 34,
+                        "LocationX": 45,
+                        "LocationY": 1428
+                      }
+                    },
+                    {
+                      "classname": "DelayModule",
+                      "properties": {
+                        "Delay": 3.0,
+                        "EventLinks": [
+                          [
+                            0,
+                            38,
+                            0
+                          ]
+                        ],
+                        "ID": 35,
+                        "LocationX": 287,
+                        "LocationY": 770
+                      }
+                    },
+                    {
+                      "classname": "TextModule",
+                      "properties": {
+                        "Text": "saving game process in 3 seconds",
+                        "Duration": 3.0,
+                        "ID": 36,
+                        "LocationX": 289,
+                        "LocationY": 702
+                      }
+                    },
+                    {
+                      "classname": "TextModule",
+                      "properties": {
+                        "Text": "now you die",
+                        "EventLinks": [
+                          [
+                            0,
+                            42,
+                            0
+                          ]
+                        ],
+                        "ID": 37,
+                        "LocationX": 1517,
+                        "LocationY": 770
+                      }
+                    },
+                    {
+                      "classname": "base/commitsavedatamodule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            39,
+                            0
+                          ]
+                        ],
+                        "ID": 38,
+                        "LocationX": 481,
+                        "LocationY": 770
+                      }
+                    },
+                    {
+                      "classname": "base/setspawnpointmodule",
+                      "properties": {
+                        "World": "Persistence",
+                        "Region": "Room3",
+                        "SpawnPoint": "Start",
+                        "SpawnLoadRegion": "StartLoadRegion",
+                        "EventLinks": [
+                          [
+                            0,
+                            66,
+                            0
+                          ],
+                          [
+                            0,
+                            67,
+                            0
+                          ]
+                        ],
+                        "ID": 39,
+                        "LocationX": 698,
+                        "LocationY": 770
+                      }
+                    },
+                    {
+                      "classname": "base/autosavemodule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            41,
+                            0
+                          ]
+                        ],
+                        "ID": 40,
+                        "LocationX": 1100,
+                        "LocationY": 770
+                      }
+                    },
+                    {
+                      "classname": "base/storesavedatamodule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            37,
+                            0
+                          ]
+                        ],
+                        "ID": 41,
+                        "LocationX": 1299,
+                        "LocationY": 770
+                      }
+                    },
+                    {
+                      "classname": "DelayModule",
+                      "properties": {
+                        "Delay": 3.0,
+                        "EventLinks": [
+                          [
+                            0,
+                            43,
+                            0
+                          ]
+                        ],
+                        "ID": 42,
+                        "LocationX": 1722,
+                        "LocationY": 770
+                      }
+                    },
+                    {
+                      "classname": "DamageActorModule",
+                      "properties": {
+                        "DamageAmount": 2000.0,
+                        "TargetActorNames": [
+                          "War"
+                        ],
+                        "ID": 43,
+                        "LocationX": 1860,
+                        "LocationY": 770
+                      }
+                    },
+                    {
+                      "classname": "DelayModule",
+                      "properties": {
+                        "Delay": 3.0,
+                        "EventLinks": [
+                          [
+                            0,
+                            47,
+                            0
+                          ]
+                        ],
+                        "ID": 44,
+                        "LocationX": 291,
+                        "LocationY": 1093
+                      }
+                    },
+                    {
+                      "classname": "TextModule",
+                      "properties": {
+                        "Text": "saving game process in 3 seconds",
+                        "Duration": 3.0,
+                        "ID": 45,
+                        "LocationX": 293,
+                        "LocationY": 1025
+                      }
+                    },
+                    {
+                      "classname": "TextModule",
+                      "properties": {
+                        "Text": "now you die",
+                        "EventLinks": [
+                          [
+                            0,
+                            51,
+                            0
+                          ]
+                        ],
+                        "ID": 46,
+                        "LocationX": 1521,
+                        "LocationY": 1093
+                      }
+                    },
+                    {
+                      "classname": "base/commitsavedatamodule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            48,
+                            0
+                          ]
+                        ],
+                        "ID": 47,
+                        "LocationX": 485,
+                        "LocationY": 1093
+                      }
+                    },
+                    {
+                      "classname": "base/setspawnpointmodule",
+                      "properties": {
+                        "World": "Persistence",
+                        "Region": "Room4",
+                        "SpawnPoint": "Start",
+                        "SpawnLoadRegion": "StartLoadRegion",
+                        "EventLinks": [
+                          [
+                            0,
+                            64,
+                            0
+                          ],
+                          [
+                            0,
+                            65,
+                            0
+                          ]
+                        ],
+                        "ID": 48,
+                        "LocationX": 702,
+                        "LocationY": 1093
+                      }
+                    },
+                    {
+                      "classname": "base/autosavemodule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            50,
+                            0
+                          ]
+                        ],
+                        "ID": 49,
+                        "LocationX": 1125,
+                        "LocationY": 1093
+                      }
+                    },
+                    {
+                      "classname": "base/storesavedatamodule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            46,
+                            0
+                          ]
+                        ],
+                        "ID": 50,
+                        "LocationX": 1303,
+                        "LocationY": 1093
+                      }
+                    },
+                    {
+                      "classname": "DelayModule",
+                      "properties": {
+                        "Delay": 3.0,
+                        "EventLinks": [
+                          [
+                            0,
+                            52,
+                            0
+                          ]
+                        ],
+                        "ID": 51,
+                        "LocationX": 1726,
+                        "LocationY": 1093
+                      }
+                    },
+                    {
+                      "classname": "DamageActorModule",
+                      "properties": {
+                        "DamageAmount": 2000.0,
+                        "TargetActorNames": [
+                          "War"
+                        ],
+                        "ID": 52,
+                        "LocationX": 1891,
+                        "LocationY": 1093
+                      }
+                    },
+                    {
+                      "classname": "DelayModule",
+                      "properties": {
+                        "Delay": 3.0,
+                        "EventLinks": [
+                          [
+                            0,
+                            56,
+                            0
+                          ]
+                        ],
+                        "ID": 53,
+                        "LocationX": 288,
+                        "LocationY": 1428
+                      }
+                    },
+                    {
+                      "classname": "TextModule",
+                      "properties": {
+                        "Text": "saving game process in 3 seconds",
+                        "Duration": 3.0,
+                        "ID": 54,
+                        "LocationX": 290,
+                        "LocationY": 1360
+                      }
+                    },
+                    {
+                      "classname": "TextModule",
+                      "properties": {
+                        "Text": "now you die",
+                        "EventLinks": [
+                          [
+                            0,
+                            60,
+                            0
+                          ]
+                        ],
+                        "ID": 55,
+                        "LocationX": 1518,
+                        "LocationY": 1428
+                      }
+                    },
+                    {
+                      "classname": "base/commitsavedatamodule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            57,
+                            0
+                          ]
+                        ],
+                        "ID": 56,
+                        "LocationX": 482,
+                        "LocationY": 1428
+                      }
+                    },
+                    {
+                      "classname": "base/setspawnpointmodule",
+                      "properties": {
+                        "World": "Persistence",
+                        "Region": "Hallway",
+                        "SpawnPoint": "Start",
+                        "SpawnLoadRegion": "StartLoadRegion",
+                        "EventLinks": [
+                          [
+                            0,
+                            62,
+                            0
+                          ],
+                          [
+                            0,
+                            63,
+                            0
+                          ]
+                        ],
+                        "ID": 57,
+                        "LocationX": 699,
+                        "LocationY": 1427
+                      }
+                    },
+                    {
+                      "classname": "base/autosavemodule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            59,
+                            0
+                          ]
+                        ],
+                        "ID": 58,
+                        "LocationX": 1122,
+                        "LocationY": 1428
+                      }
+                    },
+                    {
+                      "classname": "base/storesavedatamodule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            55,
+                            0
+                          ]
+                        ],
+                        "ID": 59,
+                        "LocationX": 1300,
+                        "LocationY": 1428
+                      }
+                    },
+                    {
+                      "classname": "DelayModule",
+                      "properties": {
+                        "Delay": 3.0,
+                        "EventLinks": [
+                          [
+                            0,
+                            61,
+                            0
+                          ]
+                        ],
+                        "ID": 60,
+                        "LocationX": 1723,
+                        "LocationY": 1428
+                      }
+                    },
+                    {
+                      "classname": "DamageActorModule",
+                      "properties": {
+                        "DamageAmount": 2000.0,
+                        "TargetActorNames": [
+                          "War"
+                        ],
+                        "ID": 61,
+                        "LocationX": 1888,
+                        "LocationY": 1428
+                      }
+                    },
+                    {
+                      "classname": "DelayModule",
+                      "properties": {
+                        "Delay": 0.5,
+                        "EventLinks": [
+                          [
+                            0,
+                            58,
+                            0
+                          ]
+                        ],
+                        "ID": 62,
+                        "LocationX": 959,
+                        "LocationY": 1428
+                      }
+                    },
+                    {
+                      "classname": "VisScriptCallModule",
+                      "properties": {
+                        "VisualScriptSystemName": "SM_Rm01_VSM_Smith_Start",
+                        "ExternalCallName": "SaveKills",
+                        "ID": 63,
+                        "LocationX": 959,
+                        "LocationY": 1336
+                      }
+                    },
+                    {
+                      "classname": "DelayModule",
+                      "properties": {
+                        "Delay": 0.5,
+                        "EventLinks": [
+                          [
+                            0,
+                            49,
+                            0
+                          ]
+                        ],
+                        "ID": 64,
+                        "LocationX": 941,
+                        "LocationY": 1093
+                      }
+                    },
+                    {
+                      "classname": "VisScriptCallModule",
+                      "properties": {
+                        "VisualScriptSystemName": "SM_Rm01_VSM_Smith_Start",
+                        "ExternalCallName": "SaveKills",
+                        "ID": 65,
+                        "LocationX": 941,
+                        "LocationY": 1001
+                      }
+                    },
+                    {
+                      "classname": "DelayModule",
+                      "properties": {
+                        "Delay": 0.5,
+                        "EventLinks": [
+                          [
+                            0,
+                            40,
+                            0
+                          ]
+                        ],
+                        "ID": 66,
+                        "LocationX": 933,
+                        "LocationY": 770
+                      }
+                    },
+                    {
+                      "classname": "VisScriptCallModule",
+                      "properties": {
+                        "VisualScriptSystemName": "SM_Rm01_VSM_Smith_Start",
+                        "ExternalCallName": "SaveKills",
+                        "ID": 67,
+                        "LocationX": 933,
+                        "LocationY": 678
+                      }
+                    },
+                    {
+                      "classname": "DelayModule",
+                      "properties": {
+                        "Delay": 0.5,
+                        "EventLinks": [
+                          [
+                            0,
+                            28,
+                            0
+                          ]
+                        ],
+                        "ID": 68,
+                        "LocationX": 893,
+                        "LocationY": 456
+                      }
+                    },
+                    {
+                      "classname": "VisScriptCallModule",
+                      "properties": {
+                        "VisualScriptSystemName": "SM_Rm01_VSM_Smith_Start",
+                        "ExternalCallName": "SaveKills",
+                        "ID": 69,
+                        "LocationX": 893,
+                        "LocationY": 364
+                      }
+                    },
+                    {
+                      "classname": "DelayModule",
+                      "properties": {
+                        "Delay": 0.5,
+                        "EventLinks": [
+                          [
+                            0,
+                            17,
+                            0
+                          ]
+                        ],
+                        "ID": 70,
+                        "LocationX": 905,
+                        "LocationY": 179
+                      }
+                    },
+                    {
+                      "classname": "VisScriptCallModule",
+                      "properties": {
+                        "VisualScriptSystemName": "SM_Rm01_VSM_Smith_Start",
+                        "ExternalCallName": "SaveKills",
+                        "ID": 71,
+                        "LocationX": 905,
+                        "LocationY": 87
                       }
                     }
                   ],
-                  "ViewXOffset": -191.0,
-                  "ViewYOffset": 121.0,
-                  "ModuleIDGen": 0
+                  "ViewXOffset": 333.94446,
+                  "ViewYOffset": -552.3269,
+                  "ViewZoom": 1.0000005,
+                  "ModuleIDGen": 529017039
                 }
               },
               "Position": [
-                -2576.4087,
-                -848.3157,
-                129.0
+                -1103.0933,
+                -283.36218,
+                142.99976
               ],
-              "ObjectID": 60,
-              "RegionID": 1,
-              "Name": "VisScriptModuleSystem_01"
+              "ObjectID": 32,
+              "RegionID": 6,
+              "Name": "SaveGameScript"
+            }
+          },
+          {
+            "classname": "base/triggerregion",
+            "properties": {
+              "FilterList": [
+                "Player"
+              ],
+              "Position": [
+                -1100.0,
+                -589.64,
+                82.0
+              ],
+              "Scale": [
+                704.0,
+                2272.0,
+                194.0
+              ],
+              "ObjectID": 31,
+              "RegionID": 6,
+              "Name": "StoreDataTrig"
             }
           },
           {
@@ -550,35 +1332,9 @@
                   "EntityIDGen": 6,
                   "Entities": [
                     {
-                      "classname": "StartModule",
+                      "classname": "base/storesavedatamodule",
                       "properties": {
                         "EventLinks": [
-                          [
-                            0,
-                            5,
-                            0
-                          ]
-                        ],
-                        "ID": 1,
-                        "LocationX": -29,
-                        "LocationY": 221
-                      }
-                    },
-                    {
-                      "classname": "AttachEventModule",
-                      "properties": {
-                        "ObjectNames": [
-                          "global_gearcrank"
-                        ],
-                        "EventNames": [
-                          "onTrigger"
-                        ],
-                        "EventLinks": [
-                          [
-                            0,
-                            4,
-                            1
-                          ],
                           [
                             0,
                             3,
@@ -586,63 +1342,27 @@
                           ]
                         ],
                         "ID": 2,
-                        "LocationX": 398,
-                        "LocationY": 261
+                        "LocationX": 292,
+                        "LocationY": 221
                       }
                     },
                     {
-                      "classname": "ObjectMoverModule",
+                      "classname": "TextModule",
                       "properties": {
-                        "ObjectName": "looming_rock_01",
-                        "MoveVal": 5.0,
-                        "MovementVector": [
-                          0.0,
-                          0.0,
-                          300.0
-                        ],
-                        "EaseIn": 1.0,
-                        "EaseOut": 1.0,
-                        "EventLinks": [
-                          [
-                            1,
-                            6,
-                            0
-                          ]
-                        ],
+                        "Text": "Storing Data!",
+                        "Duration": 4.0,
                         "ID": 3,
-                        "LocationX": 703,
-                        "LocationY": 126
+                        "LocationX": 532,
+                        "LocationY": 221
                       }
                     },
                     {
-                      "classname": "SaveDataModule",
+                      "classname": "TriggerEventModule",
                       "properties": {
-                        "FlagInfoList": [
-                          {
-                            "classname": "FlagInfo",
-                            "properties": {
-                              "FlagLevel": "room1",
-                              "FlagName": "looming_rock_Move"
-                            }
-                          }
+                        "WorldObjects": [
+                          ""
                         ],
-                        "ID": 4,
-                        "LocationX": 610,
-                        "LocationY": 480
-                      }
-                    },
-                    {
-                      "classname": "SaveDataModule",
-                      "properties": {
-                        "FlagInfoList": [
-                          {
-                            "classname": "FlagInfo",
-                            "properties": {
-                              "FlagLevel": "room1",
-                              "FlagName": "looming_rock_Move"
-                            }
-                          }
-                        ],
+                        "WorldObject": "-CONVERTED-",
                         "EventLinks": [
                           [
                             1,
@@ -651,279 +1371,102 @@
                           ],
                           [
                             0,
-                            3,
+                            6,
                             0
                           ]
                         ],
-                        "ID": 5,
-                        "LocationX": 148,
-                        "LocationY": 221
+                        "ID": 4,
+                        "LocationX": -26,
+                        "LocationY": 151
                       }
                     },
                     {
-                      "classname": "ObjectMoverModule",
+                      "classname": "TextModule",
                       "properties": {
-                        "ObjectName": "looming_rock_01",
-                        "MoveVal": 5.0,
-                        "MovementVector": [
-                          0.0,
-                          0.0,
-                          -300.0
-                        ],
-                        "EaseIn": 1.0,
-                        "EaseOut": 1.0,
+                        "Text": "Manual Saves Allowed",
+                        "Duration": 4.0,
+                        "ID": 5,
+                        "LocationX": 530,
+                        "LocationY": 103
+                      }
+                    },
+                    {
+                      "classname": "base/commitsavedatamodule",
+                      "properties": {
                         "EventLinks": [
                           [
-                            1,
-                            3,
+                            0,
+                            5,
                             0
                           ]
                         ],
                         "ID": 6,
-                        "LocationX": 703,
-                        "LocationY": 297
+                        "LocationX": 291,
+                        "LocationY": 103
                       }
                     }
                   ],
-                  "ViewXOffset": 157.0,
-                  "ViewYOffset": 24.0,
-                  "ModuleIDGen": 0
+                  "ViewXOffset": 322.0,
+                  "ViewYOffset": 51.0,
+                  "ModuleIDGen": 529017039
                 }
               },
               "Position": [
-                -2441.4087,
-                -1092.3157,
-                129.0
+                -1101.0933,
+                274.63782,
+                142.99976
               ],
-              "ObjectID": 59,
-              "RegionID": 1,
-              "Name": "VisScriptModuleSystem"
-            }
-          },
-          {
-            "classname": "looming_rock/looming_rock",
-            "properties": {
-              "Position": [
-                -2669.8777,
-                -1333.7278,
-                378.99976
-              ],
-              "ObjectID": 57,
-              "RegionID": 1,
-              "Name": "looming_rock_01"
-            }
-          },
-          {
-            "classname": "scriptworldobject",
-            "properties": {
-              "Position": [
-                -2495.162,
-                -1094.0035,
-                0.0
-              ],
-              "Rotation": [
-                0.0,
-                0.0,
-                90.0
-              ],
-              "ObjectID": 56,
-              "RegionID": 1,
-              "Name": "global_gearcrank",
-              "LightGroup": -2147483647
-            }
-          },
-          {
-            "classname": "crossblade_switch/crossbladeswitch",
-            "properties": {
-              "Open": true,
-              "Position": [
-                -2875.14,
-                -1095.18,
-                284.95
-              ],
-              "Rotation": [
-                0.0,
-                -0.0,
-                90.0
-              ],
-              "ObjectID": 54,
-              "RegionID": 1,
-              "Name": "crossbladeswitch"
-            }
-          },
-          {
-            "classname": "StaticObject",
-            "properties": {
-              "Position": [
-                -2779.3423,
-                -1100.0,
-                6.0
-              ],
-              "ObjectName": "plinth",
-              "PackageName": "plinth",
-              "ObjectID": 52,
-              "RegionID": 1,
-              "Name": "plinth"
-            }
-          },
-          {
-            "classname": "looming_rock/looming_rock",
-            "properties": {
-              "Position": [
-                -2669.8777,
-                -839.72784,
-                378.99976
-              ],
-              "ObjectID": 50,
-              "RegionID": 1,
-              "Name": "looming_rock"
+              "ObjectID": 29,
+              "RegionID": 6,
+              "Name": "HallwayStart"
             }
           },
           {
             "classname": "base/waypoint",
             "properties": {
               "Position": [
-                -2299.83,
                 -1100.0,
-                0.00024414062
+                200.0,
+                0.0
               ],
               "Rotation": [
                 0.0,
-                0.0,
-                -90.0
-              ],
-              "Color": [
-                0.09019608,
-                0.16470589,
-                0.47843137
+                -0.0,
+                180.0
               ],
               "Render": true,
-              "ObjectID": 44,
-              "RegionID": 1,
+              "ObjectID": 27,
+              "RegionID": 6,
               "Name": "Start"
-            }
-          },
-          {
-            "classname": "special_casket/chest_soulchest",
-            "properties": {
-              "Heading": 180.0,
-              "HitPoints": 100.0,
-              "Inventory": {
-                "classname": "Inventory",
-                "properties": {}
-              },
-              "Position": [
-                -2163.0,
-                -1388.49,
-                0.0
-              ],
-              "Rotation": [
-                0.0,
-                0.0,
-                180.0
-              ],
-              "ObjectID": 26,
-              "RegionID": 1,
-              "Name": "Chest_SoulChest_01"
-            }
-          },
-          {
-            "classname": "special_casket/chest_healthchest",
-            "properties": {
-              "HitPoints": 100.0,
-              "Inventory": {
-                "classname": "Inventory",
-                "properties": {}
-              },
-              "Position": [
-                -2163.0,
-                -803.00116,
-                -0.00012207031
-              ],
-              "ObjectID": 25,
-              "RegionID": 1,
-              "Name": "Chest_HealthChest_01"
-            }
-          },
-          {
-            "classname": "special_casket/chest_healthchest",
-            "properties": {
-              "HitPoints": 100.0,
-              "Inventory": {
-                "classname": "Inventory",
-                "properties": {}
-              },
-              "Position": [
-                -2400.0,
-                -803.00116,
-                -0.00012207031
-              ],
-              "ObjectID": 24,
-              "RegionID": 1,
-              "Name": "Chest_HealthChest"
-            }
-          },
-          {
-            "classname": "special_casket/chest_soulchest",
-            "properties": {
-              "Heading": 180.0,
-              "HitPoints": 100.0,
-              "Inventory": {
-                "classname": "Inventory",
-                "properties": {}
-              },
-              "Position": [
-                -2400.0,
-                -1388.49,
-                0.0
-              ],
-              "Rotation": [
-                0.0,
-                0.0,
-                180.0
-              ],
-              "ObjectID": 22,
-              "RegionID": 1,
-              "Name": "Chest_SoulChest"
             }
           },
           {
             "classname": "base/omnilight",
             "properties": {
-              "Color": [
-                1.0,
-                0.26666668,
-                0.26666668
-              ],
               "AttenStart": 100.0,
               "AttenEnd": 500.0,
               "Position": [
-                -2657.7832,
-                -1092.2802,
-                143.99988
+                -1109.8507,
+                -1068.0164,
+                295.0
               ],
-              "ObjectID": 20,
-              "RegionID": 1,
+              "ObjectID": 23,
+              "RegionID": 6,
               "Name": "OmniLight_01"
             }
           },
           {
             "classname": "base/omnilight",
             "properties": {
-              "Color": [
-                1.0,
-                0.26666668,
-                0.26666668
-              ],
               "AttenStart": 100.0,
               "AttenEnd": 500.0,
               "Position": [
-                -1882.7833,
-                -1092.2802,
-                143.99988
+                -1109.8507,
+                -122.0163,
+                295.0
               ],
-              "ObjectID": 19,
-              "RegionID": 1,
+              "ObjectID": 22,
+              "RegionID": 6,
               "Name": "OmniLight"
             }
           },
@@ -931,25 +1474,325 @@
             "classname": "StaticObject",
             "properties": {
               "Position": [
-                -1800.0,
+                -1000.0,
+                379.5,
+                -100.0
+              ],
+              "Rotation": [
+                -90.0,
+                0.0,
+                90.0
+              ],
+              "ObjectName": "wall_400x100units",
+              "PackageName": "br_mechtest",
+              "ObjectID": 20,
+              "RegionID": 6,
+              "Name": "wall_400x100units_09"
+            }
+          },
+          {
+            "classname": "StaticObject",
+            "properties": {
+              "Position": [
+                -1100.0,
+                380.5,
+                -100.0
+              ],
+              "Rotation": [
+                -90.0,
+                0.0,
+                90.0
+              ],
+              "ObjectName": "wall_400x100units",
+              "PackageName": "br_mechtest",
+              "ObjectID": 19,
+              "RegionID": 6,
+              "Name": "wall_400x100units_08"
+            }
+          },
+          {
+            "classname": "StaticObject",
+            "properties": {
+              "Position": [
+                -800.0,
+                379.5,
+                -100.0
+              ],
+              "Rotation": [
+                -90.0,
+                0.0,
+                90.0
+              ],
+              "ObjectName": "wall_400x100units",
+              "PackageName": "br_mechtest",
+              "ObjectID": 18,
+              "RegionID": 6,
+              "Name": "wall_400x100units_07"
+            }
+          },
+          {
+            "classname": "StaticObject",
+            "properties": {
+              "Position": [
+                -900.0,
+                379.5,
+                -100.0
+              ],
+              "Rotation": [
+                -90.0,
+                0.0,
+                90.0
+              ],
+              "ObjectName": "wall_400x100units",
+              "PackageName": "br_mechtest",
+              "ObjectID": 17,
+              "RegionID": 6,
+              "Name": "wall_400x100units_06"
+            }
+          },
+          {
+            "classname": "StaticObject",
+            "properties": {
+              "Position": [
                 -1200.0,
+                380.5,
+                -100.0
+              ],
+              "Rotation": [
+                -90.0,
+                0.0,
+                90.0
+              ],
+              "ObjectName": "wall_400x100units",
+              "PackageName": "br_mechtest",
+              "ObjectID": 16,
+              "RegionID": 6,
+              "Name": "wall_400x100units_05"
+            }
+          },
+          {
+            "classname": "StaticObject",
+            "properties": {
+              "Position": [
+                -1300.0,
+                380.5,
+                -100.0
+              ],
+              "Rotation": [
+                -90.0,
+                0.0,
+                90.0
+              ],
+              "ObjectName": "wall_400x100units",
+              "PackageName": "br_mechtest",
+              "ObjectID": 15,
+              "RegionID": 6,
+              "Name": "wall_400x100units_04"
+            }
+          },
+          {
+            "classname": "StaticObject",
+            "properties": {
+              "Position": [
+                -1300.0,
+                -1601.0,
+                -100.0
+              ],
+              "Rotation": [
+                -90.0,
+                0.0,
+                90.0
+              ],
+              "ObjectName": "wall_400x100units",
+              "PackageName": "br_mechtest",
+              "ObjectID": 14,
+              "RegionID": 6,
+              "Name": "wall_400x100units_01"
+            }
+          },
+          {
+            "classname": "StaticObject",
+            "properties": {
+              "Position": [
+                -1200.0,
+                -1601.0,
+                -100.0
+              ],
+              "Rotation": [
+                -90.0,
+                0.0,
+                90.0
+              ],
+              "ObjectName": "wall_400x100units",
+              "PackageName": "br_mechtest",
+              "ObjectID": 13,
+              "RegionID": 6,
+              "Name": "wall_400x100units"
+            }
+          },
+          {
+            "classname": "StaticObject",
+            "properties": {
+              "Position": [
+                -900.0,
+                -1601.0,
+                -100.0
+              ],
+              "Rotation": [
+                -90.0,
+                0.0,
+                90.0
+              ],
+              "ObjectName": "wall_400x100units",
+              "PackageName": "br_mechtest",
+              "ObjectID": 12,
+              "RegionID": 6,
+              "Name": "wall_400x100units_03"
+            }
+          },
+          {
+            "classname": "StaticObject",
+            "properties": {
+              "Position": [
+                -800.0,
+                -1601.0,
+                -100.0
+              ],
+              "Rotation": [
+                -90.0,
+                0.0,
+                90.0
+              ],
+              "ObjectName": "wall_400x100units",
+              "PackageName": "br_mechtest",
+              "ObjectID": 11,
+              "RegionID": 6,
+              "Name": "wall_400x100units_02"
+            }
+          },
+          {
+            "classname": "StaticObject",
+            "properties": {
+              "Position": [
+                -1000.0,
+                -1600.0,
                 0.0
               ],
               "Rotation": [
                 0.0,
-                -0.0,
-                -179.99992
+                0.0,
+                -90.0
               ],
-              "ObjectName": "roomemptyflatroom",
+              "ObjectName": "hallway_straightpiece",
+              "PackageName": "br_mechtest",
+              "ObjectID": 10,
+              "RegionID": 6,
+              "Name": "hallway_straightpiece_05"
+            }
+          },
+          {
+            "classname": "StaticObject",
+            "properties": {
+              "Position": [
+                -1800.0,
+                -1000.0,
+                0.0
+              ],
+              "ObjectName": "hallway_straightpiece",
               "PackageName": "br_mechtest",
               "ObjectID": 9,
-              "RegionID": 1,
-              "Name": "room1"
+              "RegionID": 6,
+              "Name": "hallway_straightpiece_04"
+            }
+          },
+          {
+            "classname": "StaticObject",
+            "properties": {
+              "Position": [
+                -1800.0,
+                0.0,
+                0.0
+              ],
+              "ObjectName": "hallway_straightpiece",
+              "PackageName": "br_mechtest",
+              "ObjectID": 8,
+              "RegionID": 6,
+              "Name": "hallway_straightpiece_03"
+            }
+          },
+          {
+            "classname": "StaticObject",
+            "properties": {
+              "Position": [
+                -800.0,
+                -600.0,
+                0.0
+              ],
+              "Rotation": [
+                0.0,
+                0.0,
+                -90.0
+              ],
+              "ObjectName": "hub_tiledpiecewithhallways",
+              "PackageName": "br_mechtest",
+              "ObjectID": 7,
+              "RegionID": 6,
+              "Name": "hub_tiledpiecewithhallways_01"
+            }
+          },
+          {
+            "classname": "StaticObject",
+            "properties": {
+              "Position": [
+                -800.0,
+                -1000.0,
+                0.0
+              ],
+              "ObjectName": "hallway_straightpiece",
+              "PackageName": "br_mechtest",
+              "ObjectID": 6,
+              "RegionID": 6,
+              "Name": "hallway_straightpiece_02"
+            }
+          },
+          {
+            "classname": "StaticObject",
+            "properties": {
+              "Position": [
+                -800.0,
+                0.0,
+                0.0
+              ],
+              "ObjectName": "hallway_straightpiece",
+              "PackageName": "br_mechtest",
+              "ObjectID": 5,
+              "RegionID": 6,
+              "Name": "hallway_straightpiece_01"
+            }
+          },
+          {
+            "classname": "StaticObject",
+            "properties": {
+              "Position": [
+                -800.0,
+                400.0,
+                0.0
+              ],
+              "Rotation": [
+                0.0,
+                0.0,
+                -90.0
+              ],
+              "ObjectName": "hub_tiledpiecewithhallways",
+              "PackageName": "br_mechtest",
+              "ObjectID": 4,
+              "RegionID": 6,
+              "Name": "hub_tiledpiecewithhallways"
             }
           }
         ]
       }
     },
-    "NextObjectID": 155
+    "NextObjectID": 46
   }
 }

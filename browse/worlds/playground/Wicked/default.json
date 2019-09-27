@@ -6,63 +6,132 @@
       "properties": {
         "Objects": [
           {
-            "classname": "minionranged/minionranged",
+            "classname": "base/visscriptmodulesystem",
             "properties": {
-              "SpeedScale": 0.0,
-              "FollowPatrolPath": true,
-              "Heading": 90.0,
-              "HitPoints": 100.0,
-              "Inventory": {
-                "classname": "Inventory",
-                "properties": {}
+              "ModuleSystem": {
+                "classname": "ModuleSystem",
+                "properties": {
+                  "EntityIDGen": 5,
+                  "Entities": [
+                    {
+                      "classname": "StartModule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            2,
+                            0
+                          ]
+                        ],
+                        "ID": 1,
+                        "LocationX": 265,
+                        "LocationY": 115
+                      }
+                    },
+                    {
+                      "classname": "PopSpawnPointsModule",
+                      "properties": {
+                        "EncounterName": "Wicked_SpawnGroup",
+                        "EventLinks": [
+                          [
+                            0,
+                            3,
+                            0
+                          ]
+                        ],
+                        "VariableLinks": [
+                          [
+                            false,
+                            0,
+                            4
+                          ]
+                        ],
+                        "ID": 2,
+                        "LocationX": 442,
+                        "LocationY": 114
+                      }
+                    },
+                    {
+                      "classname": "SpawnMonsterEventModule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            2,
+                            5,
+                            0
+                          ]
+                        ],
+                        "VariableLinks": [
+                          [
+                            true,
+                            0,
+                            4
+                          ]
+                        ],
+                        "ID": 3,
+                        "LocationX": 718,
+                        "LocationY": 105
+                      }
+                    },
+                    {
+                      "classname": "VisScriptVariableWorldObjectList",
+                      "properties": {
+                        "ID": 4,
+                        "LocationX": 462,
+                        "LocationY": 261
+                      }
+                    },
+                    {
+                      "classname": "DelayModule",
+                      "properties": {
+                        "Delay": 1.5,
+                        "EventLinks": [
+                          [
+                            0,
+                            2,
+                            0
+                          ]
+                        ],
+                        "ID": 5,
+                        "LocationX": 625,
+                        "LocationY": -69
+                      }
+                    }
+                  ],
+                  "ViewXOffset": 23.0,
+                  "ViewYOffset": 89.0,
+                  "ModuleIDGen": 778333813
+                }
               },
               "Position": [
-                -283.98233,
-                -577.3857,
-                0.000030517578
+                79.03142,
+                -595.83936,
+                17.272705
               ],
-              "Rotation": [
-                0.0,
-                0.0,
-                90.0
-              ],
-              "ObjectID": 1,
-              "RegionID": 1,
-              "Name": "MinionRanged1"
+              "ObjectID": 13,
+              "RegionID": 3,
+              "Name": "VisScript_SpawnWicked"
             }
           },
           {
-            "classname": "minionranged/minionranged",
+            "classname": "base/spawnpoint",
             "properties": {
-              "SpeedScale": 0.0,
-              "FollowPatrolPath": true,
-              "HitPoints": 100.0,
-              "Inventory": {
-                "classname": "Inventory",
-                "properties": {}
-              },
+              "EncounterName": "Wicked_SpawnGroup",
+              "ClassToSpawn": "wicked_male/wicked_male",
               "Position": [
-                227.59837,
-                -516.9288,
-                0.0
+                -31.878622,
+                -591.73,
+                -1.7272949
               ],
-              "ObjectID": 2,
-              "RegionID": 1,
-              "Name": "MinionRanged"
-            }
-          },
-          {
-            "classname": "StaticObject",
-            "properties": {
-              "Position": [
-                -39.0,
-                -174.0,
-                0.0
+              "Color": [
+                1.0,
+                0.76862746,
+                0.019607844
               ],
-              "ObjectName": "Playground",
-              "PackageName": "playground",
-              "ObjectID": 3,
-              "RegionID": 1
+              "Render": true,
+              "ObjectID": 11,
+              "RegionID": 3,
+              "Name": "Wicked_SpawnPoint_01"
             }
           },
           {
@@ -71,27 +140,46 @@
               "AttenEnd": 1000.0,
               "CastShadows": true,
               "Position": [
-                0.0,
-                0.0,
+                -646.681,
+                -739.87396,
+                500.0
+              ],
+              "JitterAmount": 128.0,
+              "ObjectID": 3,
+              "RegionID": 3,
+              "Name": "OmniLight3"
+            }
+          },
+          {
+            "classname": "base/omnilight",
+            "properties": {
+              "AttenEnd": 1000.0,
+              "CastShadows": true,
+              "Position": [
+                626.2897,
+                -668.37384,
                 500.0
               ],
               "JitterAmount": 128.0,
               "ObjectID": 4,
-              "RegionID": 1,
-              "Name": "OmniLight4"
+              "RegionID": 3,
+              "Name": "OmniLight2"
             }
           },
           {
-            "classname": "base/waypoint",
+            "classname": "base/omnilight",
             "properties": {
+              "AttenEnd": 1000.0,
+              "CastShadows": true,
               "Position": [
-                0.0,
-                0.0,
-                200.0
+                586.46533,
+                460.82074,
+                500.0
               ],
+              "JitterAmount": 128.0,
               "ObjectID": 5,
-              "RegionID": 1,
-              "Name": "Start"
+              "RegionID": 3,
+              "Name": "OmniLight1"
             }
           },
           {
@@ -106,24 +194,26 @@
               ],
               "JitterAmount": 128.0,
               "ObjectID": 6,
-              "RegionID": 1,
+              "RegionID": 3,
               "Name": "OmniLight"
             }
           },
           {
-            "classname": "base/omnilight",
+            "classname": "base/waypoint",
             "properties": {
-              "AttenEnd": 1000.0,
-              "CastShadows": true,
               "Position": [
-                586.46533,
-                460.82074,
-                500.0
+                -38.0,
+                278.0,
+                13.0
               ],
-              "JitterAmount": 128.0,
+              "Rotation": [
+                0.0,
+                -0.0,
+                180.0
+              ],
               "ObjectID": 7,
-              "RegionID": 1,
-              "Name": "OmniLight1"
+              "RegionID": 3,
+              "Name": "Start"
             }
           },
           {
@@ -132,35 +222,33 @@
               "AttenEnd": 1000.0,
               "CastShadows": true,
               "Position": [
-                626.2897,
-                -668.37384,
+                0.0,
+                0.0,
                 500.0
               ],
               "JitterAmount": 128.0,
               "ObjectID": 8,
-              "RegionID": 1,
-              "Name": "OmniLight2"
+              "RegionID": 3,
+              "Name": "OmniLight4"
             }
           },
           {
-            "classname": "base/omnilight",
+            "classname": "StaticObject",
             "properties": {
-              "AttenEnd": 1000.0,
-              "CastShadows": true,
               "Position": [
-                -646.681,
-                -739.87396,
-                500.0
+                -39.0,
+                -174.0,
+                0.0
               ],
-              "JitterAmount": 128.0,
+              "ObjectName": "Playground",
+              "PackageName": "playground",
               "ObjectID": 9,
-              "RegionID": 1,
-              "Name": "OmniLight3"
+              "RegionID": 3
             }
           }
         ]
       }
     },
-    "NextObjectID": 9
+    "NextObjectID": 13
   }
 }

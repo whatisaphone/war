@@ -6,87 +6,2337 @@
       "properties": {
         "Objects": [
           {
-            "classname": "base/visscriptmodulesystem",
+            "classname": "base/waypoint",
             "properties": {
-              "ModuleSystem": {
-                "classname": "ModuleSystem",
-                "properties": {
-                  "EntityIDGen": 4,
-                  "Entities": [
-                    {
-                      "classname": "ObjectToggleModule",
-                      "properties": {
-                        "ObjectList": [
-                          "CI_01_Coll_Pit_Blocker"
-                        ],
-                        "ID": 1,
-                        "LocationX": 613,
-                        "LocationY": 321
-                      }
-                    },
-                    {
-                      "classname": "ExternalCallModule",
-                      "properties": {
-                        "EventName": "RemovePitBlocker",
-                        "EventLinks": [
-                          [
-                            0,
-                            1,
-                            2
-                          ]
-                        ],
-                        "ID": 3,
-                        "Comment": "Remove Pit Blocker",
-                        "LocationX": 335,
-                        "LocationY": 456
-                      }
-                    },
-                    {
-                      "classname": "ExternalCallModule",
-                      "properties": {
-                        "EventName": "AddPitBlocker",
-                        "EventLinks": [
-                          [
-                            0,
-                            1,
-                            1
-                          ]
-                        ],
-                        "ID": 4,
-                        "Comment": "Add Pit Blocker",
-                        "LocationX": 337,
-                        "LocationY": 265
-                      }
-                    }
-                  ],
-                  "ModuleIDGen": 916079112
-                }
-              },
               "Position": [
-                -3558.5537,
-                -31395.947,
-                139.47876
+                -3783.581,
+                -16901.365,
+                248.79443
               ],
-              "ObjectID": 431,
-              "LayerID": 9,
-              "Name": "CI_01_Coll_Pit_Blocker_Script"
+              "Rotation": [
+                0.000001822764,
+                -2.3472401e-7,
+                52.00001
+              ],
+              "Color": [
+                0.8,
+                0.5411765,
+                0.5254902
+              ],
+              "Render": true,
+              "ObjectID": 99,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "PR_IntroCineEndPos_Cam"
             }
           },
           {
-            "classname": "StaticObject",
+            "classname": "base/waypoint",
             "properties": {
               "Position": [
-                -3561.022,
-                -31220.91,
-                148.94885
+                -4138.184,
+                -16624.336,
+                218.79457
               ],
-              "ObjectName": "col_pit_blocker",
-              "PackageName": "city01_streets",
-              "NoShadows": true,
-              "BakeLighting": false,
-              "ObjectID": 429,
-              "LayerID": 9,
-              "Name": "CI_01_Coll_Pit_Blocker"
+              "Rotation": [
+                0.000001822764,
+                -2.3472401e-7,
+                52.00001
+              ],
+              "Color": [
+                0.8,
+                0.5411765,
+                0.5254902
+              ],
+              "Render": true,
+              "ObjectID": 98,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "PR_IntroCineEndPos_Look"
+            }
+          },
+          {
+            "classname": "base/waypoint",
+            "properties": {
+              "Position": [
+                -3959.3079,
+                -16763.96,
+                163.79
+              ],
+              "Rotation": [
+                0.000001822764,
+                -2.3472401e-7,
+                52.00001
+              ],
+              "Color": [
+                0.8,
+                0.5411765,
+                0.5254902
+              ],
+              "Render": true,
+              "ObjectID": 97,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "PR_IntroCineEndPos"
+            }
+          },
+          {
+            "classname": "base/cinematic",
+            "properties": {
+              "Position": [
+                -3889.2278,
+                -16700.234,
+                297.8711
+              ],
+              "Director": {
+                "classname": "DirectorCinematicGroup",
+                "properties": {
+                  "Length": 18.0,
+                  "CanCancel": true,
+                  "OnCancelTime": 18.0,
+                  "IsMainCinematic": true,
+                  "CamPositionObject": "PR_IntroCineEndPos_Cam",
+                  "CamLookatObject": "PR_IntroCineEndPos_Look",
+                  "PlayerPositionObject": "PR_IntroCineEndPos",
+                  "AnimationSequence": {
+                    "classname": "AnimationSequence",
+                    "properties": {
+                      "Tracks": [
+                        {
+                          "classname": "JumpTriggerTrack",
+                          "properties": {}
+                        },
+                        {
+                          "classname": "StringPropTrack",
+                          "properties": {
+                            "Keys": [
+                              [
+                                0.0,
+                                "Camera01"
+                              ],
+                              [
+                                7.0,
+                                "Camera02"
+                              ],
+                              [
+                                14.0,
+                                "Camera03"
+                              ]
+                            ],
+                            "PropertyName": "Active Camera Group"
+                          }
+                        },
+                        {
+                          "classname": "FloatPropTrack",
+                          "properties": {
+                            "PropertyName": "Simulation Speed"
+                          }
+                        },
+                        {
+                          "classname": "BoolPropTrack",
+                          "properties": {
+                            "Keys": [
+                              [
+                                0.0,
+                                true
+                              ]
+                            ],
+                            "PropertyName": "Disable Input"
+                          }
+                        },
+                        {
+                          "classname": "BoolPropTrack",
+                          "properties": {
+                            "PropertyName": "Disable Attacks"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              },
+              "Groups": [
+                {
+                  "classname": "CinematicGroup",
+                  "properties": {
+                    "AnimationSequence": {
+                      "classname": "AnimationSequence",
+                      "properties": {
+                        "Tracks": [
+                          {
+                            "classname": "Vector3PropTrack",
+                            "properties": {
+                              "Keys": [
+                                [
+                                  7.0,
+                                  [
+                                    -3958.62,
+                                    -16864.73,
+                                    164.03906
+                                  ]
+                                ]
+                              ],
+                              "PropertyName": "Position"
+                            }
+                          },
+                          {
+                            "classname": "FloatPropTrack",
+                            "properties": {
+                              "Keys": [
+                                [
+                                  7.0,
+                                  0.0
+                                ]
+                              ],
+                              "PropertyName": "Heading"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "ObjectName": "War"
+                  }
+                }
+              ],
+              "CameraGroups": [
+                {
+                  "classname": "CameraCinematicGroup",
+                  "properties": {
+                    "AnimationSequence": {
+                      "classname": "AnimationSequence",
+                      "properties": {
+                        "Tracks": [
+                          {
+                            "classname": "FloatPropTrack",
+                            "properties": {
+                              "Keys": [
+                                [
+                                  0.0,
+                                  45.0
+                                ]
+                              ],
+                              "PropertyName": "FOV"
+                            }
+                          },
+                          {
+                            "classname": "Vector3PropTrack",
+                            "properties": {
+                              "Keys": [
+                                [
+                                  0.0,
+                                  [
+                                    -3949.6135,
+                                    -17931.14,
+                                    160.27539
+                                  ]
+                                ],
+                                [
+                                  7.0,
+                                  [
+                                    -3986.82,
+                                    -17136.129,
+                                    413.63434
+                                  ]
+                                ]
+                              ],
+                              "PropertyName": "Position"
+                            }
+                          },
+                          {
+                            "classname": "Vector3PropTrack",
+                            "properties": {
+                              "Keys": [
+                                [
+                                  0.0,
+                                  [
+                                    97.00031,
+                                    -0.0,
+                                    -3.628869
+                                  ]
+                                ],
+                                [
+                                  7.0,
+                                  [
+                                    81.8001,
+                                    2.6680425e-8,
+                                    0.7711509
+                                  ]
+                                ]
+                              ],
+                              "PropertyName": "Rotation"
+                            }
+                          },
+                          {
+                            "classname": "StringPropTrack",
+                            "properties": {
+                              "PropertyName": "Look Target"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "ObjectName": "Camera01"
+                  }
+                },
+                {
+                  "classname": "CameraCinematicGroup",
+                  "properties": {
+                    "AnimationSequence": {
+                      "classname": "AnimationSequence",
+                      "properties": {
+                        "Tracks": [
+                          {
+                            "classname": "FloatPropTrack",
+                            "properties": {
+                              "Keys": [
+                                [
+                                  0.0,
+                                  45.0
+                                ]
+                              ],
+                              "PropertyName": "FOV"
+                            }
+                          },
+                          {
+                            "classname": "BezierPathPropTrack",
+                            "properties": {
+                              "TimelineBezierCurve": {
+                                "classname": "TimelineBezierCurve",
+                                "properties": {
+                                  "Transform": [
+                                    [
+                                      1.0,
+                                      0.0,
+                                      0.0,
+                                      0.0
+                                    ],
+                                    [
+                                      0.0,
+                                      1.0,
+                                      0.0,
+                                      0.0
+                                    ],
+                                    [
+                                      0.0,
+                                      0.0,
+                                      1.0,
+                                      0.0
+                                    ],
+                                    [
+                                      -3085.55,
+                                      -16441.18,
+                                      377.10938,
+                                      1.0
+                                    ]
+                                  ],
+                                  "PathPoints": [
+                                    {
+                                      "classname": "TimelineBezierPoint",
+                                      "properties": {
+                                        "Position": [
+                                          -3085.55,
+                                          -16441.18,
+                                          377.10938
+                                        ],
+                                        "PrevControlHandle": [
+                                          133.988,
+                                          -186.3479,
+                                          18.82016
+                                        ],
+                                        "NextControlHandle": [
+                                          -133.988,
+                                          186.3479,
+                                          -18.82016
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "classname": "TimelineBezierPoint",
+                                      "properties": {
+                                        "Position": [
+                                          -3621.502,
+                                          -15695.788,
+                                          301.82874
+                                        ],
+                                        "PositionLS": [
+                                          -535.952,
+                                          745.3916,
+                                          -75.28064
+                                        ],
+                                        "PrevControlHandle": [
+                                          225.98804,
+                                          -139.34766,
+                                          18.82013
+                                        ],
+                                        "NextControlHandle": [
+                                          -225.98804,
+                                          139.34766,
+                                          -18.82013
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "classname": "TimelineBezierPoint",
+                                      "properties": {
+                                        "Position": [
+                                          -4305.1797,
+                                          -15619.663,
+                                          285.12177
+                                        ],
+                                        "PositionLS": [
+                                          -1219.6298,
+                                          821.5166,
+                                          -91.98761
+                                        ],
+                                        "PrevControlHandle": [
+                                          170.91943,
+                                          -19.03125,
+                                          4.1767426
+                                        ],
+                                        "NextControlHandle": [
+                                          -170.91943,
+                                          19.03125,
+                                          -4.1767426
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              "Keys": [
+                                {
+                                  "classname": "BezierPathPropTrackKey",
+                                  "properties": {
+                                    "Time": 7.0,
+                                    "BezierKeyPos": [
+                                      1110.0182,
+                                      11233.82,
+                                      783.11346
+                                    ],
+                                    "TimelineBezierPoint": {
+                                      "classname": "TimelineBezierPoint",
+                                      "properties": {
+                                        "Position": [
+                                          -3085.55,
+                                          -16441.18,
+                                          377.10938
+                                        ],
+                                        "PrevControlHandle": [
+                                          133.988,
+                                          -186.3479,
+                                          18.82016
+                                        ],
+                                        "NextControlHandle": [
+                                          -133.988,
+                                          186.3479,
+                                          -18.82016
+                                        ]
+                                      }
+                                    }
+                                  }
+                                },
+                                {
+                                  "classname": "BezierPathPropTrackKey",
+                                  "properties": {
+                                    "Time": 10.0,
+                                    "BezierKeyPos": [
+                                      574.068,
+                                      11979.212,
+                                      707.82935
+                                    ],
+                                    "TimelineBezierPoint": {
+                                      "classname": "TimelineBezierPoint",
+                                      "properties": {
+                                        "Position": [
+                                          -3621.502,
+                                          -15695.788,
+                                          301.82874
+                                        ],
+                                        "PositionLS": [
+                                          -535.952,
+                                          745.3916,
+                                          -75.28064
+                                        ],
+                                        "PrevControlHandle": [
+                                          225.98804,
+                                          -139.34766,
+                                          18.82013
+                                        ],
+                                        "NextControlHandle": [
+                                          -225.98804,
+                                          139.34766,
+                                          -18.82013
+                                        ]
+                                      }
+                                    }
+                                  }
+                                },
+                                {
+                                  "classname": "BezierPathPropTrackKey",
+                                  "properties": {
+                                    "Time": 14.0,
+                                    "BezierKeyPos": [
+                                      -109.61157,
+                                      12055.337,
+                                      691.12585
+                                    ],
+                                    "TimelineBezierPoint": {
+                                      "classname": "TimelineBezierPoint",
+                                      "properties": {
+                                        "Position": [
+                                          -4305.1797,
+                                          -15619.663,
+                                          285.12177
+                                        ],
+                                        "PositionLS": [
+                                          -1219.6298,
+                                          821.5166,
+                                          -91.98761
+                                        ],
+                                        "PrevControlHandle": [
+                                          170.91943,
+                                          -19.03125,
+                                          4.1767426
+                                        ],
+                                        "NextControlHandle": [
+                                          -170.91943,
+                                          19.03125,
+                                          -4.1767426
+                                        ]
+                                      }
+                                    }
+                                  }
+                                }
+                              ],
+                              "TesselatedKeys": [
+                                [
+                                  7.0,
+                                  [
+                                    -3085.55,
+                                    -16441.18,
+                                    377.10938
+                                  ]
+                                ],
+                                [
+                                  7.1,
+                                  [
+                                    -3101.5774,
+                                    -16418.107,
+                                    374.80035
+                                  ]
+                                ],
+                                [
+                                  7.2,
+                                  [
+                                    -3117.5183,
+                                    -16393.8,
+                                    372.40353
+                                  ]
+                                ],
+                                [
+                                  7.3,
+                                  [
+                                    -3133.3755,
+                                    -16368.54,
+                                    369.93933
+                                  ]
+                                ],
+                                [
+                                  7.4,
+                                  [
+                                    -3149.1553,
+                                    -16342.557,
+                                    367.42465
+                                  ]
+                                ],
+                                [
+                                  7.5,
+                                  [
+                                    -3164.8665,
+                                    -16316.043,
+                                    364.87344
+                                  ]
+                                ],
+                                [
+                                  7.6,
+                                  [
+                                    -3180.5222,
+                                    -16289.159,
+                                    362.29694
+                                  ]
+                                ],
+                                [
+                                  7.7,
+                                  [
+                                    -3196.1382,
+                                    -16262.033,
+                                    359.70413
+                                  ]
+                                ],
+                                [
+                                  7.8,
+                                  [
+                                    -3211.7327,
+                                    -16234.771,
+                                    357.10202
+                                  ]
+                                ],
+                                [
+                                  7.9,
+                                  [
+                                    -3227.3274,
+                                    -16207.456,
+                                    354.496
+                                  ]
+                                ],
+                                [
+                                  8.0,
+                                  [
+                                    -3242.9465,
+                                    -16180.153,
+                                    351.88995
+                                  ]
+                                ],
+                                [
+                                  8.1,
+                                  [
+                                    -3258.6172,
+                                    -16152.915,
+                                    349.28668
+                                  ]
+                                ],
+                                [
+                                  8.2,
+                                  [
+                                    -3274.3687,
+                                    -16125.779,
+                                    346.68802
+                                  ]
+                                ],
+                                [
+                                  8.3,
+                                  [
+                                    -3290.234,
+                                    -16098.778,
+                                    344.09497
+                                  ]
+                                ],
+                                [
+                                  8.4,
+                                  [
+                                    -3306.247,
+                                    -16071.937,
+                                    341.50812
+                                  ]
+                                ],
+                                [
+                                  8.5,
+                                  [
+                                    -3322.446,
+                                    -16045.274,
+                                    338.9275
+                                  ]
+                                ],
+                                [
+                                  8.6,
+                                  [
+                                    -3338.8708,
+                                    -16018.811,
+                                    336.35303
+                                  ]
+                                ],
+                                [
+                                  8.7,
+                                  [
+                                    -3355.564,
+                                    -15992.564,
+                                    333.78452
+                                  ]
+                                ],
+                                [
+                                  8.8,
+                                  [
+                                    -3372.5703,
+                                    -15966.559,
+                                    331.22195
+                                  ]
+                                ],
+                                [
+                                  8.9,
+                                  [
+                                    -3389.9385,
+                                    -15940.82,
+                                    328.66547
+                                  ]
+                                ],
+                                [
+                                  9.0,
+                                  [
+                                    -3407.7188,
+                                    -15915.385,
+                                    326.11572
+                                  ]
+                                ],
+                                [
+                                  9.1,
+                                  [
+                                    -3425.9644,
+                                    -15890.294,
+                                    323.57397
+                                  ]
+                                ],
+                                [
+                                  9.2,
+                                  [
+                                    -3444.7322,
+                                    -15865.605,
+                                    321.04224
+                                  ]
+                                ],
+                                [
+                                  9.3,
+                                  [
+                                    -3464.081,
+                                    -15841.391,
+                                    318.52356
+                                  ]
+                                ],
+                                [
+                                  9.4,
+                                  [
+                                    -3484.074,
+                                    -15817.739,
+                                    316.02216
+                                  ]
+                                ],
+                                [
+                                  9.5,
+                                  [
+                                    -3504.7764,
+                                    -15794.76,
+                                    313.54367
+                                  ]
+                                ],
+                                [
+                                  9.6,
+                                  [
+                                    -3526.2583,
+                                    -15772.59,
+                                    311.09546
+                                  ]
+                                ],
+                                [
+                                  9.7,
+                                  [
+                                    -3548.5928,
+                                    -15751.391,
+                                    308.6869
+                                  ]
+                                ],
+                                [
+                                  9.8,
+                                  [
+                                    -3571.8562,
+                                    -15731.361,
+                                    306.3296
+                                  ]
+                                ],
+                                [
+                                  9.9,
+                                  [
+                                    -3596.1309,
+                                    -15712.734,
+                                    304.03778
+                                  ]
+                                ],
+                                [
+                                  10.0,
+                                  [
+                                    -3621.502,
+                                    -15695.788,
+                                    301.82874
+                                  ]
+                                ],
+                                [
+                                  10.133333,
+                                  [
+                                    -3642.381,
+                                    -15683.627,
+                                    300.173
+                                  ]
+                                ],
+                                [
+                                  10.266666,
+                                  [
+                                    -3663.4802,
+                                    -15672.695,
+                                    298.658
+                                  ]
+                                ],
+                                [
+                                  10.4,
+                                  [
+                                    -3684.79,
+                                    -15662.915,
+                                    297.27448
+                                  ]
+                                ],
+                                [
+                                  10.533334,
+                                  [
+                                    -3706.3035,
+                                    -15654.21,
+                                    296.01404
+                                  ]
+                                ],
+                                [
+                                  10.666667,
+                                  [
+                                    -3728.0142,
+                                    -15646.515,
+                                    294.8688
+                                  ]
+                                ],
+                                [
+                                  10.8,
+                                  [
+                                    -3749.9172,
+                                    -15639.765,
+                                    293.83145
+                                  ]
+                                ],
+                                [
+                                  10.933333,
+                                  [
+                                    -3772.0088,
+                                    -15633.9,
+                                    292.89514
+                                  ]
+                                ],
+                                [
+                                  11.066667,
+                                  [
+                                    -3794.2854,
+                                    -15628.867,
+                                    292.05347
+                                  ]
+                                ],
+                                [
+                                  11.2,
+                                  [
+                                    -3816.7434,
+                                    -15624.612,
+                                    291.3004
+                                  ]
+                                ],
+                                [
+                                  11.333333,
+                                  [
+                                    -3839.379,
+                                    -15621.086,
+                                    290.63013
+                                  ]
+                                ],
+                                [
+                                  11.466667,
+                                  [
+                                    -3862.1885,
+                                    -15618.24,
+                                    290.0371
+                                  ]
+                                ],
+                                [
+                                  11.6,
+                                  [
+                                    -3885.166,
+                                    -15616.028,
+                                    289.51593
+                                  ]
+                                ],
+                                [
+                                  11.733334,
+                                  [
+                                    -3908.306,
+                                    -15614.403,
+                                    289.06125
+                                  ]
+                                ],
+                                [
+                                  11.866667,
+                                  [
+                                    -3931.5999,
+                                    -15613.318,
+                                    288.6678
+                                  ]
+                                ],
+                                [
+                                  12.0,
+                                  [
+                                    -3955.0378,
+                                    -15612.729,
+                                    288.3302
+                                  ]
+                                ],
+                                [
+                                  12.133333,
+                                  [
+                                    -3978.6074,
+                                    -15612.583,
+                                    288.04294
+                                  ]
+                                ],
+                                [
+                                  12.266666,
+                                  [
+                                    -4002.2932,
+                                    -15612.832,
+                                    287.80032
+                                  ]
+                                ],
+                                [
+                                  12.4,
+                                  [
+                                    -4026.0764,
+                                    -15613.424,
+                                    287.59634
+                                  ]
+                                ],
+                                [
+                                  12.533334,
+                                  [
+                                    -4049.9343,
+                                    -15614.299,
+                                    287.42462
+                                  ]
+                                ],
+                                [
+                                  12.666667,
+                                  [
+                                    -4073.8403,
+                                    -15615.3955,
+                                    287.27823
+                                  ]
+                                ],
+                                [
+                                  12.8,
+                                  [
+                                    -4097.7617,
+                                    -15616.648,
+                                    287.14972
+                                  ]
+                                ],
+                                [
+                                  12.933333,
+                                  [
+                                    -4121.662,
+                                    -15617.982,
+                                    287.03094
+                                  ]
+                                ],
+                                [
+                                  13.066667,
+                                  [
+                                    -4145.4966,
+                                    -15619.316,
+                                    286.91296
+                                  ]
+                                ],
+                                [
+                                  13.200001,
+                                  [
+                                    -4169.2153,
+                                    -15620.562,
+                                    286.78583
+                                  ]
+                                ],
+                                [
+                                  13.333334,
+                                  [
+                                    -4192.76,
+                                    -15621.616,
+                                    286.6386
+                                  ]
+                                ],
+                                [
+                                  13.466667,
+                                  [
+                                    -4216.063,
+                                    -15622.369,
+                                    286.45905
+                                  ]
+                                ],
+                                [
+                                  13.6,
+                                  [
+                                    -4239.049,
+                                    -15622.697,
+                                    286.2336
+                                  ]
+                                ],
+                                [
+                                  13.733334,
+                                  [
+                                    -4261.631,
+                                    -15622.461,
+                                    285.94714
+                                  ]
+                                ],
+                                [
+                                  13.866667,
+                                  [
+                                    -4283.7114,
+                                    -15621.508,
+                                    285.5828
+                                  ]
+                                ],
+                                [
+                                  14.0,
+                                  [
+                                    -4305.1797,
+                                    -15619.663,
+                                    285.12177
+                                  ]
+                                ]
+                              ]
+                            }
+                          },
+                          {
+                            "classname": "Vector3PropTrack",
+                            "properties": {
+                              "UseQuaternionRotation": true,
+                              "Keys": [
+                                [
+                                  7.0,
+                                  [
+                                    80.207695,
+                                    -0.0,
+                                    24.652094
+                                  ]
+                                ],
+                                [
+                                  10.0,
+                                  [
+                                    85.00806,
+                                    0.0000017075472,
+                                    63.45281
+                                  ]
+                                ],
+                                [
+                                  14.0,
+                                  [
+                                    88.20819,
+                                    -0.0000017075474,
+                                    111.45429
+                                  ]
+                                ]
+                              ],
+                              "PropertyName": "Rotation"
+                            }
+                          },
+                          {
+                            "classname": "StringPropTrack",
+                            "properties": {
+                              "PropertyName": "Look Target"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "ObjectName": "Camera02"
+                  }
+                },
+                {
+                  "classname": "CameraCinematicGroup",
+                  "properties": {
+                    "AnimationSequence": {
+                      "classname": "AnimationSequence",
+                      "properties": {
+                        "Tracks": [
+                          {
+                            "classname": "FloatPropTrack",
+                            "properties": {
+                              "Keys": [
+                                [
+                                  0.0,
+                                  45.0
+                                ]
+                              ],
+                              "PropertyName": "FOV"
+                            }
+                          },
+                          {
+                            "classname": "Vector3PropTrack",
+                            "properties": {
+                              "Keys": [
+                                [
+                                  14.0,
+                                  [
+                                    -4305.1816,
+                                    -15619.664,
+                                    285.125
+                                  ]
+                                ],
+                                [
+                                  17.98,
+                                  [
+                                    -4688.3193,
+                                    -15592.455,
+                                    277.69727
+                                  ]
+                                ]
+                              ],
+                              "PropertyName": "Position"
+                            }
+                          },
+                          {
+                            "classname": "Vector3PropTrack",
+                            "properties": {
+                              "Keys": [
+                                [
+                                  14.0,
+                                  [
+                                    88.20819,
+                                    -0.0000017075474,
+                                    111.45429
+                                  ]
+                                ],
+                                [
+                                  17.98,
+                                  [
+                                    87.00806,
+                                    0.0000017075474,
+                                    139.45609
+                                  ]
+                                ]
+                              ],
+                              "PropertyName": "Rotation"
+                            }
+                          },
+                          {
+                            "classname": "StringPropTrack",
+                            "properties": {
+                              "PropertyName": "Look Target"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "ObjectName": "Camera03"
+                  }
+                }
+              ],
+              "ObjectID": 96,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "PR_Cinematic_Intro"
+            }
+          },
+          {
+            "classname": "base/waypoint",
+            "properties": {
+              "Position": [
+                -3942.5293,
+                -16700.41,
+                173.87018
+              ],
+              "Rotation": [
+                0.0,
+                -0.0,
+                0.0
+              ],
+              "ObjectID": 95,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "PR_scene12_WarCamLook"
+            }
+          },
+          {
+            "classname": "base/waypoint",
+            "properties": {
+              "Position": [
+                -3942.5293,
+                -16976.41,
+                212.87018
+              ],
+              "Rotation": [
+                0.0,
+                -0.0,
+                0.0
+              ],
+              "ObjectID": 94,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "PR_scene12_WarCam"
+            }
+          },
+          {
+            "classname": "base/waypoint",
+            "properties": {
+              "Position": [
+                -3944.5293,
+                -16841.41,
+                163.79
+              ],
+              "Rotation": [
+                0.0,
+                -0.0,
+                0.0
+              ],
+              "Render": true,
+              "ObjectID": 93,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "PR_scene12_WarPoint"
+            }
+          },
+          {
+            "classname": "dgn_door/ci_prison_combatbarrier",
+            "properties": {
+              "StartOn": false,
+              "Position": [
+                -4358.57,
+                -26595.0,
+                -252.0
+              ],
+              "Rotation": [
+                0.0,
+                -0.0,
+                0.0
+              ],
+              "ObjectID": 91,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "pr_prisondemongate"
+            }
+          },
+          {
+            "classname": "base/blocker",
+            "properties": {
+              "BlockType": 2,
+              "Position": [
+                -3956.5,
+                -15374.53,
+                233.32
+              ],
+              "Rotation": [
+                0.0,
+                -0.0,
+                0.0
+              ],
+              "Scale": [
+                384.0,
+                180.0,
+                376.0
+              ],
+              "ObjectID": 90,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "PrisonSpikeBlocker_14"
+            }
+          },
+          {
+            "classname": "base/blocker",
+            "properties": {
+              "BlockType": 2,
+              "Position": [
+                -4738.5,
+                -15946.53,
+                233.32
+              ],
+              "Rotation": [
+                0.0,
+                0.0,
+                -13.999998
+              ],
+              "Scale": [
+                194.0,
+                372.0,
+                376.0
+              ],
+              "ObjectID": 89,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "PrisonSpikeBlocker_13"
+            }
+          },
+          {
+            "classname": "base/blocker",
+            "properties": {
+              "BlockType": 2,
+              "Position": [
+                -3161.5,
+                -15937.53,
+                233.32
+              ],
+              "Rotation": [
+                0.0,
+                -0.0,
+                20.0
+              ],
+              "Scale": [
+                194.0,
+                372.0,
+                376.0
+              ],
+              "ObjectID": 88,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "PrisonSpikeBlocker_12"
+            }
+          },
+          {
+            "classname": "base/blocker",
+            "properties": {
+              "BlockType": 2,
+              "Position": [
+                -3394.5,
+                -17207.53,
+                233.32
+              ],
+              "Rotation": [
+                0.0,
+                -0.0,
+                0.0
+              ],
+              "Scale": [
+                382.0,
+                382.0,
+                376.0
+              ],
+              "Shape": 3,
+              "ObjectID": 87,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "PrisonSpikeBlocker_11"
+            }
+          },
+          {
+            "classname": "base/blocker",
+            "properties": {
+              "BlockType": 2,
+              "Position": [
+                -4491.5,
+                -17207.53,
+                233.32
+              ],
+              "Rotation": [
+                0.0,
+                -0.0,
+                0.0
+              ],
+              "Scale": [
+                382.0,
+                382.0,
+                376.0
+              ],
+              "Shape": 3,
+              "ObjectID": 86,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "PrisonSpikeBlocker_10"
+            }
+          },
+          {
+            "classname": "base/blocker",
+            "properties": {
+              "BlockType": 2,
+              "Position": [
+                -4991.5,
+                -15327.531,
+                233.32
+              ],
+              "Rotation": [
+                0.0,
+                0.0,
+                -18.0
+              ],
+              "Scale": [
+                198.0,
+                198.0,
+                376.0
+              ],
+              "Shape": 3,
+              "ObjectID": 84,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "PrisonSpikeBlocker_08"
+            }
+          },
+          {
+            "classname": "base/blocker",
+            "properties": {
+              "BlockType": 2,
+              "Position": [
+                -4869.5,
+                -16864.531,
+                233.32
+              ],
+              "Rotation": [
+                0.0,
+                0.0,
+                -18.0
+              ],
+              "Scale": [
+                198.0,
+                198.0,
+                376.0
+              ],
+              "Shape": 3,
+              "ObjectID": 83,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "PrisonSpikeBlocker_07"
+            }
+          },
+          {
+            "classname": "base/blocker",
+            "properties": {
+              "BlockType": 2,
+              "Position": [
+                -2986.5,
+                -16839.531,
+                233.32
+              ],
+              "Rotation": [
+                0.0,
+                0.0,
+                -18.0
+              ],
+              "Scale": [
+                198.0,
+                198.0,
+                376.0
+              ],
+              "Shape": 3,
+              "ObjectID": 82,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "PrisonSpikeBlocker_06"
+            }
+          },
+          {
+            "classname": "base/blocker",
+            "properties": {
+              "BlockType": 2,
+              "Position": [
+                -2975.5,
+                -15327.53,
+                233.32
+              ],
+              "Rotation": [
+                0.0,
+                0.0,
+                -18.0
+              ],
+              "Scale": [
+                198.0,
+                198.0,
+                376.0
+              ],
+              "Shape": 3,
+              "ObjectID": 81,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "PrisonSpikeBlocker_05"
+            }
+          },
+          {
+            "classname": "base/blocker",
+            "properties": {
+              "BlockType": 2,
+              "Position": [
+                -3481.5,
+                -14849.53,
+                233.32
+              ],
+              "Rotation": [
+                0.0,
+                0.0,
+                -18.0
+              ],
+              "Scale": [
+                252.0,
+                252.0,
+                376.0
+              ],
+              "Shape": 3,
+              "ObjectID": 80,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "PrisonSpikeBlocker_04"
+            }
+          },
+          {
+            "classname": "base/blocker",
+            "properties": {
+              "BlockType": 2,
+              "Position": [
+                -4505.5,
+                -14854.53,
+                233.32
+              ],
+              "Rotation": [
+                0.0,
+                0.0,
+                -18.0
+              ],
+              "Scale": [
+                252.0,
+                252.0,
+                376.0
+              ],
+              "Shape": 3,
+              "ObjectID": 79,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "PrisonSpikeBlocker_03"
+            }
+          },
+          {
+            "classname": "base/blocker",
+            "properties": {
+              "BlockType": 2,
+              "Position": [
+                -4895.5,
+                -16515.53,
+                233.32
+              ],
+              "Rotation": [
+                0.0,
+                0.0,
+                -18.0
+              ],
+              "Scale": [
+                252.0,
+                252.0,
+                376.0
+              ],
+              "Shape": 3,
+              "ObjectID": 78,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "PrisonSpikeBlocker_02"
+            }
+          },
+          {
+            "classname": "base/blocker",
+            "properties": {
+              "BlockType": 2,
+              "Position": [
+                -2958.5,
+                -16501.53,
+                233.32
+              ],
+              "Rotation": [
+                0.0,
+                0.0,
+                -18.0
+              ],
+              "Scale": [
+                252.0,
+                252.0,
+                376.0
+              ],
+              "Shape": 3,
+              "ObjectID": 77,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "PrisonSpikeBlocker_01"
+            }
+          },
+          {
+            "classname": "base/spawnpoint",
+            "properties": {
+              "EncounterName": "CI_Prison_Enc02_Backup",
+              "ClassToSpawn": "phantomguard_light/phantomguard_light",
+              "DoSpawnEmerge": true,
+              "InitialBehaviorEnum": 1,
+              "Position": [
+                -4324.1113,
+                -16772.404,
+                163.57
+              ],
+              "Rotation": [
+                0.0,
+                -0.0,
+                149.9998
+              ],
+              "Color": [
+                0.6627451,
+                0.67058825,
+                0.827451
+              ],
+              "Render": true,
+              "ObjectID": 73,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "CI_Prison_Enc02_Spawn_22"
+            }
+          },
+          {
+            "classname": "base/spawnpoint",
+            "properties": {
+              "EncounterName": "CI_Prison_Enc02_Backup",
+              "ClassToSpawn": "phantomguard_light/phantomguard_light",
+              "DoSpawnEmerge": true,
+              "InitialBehaviorEnum": 1,
+              "Position": [
+                -4506.8994,
+                -16629.223,
+                163.5874
+              ],
+              "Rotation": [
+                0.0,
+                -0.0,
+                149.9998
+              ],
+              "Color": [
+                0.6627451,
+                0.67058825,
+                0.827451
+              ],
+              "Render": true,
+              "ObjectID": 72,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "CI_Prison_Enc02_Spawn_21"
+            }
+          },
+          {
+            "classname": "base/spawnpoint",
+            "properties": {
+              "EncounterName": "CI_Prison_Enc02_Backup",
+              "ClassToSpawn": "phantomguard_light/phantomguard_light",
+              "DoSpawnEmerge": true,
+              "InitialBehaviorEnum": 1,
+              "Position": [
+                -4085.9731,
+                -15643.912,
+                163.56598
+              ],
+              "Rotation": [
+                0.0,
+                -0.0,
+                149.9998
+              ],
+              "Color": [
+                0.6627451,
+                0.67058825,
+                0.827451
+              ],
+              "Render": true,
+              "ObjectID": 71,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "CI_Prison_Enc02_Spawn_20"
+            }
+          },
+          {
+            "classname": "base/spawnpoint",
+            "properties": {
+              "EncounterName": "CI_Prison_Enc02_Backup",
+              "ClassToSpawn": "phantomguard_light/phantomguard_light",
+              "DoSpawnEmerge": true,
+              "InitialBehaviorEnum": 1,
+              "Position": [
+                -3764.5151,
+                -15878.832,
+                169.0014
+              ],
+              "Rotation": [
+                0.0,
+                -0.0,
+                149.9998
+              ],
+              "Color": [
+                0.6627451,
+                0.67058825,
+                0.827451
+              ],
+              "Render": true,
+              "ObjectID": 70,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "CI_Prison_Enc02_Spawn_19"
+            }
+          },
+          {
+            "classname": "base/spawnpoint",
+            "properties": {
+              "EncounterName": "CI_Prison_Enc02_Backup",
+              "ClassToSpawn": "phantomguard_light/phantomguard_light",
+              "DoSpawnEmerge": true,
+              "InitialBehaviorEnum": 1,
+              "Position": [
+                -3553.0498,
+                -15906.193,
+                163.56592
+              ],
+              "Rotation": [
+                0.0,
+                -0.0,
+                149.9998
+              ],
+              "Color": [
+                0.6627451,
+                0.67058825,
+                0.827451
+              ],
+              "Render": true,
+              "ObjectID": 69,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "CI_Prison_Enc02_Spawn_18"
+            }
+          },
+          {
+            "classname": "base/spawnpoint",
+            "properties": {
+              "EncounterName": "CI_Prison_Enc02_Backup",
+              "ClassToSpawn": "phantomguard_light/phantomguard_light",
+              "DoSpawnEmerge": true,
+              "InitialBehaviorEnum": 1,
+              "Position": [
+                -3388.346,
+                -16210.085,
+                163.56598
+              ],
+              "Rotation": [
+                0.0,
+                -0.0,
+                149.9998
+              ],
+              "Color": [
+                0.6627451,
+                0.67058825,
+                0.827451
+              ],
+              "Render": true,
+              "ObjectID": 68,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "CI_Prison_Enc02_Spawn_17"
+            }
+          },
+          {
+            "classname": "base/spawnpoint",
+            "properties": {
+              "EncounterName": "CI_Prison_Enc02_Backup",
+              "ClassToSpawn": "phantomguard_light/phantomguard_light",
+              "DoSpawnEmerge": true,
+              "InitialBehaviorEnum": 1,
+              "Position": [
+                -3562.039,
+                -16469.82,
+                163.56598
+              ],
+              "Rotation": [
+                0.0,
+                -0.0,
+                149.9998
+              ],
+              "Color": [
+                0.6627451,
+                0.67058825,
+                0.827451
+              ],
+              "Render": true,
+              "ObjectID": 67,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "CI_Prison_Enc02_Spawn_16"
+            }
+          },
+          {
+            "classname": "base/spawnpoint",
+            "properties": {
+              "EncounterName": "CI_Prison_Enc02_Backup",
+              "ClassToSpawn": "phantomguard_light/phantomguard_light",
+              "DoSpawnEmerge": true,
+              "InitialBehaviorEnum": 1,
+              "Position": [
+                -3400.0918,
+                -16633.408,
+                163.58264
+              ],
+              "Rotation": [
+                0.0,
+                -0.0,
+                149.9998
+              ],
+              "Color": [
+                0.6627451,
+                0.67058825,
+                0.827451
+              ],
+              "Render": true,
+              "ObjectID": 66,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "CI_Prison_Enc02_Spawn_15"
+            }
+          },
+          {
+            "classname": "base/spawnpoint",
+            "properties": {
+              "EncounterName": "CI_Prison_Enc02_Backup",
+              "ClassToSpawn": "phantomguard_light/phantomguard_light",
+              "DoSpawnEmerge": true,
+              "InitialBehaviorEnum": 1,
+              "Position": [
+                -3677.4663,
+                -16581.541,
+                163.5658
+              ],
+              "Rotation": [
+                0.0,
+                -0.0,
+                149.9998
+              ],
+              "Color": [
+                0.6627451,
+                0.67058825,
+                0.827451
+              ],
+              "Render": true,
+              "ObjectID": 65,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "CI_Prison_Enc02_Spawn_14"
+            }
+          },
+          {
+            "classname": "base/spawnpoint",
+            "properties": {
+              "EncounterName": "CI_Prison_Enc02_Backup",
+              "ClassToSpawn": "phantomguard_light/phantomguard_light",
+              "DoSpawnEmerge": true,
+              "InitialBehaviorEnum": 1,
+              "Position": [
+                -3834.0842,
+                -16703.635,
+                164.87018
+              ],
+              "Rotation": [
+                0.0,
+                -0.0,
+                139.99977
+              ],
+              "Color": [
+                0.6627451,
+                0.67058825,
+                0.827451
+              ],
+              "Render": true,
+              "ObjectID": 64,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "CI_Prison_Enc02_Spawn_13"
+            }
+          },
+          {
+            "classname": "base/spawnpoint",
+            "properties": {
+              "EncounterName": "CI_Prison_Enc02_Backup",
+              "ClassToSpawn": "phantomguard_light/phantomguard_light",
+              "DoSpawnEmerge": true,
+              "InitialBehaviorEnum": 1,
+              "Position": [
+                -4378.004,
+                -15809.837,
+                163.56616
+              ],
+              "Rotation": [
+                0.0,
+                -0.0,
+                149.9998
+              ],
+              "Color": [
+                0.6627451,
+                0.67058825,
+                0.827451
+              ],
+              "Render": true,
+              "ObjectID": 63,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "CI_Prison_Enc02_Spawn_12"
+            }
+          },
+          {
+            "classname": "base/spawnpoint",
+            "properties": {
+              "EncounterName": "CI_Prison_Enc02_Backup",
+              "ClassToSpawn": "phantomguard_light/phantomguard_light",
+              "DoSpawnEmerge": true,
+              "InitialBehaviorEnum": 1,
+              "Position": [
+                -4141.515,
+                -15866.832,
+                169.0014
+              ],
+              "Rotation": [
+                0.0,
+                -0.0,
+                149.9998
+              ],
+              "Color": [
+                0.6627451,
+                0.67058825,
+                0.827451
+              ],
+              "Render": true,
+              "ObjectID": 62,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "CI_Prison_Enc02_Spawn_11"
+            }
+          },
+          {
+            "classname": "base/spawnpoint",
+            "properties": {
+              "EncounterName": "CI_Prison_Enc02_Backup",
+              "ClassToSpawn": "phantomguard_light/phantomguard_light",
+              "DoSpawnEmerge": true,
+              "InitialBehaviorEnum": 1,
+              "Position": [
+                -4501.508,
+                -16206.12,
+                163.56598
+              ],
+              "Rotation": [
+                0.0,
+                -0.0,
+                149.9998
+              ],
+              "Color": [
+                0.6627451,
+                0.67058825,
+                0.827451
+              ],
+              "Render": true,
+              "ObjectID": 61,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "CI_Prison_Enc02_Spawn_10"
+            }
+          },
+          {
+            "classname": "base/spawnpoint",
+            "properties": {
+              "EncounterName": "CI_Prison_Enc02_Backup",
+              "ClassToSpawn": "phantomguard_light/phantomguard_light",
+              "DoSpawnEmerge": true,
+              "InitialBehaviorEnum": 1,
+              "Position": [
+                -3821.102,
+                -16077.423,
+                169.89453
+              ],
+              "Rotation": [
+                0.0,
+                -0.0,
+                149.9998
+              ],
+              "Color": [
+                0.6627451,
+                0.67058825,
+                0.827451
+              ],
+              "Render": true,
+              "ObjectID": 60,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "CI_Prison_Enc02_Spawn_09"
+            }
+          },
+          {
+            "classname": "base/spawnpoint",
+            "properties": {
+              "EncounterName": "CI_Prison_Enc02_Backup",
+              "ClassToSpawn": "phantomguard_light/phantomguard_light",
+              "DoSpawnEmerge": true,
+              "InitialBehaviorEnum": 1,
+              "Position": [
+                -4046.991,
+                -16078.109,
+                169.89465
+              ],
+              "Rotation": [
+                0.0,
+                -0.0,
+                149.9998
+              ],
+              "Color": [
+                0.6627451,
+                0.67058825,
+                0.827451
+              ],
+              "Render": true,
+              "ObjectID": 59,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "CI_Prison_Enc02_Spawn_08"
+            }
+          },
+          {
+            "classname": "base/spawnpoint",
+            "properties": {
+              "EncounterName": "CI_Prison_Enc02_Backup",
+              "ClassToSpawn": "phantomguard_light/phantomguard_light",
+              "DoSpawnEmerge": true,
+              "InitialBehaviorEnum": 1,
+              "Position": [
+                -4077.366,
+                -16241.218,
+                169.89471
+              ],
+              "Rotation": [
+                0.0,
+                -0.0,
+                149.9998
+              ],
+              "Color": [
+                0.6627451,
+                0.67058825,
+                0.827451
+              ],
+              "Render": true,
+              "ObjectID": 58,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "CI_Prison_Enc02_Spawn_07"
+            }
+          },
+          {
+            "classname": "base/spawnpoint",
+            "properties": {
+              "EncounterName": "CI_Prison_Enc02_Backup",
+              "ClassToSpawn": "phantomguard_light/phantomguard_light",
+              "DoSpawnEmerge": true,
+              "InitialBehaviorEnum": 1,
+              "Position": [
+                -3826.3188,
+                -16274.512,
+                169.89471
+              ],
+              "Rotation": [
+                0.0,
+                -0.0,
+                149.9998
+              ],
+              "Color": [
+                0.6627451,
+                0.67058825,
+                0.827451
+              ],
+              "Render": true,
+              "ObjectID": 57,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "CI_Prison_Enc02_Spawn_06"
+            }
+          },
+          {
+            "classname": "base/spawnpoint",
+            "properties": {
+              "EncounterName": "CI_Prison_Enc02_Backup",
+              "ClassToSpawn": "phantomguard_light/phantomguard_light",
+              "DoSpawnEmerge": true,
+              "InitialBehaviorEnum": 1,
+              "Position": [
+                -3836.5151,
+                -16478.832,
+                169.0014
+              ],
+              "Rotation": [
+                0.0,
+                -0.0,
+                149.9998
+              ],
+              "Color": [
+                0.6627451,
+                0.67058825,
+                0.827451
+              ],
+              "Render": true,
+              "ObjectID": 56,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "CI_Prison_Enc02_Spawn_05"
+            }
+          },
+          {
+            "classname": "base/spawnpoint",
+            "properties": {
+              "EncounterName": "CI_Prison_Enc02_Backup",
+              "ClassToSpawn": "phantomguard_light/phantomguard_light",
+              "DoSpawnEmerge": true,
+              "InitialBehaviorEnum": 1,
+              "Position": [
+                -4077.8005,
+                -16507.342,
+                163.87018
+              ],
+              "Rotation": [
+                0.0,
+                -0.0,
+                149.9998
+              ],
+              "Color": [
+                0.6627451,
+                0.67058825,
+                0.827451
+              ],
+              "Render": true,
+              "ObjectID": 55,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "CI_Prison_Enc02_Spawn_04"
+            }
+          },
+          {
+            "classname": "base/spawnpoint",
+            "properties": {
+              "EncounterName": "CI_Prison_Enc02_Backup",
+              "ClassToSpawn": "phantomguard_light/phantomguard_light",
+              "DoSpawnEmerge": true,
+              "InitialBehaviorEnum": 1,
+              "Position": [
+                -4353.6743,
+                -16448.7,
+                163.5658
+              ],
+              "Rotation": [
+                0.0,
+                -0.0,
+                149.9998
+              ],
+              "Color": [
+                0.6627451,
+                0.67058825,
+                0.827451
+              ],
+              "Render": true,
+              "ObjectID": 54,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "CI_Prison_Enc02_Spawn_03"
+            }
+          },
+          {
+            "classname": "base/spawnpoint",
+            "properties": {
+              "EncounterName": "CI_Prison_Enc02_Backup",
+              "ClassToSpawn": "phantomguard_light/phantomguard_light",
+              "DoSpawnEmerge": true,
+              "InitialBehaviorEnum": 1,
+              "Position": [
+                -4222.161,
+                -16598.877,
+                163.57
+              ],
+              "Rotation": [
+                0.0,
+                -0.0,
+                149.9998
+              ],
+              "Color": [
+                0.6627451,
+                0.67058825,
+                0.827451
+              ],
+              "Render": true,
+              "ObjectID": 53,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "CI_Prison_Enc02_Spawn_02"
+            }
+          },
+          {
+            "classname": "base/waypoint",
+            "properties": {
+              "Position": [
+                -3957.94,
+                -16970.28,
+                163.78998
+              ],
+              "Rotation": [
+                0.0,
+                0.0,
+                -10.0
+              ],
+              "Color": [
+                0.8,
+                0.5411765,
+                0.5254902
+              ],
+              "Render": true,
+              "ObjectID": 52,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "WaRpoint_01"
+            }
+          },
+          {
+            "classname": "base/cinematic",
+            "properties": {
+              "Position": [
+                -4085.1565,
+                -17589.145,
+                12.692413
+              ],
+              "Director": {
+                "classname": "DirectorCinematicGroup",
+                "properties": {
+                  "Length": 0.1,
+                  "AnimationSequence": {
+                    "classname": "AnimationSequence",
+                    "properties": {
+                      "Tracks": [
+                        {
+                          "classname": "JumpTriggerTrack",
+                          "properties": {}
+                        },
+                        {
+                          "classname": "StringPropTrack",
+                          "properties": {
+                            "PropertyName": "Active Camera Group"
+                          }
+                        },
+                        {
+                          "classname": "CameraShakeTrack",
+                          "properties": {}
+                        },
+                        {
+                          "classname": "RumbleTrack",
+                          "properties": {}
+                        },
+                        {
+                          "classname": "FloatPropTrack",
+                          "properties": {
+                            "PropertyName": "Simulation Speed"
+                          }
+                        },
+                        {
+                          "classname": "BoolPropTrack",
+                          "properties": {
+                            "PropertyName": "Disable Input"
+                          }
+                        },
+                        {
+                          "classname": "BoolPropTrack",
+                          "properties": {
+                            "PropertyName": "Disable Attacks"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              },
+              "Groups": [
+                {
+                  "classname": "CinematicGroup",
+                  "properties": {
+                    "AnimationSequence": {
+                      "classname": "AnimationSequence",
+                      "properties": {
+                        "Tracks": [
+                          {
+                            "classname": "Vector3PropTrack",
+                            "properties": {
+                              "Keys": [
+                                [
+                                  0.0,
+                                  [
+                                    -3958.94,
+                                    -17032.28,
+                                    163.78998
+                                  ]
+                                ]
+                              ],
+                              "PropertyName": "Position"
+                            }
+                          },
+                          {
+                            "classname": "FloatPropTrack",
+                            "properties": {
+                              "Keys": [
+                                [
+                                  0.0,
+                                  -8.0
+                                ]
+                              ],
+                              "PropertyName": "Heading"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "ObjectName": "War"
+                  }
+                }
+              ],
+              "ObjectID": 51,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "CI_Prison_Enc02_CineSetLoc"
+            }
+          },
+          {
+            "classname": "base/waypoint",
+            "properties": {
+              "Position": [
+                -3905.3562,
+                -18636.414,
+                201.5321
+              ],
+              "Rotation": [
+                0.0,
+                -0.0,
+                0.0
+              ],
+              "Color": [
+                0.8,
+                0.5411765,
+                0.5254902
+              ],
+              "Render": true,
+              "ObjectID": 44,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "WaRpoint"
+            }
+          },
+          {
+            "classname": "base/spawnpoint",
+            "properties": {
+              "EncounterName": "preCine_PrisonGuard",
+              "NPCName": "preCine_PrisonGuard_01",
+              "ClassToSpawn": "phantomguard_prisonguard/phantomguard_prisonguard",
+              "PatrolPathName": "CI_Prison_Enc01_Spawn_01_Path",
+              "AmbientBehaviorType": 2,
+              "Position": [
+                -3857.9128,
+                -16501.088,
+                161.87762
+              ],
+              "Rotation": [
+                0.0,
+                -0.0,
+                0.000048665097
+              ],
+              "Color": [
+                0.16470589,
+                0.12941177,
+                0.49803922
+              ],
+              "Render": true,
+              "ObjectID": 33,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "CI_Prison_Enc01_Spawn_01"
             }
           },
           {
@@ -95,19 +2345,26 @@
               "FilterList": [
                 "Player"
               ],
+              "DefaultFilterList": [],
               "Position": [
-                -4065.248,
-                -28594.094,
-                34.90912
+                -3913.87,
+                -17267.68,
+                173.75
+              ],
+              "Rotation": [
+                0.0,
+                -0.0,
+                0.0
               ],
               "Scale": [
-                250.0,
-                250.0,
-                250.0
+                1850.0,
+                834.0,
+                242.0
               ],
-              "ObjectID": 427,
-              "LayerID": 9,
-              "Name": "CI_01_StartBuildingFacade_Trg"
+              "ObjectID": 31,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "CI_Prison_Enc01_TrigReg"
             }
           },
           {
@@ -116,37 +2373,1380 @@
               "ModuleSystem": {
                 "classname": "ModuleSystem",
                 "properties": {
-                  "EntityIDGen": 7,
+                  "EntityIDGen": 160,
                   "Entities": [
                     {
-                      "classname": "TriggerEventModule",
+                      "classname": "SpawnMonsterEventModule",
                       "properties": {
-                        "WorldObjects": [
-                          "CI_01_StartBuildingFacade_Trg",
-                          ""
+                        "SpawnPoints": [
+                          "CI_Prison_Enc02_Spawn_01"
                         ],
-                        "WorldObject": "-CONVERTED-",
+                        "NumberToSpawn": 1,
                         "EventLinks": [
                           [
+                            2,
+                            88,
+                            1
+                          ],
+                          [
+                            2,
+                            88,
+                            0
+                          ],
+                          [
                             0,
-                            7,
+                            125,
                             0
                           ]
                         ],
-                        "ID": 1,
-                        "LocationX": 112,
-                        "LocationY": 211
+                        "VariableLinks": [
+                          [
+                            false,
+                            2,
+                            8
+                          ]
+                        ],
+                        "ID": 4,
+                        "LocationX": 654,
+                        "LocationY": -40
                       }
                     },
                     {
-                      "classname": "ObjectToggleModule",
+                      "classname": "ExternalCallModule",
                       "properties": {
-                        "ObjectList": [
-                          "CI_01_StartBuildingFacade"
+                        "EventName": "StartEncounter",
+                        "EventLinks": [
+                          [
+                            0,
+                            121,
+                            0
+                          ]
                         ],
-                        "ID": 2,
-                        "LocationX": 703,
-                        "LocationY": 211
+                        "ID": 5,
+                        "LocationX": 36,
+                        "LocationY": -168
+                      }
+                    },
+                    {
+                      "classname": "VisScriptVariableWorldObjectList",
+                      "properties": {
+                        "ID": 8,
+                        "LocationX": 684,
+                        "LocationY": 178
+                      }
+                    },
+                    {
+                      "classname": "CinematicModule",
+                      "properties": {
+                        "CinematicName": "PR_Cinematic_Intro",
+                        "EventLinks": [
+                          [
+                            0,
+                            127,
+                            0
+                          ],
+                          [
+                            1,
+                            136,
+                            0
+                          ],
+                          [
+                            1,
+                            160,
+                            0
+                          ]
+                        ],
+                        "ID": 10,
+                        "Comment": "PR_Cinematic_Intro",
+                        "LocationX": 3045,
+                        "LocationY": 155
+                      }
+                    },
+                    {
+                      "classname": "DelayModule",
+                      "properties": {
+                        "Delay": 2.0,
+                        "EventLinks": [
+                          [
+                            0,
+                            10,
+                            0
+                          ],
+                          [
+                            0,
+                            132,
+                            0
+                          ],
+                          [
+                            0,
+                            122,
+                            0
+                          ]
+                        ],
+                        "ID": 11,
+                        "LocationX": 2767,
+                        "LocationY": 155
+                      }
+                    },
+                    {
+                      "classname": "ExternalCallModule",
+                      "properties": {
+                        "EventName": "spawnPrisonguardMinions",
+                        "EventLinks": [
+                          [
+                            0,
+                            39,
+                            0
+                          ]
+                        ],
+                        "ID": 12,
+                        "Comment": "spawnPrisonguardMinions",
+                        "LocationX": 9,
+                        "LocationY": 388
+                      }
+                    },
+                    {
+                      "classname": "PopSpawnPointsModule",
+                      "properties": {
+                        "EncounterName": "CI_Prison_Enc02_Backup",
+                        "EventLinks": [
+                          [
+                            0,
+                            16,
+                            0
+                          ],
+                          [
+                            0,
+                            144,
+                            0
+                          ]
+                        ],
+                        "VariableLinks": [
+                          [
+                            false,
+                            0,
+                            15
+                          ]
+                        ],
+                        "ID": 13,
+                        "LocationX": 693,
+                        "LocationY": 327
+                      }
+                    },
+                    {
+                      "classname": "VisScriptVariableWorldObjectList",
+                      "properties": {
+                        "ID": 15,
+                        "LocationX": 711,
+                        "LocationY": 464
+                      }
+                    },
+                    {
+                      "classname": "base/inviewlistmodule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            18,
+                            0
+                          ]
+                        ],
+                        "VariableLinks": [
+                          [
+                            true,
+                            0,
+                            15
+                          ],
+                          [
+                            false,
+                            1,
+                            17
+                          ]
+                        ],
+                        "ID": 16,
+                        "LocationX": 951,
+                        "LocationY": 313
+                      }
+                    },
+                    {
+                      "classname": "VisScriptVariableWorldObjectList",
+                      "properties": {
+                        "ID": 17,
+                        "LocationX": 970,
+                        "LocationY": 463
+                      }
+                    },
+                    {
+                      "classname": "base/splitlistmodule",
+                      "properties": {
+                        "MaxInGroup1": 4,
+                        "SortByClosest": true,
+                        "EventLinks": [
+                          [
+                            0,
+                            21,
+                            0
+                          ]
+                        ],
+                        "VariableLinks": [
+                          [
+                            true,
+                            0,
+                            17
+                          ],
+                          [
+                            false,
+                            1,
+                            19
+                          ]
+                        ],
+                        "ID": 18,
+                        "LocationX": 1215,
+                        "LocationY": 306
+                      }
+                    },
+                    {
+                      "classname": "VisScriptVariableWorldObjectList",
+                      "properties": {
+                        "ID": 19,
+                        "LocationX": 1229,
+                        "LocationY": 469
+                      }
+                    },
+                    {
+                      "classname": "SpawnMonsterEventModule",
+                      "properties": {
+                        "DelayTime": 0.25,
+                        "EventLinks": [
+                          [
+                            2,
+                            92,
+                            0
+                          ]
+                        ],
+                        "VariableLinks": [
+                          [
+                            true,
+                            0,
+                            19
+                          ],
+                          [
+                            false,
+                            2,
+                            96
+                          ]
+                        ],
+                        "ID": 20,
+                        "LocationX": 1856,
+                        "LocationY": 325
+                      }
+                    },
+                    {
+                      "classname": "base/listsize",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            24,
+                            0
+                          ]
+                        ],
+                        "VariableLinks": [
+                          [
+                            true,
+                            0,
+                            19
+                          ],
+                          [
+                            false,
+                            1,
+                            22
+                          ]
+                        ],
+                        "ID": 21,
+                        "LocationX": 1430,
+                        "LocationY": 322
+                      }
+                    },
+                    {
+                      "classname": "VisScriptVariableInt",
+                      "properties": {
+                        "ID": 22,
+                        "LocationX": 1481,
+                        "LocationY": 428
+                      }
+                    },
+                    {
+                      "classname": "VisScriptVariableInt",
+                      "properties": {
+                        "Value": 3,
+                        "ID": 23,
+                        "LocationX": 1537,
+                        "LocationY": 491
+                      }
+                    },
+                    {
+                      "classname": "IntCompareModule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            20,
+                            0
+                          ],
+                          [
+                            2,
+                            20,
+                            0
+                          ],
+                          [
+                            1,
+                            25,
+                            0
+                          ]
+                        ],
+                        "VariableLinks": [
+                          [
+                            true,
+                            0,
+                            22
+                          ],
+                          [
+                            true,
+                            1,
+                            23
+                          ]
+                        ],
+                        "ID": 24,
+                        "LocationX": 1618,
+                        "LocationY": 318
+                      }
+                    },
+                    {
+                      "classname": "PopSpawnPointsModule",
+                      "properties": {
+                        "EncounterName": "CI_Prison_Enc02_Backup",
+                        "EventLinks": [
+                          [
+                            0,
+                            29,
+                            0
+                          ]
+                        ],
+                        "VariableLinks": [
+                          [
+                            false,
+                            0,
+                            26
+                          ]
+                        ],
+                        "ID": 25,
+                        "LocationX": 672,
+                        "LocationY": 557
+                      }
+                    },
+                    {
+                      "classname": "VisScriptVariableWorldObjectList",
+                      "properties": {
+                        "ID": 26,
+                        "LocationX": 684,
+                        "LocationY": 697
+                      }
+                    },
+                    {
+                      "classname": "base/splitlistmodule",
+                      "properties": {
+                        "MaxInGroup1": 4,
+                        "SortByClosest": true,
+                        "EventLinks": [
+                          [
+                            0,
+                            31,
+                            0
+                          ]
+                        ],
+                        "VariableLinks": [
+                          [
+                            false,
+                            1,
+                            30
+                          ],
+                          [
+                            true,
+                            0,
+                            26
+                          ]
+                        ],
+                        "ID": 29,
+                        "LocationX": 962,
+                        "LocationY": 539
+                      }
+                    },
+                    {
+                      "classname": "VisScriptVariableWorldObjectList",
+                      "properties": {
+                        "ID": 30,
+                        "LocationX": 963,
+                        "LocationY": 702
+                      }
+                    },
+                    {
+                      "classname": "SpawnMonsterEventModule",
+                      "properties": {
+                        "DelayTime": 0.25,
+                        "EventLinks": [
+                          [
+                            2,
+                            92,
+                            0
+                          ]
+                        ],
+                        "VariableLinks": [
+                          [
+                            true,
+                            0,
+                            30
+                          ],
+                          [
+                            false,
+                            2,
+                            96
+                          ]
+                        ],
+                        "ID": 31,
+                        "LocationX": 1194,
+                        "LocationY": 563
+                      }
+                    },
+                    {
+                      "classname": "BranchModule",
+                      "properties": {
+                        "Branches": [
+                          1,
+                          2,
+                          3
+                        ],
+                        "EventLinks": [
+                          [
+                            1,
+                            13,
+                            0
+                          ],
+                          [
+                            2,
+                            40,
+                            0
+                          ],
+                          [
+                            3,
+                            72,
+                            0
+                          ],
+                          [
+                            1,
+                            89,
+                            2
+                          ],
+                          [
+                            2,
+                            90,
+                            2
+                          ],
+                          [
+                            3,
+                            91,
+                            2
+                          ]
+                        ],
+                        "VariableLinks": [
+                          [
+                            true,
+                            0,
+                            38
+                          ]
+                        ],
+                        "ID": 37,
+                        "LocationX": 477,
+                        "LocationY": 388
+                      }
+                    },
+                    {
+                      "classname": "VisScriptVariableInt",
+                      "properties": {
+                        "ID": 38,
+                        "LocationX": 262,
+                        "LocationY": 531
+                      }
+                    },
+                    {
+                      "classname": "base/intincrement",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            37,
+                            0
+                          ]
+                        ],
+                        "VariableLinks": [
+                          [
+                            true,
+                            0,
+                            38
+                          ],
+                          [
+                            false,
+                            1,
+                            38
+                          ]
+                        ],
+                        "ID": 39,
+                        "LocationX": 254,
+                        "LocationY": 389
+                      }
+                    },
+                    {
+                      "classname": "PopSpawnPointsModule",
+                      "properties": {
+                        "EncounterName": "CI_Prison_Enc02_Backup",
+                        "EventLinks": [
+                          [
+                            0,
+                            42,
+                            0
+                          ]
+                        ],
+                        "VariableLinks": [
+                          [
+                            false,
+                            0,
+                            41
+                          ]
+                        ],
+                        "ID": 40,
+                        "LocationX": 658,
+                        "LocationY": 838
+                      }
+                    },
+                    {
+                      "classname": "VisScriptVariableWorldObjectList",
+                      "properties": {
+                        "ID": 41,
+                        "LocationX": 676,
+                        "LocationY": 975
+                      }
+                    },
+                    {
+                      "classname": "base/inviewlistmodule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            44,
+                            0
+                          ]
+                        ],
+                        "VariableLinks": [
+                          [
+                            true,
+                            0,
+                            41
+                          ],
+                          [
+                            false,
+                            1,
+                            43
+                          ]
+                        ],
+                        "ID": 42,
+                        "LocationX": 916,
+                        "LocationY": 824
+                      }
+                    },
+                    {
+                      "classname": "VisScriptVariableWorldObjectList",
+                      "properties": {
+                        "ID": 43,
+                        "LocationX": 941,
+                        "LocationY": 977
+                      }
+                    },
+                    {
+                      "classname": "base/splitlistmodule",
+                      "properties": {
+                        "MaxInGroup1": 4,
+                        "SortByClosest": true,
+                        "EventLinks": [
+                          [
+                            0,
+                            47,
+                            0
+                          ]
+                        ],
+                        "VariableLinks": [
+                          [
+                            true,
+                            0,
+                            43
+                          ],
+                          [
+                            false,
+                            1,
+                            45
+                          ]
+                        ],
+                        "ID": 44,
+                        "LocationX": 1162,
+                        "LocationY": 837
+                      }
+                    },
+                    {
+                      "classname": "VisScriptVariableWorldObjectList",
+                      "properties": {
+                        "ID": 45,
+                        "LocationX": 1194,
+                        "LocationY": 980
+                      }
+                    },
+                    {
+                      "classname": "SpawnMonsterEventModule",
+                      "properties": {
+                        "DelayTime": 0.25,
+                        "EventLinks": [
+                          [
+                            2,
+                            93,
+                            0
+                          ]
+                        ],
+                        "VariableLinks": [
+                          [
+                            true,
+                            0,
+                            45
+                          ],
+                          [
+                            false,
+                            2,
+                            97
+                          ]
+                        ],
+                        "ID": 46,
+                        "LocationX": 1838,
+                        "LocationY": 826
+                      }
+                    },
+                    {
+                      "classname": "base/listsize",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            50,
+                            0
+                          ]
+                        ],
+                        "VariableLinks": [
+                          [
+                            true,
+                            0,
+                            45
+                          ],
+                          [
+                            false,
+                            1,
+                            48
+                          ]
+                        ],
+                        "ID": 47,
+                        "LocationX": 1395,
+                        "LocationY": 833
+                      }
+                    },
+                    {
+                      "classname": "VisScriptVariableInt",
+                      "properties": {
+                        "ID": 48,
+                        "LocationX": 1446,
+                        "LocationY": 939
+                      }
+                    },
+                    {
+                      "classname": "VisScriptVariableInt",
+                      "properties": {
+                        "Value": 3,
+                        "ID": 49,
+                        "LocationX": 1502,
+                        "LocationY": 1002
+                      }
+                    },
+                    {
+                      "classname": "IntCompareModule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            46,
+                            0
+                          ],
+                          [
+                            2,
+                            46,
+                            0
+                          ],
+                          [
+                            1,
+                            51,
+                            0
+                          ]
+                        ],
+                        "VariableLinks": [
+                          [
+                            true,
+                            0,
+                            48
+                          ],
+                          [
+                            true,
+                            1,
+                            49
+                          ]
+                        ],
+                        "ID": 50,
+                        "LocationX": 1583,
+                        "LocationY": 829
+                      }
+                    },
+                    {
+                      "classname": "PopSpawnPointsModule",
+                      "properties": {
+                        "EncounterName": "CI_Prison_Enc02_Backup",
+                        "EventLinks": [
+                          [
+                            0,
+                            53,
+                            0
+                          ]
+                        ],
+                        "VariableLinks": [
+                          [
+                            false,
+                            0,
+                            52
+                          ]
+                        ],
+                        "ID": 51,
+                        "LocationX": 637,
+                        "LocationY": 1068
+                      }
+                    },
+                    {
+                      "classname": "VisScriptVariableWorldObjectList",
+                      "properties": {
+                        "ID": 52,
+                        "LocationX": 649,
+                        "LocationY": 1208
+                      }
+                    },
+                    {
+                      "classname": "base/splitlistmodule",
+                      "properties": {
+                        "MaxInGroup1": 4,
+                        "SortByClosest": true,
+                        "EventLinks": [
+                          [
+                            0,
+                            55,
+                            0
+                          ]
+                        ],
+                        "VariableLinks": [
+                          [
+                            false,
+                            1,
+                            54
+                          ],
+                          [
+                            true,
+                            0,
+                            52
+                          ]
+                        ],
+                        "ID": 53,
+                        "LocationX": 899,
+                        "LocationY": 1070
+                      }
+                    },
+                    {
+                      "classname": "VisScriptVariableWorldObjectList",
+                      "properties": {
+                        "ID": 54,
+                        "LocationX": 928,
+                        "LocationY": 1213
+                      }
+                    },
+                    {
+                      "classname": "SpawnMonsterEventModule",
+                      "properties": {
+                        "DelayTime": 0.25,
+                        "EventLinks": [
+                          [
+                            2,
+                            93,
+                            0
+                          ]
+                        ],
+                        "VariableLinks": [
+                          [
+                            true,
+                            0,
+                            54
+                          ],
+                          [
+                            false,
+                            2,
+                            97
+                          ]
+                        ],
+                        "ID": 55,
+                        "LocationX": 1159,
+                        "LocationY": 1074
+                      }
+                    },
+                    {
+                      "classname": "PopSpawnPointsModule",
+                      "properties": {
+                        "EncounterName": "CI_Prison_Enc02_Backup",
+                        "EventLinks": [
+                          [
+                            0,
+                            74,
+                            0
+                          ]
+                        ],
+                        "VariableLinks": [
+                          [
+                            false,
+                            0,
+                            73
+                          ]
+                        ],
+                        "ID": 72,
+                        "LocationX": 668,
+                        "LocationY": 1346
+                      }
+                    },
+                    {
+                      "classname": "VisScriptVariableWorldObjectList",
+                      "properties": {
+                        "ID": 73,
+                        "LocationX": 686,
+                        "LocationY": 1483
+                      }
+                    },
+                    {
+                      "classname": "base/inviewlistmodule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            76,
+                            0
+                          ]
+                        ],
+                        "VariableLinks": [
+                          [
+                            true,
+                            0,
+                            73
+                          ],
+                          [
+                            false,
+                            1,
+                            75
+                          ]
+                        ],
+                        "ID": 74,
+                        "LocationX": 926,
+                        "LocationY": 1332
+                      }
+                    },
+                    {
+                      "classname": "VisScriptVariableWorldObjectList",
+                      "properties": {
+                        "ID": 75,
+                        "LocationX": 951,
+                        "LocationY": 1485
+                      }
+                    },
+                    {
+                      "classname": "base/splitlistmodule",
+                      "properties": {
+                        "MaxInGroup1": 3,
+                        "SortByClosest": true,
+                        "EventLinks": [
+                          [
+                            0,
+                            79,
+                            0
+                          ]
+                        ],
+                        "VariableLinks": [
+                          [
+                            true,
+                            0,
+                            75
+                          ],
+                          [
+                            false,
+                            1,
+                            77
+                          ]
+                        ],
+                        "ID": 76,
+                        "LocationX": 1172,
+                        "LocationY": 1345
+                      }
+                    },
+                    {
+                      "classname": "VisScriptVariableWorldObjectList",
+                      "properties": {
+                        "ID": 77,
+                        "LocationX": 1204,
+                        "LocationY": 1488
+                      }
+                    },
+                    {
+                      "classname": "SpawnMonsterEventModule",
+                      "properties": {
+                        "DelayTime": 0.25,
+                        "EventLinks": [
+                          [
+                            2,
+                            94,
+                            0
+                          ]
+                        ],
+                        "VariableLinks": [
+                          [
+                            true,
+                            0,
+                            77
+                          ],
+                          [
+                            false,
+                            2,
+                            98
+                          ]
+                        ],
+                        "ID": 78,
+                        "LocationX": 1848,
+                        "LocationY": 1334
+                      }
+                    },
+                    {
+                      "classname": "base/listsize",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            82,
+                            0
+                          ]
+                        ],
+                        "VariableLinks": [
+                          [
+                            true,
+                            0,
+                            77
+                          ],
+                          [
+                            false,
+                            1,
+                            80
+                          ]
+                        ],
+                        "ID": 79,
+                        "LocationX": 1405,
+                        "LocationY": 1341
+                      }
+                    },
+                    {
+                      "classname": "VisScriptVariableInt",
+                      "properties": {
+                        "ID": 80,
+                        "LocationX": 1456,
+                        "LocationY": 1447
+                      }
+                    },
+                    {
+                      "classname": "VisScriptVariableInt",
+                      "properties": {
+                        "Value": 3,
+                        "ID": 81,
+                        "LocationX": 1512,
+                        "LocationY": 1510
+                      }
+                    },
+                    {
+                      "classname": "IntCompareModule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            78,
+                            0
+                          ],
+                          [
+                            2,
+                            78,
+                            0
+                          ],
+                          [
+                            1,
+                            83,
+                            0
+                          ]
+                        ],
+                        "VariableLinks": [
+                          [
+                            true,
+                            0,
+                            80
+                          ],
+                          [
+                            true,
+                            1,
+                            81
+                          ]
+                        ],
+                        "ID": 82,
+                        "LocationX": 1593,
+                        "LocationY": 1337
+                      }
+                    },
+                    {
+                      "classname": "PopSpawnPointsModule",
+                      "properties": {
+                        "EncounterName": "CI_Prison_Enc02_Backup",
+                        "EventLinks": [
+                          [
+                            0,
+                            85,
+                            0
+                          ]
+                        ],
+                        "VariableLinks": [
+                          [
+                            false,
+                            0,
+                            84
+                          ]
+                        ],
+                        "ID": 83,
+                        "LocationX": 647,
+                        "LocationY": 1576
+                      }
+                    },
+                    {
+                      "classname": "VisScriptVariableWorldObjectList",
+                      "properties": {
+                        "ID": 84,
+                        "LocationX": 659,
+                        "LocationY": 1716
+                      }
+                    },
+                    {
+                      "classname": "base/splitlistmodule",
+                      "properties": {
+                        "MaxInGroup1": 3,
+                        "SortByClosest": true,
+                        "EventLinks": [
+                          [
+                            0,
+                            87,
+                            0
+                          ]
+                        ],
+                        "VariableLinks": [
+                          [
+                            false,
+                            1,
+                            86
+                          ],
+                          [
+                            true,
+                            0,
+                            84
+                          ]
+                        ],
+                        "ID": 85,
+                        "LocationX": 909,
+                        "LocationY": 1578
+                      }
+                    },
+                    {
+                      "classname": "VisScriptVariableWorldObjectList",
+                      "properties": {
+                        "ID": 86,
+                        "LocationX": 938,
+                        "LocationY": 1721
+                      }
+                    },
+                    {
+                      "classname": "SpawnMonsterEventModule",
+                      "properties": {
+                        "DelayTime": 0.25,
+                        "EventLinks": [
+                          [
+                            2,
+                            94,
+                            0
+                          ]
+                        ],
+                        "VariableLinks": [
+                          [
+                            true,
+                            0,
+                            86
+                          ],
+                          [
+                            false,
+                            2,
+                            98
+                          ]
+                        ],
+                        "ID": 87,
+                        "LocationX": 1169,
+                        "LocationY": 1582
+                      }
+                    },
+                    {
+                      "classname": "base/gatemodule",
+                      "properties": {
+                        "enable": false,
+                        "EventLinks": [
+                          [
+                            0,
+                            89,
+                            0
+                          ]
+                        ],
+                        "ID": 88,
+                        "Comment": "Prison Guard",
+                        "LocationX": 2090,
+                        "LocationY": -27
+                      }
+                    },
+                    {
+                      "classname": "base/gatemodule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            90,
+                            0
+                          ]
+                        ],
+                        "ID": 89,
+                        "Comment": "Wave 1",
+                        "LocationX": 2259,
+                        "LocationY": 30
+                      }
+                    },
+                    {
+                      "classname": "base/gatemodule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            91,
+                            0
+                          ]
+                        ],
+                        "ID": 90,
+                        "Comment": "Wave 2",
+                        "LocationX": 2392,
+                        "LocationY": 108
+                      }
+                    },
+                    {
+                      "classname": "base/gatemodule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            11,
+                            0
+                          ],
+                          [
+                            0,
+                            100,
+                            0
+                          ],
+                          [
+                            0,
+                            115,
+                            1
+                          ]
+                        ],
+                        "ID": 91,
+                        "Comment": "Wave 3",
+                        "LocationX": 2548,
+                        "LocationY": 212
+                      }
+                    },
+                    {
+                      "classname": "base/gatemodule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            89,
+                            1
+                          ],
+                          [
+                            0,
+                            88,
+                            0
+                          ],
+                          [
+                            0,
+                            141,
+                            0
+                          ]
+                        ],
+                        "ID": 92,
+                        "LocationX": 2167,
+                        "LocationY": 473
+                      }
+                    },
+                    {
+                      "classname": "base/gatemodule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            90,
+                            1
+                          ],
+                          [
+                            0,
+                            88,
+                            0
+                          ],
+                          [
+                            0,
+                            142,
+                            0
+                          ]
+                        ],
+                        "ID": 93,
+                        "LocationX": 2149,
+                        "LocationY": 1065
+                      }
+                    },
+                    {
+                      "classname": "base/gatemodule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            91,
+                            1
+                          ],
+                          [
+                            0,
+                            88,
+                            0
+                          ]
+                        ],
+                        "ID": 94,
+                        "LocationX": 2115,
+                        "LocationY": 1553
+                      }
+                    },
+                    {
+                      "classname": "VisScriptVariableWorldObjectList",
+                      "properties": {
+                        "ID": 96,
+                        "LocationX": 1864,
+                        "LocationY": 538
+                      }
+                    },
+                    {
+                      "classname": "VisScriptVariableWorldObjectList",
+                      "properties": {
+                        "ID": 97,
+                        "LocationX": 1859,
+                        "LocationY": 1090
+                      }
+                    },
+                    {
+                      "classname": "VisScriptVariableWorldObjectList",
+                      "properties": {
+                        "ID": 98,
+                        "LocationX": 1863,
+                        "LocationY": 1554
+                      }
+                    },
+                    {
+                      "classname": "DamageActorModule",
+                      "properties": {
+                        "DamageAmount": 3000.0,
+                        "HitType": 1,
+                        "VariableLinks": [
+                          [
+                            true,
+                            0,
+                            96
+                          ],
+                          [
+                            true,
+                            0,
+                            97
+                          ],
+                          [
+                            true,
+                            0,
+                            98
+                          ]
+                        ],
+                        "ID": 100,
+                        "LocationX": 2767,
+                        "LocationY": 345
+                      }
+                    },
+                    {
+                      "classname": "DelayModule",
+                      "properties": {
+                        "Delay": 1.35,
+                        "EventLinks": [
+                          [
+                            0,
+                            107,
+                            0
+                          ]
+                        ],
+                        "ID": 106,
+                        "LocationX": 1016,
+                        "LocationY": -67
+                      }
+                    },
+                    {
+                      "classname": "InvokeMethodModule",
+                      "properties": {
+                        "MethodName": "ScriptedSummon",
+                        "VariableLinks": [
+                          [
+                            true,
+                            0,
+                            8
+                          ]
+                        ],
+                        "ID": 107,
+                        "LocationX": 1178,
+                        "LocationY": -67
                       }
                     },
                     {
@@ -156,21 +3756,701 @@
                           {
                             "classname": "FlagInfo",
                             "properties": {
-                              "FlagLevel": "CI_01",
-                              "FlagName": "CI_01_StartBuildingFacade"
+                              "FlagLevel": "CI_Prison",
+                              "FlagName": "CI_Prison_Enc02_Complete"
+                            }
+                          }
+                        ],
+                        "EventLinks": [
+                          [
+                            3,
+                            138,
+                            0
+                          ]
+                        ],
+                        "ID": 115,
+                        "Comment": "CI_Prison_Enc02_Complete",
+                        "LocationX": 2765,
+                        "LocationY": -92
+                      }
+                    },
+                    {
+                      "classname": "InvokeMethodModule",
+                      "properties": {
+                        "ObjectNames": [
+                          "pr_prisondemongate"
+                        ],
+                        "MethodName": "turnOn",
+                        "EventLinks": [
+                          [
+                            0,
+                            131,
+                            0
+                          ]
+                        ],
+                        "ID": 120,
+                        "LocationX": 650,
+                        "LocationY": -316
+                      }
+                    },
+                    {
+                      "classname": "base/storesavedatamodule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            120,
+                            0
+                          ],
+                          [
+                            0,
+                            4,
+                            0
+                          ]
+                        ],
+                        "ID": 121,
+                        "LocationX": 269,
+                        "LocationY": -168
+                      }
+                    },
+                    {
+                      "classname": "VisScriptCallModule",
+                      "properties": {
+                        "VisualScriptSystemName": "PR_VisMod_RaiseCell",
+                        "ExternalCallName": "CI_Prison_ActivateStatues",
+                        "ID": 122,
+                        "LocationX": 3047,
+                        "LocationY": 362
+                      }
+                    },
+                    {
+                      "classname": "DelayModule",
+                      "properties": {
+                        "Delay": 0.75,
+                        "EventLinks": [
+                          [
+                            0,
+                            126,
+                            0
+                          ]
+                        ],
+                        "ID": 125,
+                        "LocationX": 981,
+                        "LocationY": -269
+                      }
+                    },
+                    {
+                      "classname": "base/titledisplaycharactermodule",
+                      "properties": {
+                        "CharacterClass": "phantomguard_prisonguard/phantomguard_prisonguard",
+                        "EventLinks": [
+                          [
+                            0,
+                            159,
+                            0
+                          ]
+                        ],
+                        "ID": 126,
+                        "LocationX": 1127,
+                        "LocationY": -269
+                      }
+                    },
+                    {
+                      "classname": "SoundModule",
+                      "properties": {
+                        "SoundDescFile": "base/Music",
+                        "SoundID": 86,
+                        "WorldObject": "Sameal_Roar_SoundPos",
+                        "EventLinks": [
+                          [
+                            0,
+                            128,
+                            0
+                          ]
+                        ],
+                        "ID": 127,
+                        "Comment": "Stinger_Secret_01",
+                        "LocationX": 3285,
+                        "LocationY": 155
+                      }
+                    },
+                    {
+                      "classname": "DelayModule",
+                      "properties": {
+                        "Delay": 7.0,
+                        "ID": 128,
+                        "LocationX": 3477,
+                        "LocationY": 155
+                      }
+                    },
+                    {
+                      "classname": "SoundModule",
+                      "properties": {
+                        "SoundDescFile": "base/Music",
+                        "SoundID": 88,
+                        "WorldObject": "Sameal_Roar_SoundPos",
+                        "ID": 129,
+                        "Comment": "Stinger_Secret_02",
+                        "LocationX": 3650,
+                        "LocationY": 155
+                      }
+                    },
+                    {
+                      "classname": "VisScriptCallModule",
+                      "properties": {
+                        "VisualScriptSystemName": "CombatMusic_VSM",
+                        "ExternalCallName": "scripted_HeavyCombat",
+                        "ID": 131,
+                        "Comment": "scripted_HeavyCombat",
+                        "LocationX": 860,
+                        "LocationY": -316
+                      }
+                    },
+                    {
+                      "classname": "VisScriptCallModule",
+                      "properties": {
+                        "VisualScriptSystemName": "CombatMusic_VSM",
+                        "ExternalCallName": "scriptedHeavyOutro",
+                        "ID": 132,
+                        "Comment": "scriptedHeavyOutro",
+                        "LocationX": 3046,
+                        "LocationY": 283
+                      }
+                    },
+                    {
+                      "classname": "base/commitsavedatamodule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            134,
+                            0
+                          ]
+                        ],
+                        "ID": 133,
+                        "LocationX": 3644,
+                        "LocationY": -46
+                      }
+                    },
+                    {
+                      "classname": "base/autosavemodule",
+                      "properties": {
+                        "ID": 134,
+                        "LocationX": 3881,
+                        "LocationY": -46
+                      }
+                    },
+                    {
+                      "classname": "VisScriptCallModule",
+                      "properties": {
+                        "VisualScriptSystemName": "PrisonStartVSM_SetDialogue",
+                        "ExternalCallName": "StartPrisonNudges",
+                        "ID": 136,
+                        "Comment": "StartPrisonNudges",
+                        "LocationX": 3286,
+                        "LocationY": 308
+                      }
+                    },
+                    {
+                      "classname": "InvokeMethodModule",
+                      "properties": {
+                        "ObjectNames": [
+                          "pr_prisondemongate"
+                        ],
+                        "MethodName": "turnOff",
+                        "EventLinks": [
+                          [
+                            0,
+                            139,
+                            0
+                          ]
+                        ],
+                        "ID": 137,
+                        "LocationX": 3243,
+                        "LocationY": -46
+                      }
+                    },
+                    {
+                      "classname": "DelayModule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            137,
+                            0
+                          ]
+                        ],
+                        "ID": 138,
+                        "LocationX": 3047,
+                        "LocationY": -46
+                      }
+                    },
+                    {
+                      "classname": "DelayModule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            133,
+                            0
+                          ]
+                        ],
+                        "ID": 139,
+                        "LocationX": 3463,
+                        "LocationY": -46
+                      }
+                    },
+                    {
+                      "classname": "InvokeMethodModule",
+                      "properties": {
+                        "MethodName": "secondWave",
+                        "VariableLinks": [
+                          [
+                            true,
+                            0,
+                            8
+                          ]
+                        ],
+                        "ID": 141,
+                        "Comment": "1st wave dead",
+                        "LocationX": 2368,
+                        "LocationY": 472
+                      }
+                    },
+                    {
+                      "classname": "InvokeMethodModule",
+                      "properties": {
+                        "MethodName": "finalCombatBehavior",
+                        "VariableLinks": [
+                          [
+                            true,
+                            0,
+                            8
+                          ]
+                        ],
+                        "ID": 142,
+                        "Comment": "2nd wave dead",
+                        "LocationX": 2391,
+                        "LocationY": 1053
+                      }
+                    },
+                    {
+                      "classname": "VisScriptCallModule",
+                      "properties": {
+                        "VisualScriptSystemName": "CI_Prison_Enc02_Script",
+                        "ExternalCallName": "ShowWrathTutorial",
+                        "ID": 144,
+                        "Comment": "Wrath Tutorial for CI_Prison_Enc02_Script",
+                        "LocationX": 973,
+                        "LocationY": 215
+                      }
+                    },
+                    {
+                      "classname": "ExternalCallModule",
+                      "properties": {
+                        "EventName": "ShowFocusTutorial",
+                        "EventLinks": [
+                          [
+                            0,
+                            156,
+                            0
+                          ]
+                        ],
+                        "ID": 145,
+                        "Comment": "Show Focus Tutorial",
+                        "LocationX": 611,
+                        "LocationY": 2104
+                      }
+                    },
+                    {
+                      "classname": "ExternalCallModule",
+                      "properties": {
+                        "EventName": "ShowWrathTutorial",
+                        "EventLinks": [
+                          [
+                            0,
+                            157,
+                            0
+                          ]
+                        ],
+                        "ID": 146,
+                        "Comment": "Show Wrath Tutorial",
+                        "LocationX": 611,
+                        "LocationY": 2434
+                      }
+                    },
+                    {
+                      "classname": "base/giveitemmodule",
+                      "properties": {
+                        "Item": "base/tip_focus",
+                        "EventLinks": [
+                          [
+                            0,
+                            149,
+                            0
+                          ],
+                          [
+                            1,
+                            149,
+                            1
+                          ]
+                        ],
+                        "VariableLinks": [
+                          [
+                            false,
+                            0,
+                            148
+                          ]
+                        ],
+                        "ID": 147,
+                        "Comment": "Focus tutorial",
+                        "LocationX": 1031,
+                        "LocationY": 2103
+                      }
+                    },
+                    {
+                      "classname": "VisScriptVariableUInt32",
+                      "properties": {
+                        "ID": 148,
+                        "LocationX": 1379,
+                        "LocationY": 2236
+                      }
+                    },
+                    {
+                      "classname": "base/gamepadlistener",
+                      "properties": {
+                        "Button": 4,
+                        "EventLinks": [
+                          [
+                            0,
+                            151,
+                            0
+                          ]
+                        ],
+                        "ID": 149,
+                        "LocationX": 1350,
+                        "LocationY": 2103
+                      }
+                    },
+                    {
+                      "classname": "base/infohintstopmodule",
+                      "properties": {
+                        "VariableLinks": [
+                          [
+                            true,
+                            0,
+                            148
+                          ]
+                        ],
+                        "ID": 150,
+                        "LocationX": 1833,
+                        "LocationY": 2102
+                      }
+                    },
+                    {
+                      "classname": "DelayModule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            150,
+                            0
+                          ]
+                        ],
+                        "ID": 151,
+                        "LocationX": 1619,
+                        "LocationY": 2103
+                      }
+                    },
+                    {
+                      "classname": "base/giveitemmodule",
+                      "properties": {
+                        "Item": "base/tip_wrathMoveUse",
+                        "EventLinks": [
+                          [
+                            0,
+                            154,
+                            0
+                          ]
+                        ],
+                        "ID": 153,
+                        "Comment": "Wrath use",
+                        "LocationX": 1037,
+                        "LocationY": 2434
+                      }
+                    },
+                    {
+                      "classname": "DelayModule",
+                      "properties": {
+                        "Delay": 0.0,
+                        "EventLinks": [
+                          [
+                            0,
+                            155,
+                            0
+                          ]
+                        ],
+                        "ID": 154,
+                        "LocationX": 1216,
+                        "LocationY": 2434
+                      }
+                    },
+                    {
+                      "classname": "base/removeitemmodule",
+                      "properties": {
+                        "Item": "base/tip_wrathMoveUse",
+                        "ID": 155,
+                        "Comment": "base/tip_wrathMoveUse",
+                        "LocationX": 1392,
+                        "LocationY": 2434
+                      }
+                    },
+                    {
+                      "classname": "DelayModule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            147,
+                            0
+                          ]
+                        ],
+                        "ID": 156,
+                        "LocationX": 852,
+                        "LocationY": 2104
+                      }
+                    },
+                    {
+                      "classname": "DelayModule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            153,
+                            0
+                          ]
+                        ],
+                        "ID": 157,
+                        "LocationX": 852,
+                        "LocationY": 2434
+                      }
+                    },
+                    {
+                      "classname": "VisScriptCallModule",
+                      "properties": {
+                        "VisualScriptSystemName": "CI_Prison_Enc02_Script",
+                        "ExternalCallName": "ShowFocusTutorial",
+                        "ID": 158,
+                        "Comment": "Focus Tutorial for CI_Prison_Enc02_Script",
+                        "LocationX": 1603,
+                        "LocationY": -269
+                      }
+                    },
+                    {
+                      "classname": "DelayModule",
+                      "properties": {
+                        "Delay": 5.0,
+                        "EventLinks": [
+                          [
+                            0,
+                            158,
+                            0
+                          ]
+                        ],
+                        "ID": 159,
+                        "LocationX": 1428,
+                        "LocationY": -269
+                      }
+                    },
+                    {
+                      "classname": "base/setdefaultwatcherdialogmodule",
+                      "properties": {
+                        "Dialog": "vo_watcher_start_area_08",
+                        "ID": 160,
+                        "LocationX": 3285,
+                        "LocationY": 386
+                      }
+                    }
+                  ],
+                  "ViewXOffset": 217.20404,
+                  "ViewYOffset": 173.79126,
+                  "ViewZoom": 0.23000163,
+                  "ModuleIDGen": 774778484
+                }
+              },
+              "Position": [
+                -3956.8289,
+                -16894.39,
+                261.97266
+              ],
+              "ObjectID": 28,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "CI_Prison_Enc02_Script"
+            }
+          },
+          {
+            "classname": "base/spawnpoint",
+            "properties": {
+              "EncounterName": "--hardcoded--",
+              "ClassToSpawn": "phantomguard_prisonguard/phantomguard_prisonguard",
+              "InitialBehaviorEnum": 1,
+              "Position": [
+                -3882.6143,
+                -16486.611,
+                162.57794
+              ],
+              "Rotation": [
+                0.0,
+                -0.0,
+                149.9998
+              ],
+              "Color": [
+                0.13333334,
+                0.18039216,
+                0.8392157
+              ],
+              "Render": true,
+              "ObjectID": 26,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "CI_Prison_Enc02_Spawn_01"
+            }
+          },
+          {
+            "classname": "base/visscriptmodulesystem",
+            "properties": {
+              "Comment": "Fight!",
+              "ModuleSystem": {
+                "classname": "ModuleSystem",
+                "properties": {
+                  "EntityIDGen": 281,
+                  "Entities": [
+                    {
+                      "classname": "PlayVideoModule",
+                      "properties": {
+                        "VideoName": "Scene_12.oo",
+                        "CamPositionObject": "PR_scene12_WarCam",
+                        "CamLookatObject": "PR_scene12_WarCamLook",
+                        "PlayerPositionObject": "PR_scene12_WarPoint",
+                        "EventLinks": [
+                          [
+                            0,
+                            242,
+                            0
+                          ]
+                        ],
+                        "ID": 241,
+                        "Comment": "Scene_12",
+                        "LocationX": 380,
+                        "LocationY": 372
+                      }
+                    },
+                    {
+                      "classname": "VisScriptCallModule",
+                      "properties": {
+                        "VisualScriptSystemName": "CI_Prison_Enc02_Script",
+                        "ExternalCallName": "StartEncounter",
+                        "ID": 242,
+                        "LocationX": 553,
+                        "LocationY": 372
+                      }
+                    },
+                    {
+                      "classname": "CinematicModule",
+                      "properties": {
+                        "CinematicName": "CI_Prison_Enc02_CineSetLoc",
+                        "ID": 249,
+                        "Comment": "CI_Prison_Enc02_CineSetLoc",
+                        "LocationX": 379,
+                        "LocationY": 519
+                      }
+                    },
+                    {
+                      "classname": "TriggerEventModule",
+                      "properties": {
+                        "WorldObjects": [
+                          "CI_Prison_Enc01_TrigReg"
+                        ],
+                        "WorldObject": "-CONVERTED-",
+                        "EventLinks": [
+                          [
+                            0,
+                            255,
+                            0
+                          ]
+                        ],
+                        "ID": 250,
+                        "LocationX": -465,
+                        "LocationY": 349
+                      }
+                    },
+                    {
+                      "classname": "SaveDataModule",
+                      "properties": {
+                        "FlagInfoList": [
+                          {
+                            "classname": "FlagInfo",
+                            "properties": {
+                              "FlagLevel": "CI_Prison",
+                              "FlagName": "CI_Prison_Enc02_Complete"
                             }
                           }
                         ],
                         "EventLinks": [
                           [
                             1,
-                            2,
+                            241,
+                            0
+                          ],
+                          [
+                            1,
+                            268,
                             2
                           ]
                         ],
-                        "ID": 3,
-                        "LocationX": 451,
-                        "LocationY": 433
+                        "ID": 254,
+                        "LocationX": 38,
+                        "LocationY": 349
+                      }
+                    },
+                    {
+                      "classname": "base/oneshotmodule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            254,
+                            0
+                          ]
+                        ],
+                        "ID": 255,
+                        "LocationX": -188,
+                        "LocationY": 349
+                      }
+                    },
+                    {
+                      "classname": "SaveDataModule",
+                      "properties": {
+                        "FlagInfoList": [
+                          {
+                            "classname": "FlagInfo",
+                            "properties": {
+                              "FlagLevel": "CI_Prison",
+                              "FlagName": "CI_Prison_Enc02_Complete"
+                            }
+                          }
+                        ],
+                        "EventLinks": [
+                          [
+                            1,
+                            260,
+                            0
+                          ]
+                        ],
+                        "ID": 258,
+                        "LocationX": -947,
+                        "LocationY": -76
                       }
                     },
                     {
@@ -179,472 +4459,216 @@
                         "EventLinks": [
                           [
                             0,
-                            3,
+                            258,
                             0
                           ]
                         ],
-                        "ID": 4,
-                        "LocationX": 216,
-                        "LocationY": 433
+                        "ID": 259,
+                        "LocationX": -1136,
+                        "LocationY": -76
                       }
                     },
                     {
-                      "classname": "SaveDataModule",
+                      "classname": "PopSpawnPointsModule",
                       "properties": {
-                        "FlagInfoList": [
-                          {
-                            "classname": "FlagInfo",
-                            "properties": {
-                              "FlagLevel": "CI_01",
-                              "FlagName": "CI_01_StartBuildingFacade"
-                            }
-                          }
+                        "EncounterName": "preCine_PrisonGuard",
+                        "EventLinks": [
+                          [
+                            0,
+                            262,
+                            0
+                          ]
                         ],
-                        "ID": 6,
-                        "LocationX": 699,
-                        "LocationY": 63
+                        "VariableLinks": [
+                          [
+                            false,
+                            0,
+                            261
+                          ]
+                        ],
+                        "ID": 260,
+                        "LocationX": -712,
+                        "LocationY": -53
                       }
                     },
                     {
-                      "classname": "SaveDataModule",
+                      "classname": "VisScriptVariableWorldObjectList",
                       "properties": {
-                        "FlagInfoList": [
-                          {
-                            "classname": "FlagInfo",
-                            "properties": {
-                              "FlagLevel": "CI_01",
-                              "FlagName": "CI_01_StartBuildingFacade"
-                            }
-                          }
+                        "ID": 261,
+                        "LocationX": -473,
+                        "LocationY": 44
+                      }
+                    },
+                    {
+                      "classname": "SpawnMonsterEventModule",
+                      "properties": {
+                        "IsRandom": false,
+                        "EventLinks": [
+                          [
+                            0,
+                            281,
+                            0
+                          ]
                         ],
+                        "VariableLinks": [
+                          [
+                            true,
+                            0,
+                            261
+                          ],
+                          [
+                            false,
+                            2,
+                            267
+                          ]
+                        ],
+                        "ID": 262,
+                        "Comment": "spawn initial prison guard at the prison.",
+                        "LocationX": -258,
+                        "LocationY": -76
+                      }
+                    },
+                    {
+                      "classname": "base/setcharactermovestate",
+                      "properties": {
+                        "Character": "preCine_PrisonGuard_01",
+                        "MoveState": "Heavy Idle",
+                        "EventLinks": [
+                          [
+                            0,
+                            265,
+                            0
+                          ]
+                        ],
+                        "ID": 263,
+                        "Comment": "Heavy Idle",
+                        "LocationX": 317,
+                        "LocationY": -76
+                      }
+                    },
+                    {
+                      "classname": "DelayModule",
+                      "properties": {
+                        "Delay": 5.0,
+                        "Variance": 5.0,
+                        "EventLinks": [
+                          [
+                            0,
+                            266,
+                            0
+                          ]
+                        ],
+                        "ID": 265,
+                        "LocationX": 638,
+                        "LocationY": -76
+                      }
+                    },
+                    {
+                      "classname": "base/setcharactermovestate",
+                      "properties": {
+                        "Character": "preCine_PrisonGuard_01",
+                        "MoveState": "Heavy Taunt Roar",
                         "EventLinks": [
                           [
                             1,
-                            6,
-                            1
-                          ],
-                          [
-                            1,
-                            2,
-                            1
+                            263,
+                            0
                           ]
                         ],
-                        "ID": 7,
-                        "LocationX": 368,
-                        "LocationY": 211
+                        "ID": 266,
+                        "Comment": "Heavy Taunt Roar",
+                        "LocationX": 412,
+                        "LocationY": -291
+                      }
+                    },
+                    {
+                      "classname": "VisScriptVariableWorldObjectList",
+                      "properties": {
+                        "ID": 267,
+                        "LocationX": -259,
+                        "LocationY": 179
+                      }
+                    },
+                    {
+                      "classname": "ObjectToggleModule",
+                      "properties": {
+                        "VariableLinks": [
+                          [
+                            true,
+                            0,
+                            267
+                          ]
+                        ],
+                        "ID": 268,
+                        "LocationX": 246,
+                        "LocationY": 93
+                      }
+                    },
+                    {
+                      "classname": "base/setcharactermovestate",
+                      "properties": {
+                        "Character": "preCine_PrisonGuard_01",
+                        "MoveState": "Heavy Taunt Roar",
+                        "ID": 275,
+                        "Comment": "Heavy Taunt Roar",
+                        "LocationX": 1081,
+                        "LocationY": -297
+                      }
+                    },
+                    {
+                      "classname": "ExternalCallModule",
+                      "properties": {
+                        "EventName": "removePrisonGuard",
+                        "EventLinks": [
+                          [
+                            0,
+                            268,
+                            2
+                          ]
+                        ],
+                        "ID": 280,
+                        "Comment": "removePrisonGuard",
+                        "LocationX": 13,
+                        "LocationY": 86
+                      }
+                    },
+                    {
+                      "classname": "InvokeMethodModule",
+                      "properties": {
+                        "MethodName": "setInvulnerableIdle",
+                        "VariableLinks": [
+                          [
+                            true,
+                            0,
+                            267
+                          ]
+                        ],
+                        "ID": 281,
+                        "LocationX": 38,
+                        "LocationY": -84
                       }
                     }
                   ],
-                  "ViewXOffset": 1.0,
-                  "ViewYOffset": 107.0,
-                  "ModuleIDGen": 916057912
+                  "ViewXOffset": 554.9897,
+                  "ViewYOffset": 253.53923,
+                  "ViewZoom": 0.47000116,
+                  "ModuleIDGen": 95
                 }
               },
               "Position": [
-                -1141.672,
-                -29366.309,
-                1263.2936
+                -3749.431,
+                -16545.32,
+                196.42773
               ],
-              "ObjectID": 425,
-              "LayerID": 9,
-              "Name": "CI_01_StartBuildingFacade_Script"
-            }
-          },
-          {
-            "classname": "StaticObject",
-            "properties": {
-              "Position": [
-                -4113.3315,
-                -28689.89,
-                -92.88623
-              ],
-              "ObjectName": "sb_exit_lo",
-              "PackageName": "city01_streets",
-              "ObjectID": 423,
-              "LayerID": 9,
-              "Name": "CI_01_StartBuildingFacade"
-            }
-          },
-          {
-            "classname": "base/planeoccluder",
-            "properties": {
-              "Position": [
-                -8586.189,
-                -26649.18,
-                508.85
-              ],
-              "Size": [
-                2796.0,
-                1600.0
-              ],
-              "ObjectID": 421,
-              "LayerID": 9,
-              "Name": "PlaneOccluder_66"
-            }
-          },
-          {
-            "classname": "base/planeoccluder",
-            "properties": {
-              "Position": [
-                717.81,
-                -26195.18,
-                181.84998
-              ],
-              "Rotation": [
-                0.0,
-                -0.0,
-                90.0
-              ],
-              "Size": [
-                1600.0,
-                1600.0
-              ],
-              "ObjectID": 420,
-              "LayerID": 9,
-              "Name": "PlaneOccluder_65"
-            }
-          },
-          {
-            "classname": "base/planeoccluder",
-            "properties": {
-              "Position": [
-                -6732.19,
-                -27400.18,
-                -8.15
-              ],
-              "Rotation": [
-                -90.0,
-                -0.0,
-                180.0
-              ],
-              "Size": [
-                1170.0,
-                1287.0
-              ],
-              "ObjectID": 419,
-              "LayerID": 9,
-              "Name": "PlaneOccluder_64"
-            }
-          },
-          {
-            "classname": "base/planeoccluder",
-            "properties": {
-              "Position": [
-                -4661.19,
-                -27999.18,
-                -873.15
-              ],
-              "Rotation": [
-                0.0,
-                -90.0,
-                -0.0
-              ],
-              "Size": [
-                1734.0,
-                3123.0
-              ],
-              "ObjectID": 417,
-              "LayerID": 9,
-              "Name": "PlaneOccluder_63"
-            }
-          },
-          {
-            "classname": "base/planeoccluder",
-            "properties": {
-              "Position": [
-                -3324.19,
-                -26957.18,
-                -835.15
-              ],
-              "Rotation": [
-                -90.0,
-                -90.0,
-                180.0
-              ],
-              "Size": [
-                1734.0,
-                2210.0
-              ],
-              "ObjectID": 416,
-              "LayerID": 9,
-              "Name": "PlaneOccluder_62"
-            }
-          },
-          {
-            "classname": "base/planeoccluder",
-            "properties": {
-              "Position": [
-                -1644.19,
-                -25975.18,
-                789.85
-              ],
-              "Rotation": [
-                0.0,
-                -0.0,
-                90.0
-              ],
-              "Size": [
-                1600.0,
-                1600.0
-              ],
-              "ObjectID": 415,
-              "LayerID": 9,
-              "Name": "PlaneOccluder_61"
-            }
-          },
-          {
-            "classname": "base/planeoccluder",
-            "properties": {
-              "Position": [
-                -2858.19,
-                -24868.18,
-                614.85
-              ],
-              "Rotation": [
-                0.0,
-                -0.0,
-                90.0
-              ],
-              "Size": [
-                3842.0,
-                1422.0
-              ],
-              "ObjectID": 414,
-              "LayerID": 9,
-              "Name": "PlaneOccluder_60"
-            }
-          },
-          {
-            "classname": "base/planeoccluder",
-            "properties": {
-              "Position": [
-                -4678.19,
-                -26957.18,
-                -8.150002
-              ],
-              "Rotation": [
-                -90.0,
-                -0.0,
-                180.0
-              ],
-              "Size": [
-                3059.0,
-                2210.0
-              ],
-              "ObjectID": 413,
-              "LayerID": 9,
-              "Name": "PlaneOccluder_59"
-            }
-          },
-          {
-            "classname": "base/planeoccluder",
-            "properties": {
-              "Position": [
-                549.81,
-                -28889.18,
-                789.85
-              ],
-              "Rotation": [
-                0.0,
-                -0.0,
-                0.0
-              ],
-              "Size": [
-                1600.0,
-                1600.0
-              ],
-              "ObjectID": 412,
-              "LayerID": 9,
-              "Name": "PlaneOccluder_58"
-            }
-          },
-          {
-            "classname": "base/planeoccluder",
-            "properties": {
-              "Position": [
-                -2116.19,
-                -31236.18,
-                789.85
-              ],
-              "Rotation": [
-                0.0,
-                -0.0,
-                90.0
-              ],
-              "Size": [
-                1600.0,
-                1600.0
-              ],
-              "ObjectID": 411,
-              "LayerID": 9,
-              "Name": "PlaneOccluder_57"
-            }
-          },
-          {
-            "classname": "base/planeoccluder",
-            "properties": {
-              "Position": [
-                -1385.19,
-                -29679.18,
-                228.85
-              ],
-              "Rotation": [
-                0.0,
-                -0.0,
-                36.0
-              ],
-              "Size": [
-                2796.0,
-                1600.0
-              ],
-              "ObjectID": 410,
-              "LayerID": 9,
-              "Name": "PlaneOccluder_56"
-            }
-          },
-          {
-            "classname": "base/planeoccluder",
-            "properties": {
-              "Position": [
-                -7206.19,
-                -28075.18,
-                508.85
-              ],
-              "Rotation": [
-                0.0,
-                -0.0,
-                90.0
-              ],
-              "Size": [
-                2796.0,
-                1600.0
-              ],
-              "ObjectID": 409,
-              "LayerID": 9,
-              "Name": "PlaneOccluder_55"
-            }
-          },
-          {
-            "classname": "base/planeoccluder",
-            "properties": {
-              "Position": [
-                -116.19,
-                -26012.18,
-                789.85
-              ],
-              "Rotation": [
-                0.0,
-                -0.0,
-                90.0
-              ],
-              "Size": [
-                1600.0,
-                1600.0
-              ],
-              "ObjectID": 406,
-              "LayerID": 9,
-              "Name": "PlaneOccluder_54"
-            }
-          },
-          {
-            "classname": "StaticObject",
-            "properties": {
-              "Position": [
-                -4120.0,
-                -28453.0,
-                0.0
-              ],
-              "ObjectName": "ci_shoppingstrip",
-              "PackageName": "city01_streets",
-              "ObjectID": 404,
-              "LayerID": 9,
-              "Name": "CI_ShoppingStrip"
-            }
-          },
-          {
-            "classname": "city01_streets/ci_hotelsign",
-            "properties": {
-              "Position": [
-                -1038.8008,
-                -28560.268,
-                372.01965
-              ],
-              "ObjectID": 400,
-              "LayerID": 9,
-              "Name": "CI_HotelSign_01"
-            }
-          },
-          {
-            "classname": "StaticObject",
-            "properties": {
-              "Position": [
-                -4096.0,
-                -28672.0,
-                0.0
-              ],
-              "ObjectName": "ci_startbuilding",
-              "PackageName": "city01_streets",
-              "ObjectID": 394,
-              "LayerID": 9,
-              "Name": "ci_startbuilding"
-            }
-          },
-          {
-            "classname": "StaticObject",
-            "properties": {
-              "Position": [
-                -882.0,
-                -26517.0,
-                0.0
-              ],
-              "ObjectName": "ci_bankbuilding",
-              "PackageName": "city01_streets",
-              "ObjectID": 385,
-              "LayerID": 9,
-              "Name": "ci_bankbuilding",
-              "LightGroup": 513
-            }
-          },
-          {
-            "classname": "StaticObject",
-            "properties": {
-              "Position": [
-                -4054.8035,
-                -28360.0,
-                80.0
-              ],
-              "ObjectName": "ci_library",
-              "PackageName": "city01_streets",
-              "ObjectID": 383,
-              "LayerID": 9,
-              "Name": "CI_Library"
-            }
-          },
-          {
-            "classname": "base/planeoccluder",
-            "properties": {
-              "Position": [
-                -5208.19,
-                -24868.18,
-                614.85
-              ],
-              "Rotation": [
-                0.0,
-                -0.0,
-                90.0
-              ],
-              "Size": [
-                3842.0,
-                1422.0
-              ],
-              "ObjectID": 360,
-              "LayerID": 9,
-              "Name": "PlaneOccluder_53"
+              "ObjectID": 1,
+              "RegionID": 5,
+              "LayerID": 3,
+              "Name": "CI_Prison_Enc01_Script"
             }
           }
         ]
       }
     },
-    "NextObjectID": 431
+    "NextObjectID": 102
   }
 }

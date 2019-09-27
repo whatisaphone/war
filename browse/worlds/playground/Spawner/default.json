@@ -6,161 +6,329 @@
       "properties": {
         "Objects": [
           {
-            "classname": "minionranged/minionranged",
+            "classname": "azrael/azrael",
             "properties": {
-              "SpeedScale": 0.0,
-              "FollowPatrolPath": true,
-              "Heading": 90.0,
-              "HitPoints": 100.0,
+              "HitPoints": 76.0,
               "Inventory": {
                 "classname": "Inventory",
                 "properties": {}
               },
               "Position": [
-                -283.98233,
-                -577.3857,
-                0.000030517578
+                157.672,
+                111.78671,
+                93.272705
+              ],
+              "ObjectID": 26,
+              "RegionID": 21,
+              "Name": "Azrael"
+            }
+          },
+          {
+            "classname": "towerhead/ot_towerheadreceiver",
+            "properties": {
+              "Heading": 90.0,
+              "HitPoints": 75.0,
+              "Inventory": {
+                "classname": "Inventory",
+                "properties": {}
+              },
+              "Position": [
+                506.08972,
+                129.87526,
+                90.27269
               ],
               "Rotation": [
                 0.0,
                 0.0,
                 90.0
               ],
-              "ObjectID": 1,
-              "RegionID": 1,
-              "Name": "MinionRanged1"
+              "ObjectID": 24,
+              "RegionID": 21,
+              "Name": "OT_Int_Rm02_TowerHead_01"
             }
           },
           {
-            "classname": "minionranged/minionranged",
+            "classname": "base/visscriptmodulesystem",
             "properties": {
-              "SpeedScale": 0.0,
-              "FollowPatrolPath": true,
-              "HitPoints": 100.0,
+              "ModuleSystem": {
+                "classname": "ModuleSystem",
+                "properties": {
+                  "EntityIDGen": 7,
+                  "Entities": [
+                    {
+                      "classname": "StartModule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            2,
+                            0
+                          ]
+                        ],
+                        "ID": 1,
+                        "LocationX": 48,
+                        "LocationY": 72
+                      }
+                    },
+                    {
+                      "classname": "DelayModule",
+                      "properties": {
+                        "EventLinks": [
+                          [
+                            0,
+                            4,
+                            0
+                          ],
+                          [
+                            0,
+                            5,
+                            0
+                          ]
+                        ],
+                        "ID": 2,
+                        "LocationX": 280,
+                        "LocationY": 71
+                      }
+                    },
+                    {
+                      "classname": "InvokeMethodModule",
+                      "properties": {
+                        "ObjectNames": [
+                          "BaseEyeBarrier"
+                        ],
+                        "MethodName": "deactivateShield",
+                        "ID": 4,
+                        "LocationX": 540,
+                        "LocationY": 73
+                      }
+                    },
+                    {
+                      "classname": "InvokeMethodModule",
+                      "properties": {
+                        "ObjectNames": [
+                          "Azrael"
+                        ],
+                        "MethodName": "destroyFirstHead",
+                        "EventLinks": [
+                          [
+                            0,
+                            6,
+                            0
+                          ]
+                        ],
+                        "ID": 5,
+                        "LocationX": 549,
+                        "LocationY": 210
+                      }
+                    },
+                    {
+                      "classname": "DelayModule",
+                      "properties": {
+                        "Delay": 10.0,
+                        "EventLinks": [
+                          [
+                            0,
+                            7,
+                            2
+                          ]
+                        ],
+                        "ID": 6,
+                        "LocationX": 760,
+                        "LocationY": 210
+                      }
+                    },
+                    {
+                      "classname": "ObjectToggleModule",
+                      "properties": {
+                        "ObjectList": [
+                          "Azrael",
+                          "OT_Int_Rm02_TowerHead_01"
+                        ],
+                        "ID": 7,
+                        "LocationX": 968,
+                        "LocationY": 204
+                      }
+                    }
+                  ],
+                  "ViewXOffset": -97.292435,
+                  "ViewYOffset": 97.53379,
+                  "ViewZoom": 0.76,
+                  "ModuleIDGen": 44264000
+                }
+              },
+              "Position": [
+                -20.795448,
+                416.56326,
+                -1.7272949
+              ],
+              "ObjectID": 22,
+              "RegionID": 21,
+              "Name": "VisScriptModuleSystem"
+            }
+          },
+          {
+            "classname": "arena_eye/baseeyebarrier",
+            "properties": {
+              "Heading": 180.0,
+              "HitPoints": 75.0,
               "Inventory": {
                 "classname": "Inventory",
                 "properties": {}
               },
               "Position": [
-                227.59837,
-                -516.9288,
-                0.0
+                -92.43,
+                534.11,
+                133.27
               ],
-              "ObjectID": 2,
-              "RegionID": 1,
-              "Name": "MinionRanged"
+              "Rotation": [
+                0.0,
+                0.0,
+                180.0
+              ],
+              "ObjectID": 20,
+              "RegionID": 21,
+              "Name": "BaseEyeBarrier"
             }
           },
           {
             "classname": "StaticObject",
             "properties": {
               "Position": [
-                -39.0,
-                -174.0,
+                54.718384,
+                -224.15506,
+                -1.7272949
+              ],
+              "ObjectName": "clean_anvil",
+              "PackageName": "corrupted_anvil",
+              "ObjectID": 18,
+              "RegionID": 21,
+              "Name": "clean_anvil"
+            }
+          },
+          {
+            "classname": "base/spawnpoint",
+            "properties": {
+              "EncounterName": "Smith",
+              "ClassToSpawn": "smith/smith",
+              "InitialBehaviorEnum": 9,
+              "AutoSpawn": true,
+              "Position": [
+                56.460022,
+                -278.38724,
+                -1.7272339
+              ],
+              "ObjectID": 16,
+              "RegionID": 21,
+              "Name": "SpawnPoint_01"
+            }
+          },
+          {
+            "classname": "base/spawnpoint",
+            "properties": {
+              "EncounterName": "Smith",
+              "ClassToSpawn": "smith/smith",
+              "InitialBehaviorEnum": 8,
+              "AutoSpawn": true,
+              "Position": [
+                -395.0,
+                -427.84,
+                108.47
+              ],
+              "Rotation": [
+                0.0,
+                0.0,
+                -90.0
+              ],
+              "ObjectID": 14,
+              "RegionID": 21,
+              "Name": "SpawnPoint"
+            }
+          },
+          {
+            "classname": "StaticObject",
+            "properties": {
+              "Position": [
+                12.0,
+                13.0,
                 0.0
               ],
-              "ObjectName": "Playground",
+              "ObjectName": "playground",
               "PackageName": "playground",
-              "ObjectID": 3,
-              "RegionID": 1
+              "ObjectID": 8,
+              "RegionID": 21,
+              "Name": "playground"
             }
           },
           {
             "classname": "base/omnilight",
             "properties": {
-              "AttenEnd": 1000.0,
-              "CastShadows": true,
+              "AttenStart": 10.0,
+              "AttenEnd": 2200.0,
               "Position": [
                 0.0,
                 0.0,
                 500.0
               ],
-              "JitterAmount": 128.0,
-              "ObjectID": 4,
-              "RegionID": 1,
-              "Name": "OmniLight4"
+              "ObjectID": 7,
+              "RegionID": 21,
+              "Name": "OmniLight"
             }
           },
           {
             "classname": "base/waypoint",
             "properties": {
               "Position": [
-                0.0,
-                0.0,
-                200.0
+                369.80017,
+                36.735718,
+                867.2727
               ],
-              "ObjectID": 5,
-              "RegionID": 1,
-              "Name": "Start"
+              "ObjectID": 4,
+              "RegionID": 21,
+              "Name": "FlyTo03"
             }
           },
           {
-            "classname": "base/omnilight",
+            "classname": "base/waypoint",
             "properties": {
-              "AttenEnd": 1000.0,
-              "CastShadows": true,
               "Position": [
-                -688.56,
-                500.36,
-                500.0
+                201.80017,
+                -735.2643,
+                867.2727
               ],
-              "JitterAmount": 128.0,
-              "ObjectID": 6,
-              "RegionID": 1,
-              "Name": "OmniLight"
+              "ObjectID": 3,
+              "RegionID": 21,
+              "Name": "FlyTo02"
             }
           },
           {
-            "classname": "base/omnilight",
+            "classname": "base/waypoint",
             "properties": {
-              "AttenEnd": 1000.0,
-              "CastShadows": true,
               "Position": [
-                586.46533,
-                460.82074,
-                500.0
+                -832.1998,
+                -237.26428,
+                867.2727
               ],
-              "JitterAmount": 128.0,
-              "ObjectID": 7,
-              "RegionID": 1,
-              "Name": "OmniLight1"
+              "ObjectID": 2,
+              "RegionID": 21,
+              "Name": "FlyTo01"
             }
           },
           {
-            "classname": "base/omnilight",
+            "classname": "base/waypoint",
             "properties": {
-              "AttenEnd": 1000.0,
-              "CastShadows": true,
               "Position": [
-                626.2897,
-                -668.37384,
-                500.0
+                69.80017,
+                517.7357,
+                867.2727
               ],
-              "JitterAmount": 128.0,
-              "ObjectID": 8,
-              "RegionID": 1,
-              "Name": "OmniLight2"
-            }
-          },
-          {
-            "classname": "base/omnilight",
-            "properties": {
-              "AttenEnd": 1000.0,
-              "CastShadows": true,
-              "Position": [
-                -646.681,
-                -739.87396,
-                500.0
-              ],
-              "JitterAmount": 128.0,
-              "ObjectID": 9,
-              "RegionID": 1,
-              "Name": "OmniLight3"
+              "ObjectID": 1,
+              "RegionID": 21,
+              "Name": "FlyTo0"
             }
           }
         ]
       }
     },
-    "NextObjectID": 9
+    "NextObjectID": 26
   }
 }
