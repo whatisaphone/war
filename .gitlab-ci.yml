@@ -9,7 +9,7 @@ fmt:
 # Each package is checked separately because of
 # https://github.com/rust-lang/cargo/issues/5364
 .check-crate:
-  image: rust
+  image: rust:1.37
   before_script:
     - rustup component add clippy
   script: cargo clippy --manifest-path "$crate_dir"/Cargo.toml --all-targets --features strict
@@ -25,6 +25,6 @@ check-war-cli:
     crate_dir: crates/war-cli
 
 test:
-  image: rust
+  image: rust:1.37
   script:
     - cargo test

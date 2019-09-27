@@ -104,13 +104,23 @@ impl WorldFactory {
             .get_property("Name")
             .and_then(gfc::Value::as_hstring)
             .ok_or_else(derailed)?;
+        let world_region_data = world
+            .get_property("RegionData")
+            .and_then(gfc::Value::as_array)
+            .ok_or_else(derailed)?;
+
         let info = Self::get_world_info(world_files, world_name);
 
+        let region_id = region
+            .get_property("ID")
+            .and_then(gfc::Value::as_int)
+            .ok_or_else(derailed)?;
         let layers = region
             .get_property("Layers")
             .and_then(gfc::Value::as_array)
             .ok_or_else(derailed)?;
-        let layer_index = layers
+
+        let mut layer_index = layers
             .iter()
             .position(|l| {
                 l.as_object()
@@ -120,6 +130,21 @@ impl WorldFactory {
                     == layer_id
             })
             .ok_or_else(derailed)?;
+
+        // Adjust `layer_index` to point into another array.
+        // Before this code runs: `layer_index` is an index into `region.Layers`.
+        // After this code runs: `layer_index` is an index into `info.layer_offsets`,
+        // which contains the layers from all regions in sequence.
+        let region_index = get_region_index(world, region_id)?;
+        for rd in world_region_data.iter().take(region_index) {
+            let region_layers = rd
+                .as_object()
+                .ok_or_else(derailed)?
+                .get_property("Layers")
+                .and_then(gfc::Value::as_array)
+                .ok_or_else(derailed)?;
+            layer_index += region_layers.len();
+        }
 
         world_package
             .seek(SeekFrom::Start(info.layer_offsets[layer_index].try_into()?))?;
@@ -178,4 +203,22 @@ impl WorldFactory {
             .find(|wf| wf.name == world_lower)
             .unwrap()
     }
+}
+
+fn get_region_index(world: &gfc::Object, id: i32) -> Result<usize, Error> {
+    let region_data = world
+        .get_property("RegionData")
+        .and_then(gfc::Value::as_array)
+        .ok_or_else(derailed)?;
+    Ok(region_data
+        .iter()
+        .position(|r| {
+            let region = r.as_object().unwrap();
+            let region_id = region
+                .get_property("ID")
+                .and_then(gfc::Value::as_int)
+                .unwrap();
+            region_id == id
+        })
+        .ok_or_else(derailed)?)
 }
