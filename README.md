@@ -8,6 +8,10 @@ A tool that lets you view/edit [Darksiders] save files and game assets.
 
 >Darksiders Warfinitive Edition - All your save game are belong to us!
 
+You can download the latest version from the [releases] page.
+
+[releases]: https://github.com/whatisaphone/war/releases
+
 ## How to use
 
 You have a couple options:
