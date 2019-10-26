@@ -8,7 +8,12 @@ use crate::{
 use byteordered::{ByteOrdered, Endianness};
 use failure::Error;
 use replace_with::replace_with_or_abort;
-use std::{collections::HashMap, convert::TryInto, io::Read, sync::Arc};
+use std::{
+    collections::HashMap,
+    convert::TryInto,
+    io::{self, Read},
+    sync::Arc,
+};
 
 pub struct BinaryObjectReader<'s> {
     object_database: HashMap<i32, Arc<gfc::Object>>,
@@ -19,6 +24,11 @@ pub struct BinaryObjectReader<'s> {
 impl<'s> BinaryObjectReader<'s> {
     fn strings_ro(&self) -> &[String] {
         self.strings_ro.unwrap_or_else(|| &self.strings_local)
+    }
+
+    pub fn read_object_from_buffer(buffer: &[u8]) -> Result<gfc::Object, Error> {
+        let mut bis = ByteOrdered::new(io::Cursor::new(buffer), Endianness::Little);
+        Self::read_object(&mut bis)
     }
 
     pub fn read_object(

@@ -14,7 +14,14 @@ pub use utils::serde_lossy::ser::Lossy;
 mod macros;
 mod darksiders1;
 pub mod dsav;
+pub mod manifest;
 pub mod obsp;
 pub mod sav;
 mod utils;
 pub mod worlds;
+
+pub mod ds1 {
+    pub mod gfc {
+        pub use crate::darksiders1::gfc::ResourceData;
+    }
+}

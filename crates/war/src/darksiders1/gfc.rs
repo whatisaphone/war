@@ -55,6 +55,23 @@ pub use crate::darksiders1::code::vigil::{
             script::Script,
             scriptmethod::ScriptMethod,
         },
-        util::{crc::Crc64, hstring::HString, hstringmanager::HStringManager},
+        util::{
+            crc::Crc64,
+            directorymanager::DirectoryManager,
+            hstring::HString,
+            hstringmanager::HStringManager,
+        },
+        world::resource::{
+            resource::{Resource, ResourceData},
+            resourcecache::{ResourceCache, ResourceLoadInfo},
+            resourcemanager::ResourceManager,
+            resourcepackage::{
+                ResourceBuffer,
+                ResourcePackageRead__ExtInfo,
+                ResourcePackageRead__FileInfo,
+            },
+            resourcepackagebin::{ResBinHeader, ResourcePackageBin},
+            resourcepackageinfo::{ResourcePackageInfo, ResourcePackageList},
+        },
     },
 };
