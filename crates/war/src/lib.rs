@@ -8,6 +8,7 @@
 )]
 #![cfg_attr(feature = "strict", deny(warnings))]
 
+pub use darksiders1::gfc::HString;
 pub use utils::serde_lossy::ser::Lossy;
 
 #[macro_use]
