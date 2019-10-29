@@ -65,7 +65,19 @@ The file contains all 10 save slots (including the autosave slot), but this tool
 
 ### Asset extracting
 
-This app can extract the game's worlds and scripts to a readable format. It cannot re-pack them into the original format. These command work just as well on files from both OG and Warmastered.
+This app can extract the game's various assets to a readable format. It cannot re-pack them into the original format. These command work just as well on files from both OG and Warmastered.
+
+#### Manifest
+
+Most of the game's assets (meshes, textures, audio, etc.) are stored in resource packages (`*.oppc`) which are referenced by the manifest (`media/pc.mnfst`).
+
+To extract these, point the tool at your game directory (either `Darksiders` or `Darksiders Warmastered Edition`).
+
+```sh
+war manifest packages unpack <path-to-Darksiders> <output-dir>
+```
+
+The unpacked files will take up about 17GB (for the Warmastered Edition).
 
 #### Worlds
 
