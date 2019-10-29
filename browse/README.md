@@ -4,6 +4,10 @@
 
 These are the game's classes and scripts, extracted from `scripts.obsp`.
 
+## `packages/`
+
+The resource packages contain the game's textures, audio, meshes, materials, objects, animations, etc. Sorry, these are too big to host on GitHub! You'll have to run the app and unpack them yourself.
+
 ## `saves/`
 
 These are a couple example save files, along with extracted versions.
