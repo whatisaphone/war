@@ -3,6 +3,7 @@
 #![allow(
     clippy::if_not_else,
     clippy::multiple_crate_versions,
+    clippy::non_ascii_literal,
     clippy::single_match,
     clippy::single_match_else
 )]
