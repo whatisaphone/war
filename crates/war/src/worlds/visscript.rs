@@ -19,8 +19,7 @@ pub fn draw_all_visscripts_as_graphviz(
 
             // For the graph label, add a newline between all path segments so it looks
             // better.
-            let label = format!("{}/{}", path, name);
-            let gv = draw_visscript_as_graphviz(&label, object).unwrap();
+            let gv = draw_visscript_as_graphviz(path, &name, object).unwrap();
 
             // For the actual filename, flatten the last path segment since the subdirs
             // are annoying.
@@ -68,9 +67,13 @@ fn walk(object: &gfc::Object, sink: &mut impl FnMut(&gfc::Object)) {
 }
 
 fn draw_visscript_as_graphviz(
-    label: &str,
+    path: &str,
+    name: &str,
     object: &gfc::Object,
 ) -> Result<String, fmt::Error> {
+    let comment = object
+        .get_property("Comment")
+        .and_then(gfc::Value::as_hstring);
     let module_system = object
         .get_property("ModuleSystem")
         .and_then(gfc::Value::as_object)
@@ -111,14 +114,37 @@ fn draw_visscript_as_graphviz(
         transform_y(min_y.unwrap_or(0) - 1),
     )?;
     writeln!(result, "    title [ shape = underline ];")?;
-    let label = format!(
-        // Default font size is 14, title is bigger
-        "<font point-size=\"20\"><b>{}</b></font>",
-        escape_html(&label).replace("/", "<br align=\"left\"/>"),
-    );
-    writeln!(result, "    title [ label = {} ];", quote_html(&label))?;
+    let title = build_title_html(path, name, comment);
+    writeln!(result, "    title [ label = {} ];", quote_html(&title))?;
+
     writeln!(result, "}}")?;
     Ok(result)
+}
+
+fn build_title_html(path: &str, name: &str, comment: Option<&str>) -> String {
+    let mut result = String::with_capacity(256);
+    // Default font size is 14, title is bigger
+    result.push_str("<font point-size=\"20\">");
+
+    // Path segments
+    for s in path.split('/') {
+        result.push_str(&escape_html(s));
+        result.push_str("<br align=\"left\"/>");
+    }
+
+    // Name
+    result.push_str("<b>");
+    result.push_str(&escape_html(name));
+    result.push_str("</b><br align=\"left\"/>");
+
+    // Comment
+    if let Some(comment) = comment {
+        result.push_str("<br/><i>");
+        result.push_str(&escape_html(comment));
+        result.push_str("</i><br align=\"left\"/>");
+    }
+    result.push_str("</font>");
+    result
 }
 
 fn write_entity(
@@ -202,7 +228,11 @@ fn entity_label_html(entity: &gfc::Object) -> Result<String, fmt::Error> {
     )?;
 
     if let Some(comment) = comment {
-        write!(result, "{}<br align=\"left\"/><br/>", escape_html(comment))?;
+        write!(
+            result,
+            "<i>{}</i><br align=\"left\"/><br/>",
+            escape_html(comment)
+        )?;
     }
 
     for (name, value) in &entity.properties {
@@ -210,7 +240,7 @@ fn entity_label_html(entity: &gfc::Object) -> Result<String, fmt::Error> {
             continue;
         }
 
-        write!(result, "<i>{}</i><br align=\"left\"/>", escape_html(name))?;
+        write!(result, "<b>{}</b><br align=\"left\"/>", escape_html(name))?;
         let wrapped =
             ghetto_html_wrap_string_indent_align_left(&format!("{}", Compact(value)))?;
         write!(result, "{}", wrapped)?;
