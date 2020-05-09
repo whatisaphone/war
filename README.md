@@ -88,6 +88,16 @@ war worlds decode <path-to-worlds.mnfst> <output-dir>
 ```
 
 See the [browse] readme for more info on what exactly these files are.
+ 
+#### VisScript
+
+The Darksiders devs used a visual editor for some scripts. You can render them to Graphviz files using:
+
+```sh
+war worlds visscript draw <path-to-worlds.mnfst> <output-dir>
+```
+
+Take a look at the [browse] branch to see the final results.
 
 #### Scripts
 
