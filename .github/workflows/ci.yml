@@ -1,0 +1,43 @@
+# https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions
+
+name: CI
+on: [push, pull_request]
+jobs:
+  fmt:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: nightly-2019-08-15
+          profile: minimal
+          components: rustfmt
+          override: true
+
+      - uses: actions/checkout@v1
+
+      - run: cargo fmt -- --check
+
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: 1.37.0
+          profile: minimal
+          components: clippy
+          override: true
+
+      - uses: actions/checkout@v1
+
+      # Each package is checked separately because of
+      # https://github.com/rust-lang/cargo/issues/5364
+      - run: |
+          for manifest in crates/*/Cargo.toml; do
+            cargo clippy \
+              --manifest-path "${manifest}" \
+              --locked \
+              --all-targets \
+              --features strict
+          done
+
+      - run: cargo --locked test
