@@ -230,8 +230,8 @@ fn entity_label_html(entity: &gfc::Object) -> Result<String, fmt::Error> {
     if let Some(comment) = comment {
         write!(
             result,
-            "<i>{}</i><br align=\"left\"/><br/>",
-            escape_html(comment)
+            "<i>{}</i><br align=\"left\"/>",
+            escape_html_and_wrap(comment, "", "<br align=\"left\"/>"),
         )?;
     }
 
@@ -241,27 +241,34 @@ fn entity_label_html(entity: &gfc::Object) -> Result<String, fmt::Error> {
         }
 
         write!(result, "<b>{}</b><br align=\"left\"/>", escape_html(name))?;
-        let wrapped =
-            ghetto_html_wrap_string_indent_align_left(&format!("{}", Compact(value)))?;
+        let wrapped = escape_html_and_wrap(
+            &format!("{}", Compact(value)),
+            "    ",
+            "<br align=\"left\"/>",
+        );
         write!(result, "{}", wrapped)?;
     }
 
     Ok(result)
 }
 
-fn ghetto_html_wrap_string_indent_align_left(
+fn escape_html_and_wrap(
     mut s: &str,
-) -> Result<String, fmt::Error> {
+    line_prefix_html: &str,
+    line_suffix_html: &str,
+) -> String {
     const MAX_TOTAL_LEN: usize = 256;
     const MAX_LINE_LEN: usize = 32;
 
     let mut result = String::with_capacity(256);
     while !s.is_empty() && result.len() < MAX_TOTAL_LEN {
         let (left, right) = s.split_at(MAX_LINE_LEN.min(s.len()));
-        write!(result, "    {}<br align=\"left\"/>", escape_html(left))?;
+        result.push_str(line_prefix_html);
+        result.push_str(&escape_html(left));
+        result.push_str(line_suffix_html);
         s = right;
     }
-    Ok(result)
+    result
 }
 
 // This is a list of properties not to include in the node labels. They are part
