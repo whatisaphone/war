@@ -6,6 +6,10 @@ use std::{
     rc::Rc,
 };
 
+pub use visscript::draw_all_visscripts_as_graphviz;
+
+mod visscript;
+
 pub fn read(file: impl Read + Seek) -> Result<Vec<(String, gfc::Object)>, Error> {
     let mut files = Vec::new();
 

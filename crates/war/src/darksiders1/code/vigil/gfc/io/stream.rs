@@ -2,7 +2,7 @@ use crate::utils::{
     parsing::{derailed, expect},
     windows1252::{StrWindows1252Ext, StringWindows1252Ext},
 };
-use byteordered::{ByteOrdered, Endianness};
+use byteordered::{ByteOrdered, Endian, Endianness};
 use std::{
     convert::{TryFrom, TryInto},
     io::{self, Read, Write},
@@ -14,7 +14,7 @@ pub struct InputStream {
 
 impl InputStream {
     pub fn read_string(
-        stream: &mut ByteOrdered<impl Read, Endianness>,
+        stream: &mut ByteOrdered<impl Read, impl Endian>,
     ) -> io::Result<String> {
         expect(stream.read_u8()? == 0xff)?;
         let length = stream.read_u16()?;
