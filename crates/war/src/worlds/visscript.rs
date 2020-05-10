@@ -110,7 +110,7 @@ fn draw_visscript_as_graphviz(
         result,
         "    title [ pos = \"{},{}!\" ];",
         // Subtract one so the title ends up top-left of the rest of the nodes.
-        min_x.unwrap_or(0) - 1,
+        transform_x(min_x.unwrap_or(0) - 1),
         transform_y(min_y.unwrap_or(0) - 1),
     )?;
     writeln!(result, "    title [ shape = underline ];")?;
@@ -193,7 +193,13 @@ fn write_entity(
             *min_y = Some(y);
         }
 
-        writeln!(sink, "    {} [ pos = \"{},{}!\" ];", id, x, transform_y(y))?;
+        writeln!(
+            sink,
+            "    {} [ pos = \"{},{}!\" ];",
+            id,
+            transform_x(x),
+            transform_y(y),
+        )?;
     }
 
     for event_link in event_links.iter().flat_map(|x| x.iter()) {
@@ -329,10 +335,24 @@ fn write_variable_link(
     writeln!(sink, "    {} -> {} [ style = dashed ];", from, to)
 }
 
-fn transform_y(y: i32) -> i32 {
+/// Scale coordinates way down, otherwise Graphviz can't figure out how to
+/// compact the layout, and you get 10000s of pixels of empty space. (I think
+/// this has something to do with `overlap_shrink`)
+///
+/// This has a major effect on e.g.
+/// overworld/SW_Rm05/Scripts-SW_Rm05_VSM_EntryCam.
+const SCALE: f32 = 0.001;
+
+#[allow(clippy::cast_precision_loss)]
+fn transform_x(x: i32) -> f32 {
+    x as f32 * SCALE
+}
+
+#[allow(clippy::cast_precision_loss)]
+fn transform_y(y: i32) -> f32 {
     // Invert the y-axis since (I'm assuming) Darksiders has the origin at the top
     // left, and graphviz uses the bottom left.
-    -y
+    y as f32 * -SCALE
 }
 
 /// Quote a Graphviz string with double quotes.
