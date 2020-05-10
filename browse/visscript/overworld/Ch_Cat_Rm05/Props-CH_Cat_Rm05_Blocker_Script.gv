@@ -1,0 +1,41 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>StartModule</b><br/><br/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "0.17500001,-0.26000002!" ];
+    1 -> 2 [ label = "0→0" ];
+    1 -> 4 [ label = "0→0" ];
+
+    2 [ label = <2: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;ch_cat_rm05<br align="left"/>    &quot;, FlagName=&quot;angel_break&quot;)]<br align="left"/>> ];
+    2 [ pos = "0.46800002,-0.26000002!" ];
+    2 -> 3 [ label = "0→2" ];
+
+    3 [ label = <3: <b>ObjectToggleModule</b><br/><br/><b>ObjectList</b><br align="left"/>    [&quot;CH_Cat_Rm05_Path_Blocker&quot;, &quot;CH<br align="left"/>    _Cat_Rm05_AI_Blocker&quot;]<br align="left"/>> ];
+    3 [ pos = "0.906,-0.21400002!" ];
+
+    4 [ label = <4: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;CH_Cat-Rm05_AngelStat&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onBreak&quot;]<br align="left"/>> ];
+    4 [ pos = "0.469,-0.45900002!" ];
+    4 -> 5 [ label = "0→0" ];
+
+    5 [ label = <5: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    2<br align="left"/>> ];
+    5 [ pos = "0.68100005,-0.45900002!" ];
+    5 -> 3 [ label = "0→2" ];
+    5 -> 6 [ label = "0→1" ];
+
+    6 [ label = <6: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;ch_cat_rm05<br align="left"/>    &quot;, FlagName=&quot;angel_break&quot;)]<br align="left"/>> ];
+    6 [ pos = "0.90900004,-0.43600002!" ];
+
+    title [ pos = "0.17400001,-0.21300001!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>Ch_Cat_Rm05<br align="left"/>Props<br align="left"/><b>CH_Cat_Rm05_Blocker_Script</b><br align="left"/></font>> ];
+}

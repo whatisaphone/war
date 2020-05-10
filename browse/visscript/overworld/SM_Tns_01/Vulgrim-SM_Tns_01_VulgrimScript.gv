@@ -1,0 +1,94 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>base/merchantdismissmerchantmodule</b><br/><br/><i>Dismisses vulgrim<br align="left"/></i><br align="left"/>> ];
+    1 [ pos = "0.365,-0.29200003!" ];
+
+    3 [ label = <3: <b>InteractiveRegionModule</b><br/><br/><i>VulgrimIntRegion_SM_Tns_01<br align="left"/></i><br align="left"/><b>InteractiveRegionList</b><br align="left"/>    [&quot;VulgrimIntRegion_SM_Tns_01&quot;]<br align="left"/>> ];
+    3 [ pos = "0.36400002,-0.13800001!" ];
+    3 -> 19 [ label = "0→0" ];
+    3 -> 20 [ label = "1→0" ];
+
+    4 [ label = <4: <b>TriggerEventModule</b><br/><br/><i>SW_Rm01<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;VulgrimTriggerRegion_SM_Tns_01<br align="left"/>    &quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    4 [ shape = oval ]
+    4 [ pos = "-0.011000001,-0.13800001!" ];
+    4 -> 3 [ label = "0→0" ];
+    4 -> 5 [ label = "0→0" ];
+    4 -> 3 [ label = "1→1" ];
+    4 -> 1 [ label = "1→0" ];
+    4 -> 10 [ label = "0→0" ];
+
+    5 [ label = <5: <b>base/merchantsummonmerchantmodule</b><br/><br/><i>Summon Vulgrim (SM_Tns_01)<br align="left"/></i><br align="left"/><b>SpawnPoint</b><br align="left"/>    &quot;VulgrimSpawnPoint_SM_Tns_01&quot;<br align="left"/>> ];
+    5 [ pos = "0.36400002,0.001!" ];
+
+    10 [ label = <10: <b>SaveDataModule</b><br/><br/><i>SM_Tns_01_VulgrimLocated<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Global&quot;, Fl<br align="left"/>    agName=&quot;SM_Tns_01_VulgrimLocated<br align="left"/>    &quot;)]<br align="left"/>> ];
+    10 [ pos = "0.36600003,0.158!" ];
+    10 -> 13 [ label = "1→0" ];
+
+    12 [ label = <12: <b>SaveDataModule</b><br/><br/><i>SM_Tns_01_VulgrimLocated<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Global&quot;, Fl<br align="left"/>    agName=&quot;SM_Tns_01_VulgrimLocated<br align="left"/>    &quot;)]<br align="left"/>> ];
+    12 [ pos = "0.77400005,0.158!" ];
+    12 -> 25 [ label = "3→0" ];
+
+    13 [ label = <13: <b>base/giveitemmodule</b><br/><br/><b>Item</b><br align="left"/>    &quot;base/SM_Tns_01_Teleport&quot;<br align="left"/><b>HidePopup</b><br align="left"/>    false<br align="left"/>> ];
+    13 [ pos = "0.601,0.135!" ];
+    13 -> 12 [ label = "0→1" ];
+
+    14 [ label = <14: <b>StartModule</b><br/><br/>> ];
+    14 [ shape = oval ]
+    14 [ pos = "-1.013,-0.15900001!" ];
+    14 -> 16 [ label = "0→0" ];
+
+    15 [ label = <15: <b>TriggerEventModule</b><br/><br/><i>disabled on start<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;SM_Tns_01_SerpentHoleTrig&quot;, &quot;&quot;<br align="left"/>    ]<br align="left"/><b>Enable</b><br align="left"/>    false<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    15 [ shape = oval ]
+    15 [ pos = "-0.564,0.009000001!" ];
+    15 -> 17 [ label = "0→1" ];
+    15 -> 22 [ label = "1→0" ];
+    15 -> 4 [ label = "1→0" ];
+
+    16 [ label = <16: <b>SaveDataModule</b><br/><br/><i>SerpentHoleTaken<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Global&quot;, Fl<br align="left"/>    agName=&quot;SerpentHoleTaken&quot;)]<br align="left"/>> ];
+    16 [ pos = "-0.813,-0.15900001!" ];
+    16 -> 15 [ label = "0→0" ];
+    16 -> 4 [ label = "0→1" ];
+
+    17 [ label = <17: <b>SaveDataModule</b><br/><br/><i>SerpentHoleTaken = false<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Global&quot;, Fl<br align="left"/>    agName=&quot;SerpentHoleTaken&quot;, FlagV<br align="left"/>    alue=&quot;False&quot;)]<br align="left"/>> ];
+    17 [ pos = "-0.287,0.081!" ];
+    17 -> 21 [ label = "3→0" ];
+
+    18 [ label = <18: <b>base/autosavemodule</b><br/><br/>> ];
+    18 [ pos = "0.115,0.035!" ];
+
+    19 [ label = <19: <b>base/gotovulgrimmodule</b><br/><br/>> ];
+    19 [ pos = "0.674,-0.11100001!" ];
+
+    20 [ label = <20: <b>base/showmenumodule</b><br/><br/><i>Teleport menu<br align="left"/></i><br align="left"/><b>MenuName</b><br align="left"/>    &quot;ui_teleport_menu/teleportmenu&quot;<br align="left"/><b>UICategory</b><br align="left"/>    &quot;Teleport&quot;<br align="left"/>> ];
+    20 [ pos = "0.675,-0.19500001!" ];
+
+    21 [ label = <21: <b>base/setspawnpointmodule</b><br/><br/><b>Region</b><br align="left"/>    &quot;SM_Tns_01&quot;<br align="left"/><b>SpawnPoint</b><br align="left"/>    &quot;SM_Tns_01_SerpentHole_Start_01&quot;<br align="left"/><b>SpawnLoadRegion</b><br align="left"/>    &quot;SM_Tns_01_StartLoadRegion_Vulgr<br align="left"/>    im&quot;<br align="left"/>> ];
+    21 [ pos = "-0.089,0.035!" ];
+    21 -> 18 [ label = "0→0" ];
+
+    22 [ label = <22: <b>base/oneshotmodule</b><br/><br/>> ];
+    22 [ pos = "-0.532,-0.23500001!" ];
+    22 -> 15 [ label = "0→1" ];
+
+    24 [ label = <24: <b>StartModule</b><br/><br/>> ];
+    24 [ shape = oval ]
+    24 [ pos = "0.048,-0.337!" ];
+    24 -> 3 [ label = "0→1" ];
+
+    25 [ label = <25: <b>VisScriptCallModule</b><br/><br/><i>ShowVulgrim<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SM_Tns_01_VSM_MM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;ShowVulgrim&quot;<br align="left"/>> ];
+    25 [ pos = "1.0020001,0.112!" ];
+
+    title [ pos = "-1.014,0.15900001!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SM_Tns_01<br align="left"/>Vulgrim<br align="left"/><b>SM_Tns_01_VulgrimScript</b><br align="left"/></font>> ];
+}

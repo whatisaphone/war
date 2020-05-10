@@ -1,0 +1,77 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    2 [ label = <2: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;IC_rm04b_Enc01c&quot;<br align="left"/>> ];
+    2 [ pos = "0.29200003,-0.46!" ];
+    2 -> 4 [ label = "0→0" ];
+    2 -> 3 [ style = dashed ];
+
+    3 [ label = <3: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    3 [ shape = parallelogram ]
+    3 [ pos = "0.572,-0.652!" ];
+
+    4 [ label = <4: <b>SpawnMonsterEventModule</b><br/><br/><b>NumberToSpawn</b><br align="left"/>    3<br align="left"/>> ];
+    4 [ pos = "0.841,-0.46!" ];
+    4 -> 10 [ label = "0→0" ];
+    4 -> 13 [ label = "0→0" ];
+    3 -> 4 [ style = dashed ];
+    4 -> 6 [ style = dashed ];
+
+    5 [ label = <5: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;IC_Rm04b_Amb_Spawn_TrgReg_00&quot;,<br align="left"/>     &quot;IC_Rm04b_Amb_Spawn_TrgReg_01&quot;,<br align="left"/>     &quot;&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    5 [ shape = oval ]
+    5 [ pos = "0.010000001,-0.46!" ];
+    5 -> 2 [ label = "0→0" ];
+
+    6 [ label = <6: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    6 [ shape = parallelogram ]
+    6 [ pos = "1.22,-0.62600005!" ];
+
+    7 [ label = <7: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;IC_Rm04b_Amb_Rmv_TrigReg_00&quot;, <br align="left"/>    &quot;IC_Rm04b_Amb_Rmv_TrigReg_01&quot;, &quot;<br align="left"/>    &quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    7 [ shape = oval ]
+    7 [ pos = "1.222,-0.72700006!" ];
+    7 -> 8 [ label = "0→2" ];
+
+    8 [ label = <8: <b>ObjectToggleModule</b><br/><br/>> ];
+    8 [ pos = "1.6060001,-0.68100005!" ];
+    6 -> 8 [ style = dashed ];
+
+    10 [ label = <10: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;IC&quot;, FlagNa<br align="left"/>    me=&quot;IC_Rm08_Canopy_Spider_Dead&quot;)<br align="left"/>    ]<br align="left"/>> ];
+    10 [ pos = "1.2160001,-0.32000002!" ];
+    10 -> 11 [ label = "0→0" ];
+
+    11 [ label = <11: <b>DelayModule</b><br/><br/>> ];
+    11 [ pos = "1.463,-0.32000002!" ];
+    11 -> 12 [ label = "0→0" ];
+
+    12 [ label = <12: <b>InvokeMethodModule</b><br/><br/><b>MethodName</b><br align="left"/>    &quot;setBehaviorAmbient&quot;<br align="left"/>> ];
+    12 [ pos = "1.6500001,-0.32000002!" ];
+    6 -> 12 [ style = dashed ];
+
+    13 [ label = <13: <b>AttachEventModule</b><br/><br/><b>EventNames</b><br align="left"/>    [&quot;onHit&quot;]<br align="left"/>> ];
+    13 [ pos = "1.4770001,-0.52900004!" ];
+    13 -> 15 [ label = "0→0" ];
+    6 -> 13 [ style = dashed ];
+
+    14 [ label = <14: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;IC_rm04b_Enc01c&quot;<br align="left"/>> ];
+    14 [ pos = "0.291,-0.46!" ];
+    14 -> 4 [ label = "0→0" ];
+    14 -> 3 [ style = dashed ];
+
+    15 [ label = <15: <b>InvokeMethodModule</b><br/><br/><b>MethodName</b><br align="left"/>    &quot;setBehaviorCombat&quot;<br align="left"/>> ];
+    15 [ pos = "1.6940001,-0.52900004!" ];
+    15 -> 13 [ label = "0→2" ];
+    6 -> 15 [ style = dashed ];
+
+    title [ pos = "0.009000001,-0.319!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>IC_Rm04b<br align="left"/>combat<br align="left"/><b>IC_rm04b_Enc01c_Script</b><br align="left"/></font>> ];
+}

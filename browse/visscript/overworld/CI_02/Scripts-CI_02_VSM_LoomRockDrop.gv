@@ -1,0 +1,109 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>TriggerEventModule</b><br/><br/><i>Play the event of looming rocks <br align="left"/>dropping with cin<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;CI_02_TrgReg_LoomRockDrop&quot;, &quot;&quot;<br align="left"/>    ]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "-0.2,-0.10700001!" ];
+    1 -> 57 [ label = "0→0" ];
+
+    13 [ label = <13: <b>CinematicModule</b><br/><br/><b>CinematicName</b><br align="left"/>    &quot;CI_02_CinMod_LoomRockDrop&quot;<br align="left"/>> ];
+    13 [ pos = "0.568,-0.22000001!" ];
+    13 -> 54 [ label = "0→0" ];
+    13 -> 28 [ label = "0→0" ];
+
+    14 [ label = <14: <b>SaveDataModule</b><br/><br/><i>Set cinematic has played data<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;CI_02&quot;, Fla<br align="left"/>    gName=&quot;CI_02_LoomRocksDown&quot;)]<br align="left"/>> ];
+    14 [ pos = "0.559,-0.07300001!" ];
+
+    17 [ label = <17: <b>ExternalCallModule</b><br/><br/><i>Checks to see if they got the te<br align="left"/>mpest cloak<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;LoomRockDrop&quot;<br align="left"/>> ];
+    17 [ shape = oval ]
+    17 [ pos = "-0.71300006,0.031000001!" ];
+    17 -> 34 [ label = "0→0" ];
+
+    27 [ label = <27: <b>VisScriptCallModule</b><br/><br/><i>Tempest cloak tutorial played ca<br align="left"/>ll<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CI_02_TempestCloakTut_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;ShowTutorial&quot;<br align="left"/>> ];
+    27 [ pos = "1.039,-0.342!" ];
+
+    28 [ label = <28: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    6<br align="left"/>> ];
+    28 [ pos = "0.87000006,-0.342!" ];
+    28 -> 27 [ label = "0→0" ];
+
+    32 [ label = <32: <b>SaveDataModule</b><br/><br/><i>Persists the activation of the t<br align="left"/>rigger region event<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;CI_02&quot;, Fla<br align="left"/>    gName=&quot;PrisonCalled&quot;)]<br align="left"/>> ];
+    32 [ pos = "-0.179,0.18300001!" ];
+
+    34 [ label = <34: <b>base/hasitemmodule</b><br/><br/><i>has tempest cloak?<br align="left"/></i><br align="left"/><b>Item</b><br align="left"/>    &quot;gear_tempestcloak/playergeartem<br align="left"/>    pestcloak&quot;<br align="left"/>> ];
+    34 [ pos = "-0.42100003,-0.049000002!" ];
+    34 -> 1 [ label = "0→0" ];
+    34 -> 1 [ label = "1→1" ];
+
+    36 [ label = <36: <b>SaveDataModule</b><br/><br/><i>Set cinematic has played data<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;CI_02&quot;, Fla<br align="left"/>    gName=&quot;CI_02_LoomRocksDown&quot;)]<br align="left"/>> ];
+    36 [ pos = "-0.67700005,-0.13000001!" ];
+    36 -> 34 [ label = "1→0" ];
+    36 -> 1 [ label = "0→1" ];
+
+    37 [ label = <37: <b>StartModule</b><br/><br/><i>check to see if cine has played<br align="left"/></i><br align="left"/>> ];
+    37 [ shape = oval ]
+    37 [ pos = "-0.9110001,-0.13000001!" ];
+    37 -> 36 [ label = "0→0" ];
+
+    38 [ label = <38: <b>SaveDataModule</b><br/><br/><i>Check cinematic has played data<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;CI_02&quot;, Fla<br align="left"/>    gName=&quot;CI_02_LoomRocksDown&quot;)]<br align="left"/>> ];
+    38 [ pos = "0.277,-0.10700001!" ];
+    38 -> 13 [ label = "1→0" ];
+    38 -> 14 [ label = "1→1" ];
+    38 -> 44 [ label = "1→0" ];
+    38 -> 40 [ label = "1→0" ];
+    38 -> 58 [ label = "1→1" ];
+
+    40 [ label = <40: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>MoveVal</b><br align="left"/>    0<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;CI_02_CinMod_LoomRockDrop_War&quot;<br align="left"/><b>RotateObject</b><br align="left"/>    true<br align="left"/>> ];
+    40 [ pos = "0.57000005,-0.48000002!" ];
+
+    44 [ label = <44: <b>SoundModule</b><br/><br/><b>SoundDescFile</b><br align="left"/>    &quot;base/Music&quot;<br align="left"/><b>SoundID</b><br align="left"/>    86<br align="left"/><b>Music</b><br align="left"/>    true<br align="left"/>> ];
+    44 [ pos = "0.569,-0.33900002!" ];
+
+    45 [ label = <45: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;C2_TempestCloakFissure02&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;activate&quot;<br align="left"/>> ];
+    45 [ pos = "1.013,-0.112!" ];
+    45 -> 46 [ label = "0→0" ];
+
+    46 [ label = <46: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    6<br align="left"/>> ];
+    46 [ pos = "1.235,-0.112!" ];
+    46 -> 47 [ label = "0→0" ];
+
+    47 [ label = <47: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;C2_TempestCloakFissure03&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;activate&quot;<br align="left"/>> ];
+    47 [ pos = "1.417,-0.112!" ];
+
+    48 [ label = <48: <b>StartModule</b><br/><br/>> ];
+    48 [ shape = oval ]
+    48 [ pos = "0.054,-0.83500004!" ];
+    48 -> 50 [ label = "0→0" ];
+
+    50 [ label = <50: <b>SaveDataModule</b><br/><br/><i>Set cinematic has played data<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;CI_02&quot;, Fla<br align="left"/>    gName=&quot;CI_02_LoomRocksDown&quot;)]<br align="left"/>> ];
+    50 [ pos = "0.25,-0.83500004!" ];
+    50 -> 51 [ label = "1→0" ];
+    50 -> 58 [ label = "0→1" ];
+    50 -> 58 [ label = "1→2" ];
+
+    51 [ label = <51: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;C2_TempestCloakFissure02&quot;, &quot;C2<br align="left"/>    _TempestCloakFissure03&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;deactivate&quot;<br align="left"/>> ];
+    51 [ pos = "0.583,-0.92800003!" ];
+
+    54 [ label = <54: <b>DelayModule</b><br/><br/>> ];
+    54 [ pos = "0.86800003,-0.11100001!" ];
+    54 -> 45 [ label = "0→0" ];
+
+    57 [ label = <57: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    57 [ pos = "0.071,-0.10700001!" ];
+    57 -> 38 [ label = "0→0" ];
+
+    58 [ label = <58: <b>ObjectToggleModule</b><br/><br/><i>Add/Remove Prison Kill Respawn<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;CI_02_KillRegionTrigger_05&quot;]<br align="left"/>> ];
+    58 [ pos = "0.577,-0.72800004!" ];
+
+    title [ pos = "-0.91200006,0.18400002!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>CI_02<br align="left"/>Scripts<br align="left"/><b>CI_02_VSM_LoomRockDrop</b><br align="left"/><br/><i>drop looming rocks</i><br align="left"/></font>> ];
+}

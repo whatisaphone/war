@@ -1,0 +1,55 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    2 [ label = <2: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Ashlands&quot;, <br align="left"/>    FlagName=&quot;Ruin_Collected&quot;)]<br align="left"/>> ];
+    2 [ pos = "0.448,0.003!" ];
+    2 -> 4 [ label = "3→0" ];
+
+    4 [ label = <4: <b>base/giveitemmodule</b><br/><br/><b>Item</b><br align="left"/>    &quot;items/item_ruinshard&quot;<br align="left"/>> ];
+    4 [ pos = "0.661,0.002!" ];
+    4 -> 17 [ label = "0→0" ];
+
+    6 [ label = <6: <b>base/gatemodule</b><br/><br/>> ];
+    6 [ pos = "0.172,-0.18300001!" ];
+    6 -> 2 [ label = "0→1" ];
+
+    7 [ label = <7: <b>ExternalCallModule</b><br/><br/><i>from AL_04.Combat.AL_04_EncRuin0<br align="left"/>3_Script<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;Ruin_Encounter_Finished&quot;<br align="left"/>> ];
+    7 [ shape = oval ]
+    7 [ pos = "-0.21700001,-0.18300001!" ];
+    7 -> 6 [ label = "0→0" ];
+
+    14 [ label = <14: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.5<br align="left"/>> ];
+    14 [ pos = "1.146,0.002!" ];
+    14 -> 15 [ label = "0→0" ];
+
+    15 [ label = <15: <b>base/autosavemodule</b><br/><br/>> ];
+    15 [ pos = "1.3110001,0.002!" ];
+
+    17 [ label = <17: <b>base/giveitemmodule</b><br/><br/><b>Item</b><br align="left"/>    &quot;items/item_ruinchargeshard&quot;<br align="left"/>> ];
+    17 [ pos = "0.82000005,0.002!" ];
+    17 -> 20 [ label = "0→0" ];
+
+    19 [ label = <19: <b>VisScriptCallModule</b><br/><br/><i>Reunited<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;VSM_Achievements&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;Reunited&quot;<br align="left"/>> ];
+    19 [ pos = "1.0710001,-0.279!" ];
+
+    20 [ label = <20: <b>base/giveitemmodule</b><br/><br/><i>Ruin tip<br align="left"/></i><br align="left"/><b>Item</b><br align="left"/>    &quot;base/tip_ruin&quot;<br align="left"/>> ];
+    20 [ pos = "0.97200006,0.002!" ];
+    20 -> 22 [ label = "0→0" ];
+    20 -> 14 [ label = "0→0" ];
+
+    22 [ label = <22: <b>VisScriptCallModule</b><br/><br/><i>RuinCollected_ToggleMarkers<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;VSM_Game_Questline&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;RuinCollected_ToggleMarkers&quot;<br align="left"/>> ];
+    22 [ pos = "1.139,-0.19900002!" ];
+
+    title [ pos = "-0.21800001,0.004!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>AL_04<br align="left"/>Script<br align="left"/><b>AL_04_VSM_CollectRuin</b><br align="left"/></font>> ];
+}

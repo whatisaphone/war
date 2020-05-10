@@ -1,0 +1,68 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>SpawnMonsterEventModule</b><br/><br/><b>DelayTime</b><br align="left"/>    0.3<br align="left"/>> ];
+    1 [ pos = "0.63900006,-0.231!" ];
+    1 -> 4 [ label = "0→0" ];
+    1 -> 14 [ label = "2→1" ];
+    1 -> 15 [ label = "2→0" ];
+    3 -> 1 [ style = dashed ];
+    1 -> 18 [ style = dashed ];
+
+    2 [ label = <2: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;SM_Rm01_Enc12&quot;<br align="left"/>> ];
+    2 [ pos = "0.37500003,-0.22900002!" ];
+    2 -> 1 [ label = "0→0" ];
+    2 -> 3 [ style = dashed ];
+
+    3 [ label = <3: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    3 [ shape = parallelogram ]
+    3 [ pos = "0.42800003,-0.36400002!" ];
+
+    4 [ label = <4: <b>base/settargetmodule</b><br/><br/><b>Target</b><br align="left"/>    &quot;Smith1&quot;<br align="left"/>> ];
+    4 [ pos = "0.91300005,-0.18400002!" ];
+    18 -> 4 [ style = dashed ];
+
+    5 [ label = <5: <b>ExternalCallModule</b><br/><br/><i>StartEncounter<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;StartEncounter&quot;<br align="left"/>> ];
+    5 [ shape = oval ]
+    5 [ pos = "-0.651,-0.085!" ];
+    5 -> 12 [ label = "0→0" ];
+
+    11 [ label = <11: <b>DelayModule</b><br/><br/><i>go Encounter<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    11 [ pos = "-0.015000001,-0.017!" ];
+    11 -> 2 [ label = "0→0" ];
+
+    12 [ label = <12: <b>SaveDataModule</b><br/><br/><i>Check Spawned<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;Spawned_SM_Rm01_Enc12&quot;)]<br align="left"/>> ];
+    12 [ pos = "-0.393,-0.086!" ];
+    12 -> 11 [ label = "1→0" ];
+    12 -> 13 [ label = "1→1" ];
+    12 -> 17 [ label = "0→0" ];
+
+    13 [ label = <13: <b>SaveDataModule</b><br/><br/><i>Set Spawned<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;Spawned_SM_Rm01_Enc12&quot;)]<br align="left"/>> ];
+    13 [ pos = "-0.15400001,-0.19000001!" ];
+
+    14 [ label = <14: <b>SaveDataModule</b><br/><br/><i>Set AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_SM_Rm01_Enc12&quot;)]<br align="left"/>> ];
+    14 [ pos = "1.172,-0.26500002!" ];
+
+    15 [ label = <15: <b>VisScriptCallModule</b><br/><br/><i>Let the main script know all ene<br align="left"/>mies have been defeated so it ca<br align="left"/>n move on<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SM_Rm01_VSM_Smith_Path_01&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;doorOneEnemiesDefeated&quot;<br align="left"/>> ];
+    15 [ pos = "1.003,-0.42000002!" ];
+
+    17 [ label = <17: <b>VisScriptCallModule</b><br/><br/><i>Let the main script know all ene<br align="left"/>mies have been defeated so it ca<br align="left"/>n move on<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SM_Rm01_VSM_Smith_Path_01&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;doorOneEnemiesDefeated&quot;<br align="left"/>> ];
+    17 [ pos = "-0.21100001,-0.344!" ];
+
+    18 [ label = <18: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    18 [ shape = parallelogram ]
+    18 [ pos = "0.76100004,-0.43100002!" ];
+
+    title [ pos = "-0.652,-0.016!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SM_Rm01<br align="left"/>Combat<br align="left"/><b>SM_Rm01_Enc12_Script</b><br align="left"/></font>> ];
+}

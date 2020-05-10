@@ -1,0 +1,76 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    40 [ label = <40: <b>SaveDataModule</b><br/><br/><i>Set AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_Ch_Cat_Rm02_Enc0<br align="left"/>    1&quot;)]<br align="left"/>> ];
+    40 [ pos = "1.241,-0.22600001!" ];
+
+    41 [ label = <41: <b>SpawnMonsterEventModule</b><br/><br/>> ];
+    41 [ pos = "0.85300004,0.096!" ];
+    41 -> 40 [ label = "2→1" ];
+    41 -> 61 [ label = "0→0" ];
+    43 -> 41 [ style = dashed ];
+    41 -> 45 [ style = dashed ];
+
+    42 [ label = <42: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;ChCat02_Enc01&quot;<br align="left"/>> ];
+    42 [ pos = "0.568,0.096!" ];
+    42 -> 41 [ label = "0→0" ];
+    42 -> 43 [ style = dashed ];
+
+    43 [ label = <43: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    43 [ shape = parallelogram ]
+    43 [ pos = "0.596,-0.030000001!" ];
+
+    45 [ label = <45: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    45 [ shape = parallelogram ]
+    45 [ pos = "0.873,-0.149!" ];
+
+    47 [ label = <47: <b>ExternalCallModule</b><br/><br/><i>Rm01_Rm02_LiftDoor (from Cat_Doo<br align="left"/>rs)<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;Rm01_Rm02_LiftDoor&quot;<br align="left"/>> ];
+    47 [ shape = oval ]
+    47 [ pos = "-0.098000005,0.096!" ];
+    47 -> 60 [ label = "0→0" ];
+
+    56 [ label = <56: <b>StartModule</b><br/><br/>> ];
+    56 [ shape = oval ]
+    56 [ pos = "-0.071,0.30900002!" ];
+    56 -> 57 [ label = "0→0" ];
+
+    57 [ label = <57: <b>SaveDataModule</b><br/><br/><i>Set AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_Ch_Cat_Rm02_Enc0<br align="left"/>    1&quot;)]<br align="left"/>> ];
+    57 [ pos = "0.123,0.307!" ];
+    57 -> 60 [ label = "1→1" ];
+
+    59 [ label = <59: <b>ExternalCallModule</b><br/><br/><i>DisableEncounter<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;DisableEncounter&quot;<br align="left"/>> ];
+    59 [ shape = oval ]
+    59 [ pos = "0.97,-0.261!" ];
+    59 -> 40 [ label = "0→1" ];
+    59 -> 42 [ label = "0→2" ];
+
+    60 [ label = <60: <b>base/oneshotmodule</b><br/><br/><b>triggered</b><br align="left"/>    true<br align="left"/>> ];
+    60 [ pos = "0.245,0.096!" ];
+    60 -> 42 [ label = "0→0" ];
+
+    61 [ label = <61: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2.5<br align="left"/>> ];
+    61 [ pos = "1.1600001,0.11400001!" ];
+    61 -> 63 [ label = "0→0" ];
+
+    62 [ label = <62: <b>InvokeMethodModule</b><br/><br/><b>MethodName</b><br align="left"/>    &quot;setBehaviorUnreachable&quot;<br align="left"/>> ];
+    62 [ pos = "1.536,0.11400001!" ];
+    45 -> 62 [ style = dashed ];
+
+    63 [ label = <63: <b>base/settargetmodule</b><br/><br/><b>Target</b><br align="left"/>    &quot;War&quot;<br align="left"/>> ];
+    63 [ pos = "1.3130001,0.11400001!" ];
+    63 -> 62 [ label = "0→0" ];
+    45 -> 63 [ style = dashed ];
+
+    title [ pos = "-0.09900001,0.31!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>Ch_Cat_Rm02<br align="left"/>Combat<br align="left"/><b>Ch_Cat_Rm02_Enc01_Script</b><br align="left"/></font>> ];
+}

@@ -1,0 +1,385 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    16 [ label = <16: <b>WorldLoadModule</b><br/><br/><b>WorldFile</b><br align="left"/>    &quot;Overworld&quot;<br align="left"/><b>Region</b><br align="left"/>    &quot;CI_StartBld&quot;<br align="left"/>> ];
+    16 [ pos = "3.8240001,-0.009000001!" ];
+
+    18 [ label = <18: <b>base/commitsavedatamodule</b><br/><br/>> ];
+    18 [ pos = "2.0210001,0.537!" ];
+
+    21 [ label = <21: <b>InvokeMethodModule</b><br/><br/><i>War = setCanAttackTrue<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;War&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;setCanAttackTrue&quot;<br align="left"/>> ];
+    21 [ pos = "2.1850002,0.029000001!" ];
+    21 -> 119 [ label = "0→0" ];
+
+    22 [ label = <22: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;charredcouncil_swordaltar&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onTrigger&quot;, &quot;onInteractiveComp<br align="left"/>    lete&quot;]<br align="left"/>> ];
+    22 [ pos = "1.44,-0.017!" ];
+    22 -> 45 [ label = "0→0" ];
+    22 -> 95 [ label = "0→0" ];
+    22 -> 212 [ label = "0→0" ];
+
+    45 [ label = <45: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    45 [ pos = "1.7910001,-0.017!" ];
+    45 -> 114 [ label = "0→2" ];
+
+    55 [ label = <55: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    10<br align="left"/>> ];
+    55 [ pos = "3.1160002,0.029000001!" ];
+    55 -> 59 [ label = "0→1" ];
+
+    57 [ label = <57: <b>PlayVideoModule</b><br/><br/><i>Scene_06<br align="left"/></i><br align="left"/><b>VideoName</b><br align="left"/>    &quot;Scene_06&quot;<br align="left"/>> ];
+    57 [ pos = "1.8310001,0.537!" ];
+    57 -> 18 [ label = "0→0" ];
+
+    59 [ label = <59: <b>SaveDataModule</b><br/><br/><i>Scene_Complete<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;CCouncil&quot;, <br align="left"/>    FlagName=&quot;Scene_Complete&quot;)]<br align="left"/>> ];
+    59 [ pos = "3.295,0.052!" ];
+    59 -> 126 [ label = "3→0" ];
+
+    76 [ label = <76: <b>StartModule</b><br/><br/>> ];
+    76 [ shape = oval ]
+    76 [ pos = "-2.322,-1.1400001!" ];
+    76 -> 78 [ label = "0→0" ];
+
+    77 [ label = <77: <b>BranchModule</b><br/><br/><b>Branches</b><br align="left"/>    [1, 2, 3, 4, 5]<br align="left"/>> ];
+    77 [ pos = "-1.8090001,-1.1400001!" ];
+    77 -> 80 [ label = "1→2" ];
+    77 -> 81 [ label = "2→2" ];
+    77 -> 82 [ label = "3→2" ];
+    77 -> 83 [ label = "4→2" ];
+    77 -> 84 [ label = "5→2" ];
+    79 -> 77 [ style = dashed ];
+
+    78 [ label = <78: <b>RandModule</b><br/><br/><b>Min</b><br align="left"/>    1<br align="left"/><b>Max</b><br align="left"/>    5<br align="left"/><b>NoRepeat</b><br align="left"/>    true<br align="left"/>> ];
+    78 [ pos = "-2.124,-1.1400001!" ];
+    78 -> 77 [ label = "0→0" ];
+    78 -> 85 [ label = "0→0" ];
+    78 -> 79 [ style = dashed ];
+
+    79 [ label = <79: <b>VisScriptVariableInt</b><br/><br/>> ];
+    79 [ shape = parallelogram ]
+    79 [ pos = "-1.922,-1.2370001!" ];
+
+    80 [ label = <80: <b>PlayEffectModule</b><br/><br/><b>TargetObjs</b><br align="left"/>    [&quot;Council_LavaFX_Small_01&quot;]<br align="left"/><b>Package</b><br align="left"/>    &quot;lava&quot;<br align="left"/><b>Effect</b><br align="left"/>    &quot;Lava_Spurt_Small&quot;<br align="left"/><b>Duration</b><br align="left"/>    6<br align="left"/>> ];
+    80 [ pos = "-1.5250001,-0.88000005!" ];
+
+    81 [ label = <81: <b>PlayEffectModule</b><br/><br/><b>TargetObjs</b><br align="left"/>    [&quot;Council_LavaFX_Small_02&quot;]<br align="left"/><b>Package</b><br align="left"/>    &quot;lava&quot;<br align="left"/><b>Effect</b><br align="left"/>    &quot;Lava_Spurt_Small&quot;<br align="left"/><b>Duration</b><br align="left"/>    6<br align="left"/>> ];
+    81 [ pos = "-1.5250001,-1.0450001!" ];
+
+    82 [ label = <82: <b>PlayEffectModule</b><br/><br/><b>TargetObjs</b><br align="left"/>    [&quot;Council_LavaFX_Small_03&quot;]<br align="left"/><b>Package</b><br align="left"/>    &quot;lava&quot;<br align="left"/><b>Effect</b><br align="left"/>    &quot;Lava_Spurt_Small&quot;<br align="left"/><b>Duration</b><br align="left"/>    6<br align="left"/>> ];
+    82 [ pos = "-1.526,-1.2090001!" ];
+
+    83 [ label = <83: <b>PlayEffectModule</b><br/><br/><b>TargetObjs</b><br align="left"/>    [&quot;Council_LavaFX_Small_04&quot;]<br align="left"/><b>Package</b><br align="left"/>    &quot;lava&quot;<br align="left"/><b>Effect</b><br align="left"/>    &quot;Lava_Spurt_Small&quot;<br align="left"/><b>Duration</b><br align="left"/>    6<br align="left"/>> ];
+    83 [ pos = "-1.526,-1.376!" ];
+
+    84 [ label = <84: <b>PlayEffectModule</b><br/><br/><b>TargetObjs</b><br align="left"/>    [&quot;Council_LavaFX_Small_05&quot;]<br align="left"/><b>Package</b><br align="left"/>    &quot;lava&quot;<br align="left"/><b>Effect</b><br align="left"/>    &quot;Lava_Spurt_Small&quot;<br align="left"/><b>Duration</b><br align="left"/>    6<br align="left"/>> ];
+    84 [ pos = "-1.526,-1.544!" ];
+
+    85 [ label = <85: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.5<br align="left"/><b>Variance</b><br align="left"/>    0.5<br align="left"/>> ];
+    85 [ pos = "-2.095,-1.3210001!" ];
+    85 -> 78 [ label = "0→0" ];
+
+    92 [ label = <92: <b>base/dodialogmodule</b><br/><br/><i>Council_Dialog_03<br align="left"/></i><br align="left"/><b>Dialog</b><br align="left"/>    &quot;Council/Council_Dialog_03&quot;<br align="left"/>> ];
+    92 [ pos = "2.618,-0.277!" ];
+
+    93 [ label = <93: <b>SoundModule</b><br/><br/><b>SoundDescFile</b><br align="left"/>    &quot;council/Council_Dialog_02_Sound<br align="left"/>    s&quot;<br align="left"/><b>SoundID</b><br align="left"/>    109<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;War&quot;<br align="left"/>> ];
+    93 [ pos = "2.618,-0.372!" ];
+
+    94 [ label = <94: <b>StartModule</b><br/><br/>> ];
+    94 [ shape = oval ]
+    94 [ pos = "1.2390001,-0.017!" ];
+    94 -> 22 [ label = "0→0" ];
+
+    95 [ label = <95: <b>TriggerEventModule</b><br/><br/><i>show cine of the soul chest.<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;Council_TrgReg_ShowChestCine&quot;,<br align="left"/>     &quot;&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    95 [ shape = oval ]
+    95 [ pos = "1.8100001,-0.277!" ];
+    95 -> 96 [ label = "0→0" ];
+
+    96 [ label = <96: <b>base/oneshotmodule</b><br/><br/>> ];
+    96 [ pos = "2.0570002,-0.277!" ];
+    96 -> 98 [ label = "0→0" ];
+
+    97 [ label = <97: <b>StartModule</b><br/><br/>> ];
+    97 [ shape = oval ]
+    97 [ pos = "1.447,-0.34100002!" ];
+    97 -> 95 [ label = "0→1" ];
+
+    98 [ label = <98: <b>CinematicModule</b><br/><br/><b>CinematicName</b><br align="left"/>    &quot;Council_Cine_ShowChest&quot;<br align="left"/>> ];
+    98 [ pos = "2.2280002,-0.277!" ];
+    98 -> 99 [ label = "0→0" ];
+
+    99 [ label = <99: <b>DelayModule</b><br/><br/>> ];
+    99 [ pos = "2.4410002,-0.277!" ];
+    99 -> 92 [ label = "0→0" ];
+    99 -> 93 [ label = "0→0" ];
+
+    114 [ label = <114: <b>ObjectToggleModule</b><br/><br/><i>remove sword interactive region<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;BR_Council_GetSwordInteract&quot;]<br align="left"/>> ];
+    114 [ pos = "1.9640001,0.029000001!" ];
+    114 -> 21 [ label = "0→0" ];
+
+    119 [ label = <119: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;charredcouncil_soulspawner_tri<br align="left"/>    gger&quot;, &quot;&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>Enable</b><br align="left"/>    false<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    119 [ shape = oval ]
+    119 [ pos = "2.3930001,0.029000001!" ];
+    119 -> 135 [ label = "0→0" ];
+
+    120 [ label = <120: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;charredcouncil_soulspawner&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;trigger&quot;<br align="left"/>> ];
+    120 [ pos = "2.9020002,0.029000001!" ];
+    120 -> 55 [ label = "0→0" ];
+
+    126 [ label = <126: <b>VisScriptCallModule</b><br/><br/><i>StartBuildingGO<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SB_G_VisMod_IntroCinematic&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;StartBuildingGO&quot;<br align="left"/>> ];
+    126 [ pos = "3.528,0.006!" ];
+
+    133 [ label = <133: <b>FadeSceneModule</b><br/><br/><b>FadeTime</b><br align="left"/>    2<br align="left"/>> ];
+    133 [ pos = "2.9,0.178!" ];
+
+    135 [ label = <135: <b>FadeSceneModule</b><br/><br/><b>FadeTime</b><br align="left"/>    0.15<br align="left"/>> ];
+    135 [ pos = "2.64,0.029000001!" ];
+    135 -> 133 [ label = "0→1" ];
+    135 -> 120 [ label = "0→0" ];
+
+    165 [ label = <165: <b>LoaderModule</b><br/><br/><i>Unload Mayhem/Load Startbuilding<br align="left"/></i><br align="left"/><b>Load</b><br align="left"/>    [[280, -1], [2, -1]]<br align="left"/><b>Unload</b><br align="left"/>    [[351, -1], [361, -1], [362, -1]<br align="left"/>    , [363, -1], [350, -1], [355, -1<br align="left"/>    ], [356, -1], [357, -1], [358, -<br align="left"/>    1], [359, -1], [360, -1], [352, <br align="left"/>    -1]]<br align="left"/>> ];
+    165 [ pos = "-1.8900001,-0.020000001!" ];
+
+    166 [ label = <166: <b>DelayModule</b><br/><br/>> ];
+    166 [ pos = "-2.0470002,-0.020000001!" ];
+    166 -> 165 [ label = "0→0" ];
+
+    167 [ label = <167: <b>LoaderModule</b><br/><br/><i>Load Vista Objs<br align="left"/></i><br align="left"/><b>Load</b><br align="left"/>    [[258, 11], [285, -1], [259, -1]<br align="left"/>    ]<br align="left"/><b>Unload</b><br align="left"/>    [[351, -1], [352, -1]]<br align="left"/>> ];
+    167 [ pos = "-2.0470002,0.08800001!" ];
+
+    168 [ label = <168: <b>base/givewarhealth</b><br/><br/>> ];
+    168 [ pos = "-2.045,0.19600001!" ];
+
+    169 [ label = <169: <b>base/setcharactermovestate</b><br/><br/><b>MoveState</b><br align="left"/>    &quot;Idle&quot;<br align="left"/>> ];
+    169 [ pos = "-2.4280002,-0.22600001!" ];
+    169 -> 166 [ label = "0→0" ];
+    169 -> 167 [ label = "0→0" ];
+    169 -> 168 [ label = "0→0" ];
+    169 -> 228 [ label = "0→0" ];
+
+    170 [ label = <170: <b>SaveDataModule</b><br/><br/><i>MayhemCinematicsPlayedOnce<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;CCouncil&quot;, <br align="left"/>    FlagName=&quot;MayhemCinematicsPlayed<br align="left"/>    Once&quot;)]<br align="left"/>> ];
+    170 [ pos = "-2.676,-0.22600001!" ];
+    170 -> 169 [ label = "0→0" ];
+    170 -> 169 [ label = "3→0" ];
+    170 -> 232 [ label = "0→0" ];
+    170 -> 232 [ label = "3→0" ];
+
+    171 [ label = <171: <b>InvokeMethodModule</b><br/><br/><i>Deactivate Chest<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;Chest_SoulChest&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;deactivate&quot;<br align="left"/>> ];
+    171 [ pos = "-1.8650001,0.45700002!" ];
+
+    172 [ label = <172: <b>base/storesavedatamodule</b><br/><br/>> ];
+    172 [ pos = "-0.40500003,-0.22600001!" ];
+    172 -> 173 [ label = "0→0" ];
+    172 -> 174 [ label = "0→0" ];
+
+    173 [ label = <173: <b>base/removeitemmodule</b><br/><br/><i>WarSword<br align="left"/></i><br align="left"/><b>Item</b><br align="left"/>    &quot;sword/warsword&quot;<br align="left"/>> ];
+    173 [ pos = "-0.16900001,-0.22600001!" ];
+    173 -> 177 [ label = "0→0" ];
+
+    174 [ label = <174: <b>InvokeMethodModule</b><br/><br/><i>War = setCanAttackFalse<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;War&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;setCanAttackFalse&quot;<br align="left"/>> ];
+    174 [ pos = "-0.16900001,-0.074!" ];
+
+    175 [ label = <175: <b>base/setspawnpointmodule</b><br/><br/><b>World</b><br align="left"/>    &quot;Overworld&quot;<br align="left"/><b>Region</b><br align="left"/>    &quot;Council&quot;<br align="left"/><b>SpawnPoint</b><br align="left"/>    &quot;Start&quot;<br align="left"/>> ];
+    175 [ pos = "-1.0710001,-0.22600001!" ];
+    175 -> 224 [ label = "0→0" ];
+
+    176 [ label = <176: <b>base/autosavemodule</b><br/><br/>> ];
+    176 [ pos = "-0.59800005,-0.22600001!" ];
+    176 -> 172 [ label = "0→0" ];
+
+    177 [ label = <177: <b>base/spawnlurcherflagsmodule</b><br/><br/>> ];
+    177 [ pos = "0.026,-0.22600001!" ];
+    177 -> 185 [ label = "0→0" ];
+    177 -> 180 [ label = "0→0" ];
+
+    178 [ label = <178: <b>StartModule</b><br/><br/>> ];
+    178 [ shape = oval ]
+    178 [ pos = "-2.9980001,-0.13900001!" ];
+    178 -> 170 [ label = "0→0" ];
+
+    179 [ label = <179: <b>PropertySetModule</b><br/><br/><i>Enable Sword<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;charredcouncil_swordaltar&quot;]<br align="left"/><b>PropertyName</b><br align="left"/>    &quot;Active&quot;<br align="left"/><b>StringValue</b><br align="left"/>    &quot;true&quot;<br align="left"/>> ];
+    179 [ pos = "0.572,-0.055000003!" ];
+
+    180 [ label = <180: <b>base/setdefaultwatcherdialogmodule</b><br/><br/><b>Dialog</b><br align="left"/>    &quot;vo_watcher_summon_01&quot;<br align="left"/>> ];
+    180 [ pos = "0.28800002,0.055000003!" ];
+
+    181 [ label = <181: <b>SoundModule</b><br/><br/><b>SoundDescFile</b><br align="left"/>    &quot;council/Council_Dialog_01_Sound<br align="left"/>    s&quot;<br align="left"/><b>SoundID</b><br align="left"/>    111<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;War&quot;<br align="left"/>> ];
+    181 [ pos = "1.01,-0.079!" ];
+
+    182 [ label = <182: <b>DelayModule</b><br/><br/>> ];
+    182 [ pos = "0.79300004,-0.22600001!" ];
+    182 -> 181 [ label = "0→0" ];
+    182 -> 183 [ label = "0→0" ];
+
+    183 [ label = <183: <b>base/dodialogmodule</b><br/><br/><i>Council_Dialog_02<br align="left"/></i><br align="left"/><b>Dialog</b><br align="left"/>    &quot;Council/Council_Dialog_02&quot;<br align="left"/>> ];
+    183 [ pos = "1.01,-0.22600001!" ];
+
+    184 [ label = <184: <b>InvokeMethodModule</b><br/><br/><i>raises sword up out of lava<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;charredcouncil_swordaltar&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;activateSwordAltar&quot;<br align="left"/>> ];
+    184 [ pos = "0.574,-0.22600001!" ];
+    184 -> 182 [ label = "0→0" ];
+
+    185 [ label = <185: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    20<br align="left"/>> ];
+    185 [ pos = "0.29200003,-0.22600001!" ];
+    185 -> 184 [ label = "0→0" ];
+    185 -> 179 [ label = "0→0" ];
+    185 -> 194 [ label = "0→0" ];
+    185 -> 217 [ label = "0→1" ];
+
+    186 [ label = <186: <b>base/giveitemmodule</b><br/><br/><b>Item</b><br align="left"/>    &quot;base/tip_watcher&quot;<br align="left"/><b>HidePopup</b><br align="left"/>    false<br align="left"/>> ];
+    186 [ pos = "0.32000002,-0.50100005!" ];
+    186 -> 195 [ label = "0→0" ];
+    186 -> 191 [ style = dashed ];
+
+    187 [ label = <187: <b>InteractiveRegionModule</b><br/><br/><b>InteractiveRegionList</b><br align="left"/>    [&quot;BR_Council_GetSwordInteract&quot;]<br align="left"/>> ];
+    187 [ pos = "0.78000003,0.095000006!" ];
+    187 -> 188 [ label = "0→0" ];
+
+    188 [ label = <188: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;charredcouncil_swordaltar&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;doSwordInteractive&quot;<br align="left"/>> ];
+    188 [ pos = "1.0450001,0.095000006!" ];
+
+    189 [ label = <189: <b>ExternalCallModule</b><br/><br/><i>StartCouncil --&amp;gt;  from straga sc<br align="left"/>ript<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;StartCouncil&quot;<br align="left"/>> ];
+    189 [ shape = oval ]
+    189 [ pos = "-2.999,-0.24900001!" ];
+    189 -> 170 [ label = "0→1" ];
+
+    190 [ label = <190: <b>base/infohintstopmodule</b><br/><br/>> ];
+    190 [ pos = "0.71800005,-0.50100005!" ];
+    191 -> 190 [ style = dashed ];
+
+    191 [ label = <191: <b>VisScriptVariableUInt32</b><br/><br/>> ];
+    191 [ shape = parallelogram ]
+    191 [ pos = "0.512,-0.694!" ];
+
+    192 [ label = <192: <b>InvokeMethodModule</b><br/><br/><i>Activate Sword Interactive<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;BR_Council_GetSwordInteract&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;enable&quot;<br align="left"/>> ];
+    192 [ pos = "-0.029000001,0.28100002!" ];
+
+    193 [ label = <193: <b>StartModule</b><br/><br/>> ];
+    193 [ shape = oval ]
+    193 [ pos = "-0.201,0.273!" ];
+
+    194 [ label = <194: <b>InvokeMethodModule</b><br/><br/><i>Activate Sword Interactive<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;BR_Council_GetSwordInteract&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;enable&quot;<br align="left"/>> ];
+    194 [ pos = "0.574,0.095000006!" ];
+    194 -> 187 [ label = "0→0" ];
+
+    195 [ label = <195: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2.9<br align="left"/>> ];
+    195 [ pos = "0.517,-0.50100005!" ];
+    195 -> 190 [ label = "0→0" ];
+
+    196 [ label = <196: <b>PlayVideoModule</b><br/><br/><i>scene 3/4/5<br align="left"/></i><br align="left"/><b>VideoName</b><br align="left"/>    &quot;Scene_03.oo&quot;<br align="left"/><b>CamPositionObject</b><br align="left"/>    &quot;CC_WPT_SceneExit_WarPos_Cam&quot;<br align="left"/><b>CamLookatObject</b><br align="left"/>    &quot;CC_WPT_SceneExit_WarPos_Look&quot;<br align="left"/><b>PlayerPositionObject</b><br align="left"/>    &quot;CC_WPT_SceneExit_WarPos&quot;<br align="left"/><b>FadeTime</b><br align="left"/>    2<br align="left"/>> ];
+    196 [ pos = "-2.9480002,0.037!" ];
+    196 -> 197 [ label = "0→0" ];
+
+    197 [ label = <197: <b>VisScriptCallModule</b><br/><br/><i>StartCouncil<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;Charred_Council_VSM_MainScript&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;StartCouncil&quot;<br align="left"/>> ];
+    197 [ pos = "-2.752,0.037!" ];
+
+    199 [ label = <199: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    5<br align="left"/>> ];
+    199 [ pos = "-3.157,0.037!" ];
+    199 -> 196 [ label = "0→0" ];
+
+    200 [ label = <200: <b>InvokeMethodModule</b><br/><br/><i>Deactivate sword altar<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;charredcouncil_swordaltar&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;deactivate&quot;<br align="left"/>> ];
+    200 [ pos = "1.3750001,0.29200003!" ];
+
+    201 [ label = <201: <b>base/revealmapmodule</b><br/><br/><b>Dungeon</b><br align="left"/>    2<br align="left"/><b>TileType</b><br align="left"/>    1<br align="left"/>> ];
+    201 [ pos = "-1.274,-0.22600001!" ];
+    201 -> 175 [ label = "0→0" ];
+
+    202 [ label = <202: <b>base/setactivemapmodule</b><br/><br/><b>Dungeon</b><br align="left"/>    2<br align="left"/>> ];
+    202 [ pos = "-1.4770001,-0.22600001!" ];
+    202 -> 201 [ label = "0→0" ];
+
+    211 [ label = <211: <b>base/givepowermodule</b><br/><br/><i>Gives Blade Geyser and Wrath<br align="left"/></i><br align="left"/><b>WrathPower</b><br align="left"/>    &quot;wrath_bladegeyser/wrath_bladege<br align="left"/>    yser&quot;<br align="left"/><b>autoEquip</b><br align="left"/>    true<br align="left"/>> ];
+    211 [ pos = "1.973,0.177!" ];
+    211 -> 218 [ label = "0→0" ];
+    211 -> 220 [ label = "1→0" ];
+
+    212 [ label = <212: <b>DelayModule</b><br/><br/>> ];
+    212 [ pos = "1.792,0.177!" ];
+    212 -> 211 [ label = "0→0" ];
+
+    213 [ label = <213: <b>base/giveitemmodule</b><br/><br/><i>Wrath Tip<br align="left"/></i><br align="left"/><b>Item</b><br align="left"/>    &quot;base/tip_wrath&quot;<br align="left"/>> ];
+    213 [ pos = "1.6400001,0.54!" ];
+
+    216 [ label = <216: <b>base/autosavemodule</b><br/><br/>> ];
+    216 [ pos = "2.6320002,0.22100002!" ];
+
+    217 [ label = <217: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;Council_TrgReg_ShowSwordCine&quot;,<br align="left"/>     &quot;&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    217 [ shape = oval ]
+    217 [ pos = "0.29000002,-0.011000001!" ];
+    217 -> 185 [ label = "0→2" ];
+    217 -> 184 [ label = "0→0" ];
+    217 -> 194 [ label = "0→0" ];
+    217 -> 179 [ label = "0→0" ];
+
+    218 [ label = <218: <b>DelayModule</b><br/><br/>> ];
+    218 [ pos = "2.285,0.22100002!" ];
+    218 -> 221 [ label = "0→0" ];
+
+    220 [ label = <220: <b>VisScriptCallModule</b><br/><br/><i>Mapping Wrath Tutorial<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;Global_Tutorial_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;MappingWrathTutorial&quot;<br align="left"/>> ];
+    220 [ pos = "2.361,0.31!" ];
+
+    221 [ label = <221: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.1<br align="left"/>> ];
+    221 [ pos = "2.47,0.22100002!" ];
+    221 -> 216 [ label = "0→0" ];
+
+    222 [ label = <222: <b>base/giveitemmodule</b><br/><br/><i>items/item_wrathstone<br align="left"/></i><br align="left"/><b>Item</b><br align="left"/>    &quot;items/item_wrathstone&quot;<br align="left"/>> ];
+    222 [ pos = "1.9770001,0.337!" ];
+    222 -> 223 [ label = "0→0" ];
+
+    223 [ label = <223: <b>base/giveitemmodule</b><br/><br/><i>items/item_wrathstone<br align="left"/></i><br align="left"/><b>Item</b><br align="left"/>    &quot;items/item_wrathstone&quot;<br align="left"/>> ];
+    223 [ pos = "2.1560001,0.337!" ];
+
+    224 [ label = <224: <b>base/commitsavedatamodule</b><br/><br/>> ];
+    224 [ pos = "-0.84900004,-0.22600001!" ];
+    224 -> 176 [ label = "0→0" ];
+
+    228 [ label = <228: <b>base/removeitemmodule</b><br/><br/><i>items/item_chaosregen<br align="left"/></i><br align="left"/><b>Item</b><br align="left"/>    &quot;items/item_chaosregen&quot;<br align="left"/>> ];
+    228 [ pos = "-2.1390002,-0.22600001!" ];
+    228 -> 229 [ label = "0→0" ];
+
+    229 [ label = <229: <b>base/removeitemmodule</b><br/><br/><i>item_havocform/item_havocform_ma<br align="left"/>yhem<br align="left"/></i><br align="left"/><b>Item</b><br align="left"/>    &quot;item_havocform/item_havocform_m<br align="left"/>    ayhem&quot;<br align="left"/>> ];
+    229 [ pos = "-1.937,-0.22600001!" ];
+    229 -> 230 [ label = "0→0" ];
+
+    230 [ label = <230: <b>base/removeitemmodule</b><br/><br/><i>items/item_mayhemhavocformdurati<br align="left"/>on<br align="left"/></i><br align="left"/><b>Item</b><br align="left"/>    &quot;items/item_mayhemhavocformdurat<br align="left"/>    ion&quot;<br align="left"/>> ];
+    230 [ pos = "-1.659,-0.22600001!" ];
+    230 -> 202 [ label = "0→0" ];
+
+    231 [ label = <231: <b>base/giveitemmodule</b><br/><br/><b>Item</b><br align="left"/>    &quot;base/tip_walkToggle&quot;<br align="left"/>> ];
+    231 [ pos = "-2.0400002,-0.42600003!" ];
+    231 -> 235 [ label = "0→0" ];
+    231 -> 233 [ style = dashed ];
+
+    232 [ label = <232: <b>DelayModule</b><br/><br/>> ];
+    232 [ pos = "-2.4280002,-0.404!" ];
+    232 -> 234 [ label = "0→0" ];
+
+    233 [ label = <233: <b>VisScriptVariableUInt32</b><br/><br/>> ];
+    233 [ shape = parallelogram ]
+    233 [ pos = "-1.868,-0.50100005!" ];
+
+    234 [ label = <234: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Global&quot;, Fl<br align="left"/>    agName=&quot;tip_walktoggle&quot;)]<br align="left"/>> ];
+    234 [ pos = "-2.2570002,-0.404!" ];
+    234 -> 231 [ label = "1→0" ];
+
+    235 [ label = <235: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    3<br align="left"/>> ];
+    235 [ pos = "-1.7210001,-0.42700002!" ];
+    235 -> 236 [ label = "0→0" ];
+
+    236 [ label = <236: <b>base/infohintstopmodule</b><br/><br/>> ];
+    236 [ pos = "-1.5370001,-0.42700002!" ];
+    236 -> 237 [ label = "0→1" ];
+    233 -> 236 [ style = dashed ];
+
+    237 [ label = <237: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Global&quot;, Fl<br align="left"/>    agName=&quot;tip_walktoggle&quot;)]<br align="left"/>> ];
+    237 [ pos = "-1.3610001,-0.404!" ];
+
+    title [ pos = "-3.1580002,0.541!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>Council<br align="left"/>scripts<br align="left"/><b>Charred_Council_VSM_MainScript</b><br align="left"/></font>> ];
+}

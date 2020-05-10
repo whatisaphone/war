@@ -1,0 +1,46 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>SoundModule</b><br/><br/><b>SoundDescFile</b><br align="left"/>    &quot;base/Music&quot;<br align="left"/><b>SoundID</b><br align="left"/>    96<br align="left"/><b>Music</b><br align="left"/>    true<br align="left"/><b>Transition</b><br align="left"/>    true<br align="left"/>> ];
+    1 [ pos = "0.55600005,-0.069000006!" ];
+    1 -> 4 [ label = "0→0" ];
+
+    2 [ label = <2: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    5<br align="left"/><b>Variance</b><br align="left"/>    8<br align="left"/>> ];
+    2 [ pos = "0.33,-0.038000003!" ];
+    2 -> 1 [ label = "0→0" ];
+
+    3 [ label = <3: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;TriggerMusic_BackgroundChurchC<br align="left"/>    atTns1&quot;, &quot;&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    3 [ shape = oval ]
+    3 [ pos = "0.048,-0.055000003!" ];
+    3 -> 2 [ label = "0→0" ];
+
+    4 [ label = <4: <b>DelayModule</b><br/><br/><i>wait 2 min then reactivate<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    120<br align="left"/>> ];
+    4 [ pos = "0.34100002,-0.24700001!" ];
+    4 -> 3 [ label = "0→2" ];
+
+    5 [ label = <5: <b>SoundModule</b><br/><br/><i>Event<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;base/Music&quot;<br align="left"/><b>SoundID</b><br align="left"/>    64<br align="left"/><b>Music</b><br align="left"/>    true<br align="left"/><b>Transition</b><br align="left"/>    true<br align="left"/>> ];
+    5 [ pos = "-0.058000002,-0.27100003!" ];
+    5 -> 7 [ label = "0→0" ];
+
+    6 [ label = <6: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;TriggerMusic_BackgroundChurchC<br align="left"/>    atTns1_2&quot;, &quot;&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    6 [ shape = oval ]
+    6 [ pos = "-0.324,-0.22500001!" ];
+    6 -> 5 [ label = "0→0" ];
+
+    7 [ label = <7: <b>DelayModule</b><br/><br/><i>wait 2 min then reactivate<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    120<br align="left"/>> ];
+    7 [ pos = "-0.14500001,-0.45000002!" ];
+    7 -> 6 [ label = "0→2" ];
+
+    title [ pos = "-0.32500002,-0.037!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>ch_cat_tns1<br align="left"/>Music<br align="left"/><b>Music_BackgroundChurchCatTns1</b><br align="left"/></font>> ];
+}

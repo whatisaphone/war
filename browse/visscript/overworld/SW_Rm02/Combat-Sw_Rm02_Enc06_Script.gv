@@ -1,0 +1,63 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    3 [ label = <3: <b>SaveDataModule</b><br/><br/><i>Check AllDead (NEED TO CHECK PRO<br align="left"/>GRESSION HERE)<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;AllDead_Sw_Rm02_Enc06&quot;)]<br align="left"/>> ];
+    3 [ pos = "0.119,-0.008!" ];
+    3 -> 26 [ label = "1→0" ];
+
+    7 [ label = <7: <b>SpawnMonsterEventModule</b><br/><br/><i>spawn 1 only<br align="left"/></i><br align="left"/>> ];
+    7 [ pos = "1.057,-0.014!" ];
+    7 -> 23 [ label = "2→1" ];
+    9 -> 7 [ style = dashed ];
+
+    8 [ label = <8: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;Sw_Rm02_Enc06&quot;<br align="left"/>> ];
+    8 [ pos = "0.79600006,-0.017!" ];
+    8 -> 7 [ label = "0→0" ];
+    8 -> 9 [ style = dashed ];
+
+    9 [ label = <9: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    9 [ shape = parallelogram ]
+    9 [ pos = "0.82000005,-0.15400001!" ];
+
+    22 [ label = <22: <b>ExternalCallModule</b><br/><br/><i>first time crystal growth has be<br align="left"/>en destroyed <br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;StartEncounter&quot;<br align="left"/>> ];
+    22 [ shape = oval ]
+    22 [ pos = "-0.546,-0.006!" ];
+    22 -> 27 [ label = "0→1" ];
+    22 -> 3 [ label = "0→0" ];
+
+    23 [ label = <23: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;AllDead_Sw_Rm02_Enc06&quot;)]<br align="left"/>> ];
+    23 [ pos = "1.378,-0.023000002!" ];
+
+    24 [ label = <24: <b>StartModule</b><br/><br/>> ];
+    24 [ shape = oval ]
+    24 [ pos = "-0.44700003,0.20400001!" ];
+    24 -> 28 [ label = "0→0" ];
+
+    25 [ label = <25: <b>base/gatemodule</b><br/><br/>> ];
+    25 [ pos = "0.63500005,-0.017!" ];
+    25 -> 8 [ label = "0→0" ];
+
+    26 [ label = <26: <b>SaveDataModule</b><br/><br/><i>Check for Water<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;SW_Rm02_NoWater&quot;)]<br align="left"/>> ];
+    26 [ pos = "0.367,-0.036000002!" ];
+    26 -> 25 [ label = "0→0" ];
+
+    27 [ label = <27: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;Rm02_Enc06_WallBroken&quot;)]<br align="left"/>> ];
+    27 [ pos = "-0.282,-0.057000004!" ];
+
+    28 [ label = <28: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;Rm02_Enc06_WallBroken&quot;)]<br align="left"/>> ];
+    28 [ pos = "-0.24000001,0.20400001!" ];
+    28 -> 3 [ label = "0→0" ];
+
+    title [ pos = "-0.54700005,0.20500001!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SW_Rm02<br align="left"/>Combat<br align="left"/><b>Sw_Rm02_Enc06_Script</b><br align="left"/><br/><i>Protectors of 1st traversal</i><br align="left"/></font>> ];
+}

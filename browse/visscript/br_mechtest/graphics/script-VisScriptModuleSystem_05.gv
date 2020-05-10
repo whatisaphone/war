@@ -1,0 +1,77 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>StartModule</b><br/><br/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "0.067,-0.201!" ];
+
+    2 [ label = <2: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;ch_cat_gearcrank&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onTrigger&quot;]<br align="left"/>> ];
+    2 [ pos = "0.822,-0.30200002!" ];
+    2 -> 8 [ label = "0→0" ];
+    2 -> 11 [ label = "0→0" ];
+
+    4 [ label = <4: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;ch_cat_gearcrank_fail&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onTrigger&quot;]<br align="left"/>> ];
+    4 [ pos = "0.82500005,-0.54300004!" ];
+    4 -> 9 [ label = "0→0" ];
+    4 -> 11 [ label = "0→0" ];
+
+    5 [ label = <5: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;TriggerRegion_06&quot;, &quot;&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    5 [ shape = oval ]
+    5 [ pos = "0.128,-0.45700002!" ];
+    5 -> 6 [ label = "0→1" ];
+    5 -> 6 [ label = "1→2" ];
+    5 -> 7 [ label = "0→2" ];
+    5 -> 7 [ label = "1→1" ];
+    5 -> 12 [ label = "0→0" ];
+    5 -> 13 [ label = "0→0" ];
+    5 -> 15 [ label = "1→0" ];
+    5 -> 14 [ label = "1→0" ];
+
+    6 [ label = <6: <b>ObjectToggleModule</b><br/><br/><b>ObjectList</b><br align="left"/>    [&quot;ch_cat_gearcrank&quot;]<br align="left"/>> ];
+    6 [ pos = "0.497,-0.3!" ];
+    6 -> 2 [ label = "0→0" ];
+    6 -> 4 [ label = "0→0" ];
+
+    7 [ label = <7: <b>ObjectToggleModule</b><br/><br/><b>ObjectList</b><br align="left"/>    [&quot;ch_cat_gearcrank_fail&quot;]<br align="left"/>> ];
+    7 [ pos = "0.49500003,-0.54200006!" ];
+    7 -> 4 [ label = "0→0" ];
+    7 -> 2 [ label = "0→0" ];
+
+    8 [ label = <8: <b>TextModule</b><br/><br/><b>Text</b><br align="left"/>    &quot;Active&quot;<br align="left"/>> ];
+    8 [ pos = "1.049,-0.15900001!" ];
+
+    9 [ label = <9: <b>TextModule</b><br/><br/><b>Text</b><br align="left"/>    &quot;fail&quot;<br align="left"/>> ];
+    9 [ pos = "1.065,-0.65800005!" ];
+
+    10 [ label = <10: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;ch_cat_gearcrank&quot;, &quot;ch_cat_gea<br align="left"/>    rcrank_fail&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;reset&quot;<br align="left"/>> ];
+    10 [ pos = "1.309,-0.4!" ];
+
+    11 [ label = <11: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    11 [ pos = "1.138,-0.4!" ];
+    11 -> 10 [ label = "0→0" ];
+
+    12 [ label = <12: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;ch_cat_gearcrank&quot;<br align="left"/><b>MoveVal</b><br align="left"/>    0.01<br align="left"/><b>MovementVector</b><br align="left"/>    [0, 0, 200]<br align="left"/>> ];
+    12 [ pos = "0.49800003,-0.132!" ];
+
+    13 [ label = <13: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;ch_cat_gearcrank_fail&quot;<br align="left"/><b>MoveVal</b><br align="left"/>    0.01<br align="left"/><b>MovementVector</b><br align="left"/>    [0, 0, -200]<br align="left"/>> ];
+    13 [ pos = "0.497,0.034!" ];
+
+    14 [ label = <14: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;ch_cat_gearcrank&quot;<br align="left"/><b>MoveVal</b><br align="left"/>    0.01<br align="left"/><b>MovementVector</b><br align="left"/>    [0, 0, -200]<br align="left"/>> ];
+    14 [ pos = "0.49600002,-0.915!" ];
+
+    15 [ label = <15: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;ch_cat_gearcrank_fail&quot;<br align="left"/><b>MoveVal</b><br align="left"/>    0.01<br align="left"/><b>MovementVector</b><br align="left"/>    [0, 0, 200]<br align="left"/>> ];
+    15 [ pos = "0.49500003,-0.749!" ];
+
+    title [ pos = "0.066,0.035!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">br_mechtest<br align="left"/>graphics<br align="left"/>script<br align="left"/><b>VisScriptModuleSystem_05</b><br align="left"/></font>> ];
+}

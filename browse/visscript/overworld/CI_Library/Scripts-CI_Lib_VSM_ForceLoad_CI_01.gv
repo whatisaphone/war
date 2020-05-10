@@ -1,0 +1,60 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;LI_Front_Kickdoor_01&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onInteractive&quot;]<br align="left"/>> ];
+    1 [ pos = "0.379,-0.50200003!" ];
+    1 -> 6 [ label = "0→0" ];
+
+    2 [ label = <2: <b>StartModule</b><br/><br/>> ];
+    2 [ shape = oval ]
+    2 [ pos = "0.192,-0.50200003!" ];
+    2 -> 1 [ label = "0→0" ];
+
+    3 [ label = <3: <b>SaveDataModule</b><br/><br/><i>OpenFrontDoorFromInside = True<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;CI_Library&quot;<br align="left"/>    , FlagName=&quot;OpenFrontDoorFromIns<br align="left"/>    ide&quot;)]<br align="left"/>> ];
+    3 [ pos = "0.279,-0.083000004!" ];
+
+    4 [ label = <4: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;CI_01_ForceLoad_Trig&quot;, &quot;&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    4 [ shape = oval ]
+    4 [ pos = "-0.029000001,-0.18300001!" ];
+    4 -> 3 [ label = "0→1" ];
+    4 -> 5 [ label = "1→1" ];
+
+    5 [ label = <5: <b>SaveDataModule</b><br/><br/><i>OpenFrontDoorFromInside = False<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;CI_Library&quot;<br align="left"/>    , FlagName=&quot;OpenFrontDoorFromIns<br align="left"/>    ide&quot;, FlagValue=&quot;False&quot;)]<br align="left"/>> ];
+    5 [ pos = "0.279,-0.261!" ];
+
+    6 [ label = <6: <b>SaveDataModule</b><br/><br/><i>OpenFrontDoorFromInside = True<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;CI_Library&quot;<br align="left"/>    , FlagName=&quot;OpenFrontDoorFromIns<br align="left"/>    ide&quot;)]<br align="left"/>> ];
+    6 [ pos = "0.61,-0.50200003!" ];
+    6 -> 8 [ label = "0→0" ];
+
+    7 [ label = <7: <b>LoaderModule</b><br/><br/><i>force load city 02 stuff if they<br align="left"/> get to door too fast.<br align="left"/></i><br align="left"/><b>Load</b><br align="left"/>    [[0, 3], [0, 5], [0, 7], [0, 9],<br align="left"/>     [0, 10], [0, 12], [0, 15], [0, <br align="left"/>    22], [0, 24], [0, 25], [0, 27], <br align="left"/>    [0, 28], [0, 29], [0, 30], [0, 3<br align="left"/>    2], [0, 33], [0, 35], [0, 36], [<br align="left"/><b>Unload</b><br align="left"/>    [[-1, -1]]<br align="left"/><b>Required</b><br align="left"/>    true<br align="left"/>> ];
+    7 [ pos = "1.13,-0.59000003!" ];
+
+    8 [ label = <8: <b>SaveDataModule</b><br/><br/><i>ruin collected?<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Ashlands&quot;, <br align="left"/>    FlagName=&quot;Ruin_Collected&quot;)]<br align="left"/>> ];
+    8 [ pos = "0.869,-0.50200003!" ];
+    8 -> 7 [ label = "1→0" ];
+    8 -> 11 [ label = "0→0" ];
+
+    9 [ label = <9: <b>LoaderModule</b><br/><br/><i>force load city 01 stuff if they<br align="left"/> get to door too fast.<br align="left"/></i><br align="left"/><b>Load</b><br align="left"/>    [[0, 3], [0, 5], [0, 7], [0, 9],<br align="left"/>     [0, 10], [0, 12], [0, 15], [0, <br align="left"/>    22], [0, 24], [0, 25], [0, 27], <br align="left"/>    [0, 29], [0, 30], [0, 32], [0, 3<br align="left"/>    3], [0, 35], [0, 36], [0, 38], [<br align="left"/><b>Unload</b><br align="left"/>    [[-1, -1]]<br align="left"/><b>Required</b><br align="left"/>    true<br align="left"/>> ];
+    9 [ pos = "1.3440001,-0.439!" ];
+
+    10 [ label = <10: <b>LoaderModule</b><br/><br/><i>force load city 01 stuff if they<br align="left"/> get to door too fast.<br align="left"/></i><br align="left"/><b>Load</b><br align="left"/>    [[0, 3], [0, 5], [0, 7], [0, 9],<br align="left"/>     [0, 10], [0, 12], [0, 15], [0, <br align="left"/>    22], [0, 24], [0, 25], [0, 27], <br align="left"/>    [0, 29], [0, 30], [0, 32], [0, 3<br align="left"/>    3], [0, 35], [0, 36], [0, 38], [<br align="left"/><b>Unload</b><br align="left"/>    [[-1, -1]]<br align="left"/><b>Required</b><br align="left"/>    true<br align="left"/>> ];
+    10 [ pos = "1.345,-0.319!" ];
+
+    11 [ label = <11: <b>SaveDataModule</b><br/><br/><i>on sword quest yet?<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SwordQuest&quot;<br align="left"/>    , FlagName=&quot;QuestForSwordAquired<br align="left"/>    &quot;)]<br align="left"/>> ];
+    11 [ pos = "1.0960001,-0.36600003!" ];
+    11 -> 10 [ label = "0→0" ];
+    11 -> 9 [ label = "1→0" ];
+
+    title [ pos = "-0.030000001,-0.082!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>CI_Library<br align="left"/>Scripts<br align="left"/><b>CI_Lib_VSM_ForceLoad_CI_01</b><br align="left"/></font>> ];
+}

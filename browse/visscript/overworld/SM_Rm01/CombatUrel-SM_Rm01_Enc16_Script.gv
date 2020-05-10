@@ -1,0 +1,244 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    8 [ label = <8: <b>StartModule</b><br/><br/>> ];
+    8 [ shape = oval ]
+    8 [ pos = "-1.457,-0.287!" ];
+    8 -> 40 [ label = "0→0" ];
+
+    9 [ label = <9: <b>SaveDataModule</b><br/><br/><i>Check Spawned<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;Spawned_SM_Rm01_Enc16&quot;)]<br align="left"/>> ];
+    9 [ pos = "-0.439,0.11400001!" ];
+    9 -> 10 [ label = "0→0" ];
+
+    10 [ label = <10: <b>SaveDataModule</b><br/><br/><i>Check AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_SM_Rm01_Enc16&quot;)]<br align="left"/>> ];
+    10 [ pos = "-0.24000001,0.11400001!" ];
+    10 -> 11 [ label = "1→0" ];
+
+    11 [ label = <11: <b>DelayModule</b><br/><br/><i>go Encounter<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    11 [ pos = "-0.019000001,-0.087000005!" ];
+    11 -> 21 [ label = "0→0" ];
+    11 -> 67 [ label = "0→0" ];
+
+    20 [ label = <20: <b>SpawnMonsterEventModule</b><br/><br/>> ];
+    20 [ pos = "0.45600003,-0.202!" ];
+    20 -> 79 [ label = "0→0" ];
+    20 -> 102 [ label = "0→0" ];
+    20 -> 116 [ label = "0→0" ];
+    20 -> 128 [ label = "0→0" ];
+    22 -> 20 [ style = dashed ];
+    20 -> 31 [ style = dashed ];
+
+    21 [ label = <21: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;SM_Rm01_Enc16&quot;<br align="left"/>> ];
+    21 [ pos = "0.19600001,-0.19700001!" ];
+    21 -> 20 [ label = "0→0" ];
+    21 -> 22 [ style = dashed ];
+
+    22 [ label = <22: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    22 [ shape = parallelogram ]
+    22 [ pos = "0.24800001,-0.33400002!" ];
+
+    31 [ label = <31: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    31 [ shape = parallelogram ]
+    31 [ pos = "0.499,-0.45000002!" ];
+
+    40 [ label = <40: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;SM_Rm01_Enc16_TrigReg&quot;, &quot;&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>Enable</b><br align="left"/>    false<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    40 [ shape = oval ]
+    40 [ pos = "-1.2260001,-0.28800002!" ];
+
+    44 [ label = <44: <b>InvokeMethodModule</b><br/><br/><b>MethodName</b><br align="left"/>    &quot;setBehaviorEncounter1&quot;<br align="left"/>> ];
+    44 [ pos = "1.1700001,-0.70100003!" ];
+    31 -> 44 [ style = dashed ];
+
+    50 [ label = <50: <b>StartModule</b><br/><br/><i>HAX<br align="left"/></i><br align="left"/>> ];
+    50 [ shape = oval ]
+    50 [ pos = "0.497,-0.535!" ];
+
+    62 [ label = <62: <b>SaveDataModule</b><br/><br/><i>Set AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_SM_Rm01_Enc16&quot;)]<br align="left"/>> ];
+    62 [ pos = "-0.402,-0.064!" ];
+    62 -> 11 [ label = "1→0" ];
+
+    63 [ label = <63: <b>SaveDataModule</b><br/><br/><i>Check Spawned<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;Spawned_SM_Rm01_Enc16&quot;)]<br align="left"/>> ];
+    63 [ pos = "-0.404,-0.45200002!" ];
+    63 -> 64 [ label = "1→1" ];
+
+    64 [ label = <64: <b>SaveDataModule</b><br/><br/><i>Set Spawned<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;Spawned_SM_Rm01_Enc16&quot;)]<br align="left"/>> ];
+    64 [ pos = "-0.18100001,-0.55600005!" ];
+
+    66 [ label = <66: <b>DelayModule</b><br/><br/>> ];
+    66 [ pos = "0.795,-0.70100003!" ];
+    66 -> 69 [ label = "0→0" ];
+
+    67 [ label = <67: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;Smith1&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;setShortScanCombatMode&quot;<br align="left"/>> ];
+    67 [ pos = "0.19700001,-0.4!" ];
+
+    69 [ label = <69: <b>base/settargetmodule</b><br/><br/><b>Target</b><br align="left"/>    &quot;War&quot;<br align="left"/>> ];
+    69 [ pos = "0.95600003,-0.70100003!" ];
+    69 -> 44 [ label = "0→0" ];
+    31 -> 69 [ style = dashed ];
+
+    70 [ label = <70: <b>ExternalCallModule</b><br/><br/><b>EventName</b><br align="left"/>    &quot;UrielGo&quot;<br align="left"/>> ];
+    70 [ shape = oval ]
+    70 [ pos = "0.527,-0.70100003!" ];
+    70 -> 66 [ label = "0→0" ];
+    70 -> 96 [ label = "0→0" ];
+
+    72 [ label = <72: <b>SaveDataModule</b><br/><br/><i>SaveBeforeUriel<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SM_Rm01&quot;, F<br align="left"/>    lagName=&quot;SaveBeforeUriel&quot;)]<br align="left"/>> ];
+    72 [ pos = "-0.66300005,-0.018000001!" ];
+    72 -> 62 [ label = "3→0" ];
+
+    74 [ label = <74: <b>TextModule</b><br/><br/><b>Text</b><br align="left"/>    &quot;saving pre uriel&quot;<br align="left"/>> ];
+    74 [ pos = "-0.15100001,-0.354!" ];
+
+    79 [ label = <79: <b>base/setdefaultwatcherdialogmodule</b><br/><br/><i>set watcher default = vo_watcher<br align="left"/>_smith_03<br align="left"/></i><br align="left"/><b>Dialog</b><br align="left"/>    &quot;vo_watcher_smith_03&quot;<br align="left"/>> ];
+    79 [ pos = "0.80100006,0.40500003!" ];
+
+    84 [ label = <84: <b>VisScriptCallModule</b><br/><br/><i>UrielIsDeadPlayVidNow<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SM_Rm01_Enc16_PlayVidScript&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;UrielIsDeadPlayVidNow&quot;<br align="left"/>> ];
+    84 [ pos = "2.187,-0.354!" ];
+
+    85 [ label = <85: <b>ExternalCallModule</b><br/><br/><i>UrielIsDeadPlayVidNow<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;UrielIsDeadPlayVidNow&quot;<br align="left"/>> ];
+    85 [ shape = oval ]
+    85 [ pos = "2.358,-0.35300002!" ];
+
+    86 [ label = <86: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;Smith1&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;setSmithToNeutral&quot;<br align="left"/>> ];
+    86 [ pos = "1.46,-0.62200004!" ];
+
+    93 [ label = <93: <b>SaveDataModule</b><br/><br/><i>Set AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_SM_Rm01_Enc16&quot;)]<br align="left"/>> ];
+    93 [ pos = "2.009,-0.215!" ];
+
+    94 [ label = <94: <b>DelayModule</b><br/><br/>> ];
+    94 [ pos = "1.9820001,-0.354!" ];
+    94 -> 84 [ label = "0→0" ];
+    94 -> 118 [ label = "0→0" ];
+
+    95 [ label = <95: <b>ObjectToggleModule</b><br/><br/>> ];
+    95 [ pos = "1.4440001,-0.093!" ];
+    31 -> 95 [ style = dashed ];
+
+    96 [ label = <96: <b>VisScriptCallModule</b><br/><br/><i>scripted_HeavyCombat_04_Uriel<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scripted_HeavyCombat_04_Uriel&quot;<br align="left"/>> ];
+    96 [ pos = "0.8,-1.0320001!" ];
+
+    100 [ label = <100: <b>VisScriptCallModule</b><br/><br/><i>scriptedHeavyOutro<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scriptedHeavyOutro&quot;<br align="left"/>> ];
+    100 [ pos = "2.01,-0.14!" ];
+
+    101 [ label = <101: <b>ExternalCallModule</b><br/><br/><i>SpawnUriel<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;SpawnUriel&quot;<br align="left"/>> ];
+    101 [ shape = oval ]
+    101 [ pos = "-0.88600004,-0.041!" ];
+    101 -> 72 [ label = "0→1" ];
+
+    102 [ label = <102: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;Uriel&quot;<br align="left"/><b>MoveVal</b><br align="left"/>    3.5<br align="left"/><b>MovementVector</b><br align="left"/>    [0, 0, -300]<br align="left"/><b>EaseOut</b><br align="left"/>    1.5<br align="left"/>> ];
+    102 [ pos = "0.80600005,0.132!" ];
+    102 -> 104 [ label = "0→0" ];
+
+    103 [ label = <103: <b>VisScriptCallModule</b><br/><br/><i>SpawnUriel<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SM_Rm01_Enc16_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;SpawnUriel&quot;<br align="left"/>> ];
+    103 [ pos = "-1.064,-0.042000003!" ];
+
+    104 [ label = <104: <b>SoundModule</b><br/><br/><i>Uriel_speech_intro<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;uriel/uriel_sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    42<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;Uriel&quot;<br align="left"/>> ];
+    104 [ pos = "1.0040001,0.132!" ];
+    104 -> 106 [ label = "0→0" ];
+
+    105 [ label = <105: <b>SoundModule</b><br/><br/><i>Uriel_scripted_taunt<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;uriel/uriel_sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    43<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;Uriel&quot;<br align="left"/>> ];
+    105 [ pos = "1.332,0.132!" ];
+    105 -> 108 [ label = "0→0" ];
+
+    106 [ label = <106: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    7<br align="left"/>> ];
+    106 [ pos = "1.177,0.132!" ];
+    106 -> 105 [ label = "0→0" ];
+
+    107 [ label = <107: <b>base/setcharactermovestate</b><br/><br/><b>Character</b><br align="left"/>    &quot;Uriel&quot;<br align="left"/><b>MoveStateID</b><br align="left"/>    10071<br align="left"/>> ];
+    107 [ pos = "1.6910001,0.132!" ];
+    107 -> 109 [ label = "1→0" ];
+
+    108 [ label = <108: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    108 [ pos = "1.5100001,0.132!" ];
+    108 -> 107 [ label = "0→0" ];
+    108 -> 111 [ label = "0→0" ];
+
+    109 [ label = <109: <b>base/setcharactermovestate</b><br/><br/><b>Character</b><br align="left"/>    &quot;Uriel&quot;<br align="left"/><b>MoveStateID</b><br align="left"/>    10020<br align="left"/>> ];
+    109 [ pos = "1.988,0.109000005!" ];
+
+    110 [ label = <110: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;Smith1&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;setFollowDefensive&quot;<br align="left"/>> ];
+    110 [ pos = "0.79300004,-0.878!" ];
+
+    111 [ label = <111: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    3<br align="left"/>> ];
+    111 [ pos = "1.7090001,0.333!" ];
+    111 -> 112 [ label = "0→0" ];
+
+    112 [ label = <112: <b>base/dowatcherdialogmodule</b><br/><br/><i>vo_watcher_smith_03<br align="left"/></i><br align="left"/><b>Dialog</b><br align="left"/>    &quot;vo_watcher_smith_03&quot;<br align="left"/>> ];
+    112 [ pos = "1.8950001,0.33400002!" ];
+
+    113 [ label = <113: <b>VisScriptCallModule</b><br/><br/><i>SaveBeforeUriel<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SM_Rm01_VSM_LoadingSaveGames&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;FightUriel&quot;<br align="left"/>> ];
+    113 [ pos = "-0.448,-0.29200003!" ];
+
+    115 [ label = <115: <b>InvokeMethodModule</b><br/><br/><i>Combat Gate<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;Smith_CombatBarrier&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOn&quot;<br align="left"/>> ];
+    115 [ pos = "1.125,0.33600003!" ];
+
+    116 [ label = <116: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    7.5<br align="left"/>> ];
+    116 [ pos = "0.804,0.33400002!" ];
+    116 -> 115 [ label = "0→0" ];
+
+    117 [ label = <117: <b>InvokeMethodModule</b><br/><br/><i>Combat Gate<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;Smith_CombatBarrier&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOff&quot;<br align="left"/>> ];
+    117 [ pos = "2.4280002,-0.619!" ];
+
+    118 [ label = <118: <b>DelayModule</b><br/><br/>> ];
+    118 [ pos = "2.187,-0.619!" ];
+    118 -> 117 [ label = "0→0" ];
+
+    120 [ label = <120: <b>base/setcharactermovestate</b><br/><br/><b>MoveState</b><br align="left"/>    &quot;Havoc Transition Out (Havoc Ske<br align="left"/>    leton)&quot;<br align="left"/>> ];
+    120 [ pos = "2.3850002,-0.82500005!" ];
+
+    121 [ label = <121: <b>base/gatemodule</b><br/><br/><i>Gating for Havoc form check<br align="left"/></i><br align="left"/><b>enable</b><br align="left"/>    false<br align="left"/>> ];
+    121 [ pos = "2.184,-0.82500005!" ];
+    121 -> 120 [ label = "0→0" ];
+
+    122 [ label = <122: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;War&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onHavocFormTriggered&quot;]<br align="left"/>> ];
+    122 [ pos = "1.8180001,-0.975!" ];
+    122 -> 121 [ label = "0→1" ];
+
+    123 [ label = <123: <b>StartModule</b><br/><br/>> ];
+    123 [ shape = oval ]
+    123 [ pos = "1.5890001,-1.0450001!" ];
+    123 -> 122 [ label = "0→0" ];
+    123 -> 124 [ label = "0→0" ];
+
+    124 [ label = <124: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;War&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onHavocFormExited&quot;]<br align="left"/>> ];
+    124 [ pos = "1.8180001,-1.105!" ];
+    124 -> 121 [ label = "0→2" ];
+
+    126 [ label = <126: <b>base/oneshotmodule</b><br/><br/>> ];
+    126 [ pos = "1.7770001,-0.354!" ];
+    126 -> 100 [ label = "0→0" ];
+    126 -> 93 [ label = "0→1" ];
+    126 -> 94 [ label = "0→0" ];
+    126 -> 121 [ label = "0→0" ];
+
+    128 [ label = <128: <b>AttachEventModule</b><br/><br/><b>EventNames</b><br align="left"/>    [&quot;UrielHasGoneDOWN&quot;]<br align="left"/>> ];
+    128 [ pos = "0.74500006,-0.202!" ];
+    128 -> 130 [ label = "0→1" ];
+    31 -> 128 [ style = dashed ];
+
+    129 [ label = <129: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    3.33<br align="left"/>> ];
+    129 [ pos = "1.2850001,-0.09900001!" ];
+    129 -> 95 [ label = "0→2" ];
+
+    130 [ label = <130: <b>base/enablecharactercontrolmodule</b><br/><br/>> ];
+    130 [ pos = "0.97800004,-0.179!" ];
+    130 -> 129 [ label = "0→0" ];
+    130 -> 132 [ label = "0→0" ];
+
+    132 [ label = <132: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.33<br align="left"/>> ];
+    132 [ pos = "1.447,-0.333!" ];
+    132 -> 126 [ label = "0→0" ];
+
+    title [ pos = "-1.4580001,0.40600002!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SM_Rm01<br align="left"/>CombatUrel<br align="left"/><b>SM_Rm01_Enc16_Script</b><br align="left"/></font>> ];
+}

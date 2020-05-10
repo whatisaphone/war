@@ -1,0 +1,82 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    2 [ label = <2: <b>TriggerEventModule</b><br/><br/><i>Greaver Spawn Sequence<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;Greaver_Spawn_Region&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/><b>EventHandler</b><br align="left"/>    VisScriptEventHandler(Position=[<br align="left"/>    -1581646400000000000000000000000<br align="left"/>    00000000, -158164640000000000000<br align="left"/>    000000000000000000, -15816464000<br align="left"/>    0000000000000000000000000000])<br align="left"/>> ];
+    2 [ shape = oval ]
+    2 [ pos = "0.326,0.15900001!" ];
+    2 -> 3 [ label = "0→0" ];
+    2 -> 4 [ label = "0→0" ];
+
+    3 [ label = <3: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.2<br align="left"/>> ];
+    3 [ pos = "0.614,0.35000002!" ];
+    3 -> 5 [ label = "0→0" ];
+
+    4 [ label = <4: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    4 [ pos = "0.64100003,-0.011000001!" ];
+    4 -> 6 [ label = "0→0" ];
+    4 -> 7 [ label = "0→0" ];
+    4 -> 55 [ label = "0→0" ];
+    4 -> 65 [ label = "0→0" ];
+
+    5 [ label = <5: <b>EffectModule</b><br/><br/><i>Debris<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;s<br align="left"/>    ubway_fx&quot;, EffectName=&quot;Greaver_R<br align="left"/>    oofFall01&quot;, TargetNode=&quot;Term_Roo<br align="left"/>    fFXNode1&quot;), EffectTargetInfo(Pac<br align="left"/>    kageName=&quot;church_fx&quot;, EffectName<br align="left"/>> ];
+    5 [ pos = "0.767,0.35000002!" ];
+
+    6 [ label = <6: <b>InvokeMethodModule</b><br/><br/><i>Destroy Roof<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;Terminal_Roof&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;destroy&quot;<br align="left"/>> ];
+    6 [ pos = "0.89100003,-0.23!" ];
+
+    7 [ label = <7: <b>SpawnerEventModule</b><br/><br/><i>Spawn Greaver<br align="left"/></i><br align="left"/><b>SpawnPoints</b><br align="left"/>    [&quot;Terminal_Greaver_Spawn&quot;]<br align="left"/><b>ClassToSpawn</b><br align="left"/>    &quot;greaver/greaver&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    1<br align="left"/><b>MoveStateId</b><br align="left"/>    1000<br align="left"/><b>StateName</b><br align="left"/>    &quot;Spawn&quot;<br align="left"/><b>NameRoot</b><br align="left"/>    &quot;Terminal_Greaver&quot;<br align="left"/><b>EventHandler</b><br align="left"/>    VisScriptEventHandler(Position=[<br align="left"/>    -1581646400000000000000000000000<br align="left"/>    00000000, -158164640000000000000<br align="left"/>    000000000000000000, -15816464000<br align="left"/>    0000000000000000000000000000])<br align="left"/>> ];
+    7 [ pos = "0.89000005,-0.011000001!" ];
+    7 -> 48 [ label = "0→0" ];
+
+    8 [ label = <8: <b>AttachEventModule</b><br/><br/><i>When Greaver Flees<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;Terminal_Greaver1&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onTriggerClock&quot;]<br align="left"/><b>EventHandler</b><br align="left"/>    VisScriptEventHandler(Position=[<br align="left"/>    -1581646400000000000000000000000<br align="left"/>    00000000, -158164640000000000000<br align="left"/>    000000000000000000, -15816464000<br align="left"/>    0000000000000000000000000000])<br align="left"/>> ];
+    8 [ pos = "1.4530001,-0.011000001!" ];
+    8 -> 69 [ label = "0→0" ];
+
+    25 [ label = <25: <b>StartModule</b><br/><br/>> ];
+    25 [ shape = oval ]
+    25 [ pos = "-0.15,0.15900001!" ];
+    25 -> 26 [ label = "0→0" ];
+
+    26 [ label = <26: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;ClockDropped&quot;)]<br align="left"/>> ];
+    26 [ pos = "0.046000004,0.15900001!" ];
+    26 -> 2 [ label = "1→0" ];
+    26 -> 2 [ label = "0→1" ];
+
+    39 [ label = <39: <b>InvokeMethodModule</b><br/><br/><i>turn on barriers<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;SW_Rm01_CombatBarrier_Big&quot;, &quot;S<br align="left"/>    W_Rm01_Tns_02_BarrierSmall_Greav<br align="left"/>    er_01&quot;, &quot;SW_Rm01_Tns_02_BarrierS<br align="left"/>    mall_Greaver_02&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOn&quot;<br align="left"/>> ];
+    39 [ pos = "1.4690001,0.15900001!" ];
+
+    48 [ label = <48: <b>base/storesavedatamodule</b><br/><br/>> ];
+    48 [ pos = "1.1680001,-0.011000001!" ];
+    48 -> 59 [ label = "0→0" ];
+    48 -> 8 [ label = "0→0" ];
+    48 -> 39 [ label = "0→0" ];
+    48 -> 68 [ label = "0→0" ];
+
+    55 [ label = <55: <b>CinematicModule</b><br/><br/><b>CinematicName</b><br align="left"/>    &quot;SW_Rm01_GreaverEnter_Cine&quot;<br align="left"/>> ];
+    55 [ pos = "0.89000005,0.13700001!" ];
+
+    59 [ label = <59: <b>base/setdefaultwatcherdialogmodule</b><br/><br/><i>set watcher default = vo_watcher<br align="left"/>_subway_02<br align="left"/></i><br align="left"/><b>Dialog</b><br align="left"/>    &quot;vo_watcher_subway_02&quot;<br align="left"/>> ];
+    59 [ pos = "1.452,-0.16700001!" ];
+
+    65 [ label = <65: <b>VisScriptCallModule</b><br/><br/><i>scripted_HeavyCombat<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scripted_HeavyCombat&quot;<br align="left"/>> ];
+    65 [ pos = "0.89100003,-0.38300002!" ];
+
+    68 [ label = <68: <b>VisScriptCallModule</b><br/><br/><i>scripted_HeavyCombat<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scripted_HeavyCombat&quot;<br align="left"/>> ];
+    68 [ pos = "1.4710001,0.24100001!" ];
+
+    69 [ label = <69: <b>VisScriptCallModule</b><br/><br/><i>SetWatcherAfterGreaverExits<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SW_Rm01_VSM_ClockDropped&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;SetWatcherAfterGreaverExits&quot;<br align="left"/>> ];
+    69 [ pos = "1.677,-0.011000001!" ];
+
+    title [ pos = "-0.15100001,0.351!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SW_Rm01<br align="left"/>Greaver<br align="left"/><b>SUBWAY_VIS_SCRIPT</b><br align="left"/></font>> ];
+}

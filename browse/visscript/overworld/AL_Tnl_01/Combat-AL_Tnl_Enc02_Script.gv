@@ -1,0 +1,78 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    7 [ label = <7: <b>base/intincrement</b><br/><br/><b>Increment</b><br align="left"/>    -1<br align="left"/>> ];
+    7 [ pos = "1.388,-0.35700002!" ];
+    8 -> 7 [ style = dashed ];
+    7 -> 8 [ style = dashed ];
+
+    8 [ label = <8: <b>VisScriptVariableInt</b><br/><br/><b>Value</b><br align="left"/>    4<br align="left"/>> ];
+    8 [ shape = parallelogram ]
+    8 [ pos = "1.0250001,-0.31!" ];
+
+    9 [ label = <9: <b>base/gatemodule</b><br/><br/>> ];
+    9 [ pos = "0.22900002,-0.087000005!" ];
+    9 -> 10 [ label = "0→0" ];
+    9 -> 21 [ label = "0→0" ];
+
+    10 [ label = <10: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;AL_Tnl_Enc02&quot;<br align="left"/>> ];
+    10 [ pos = "0.36900002,-0.078!" ];
+    10 -> 11 [ label = "0→0" ];
+
+    11 [ label = <11: <b>base/isinviewmodule</b><br/><br/><b>MaxDistance</b><br align="left"/>    &quot;2200&quot;<br align="left"/><b>ValidateWithRayCast</b><br align="left"/>    true<br align="left"/>> ];
+    11 [ pos = "0.651,-0.093!" ];
+    11 -> 17 [ label = "1→0" ];
+    11 -> 17 [ label = "0→0" ];
+    19 -> 11 [ style = dashed ];
+
+    12 [ label = <12: <b>SpawnMonsterEventModule</b><br/><br/>> ];
+    12 [ pos = "1.102,-0.104!" ];
+    12 -> 7 [ label = "1→0" ];
+    12 -> 13 [ label = "0→0" ];
+    12 -> 10 [ label = "2→2" ];
+    12 -> 16 [ style = dashed ];
+    8 -> 12 [ style = dashed ];
+
+    13 [ label = <13: <b>base/distancedelay</b><br/><br/><b>Distance</b><br align="left"/>    2500<br align="left"/>> ];
+    13 [ pos = "1.3620001,-0.11800001!" ];
+    13 -> 14 [ label = "0→2" ];
+    16 -> 13 [ style = dashed ];
+
+    14 [ label = <14: <b>ObjectToggleModule</b><br/><br/>> ];
+    14 [ pos = "1.6010001,0.080000006!" ];
+    14 -> 9 [ label = "0→0" ];
+    16 -> 14 [ style = dashed ];
+
+    16 [ label = <16: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    16 [ shape = parallelogram ]
+    16 [ pos = "1.3410001,-0.27100003!" ];
+
+    17 [ label = <17: <b>base/gatemodule</b><br/><br/>> ];
+    17 [ pos = "0.9250001,-0.101!" ];
+    17 -> 12 [ label = "0→0" ];
+
+    19 [ label = <19: <b>VisScriptVariableWorldObjectList</b><br/><br/><b>Value</b><br align="left"/>    [&quot;AL_02_Enc03_LOSTrig&quot;]<br align="left"/>> ];
+    19 [ shape = parallelogram ]
+    19 [ pos = "0.50200003,-0.31500003!" ];
+
+    20 [ label = <20: <b>StartModule</b><br/><br/>> ];
+    20 [ shape = oval ]
+    20 [ pos = "-0.007,-0.07!" ];
+    20 -> 9 [ label = "0→0" ];
+
+    21 [ label = <21: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;AL_Tnl_Enc02&quot;<br align="left"/>> ];
+    21 [ pos = "0.432,-0.39200002!" ];
+
+    title [ pos = "-0.008,0.081!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>AL_Tnl_01<br align="left"/>Combat<br align="left"/><b>AL_Tnl_Enc02_Script</b><br align="left"/></font>> ];
+}

@@ -1,0 +1,68 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    32 [ label = <32: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;CI_StartBld_Enc01&quot;<br align="left"/>> ];
+    32 [ pos = "0.15100001,-0.187!" ];
+    32 -> 33 [ label = "0→0" ];
+    32 -> 34 [ style = dashed ];
+
+    33 [ label = <33: <b>SpawnMonsterEventModule</b><br/><br/><b>DelayTime</b><br align="left"/>    0.1<br align="left"/>> ];
+    33 [ pos = "0.41900003,-0.187!" ];
+    33 -> 61 [ label = "0→0" ];
+    33 -> 66 [ label = "2→0" ];
+    34 -> 33 [ style = dashed ];
+    33 -> 35 [ style = dashed ];
+
+    34 [ label = <34: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    34 [ shape = parallelogram ]
+    34 [ pos = "0.192,-0.335!" ];
+
+    35 [ label = <35: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    35 [ shape = parallelogram ]
+    35 [ pos = "0.44000003,-0.38900003!" ];
+
+    61 [ label = <61: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;CI_StartBld_Enc02_TrigRegDelet<br align="left"/>    e&quot;, &quot;&quot;]<br align="left"/><b>Enable</b><br align="left"/>    false<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    61 [ shape = oval ]
+    61 [ pos = "1.0220001,-0.37500003!" ];
+    61 -> 66 [ label = "0→2" ];
+    61 -> 62 [ label = "0→2" ];
+
+    62 [ label = <62: <b>ObjectToggleModule</b><br/><br/>> ];
+    62 [ pos = "1.304,-0.48000002!" ];
+    62 -> 61 [ label = "0→1" ];
+    35 -> 62 [ style = dashed ];
+
+    66 [ label = <66: <b>base/gatemodule</b><br/><br/>> ];
+    66 [ pos = "0.754,-0.289!" ];
+
+    88 [ label = <88: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;CI_StartBld_Enc01_TrigReg&quot;, &quot;&quot;<br align="left"/>    ]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    88 [ shape = oval ]
+    88 [ pos = "-0.416,-0.14400001!" ];
+    88 -> 90 [ label = "0→0" ];
+
+    89 [ label = <89: <b>ExternalCallModule</b><br/><br/><i>RemoveEncounter<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;RemoveEncounter&quot;<br align="left"/>> ];
+    89 [ shape = oval ]
+    89 [ pos = "0.82500005,-0.16100001!" ];
+    89 -> 62 [ label = "0→2" ];
+
+    90 [ label = <90: <b>SaveDataModule</b><br/><br/><i>Scene08_Played<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;startBuildi<br align="left"/>    ng&quot;, FlagName=&quot;Scene08_Played&quot;)]<br align="left"/>> ];
+    90 [ pos = "-0.136,-0.14400001!" ];
+    90 -> 32 [ label = "1→0" ];
+    90 -> 92 [ label = "0→0" ];
+
+    92 [ label = <92: <b>VisScriptCallModule</b><br/><br/><i>Spawn03Early<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CI_StartBld_Enc03_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;Spawn03Early&quot;<br align="left"/>> ];
+    92 [ pos = "0.157,-0.1!" ];
+
+    title [ pos = "-0.41700003,-0.09900001!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>CI_StartBld<br align="left"/>Combat<br align="left"/><b>CI_StartBld_Enc01_Script</b><br align="left"/></font>> ];
+}

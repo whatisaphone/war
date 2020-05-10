@@ -1,0 +1,66 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>StartModule</b><br/><br/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "-0.119,-0.053000003!" ];
+    1 -> 8 [ label = "0→0" ];
+
+    2 [ label = <2: <b>AttachEventModule</b><br/><br/><b>EventNames</b><br align="left"/>    [&quot;onBreak&quot;]<br align="left"/>> ];
+    2 [ pos = "0.59400004,-0.21700001!" ];
+    2 -> 16 [ label = "0→0" ];
+    5 -> 2 [ style = dashed ];
+
+    3 [ label = <3: <b>base/oneshotmodule</b><br/><br/>> ];
+    3 [ pos = "1.4120001,-0.216!" ];
+    3 -> 7 [ label = "0→1" ];
+    3 -> 11 [ label = "0→0" ];
+
+    5 [ label = <5: <b>VisScriptVariableWorldObjectList</b><br/><br/><b>Value</b><br align="left"/>    [&quot;Bomb_Growth_02&quot;, &quot;Bomb_Growth_<br align="left"/>    03&quot;, &quot;Bomb_Growth_04&quot;, &quot;Bomb_Gro<br align="left"/>    wth_05&quot;, &quot;Bomb_Growth_06&quot;]<br align="left"/>> ];
+    5 [ shape = parallelogram ]
+    5 [ pos = "0.84000003,-0.61!" ];
+
+    7 [ label = <7: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Ashlands&quot;, <br align="left"/>    FlagName=&quot;AL01_Growth_Removed&quot;)]<br align="left"/>> ];
+    7 [ pos = "1.639,-0.193!" ];
+
+    8 [ label = <8: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Ashlands&quot;, <br align="left"/>    FlagName=&quot;AL01_Growth_Removed&quot;)]<br align="left"/>> ];
+    8 [ pos = "0.17400001,-0.053000003!" ];
+    8 -> 2 [ label = "1→0" ];
+    8 -> 9 [ label = "0→2" ];
+
+    9 [ label = <9: <b>ObjectToggleModule</b><br/><br/><b>ObjectList</b><br align="left"/>    [&quot;Bomb_Growth_02&quot;, &quot;Bomb_Growth_<br align="left"/>    03&quot;, &quot;Bomb_Growth_04&quot;, &quot;Bomb_Gro<br align="left"/>    wth_05&quot;, &quot;Bomb_Growth_06&quot;]<br align="left"/>> ];
+    9 [ pos = "0.59300005,-0.006!" ];
+
+    10 [ label = <10: <b>base/commitsavedatamodule</b><br/><br/>> ];
+    10 [ pos = "1.7990001,-0.34300002!" ];
+    10 -> 12 [ label = "0→0" ];
+
+    11 [ label = <11: <b>DelayModule</b><br/><br/>> ];
+    11 [ pos = "1.6400001,-0.34300002!" ];
+    11 -> 10 [ label = "0→0" ];
+
+    12 [ label = <12: <b>base/autosavemodule</b><br/><br/>> ];
+    12 [ pos = "2.059,-0.34300002!" ];
+
+    15 [ label = <15: <b>DamageActorModule</b><br/><br/><b>DamageAmount</b><br align="left"/>    1000<br align="left"/><b>WeaponType</b><br align="left"/>    22<br align="left"/><b>HitType</b><br align="left"/>    0<br align="left"/>> ];
+    15 [ pos = "1.1600001,-0.21700001!" ];
+    15 -> 3 [ label = "0→0" ];
+    5 -> 15 [ style = dashed ];
+
+    16 [ label = <16: <b>AccumulatorModule</b><br/><br/>> ];
+    16 [ pos = "0.90900004,-0.21700001!" ];
+    16 -> 15 [ label = "0→0" ];
+
+    title [ pos = "-0.120000005,-0.0050000004!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>AL_01<br align="left"/>Script<br align="left"/><b>AL_01_VSM_HellGrowthCrystal</b><br align="left"/></font>> ];
+}

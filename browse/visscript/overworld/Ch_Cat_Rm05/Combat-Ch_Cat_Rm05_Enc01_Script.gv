@@ -1,0 +1,209 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    6 [ label = <6: <b>SaveDataModule</b><br/><br/><i>set Spawned<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;Spawned_Ch_Cat_Rm05_Enc0<br align="left"/>    1&quot;)]<br align="left"/>> ];
+    6 [ pos = "0.007,-0.294!" ];
+
+    29 [ label = <29: <b>InvokeMethodModule</b><br/><br/><i>turn off combat barrier<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;Ch_Cat_Rm05_CombatBarrier&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOff&quot;<br align="left"/>> ];
+    29 [ pos = "1.9860001,-0.22700001!" ];
+
+    32 [ label = <32: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2.25<br align="left"/>> ];
+    32 [ pos = "1.386,-0.22700001!" ];
+    32 -> 37 [ label = "0→0" ];
+
+    35 [ label = <35: <b>SoundModule</b><br/><br/><b>SoundDescFile</b><br align="left"/>    &quot;base/Music&quot;<br align="left"/><b>SoundID</b><br align="left"/>    89<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;War&quot;<br align="left"/>> ];
+    35 [ pos = "1.7980001,-0.036000002!" ];
+
+    36 [ label = <36: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    36 [ pos = "1.049,-0.22700001!" ];
+    36 -> 32 [ label = "0→0" ];
+
+    37 [ label = <37: <b>CinematicModule</b><br/><br/><b>CinematicName</b><br align="left"/>    &quot;Ch_Cat_Rm05_Cine02_Barrier&quot;<br align="left"/>> ];
+    37 [ pos = "1.5810001,-0.22700001!" ];
+    37 -> 38 [ label = "0→0" ];
+    37 -> 35 [ label = "0→0" ];
+
+    38 [ label = <38: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.5<br align="left"/>> ];
+    38 [ pos = "1.792,-0.22700001!" ];
+    38 -> 29 [ label = "0→0" ];
+    38 -> 87 [ label = "0→0" ];
+    38 -> 90 [ label = "0→0" ];
+
+    39 [ label = <39: <b>SaveDataModule</b><br/><br/><i>check Spawned<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;Spawned_Ch_Cat_Rm05_Enc0<br align="left"/>    1&quot;)]<br align="left"/>> ];
+    39 [ pos = "-0.61600006,-0.633!" ];
+
+    40 [ label = <40: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.5<br align="left"/>> ];
+    40 [ pos = "-0.048,-0.027!" ];
+    40 -> 55 [ label = "0→0" ];
+
+    46 [ label = <46: <b>AccumulatorModule</b><br/><br/>> ];
+    46 [ pos = "0.74100006,-0.108!" ];
+    46 -> 47 [ label = "0→1" ];
+    46 -> 36 [ label = "0→0" ];
+    46 -> 84 [ label = "0→0" ];
+
+    47 [ label = <47: <b>SaveDataModule</b><br/><br/><i>set AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_Ch_Cat_Rm05_Enc0<br align="left"/>    1&quot;)]<br align="left"/>> ];
+    47 [ pos = "1.0040001,-0.085!" ];
+
+    48 [ label = <48: <b>SaveDataModule</b><br/><br/><i>Check AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_Ch_Cat_Rm05_Enc0<br align="left"/>    1&quot;)]<br align="left"/>> ];
+    48 [ pos = "-0.263,-0.004!" ];
+    48 -> 40 [ label = "1→0" ];
+
+    49 [ label = <49: <b>SaveDataModule</b><br/><br/><i>check Spawned<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;Spawned_Ch_Cat_Rm05_Enc0<br align="left"/>    1&quot;)]<br align="left"/>> ];
+    49 [ pos = "-0.49,-0.004!" ];
+    49 -> 48 [ label = "0→0" ];
+
+    50 [ label = <50: <b>StartModule</b><br/><br/>> ];
+    50 [ shape = oval ]
+    50 [ pos = "-0.70600003,-0.004!" ];
+
+    52 [ label = <52: <b>VisScriptCallModule</b><br/><br/><i>start COMBAT music<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;ch_VSM_LoopingCombatMusic&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;Start_ch_combat_Music&quot;<br align="left"/>> ];
+    52 [ pos = "0.136,0.116000004!" ];
+
+    54 [ label = <54: <b>InvokeMethodModule</b><br/><br/><i>turn On combat barrier<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;ch_cat_Rm04_to_Rm05_liftdoor&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;activate&quot;<br align="left"/>> ];
+    54 [ pos = "1.988,-0.053000003!" ];
+
+    55 [ label = <55: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;ChCatRm05_Enc01&quot;<br align="left"/>> ];
+    55 [ pos = "0.093,-0.053000003!" ];
+    55 -> 57 [ label = "0→0" ];
+    55 -> 56 [ style = dashed ];
+
+    56 [ label = <56: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    56 [ shape = parallelogram ]
+    56 [ pos = "0.15400001,-0.172!" ];
+
+    57 [ label = <57: <b>SpawnMonsterEventModule</b><br/><br/><b>DelayTime</b><br align="left"/>    0.6<br align="left"/>> ];
+    57 [ pos = "0.344,-0.053000003!" ];
+    57 -> 46 [ label = "2→0" ];
+    57 -> 68 [ label = "2→0" ];
+    57 -> 59 [ label = "0→0" ];
+    57 -> 68 [ label = "0→1" ];
+    57 -> 63 [ label = "0→0" ];
+    56 -> 57 [ style = dashed ];
+    57 -> 69 [ style = dashed ];
+
+    58 [ label = <58: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;Ch_Cat_Rm05_Enc01_TrigReg&quot;, &quot;&quot;<br align="left"/>    ]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    58 [ shape = oval ]
+    58 [ pos = "-1.1240001,-0.294!" ];
+    58 -> 76 [ label = "0→0" ];
+
+    59 [ label = <59: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    20<br align="left"/>> ];
+    59 [ pos = "0.758,-0.39800003!" ];
+    59 -> 68 [ label = "0→0" ];
+
+    60 [ label = <60: <b>PopSpawnPointsModule</b><br/><br/><i>(DISABLED, used to be linked to <br align="left"/>prior Gate)<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;ChCatRm05_Enc01_Wave2&quot;<br align="left"/>> ];
+    60 [ pos = "1.0680001,-0.646!" ];
+    60 -> 68 [ label = "0→2" ];
+    60 -> 62 [ label = "0→0" ];
+    60 -> 61 [ style = dashed ];
+
+    61 [ label = <61: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    61 [ shape = parallelogram ]
+    61 [ pos = "1.113,-0.79200006!" ];
+
+    62 [ label = <62: <b>SpawnMonsterEventModule</b><br/><br/><b>NumberToSpawn</b><br align="left"/>    -1<br align="left"/><b>DelayTime</b><br align="left"/>    0.6<br align="left"/>> ];
+    62 [ pos = "1.36,-0.637!" ];
+    62 -> 46 [ label = "2→0" ];
+    61 -> 62 [ style = dashed ];
+
+    63 [ label = <63: <b>HealthStatsModule</b><br/><br/>> ];
+    63 [ pos = "0.24400002,-0.637!" ];
+    63 -> 65 [ label = "0→0" ];
+    63 -> 66 [ style = dashed ];
+    69 -> 63 [ style = dashed ];
+
+    64 [ label = <64: <b>DelayModule</b><br/><br/>> ];
+    64 [ pos = "0.42800003,-0.476!" ];
+    64 -> 63 [ label = "0→0" ];
+
+    65 [ label = <65: <b>FloatCompareModule</b><br/><br/>> ];
+    65 [ pos = "0.54700005,-0.64100003!" ];
+    65 -> 68 [ label = "1→0" ];
+    65 -> 68 [ label = "2→0" ];
+    65 -> 64 [ label = "0→0" ];
+    66 -> 65 [ style = dashed ];
+    67 -> 65 [ style = dashed ];
+
+    66 [ label = <66: <b>VisScriptVariableFloat</b><br/><br/>> ];
+    66 [ shape = parallelogram ]
+    66 [ pos = "0.43,-0.73800004!" ];
+
+    67 [ label = <67: <b>VisScriptVariableFloat</b><br/><br/><b>Value</b><br align="left"/>    0.4<br align="left"/>> ];
+    67 [ shape = parallelogram ]
+    67 [ pos = "0.43,-0.813!" ];
+
+    68 [ label = <68: <b>base/gatemodule</b><br/><br/>> ];
+    68 [ pos = "0.77800006,-0.643!" ];
+
+    69 [ label = <69: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    69 [ shape = parallelogram ]
+    69 [ pos = "0.407,-0.316!" ];
+
+    75 [ label = <75: <b>InvokeMethodModule</b><br/><br/><i>turn on combat barrier<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;Ch_Cat_Rm05_CombatBarrier&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOn&quot;<br align="left"/>> ];
+    75 [ pos = "0.006,-0.441!" ];
+
+    76 [ label = <76: <b>SaveDataModule</b><br/><br/><i>Check AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_Ch_Cat_Rm05_Enc0<br align="left"/>    1&quot;)]<br align="left"/>> ];
+    76 [ pos = "-0.882,-0.294!" ];
+    76 -> 92 [ label = "1→0" ];
+
+    77 [ label = <77: <b>base/storesavedatamodule</b><br/><br/>> ];
+    77 [ pos = "-0.30400002,-0.317!" ];
+    77 -> 40 [ label = "0→0" ];
+    77 -> 88 [ label = "0→0" ];
+    77 -> 6 [ label = "0→1" ];
+    77 -> 75 [ label = "0→0" ];
+    77 -> 86 [ label = "0→0" ];
+    77 -> 85 [ label = "0→0" ];
+
+    78 [ label = <78: <b>base/commitsavedatamodule</b><br/><br/>> ];
+    78 [ pos = "1.2340001,-0.39800003!" ];
+
+    80 [ label = <80: <b>VisScriptCallModule</b><br/><br/><i>kill_LightCombat<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;kill_LightCombat&quot;<br align="left"/>> ];
+    80 [ pos = "1.0020001,-0.001!" ];
+
+    81 [ label = <81: <b>VisScriptCallModule</b><br/><br/><i>start_LightCombat<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;start_LightCombat&quot;<br align="left"/>> ];
+    81 [ pos = "-0.683,-0.49600002!" ];
+
+    84 [ label = <84: <b>VisScriptCallModule</b><br/><br/><i>scriptedHeavyOutro<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scriptedHeavyOutro&quot;<br align="left"/>> ];
+    84 [ pos = "1.0020001,0.081!" ];
+
+    85 [ label = <85: <b>VisScriptCallModule</b><br/><br/><i>scripted_HeavyCombat<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scripted_HeavyCombat&quot;<br align="left"/>> ];
+    85 [ pos = "0.007,-0.74!" ];
+
+    86 [ label = <86: <b>InvokeMethodModule</b><br/><br/><i>deactivate   ch_cat_Rm04_to_Rm05<br align="left"/>_liftdoor<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;ch_cat_Rm04_to_Rm05_liftdoor&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;deactivate&quot;<br align="left"/>> ];
+    86 [ pos = "0.0050000004,-0.587!" ];
+
+    87 [ label = <87: <b>InvokeMethodModule</b><br/><br/><i>activate   ch_cat_Rm04_to_Rm05_l<br align="left"/>iftdoor<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;ch_cat_Rm04_to_Rm05_liftdoor&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;activate&quot;<br align="left"/>> ];
+    87 [ pos = "1.9860001,-0.377!" ];
+
+    88 [ label = <88: <b>VisScriptCallModule</b><br/><br/><i>lowerChest<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;ch_cat_Rm05_VSM_Keychest&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;lowerChest&quot;<br align="left"/>> ];
+    88 [ pos = "0.006,-0.21400002!" ];
+
+    89 [ label = <89: <b>VisScriptCallModule</b><br/><br/><i>raiseChest<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;ch_cat_Rm05_VSM_Keychest&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;raiseChest&quot;<br align="left"/>> ];
+    89 [ pos = "2.193,-0.544!" ];
+
+    90 [ label = <90: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    90 [ pos = "1.9860001,-0.544!" ];
+    90 -> 89 [ label = "0→0" ];
+
+    92 [ label = <92: <b>base/setspawnpointmodule</b><br/><br/><b>World</b><br align="left"/>    &quot;Overworld&quot;<br align="left"/><b>Region</b><br align="left"/>    &quot;Ch_Cat_Rm04&quot;<br align="left"/><b>SpawnPoint</b><br align="left"/>    &quot;Ch_Cat_Rm05_CombatDeathRespawn&quot;<br align="left"/><b>SpawnLoadRegion</b><br align="left"/>    &quot;StartLoadRegion&quot;<br align="left"/>> ];
+    92 [ pos = "-0.67300004,-0.317!" ];
+    92 -> 93 [ label = "0→0" ];
+
+    93 [ label = <93: <b>base/autosavemodule</b><br/><br/>> ];
+    93 [ pos = "-0.46400002,-0.317!" ];
+    93 -> 77 [ label = "0→0" ];
+
+    title [ pos = "-1.125,0.117000006!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>Ch_Cat_Rm05<br align="left"/>Combat<br align="left"/><b>Ch_Cat_Rm05_Enc01_Script</b><br align="left"/></font>> ];
+}

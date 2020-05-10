@@ -1,0 +1,90 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    9 [ label = <9: <b>ExternalCallModule</b><br/><br/><i>battle ended<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;AllDead&quot;<br align="left"/>> ];
+    9 [ shape = oval ]
+    9 [ pos = "-0.187,-0.009000001!" ];
+    9 -> 16 [ label = "0→0" ];
+    9 -> 18 [ label = "0→0" ];
+    9 -> 23 [ label = "0→0" ];
+
+    10 [ label = <10: <b>InvokeMethodModule</b><br/><br/><i>opens cb switch above door.<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;ch_cat_Rm01_crossbladeswitch&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;open&quot;<br align="left"/>> ];
+    10 [ pos = "0.358,-0.086!" ];
+    10 -> 33 [ label = "0→0" ];
+
+    15 [ label = <15: <b>TextModule</b><br/><br/><b>Text</b><br align="left"/>    &quot;Eye above door is open&quot;<br align="left"/><b>Duration</b><br align="left"/>    6<br align="left"/>> ];
+    15 [ pos = "0.572,0.028!" ];
+
+    16 [ label = <16: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    6<br align="left"/>> ];
+    16 [ pos = "0.147,-0.086!" ];
+    16 -> 10 [ label = "0→0" ];
+
+    17 [ label = <17: <b>CinematicModule</b><br/><br/><b>CinematicName</b><br align="left"/>    &quot;ch_cat_Rm01_Cine&quot;<br align="left"/>> ];
+    17 [ pos = "0.34100002,0.115!" ];
+    17 -> 31 [ label = "0→0" ];
+
+    18 [ label = <18: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    4.5<br align="left"/>> ];
+    18 [ pos = "0.147,0.115!" ];
+    18 -> 17 [ label = "0→0" ];
+
+    22 [ label = <22: <b>VisScriptCallModule</b><br/><br/><i>kill COMBAT music<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;ch_VSM_LoopingCombatMusic&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;KillAllMusic&quot;<br align="left"/>> ];
+    22 [ pos = "0.26700002,-0.58400005!" ];
+
+    23 [ label = <23: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    23 [ pos = "0.14500001,-0.275!" ];
+
+    30 [ label = <30: <b>base/storesavedatamodule</b><br/><br/>> ];
+    30 [ pos = "0.148,0.185!" ];
+
+    31 [ label = <31: <b>SoundModule</b><br/><br/><b>SoundDescFile</b><br align="left"/>    &quot;base/Music&quot;<br align="left"/><b>SoundID</b><br align="left"/>    86<br align="left"/><b>Music</b><br align="left"/>    true<br align="left"/>> ];
+    31 [ pos = "0.573,0.17300001!" ];
+
+    32 [ label = <32: <b>StartModule</b><br/><br/>> ];
+    32 [ shape = oval ]
+    32 [ pos = "-0.24700001,0.172!" ];
+
+    33 [ label = <33: <b>SaveDataModule</b><br/><br/><i>ch_cat_Rm01_gratedoorOpenedOnce<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;ch_cat_Rm01_gratedoorOpe<br align="left"/>    nedOnce&quot;)]<br align="left"/>> ];
+    33 [ pos = "0.77000004,-0.23500001!" ];
+    33 -> 35 [ label = "1→0" ];
+    33 -> 41 [ label = "1→0" ];
+
+    34 [ label = <34: <b>StartModule</b><br/><br/>> ];
+    34 [ shape = oval ]
+    34 [ pos = "0.344,-0.33!" ];
+    34 -> 37 [ label = "0→0" ];
+
+    35 [ label = <35: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    10<br align="left"/>> ];
+    35 [ pos = "1.1400001,-0.35200003!" ];
+    35 -> 42 [ label = "0→0" ];
+
+    36 [ label = <36: <b>base/setnudgewatcherdialogmodule</b><br/><br/><b>Dialog</b><br align="left"/>    &quot;vo_watcher_church_int_10&quot;<br align="left"/>> ];
+    36 [ pos = "1.5630001,-0.37500003!" ];
+
+    37 [ label = <37: <b>SaveDataModule</b><br/><br/><i>Set AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_Ch_Cat_Rm01_Enc0<br align="left"/>    1&quot;)]<br align="left"/>> ];
+    37 [ pos = "0.535,-0.33!" ];
+    37 -> 33 [ label = "0→0" ];
+
+    40 [ label = <40: <b>VisScriptCallModule</b><br/><br/><i>Global_Tutorial_Script<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;Global_Tutorial_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;AimTutorial&quot;<br align="left"/>> ];
+    40 [ pos = "1.1680001,-0.554!" ];
+
+    41 [ label = <41: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    5.6<br align="left"/>> ];
+    41 [ pos = "0.98,-0.554!" ];
+    41 -> 40 [ label = "0→0" ];
+
+    42 [ label = <42: <b>SaveDataModule</b><br/><br/><i>ch_cat_Rm01_gratedoorOpenedOnce<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;ch_cat_Rm01_gratedoorOpe<br align="left"/>    nedOnce&quot;)]<br align="left"/>> ];
+    42 [ pos = "1.33,-0.35200003!" ];
+    42 -> 36 [ label = "1→0" ];
+
+    title [ pos = "-0.24800001,0.186!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>Ch_Cat_Rm01<br align="left"/>Scripts<br align="left"/><b>ch_cat_rm01_VisSpt_Door_1</b><br align="left"/></font>> ];
+}

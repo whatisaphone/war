@@ -1,0 +1,86 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>SpawnMonsterEventModule</b><br/><br/><b>DelayTime</b><br align="left"/>    0.6<br align="left"/>> ];
+    1 [ pos = "0.19900002,-0.083000004!" ];
+    1 -> 30 [ label = "0→0" ];
+    1 -> 23 [ label = "1→0" ];
+    3 -> 1 [ style = dashed ];
+
+    2 [ label = <2: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;SM_Rm01_Enc07&quot;<br align="left"/>> ];
+    2 [ pos = "-0.065000005,-0.081!" ];
+    2 -> 1 [ label = "0→0" ];
+    2 -> 3 [ style = dashed ];
+
+    3 [ label = <3: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    3 [ shape = parallelogram ]
+    3 [ pos = "-0.011000001,-0.216!" ];
+
+    15 [ label = <15: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;SM_Rm01_Enc07_TrigReg&quot;, &quot;&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    15 [ shape = oval ]
+    15 [ pos = "-0.65400004,-0.059000004!" ];
+    15 -> 29 [ label = "0→0" ];
+    15 -> 32 [ label = "0→0" ];
+
+    23 [ label = <23: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    2<br align="left"/>> ];
+    23 [ pos = "0.54200006,-0.17400001!" ];
+    23 -> 25 [ label = "0→0" ];
+
+    25 [ label = <25: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SM_Rm01_Enc08_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;Enc07_AllDead&quot;<br align="left"/>> ];
+    25 [ pos = "0.75900006,-0.17400001!" ];
+
+    29 [ label = <29: <b>SaveDataModule</b><br/><br/><i>SaveBeforeUriel<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SM_Rm01&quot;, F<br align="left"/>    lagName=&quot;SaveBeforeUriel&quot;)]<br align="left"/>> ];
+    29 [ pos = "-0.41300002,-0.059000004!" ];
+    29 -> 2 [ label = "1→0" ];
+
+    30 [ label = <30: <b>base/settargetmodule</b><br/><br/><b>Monster</b><br align="left"/>    &quot;Smith1&quot;<br align="left"/><b>Target</b><br align="left"/>    &quot;SM_Rm01_Enc07_Sp_01_SmithTarg&quot;<br align="left"/>> ];
+    30 [ pos = "0.55600005,-0.053000003!" ];
+
+    32 [ label = <32: <b>SpawnMonsterEventModule</b><br/><br/><b>SpawnPoints</b><br align="left"/>    [&quot;SpawnPoint_BFG&quot;]<br align="left"/><b>NumberToSpawn</b><br align="left"/>    1<br align="left"/><b>DelayTime</b><br align="left"/>    0.6<br align="left"/>> ];
+    32 [ pos = "-0.377,-0.379!" ];
+    32 -> 33 [ label = "0→0" ];
+    32 -> 41 [ label = "0→0" ];
+    32 -> 35 [ style = dashed ];
+
+    33 [ label = <33: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.5<br align="left"/>> ];
+    33 [ pos = "-0.104,-0.379!" ];
+    33 -> 34 [ label = "0→0" ];
+
+    34 [ label = <34: <b>DamageActorModule</b><br/><br/><b>DamageAmount</b><br align="left"/>    2000<br align="left"/>> ];
+    34 [ pos = "0.043,-0.379!" ];
+    35 -> 34 [ style = dashed ];
+
+    35 [ label = <35: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    35 [ shape = parallelogram ]
+    35 [ pos = "-0.33200002,-0.611!" ];
+
+    38 [ label = <38: <b>ExternalCallModule</b><br/><br/><i>SpawnBFGForPlayer<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;SpawnBFGForPlayer&quot;<br align="left"/>> ];
+    38 [ shape = oval ]
+    38 [ pos = "-0.85700005,-0.46600002!" ];
+    38 -> 32 [ label = "0→1" ];
+
+    39 [ label = <39: <b>StartModule</b><br/><br/>> ];
+    39 [ shape = oval ]
+    39 [ pos = "-0.93100005,-0.291!" ];
+    39 -> 40 [ label = "0→0" ];
+
+    40 [ label = <40: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    5<br align="left"/>> ];
+    40 [ pos = "-0.753,-0.291!" ];
+    40 -> 32 [ label = "0→2" ];
+
+    41 [ label = <41: <b>base/giveitemmodule</b><br/><br/><b>Item</b><br align="left"/>    &quot;items/item_healthstone&quot;<br align="left"/>> ];
+    41 [ pos = "-0.059000004,-0.609!" ];
+
+    title [ pos = "-0.93200004,-0.052!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SM_Rm01<br align="left"/>Combat<br align="left"/><b>SM_Rm01_Enc07_Script</b><br align="left"/></font>> ];
+}

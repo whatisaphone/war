@@ -1,0 +1,56 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    121 [ label = <121: <b>TriggerEventModule</b><br/><br/><i>Draggable in gripper region<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;IC_rm04_Enc00_TrigRegDraggable<br align="left"/>    &quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    121 [ shape = oval ]
+    121 [ pos = "-1.161,-0.24800001!" ];
+    121 -> 122 [ label = "0→1" ];
+    121 -> 123 [ label = "1→1" ];
+
+    122 [ label = <122: <b>SaveDataModule</b><br/><br/><i>Set TRUE<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;ic_rm04&quot;, F<br align="left"/>    lagName=&quot;draggable_in_gripper&quot;)]<br align="left"/>> ];
+    122 [ pos = "-0.86100006,-0.22500001!" ];
+
+    123 [ label = <123: <b>SaveDataModule</b><br/><br/><i>Set FALSE<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;ic_rm04&quot;, F<br align="left"/>    lagName=&quot;draggable_in_gripper&quot;, <br align="left"/>    FlagValue=&quot;False&quot;)]<br align="left"/>> ];
+    123 [ pos = "-0.86,-0.39800003!" ];
+
+    167 [ label = <167: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;IC_rm04_gripper&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onStunned&quot;]<br align="left"/>> ];
+    167 [ pos = "-1.0780001,-0.72900003!" ];
+    167 -> 170 [ label = "0→0" ];
+
+    168 [ label = <168: <b>StartModule</b><br/><br/>> ];
+    168 [ shape = oval ]
+    168 [ pos = "-1.289,-0.72900003!" ];
+    168 -> 167 [ label = "0→0" ];
+
+    169 [ label = <169: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;IC_Rm04_Enc00_Spider_AI&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;TryKnockdownCanopy&quot;<br align="left"/>> ];
+    169 [ pos = "-0.58900005,-0.87600005!" ];
+
+    170 [ label = <170: <b>SaveDataModule</b><br/><br/><i>Is Draggable In Claw<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;ic_rm04&quot;, F<br align="left"/>    lagName=&quot;draggable_in_gripper&quot;)]<br align="left"/>> ];
+    170 [ pos = "-0.86600006,-0.72900003!" ];
+    170 -> 172 [ label = "0→0" ];
+    170 -> 169 [ label = "0→0" ];
+
+    171 [ label = <171: <b>RumbleModule</b><br/><br/><b>SourceObject</b><br align="left"/>    &quot;IC_rm04_Enc00_TrigRegInPuz&quot;<br align="left"/><b>AttenStart</b><br align="left"/>    300<br align="left"/>> ];
+    171 [ pos = "-0.44000003,-0.64500004!" ];
+
+    172 [ label = <172: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.5<br align="left"/>> ];
+    172 [ pos = "-0.634,-0.59800005!" ];
+    172 -> 171 [ label = "0→0" ];
+    172 -> 173 [ label = "0→0" ];
+
+    173 [ label = <173: <b>base/camerashakemodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;IC_rm04_Enc00_TrigRegInPuz&quot;<br align="left"/><b>HorizontalPower</b><br align="left"/>    3<br align="left"/><b>VerticalPower</b><br align="left"/>    4<br align="left"/><b>Duration</b><br align="left"/>    0.8<br align="left"/>> ];
+    173 [ pos = "-0.44300002,-0.523!" ];
+
+    title [ pos = "-1.2900001,-0.224!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>IC_Rm04<br align="left"/>combat<br align="left"/><b>IC_rm04_Enc00_Script</b><br align="left"/></font>> ];
+}

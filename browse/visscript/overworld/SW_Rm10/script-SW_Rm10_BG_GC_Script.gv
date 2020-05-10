@@ -1,0 +1,37 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>StartModule</b><br/><br/><i>remove bomb growth<br align="left"/></i><br align="left"/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "0.192,-0.25800002!" ];
+    1 -> 2 [ label = "0→0" ];
+    1 -> 4 [ label = "0→0" ];
+
+    2 [ label = <2: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;sw_rm10&quot;, F<br align="left"/>    lagName=&quot;bomb_revealed&quot;)]<br align="left"/>> ];
+    2 [ pos = "0.411,-0.25800002!" ];
+    2 -> 3 [ label = "1→2" ];
+
+    3 [ label = <3: <b>ObjectToggleModule</b><br/><br/><b>ObjectList</b><br align="left"/>    [&quot;SW_Rm10_BG_01&quot;]<br align="left"/>> ];
+    3 [ pos = "0.67200005,-0.23500001!" ];
+
+    4 [ label = <4: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;SW_Rm10_BG_GC_01&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onBreak&quot;]<br align="left"/>> ];
+    4 [ pos = "0.409,-0.564!" ];
+    4 -> 5 [ label = "0→1" ];
+    4 -> 3 [ label = "0→1" ];
+
+    5 [ label = <5: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;sw_rm10&quot;, F<br align="left"/>    lagName=&quot;bomb_revealed&quot;)]<br align="left"/>> ];
+    5 [ pos = "0.674,-0.541!" ];
+
+    title [ pos = "0.19100001,-0.23400001!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SW_Rm10<br align="left"/>script<br align="left"/><b>SW_Rm10_BG_GC_Script</b><br align="left"/></font>> ];
+}

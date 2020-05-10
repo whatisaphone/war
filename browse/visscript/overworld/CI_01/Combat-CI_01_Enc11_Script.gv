@@ -1,0 +1,54 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    54 [ label = <54: <b>VisScriptVariableInt</b><br/><br/>> ];
+    54 [ shape = parallelogram ]
+    54 [ pos = "0.46500003,-0.33900002!" ];
+
+    55 [ label = <55: <b>base/incrementmodulevar</b><br/><br/><i>increment ActiveSpawns by spawns<br align="left"/></i><br align="left"/><b>Increment</b><br align="left"/>    0<br align="left"/><b>VarName</b><br align="left"/>    &quot;ActiveSpawns&quot;<br align="left"/><b>ModuleName</b><br align="left"/>    &quot;CI_01_Script_EncounterMaster&quot;<br align="left"/>> ];
+    55 [ pos = "0.657,-0.001!" ];
+    54 -> 55 [ style = dashed ];
+
+    56 [ label = <56: <b>SpawnMonsterEventModule</b><br/><br/><b>NumberToSpawn</b><br align="left"/>    -1<br align="left"/><b>IsRandom</b><br align="left"/>    false<br align="left"/>> ];
+    56 [ pos = "0.335,-0.09!" ];
+    56 -> 57 [ label = "1→0" ];
+    56 -> 55 [ label = "0→0" ];
+    58 -> 56 [ style = dashed ];
+    56 -> 54 [ style = dashed ];
+
+    57 [ label = <57: <b>base/incrementmodulevar</b><br/><br/><i>decrement ActiveSpawns by 1<br align="left"/></i><br align="left"/><b>Operator</b><br align="left"/>    1<br align="left"/><b>VarName</b><br align="left"/>    &quot;ActiveSpawns&quot;<br align="left"/><b>ModuleName</b><br align="left"/>    &quot;CI_01_Script_EncounterMaster&quot;<br align="left"/>> ];
+    57 [ pos = "0.619,-0.113000005!" ];
+
+    58 [ label = <58: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    58 [ shape = parallelogram ]
+    58 [ pos = "-0.20700002,-0.22700001!" ];
+
+    59 [ label = <59: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;CI_01_Enc11&quot;<br align="left"/>> ];
+    59 [ pos = "-0.216,-0.089!" ];
+    59 -> 62 [ label = "0→0" ];
+    59 -> 58 [ style = dashed ];
+
+    60 [ label = <60: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;CI_01_Enc11_TrigReg_01&quot;, &quot;CI_0<br align="left"/>    1_Enc11_TrigReg_02&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    60 [ shape = oval ]
+    60 [ pos = "-0.46100003,-0.089!" ];
+    60 -> 59 [ label = "0→0" ];
+
+    62 [ label = <62: <b>base/isinviewmodule</b><br/><br/><b>AutoTriggerTime</b><br align="left"/>    &quot;5&quot;<br align="left"/><b>WidthScaleWS</b><br align="left"/>    &quot;.75&quot;<br align="left"/><b>WidthScaleNS</b><br align="left"/>    &quot;.9&quot;<br align="left"/>> ];
+    62 [ pos = "0.047000002,-0.089!" ];
+    62 -> 56 [ label = "0→0" ];
+    62 -> 56 [ label = "1→0" ];
+    58 -> 62 [ style = dashed ];
+
+    title [ pos = "-0.462,0!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>CI_01<br align="left"/>Combat<br align="left"/><b>CI_01_Enc11_Script</b><br align="left"/><br/><i>Gholen, behind subway</i><br align="left"/></font>> ];
+}

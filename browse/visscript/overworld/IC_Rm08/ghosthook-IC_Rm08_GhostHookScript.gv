@@ -1,0 +1,57 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;IC_Rm08_GhostHookSpawns&quot;<br align="left"/>> ];
+    1 [ pos = "0.384,-0.187!" ];
+    1 -> 3 [ label = "0→0" ];
+    1 -> 2 [ style = dashed ];
+
+    2 [ label = <2: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    2 [ shape = parallelogram ]
+    2 [ pos = "0.563,-0.35500002!" ];
+
+    3 [ label = <3: <b>SpawnMonsterEventModule</b><br/><br/>> ];
+    3 [ pos = "0.771,-0.187!" ];
+    2 -> 3 [ style = dashed ];
+
+    4 [ label = <4: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;IC_Rm08_GhostHookChest&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onInteractiveComplete&quot;]<br align="left"/>> ];
+    4 [ pos = "-0.16100001,-0.187!" ];
+    4 -> 8 [ label = "0→0" ];
+    4 -> 10 [ label = "0→0" ];
+
+    5 [ label = <5: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;IC_Rm08_GhostHookCorpse&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;onGhosthookInteractive&quot;<br align="left"/>> ];
+    5 [ pos = "0.29900002,-0.022000002!" ];
+
+    7 [ label = <7: <b>StartModule</b><br/><br/>> ];
+    7 [ shape = oval ]
+    7 [ pos = "-0.333,-0.187!" ];
+    7 -> 4 [ label = "0→0" ];
+
+    8 [ label = <8: <b>base/oneshotmodule</b><br/><br/>> ];
+    8 [ pos = "0.101,-0.187!" ];
+    8 -> 9 [ label = "0→0" ];
+    8 -> 1 [ label = "0→0" ];
+
+    9 [ label = <9: <b>VisScriptCallModule</b><br/><br/><i>ReachOutAndTouchSomebody<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;VSM_Achievements&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;ReachOutAndTouchSomebody&quot;<br align="left"/>> ];
+    9 [ pos = "0.30400002,-0.34600002!" ];
+
+    10 [ label = <10: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    2<br align="left"/>> ];
+    10 [ pos = "0.11000001,-0.416!" ];
+    10 -> 16 [ label = "0→0" ];
+
+    16 [ label = <16: <b>DelayModule</b><br/><br/>> ];
+    16 [ pos = "0.33200002,-0.416!" ];
+
+    title [ pos = "-0.33400002,-0.021000002!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>IC_Rm08<br align="left"/>ghosthook<br align="left"/><b>IC_Rm08_GhostHookScript</b><br align="left"/></font>> ];
+}

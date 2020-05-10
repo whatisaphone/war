@@ -1,0 +1,168 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    79 [ label = <79: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn wave01a<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;OT_Ext_Rm07_Enc02_wave01a&quot;<br align="left"/>> ];
+    79 [ pos = "3.223,-3.811!" ];
+    79 -> 174 [ label = "0→0" ];
+    79 -> 175 [ label = "3→0" ];
+
+    116 [ label = <116: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn wave02a<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;OT_Ext_Rm07_Enc02_wave02a&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    1<br align="left"/><b>DelayTime</b><br align="left"/>    0.5<br align="left"/><b>PreferInView</b><br align="left"/>    true<br align="left"/><b>PreferInRange</b><br align="left"/>    true<br align="left"/>> ];
+    116 [ pos = "3.9220002,-4.4940004!" ];
+    116 -> 181 [ label = "0→0" ];
+    116 -> 188 [ label = "3→1" ];
+    116 -> 182 [ label = "3→0" ];
+
+    144 [ label = <144: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    5<br align="left"/>> ];
+    144 [ pos = "5.537,-5.1340003!" ];
+    144 -> 172 [ label = "0→0" ];
+    144 -> 176 [ label = "0→0" ];
+
+    146 [ label = <146: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    146 [ pos = "3.7180002,-4.4940004!" ];
+    146 -> 116 [ label = "0→0" ];
+
+    147 [ label = <147: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    147 [ pos = "5.025,-5.065!" ];
+    147 -> 202 [ label = "0→0" ];
+
+    148 [ label = <148: <b>DelayModule</b><br/><br/>> ];
+    148 [ pos = "3.006,-3.811!" ];
+    148 -> 79 [ label = "0→0" ];
+
+    167 [ label = <167: <b>SaveDataModule</b><br/><br/><i>Set OT_Ext_Rm07_Enc02_Complete<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm07<br align="left"/>    &quot;, FlagName=&quot;OT_Ext_Rm07_Enc02_C<br align="left"/>    omplete&quot;)]<br align="left"/>> ];
+    167 [ pos = "6.012,-5.111!" ];
+    167 -> 179 [ label = "3→0" ];
+
+    168 [ label = <168: <b>InvokeMethodModule</b><br/><br/><i>Turn on barriers<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;OT_ExtRm07_Enc02_CombatBarrier<br align="left"/>    _01&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOn&quot;<br align="left"/>> ];
+    168 [ pos = "2.3040001,-3.811!" ];
+    168 -> 199 [ label = "0→0" ];
+
+    170 [ label = <170: <b>TriggerEventModule</b><br/><br/><i>OT_Ext_Rm07_Enc02_CombatBarrier<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;OT_Ext_Rm07_Enc02_TrgReg&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    170 [ shape = oval ]
+    170 [ pos = "1.3750001,-3.788!" ];
+    170 -> 171 [ label = "0→0" ];
+
+    171 [ label = <171: <b>SaveDataModule</b><br/><br/><i>Check if OT_Ext_Rm07_Enc02_Compl<br align="left"/>ete<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm07<br align="left"/>    &quot;, FlagName=&quot;OT_Ext_Rm07_Enc02_C<br align="left"/>    omplete&quot;)]<br align="left"/>> ];
+    171 [ pos = "1.667,-3.788!" ];
+    171 -> 178 [ label = "1→0" ];
+
+    172 [ label = <172: <b>InvokeMethodModule</b><br/><br/><i>Turn off barriers<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;OT_ExtRm07_Enc02_CombatBarrier<br align="left"/>    _01&quot;, &quot;OT_ExtRm07_Enc02_CombatBa<br align="left"/>    rrier_02&quot;, &quot;OT_ExtRm07_Enc02_Com<br align="left"/>    batBarrier_03&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOff&quot;<br align="left"/>> ];
+    172 [ pos = "5.7500005,-5.1340003!" ];
+    172 -> 167 [ label = "0→1" ];
+
+    173 [ label = <173: <b>CinematicModule</b><br/><br/><i>Play Enc02 Cinematic<br align="left"/></i><br align="left"/><b>CinematicName</b><br align="left"/>    &quot;OT_Ext_Rm07_Enc02_BarrierUpCine<br align="left"/>    matic&quot;<br align="left"/>> ];
+    173 [ pos = "2.107,-4.019!" ];
+
+    174 [ label = <174: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn wave01b<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;OT_Ext_Rm07_Enc02_wave01b&quot;<br align="left"/>> ];
+    174 [ pos = "3.551,-3.811!" ];
+    174 -> 175 [ label = "3→0" ];
+
+    175 [ label = <175: <b>AccumulatorModule</b><br/><br/><i>Wave01 dead?<br align="left"/></i><br align="left"/><b>CountTo</b><br align="left"/>    2<br align="left"/>> ];
+    175 [ pos = "3.4670002,-4.4940004!" ];
+    175 -> 146 [ label = "0→0" ];
+
+    176 [ label = <176: <b>CinematicModule</b><br/><br/><i>Play barrier down cinematic<br align="left"/></i><br align="left"/><b>CinematicName</b><br align="left"/>    &quot;OT_Ext_Rm07_Enc02_BarrierDownCi<br align="left"/>    nematic&quot;<br align="left"/>> ];
+    176 [ pos = "5.7520003,-5.307!" ];
+    176 -> 191 [ label = "0→0" ];
+
+    178 [ label = <178: <b>base/storesavedatamodule</b><br/><br/>> ];
+    178 [ pos = "1.8690001,-3.811!" ];
+    178 -> 193 [ label = "0→2" ];
+    178 -> 200 [ label = "0→0" ];
+    178 -> 173 [ label = "0→0" ];
+    178 -> 192 [ label = "0→0" ];
+
+    179 [ label = <179: <b>base/commitsavedatamodule</b><br/><br/>> ];
+    179 [ pos = "6.26,-5.157!" ];
+    179 -> 180 [ label = "0→0" ];
+
+    180 [ label = <180: <b>base/autosavemodule</b><br/><br/>> ];
+    180 [ pos = "6.5080004,-5.157!" ];
+
+    181 [ label = <181: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn wave02b<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;OT_Ext_Rm07_Enc02_PGSpawn&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    4<br align="left"/><b>DelayTime</b><br align="left"/>    0.5<br align="left"/><b>PreferInView</b><br align="left"/>    true<br align="left"/><b>PreferInRange</b><br align="left"/>    true<br align="left"/>> ];
+    181 [ pos = "4.464,-4.4940004!" ];
+    181 -> 189 [ label = "3→0" ];
+
+    182 [ label = <182: <b>AccumulatorModule</b><br/><br/><i>b&amp;g + skellies<br align="left"/></i><br align="left"/><b>CountTo</b><br align="left"/>    2<br align="left"/>> ];
+    182 [ pos = "4.7770004,-5.065!" ];
+    182 -> 147 [ label = "0→0" ];
+
+    184 [ label = <184: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn PGMediums<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;OT_Ext_Rm07_Enc02_PGSpawn&quot;<br align="left"/><b>DelayTime</b><br align="left"/>    0.5<br align="left"/><b>PreferInView</b><br align="left"/>    true<br align="left"/><b>PreferInRange</b><br align="left"/>    true<br align="left"/>> ];
+    184 [ pos = "3.555,-5.3560004!" ];
+    186 -> 184 [ style = dashed ];
+
+    185 [ label = <185: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;OT_Ext_Rm07_Enc02_PGSpawn&quot;<br align="left"/>> ];
+    185 [ pos = "3.039,-5.3560004!" ];
+    185 -> 187 [ label = "0→0" ];
+    185 -> 186 [ style = dashed ];
+
+    186 [ label = <186: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    186 [ shape = parallelogram ]
+    186 [ pos = "3.298,-5.544!" ];
+
+    187 [ label = <187: <b>base/splitlistmodule</b><br/><br/><b>MaxInGroup1</b><br align="left"/>    3<br align="left"/><b>SortByClosest</b><br align="left"/>    true<br align="left"/>> ];
+    187 [ pos = "3.2940001,-5.3560004!" ];
+    187 -> 184 [ label = "0→0" ];
+    187 -> 186 [ style = dashed ];
+    186 -> 187 [ style = dashed ];
+
+    188 [ label = <188: <b>SaveDataModule</b><br/><br/><i>Set wave02a_complete to TRUE<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm07<br align="left"/>    &quot;, FlagName=&quot;OT_Ext_Rm07_Enc02_w<br align="left"/>    ave02a_Complete&quot;)]<br align="left"/>> ];
+    188 [ pos = "4.2060003,-4.8!" ];
+
+    189 [ label = <189: <b>SaveDataModule</b><br/><br/><i>Is wave02a_complete?<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm07<br align="left"/>    &quot;, FlagName=&quot;OT_Ext_Rm07_Enc02_w<br align="left"/>    ave02a_Complete&quot;)]<br align="left"/>> ];
+    189 [ pos = "4.506,-4.8040004!" ];
+    189 -> 181 [ label = "1→0" ];
+    189 -> 182 [ label = "0→0" ];
+
+    191 [ label = <191: <b>VisScriptCallModule</b><br/><br/><i>scriptedHeavyOutro<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scriptedHeavyOutro&quot;<br align="left"/>> ];
+    191 [ pos = "6.0130005,-5.307!" ];
+
+    192 [ label = <192: <b>VisScriptCallModule</b><br/><br/><i>scripted_HeavyCombat<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scripted_HeavyCombat&quot;<br align="left"/>> ];
+    192 [ pos = "2.108,-4.1530004!" ];
+
+    193 [ label = <193: <b>ObjectToggleModule</b><br/><br/><i>Remove Portal Clean Region<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;OT_Ext_Rm07_Enc02_VoidClearReg<br align="left"/>    ion&quot;]<br align="left"/>> ];
+    193 [ pos = "2.1390002,-3.5700002!" ];
+    193 -> 195 [ label = "0→1" ];
+
+    194 [ label = <194: <b>StartModule</b><br/><br/>> ];
+    194 [ shape = oval ]
+    194 [ pos = "1.4360001,-3.5700002!" ];
+    194 -> 196 [ label = "0→0" ];
+
+    195 [ label = <195: <b>SaveDataModule</b><br/><br/><i>Portals Cleared<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm07<br align="left"/>    &quot;, FlagName=&quot;OT_Ext_Rm07_Enc02_P<br align="left"/>    ortalsCleared&quot;)]<br align="left"/>> ];
+    195 [ pos = "2.367,-3.5470002!" ];
+
+    196 [ label = <196: <b>SaveDataModule</b><br/><br/><i>Portals Cleared<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm07<br align="left"/>    &quot;, FlagName=&quot;OT_Ext_Rm07_Enc02_P<br align="left"/>    ortalsCleared&quot;)]<br align="left"/>> ];
+    196 [ pos = "1.641,-3.5700002!" ];
+    196 -> 193 [ label = "1→1" ];
+    196 -> 193 [ label = "0→2" ];
+
+    198 [ label = <198: <b>InvokeMethodModule</b><br/><br/><i>Turn on barriers<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;OT_ExtRm07_Enc02_CombatBarrier<br align="left"/>    _02&quot;, &quot;OT_ExtRm07_Enc02_CombatBa<br align="left"/>    rrier_03&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOn&quot;<br align="left"/>> ];
+    198 [ pos = "2.7340002,-3.811!" ];
+    198 -> 148 [ label = "0→0" ];
+
+    199 [ label = <199: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2.75<br align="left"/>> ];
+    199 [ pos = "2.5430002,-3.811!" ];
+    199 -> 198 [ label = "0→0" ];
+
+    200 [ label = <200: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.75<br align="left"/>> ];
+    200 [ pos = "2.1090002,-3.811!" ];
+    200 -> 168 [ label = "0→0" ];
+
+    202 [ label = <202: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn 2 black and gold<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;OT_Ext_Rm07_Enc02_wave02a&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    2<br align="left"/><b>DelayTime</b><br align="left"/>    0.5<br align="left"/><b>PreferInView</b><br align="left"/>    true<br align="left"/><b>PreferInRange</b><br align="left"/>    true<br align="left"/>> ];
+    202 [ pos = "5.2500005,-5.065!" ];
+    202 -> 144 [ label = "3→0" ];
+
+    title [ pos = "1.3740001,-3.5460002!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>OT_Ext_Rm07<br align="left"/>Combat<br align="left"/><b>OT_Ext_Rm07_Enc02_Script_01</b><br align="left"/><br/><i>OT_Ext_Rm07_Enc02_Script</i><br align="left"/></font>> ];
+}

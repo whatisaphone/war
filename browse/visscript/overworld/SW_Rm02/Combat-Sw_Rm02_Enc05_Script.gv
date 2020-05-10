@@ -1,0 +1,56 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    24 [ label = <24: <b>SpawnMonsterEventModule</b><br/><br/><i>Sw_Rm02_Enc05<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;Sw_Rm02_Enc05&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    7<br align="left"/><b>DelayTime</b><br align="left"/>    0.6<br align="left"/>> ];
+    24 [ pos = "0.597,1.1580001!" ];
+    24 -> 32 [ label = "0→0" ];
+    24 -> 31 [ style = dashed ];
+
+    28 [ label = <28: <b>SaveDataModule</b><br/><br/><i>Check for NoWater<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;SW_Rm02_NoWater&quot;)]<br align="left"/>> ];
+    28 [ pos = "-0.096,1.0660001!" ];
+    28 -> 34 [ label = "1→0" ];
+
+    30 [ label = <30: <b>base/setsplinecombatmode</b><br/><br/><b>FlyMovestate</b><br align="left"/>    &quot;FlySpline Slow&quot;<br align="left"/>> ];
+    30 [ pos = "1.0170001,1.1580001!" ];
+    31 -> 30 [ style = dashed ];
+
+    31 [ label = <31: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    31 [ shape = parallelogram ]
+    31 [ pos = "0.656,0.91700006!" ];
+
+    32 [ label = <32: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.2<br align="left"/>> ];
+    32 [ pos = "0.86800003,1.1580001!" ];
+    32 -> 30 [ label = "0→0" ];
+
+    34 [ label = <34: <b>TriggerEventModule</b><br/><br/><i>then is water<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;Sw_Rm02_Enc05_TrigReg&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>Enable</b><br align="left"/>    false<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    34 [ shape = oval ]
+    34 [ pos = "0.115,1.0660001!" ];
+    34 -> 50 [ label = "0→0" ];
+
+    48 [ label = <48: <b>ExternalCallModule</b><br/><br/><i>(from Hellgrowth.SW_Rm02_VSM_Hel<br align="left"/>lgrowth<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;StartEncounter&quot;<br align="left"/>> ];
+    48 [ shape = oval ]
+    48 [ pos = "-0.291,1.192!" ];
+    48 -> 50 [ label = "0→0" ];
+
+    49 [ label = <49: <b>StartModule</b><br/><br/>> ];
+    49 [ shape = oval ]
+    49 [ pos = "-0.27400002,1.0660001!" ];
+    49 -> 28 [ label = "0→0" ];
+
+    50 [ label = <50: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    2<br align="left"/>> ];
+    50 [ pos = "0.37600002,1.1580001!" ];
+    50 -> 24 [ label = "0→0" ];
+
+    title [ pos = "-0.29200003,1.1930001!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SW_Rm02<br align="left"/>Combat<br align="left"/><b>Sw_Rm02_Enc05_Script</b><br align="left"/></font>> ];
+}

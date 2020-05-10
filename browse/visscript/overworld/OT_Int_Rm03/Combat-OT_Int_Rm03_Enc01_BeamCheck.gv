@@ -1,0 +1,41 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>SaveDataModule</b><br/><br/><i>Check if puz_beam_hit_door<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm01<br align="left"/>    &quot;, FlagName=&quot;puz_beam_hit_door&quot;)<br align="left"/>    ]<br align="left"/>> ];
+    1 [ pos = "1.014,-0.275!" ];
+    1 -> 2 [ label = "0→0" ];
+
+    2 [ label = <2: <b>TriggerEventModule</b><br/><br/><i>OT_Int_Rm03_Enc05_TrgReg<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;OT_Int_Rm03_Enc05_TrgReg&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    2 [ shape = oval ]
+    2 [ pos = "1.2600001,-0.275!" ];
+    2 -> 6 [ label = "0→0" ];
+
+    3 [ label = <3: <b>StartModule</b><br/><br/>> ];
+    3 [ shape = oval ]
+    3 [ pos = "0.80700004,-0.275!" ];
+    3 -> 1 [ label = "0→0" ];
+
+    5 [ label = <5: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn Frosaken Angels and Wraith<br align="left"/> Scout<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;OT_Int_Rm03_Enc05&quot;<br align="left"/>> ];
+    5 [ pos = "1.7670001,-0.298!" ];
+    5 -> 7 [ label = "3→1" ];
+
+    6 [ label = <6: <b>SaveDataModule</b><br/><br/><i>Check if OT_Int_Rm03_Enc05 true<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Int_Rm03<br align="left"/>    &quot;, FlagName=&quot;OT_Int_Rm03_Enc05&quot;)<br align="left"/>    ]<br align="left"/>> ];
+    6 [ pos = "1.5280001,-0.275!" ];
+    6 -> 5 [ label = "1→0" ];
+
+    7 [ label = <7: <b>SaveDataModule</b><br/><br/><i>Set OT_Int_Rm03_Enc05<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Int_Rm03<br align="left"/>    &quot;, FlagName=&quot;OT_Int_Rm03_Enc05&quot;)<br align="left"/>    ]<br align="left"/>> ];
+    7 [ pos = "2.066,-0.344!" ];
+
+    title [ pos = "0.80600005,-0.27400002!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>OT_Int_Rm03<br align="left"/>Combat<br align="left"/><b>OT_Int_Rm03_Enc01_BeamCheck</b><br align="left"/><br/><i>Check if puz_beam_hit_door</i><br align="left"/></font>> ];
+}

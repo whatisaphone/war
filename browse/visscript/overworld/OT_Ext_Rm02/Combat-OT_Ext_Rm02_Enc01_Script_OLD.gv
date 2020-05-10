@@ -1,0 +1,191 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>TriggerEventModule</b><br/><br/><i>OT_Ext_Rm02_Enc01_TrgReg<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;OT_Ext_Rm02_Enc01_TrigReg&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "-0.014,-2.4380002!" ];
+
+    79 [ label = <79: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn Forsaken Lead (wave01a)<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;OT_Ext_Rm02_Enc01_wave01a&quot;<br align="left"/><b>DelayTime</b><br align="left"/>    0.5<br align="left"/><b>PreferInView</b><br align="left"/>    true<br align="left"/><b>PreferInRange</b><br align="left"/>    true<br align="left"/>> ];
+    79 [ pos = "0.99600005,-2.4610002!" ];
+    79 -> 169 [ label = "3→0" ];
+    79 -> 174 [ label = "1→0" ];
+    79 -> 204 [ label = "0→0" ];
+
+    106 [ label = <106: <b>SaveDataModule</b><br/><br/><i>Check if OT_Ext_Rm02_Enc01_Compl<br align="left"/>ete<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm02<br align="left"/>    &quot;, FlagName=&quot;OT_Ext_Rm02_Enc01_C<br align="left"/>    omplete&quot;)]<br align="left"/>> ];
+    106 [ pos = "0.47900003,-2.4380002!" ];
+    106 -> 185 [ label = "1→0" ];
+    106 -> 200 [ label = "1→0" ];
+    106 -> 216 [ label = "1→0" ];
+
+    124 [ label = <124: <b>SaveDataModule</b><br/><br/><i>Set OT_Ext_Rm02_Enc01_Complete<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm02<br align="left"/>    &quot;, FlagName=&quot;OT_Ext_Rm02_Enc01_C<br align="left"/>    omplete&quot;)]<br align="left"/>> ];
+    124 [ pos = "7.1410003,-1.8080001!" ];
+    124 -> 201 [ label = "3→0" ];
+
+    126 [ label = <126: <b>VisScriptCallModule</b><br/><br/><i>Open Portal Room<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;OT_Ext_Rm02_PortalGun_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;RaisePortalGun&quot;<br align="left"/>> ];
+    126 [ pos = "8.586,-1.8310001!" ];
+
+    147 [ label = <147: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    147 [ pos = "8.391001,-1.8310001!" ];
+    147 -> 126 [ label = "0→0" ];
+
+    169 [ label = <169: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    8<br align="left"/>> ];
+    169 [ pos = "6.8510003,-1.8310001!" ];
+    169 -> 124 [ label = "0→1" ];
+    169 -> 215 [ label = "0→0" ];
+
+    174 [ label = <174: <b>AccumulatorModule</b><br/><br/><i>Forsaken killed = 5?<br align="left"/></i><br align="left"/><b>CountTo</b><br align="left"/>    5<br align="left"/>> ];
+    174 [ pos = "2.338,-3.183!" ];
+    174 -> 223 [ label = "0→0" ];
+
+    179 [ label = <179: <b>AccumulatorModule</b><br/><br/><i>Goreclaw killed = 4?<br align="left"/></i><br align="left"/><b>CountTo</b><br align="left"/>    4<br align="left"/>> ];
+    179 [ pos = "4.0410004,-3.206!" ];
+    179 -> 213 [ label = "0→0" ];
+
+    180 [ label = <180: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn wraith_soldier (wave03)<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;OT_Ext_Rm02_Enc01_wave03a&quot;<br align="left"/><b>DelayTime</b><br align="left"/>    0.5<br align="left"/><b>PreferInView</b><br align="left"/>    true<br align="left"/><b>PreferInRange</b><br align="left"/>    true<br align="left"/>> ];
+    180 [ pos = "6.0480003,-4.4290004!" ];
+    180 -> 199 [ label = "0→0" ];
+
+    185 [ label = <185: <b>CinematicModule</b><br/><br/><i>Play combat intro cinematic<br align="left"/></i><br align="left"/><b>CinematicName</b><br align="left"/>    &quot;OT_Ext_Rm02_CombatIntro&quot;<br align="left"/>> ];
+    185 [ pos = "0.725,-2.548!" ];
+
+    189 [ label = <189: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;OT_Ext_Rm02_Enc01_wave02&quot;<br align="left"/>> ];
+    189 [ pos = "4.7980003,-3.206!" ];
+    189 -> 190 [ label = "0→0" ];
+    189 -> 191 [ style = dashed ];
+
+    190 [ label = <190: <b>base/splitlistmodule</b><br/><br/><i>Find 5 closest to War<br align="left"/></i><br align="left"/><b>MaxInGroup1</b><br align="left"/>    4<br align="left"/><b>SortByClosest</b><br align="left"/>    true<br align="left"/><b>ClosestToObjName</b><br align="left"/>    &quot;FallenDog2_Wave02b&quot;<br align="left"/>> ];
+    190 [ pos = "5.0950003,-3.206!" ];
+    190 -> 193 [ label = "0→0" ];
+    190 -> 191 [ style = dashed ];
+    191 -> 190 [ style = dashed ];
+
+    191 [ label = <191: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    191 [ shape = parallelogram ]
+    191 [ pos = "5.0940003,-3.4600003!" ];
+
+    192 [ label = <192: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn Goreclaw (wave 02)<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;OT_Ext_Rm02_Enc01_wave02a_Reinf<br align="left"/>    orcements_Right&quot;<br align="left"/><b>DelayTime</b><br align="left"/>    0.5<br align="left"/><b>PreferInView</b><br align="left"/>    true<br align="left"/><b>PreferInRange</b><br align="left"/>    true<br align="left"/>> ];
+    192 [ pos = "3.2240002,-3.183!" ];
+    192 -> 169 [ label = "3→0" ];
+    192 -> 179 [ label = "1→0" ];
+    192 -> 221 [ label = "0→0" ];
+
+    193 [ label = <193: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn Goreclaw reinforcements<br align="left"/></i><br align="left"/><b>DelayTime</b><br align="left"/>    0.75<br align="left"/><b>PreferInView</b><br align="left"/>    true<br align="left"/><b>PreferInRange</b><br align="left"/>    true<br align="left"/>> ];
+    193 [ pos = "5.3420005,-3.206!" ];
+    193 -> 169 [ label = "3→0" ];
+    191 -> 193 [ style = dashed ];
+
+    195 [ label = <195: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn forsaken escort (wave03)<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;OT_Ext_Rm02_Enc01_wave03b&quot;<br align="left"/><b>DelayTime</b><br align="left"/>    0.75<br align="left"/><b>PreferInView</b><br align="left"/>    true<br align="left"/><b>PreferInRange</b><br align="left"/>    true<br align="left"/>> ];
+    195 [ pos = "6.557,-4.4290004!" ];
+
+    196 [ label = <196: <b>CinematicModule</b><br/><br/><i>Play wraith intro<br align="left"/></i><br align="left"/><b>CinematicName</b><br align="left"/>    &quot;OT_Ext_Rm02_WraithCinematic&quot;<br align="left"/>> ];
+    196 [ pos = "6.0540004,-4.7180004!" ];
+
+    199 [ label = <199: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    7<br align="left"/>> ];
+    199 [ pos = "6.3550005,-4.4290004!" ];
+    199 -> 195 [ label = "0→0" ];
+
+    200 [ label = <200: <b>base/storesavedatamodule</b><br/><br/>> ];
+    200 [ pos = "0.725,-2.4610002!" ];
+    200 -> 79 [ label = "0→0" ];
+
+    201 [ label = <201: <b>base/commitsavedatamodule</b><br/><br/>> ];
+    201 [ pos = "7.3880005,-1.8540001!" ];
+    201 -> 202 [ label = "0→0" ];
+
+    202 [ label = <202: <b>base/autosavemodule</b><br/><br/>> ];
+    202 [ pos = "7.6460004,-1.8540001!" ];
+    202 -> 224 [ label = "0→0" ];
+
+    203 [ label = <203: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn Forsaken Escort (wave01b)<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;OT_Ext_Rm02_Enc01_wave01b&quot;<br align="left"/><b>DelayTime</b><br align="left"/>    0.5<br align="left"/><b>PreferInView</b><br align="left"/>    true<br align="left"/><b>PreferInRange</b><br align="left"/>    true<br align="left"/>> ];
+    203 [ pos = "1.4710001,-2.4610002!" ];
+    203 -> 169 [ label = "3→0" ];
+    203 -> 174 [ label = "1→0" ];
+    203 -> 212 [ label = "0→0" ];
+
+    204 [ label = <204: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.5<br align="left"/>> ];
+    204 [ pos = "1.297,-2.4610002!" ];
+    204 -> 203 [ label = "0→0" ];
+
+    205 [ label = <205: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    4<br align="left"/>> ];
+    205 [ pos = "5.848,-4.4290004!" ];
+
+    208 [ label = <208: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn FallenDog2 (wave02a)<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;OT_Ext_Rm02_Enc01_wave02a&quot;<br align="left"/><b>PreferInView</b><br align="left"/>    true<br align="left"/><b>PreferInRange</b><br align="left"/>    true<br align="left"/>> ];
+    208 [ pos = "2.7630002,-3.183!" ];
+    208 -> 169 [ label = "3→0" ];
+    208 -> 218 [ label = "0→0" ];
+
+    209 [ label = <209: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn FallenDog2 (wave02b)<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;OT_Ext_Rm02_Enc01_wave02b&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    1<br align="left"/><b>PreferInView</b><br align="left"/>    true<br align="left"/><b>PreferInRange</b><br align="left"/>    true<br align="left"/>> ];
+    209 [ pos = "4.4940004,-3.206!" ];
+    209 -> 189 [ label = "0→0" ];
+    209 -> 169 [ label = "3→0" ];
+
+    210 [ label = <210: <b>CinematicModule</b><br/><br/><i>Fallen Dog Reveal<br align="left"/></i><br align="left"/><b>CinematicName</b><br align="left"/>    &quot;OT_Ext_Rm02_FallenDogReveal&quot;<br align="left"/>> ];
+    210 [ pos = "2.9420002,-3.453!" ];
+
+    211 [ label = <211: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn Forsaken Reinforcements (w<br align="left"/>ave01c)<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;OT_Ext_Rm02_Enc01_wave01c&quot;<br align="left"/><b>DelayTime</b><br align="left"/>    0.5<br align="left"/><b>PreferInView</b><br align="left"/>    true<br align="left"/><b>PreferInRange</b><br align="left"/>    true<br align="left"/>> ];
+    211 [ pos = "1.9590001,-2.4610002!" ];
+    211 -> 174 [ label = "1→0" ];
+    211 -> 169 [ label = "3→0" ];
+
+    212 [ label = <212: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    6<br align="left"/>> ];
+    212 [ pos = "1.7680001,-2.4610002!" ];
+    212 -> 211 [ label = "0→0" ];
+
+    213 [ label = <213: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    4<br align="left"/>> ];
+    213 [ pos = "4.2850003,-3.206!" ];
+    213 -> 209 [ label = "0→0" ];
+
+    214 [ label = <214: <b>AccumulatorModule</b><br/><br/><i>All fallen dog and goreclaw dead<br align="left"/>?<br align="left"/></i><br align="left"/><b>CountTo</b><br align="left"/>    5<br align="left"/>> ];
+    214 [ pos = "5.617,-4.4290004!" ];
+    214 -> 205 [ label = "0→0" ];
+
+    215 [ label = <215: <b>VisScriptCallModule</b><br/><br/><i>scriptedHeavyOutro<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scriptedHeavyOutro&quot;<br align="left"/>> ];
+    215 [ pos = "7.1410003,-1.9690001!" ];
+
+    216 [ label = <216: <b>VisScriptCallModule</b><br/><br/><i>scripted_HeavyCombat<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scripted_HeavyCombat&quot;<br align="left"/>> ];
+    216 [ pos = "0.725,-2.68!" ];
+
+    217 [ label = <217: <b>ObjectMoverModule</b><br/><br/><i>Move War<br align="left"/></i><br align="left"/><b>ObjectName</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>MoveVal</b><br align="left"/>    0<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;OT_Ext_Rm02_Enc02_Warpoint&quot;<br align="left"/><b>RotateObject</b><br align="left"/>    true<br align="left"/>> ];
+    217 [ pos = "2.7630002,-3.453!" ];
+    217 -> 210 [ label = "0→0" ];
+
+    218 [ label = <218: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    218 [ pos = "3.048,-3.183!" ];
+    218 -> 192 [ label = "0→0" ];
+
+    220 [ label = <220: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn Goreclaw (wave 02)<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;OT_Ext_Rm02_Enc01_wave02a_Reinf<br align="left"/>    orcements_Left&quot;<br align="left"/><b>DelayTime</b><br align="left"/>    0.5<br align="left"/><b>PreferInView</b><br align="left"/>    true<br align="left"/><b>PreferInRange</b><br align="left"/>    true<br align="left"/>> ];
+    220 [ pos = "3.719,-3.183!" ];
+    220 -> 169 [ label = "3→0" ];
+    220 -> 179 [ label = "1→0" ];
+
+    221 [ label = <221: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.85<br align="left"/>> ];
+    221 [ pos = "3.5110002,-3.183!" ];
+    221 -> 220 [ label = "0→0" ];
+
+    223 [ label = <223: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.5<br align="left"/>> ];
+    223 [ pos = "2.578,-3.183!" ];
+    223 -> 208 [ label = "0→0" ];
+    223 -> 217 [ label = "0→0" ];
+
+    224 [ label = <224: <b>base/havocformisactivemodule</b><br/><br/>> ];
+    224 [ pos = "7.8310003,-1.8540001!" ];
+    224 -> 147 [ label = "1→0" ];
+    224 -> 225 [ label = "0→1" ];
+
+    225 [ label = <225: <b>base/triggerhavocformmodule</b><br/><br/>> ];
+    225 [ pos = "8.087001,-1.8310001!" ];
+    225 -> 147 [ label = "0→0" ];
+
+    title [ pos = "-0.015000001,-1.807!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>OT_Ext_Rm02<br align="left"/>Combat<br align="left"/><b>OT_Ext_Rm02_Enc01_Script_OLD</b><br align="left"/><br/><i>OT_Ext_Rm02_Enc01_Script</i><br align="left"/></font>> ];
+}

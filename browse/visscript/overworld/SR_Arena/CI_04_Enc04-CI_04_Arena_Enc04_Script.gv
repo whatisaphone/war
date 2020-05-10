@@ -1,0 +1,778 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    506 [ label = <506: <b>base/hudchallangecountermodule</b><br/><br/><i>Start Counter<br align="left"/></i><br align="left"/><b>DisplayLabel</b><br align="left"/>    &quot;&quot;<br align="left"/><b>InitialDenominator</b><br align="left"/>    &quot;15&quot;<br align="left"/><b>PanicModeValue</b><br align="left"/>    &quot;14&quot;<br align="left"/>> ];
+    506 [ pos = "-6.9020004,6.1770005!" ];
+    506 -> 791 [ style = dashed ];
+
+    508 [ label = <508: <b>base/hudtimermodule</b><br/><br/><i>Start Timer<br align="left"/></i><br align="left"/><b>Time</b><br align="left"/>    &quot;240&quot;<br align="left"/><b>panicTime</b><br align="left"/>    &quot;20&quot;<br align="left"/>> ];
+    508 [ pos = "-6.5870004,6.3030005!" ];
+    508 -> 884 [ label = "0→1" ];
+    508 -> 593 [ style = dashed ];
+
+    510 [ label = <510: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    15<br align="left"/>> ];
+    510 [ pos = "-6.7830005,5.7000003!" ];
+    510 -> 518 [ label = "0→0" ];
+    510 -> 512 [ label = "0→2" ];
+    510 -> 508 [ label = "0→1" ];
+    510 -> 803 [ label = "0→1" ];
+    510 -> 913 [ label = "0→0" ];
+
+    512 [ label = <512: <b>base/gatemodule</b><br/><br/>> ];
+    512 [ pos = "-5.932,6.28!" ];
+    512 -> 506 [ label = "0→1" ];
+    512 -> 802 [ label = "0→0" ];
+    512 -> 807 [ label = "0→0" ];
+    512 -> 805 [ label = "0→0" ];
+    512 -> 806 [ label = "0→0" ];
+    512 -> 804 [ label = "0→0" ];
+    512 -> 808 [ label = "0→0" ];
+    512 -> 915 [ label = "0→0" ];
+    512 -> 920 [ label = "0→0" ];
+
+    513 [ label = <513: <b>base/hudchallangestartmodule</b><br/><br/><i>Show HUD Text<br align="left"/></i><br align="left"/><b>ChallengeType</b><br align="left"/>    &quot;base/challenge_objects&quot;<br align="left"/>> ];
+    513 [ pos = "-8.271001,6.326!" ];
+    513 -> 515 [ label = "1→0" ];
+
+    515 [ label = <515: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.25<br align="left"/>> ];
+    515 [ pos = "-7.977,6.3030005!" ];
+    515 -> 597 [ label = "0→0" ];
+    515 -> 598 [ label = "0→0" ];
+    515 -> 642 [ label = "0→0" ];
+    515 -> 635 [ label = "0→0" ];
+    515 -> 721 [ label = "0→0" ];
+
+    516 [ label = <516: <b>DelayModule</b><br/><br/>> ];
+    516 [ pos = "-3.1980002,5.6790004!" ];
+    516 -> 786 [ label = "0→1" ];
+
+    518 [ label = <518: <b>base/gatemodule</b><br/><br/>> ];
+    518 [ pos = "-7.3120003,5.413!" ];
+    518 -> 597 [ label = "0→1" ];
+    518 -> 598 [ label = "0→1" ];
+
+    519 [ label = <519: <b>VisScriptCallModule</b><br/><br/><i>Challenge Complete (Success)<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SR_Arena_LoadCreatures&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;C4_Enc04_Complete&quot;<br align="left"/>> ];
+    519 [ pos = "-2.424,5.8960004!" ];
+
+    521 [ label = <521: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    5<br align="left"/>> ];
+    521 [ pos = "-2.6720002,5.8960004!" ];
+    521 -> 519 [ label = "0→0" ];
+    521 -> 532 [ label = "0→1" ];
+    521 -> 599 [ label = "0→0" ];
+    521 -> 600 [ label = "0→0" ];
+    521 -> 787 [ label = "0→1" ];
+
+    532 [ label = <532: <b>SaveDataModule</b><br/><br/><i>Set City03 Enc02 Complete<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SR_Arena&quot;, <br align="left"/>    FlagName=&quot;SR_Arena_C4_Enc04Compl<br align="left"/>    ete&quot;)]<br align="left"/>> ];
+    532 [ pos = "-2.424,5.7960005!" ];
+
+    588 [ label = <588: <b>base/hudchallangeresultmodule</b><br/><br/><i>Fail<br align="left"/></i><br align="left"/>> ];
+    588 [ pos = "-3.528,5.702!" ];
+    588 -> 516 [ label = "1→0" ];
+
+    592 [ label = <592: <b>base/intmultiply</b><br/><br/>> ];
+    592 [ pos = "-2.542,6.5360003!" ];
+    592 -> 595 [ label = "0→0" ];
+    593 -> 592 [ style = dashed ];
+    594 -> 592 [ style = dashed ];
+    592 -> 596 [ style = dashed ];
+
+    593 [ label = <593: <b>VisScriptVariableInt</b><br/><br/>> ];
+    593 [ shape = parallelogram ]
+    593 [ pos = "-6.077,5.9870005!" ];
+
+    594 [ label = <594: <b>VisScriptVariableInt</b><br/><br/><b>Value</b><br align="left"/>    5<br align="left"/><b>Name</b><br align="left"/>    &quot;5&quot;<br align="left"/>> ];
+    594 [ shape = parallelogram ]
+    594 [ pos = "-2.7770002,6.5720005!" ];
+
+    595 [ label = <595: <b>LurcherSpawnerModule</b><br/><br/><i>Spawn Lurchers<br align="left"/></i><br align="left"/><b>SpawnPoint</b><br align="left"/>    &quot;SR_Arena_SpawnLurcher&quot;<br align="left"/>> ];
+    595 [ pos = "-2.25,6.5360003!" ];
+    596 -> 595 [ style = dashed ];
+
+    596 [ label = <596: <b>VisScriptVariableInt</b><br/><br/>> ];
+    596 [ shape = parallelogram ]
+    596 [ pos = "-2.381,6.439!" ];
+
+    597 [ label = <597: <b>base/onkilledscriptmodule</b><br/><br/><i>Env Projectile<br align="left"/></i><br align="left"/><b>WeaponType</b><br align="left"/>    &quot;27&quot;<br align="left"/>> ];
+    597 [ pos = "-8.024,5.668!" ];
+    597 -> 885 [ label = "0→0" ];
+
+    598 [ label = <598: <b>base/onkilledscriptmodule</b><br/><br/><i>Env<br align="left"/></i><br align="left"/><b>WeaponType</b><br align="left"/>    &quot;26&quot;<br align="left"/>> ];
+    598 [ pos = "-8.023001,5.7730002!" ];
+    598 -> 885 [ label = "0→0" ];
+
+    599 [ label = <599: <b>VisScriptCallModule</b><br/><br/><i>Check All Arenas Complete<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SR_Arena_LoadCreatures&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;CheckAllArenasCompleteC4&quot;<br align="left"/>> ];
+    599 [ pos = "-2.423,5.6380005!" ];
+
+    600 [ label = <600: <b>VisScriptCallModule</b><br/><br/><i>Add Glyph<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SR_Arena_Runes_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;SR_Arena_C4_ActivateLargeGlyph0<br align="left"/>    4&quot;<br align="left"/>> ];
+    600 [ pos = "-2.421,5.5490003!" ];
+
+    634 [ label = <634: <b>SpawnMonsterEventModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;CI_04_Arena_Enc04_Wave_01a&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    4<br align="left"/><b>IsRandom</b><br align="left"/>    false<br align="left"/><b>DelayTime</b><br align="left"/>    1<br align="left"/>> ];
+    634 [ pos = "-6.412,7.7700005!" ];
+    634 -> 641 [ label = "1→0" ];
+    634 -> 715 [ label = "1→0" ];
+    634 -> 831 [ label = "0→0" ];
+    634 -> 810 [ style = dashed ];
+
+    635 [ label = <635: <b>CinematicModule</b><br/><br/><i>Gholen Cutscene<br align="left"/></i><br align="left"/><b>CinematicName</b><br align="left"/>    &quot;CI_04_Arena_Enc04_Cinematic_Car<br align="left"/>    Drop&quot;<br align="left"/>> ];
+    635 [ pos = "-7.169,6.3040004!" ];
+    635 -> 636 [ label = "0→0" ];
+    635 -> 506 [ label = "1→0" ];
+    635 -> 508 [ label = "1→0" ];
+
+    636 [ label = <636: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>MoveVal</b><br align="left"/>    0<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;SR_Arena_WarpWar&quot;<br align="left"/><b>RotateObject</b><br align="left"/>    true<br align="left"/>> ];
+    636 [ pos = "-6.931,6.4470005!" ];
+    636 -> 917 [ label = "0→0" ];
+
+    639 [ label = <639: <b>SpawnMonsterEventModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;CI_04_Arena_Enc04_Wave_02&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    2<br align="left"/><b>DelayTime</b><br align="left"/>    0.25<br align="left"/>> ];
+    639 [ pos = "-3.4210002,7.6370006!" ];
+    639 -> 703 [ label = "1→0" ];
+    639 -> 822 [ label = "0→0" ];
+    639 -> 833 [ label = "0→0" ];
+    639 -> 813 [ style = dashed ];
+
+    640 [ label = <640: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    4<br align="left"/>> ];
+    640 [ pos = "-3.6460001,7.6370006!" ];
+    640 -> 639 [ label = "0→0" ];
+
+    641 [ label = <641: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    3<br align="left"/>> ];
+    641 [ pos = "-6.0660005,7.747!" ];
+    641 -> 684 [ label = "0→0" ];
+
+    642 [ label = <642: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    5<br align="left"/>> ];
+    642 [ pos = "-6.6450005,7.7700005!" ];
+    642 -> 634 [ label = "0→0" ];
+
+    645 [ label = <645: <b>SpawnMonsterEventModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;CI_04_Arena_Enc04_Wave_04a&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    1<br align="left"/>> ];
+    645 [ pos = "-1.184,8.1!" ];
+    645 -> 705 [ label = "1→0" ];
+    645 -> 824 [ label = "0→0" ];
+    645 -> 836 [ label = "0→0" ];
+    645 -> 814 [ style = dashed ];
+
+    646 [ label = <646: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;CI_04_Arena_Enc04_Trauma_Trg_0<br align="left"/>    1&quot;, &quot;&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    646 [ shape = oval ]
+    646 [ pos = "-2.2740002,7.5690002!" ];
+    646 -> 651 [ label = "0→0" ];
+    646 -> 653 [ label = "1→0" ];
+
+    649 [ label = <649: <b>SpawnMonsterEventModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;CI_04_Arena_Enc04_Wave_04b&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    1<br align="left"/>> ];
+    649 [ pos = "-1.166,7.3970003!" ];
+    649 -> 705 [ label = "1→0" ];
+    649 -> 824 [ label = "0→0" ];
+    649 -> 835 [ label = "0→0" ];
+    649 -> 815 [ style = dashed ];
+
+    650 [ label = <650: <b>BranchModule</b><br/><br/><b>Branches</b><br align="left"/>    [1, 2]<br align="left"/>> ];
+    650 [ pos = "-1.4720001,7.721!" ];
+    650 -> 659 [ label = "1→0" ];
+    650 -> 661 [ label = "1→0" ];
+    650 -> 645 [ label = "1→0" ];
+    650 -> 662 [ label = "2→0" ];
+    650 -> 664 [ label = "2→0" ];
+    650 -> 649 [ label = "2→0" ];
+    654 -> 650 [ style = dashed ];
+
+    651 [ label = <651: <b>AssignModule</b><br/><br/>> ];
+    651 [ pos = "-1.8980001,7.6440005!" ];
+    651 -> 654 [ style = dashed ];
+    656 -> 651 [ style = dashed ];
+
+    653 [ label = <653: <b>AssignModule</b><br/><br/>> ];
+    653 [ pos = "-1.9010001,7.4420004!" ];
+    653 -> 654 [ style = dashed ];
+    655 -> 653 [ style = dashed ];
+
+    654 [ label = <654: <b>VisScriptVariableInt</b><br/><br/>> ];
+    654 [ shape = parallelogram ]
+    654 [ pos = "-1.6760001,7.5470004!" ];
+
+    655 [ label = <655: <b>VisScriptVariableInt</b><br/><br/><b>Value</b><br align="left"/>    2<br align="left"/><b>Name</b><br align="left"/>    &quot;2&quot;<br align="left"/>> ];
+    655 [ shape = parallelogram ]
+    655 [ pos = "-2.015,7.3450003!" ];
+
+    656 [ label = <656: <b>VisScriptVariableInt</b><br/><br/><b>Value</b><br align="left"/>    1<br align="left"/><b>Name</b><br align="left"/>    &quot;1&quot;<br align="left"/>> ];
+    656 [ shape = parallelogram ]
+    656 [ pos = "-2.0170002,7.5470004!" ];
+
+    659 [ label = <659: <b>VisScriptCallModule</b><br/><br/><i>Open Gate01<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SR_Arena_ActivateDoors&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;SR_Arena_OpenGate_01&quot;<br align="left"/>> ];
+    659 [ pos = "-1.1830001,8.176001!" ];
+
+    660 [ label = <660: <b>VisScriptCallModule</b><br/><br/><i>Close Gate01<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SR_Arena_ActivateDoors&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;SR_Arena_CloseGate_01&quot;<br align="left"/>> ];
+    660 [ pos = "-1.033,8.370001!" ];
+
+    661 [ label = <661: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    3<br align="left"/>> ];
+    661 [ pos = "-1.184,8.370001!" ];
+    661 -> 660 [ label = "0→0" ];
+
+    662 [ label = <662: <b>VisScriptCallModule</b><br/><br/><i>Open Gate02<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SR_Arena_ActivateDoors&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;SR_Arena_OpenGate_02&quot;<br align="left"/>> ];
+    662 [ pos = "-1.166,7.129!" ];
+
+    663 [ label = <663: <b>VisScriptCallModule</b><br/><br/><i>Close Gate02<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SR_Arena_ActivateDoors&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;SR_Arena_CloseGate_02&quot;<br align="left"/>> ];
+    663 [ pos = "-1.014,7.0520005!" ];
+
+    664 [ label = <664: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    3<br align="left"/>> ];
+    664 [ pos = "-1.1650001,7.0520005!" ];
+    664 -> 663 [ label = "0→0" ];
+
+    665 [ label = <665: <b>SpawnMonsterEventModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;CI_04_Arena_Enc04_Wave_01b&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    4<br align="left"/><b>IsRandom</b><br align="left"/>    false<br align="left"/><b>DelayTime</b><br align="left"/>    1<br align="left"/><b>PreferInView</b><br align="left"/>    true<br align="left"/><b>PreferInRange</b><br align="left"/>    true<br align="left"/><b>MinRange</b><br align="left"/>    50<br align="left"/>> ];
+    665 [ pos = "-5.043,7.7240005!" ];
+    665 -> 679 [ label = "1→0" ];
+    665 -> 683 [ label = "0→1" ];
+    665 -> 695 [ label = "1→0" ];
+    665 -> 820 [ label = "0→0" ];
+    665 -> 832 [ label = "0→0" ];
+    665 -> 679 [ label = "0→0" ];
+    665 -> 811 [ style = dashed ];
+    665 -> 677 [ style = dashed ];
+
+    676 [ label = <676: <b>DelayModule</b><br/><br/>> ];
+    676 [ pos = "-5.413,7.747!" ];
+    676 -> 883 [ label = "0→0" ];
+
+    677 [ label = <677: <b>VisScriptVariableInt</b><br/><br/><i>Total<br align="left"/></i><br align="left"/>> ];
+    677 [ shape = parallelogram ]
+    677 [ pos = "-4.7780004,7.5120006!" ];
+
+    679 [ label = <679: <b>IntCompareModule</b><br/><br/>> ];
+    679 [ pos = "-4.658,7.8010006!" ];
+    679 -> 683 [ label = "0→0" ];
+    679 -> 683 [ label = "2→0" ];
+    680 -> 679 [ style = dashed ];
+    677 -> 679 [ style = dashed ];
+
+    680 [ label = <680: <b>VisScriptVariableInt</b><br/><br/><b>Value</b><br align="left"/>    1<br align="left"/><b>Name</b><br align="left"/>    &quot;1&quot;<br align="left"/>> ];
+    680 [ shape = parallelogram ]
+    680 [ pos = "-4.8960004,7.7950006!" ];
+
+    683 [ label = <683: <b>base/oneshotmodule</b><br/><br/>> ];
+    683 [ pos = "-5.3440003,7.9400005!" ];
+    683 -> 684 [ label = "0→0" ];
+
+    684 [ label = <684: <b>base/gatemodule</b><br/><br/>> ];
+    684 [ pos = "-5.584,7.747!" ];
+    684 -> 676 [ label = "0→0" ];
+
+    687 [ label = <687: <b>SpawnMonsterEventModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;CI_04_Arena_Enc04_Wave03&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    2<br align="left"/><b>DelayTime</b><br align="left"/>    1<br align="left"/><b>PreferInView</b><br align="left"/>    true<br align="left"/><b>PreferInRange</b><br align="left"/>    true<br align="left"/><b>MinRange</b><br align="left"/>    50<br align="left"/>> ];
+    687 [ pos = "-3.4190001,8.103001!" ];
+    687 -> 727 [ label = "2→0" ];
+    687 -> 822 [ label = "0→0" ];
+    687 -> 834 [ label = "0→0" ];
+    687 -> 812 [ style = dashed ];
+
+    695 [ label = <695: <b>VisScriptCallModule</b><br/><br/><i>Inc Undead<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CI_04_Arena_Enc04_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;IncUndead&quot;<br align="left"/>> ];
+    695 [ pos = "-4.663,7.8820004!" ];
+
+    702 [ label = <702: <b>ExternalCallModule</b><br/><br/><i>Inc Undead<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;IncUndead&quot;<br align="left"/>> ];
+    702 [ shape = oval ]
+    702 [ pos = "-3.923,7.6370006!" ];
+    702 -> 640 [ label = "0→0" ];
+
+    703 [ label = <703: <b>VisScriptCallModule</b><br/><br/><i>Inc Duskbats<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CI_04_Arena_Enc04_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;IncDuskbats&quot;<br align="left"/>> ];
+    703 [ pos = "-3.081,7.6140003!" ];
+
+    704 [ label = <704: <b>ExternalCallModule</b><br/><br/><i>Inc Duskbats<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;IncDuskbats&quot;<br align="left"/>> ];
+    704 [ shape = oval ]
+    704 [ pos = "-3.936,8.103001!" ];
+    704 -> 757 [ label = "0→0" ];
+
+    705 [ label = <705: <b>AccumulatorModule</b><br/><br/><b>ResetOnComplete</b><br align="left"/>    true<br align="left"/>> ];
+    705 [ pos = "-0.423,7.622!" ];
+    705 -> 710 [ label = "0→0" ];
+    705 -> 712 [ label = "0→0" ];
+
+    710 [ label = <710: <b>VisScriptCallModule</b><br/><br/><i>Reset Plague<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CI_04_Arena_Enc04_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;ResetPlague&quot;<br align="left"/>> ];
+    710 [ pos = "-0.13800001,7.622!" ];
+
+    712 [ label = <712: <b>VisScriptCallModule</b><br/><br/><i>Reset Duskbats<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CI_04_Arena_Enc04_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;ResetDuskbats&quot;<br align="left"/>> ];
+    712 [ pos = "-0.136,7.53!" ];
+
+    715 [ label = <715: <b>VisScriptCallModule</b><br/><br/><i>Inc UndeadCine<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CI_04_Arena_Enc04_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;IncUndeadCine&quot;<br align="left"/>> ];
+    715 [ pos = "-6.0660005,7.8740005!" ];
+
+    716 [ label = <716: <b>ExternalCallModule</b><br/><br/><i>Inc Undead Cine<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;IncUndeadCine&quot;<br align="left"/>> ];
+    716 [ shape = oval ]
+    716 [ pos = "-3.926,7.7260003!" ];
+    716 -> 640 [ label = "0→0" ];
+
+    721 [ label = <721: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    721 [ pos = "-8.348001,7.9160004!" ];
+    721 -> 741 [ label = "0→0" ];
+    721 -> 746 [ label = "0→0" ];
+
+    727 [ label = <727: <b>VisScriptCallModule</b><br/><br/><i>Spawn Trauma<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CI_04_Arena_Enc04_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;SpawnTrauma&quot;<br align="left"/>> ];
+    727 [ pos = "-3.081,8.057!" ];
+
+    734 [ label = <734: <b>SpawnerEventModule</b><br/><br/><b>SpawnPoints</b><br align="left"/>    [&quot;CI_04_Arena_Enc04_Spawn_Vehicl<br align="left"/>    e_01&quot;]<br align="left"/><b>ClassToSpawn</b><br align="left"/>    &quot;ci_vehicles01/ci_car01_arena&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    1<br align="left"/><b>NameRoot</b><br align="left"/>    &quot;ci_car&quot;<br align="left"/>> ];
+    734 [ pos = "-7.7640004,7.9160004!" ];
+    734 -> 751 [ label = "0→0" ];
+
+    737 [ label = <737: <b>SpawnerEventModule</b><br/><br/><b>SpawnPoints</b><br align="left"/>    [&quot;CI_04_Arena_Enc04_Spawn_Vehicl<br align="left"/>    e_02&quot;]<br align="left"/><b>ClassToSpawn</b><br align="left"/>    &quot;ci_vehicles01/ci_car02_blue_are<br align="left"/>    na&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    1<br align="left"/><b>NameRoot</b><br align="left"/>    &quot;bluecar&quot;<br align="left"/>> ];
+    737 [ pos = "-7.543,8.397!" ];
+    737 -> 753 [ label = "0→0" ];
+
+    740 [ label = <740: <b>SpawnerEventModule</b><br/><br/><b>SpawnPoints</b><br align="left"/>    [&quot;CI_04_Arena_Enc04_Spawn_Vehicl<br align="left"/>    e_03&quot;]<br align="left"/><b>ClassToSpawn</b><br align="left"/>    &quot;ci_vehicles01/ci_taxi_arena&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    1<br align="left"/><b>NameRoot</b><br align="left"/>    &quot;taxi&quot;<br align="left"/>> ];
+    740 [ pos = "-7.333,8.835!" ];
+    740 -> 755 [ label = "0→0" ];
+
+    741 [ label = <741: <b>DelayModule</b><br/><br/>> ];
+    741 [ pos = "-8.1310005,8.397!" ];
+    741 -> 742 [ label = "0→0" ];
+    741 -> 745 [ label = "0→0" ];
+
+    742 [ label = <742: <b>DelayModule</b><br/><br/>> ];
+    742 [ pos = "-7.9080005,8.835!" ];
+    742 -> 744 [ label = "0→0" ];
+
+    744 [ label = <744: <b>EffectModule</b><br/><br/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;v<br align="left"/>    fx_shared&quot;, EffectName=&quot;PortalFl<br align="left"/>    oor_Med01_TEMP&quot;, StartDelay=1.25<br align="left"/>    , Duration=5, TargetNode=&quot;CI_04_<br align="left"/>    Arena_Enc04_Spawn_Vehicle_03_Por<br align="left"/>> ];
+    744 [ pos = "-7.7370005,8.835!" ];
+    744 -> 749 [ label = "0→0" ];
+
+    745 [ label = <745: <b>EffectModule</b><br/><br/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;v<br align="left"/>    fx_shared&quot;, EffectName=&quot;PortalFl<br align="left"/>    oor_Med01_TEMP&quot;, StartDelay=1.25<br align="left"/>    , Duration=5, TargetNode=&quot;CI_04_<br align="left"/>    Arena_Enc04_Spawn_Vehicle_02_Por<br align="left"/>> ];
+    745 [ pos = "-7.9440002,8.397!" ];
+    745 -> 748 [ label = "0→0" ];
+
+    746 [ label = <746: <b>EffectModule</b><br/><br/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;v<br align="left"/>    fx_shared&quot;, EffectName=&quot;PortalFl<br align="left"/>    oor_Med01_TEMP&quot;, StartDelay=1.25<br align="left"/>    , Duration=5, TargetNode=&quot;CI_04_<br align="left"/>    Arena_Enc04_Spawn_Vehicle_01_Por<br align="left"/>> ];
+    746 [ pos = "-8.166,7.9160004!" ];
+    746 -> 747 [ label = "0→0" ];
+
+    747 [ label = <747: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    747 [ pos = "-7.9420004,7.9160004!" ];
+    747 -> 734 [ label = "0→0" ];
+
+    748 [ label = <748: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    748 [ pos = "-7.7240005,8.397!" ];
+    748 -> 737 [ label = "0→0" ];
+
+    749 [ label = <749: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    749 [ pos = "-7.5200005,8.835!" ];
+    749 -> 740 [ label = "0→0" ];
+
+    751 [ label = <751: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;ci_car1&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onDestroyed&quot;]<br align="left"/>> ];
+    751 [ pos = "-7.3780003,7.9160004!" ];
+    751 -> 893 [ label = "0→0" ];
+
+    753 [ label = <753: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;bluecar1&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onDestroyed&quot;]<br align="left"/>> ];
+    753 [ pos = "-7.1660004,8.397!" ];
+    753 -> 894 [ label = "0→0" ];
+
+    755 [ label = <755: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;taxi1&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onDestroyed&quot;]<br align="left"/>> ];
+    755 [ pos = "-6.959,8.835!" ];
+    755 -> 895 [ label = "0→0" ];
+
+    757 [ label = <757: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    2<br align="left"/>> ];
+    757 [ pos = "-3.6480002,8.103001!" ];
+    757 -> 687 [ label = "0→0" ];
+
+    758 [ label = <758: <b>ExternalCallModule</b><br/><br/><i>Spawn Trauma<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;SpawnTrauma&quot;<br align="left"/>> ];
+    758 [ shape = oval ]
+    758 [ pos = "-1.9310001,7.866!" ];
+    758 -> 903 [ label = "0→0" ];
+
+    760 [ label = <760: <b>ExternalCallModule</b><br/><br/><i>Reset Plague<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;ResetPlague&quot;<br align="left"/>> ];
+    760 [ shape = oval ]
+    760 [ pos = "-3.9320002,8.016001!" ];
+    760 -> 757 [ label = "0→2" ];
+
+    761 [ label = <761: <b>ExternalCallModule</b><br/><br/><i>Reset Duskbats<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;ResetDuskbats&quot;<br align="left"/>> ];
+    761 [ shape = oval ]
+    761 [ pos = "-3.9250002,7.4880004!" ];
+    761 -> 640 [ label = "0→2" ];
+
+    775 [ label = <775: <b>ExternalCallModule</b><br/><br/><i>Stop Enc04 Undead Cine<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;StopCombatUndeadCine&quot;<br align="left"/>> ];
+    775 [ shape = oval ]
+    775 [ pos = "-6.6970005,7.576!" ];
+    775 -> 634 [ label = "0→2" ];
+
+    777 [ label = <777: <b>ExternalCallModule</b><br/><br/><i>Stop Enc04 Duskbat<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;StopCombatDuskbat&quot;<br align="left"/>> ];
+    777 [ shape = oval ]
+    777 [ pos = "-3.6520002,7.4440002!" ];
+    777 -> 639 [ label = "0→2" ];
+
+    778 [ label = <778: <b>ExternalCallModule</b><br/><br/><i>Stop Enc04 Trauma<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;StopCombatTrauma&quot;<br align="left"/>> ];
+    778 [ shape = oval ]
+    778 [ pos = "-1.7590001,7.643!" ];
+    778 -> 650 [ label = "0→2" ];
+    778 -> 649 [ label = "0→2" ];
+    778 -> 645 [ label = "0→2" ];
+    778 -> 825 [ label = "0→0" ];
+
+    779 [ label = <779: <b>ExternalCallModule</b><br/><br/><i>Stop Enc04 Plague<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;StopCombatPlague&quot;<br align="left"/>> ];
+    779 [ shape = oval ]
+    779 [ pos = "-3.6510003,7.9090004!" ];
+    779 -> 687 [ label = "0→2" ];
+
+    781 [ label = <781: <b>AttachEventModule</b><br/><br/><i>When War Dies Disable HUD<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;War&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onDead&quot;]<br align="left"/>> ];
+    781 [ pos = "-6.6190004,6.642!" ];
+    781 -> 512 [ label = "0→2" ];
+    781 -> 508 [ label = "0→1" ];
+    781 -> 506 [ label = "0→1" ];
+
+    782 [ label = <782: <b>StartModule</b><br/><br/>> ];
+    782 [ shape = oval ]
+    782 [ pos = "-6.839,6.642!" ];
+    782 -> 781 [ label = "0→0" ];
+
+    783 [ label = <783: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.5<br align="left"/>> ];
+    783 [ pos = "-2.6820002,6.3650002!" ];
+    783 -> 592 [ label = "0→0" ];
+
+    785 [ label = <785: <b>VisScriptCallModule</b><br/><br/><i>Reset Success/Fail<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SR_Arena_LoadCreatures&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;ResetSuccessFailC4&quot;<br align="left"/>> ];
+    785 [ pos = "-8.269,6.209!" ];
+
+    786 [ label = <786: <b>SaveDataModule</b><br/><br/><i>Set City04 Fail True<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SR_Arena&quot;, <br align="left"/>    FlagName=&quot;SR_Arena_C4_Fail&quot;)]<br align="left"/>> ];
+    786 [ pos = "-3.0260003,5.702!" ];
+    786 -> 886 [ label = "3→0" ];
+
+    787 [ label = <787: <b>SaveDataModule</b><br/><br/><i>Set City04 Success True<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SR_Arena&quot;, <br align="left"/>    FlagName=&quot;SR_Arena_C4_Success&quot;)]<br align="left"/>> ];
+    787 [ pos = "-2.4160001,5.4630003!" ];
+
+    789 [ label = <789: <b>base/gatemodule</b><br/><br/>> ];
+    789 [ pos = "-7.2450004,6.1310005!" ];
+    789 -> 890 [ label = "0→0" ];
+
+    790 [ label = <790: <b>IntCompareModule</b><br/><br/>> ];
+    790 [ pos = "-7.477,6.142!" ];
+    790 -> 789 [ label = "2→2" ];
+    790 -> 789 [ label = "1→0" ];
+    791 -> 790 [ style = dashed ];
+    792 -> 790 [ style = dashed ];
+
+    791 [ label = <791: <b>VisScriptVariableInt</b><br/><br/>> ];
+    791 [ shape = parallelogram ]
+    791 [ pos = "-7.451,5.9620004!" ];
+
+    792 [ label = <792: <b>VisScriptVariableInt</b><br/><br/><b>Value</b><br align="left"/>    15<br align="left"/><b>Name</b><br align="left"/>    &quot;15&quot;<br align="left"/>> ];
+    792 [ shape = parallelogram ]
+    792 [ pos = "-7.6590004,6.1150002!" ];
+
+    794 [ label = <794: <b>base/setcharactermovestate</b><br/><br/><b>MoveState</b><br align="left"/>    &quot;Idle&quot;<br align="left"/>> ];
+    794 [ pos = "-5.248,5.852!" ];
+    794 -> 827 [ label = "0→0" ];
+
+    797 [ label = <797: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    797 [ pos = "-4.224,5.852!" ];
+    797 -> 798 [ label = "0→0" ];
+
+    798 [ label = <798: <b>base/spawnlurcherflagsmodule</b><br/><br/><i>spawn souls again<br align="left"/></i><br align="left"/>> ];
+    798 [ pos = "-4.065,5.852!" ];
+    798 -> 882 [ label = "0→0" ];
+
+    802 [ label = <802: <b>VisScriptCallModule</b><br/><br/><i>Stop Enc04 Undead<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CI_04_Arena_Enc04_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;StopCombatUndead&quot;<br align="left"/>> ];
+    802 [ pos = "-5.44,6.596!" ];
+
+    803 [ label = <803: <b>SaveDataModule</b><br/><br/><i>CI_04_Enc04_Complete<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;ShadowArena<br align="left"/>    &quot;, FlagName=&quot;CI_04_Enc04_Complet<br align="left"/>    e&quot;)]<br align="left"/>> ];
+    803 [ pos = "-6.354,5.723!" ];
+    803 -> 802 [ label = "3→0" ];
+    803 -> 807 [ label = "3→0" ];
+    803 -> 805 [ label = "3→0" ];
+    803 -> 806 [ label = "3→0" ];
+    803 -> 804 [ label = "3→0" ];
+    803 -> 808 [ label = "3→0" ];
+    803 -> 914 [ label = "3→0" ];
+    803 -> 920 [ label = "3→0" ];
+
+    804 [ label = <804: <b>VisScriptCallModule</b><br/><br/><i>Stop Enc04 Plague<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CI_04_Arena_Enc04_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;StopCombatPlague&quot;<br align="left"/>> ];
+    804 [ pos = "-5.4360003,6.2500005!" ];
+
+    805 [ label = <805: <b>VisScriptCallModule</b><br/><br/><i>Stop Enc04 Duskbat<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CI_04_Arena_Enc04_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;StopCombatDuskbat&quot;<br align="left"/>> ];
+    805 [ pos = "-5.439,6.4220004!" ];
+
+    806 [ label = <806: <b>VisScriptCallModule</b><br/><br/><i>Stop Enc04 Trauma<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CI_04_Arena_Enc04_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;StopCombatTrauma&quot;<br align="left"/>> ];
+    806 [ pos = "-5.4360003,6.3320003!" ];
+
+    807 [ label = <807: <b>VisScriptCallModule</b><br/><br/><i>Stop Enc04 Undead Cine<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CI_04_Arena_Enc04_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;StopCombatUndeadCine&quot;<br align="left"/>> ];
+    807 [ pos = "-5.439,6.51!" ];
+
+    808 [ label = <808: <b>VisScriptCallModule</b><br/><br/><i>StopCarSpawns<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CI_04_Arena_Enc04_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;StopCarSpawns&quot;<br align="left"/>> ];
+    808 [ pos = "-5.4350004,6.163!" ];
+
+    809 [ label = <809: <b>ExternalCallModule</b><br/><br/><i>StopCarSpawns<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;StopCarSpawns&quot;<br align="left"/>> ];
+    809 [ shape = oval ]
+    809 [ pos = "-8.071,8.076!" ];
+    809 -> 734 [ label = "0→2" ];
+    809 -> 737 [ label = "0→2" ];
+    809 -> 740 [ label = "0→2" ];
+    809 -> 893 [ label = "0→2" ];
+    809 -> 895 [ label = "0→2" ];
+    809 -> 894 [ label = "0→2" ];
+
+    810 [ label = <810: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    810 [ shape = parallelogram ]
+    810 [ pos = "-6.328,7.5020003!" ];
+
+    811 [ label = <811: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    811 [ shape = parallelogram ]
+    811 [ pos = "-4.894,7.4600005!" ];
+
+    812 [ label = <812: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    812 [ shape = parallelogram ]
+    812 [ pos = "-3.3300002,7.8030005!" ];
+
+    813 [ label = <813: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    813 [ shape = parallelogram ]
+    813 [ pos = "-3.328,7.3740005!" ];
+
+    814 [ label = <814: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    814 [ shape = parallelogram ]
+    814 [ pos = "-0.929,7.833!" ];
+
+    815 [ label = <815: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    815 [ shape = parallelogram ]
+    815 [ pos = "-0.89900005,7.149!" ];
+
+    820 [ label = <820: <b>SaveDataModule</b><br/><br/><i>CI_04_Enc04_Complete<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;ShadowArena<br align="left"/>    &quot;, FlagName=&quot;CI_04_Enc04_Complet<br align="left"/>    e&quot;)]<br align="left"/>> ];
+    820 [ pos = "-4.6210003,7.6170006!" ];
+    820 -> 821 [ label = "0→0" ];
+
+    821 [ label = <821: <b>DamageActorModule</b><br/><br/><b>DamageAmount</b><br align="left"/>    10000<br align="left"/><b>ApplyKnockBackUp</b><br align="left"/>    true<br align="left"/><b>DamageLocation</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>KnockBack</b><br align="left"/>    1000<br align="left"/><b>KnockUp</b><br align="left"/>    1000<br align="left"/>> ];
+    821 [ pos = "-4.3970003,7.5940003!" ];
+    811 -> 821 [ style = dashed ];
+
+    822 [ label = <822: <b>SaveDataModule</b><br/><br/><i>CI_04_Enc04_Complete<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;ShadowArena<br align="left"/>    &quot;, FlagName=&quot;CI_04_Enc04_Complet<br align="left"/>    e&quot;)]<br align="left"/>> ];
+    822 [ pos = "-2.6390002,7.906!" ];
+    822 -> 823 [ label = "0→0" ];
+
+    823 [ label = <823: <b>DamageActorModule</b><br/><br/><b>DamageAmount</b><br align="left"/>    10000<br align="left"/><b>ApplyKnockBackUp</b><br align="left"/>    true<br align="left"/><b>DamageLocation</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>KnockBack</b><br align="left"/>    1000<br align="left"/><b>KnockUp</b><br align="left"/>    1000<br align="left"/>> ];
+    823 [ pos = "-2.404,7.879!" ];
+    812 -> 823 [ style = dashed ];
+    813 -> 823 [ style = dashed ];
+
+    824 [ label = <824: <b>SaveDataModule</b><br/><br/><i>CI_04_Enc04_Complete<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;ShadowArena<br align="left"/>    &quot;, FlagName=&quot;CI_04_Enc04_Complet<br align="left"/>    e&quot;)]<br align="left"/>> ];
+    824 [ pos = "-0.93700004,7.7530003!" ];
+    824 -> 825 [ label = "0→0" ];
+
+    825 [ label = <825: <b>DamageActorModule</b><br/><br/><b>DamageAmount</b><br align="left"/>    10000<br align="left"/><b>ApplyKnockBackUp</b><br align="left"/>    true<br align="left"/><b>DamageLocation</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>KnockBack</b><br align="left"/>    1000<br align="left"/><b>KnockUp</b><br align="left"/>    1000<br align="left"/>> ];
+    825 [ pos = "-0.688,7.6390004!" ];
+    814 -> 825 [ style = dashed ];
+    815 -> 825 [ style = dashed ];
+
+    826 [ label = <826: <b>base/spawnlurcherflagsmodule</b><br/><br/><i>no souls<br align="left"/></i><br align="left"/><b>canSpawnSoulLurchers</b><br align="left"/>    false<br align="left"/><b>canSpawnHealthLurchers</b><br align="left"/>    false<br align="left"/><b>canSpawnWrathLurchers</b><br align="left"/>    false<br align="left"/>> ];
+    826 [ pos = "-4.676,5.852!" ];
+    826 -> 828 [ label = "0→0" ];
+
+    827 [ label = <827: <b>base/setfactionoverride</b><br/><br/>> ];
+    827 [ pos = "-4.931,5.852!" ];
+    827 -> 826 [ label = "0→0" ];
+    827 -> 922 [ label = "0→0" ];
+    830 -> 827 [ style = dashed ];
+
+    828 [ label = <828: <b>DamageActorModule</b><br/><br/><b>DamageAmount</b><br align="left"/>    10000<br align="left"/><b>ApplyKnockBackUp</b><br align="left"/>    true<br align="left"/><b>DamageLocation</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>KnockBack</b><br align="left"/>    1000<br align="left"/><b>KnockUp</b><br align="left"/>    1000<br align="left"/>> ];
+    828 [ pos = "-4.4300003,5.852!" ];
+    828 -> 797 [ label = "0→0" ];
+    828 -> 900 [ label = "0→0" ];
+    830 -> 828 [ style = dashed ];
+
+    830 [ label = <830: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    830 [ shape = parallelogram ]
+    830 [ pos = "-4.2180004,6.6570005!" ];
+
+    831 [ label = <831: <b>base/mergelistmodule</b><br/><br/>> ];
+    831 [ pos = "-6.078,7.5400004!" ];
+    831 -> 830 [ style = dashed ];
+    830 -> 831 [ style = dashed ];
+    810 -> 831 [ style = dashed ];
+
+    832 [ label = <832: <b>base/mergelistmodule</b><br/><br/>> ];
+    832 [ pos = "-4.572,7.445!" ];
+    832 -> 830 [ style = dashed ];
+    830 -> 832 [ style = dashed ];
+    811 -> 832 [ style = dashed ];
+
+    833 [ label = <833: <b>base/mergelistmodule</b><br/><br/>> ];
+    833 [ pos = "-3.0640001,7.4470005!" ];
+    833 -> 830 [ style = dashed ];
+    830 -> 833 [ style = dashed ];
+    813 -> 833 [ style = dashed ];
+
+    834 [ label = <834: <b>base/mergelistmodule</b><br/><br/>> ];
+    834 [ pos = "-3.084,7.9560003!" ];
+    834 -> 830 [ style = dashed ];
+    830 -> 834 [ style = dashed ];
+    812 -> 834 [ style = dashed ];
+
+    835 [ label = <835: <b>base/mergelistmodule</b><br/><br/>> ];
+    835 [ pos = "-0.537,7.2230005!" ];
+    835 -> 830 [ style = dashed ];
+    830 -> 835 [ style = dashed ];
+    815 -> 835 [ style = dashed ];
+
+    836 [ label = <836: <b>base/mergelistmodule</b><br/><br/>> ];
+    836 [ pos = "-0.65000004,8.1!" ];
+    836 -> 830 [ style = dashed ];
+    830 -> 836 [ style = dashed ];
+    814 -> 836 [ style = dashed ];
+
+    843 [ label = <843: <b>TextModule</b><br/><br/><b>Text</b><br align="left"/>    &quot;car 1&quot;<br align="left"/><b>Duration</b><br align="left"/>    0.5<br align="left"/>> ];
+    843 [ pos = "-6.8410006,8.922001!" ];
+
+    844 [ label = <844: <b>TextModule</b><br/><br/><b>Text</b><br align="left"/>    &quot;car 2&quot;<br align="left"/><b>Duration</b><br align="left"/>    0.5<br align="left"/>> ];
+    844 [ pos = "-7.0400004,8.468!" ];
+
+    845 [ label = <845: <b>TextModule</b><br/><br/><b>Text</b><br align="left"/>    &quot;car 3&quot;<br align="left"/><b>Duration</b><br align="left"/>    0.5<br align="left"/>> ];
+    845 [ pos = "-7.2120004,7.984!" ];
+
+    862 [ label = <862: <b>base/listsize</b><br/><br/>> ];
+    862 [ pos = "-4.3100004,5.506!" ];
+    862 -> 864 [ label = "0→0" ];
+    862 -> 863 [ style = dashed ];
+    830 -> 862 [ style = dashed ];
+
+    863 [ label = <863: <b>VisScriptVariableInt</b><br/><br/>> ];
+    863 [ shape = parallelogram ]
+    863 [ pos = "-4.175,5.4!" ];
+
+    864 [ label = <864: <b>DebugOutModule</b><br/><br/><b>Message</b><br align="left"/>    &quot;MasterCheck&quot;<br align="left"/>> ];
+    864 [ pos = "-4.059,5.506!" ];
+    864 -> 866 [ label = "0→0" ];
+    863 -> 864 [ style = dashed ];
+
+    865 [ label = <865: <b>StartModule</b><br/><br/>> ];
+    865 [ shape = oval ]
+    865 [ pos = "-4.578,5.506!" ];
+    865 -> 862 [ label = "0→0" ];
+
+    866 [ label = <866: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    866 [ pos = "-4.19,5.28!" ];
+    866 -> 862 [ label = "0→0" ];
+
+    882 [ label = <882: <b>SaveDataModule</b><br/><br/><i>CI_04_Enc04_Complete<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;ShadowArena<br align="left"/>    &quot;, FlagName=&quot;CI_04_Enc04_Complet<br align="left"/>    e&quot;)]<br align="left"/>> ];
+    882 [ pos = "-3.8320003,5.852!" ];
+    882 -> 588 [ label = "1→1" ];
+    882 -> 521 [ label = "0→0" ];
+    882 -> 783 [ label = "0→0" ];
+    882 -> 908 [ label = "0→0" ];
+
+    883 [ label = <883: <b>SaveDataModule</b><br/><br/><i>CI_04_Enc04_Complete<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;ShadowArena<br align="left"/>    &quot;, FlagName=&quot;CI_04_Enc04_Complet<br align="left"/>    e&quot;)]<br align="left"/>> ];
+    883 [ pos = "-5.255,7.747!" ];
+    883 -> 665 [ label = "1→0" ];
+
+    884 [ label = <884: <b>SaveDataModule</b><br/><br/><i>CI_04_Enc04_FailedOnTimeout<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;ShadowArena<br align="left"/>    &quot;, FlagName=&quot;CI_04_Enc04_FailedO<br align="left"/>    nTimeout&quot;)]<br align="left"/>> ];
+    884 [ pos = "-6.281,6.326!" ];
+    884 -> 512 [ label = "3→0" ];
+
+    885 [ label = <885: <b>SaveDataModule</b><br/><br/><i>CI_04_Enc04_FailedOnTimeout<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;ShadowArena<br align="left"/>    &quot;, FlagName=&quot;CI_04_Enc04_FailedO<br align="left"/>    nTimeout&quot;)]<br align="left"/>> ];
+    885 [ pos = "-7.7760005,5.723!" ];
+    885 -> 510 [ label = "1→0" ];
+    885 -> 790 [ label = "1→0" ];
+
+    886 [ label = <886: <b>VisScriptCallModule</b><br/><br/><i>Challenge Complete (Fail)<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SR_Arena_LoadCreatures&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;C4_Enc04_Complete&quot;<br align="left"/>> ];
+    886 [ pos = "-2.8230002,5.656!" ];
+
+    890 [ label = <890: <b>SoundModule</b><br/><br/><i>UI_counter_positive<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;shadow_arena/sr_common_sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    113<br align="left"/>> ];
+    890 [ pos = "-7.076,6.1310005!" ];
+    890 -> 506 [ label = "0→2" ];
+
+    893 [ label = <893: <b>DelayModule</b><br/><br/>> ];
+    893 [ pos = "-7.7830005,7.6380005!" ];
+    893 -> 746 [ label = "0→0" ];
+
+    894 [ label = <894: <b>DelayModule</b><br/><br/>> ];
+    894 [ pos = "-7.7850003,8.168!" ];
+    894 -> 745 [ label = "0→0" ];
+
+    895 [ label = <895: <b>DelayModule</b><br/><br/>> ];
+    895 [ pos = "-7.6370006,8.612!" ];
+    895 -> 744 [ label = "0→0" ];
+
+    896 [ label = <896: <b>ExternalCallModule</b><br/><br/><i>Stop Enc04 Undead<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;StopCombatUndead&quot;<br align="left"/>> ];
+    896 [ shape = oval ]
+    896 [ pos = "-5.301,7.544!" ];
+    896 -> 665 [ label = "0→2" ];
+
+    899 [ label = <899: <b>VisScriptCallModule</b><br/><br/><i>Kill Enc04 Plague<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CI_04_Arena_Enc04_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;KillCombatPlague&quot;<br align="left"/>> ];
+    899 [ pos = "-4.0360003,6.2040005!" ];
+
+    900 [ label = <900: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.25<br align="left"/>> ];
+    900 [ pos = "-4.227,6.2040005!" ];
+    900 -> 901 [ label = "0→0" ];
+    900 -> 899 [ label = "0→0" ];
+
+    901 [ label = <901: <b>base/gatemodule</b><br/><br/>> ];
+    901 [ pos = "-4.223,6.018!" ];
+    901 -> 900 [ label = "0→0" ];
+
+    902 [ label = <902: <b>ExternalCallModule</b><br/><br/><i>KillCombatPlague<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;KillCombatPlague&quot;<br align="left"/>> ];
+    902 [ shape = oval ]
+    902 [ pos = "-2.825,7.7330003!" ];
+    902 -> 823 [ label = "0→0" ];
+
+    903 [ label = <903: <b>DelayModule</b><br/><br/>> ];
+    903 [ pos = "-1.692,7.866!" ];
+    903 -> 650 [ label = "0→0" ];
+
+    904 [ label = <904: <b>StartModule</b><br/><br/>> ];
+    904 [ shape = oval ]
+    904 [ pos = "-8.829,6.326!" ];
+    904 -> 905 [ label = "0→0" ];
+
+    905 [ label = <905: <b>SaveDataModule</b><br/><br/><i>IntroEyeGateCine_Complete = Chec<br align="left"/>k Data<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SR_Arena&quot;, <br align="left"/>    FlagName=&quot;IntroEyeGateCine_Compl<br align="left"/>    ete&quot;)]<br align="left"/>> ];
+    905 [ pos = "-8.573,6.326!" ];
+    905 -> 906 [ label = "1→0" ];
+    905 -> 907 [ label = "0→1" ];
+    905 -> 513 [ label = "0→0" ];
+    905 -> 785 [ label = "0→0" ];
+
+    906 [ label = <906: <b>DelayModule</b><br/><br/><i>.2<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    0.2<br align="left"/>> ];
+    906 [ pos = "-8.552,6.1790004!" ];
+    906 -> 905 [ label = "0→0" ];
+
+    907 [ label = <907: <b>SaveDataModule</b><br/><br/><i>IntroEyeGateCine_Complete = Fals<br align="left"/>e<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SR_Arena&quot;, <br align="left"/>    FlagName=&quot;IntroEyeGateCine_Compl<br align="left"/>    ete&quot;, FlagValue=&quot;False&quot;)]<br align="left"/>> ];
+    907 [ pos = "-8.266001,6.1260004!" ];
+
+    908 [ label = <908: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    5<br align="left"/>> ];
+    908 [ pos = "-2.676,6.1330004!" ];
+    908 -> 909 [ label = "0→0" ];
+    908 -> 910 [ label = "0→0" ];
+    908 -> 912 [ label = "0→0" ];
+
+    909 [ label = <909: <b>VisScriptCallModule</b><br/><br/><i>Health Chest<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SR_Arena_ActivateChests&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;SummonChest01&quot;<br align="left"/>> ];
+    909 [ pos = "-2.4410002,6.215!" ];
+
+    910 [ label = <910: <b>VisScriptCallModule</b><br/><br/><i>Wrath Chest OR soul chest - ADD<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SR_Arena_ActivateChests&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;SummonChest05&quot;<br align="left"/>> ];
+    910 [ pos = "-2.4410002,6.1330004!" ];
+
+    911 [ label = <911: <b>VisScriptCallModule</b><br/><br/><i>activates eye, drops gate.<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SR_Arena_VSM_EyeBarrier&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;ArenaSuccess&quot;<br align="left"/>> ];
+    911 [ pos = "-2.2580001,6.0520005!" ];
+
+    912 [ label = <912: <b>SoundModule</b><br/><br/><b>SoundDescFile</b><br align="left"/>    &quot;base/Music&quot;<br align="left"/><b>SoundID</b><br align="left"/>    616<br align="left"/>> ];
+    912 [ pos = "-2.44,6.0520005!" ];
+    912 -> 911 [ label = "0→0" ];
+
+    913 [ label = <913: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    5<br align="left"/>> ];
+    913 [ pos = "-6.7840004,5.919!" ];
+    913 -> 506 [ label = "0→1" ];
+
+    914 [ label = <914: <b>SoundModule</b><br/><br/><i>stinger_shadow_arena_success<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;base/Music&quot;<br align="left"/><b>SoundID</b><br align="left"/>    2040<br align="left"/>> ];
+    914 [ pos = "-6.0800004,5.583!" ];
+
+    915 [ label = <915: <b>SoundModule</b><br/><br/><i>stinger_shadow_arena_fail<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;base/Music&quot;<br align="left"/><b>SoundID</b><br align="left"/>    2039<br align="left"/>> ];
+    915 [ pos = "-5.7180004,6.61!" ];
+
+    917 [ label = <917: <b>VisScriptCallModule</b><br/><br/><i>scripted_HeavyCombat<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scripted_HeavyCombat&quot;<br align="left"/>> ];
+    917 [ pos = "-6.7310004,6.4480004!" ];
+
+    920 [ label = <920: <b>base/havocformisactivemodule</b><br/><br/>> ];
+    920 [ pos = "-5.5420003,5.8750005!" ];
+    920 -> 921 [ label = "0→0" ];
+    920 -> 794 [ label = "1→0" ];
+
+    921 [ label = <921: <b>base/setcharactermovestate</b><br/><br/><b>MoveState</b><br align="left"/>    &quot;Havoc Transition Out (Havoc Ske<br align="left"/>    leton)&quot;<br align="left"/>> ];
+    921 [ pos = "-5.249,5.985!" ];
+    921 -> 827 [ label = "0→0" ];
+
+    922 [ label = <922: <b>VisScriptCallModule</b><br/><br/><i>scriptedHeavyOutro<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scriptedHeavyOutro&quot;<br align="left"/>> ];
+    922 [ pos = "-4.676,5.7440004!" ];
+
+    title [ pos = "-8.830001,8.923!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SR_Arena<br align="left"/>CI_04_Enc04<br align="left"/><b>CI_04_Arena_Enc04_Script</b><br align="left"/></font>> ];
+}

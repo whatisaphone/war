@@ -1,0 +1,266 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;OT_Ext_Rm08_ElevatorSB&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>MoveVal</b><br align="left"/>    10<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;OT_Ext_Rm08_ElevatorSB_Down&quot;<br align="left"/><b>EaseIn</b><br align="left"/>    2<br align="left"/><b>EaseOut</b><br align="left"/>    2<br align="left"/>> ];
+    1 [ pos = "0.49500003,-0.11100001!" ];
+    1 -> 3 [ label = "1→1" ];
+    1 -> 4 [ label = "1→0" ];
+    1 -> 13 [ label = "0→0" ];
+    1 -> 14 [ label = "0→0" ];
+    1 -> 14 [ label = "1→1" ];
+    1 -> 15 [ label = "1→0" ];
+    1 -> 22 [ label = "0→2" ];
+    1 -> 22 [ label = "1→3" ];
+    1 -> 25 [ label = "1→1" ];
+    1 -> 34 [ label = "1→0" ];
+    1 -> 37 [ label = "1→0" ];
+    1 -> 55 [ label = "1→0" ];
+
+    2 [ label = <2: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;OT_Ext_Rm08_ElevatorSB&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>MoveVal</b><br align="left"/>    30<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;OT_Ext_Rm08_ElevatorSB_Up&quot;<br align="left"/><b>EaseIn</b><br align="left"/>    2<br align="left"/><b>EaseOut</b><br align="left"/>    2<br align="left"/>> ];
+    2 [ pos = "0.50100005,-0.545!" ];
+    2 -> 3 [ label = "1→3" ];
+    2 -> 4 [ label = "1→0" ];
+    2 -> 16 [ label = "0→0" ];
+    2 -> 17 [ label = "1→1" ];
+    2 -> 17 [ label = "0→0" ];
+    2 -> 18 [ label = "1→0" ];
+    2 -> 22 [ label = "0→2" ];
+    2 -> 22 [ label = "1→3" ];
+    2 -> 24 [ label = "1→1" ];
+    2 -> 36 [ label = "1→0" ];
+    2 -> 38 [ label = "1→0" ];
+
+    3 [ label = <3: <b>SwitchModule</b><br/><br/>> ];
+    3 [ pos = "0.492,-0.312!" ];
+    3 -> 1 [ label = "0→0" ];
+    3 -> 2 [ label = "1→0" ];
+
+    4 [ label = <4: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Ext_Rm08_GearCrank04&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;reset&quot;<br align="left"/>> ];
+    4 [ pos = "0.933,-0.296!" ];
+
+    5 [ label = <5: <b>StartModule</b><br/><br/>> ];
+    5 [ shape = oval ]
+    5 [ pos = "-0.030000001,-0.312!" ];
+    5 -> 6 [ label = "0→0" ];
+    5 -> 7 [ label = "0→0" ];
+    5 -> 11 [ label = "0→0" ];
+    5 -> 42 [ label = "0→0" ];
+    5 -> 43 [ label = "0→0" ];
+
+    6 [ label = <6: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Ext_Rm08_GearCrank04&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onTrigger&quot;]<br align="left"/>> ];
+    6 [ pos = "0.22100002,-0.312!" ];
+    6 -> 3 [ label = "0→0" ];
+
+    7 [ label = <7: <b>ObjectAttacherModule</b><br/><br/><b>ChildObject</b><br align="left"/>    &quot;OT_Ext_Rm08_Beam_Emitter&quot;<br align="left"/><b>ParentObject</b><br align="left"/>    &quot;OT_Ext_Rm08_ElevatorSB&quot;<br align="left"/><b>ParentNode</b><br align="left"/>    &quot;OT_Ext_Rm08_ElevatorSB_Node&quot;<br align="left"/><b>Relative</b><br align="left"/>    true<br align="left"/>> ];
+    7 [ pos = "0.22500001,-0.45400003!" ];
+
+    8 [ label = <8: <b>base/onhitscriptmodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;OT_Ext_Rm08_BreakWall&quot;<br align="left"/><b>WeaponType</b><br align="left"/>    1<br align="left"/><b>DamageType</b><br align="left"/>    0<br align="left"/>> ];
+    8 [ pos = "0.223,0.053000003!" ];
+    8 -> 9 [ label = "0→2" ];
+    8 -> 20 [ label = "0→0" ];
+
+    9 [ label = <9: <b>ObjectToggleModule</b><br/><br/><b>ObjectList</b><br align="left"/>    [&quot;OT_Ext_Rm08_BreakWall&quot;]<br align="left"/>> ];
+    9 [ pos = "0.42800003,0.09900001!" ];
+
+    11 [ label = <11: <b>ObjectAttacherModule</b><br/><br/><b>ChildObject</b><br align="left"/>    &quot;OT_Ext_Rm08_GearCrank04&quot;<br align="left"/><b>ParentObject</b><br align="left"/>    &quot;OT_Ext_Rm08_ElevatorSB&quot;<br align="left"/><b>ParentNode</b><br align="left"/>    &quot;OT_Ext_Rm08_ElevatorSB_Node&quot;<br align="left"/><b>Relative</b><br align="left"/>    true<br align="left"/>> ];
+    11 [ pos = "0.22900002,-0.716!" ];
+
+    13 [ label = <13: <b>SoundModule</b><br/><br/><i>Start<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;ot_com/Tower_Props_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    3<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;OT_Ext_Rm08_ElevatorSB&quot;<br align="left"/>> ];
+    13 [ pos = "0.90800005,0.901!" ];
+
+    14 [ label = <14: <b>SoundModule</b><br/><br/><i>Loop<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;ot_com/Tower_Props_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    5<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;OT_Ext_Rm08_ElevatorSB&quot;<br align="left"/>> ];
+    14 [ pos = "0.91200006,0.74600005!" ];
+
+    15 [ label = <15: <b>SoundModule</b><br/><br/><i>Stop<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;ot_com/Tower_Props_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    4<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;OT_Ext_Rm08_ElevatorSB&quot;<br align="left"/>> ];
+    15 [ pos = "0.91400003,0.597!" ];
+
+    16 [ label = <16: <b>SoundModule</b><br/><br/><i>Start<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;ot_com/Tower_Props_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    3<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;OT_Ext_Rm08_ElevatorSB&quot;<br align="left"/>> ];
+    16 [ pos = "0.887,-0.50100005!" ];
+
+    17 [ label = <17: <b>SoundModule</b><br/><br/><i>Loop<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;ot_com/Tower_Props_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    5<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;OT_Ext_Rm08_ElevatorSB&quot;<br align="left"/>> ];
+    17 [ pos = "0.89100003,-0.656!" ];
+
+    18 [ label = <18: <b>SoundModule</b><br/><br/><i>Stop<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;ot_com/Tower_Props_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    4<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;OT_Ext_Rm08_ElevatorSB&quot;<br align="left"/>> ];
+    18 [ pos = "0.89300007,-0.80500007!" ];
+
+    20 [ label = <20: <b>SoundModule</b><br/><br/><i>TEMP BREAKABLE SOUND<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;ot_com/Tower_Props_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    57<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;OT_Ext_Rm08_BreakWall&quot;<br align="left"/>> ];
+    20 [ pos = "0.45000002,0.27400002!" ];
+
+    22 [ label = <22: <b>PlayEffectModule</b><br/><br/><i>Elevator Effect<br align="left"/></i><br align="left"/><b>TargetObjs</b><br align="left"/>    [&quot;OT_Ext_Rm08_ElevatorSB&quot;]<br align="left"/><b>Package</b><br align="left"/>    &quot;ot_ext_rm08&quot;<br align="left"/><b>Effect</b><br align="left"/>    &quot;OT_Ext_Rm08_ElevatorSB_Move&quot;<br align="left"/>> ];
+    22 [ pos = "1.307,-0.28800002!" ];
+
+    23 [ label = <23: <b>StartModule</b><br/><br/>> ];
+    23 [ shape = oval ]
+    23 [ pos = "0.69100004,-0.29500002!" ];
+    23 -> 4 [ label = "0→0" ];
+
+    24 [ label = <24: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm08<br align="left"/>    &quot;, FlagName=&quot;OT_Ext_Rm08_Elevato<br align="left"/>    rSB_Down&quot;, FlagValue=&quot;False&quot;)]<br align="left"/>> ];
+    24 [ pos = "0.86500007,-0.97700006!" ];
+
+    25 [ label = <25: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm08<br align="left"/>    &quot;, FlagName=&quot;OT_Ext_Rm08_Elevato<br align="left"/>    rSB_Down&quot;)]<br align="left"/>> ];
+    25 [ pos = "0.9620001,-0.093!" ];
+
+    26 [ label = <26: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;OT_Ext_Rm08_ElevatorSB&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>MoveVal</b><br align="left"/>    0.25<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;OT_Ext_Rm08_ElevatorSB_Down&quot;<br align="left"/>> ];
+    26 [ pos = "0.268,-0.814!" ];
+    26 -> 3 [ label = "1→1" ];
+
+    27 [ label = <27: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;OT_Ext_Rm08_ElevatorSB&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>MoveVal</b><br align="left"/>    4<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;OT_Ext_Rm08_ElevatorSB_Up&quot;<br align="left"/>> ];
+    27 [ pos = "0.27800003,-1.024!" ];
+
+    29 [ label = <29: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm08<br align="left"/>    &quot;, FlagName=&quot;OT_Ext_Rm08_Elevato<br align="left"/>    rSB_Down&quot;)]<br align="left"/>> ];
+    29 [ pos = "-0.074,-0.92100006!" ];
+    29 -> 26 [ label = "0→0" ];
+    29 -> 27 [ label = "1→0" ];
+
+    30 [ label = <30: <b>StartModule</b><br/><br/>> ];
+    30 [ shape = oval ]
+    30 [ pos = "-0.34,-0.92100006!" ];
+    30 -> 29 [ label = "0→0" ];
+
+    33 [ label = <33: <b>base/setspawnpointmodule</b><br/><br/><b>World</b><br align="left"/>    &quot;Overworld&quot;<br align="left"/><b>Region</b><br align="left"/>    &quot;OT_Ext_Rm09&quot;<br align="left"/><b>SpawnPoint</b><br align="left"/>    &quot;OT_Ext_Rm09_Respawn&quot;<br align="left"/><b>SpawnLoadRegion</b><br align="left"/>    &quot;StartLoadRegion&quot;<br align="left"/>> ];
+    33 [ pos = "1.1750001,-1.121!" ];
+
+    34 [ label = <34: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.1<br align="left"/>> ];
+    34 [ pos = "0.97,0.09!" ];
+    34 -> 35 [ label = "0→0" ];
+
+    35 [ label = <35: <b>base/setspawnpointmodule</b><br/><br/><b>World</b><br align="left"/>    &quot;Overworld&quot;<br align="left"/><b>Region</b><br align="left"/>    &quot;OT_Ext_Rm08&quot;<br align="left"/><b>SpawnPoint</b><br align="left"/>    &quot;OT_Ext_Rm08_Respawn&quot;<br align="left"/><b>SpawnLoadRegion</b><br align="left"/>    &quot;StartLoadRegion&quot;<br align="left"/>> ];
+    35 [ pos = "1.1960001,0.09!" ];
+
+    36 [ label = <36: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.1<br align="left"/>> ];
+    36 [ pos = "0.87200004,-1.121!" ];
+    36 -> 33 [ label = "0→0" ];
+
+    37 [ label = <37: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;OT_Ext_Rm08_VisMod_Elevator&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;RemoveElevatorBlocker&quot;<br align="left"/>> ];
+    37 [ pos = "0.731,-0.21300001!" ];
+
+    38 [ label = <38: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;OT_Ext_Rm08_VisMod_Elevator&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;AddElevatorBlocker&quot;<br align="left"/>> ];
+    38 [ pos = "0.73200005,-0.44400004!" ];
+
+    39 [ label = <39: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Ext_Rm08_Beam_Emitter&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;open&quot;<br align="left"/>> ];
+    39 [ pos = "1.511,0.314!" ];
+    39 -> 56 [ label = "0→0" ];
+
+    40 [ label = <40: <b>SaveDataModule</b><br/><br/><i>check for emitter open<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm08<br align="left"/>    &quot;, FlagName=&quot;OT_Ext_Rm08_Beam_Em<br align="left"/>    itter_Open&quot;)]<br align="left"/>> ];
+    40 [ pos = "1.2720001,0.337!" ];
+    40 -> 39 [ label = "1→0" ];
+    40 -> 41 [ label = "1→1" ];
+    40 -> 44 [ label = "1→0" ];
+
+    41 [ label = <41: <b>SaveDataModule</b><br/><br/><i>set emitter open<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm08<br align="left"/>    &quot;, FlagName=&quot;OT_Ext_Rm08_Beam_Em<br align="left"/>    itter_Open&quot;)]<br align="left"/>> ];
+    41 [ pos = "1.521,0.46!" ];
+
+    42 [ label = <42: <b>ObjectAttacherModule</b><br/><br/><b>ChildObject</b><br align="left"/>    &quot;OT_Ext_Rm08_BEMovePiece&quot;<br align="left"/><b>ParentObject</b><br align="left"/>    &quot;OT_Ext_Rm08_ElevatorSB&quot;<br align="left"/><b>ParentNode</b><br align="left"/>    &quot;OT_Ext_Rm08_ElevatorSB_Node&quot;<br align="left"/><b>Relative</b><br align="left"/>    true<br align="left"/>> ];
+    42 [ pos = "0.22600001,-0.53800005!" ];
+
+    43 [ label = <43: <b>ObjectAttacherModule</b><br/><br/><b>ChildObject</b><br align="left"/>    &quot;OT_Ext_Rm08_BE_SmallStand&quot;<br align="left"/><b>ParentObject</b><br align="left"/>    &quot;OT_Ext_Rm08_ElevatorSB&quot;<br align="left"/><b>ParentNode</b><br align="left"/>    &quot;OT_Ext_Rm08_ElevatorSB_Node&quot;<br align="left"/><b>Relative</b><br align="left"/>    true<br align="left"/>> ];
+    43 [ pos = "0.22900002,-0.62700003!" ];
+
+    44 [ label = <44: <b>VisScriptCallModule</b><br/><br/><i>Raise Reflector<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;OT_Ext_Rm08_Beam_Reflector_02_S<br align="left"/>    cript&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;raise reflector&quot;<br align="left"/>> ];
+    44 [ pos = "1.5130001,0.16100001!" ];
+
+    47 [ label = <47: <b>StartModule</b><br/><br/><i>deactivate switch if beam hasn't<br align="left"/> been transfered<br align="left"/></i><br align="left"/>> ];
+    47 [ shape = oval ]
+    47 [ pos = "-1.171,-1.521!" ];
+    47 -> 69 [ label = "0→0" ];
+
+    49 [ label = <49: <b>InvokeMethodModule</b><br/><br/><i>activate<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Ext_Rm08_GearCrank04&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;activate&quot;<br align="left"/>> ];
+    49 [ pos = "0.38200003,-1.475!" ];
+    49 -> 52 [ label = "0→0" ];
+
+    50 [ label = <50: <b>InvokeMethodModule</b><br/><br/><i>deactivate<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Ext_Rm08_GearCrank04&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;deactivate&quot;<br align="left"/>> ];
+    50 [ pos = "-0.596,-1.7770001!" ];
+    50 -> 70 [ label = "0→2" ];
+
+    51 [ label = <51: <b>ExternalCallModule</b><br/><br/><b>EventName</b><br align="left"/>    &quot;activate&quot;<br align="left"/>> ];
+    51 [ shape = oval ]
+    51 [ pos = "-1.1700001,-1.6070001!" ];
+    51 -> 69 [ label = "0→0" ];
+
+    52 [ label = <52: <b>DelayModule</b><br/><br/>> ];
+    52 [ pos = "0.59300005,-1.475!" ];
+    52 -> 54 [ label = "0→0" ];
+
+    54 [ label = <54: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Ext_Rm08_GearCrank04&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;reset&quot;<br align="left"/>> ];
+    54 [ pos = "0.77800006,-1.475!" ];
+
+    55 [ label = <55: <b>SaveDataModule</b><br/><br/><i>check for emitter has beam<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm08<br align="left"/>    &quot;, FlagName=&quot;OT_Ext_Rm08_Beam_Em<br align="left"/>    itter&quot;)]<br align="left"/>> ];
+    55 [ pos = "0.96900004,0.337!" ];
+    55 -> 40 [ label = "0→0" ];
+
+    56 [ label = <56: <b>InvokeMethodModule</b><br/><br/><i>deactivate gear crank<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Ext_Rm08_GearCrank04&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;deactivate&quot;<br align="left"/>> ];
+    56 [ pos = "1.764,0.314!" ];
+
+    57 [ label = <57: <b>SaveDataModule</b><br/><br/><i>check for elevator down<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm08<br align="left"/>    &quot;, FlagName=&quot;OT_Ext_Rm08_Elevato<br align="left"/>    rSB_Down&quot;)]<br align="left"/>> ];
+    57 [ pos = "-0.094000004,-1.452!" ];
+    57 -> 58 [ label = "0→0" ];
+    57 -> 49 [ label = "1→0" ];
+
+    58 [ label = <58: <b>SaveDataModule</b><br/><br/><i>check beam transferred<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm08<br align="left"/>    &quot;, FlagName=&quot;OT_Ext_Rm08_Beam_Re<br align="left"/>    ceiver_01&quot;)]<br align="left"/>> ];
+    58 [ pos = "0.132,-1.2870001!" ];
+    58 -> 49 [ label = "0→0" ];
+    58 -> 59 [ label = "1→0" ];
+
+    59 [ label = <59: <b>InvokeMethodModule</b><br/><br/><i>deactivate<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Ext_Rm08_GearCrank04&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;deactivate&quot;<br align="left"/>> ];
+    59 [ pos = "0.38300002,-1.3100001!" ];
+
+    62 [ label = <62: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Ext_Rm08_GearCrank_fail&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;reset&quot;<br align="left"/>> ];
+    62 [ pos = "-0.67200005,-0.99200004!" ];
+
+    63 [ label = <63: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Ext_Rm08_GearCrank_fail&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;glowOff&quot;<br align="left"/>> ];
+    63 [ pos = "-1.095,-0.99200004!" ];
+    63 -> 65 [ label = "0→0" ];
+
+    64 [ label = <64: <b>StartModule</b><br/><br/><i>fail switch interaction<br align="left"/></i><br align="left"/>> ];
+    64 [ shape = oval ]
+    64 [ pos = "-1.7090001,-0.96900004!" ];
+    64 -> 71 [ label = "0→0" ];
+
+    65 [ label = <65: <b>DelayModule</b><br/><br/>> ];
+    65 [ pos = "-0.86200005,-0.99200004!" ];
+    65 -> 62 [ label = "0→0" ];
+
+    66 [ label = <66: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Ext_Rm08_GearCrank_fail&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onInteractiveComplete&quot;]<br align="left"/>> ];
+    66 [ pos = "-1.0990001,-1.2010001!" ];
+    66 -> 62 [ label = "0→0" ];
+
+    67 [ label = <67: <b>ObjectToggleModule</b><br/><br/><i>remove fail crank<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;OT_Ext_Rm08_GearCrank_fail&quot;]<br align="left"/>> ];
+    67 [ pos = "-0.597,-1.475!" ];
+    67 -> 68 [ label = "0→1" ];
+
+    68 [ label = <68: <b>ObjectToggleModule</b><br/><br/><i>add normal crank<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;OT_Ext_Rm08_GearCrank04&quot;]<br align="left"/>> ];
+    68 [ pos = "-0.34,-1.452!" ];
+    68 -> 57 [ label = "0→0" ];
+    68 -> 6 [ label = "0→0" ];
+    68 -> 11 [ label = "0→0" ];
+
+    69 [ label = <69: <b>SaveDataModule</b><br/><br/><i>check for emitter has beam<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm08<br align="left"/>    &quot;, FlagName=&quot;OT_Ext_Rm08_Beam_Em<br align="left"/>    itter&quot;)]<br align="left"/>> ];
+    69 [ pos = "-0.86500007,-1.521!" ];
+    69 -> 67 [ label = "0→2" ];
+    69 -> 50 [ label = "1→0" ];
+
+    70 [ label = <70: <b>ObjectToggleModule</b><br/><br/><i>remove normal crank<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;OT_Ext_Rm02_GearCrank&quot;]<br align="left"/>> ];
+    70 [ pos = "-0.36600003,-1.7310001!" ];
+
+    71 [ label = <71: <b>SaveDataModule</b><br/><br/><i>check for emitter has beam<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm08<br align="left"/>    &quot;, FlagName=&quot;OT_Ext_Rm08_Beam_Em<br align="left"/>    itter&quot;)]<br align="left"/>> ];
+    71 [ pos = "-1.5100001,-0.96900004!" ];
+    71 -> 72 [ label = "1→0" ];
+    71 -> 66 [ label = "1→0" ];
+
+    72 [ label = <72: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.5<br align="left"/>> ];
+    72 [ pos = "-1.2850001,-0.99200004!" ];
+    72 -> 63 [ label = "0→0" ];
+
+    title [ pos = "-1.71,0.90200007!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>OT_Ext_Rm08<br align="left"/>Scripts<br align="left"/><b>OT_Ext_Rm08_VisMod_ElevatorSB</b><br align="left"/></font>> ];
+}

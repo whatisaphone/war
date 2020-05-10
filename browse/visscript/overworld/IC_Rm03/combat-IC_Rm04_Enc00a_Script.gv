@@ -1,0 +1,72 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    2 [ label = <2: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;IC_Rm04_Enc00a&quot;<br align="left"/>> ];
+    2 [ pos = "0.29000002,-0.27400002!" ];
+    2 -> 4 [ label = "0→0" ];
+    2 -> 3 [ style = dashed ];
+
+    3 [ label = <3: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    3 [ shape = parallelogram ]
+    3 [ pos = "0.57600003,-0.39400002!" ];
+
+    4 [ label = <4: <b>SpawnMonsterEventModule</b><br/><br/><b>NumberToSpawn</b><br align="left"/>    4<br align="left"/>> ];
+    4 [ pos = "0.80700004,-0.27400002!" ];
+    4 -> 93 [ label = "0→0" ];
+    4 -> 96 [ label = "0→0" ];
+    3 -> 4 [ style = dashed ];
+    4 -> 90 [ style = dashed ];
+
+    90 [ label = <90: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    90 [ shape = parallelogram ]
+    90 [ pos = "1.258,-0.44000003!" ];
+
+    93 [ label = <93: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;IC&quot;, FlagNa<br align="left"/>    me=&quot;IC_Rm08_Canopy_Spider_Dead&quot;)<br align="left"/>    ]<br align="left"/>> ];
+    93 [ pos = "1.256,-0.128!" ];
+    93 -> 94 [ label = "0→0" ];
+
+    94 [ label = <94: <b>DelayModule</b><br/><br/>> ];
+    94 [ pos = "1.4900001,-0.128!" ];
+    94 -> 95 [ label = "0→0" ];
+
+    95 [ label = <95: <b>InvokeMethodModule</b><br/><br/><b>MethodName</b><br align="left"/>    &quot;setBehaviorAmbient&quot;<br align="left"/>> ];
+    95 [ pos = "1.697,-0.128!" ];
+    90 -> 95 [ style = dashed ];
+
+    96 [ label = <96: <b>AttachEventModule</b><br/><br/><b>EventNames</b><br align="left"/>    [&quot;onHit&quot;]<br align="left"/>> ];
+    96 [ pos = "1.488,-0.31100002!" ];
+    96 -> 97 [ label = "0→0" ];
+    90 -> 96 [ style = dashed ];
+
+    97 [ label = <97: <b>InvokeMethodModule</b><br/><br/><b>MethodName</b><br align="left"/>    &quot;setBehaviorCombat&quot;<br align="left"/>> ];
+    97 [ pos = "1.7210001,-0.31100002!" ];
+    97 -> 96 [ label = "0→2" ];
+    90 -> 97 [ style = dashed ];
+
+    98 [ label = <98: <b>StartModule</b><br/><br/>> ];
+    98 [ shape = oval ]
+    98 [ pos = "0.071,-0.27400002!" ];
+    98 -> 2 [ label = "0→0" ];
+
+    99 [ label = <99: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;IC_Rm03_Enc00_Remove_TrgReg&quot;, <br align="left"/>    &quot;&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    99 [ shape = oval ]
+    99 [ pos = "0.832,-0.628!" ];
+    99 -> 100 [ label = "0→2" ];
+
+    100 [ label = <100: <b>ObjectToggleModule</b><br/><br/>> ];
+    100 [ pos = "1.485,-0.582!" ];
+    90 -> 100 [ style = dashed ];
+
+    title [ pos = "0.07,-0.127!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>IC_Rm03<br align="left"/>combat<br align="left"/><b>IC_Rm04_Enc00a_Script</b><br align="left"/></font>> ];
+}

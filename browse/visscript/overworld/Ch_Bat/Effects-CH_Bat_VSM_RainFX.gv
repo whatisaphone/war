@@ -1,0 +1,107 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    31 [ label = <31: <b>BranchModule</b><br/><br/><b>Branches</b><br align="left"/>    [1, 2, 3]<br align="left"/>> ];
+    31 [ pos = "0.35500002,0.323!" ];
+    31 -> 36 [ label = "1→0" ];
+    31 -> 38 [ label = "1→1" ];
+    31 -> 38 [ label = "2→2" ];
+    31 -> 37 [ label = "2→1" ];
+    31 -> 47 [ label = "2→0" ];
+    31 -> 51 [ label = "1→0" ];
+    31 -> 56 [ label = "2→0" ];
+    31 -> 57 [ label = "2→0" ];
+    31 -> 37 [ label = "3→2" ];
+    31 -> 60 [ label = "3→1" ];
+    32 -> 31 [ style = dashed ];
+
+    32 [ label = <32: <b>VisScriptVariableInt</b><br/><br/><i>1<br align="left"/></i><br align="left"/><b>Value</b><br align="left"/>    1<br align="left"/><b>Name</b><br align="left"/>    &quot;1&quot;<br align="left"/>> ];
+    32 [ shape = parallelogram ]
+    32 [ pos = "0.08400001,0.20700002!" ];
+
+    34 [ label = <34: <b>VisScriptVariableInt</b><br/><br/><i>2<br align="left"/></i><br align="left"/><b>Value</b><br align="left"/>    2<br align="left"/><b>Name</b><br align="left"/>    &quot;2&quot;<br align="left"/>> ];
+    34 [ shape = parallelogram ]
+    34 [ pos = "0.165,0.66!" ];
+
+    36 [ label = <36: <b>AssignModule</b><br/><br/>> ];
+    36 [ pos = "0.377,0.72800004!" ];
+    36 -> 32 [ style = dashed ];
+    34 -> 36 [ style = dashed ];
+
+    37 [ label = <37: <b>ObjectToggleModule</b><br/><br/><i>Ch_Bat_Arena_Rain_Heavy<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;Ch_Bat_Arena_Rain_Heavy&quot;]<br align="left"/>> ];
+    37 [ pos = "1.314,0.545!" ];
+
+    38 [ label = <38: <b>ObjectToggleModule</b><br/><br/><i>Ch_Bat_Arena_Rain_Light<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;Ch_Bat_Arena_Rain_Light&quot;]<br align="left"/>> ];
+    38 [ pos = "1.144,0.86300004!" ];
+
+    39 [ label = <39: <b>StartModule</b><br/><br/>> ];
+    39 [ shape = oval ]
+    39 [ pos = "0.94200003,0.87700003!" ];
+    39 -> 38 [ label = "0→2" ];
+
+    40 [ label = <40: <b>StartModule</b><br/><br/>> ];
+    40 [ shape = oval ]
+    40 [ pos = "-0.34300002,0.46600002!" ];
+    40 -> 31 [ label = "0→0" ];
+
+    47 [ label = <47: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    47 [ pos = "1.34,0.316!" ];
+    47 -> 52 [ label = "0→0" ];
+
+    49 [ label = <49: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    49 [ pos = "1.7300001,0.316!" ];
+    49 -> 53 [ label = "0→0" ];
+
+    51 [ label = <51: <b>DelayModule</b><br/><br/><i>time b4 heavy trans<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    45<br align="left"/>> ];
+    51 [ pos = "1.1780001,1.0760001!" ];
+    51 -> 31 [ label = "0→0" ];
+
+    52 [ label = <52: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;ch_bat_arena_puddle_heavy&quot;<br align="left"/><b>MoveVal</b><br align="left"/>    5<br align="left"/><b>MovementVector</b><br align="left"/>    [0, 0, 12]<br align="left"/>> ];
+    52 [ pos = "1.531,0.316!" ];
+    52 -> 49 [ label = "0→0" ];
+
+    53 [ label = <53: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;ch_bat_arena_puddle_light&quot;<br align="left"/><b>MoveVal</b><br align="left"/>    5<br align="left"/><b>MovementVector</b><br align="left"/>    [0, 0, -12]<br align="left"/>> ];
+    53 [ pos = "1.9030001,0.317!" ];
+
+    55 [ label = <55: <b>VisScriptVariableInt</b><br/><br/><i>3<br align="left"/></i><br align="left"/><b>Value</b><br align="left"/>    3<br align="left"/><b>Name</b><br align="left"/>    &quot;3&quot;<br align="left"/>> ];
+    55 [ shape = parallelogram ]
+    55 [ pos = "0.135,-0.064!" ];
+
+    56 [ label = <56: <b>AssignModule</b><br/><br/>> ];
+    56 [ pos = "0.354,-0.009000001!" ];
+    55 -> 56 [ style = dashed ];
+    56 -> 32 [ style = dashed ];
+
+    57 [ label = <57: <b>DelayModule</b><br/><br/><i>time b4 stage 3<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    10<br align="left"/>> ];
+    57 [ pos = "1.3410001,0.14!" ];
+
+    58 [ label = <58: <b>ExternalCallModule</b><br/><br/><b>EventName</b><br align="left"/>    &quot;startRainFX&quot;<br align="left"/>> ];
+    58 [ shape = oval ]
+    58 [ pos = "-0.342,0.60700005!" ];
+
+    60 [ label = <60: <b>ObjectToggleModule</b><br/><br/><i>Ch_Bat_Arena_Rain_state 3<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;&quot;]<br align="left"/>> ];
+    60 [ pos = "1.245,-0.36!" ];
+
+    61 [ label = <61: <b>StartModule</b><br/><br/>> ];
+    61 [ shape = oval ]
+    61 [ pos = "1.0730001,0.42100003!" ];
+    61 -> 37 [ label = "0→2" ];
+
+    62 [ label = <62: <b>StartModule</b><br/><br/>> ];
+    62 [ shape = oval ]
+    62 [ pos = "1.033,-0.439!" ];
+    62 -> 60 [ label = "0→2" ];
+
+    title [ pos = "-0.344,1.077!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>Ch_Bat<br align="left"/>Effects<br align="left"/><b>CH_Bat_VSM_RainFX</b><br align="left"/></font>> ];
+}

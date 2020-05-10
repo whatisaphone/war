@@ -1,0 +1,41 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    4 [ label = <4: <b>StartModule</b><br/><br/><i>Hax<br align="left"/></i><br align="left"/>> ];
+    4 [ shape = oval ]
+    4 [ pos = "0.15300001,-0.328!" ];
+
+    5 [ label = <5: <b>SpawnMonsterEventModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;AL_Tns_02_Enc_04&quot;<br align="left"/>> ];
+    5 [ pos = "0.58400005,-0.462!" ];
+
+    6 [ label = <6: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;AL_Tns_02_Enc_04_TrigReg_01&quot;, <br align="left"/>    &quot;AL_Tns_02_Enc_04_TrigReg_02&quot;, &quot;<br align="left"/>    &quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    6 [ shape = oval ]
+    6 [ pos = "0.14400001,-0.46400002!" ];
+    6 -> 5 [ label = "0→0" ];
+    6 -> 10 [ label = "0→0" ];
+
+    10 [ label = <10: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    10 [ pos = "0.186,-0.66300005!" ];
+    10 -> 6 [ label = "0→1" ];
+
+    11 [ label = <11: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;AL_Tns_02_Enc_04_SetCombat_Tri<br align="left"/>    gReg&quot;, &quot;AL_Tns_02_Enc_04_SetComb<br align="left"/>    at_TrigReg_01&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    11 [ shape = oval ]
+    11 [ pos = "0.15200001,-0.933!" ];
+    11 -> 12 [ label = "0→0" ];
+
+    12 [ label = <12: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;AL_Tns_02_Enc_04_Brute&quot;, &quot;AL_T<br align="left"/>    ns_02_Enc_04_Medium_01&quot;, &quot;AL_Tns<br align="left"/>    _02_Enc_04_Medium_02&quot;, &quot;AL_Tns_0<br align="left"/>    2_Enc_04_Light_01&quot;, &quot;AL_Tns_02_E<br align="left"/><b>MethodName</b><br align="left"/>    &quot;setBehaviorCombat&quot;<br align="left"/>> ];
+    12 [ pos = "0.47700003,-0.947!" ];
+
+    title [ pos = "0.143,-0.32700002!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>AL_Tns_02<br align="left"/>Combat_02<br align="left"/><b>AL_Tns_02_Enc_04_Script</b><br align="left"/></font>> ];
+}

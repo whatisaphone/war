@@ -1,0 +1,64 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>StartModule</b><br/><br/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "-0.13700001,-0.80700004!" ];
+    1 -> 4 [ label = "0→0" ];
+
+    4 [ label = <4: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;IC_Tns01_Web_Door&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onInteractive&quot;]<br align="left"/>> ];
+    4 [ pos = "0.058000002,-0.80700004!" ];
+    4 -> 45 [ label = "0→0" ];
+    4 -> 46 [ label = "0→0" ];
+
+    11 [ label = <11: <b>TriggerEventModule</b><br/><br/><i>ic_tns01 to ic_rm10<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;IC_Tns01_Web_Door_Trig_00&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    11 [ shape = oval ]
+    11 [ pos = "-0.44400004,-0.56!" ];
+    11 -> 23 [ label = "0→1" ];
+    11 -> 40 [ label = "1→1" ];
+
+    13 [ label = <13: <b>LoaderModule</b><br/><br/><i>force load ic_rm10<br align="left"/></i><br align="left"/><b>Load</b><br align="left"/>    [[154, -1]]<br align="left"/><b>Required</b><br align="left"/>    true<br align="left"/>> ];
+    13 [ pos = "0.55200005,-0.683!" ];
+
+    23 [ label = <23: <b>SaveDataModule</b><br/><br/><i>ic_tns01 to ic_rm10   TRUE<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;IC&quot;, FlagNa<br align="left"/>    me=&quot;ic_tns01_to_rm10_forceload&quot;)<br align="left"/>    ]<br align="left"/>> ];
+    23 [ pos = "-0.163,-0.467!" ];
+
+    34 [ label = <34: <b>LoaderModule</b><br/><br/><i>force load ic_tns01<br align="left"/></i><br align="left"/><b>Load</b><br align="left"/>    [[160, -1], [341, -1], [344, -1]<br align="left"/>    ]<br align="left"/><b>Required</b><br align="left"/>    true<br align="left"/>> ];
+    34 [ pos = "0.555,-0.88100004!" ];
+
+    40 [ label = <40: <b>SaveDataModule</b><br/><br/><i>ic_tns01 to ic_rm10   FALSE<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;IC&quot;, FlagNa<br align="left"/>    me=&quot;ic_tns01_to_rm10_forceload&quot;,<br align="left"/>     FlagValue=&quot;False&quot;)]<br align="left"/>> ];
+    40 [ pos = "-0.163,-0.637!" ];
+
+    41 [ label = <41: <b>TriggerEventModule</b><br/><br/><i>ic_rm10 to ic_tns01<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;IC_Tns01_Web_Door_Trig_01&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    41 [ shape = oval ]
+    41 [ pos = "-0.44500002,-1.0220001!" ];
+    41 -> 42 [ label = "0→1" ];
+    41 -> 44 [ label = "1→1" ];
+
+    42 [ label = <42: <b>SaveDataModule</b><br/><br/><i>ic_rm10 to ic_tns01   TRUE<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;IC&quot;, FlagNa<br align="left"/>    me=&quot;ic_rm10_to_tns01_forceload&quot;)<br align="left"/>    ]<br align="left"/>> ];
+    42 [ pos = "-0.164,-0.929!" ];
+
+    44 [ label = <44: <b>SaveDataModule</b><br/><br/><i>ic_rm10 to ic_tns01   FALSE<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;IC&quot;, FlagNa<br align="left"/>    me=&quot;ic_rm10_to_tns01_forceload&quot;,<br align="left"/>     FlagValue=&quot;False&quot;)]<br align="left"/>> ];
+    44 [ pos = "-0.163,-1.095!" ];
+
+    45 [ label = <45: <b>SaveDataModule</b><br/><br/><i>ic_tns01 to ic_rm10<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;IC&quot;, FlagNa<br align="left"/>    me=&quot;ic_tns01_to_rm10_forceload&quot;)<br align="left"/>    ]<br align="left"/>> ];
+    45 [ pos = "0.29200003,-0.683!" ];
+    45 -> 13 [ label = "0→0" ];
+
+    46 [ label = <46: <b>SaveDataModule</b><br/><br/><i>ic_rm10 to ic_tns01<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;IC&quot;, FlagNa<br align="left"/>    me=&quot;ic_rm10_to_tns01_forceload&quot;)<br align="left"/>    ]<br align="left"/>> ];
+    46 [ pos = "0.296,-0.88100004!" ];
+    46 -> 34 [ label = "0→0" ];
+
+    title [ pos = "-0.446,-0.46600002!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>IC_Doors<br align="left"/>script<br align="left"/><b>IC_Tns01_Web_Door_Script</b><br align="left"/></font>> ];
+}

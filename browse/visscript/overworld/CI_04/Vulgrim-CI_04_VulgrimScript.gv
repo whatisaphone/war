@@ -1,0 +1,97 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>base/merchantdismissmerchantmodule</b><br/><br/><i>Dismisses vulgrim<br align="left"/></i><br align="left"/>> ];
+    1 [ pos = "0.35300002,-0.777!" ];
+
+    3 [ label = <3: <b>InteractiveRegionModule</b><br/><br/><b>InteractiveRegionList</b><br align="left"/>    [&quot;VulgrimIntRegion_CI_04&quot;]<br align="left"/>> ];
+    3 [ pos = "0.35300002,-0.638!" ];
+    3 -> 29 [ label = "0→0" ];
+    3 -> 30 [ label = "1→0" ];
+
+    9 [ label = <9: <b>TriggerEventModule</b><br/><br/><i>CI_04_Trigger<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;VulgrimTriggerRegion_CI_04&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    9 [ shape = oval ]
+    9 [ pos = "0.039,-0.638!" ];
+    9 -> 1 [ label = "1→0" ];
+    9 -> 3 [ label = "0→0" ];
+    9 -> 3 [ label = "1→1" ];
+    9 -> 10 [ label = "0→0" ];
+    9 -> 16 [ label = "0→0" ];
+
+    10 [ label = <10: <b>base/merchantsummonmerchantmodule</b><br/><br/><i>Summon Vulgrim (ci04)<br align="left"/></i><br align="left"/><b>SpawnPoint</b><br align="left"/>    &quot;VulgrimSpawnPoint_CI_04&quot;<br align="left"/>> ];
+    10 [ pos = "0.35200003,-0.51900005!" ];
+
+    15 [ label = <15: <b>VisScriptCallModule</b><br/><br/><i>LoadVulgrimItemList<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;VulgrimScript&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;LoadVulgrimItemList&quot;<br align="left"/>> ];
+    15 [ pos = "0.66200006,-0.80200005!" ];
+
+    16 [ label = <16: <b>SaveDataModule</b><br/><br/><i>CI_04_VulgrimLocated<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Global&quot;, Fl<br align="left"/>    agName=&quot;CI_04_VulgrimLocated&quot;)]<br align="left"/>> ];
+    16 [ pos = "0.347,-0.356!" ];
+    16 -> 23 [ label = "1→0" ];
+
+    18 [ label = <18: <b>SaveDataModule</b><br/><br/><i>CI_04_VulgrimLocated<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Global&quot;, Fl<br align="left"/>    agName=&quot;CI_04_VulgrimLocated&quot;)]<br align="left"/>> ];
+    18 [ pos = "0.753,-0.356!" ];
+    18 -> 35 [ label = "3→0" ];
+
+    23 [ label = <23: <b>base/giveitemmodule</b><br/><br/><i>CI_04_Teleport<br align="left"/></i><br align="left"/><b>Item</b><br align="left"/>    &quot;base/CI_04_Teleport&quot;<br align="left"/><b>HidePopup</b><br align="left"/>    false<br align="left"/>> ];
+    23 [ pos = "0.578,-0.379!" ];
+    23 -> 18 [ label = "0→1" ];
+
+    24 [ label = <24: <b>StartModule</b><br/><br/>> ];
+    24 [ shape = oval ]
+    24 [ pos = "-1.107,-0.628!" ];
+    24 -> 26 [ label = "0→0" ];
+
+    25 [ label = <25: <b>TriggerEventModule</b><br/><br/><i>disabled on start<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;CI_04_SerpentHoleTrig&quot;, &quot;&quot;]<br align="left"/><b>Enable</b><br align="left"/>    false<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    25 [ shape = oval ]
+    25 [ pos = "-0.66300005,-0.47500002!" ];
+    25 -> 27 [ label = "0→1" ];
+    25 -> 32 [ label = "1→0" ];
+    25 -> 9 [ label = "1→0" ];
+
+    26 [ label = <26: <b>SaveDataModule</b><br/><br/><i>SerpentHoleTaken<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Global&quot;, Fl<br align="left"/>    agName=&quot;SerpentHoleTaken&quot;)]<br align="left"/>> ];
+    26 [ pos = "-0.90700006,-0.628!" ];
+    26 -> 25 [ label = "0→0" ];
+    26 -> 9 [ label = "0→1" ];
+
+    27 [ label = <27: <b>SaveDataModule</b><br/><br/><i>SerpentHoleTaken = false<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Global&quot;, Fl<br align="left"/>    agName=&quot;SerpentHoleTaken&quot;, FlagV<br align="left"/>    alue=&quot;False&quot;)]<br align="left"/>> ];
+    27 [ pos = "-0.381,-0.41900003!" ];
+    27 -> 31 [ label = "3→0" ];
+
+    28 [ label = <28: <b>base/autosavemodule</b><br/><br/>> ];
+    28 [ pos = "0.025,-0.46500003!" ];
+
+    29 [ label = <29: <b>base/gotovulgrimmodule</b><br/><br/>> ];
+    29 [ pos = "0.67600006,-0.61300004!" ];
+
+    30 [ label = <30: <b>base/showmenumodule</b><br/><br/><i>Teleport menu<br align="left"/></i><br align="left"/><b>MenuName</b><br align="left"/>    &quot;ui_teleport_menu/teleportmenu&quot;<br align="left"/><b>UICategory</b><br align="left"/>    &quot;Teleport&quot;<br align="left"/>> ];
+    30 [ pos = "0.67600006,-0.697!" ];
+
+    31 [ label = <31: <b>base/setspawnpointmodule</b><br/><br/><b>Region</b><br align="left"/>    &quot;CI_04&quot;<br align="left"/><b>SpawnPoint</b><br align="left"/>    &quot;CI_04_SerpentHole_Start_01&quot;<br align="left"/><b>SpawnLoadRegion</b><br align="left"/>    &quot;StartLoadRegion_Vulgrim&quot;<br align="left"/>> ];
+    31 [ pos = "-0.18300001,-0.46500003!" ];
+    31 -> 28 [ label = "0→0" ];
+
+    32 [ label = <32: <b>base/oneshotmodule</b><br/><br/>> ];
+    32 [ pos = "-0.62,-0.69100004!" ];
+    32 -> 25 [ label = "0→1" ];
+
+    34 [ label = <34: <b>StartModule</b><br/><br/>> ];
+    34 [ shape = oval ]
+    34 [ pos = "0.098000005,-0.841!" ];
+    34 -> 3 [ label = "0→1" ];
+
+    35 [ label = <35: <b>VisScriptCallModule</b><br/><br/><i>ShowVulgrim<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;city04_mm_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;ShowVulgrim&quot;<br align="left"/>> ];
+    35 [ pos = "0.9710001,-0.402!" ];
+
+    title [ pos = "-1.108,-0.35500002!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>CI_04<br align="left"/>Vulgrim<br align="left"/><b>CI_04_VulgrimScript</b><br align="left"/></font>> ];
+}

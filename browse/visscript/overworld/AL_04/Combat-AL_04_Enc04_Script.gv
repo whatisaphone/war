@@ -1,0 +1,61 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    76 [ label = <76: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn PGMedium<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;AL_04_Enc04a&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    1<br align="left"/><b>IsRandom</b><br align="left"/>    false<br align="left"/><b>DelayTime</b><br align="left"/>    0.5<br align="left"/>> ];
+    76 [ pos = "0.326,-0.24200001!" ];
+    76 -> 161 [ label = "0→0" ];
+    76 -> 163 [ label = "3→0" ];
+
+    157 [ label = <157: <b>TriggerEventModule</b><br/><br/><i>AL_04_Enc04_TrgReg<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;AL_04_Enc04_TrgReg&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    157 [ shape = oval ]
+    157 [ pos = "-0.22100002,-0.21900001!" ];
+    157 -> 158 [ label = "0→0" ];
+
+    158 [ label = <158: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;AL_04&quot;, Fla<br align="left"/>    gName=&quot;AL_04_Enc04_Complete&quot;)]<br align="left"/>> ];
+    158 [ pos = "0.055000003,-0.21900001!" ];
+    158 -> 76 [ label = "1→0" ];
+
+    159 [ label = <159: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn PGLight<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;AL_04_Enc04b&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    2<br align="left"/><b>IsRandom</b><br align="left"/>    false<br align="left"/><b>DelayTime</b><br align="left"/>    0.5<br align="left"/>> ];
+    159 [ pos = "0.88500005,-0.24200001!" ];
+    159 -> 163 [ label = "3→0" ];
+    159 -> 167 [ label = "0→0" ];
+
+    161 [ label = <161: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.5<br align="left"/><b>Variance</b><br align="left"/>    1<br align="left"/>> ];
+    161 [ pos = "0.66300005,-0.24200001!" ];
+    161 -> 159 [ label = "0→0" ];
+
+    163 [ label = <163: <b>AccumulatorModule</b><br/><br/><i>All waves dead?<br align="left"/></i><br align="left"/><b>CountTo</b><br align="left"/>    3<br align="left"/>> ];
+    163 [ pos = "1.761,-0.78900003!" ];
+    163 -> 164 [ label = "0→1" ];
+
+    164 [ label = <164: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;AL_04&quot;, Fla<br align="left"/>    gName=&quot;AL_04_Enc04_Complete&quot;)]<br align="left"/>> ];
+    164 [ pos = "2.0500002,-0.76600003!" ];
+
+    166 [ label = <166: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn PGMedium<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;AL_04_Enc04c&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    1<br align="left"/><b>IsRandom</b><br align="left"/>    false<br align="left"/><b>DelayTime</b><br align="left"/>    0.5<br align="left"/>> ];
+    166 [ pos = "1.4610001,-0.24200001!" ];
+    166 -> 163 [ label = "3→0" ];
+
+    167 [ label = <167: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.5<br align="left"/><b>Variance</b><br align="left"/>    1<br align="left"/>> ];
+    167 [ pos = "1.23,-0.24200001!" ];
+    167 -> 166 [ label = "0→0" ];
+
+    168 [ label = <168: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn PGMedium<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;AL_04_Enc04b&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    2<br align="left"/><b>IsRandom</b><br align="left"/>    false<br align="left"/><b>DelayTime</b><br align="left"/>    0.5<br align="left"/>> ];
+    168 [ pos = "1.4610001,-0.24200001!" ];
+    168 -> 163 [ label = "3→0" ];
+
+    171 [ label = <171: <b>base/autosavemodule</b><br/><br/>> ];
+    171 [ pos = "2.306,-0.81200004!" ];
+
+    title [ pos = "-0.22200002,-0.21800001!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>AL_04<br align="left"/>Combat<br align="left"/><b>AL_04_Enc04_Script</b><br align="left"/></font>> ];
+}

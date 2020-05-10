@@ -1,0 +1,141 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    42 [ label = <42: <b>SpawnMonsterEventModule</b><br/><br/><b>NumberToSpawn</b><br align="left"/>    -1<br align="left"/><b>IsRandom</b><br align="left"/>    false<br align="left"/><b>DelayTime</b><br align="left"/>    1.65<br align="left"/>> ];
+    42 [ pos = "1.3540001,-0.19500001!" ];
+    42 -> 57 [ label = "1→0" ];
+    42 -> 64 [ label = "2→0" ];
+    42 -> 68 [ label = "0→0" ];
+    42 -> 73 [ label = "0→0" ];
+    42 -> 63 [ label = "2→1" ];
+    42 -> 88 [ label = "2→0" ];
+    53 -> 42 [ style = dashed ];
+    42 -> 74 [ style = dashed ];
+
+    44 [ label = <44: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;CI_01_Enc12_TrigReg&quot;, &quot;CI_01_E<br align="left"/>    nc12_TrigReg_01&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    44 [ shape = oval ]
+    44 [ pos = "-0.095000006,-0.23500001!" ];
+    44 -> 62 [ label = "0→0" ];
+
+    46 [ label = <46: <b>base/incrementmodulevar</b><br/><br/><i>increment ActiveSpawns by spawns<br align="left"/></i><br align="left"/><b>Increment</b><br align="left"/>    3<br align="left"/><b>VarName</b><br align="left"/>    &quot;ActiveSpawns&quot;<br align="left"/><b>ModuleName</b><br align="left"/>    &quot;CI_01_Script_EncounterMaster&quot;<br align="left"/>> ];
+    46 [ pos = "0.85200006,-0.194!" ];
+    46 -> 54 [ label = "0→0" ];
+
+    53 [ label = <53: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    53 [ shape = parallelogram ]
+    53 [ pos = "1.1290001,-0.33!" ];
+
+    54 [ label = <54: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;CI_01_Enc12&quot;<br align="left"/>> ];
+    54 [ pos = "1.0990001,-0.19700001!" ];
+    54 -> 42 [ label = "0→0" ];
+    54 -> 53 [ style = dashed ];
+
+    57 [ label = <57: <b>base/incrementmodulevar</b><br/><br/><i>decrement ActiveSpawns by 1<br align="left"/></i><br align="left"/><b>Operator</b><br align="left"/>    1<br align="left"/><b>VarName</b><br align="left"/>    &quot;ActiveSpawns&quot;<br align="left"/><b>ModuleName</b><br align="left"/>    &quot;CI_01_Script_EncounterMaster&quot;<br align="left"/>> ];
+    57 [ pos = "1.6610001,-0.216!" ];
+
+    62 [ label = <62: <b>SaveDataModule</b><br/><br/><i>AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;CI_01&quot;, Fla<br align="left"/>    gName=&quot;Enc12_AllDead&quot;)]<br align="left"/>> ];
+    62 [ pos = "0.2,-0.23300001!" ];
+    62 -> 86 [ label = "1→0" ];
+    62 -> 66 [ label = "1→0" ];
+    62 -> 65 [ label = "1→0" ];
+
+    63 [ label = <63: <b>SaveDataModule</b><br/><br/><i>AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;CI_01&quot;, Fla<br align="left"/>    gName=&quot;Enc12_AllDead&quot;)]<br align="left"/>> ];
+    63 [ pos = "1.932,-0.26500002!" ];
+
+    64 [ label = <64: <b>VisScriptCallModule</b><br/><br/><i>start alley PGs<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CI_01_Enc13_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;StartEncounter&quot;<br align="left"/>> ];
+    64 [ pos = "1.6530001,-0.354!" ];
+
+    65 [ label = <65: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.75<br align="left"/>> ];
+    65 [ pos = "0.679,-0.19100001!" ];
+    65 -> 46 [ label = "0→0" ];
+
+    66 [ label = <66: <b>CinematicModule</b><br/><br/><b>CinematicName</b><br align="left"/>    &quot;CI_01_Enc12_Cine_PGReveal&quot;<br align="left"/>> ];
+    66 [ pos = "0.67300004,-0.012!" ];
+
+    67 [ label = <67: <b>VisScriptCallModule</b><br/><br/><i>Block/Counter Tutorial<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CI_01_Tutorial_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;BlockTutorial_Popup&quot;<br align="left"/>> ];
+    67 [ pos = "1.812,-0.008!" ];
+
+    68 [ label = <68: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    6<br align="left"/>> ];
+    68 [ pos = "1.6660001,-0.008!" ];
+    68 -> 67 [ label = "0→0" ];
+
+    69 [ label = <69: <b>HealthStatsModule</b><br/><br/>> ];
+    69 [ pos = "0.95800006,-0.60400003!" ];
+    69 -> 70 [ label = "0→0" ];
+    74 -> 69 [ style = dashed ];
+    69 -> 71 [ style = dashed ];
+
+    70 [ label = <70: <b>FloatCompareModule</b><br/><br/>> ];
+    70 [ pos = "1.2750001,-0.605!" ];
+    70 -> 73 [ label = "0→0" ];
+    70 -> 73 [ label = "2→0" ];
+    70 -> 77 [ label = "1→0" ];
+    71 -> 70 [ style = dashed ];
+    72 -> 70 [ style = dashed ];
+
+    71 [ label = <71: <b>VisScriptVariableFloat</b><br/><br/>> ];
+    71 [ shape = parallelogram ]
+    71 [ pos = "1.139,-0.694!" ];
+
+    72 [ label = <72: <b>VisScriptVariableFloat</b><br/><br/><b>Value</b><br align="left"/>    0.75<br align="left"/>> ];
+    72 [ shape = parallelogram ]
+    72 [ pos = "1.144,-0.772!" ];
+
+    73 [ label = <73: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    73 [ pos = "1.182,-0.446!" ];
+    73 -> 69 [ label = "0→0" ];
+
+    74 [ label = <74: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    74 [ shape = parallelogram ]
+    74 [ pos = "1.4100001,-0.40800002!" ];
+
+    77 [ label = <77: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;CI_01_Enc01Fat1&quot;, &quot;CI_01_Enc01<br align="left"/>    Fat2&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;setBehaviorCombat&quot;<br align="left"/>> ];
+    77 [ pos = "1.5100001,-0.656!" ];
+
+    80 [ label = <80: <b>InvokeMethodModule</b><br/><br/><b>MethodName</b><br align="left"/>    &quot;setBehaviorCombat&quot;<br align="left"/>> ];
+    80 [ pos = "2.3390002,-0.469!" ];
+    80 -> 85 [ label = "0→0" ];
+    84 -> 80 [ style = dashed ];
+
+    81 [ label = <81: <b>ExternalCallModule</b><br/><br/><i>setCombat<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;setCombat&quot;<br align="left"/>> ];
+    81 [ shape = oval ]
+    81 [ pos = "1.7750001,-0.476!" ];
+    81 -> 82 [ label = "0→0" ];
+
+    82 [ label = <82: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.25<br align="left"/>> ];
+    82 [ pos = "1.9860001,-0.46500003!" ];
+    82 -> 83 [ label = "0→0" ];
+
+    83 [ label = <83: <b>base/forloop</b><br/><br/>> ];
+    83 [ pos = "2.16,-0.469!" ];
+    83 -> 80 [ label = "0→0" ];
+    74 -> 83 [ style = dashed ];
+    83 -> 84 [ style = dashed ];
+
+    84 [ label = <84: <b>VisScriptVariableWorldObject</b><br/><br/>> ];
+    84 [ shape = parallelogram ]
+    84 [ pos = "2.161,-0.605!" ];
+
+    85 [ label = <85: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.18<br align="left"/>> ];
+    85 [ pos = "2.559,-0.469!" ];
+    85 -> 83 [ label = "0→1" ];
+
+    86 [ label = <86: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CI_01_Enc90_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;RespawnCarrion&quot;<br align="left"/>> ];
+    86 [ pos = "0.674,0.061000004!" ];
+
+    88 [ label = <88: <b>VisScriptCallModule</b><br/><br/><i>Spawn Gholen<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CI_01_Enc16_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;StartEncounter&quot;<br align="left"/>> ];
+    88 [ pos = "1.519,0.038000003!" ];
+
+    title [ pos = "-0.096,0.062000003!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>CI_01<br align="left"/>Combat<br align="left"/><b>CI_01_Enc12_Script</b><br align="left"/><br/><i>phantom guards</i><br align="left"/></font>> ];
+}

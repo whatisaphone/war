@@ -1,0 +1,96 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    241 [ label = <241: <b>PlayVideoModule</b><br/><br/><i>Scene_12<br align="left"/></i><br align="left"/><b>VideoName</b><br align="left"/>    &quot;Scene_12.oo&quot;<br align="left"/><b>CamPositionObject</b><br align="left"/>    &quot;PR_scene12_WarCam&quot;<br align="left"/><b>CamLookatObject</b><br align="left"/>    &quot;PR_scene12_WarCamLook&quot;<br align="left"/><b>PlayerPositionObject</b><br align="left"/>    &quot;PR_scene12_WarPoint&quot;<br align="left"/>> ];
+    241 [ pos = "0.38000003,-0.372!" ];
+    241 -> 242 [ label = "0→0" ];
+
+    242 [ label = <242: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CI_Prison_Enc02_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;StartEncounter&quot;<br align="left"/>> ];
+    242 [ pos = "0.55300003,-0.372!" ];
+
+    249 [ label = <249: <b>CinematicModule</b><br/><br/><i>CI_Prison_Enc02_CineSetLoc<br align="left"/></i><br align="left"/><b>CinematicName</b><br align="left"/>    &quot;CI_Prison_Enc02_CineSetLoc&quot;<br align="left"/>> ];
+    249 [ pos = "0.379,-0.51900005!" ];
+
+    250 [ label = <250: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;CI_Prison_Enc01_TrigReg&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    250 [ shape = oval ]
+    250 [ pos = "-0.46500003,-0.349!" ];
+    250 -> 255 [ label = "0→0" ];
+
+    254 [ label = <254: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;CI_Prison&quot;,<br align="left"/>     FlagName=&quot;CI_Prison_Enc02_Compl<br align="left"/>    ete&quot;)]<br align="left"/>> ];
+    254 [ pos = "0.038000003,-0.349!" ];
+    254 -> 241 [ label = "1→0" ];
+    254 -> 268 [ label = "1→2" ];
+
+    255 [ label = <255: <b>base/oneshotmodule</b><br/><br/>> ];
+    255 [ pos = "-0.18800001,-0.349!" ];
+    255 -> 254 [ label = "0→0" ];
+
+    258 [ label = <258: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;CI_Prison&quot;,<br align="left"/>     FlagName=&quot;CI_Prison_Enc02_Compl<br align="left"/>    ete&quot;)]<br align="left"/>> ];
+    258 [ pos = "-0.947,0.076000005!" ];
+    258 -> 260 [ label = "1→0" ];
+
+    259 [ label = <259: <b>StartModule</b><br/><br/>> ];
+    259 [ shape = oval ]
+    259 [ pos = "-1.136,0.076000005!" ];
+    259 -> 258 [ label = "0→0" ];
+
+    260 [ label = <260: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;preCine_PrisonGuard&quot;<br align="left"/>> ];
+    260 [ pos = "-0.712,0.053000003!" ];
+    260 -> 262 [ label = "0→0" ];
+    260 -> 261 [ style = dashed ];
+
+    261 [ label = <261: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    261 [ shape = parallelogram ]
+    261 [ pos = "-0.47300002,-0.044000003!" ];
+
+    262 [ label = <262: <b>SpawnMonsterEventModule</b><br/><br/><i>spawn initial prison guard at th<br align="left"/>e prison.<br align="left"/></i><br align="left"/><b>IsRandom</b><br align="left"/>    false<br align="left"/>> ];
+    262 [ pos = "-0.25800002,0.076000005!" ];
+    262 -> 281 [ label = "0→0" ];
+    261 -> 262 [ style = dashed ];
+    262 -> 267 [ style = dashed ];
+
+    263 [ label = <263: <b>base/setcharactermovestate</b><br/><br/><i>Heavy Idle<br align="left"/></i><br align="left"/><b>Character</b><br align="left"/>    &quot;preCine_PrisonGuard_01&quot;<br align="left"/><b>MoveState</b><br align="left"/>    &quot;Heavy Idle&quot;<br align="left"/>> ];
+    263 [ pos = "0.317,0.076000005!" ];
+    263 -> 265 [ label = "0→0" ];
+
+    265 [ label = <265: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    5<br align="left"/><b>Variance</b><br align="left"/>    5<br align="left"/>> ];
+    265 [ pos = "0.638,0.076000005!" ];
+    265 -> 266 [ label = "0→0" ];
+
+    266 [ label = <266: <b>base/setcharactermovestate</b><br/><br/><i>Heavy Taunt Roar<br align="left"/></i><br align="left"/><b>Character</b><br align="left"/>    &quot;preCine_PrisonGuard_01&quot;<br align="left"/><b>MoveState</b><br align="left"/>    &quot;Heavy Taunt Roar&quot;<br align="left"/>> ];
+    266 [ pos = "0.41200003,0.291!" ];
+    266 -> 263 [ label = "1→0" ];
+
+    267 [ label = <267: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    267 [ shape = parallelogram ]
+    267 [ pos = "-0.259,-0.179!" ];
+
+    268 [ label = <268: <b>ObjectToggleModule</b><br/><br/>> ];
+    268 [ pos = "0.246,-0.093!" ];
+    267 -> 268 [ style = dashed ];
+
+    275 [ label = <275: <b>base/setcharactermovestate</b><br/><br/><i>Heavy Taunt Roar<br align="left"/></i><br align="left"/><b>Character</b><br align="left"/>    &quot;preCine_PrisonGuard_01&quot;<br align="left"/><b>MoveState</b><br align="left"/>    &quot;Heavy Taunt Roar&quot;<br align="left"/>> ];
+    275 [ pos = "1.0810001,0.29700002!" ];
+
+    280 [ label = <280: <b>ExternalCallModule</b><br/><br/><i>removePrisonGuard<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;removePrisonGuard&quot;<br align="left"/>> ];
+    280 [ shape = oval ]
+    280 [ pos = "0.013,-0.086!" ];
+    280 -> 268 [ label = "0→2" ];
+
+    281 [ label = <281: <b>InvokeMethodModule</b><br/><br/><b>MethodName</b><br align="left"/>    &quot;setInvulnerableIdle&quot;<br align="left"/>> ];
+    281 [ pos = "0.038000003,0.08400001!" ];
+    267 -> 281 [ style = dashed ];
+
+    title [ pos = "-1.1370001,0.298!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>CI_Prison<br align="left"/>Combat<br align="left"/><b>CI_Prison_Enc01_Script</b><br align="left"/><br/><i>Fight!</i><br align="left"/></font>> ];
+}

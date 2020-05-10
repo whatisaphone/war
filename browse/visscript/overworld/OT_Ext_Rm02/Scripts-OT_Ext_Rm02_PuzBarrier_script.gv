@@ -1,0 +1,61 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;OT_Ext_Rm02_PuzBarrier_TrgReg&quot;<br align="left"/>    , &quot;&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "0.102000006,-0.179!" ];
+    1 -> 3 [ label = "0→0" ];
+
+    2 [ label = <2: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Ext_Rm02_PuzBarrier&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOn&quot;<br align="left"/>> ];
+    2 [ pos = "0.87700003,-0.202!" ];
+    2 -> 14 [ label = "0→0" ];
+
+    3 [ label = <3: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm02<br align="left"/>    &quot;, FlagName=&quot;puz_beam_hit_door&quot;)<br align="left"/>    ]<br align="left"/>> ];
+    3 [ pos = "0.39200002,-0.179!" ];
+    3 -> 9 [ label = "1→0" ];
+    3 -> 10 [ label = "1→1" ];
+    3 -> 8 [ label = "1→0" ];
+
+    8 [ label = <8: <b>CinematicModule</b><br/><br/><i>Play OT_Ext_Rm02_BarrierUpCinema<br align="left"/>tic<br align="left"/></i><br align="left"/><b>CinematicName</b><br align="left"/>    &quot;OT_Ext_Rm02_BarrierUpCinematic&quot;<br align="left"/>> ];
+    8 [ pos = "0.669,0.07700001!" ];
+
+    9 [ label = <9: <b>DelayModule</b><br/><br/>> ];
+    9 [ pos = "0.66,-0.202!" ];
+    9 -> 2 [ label = "0→0" ];
+
+    10 [ label = <10: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm02<br align="left"/>    &quot;, FlagName=&quot;puz_beam_hit_door&quot;)<br align="left"/>    ]<br align="left"/>> ];
+    10 [ pos = "0.65900004,-0.042000003!" ];
+
+    11 [ label = <11: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm02<br align="left"/>    &quot;, FlagName=&quot;puz_beam_hit_door&quot;)<br align="left"/>    ]<br align="left"/>> ];
+    11 [ pos = "0.38000003,-0.536!" ];
+    11 -> 12 [ label = "0→0" ];
+
+    12 [ label = <12: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm02<br align="left"/>    &quot;, FlagName=&quot;puz_beam_hit_door_o<br align="left"/>    ff&quot;)]<br align="left"/>> ];
+    12 [ pos = "0.609,-0.536!" ];
+    12 -> 2 [ label = "1→0" ];
+
+    13 [ label = <13: <b>StartModule</b><br/><br/>> ];
+    13 [ shape = oval ]
+    13 [ pos = "0.142,-0.536!" ];
+    13 -> 11 [ label = "0→0" ];
+
+    14 [ label = <14: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.666667<br align="left"/>> ];
+    14 [ pos = "1.1140001,-0.202!" ];
+    14 -> 15 [ label = "0→0" ];
+
+    15 [ label = <15: <b>base/camerashakemodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;OT_Ext_Rm02_PuzBarrier&quot;<br align="left"/><b>HorizontalPower</b><br align="left"/>    0.1<br align="left"/><b>VerticalPower</b><br align="left"/>    2.5<br align="left"/><b>HorizontalFreq</b><br align="left"/>    23<br align="left"/><b>VerticalFreq</b><br align="left"/>    120<br align="left"/><b>BlurPower</b><br align="left"/>    0.01<br align="left"/><b>Duration</b><br align="left"/>    0.35<br align="left"/><b>EaseOut</b><br align="left"/>    0.25<br align="left"/>> ];
+    15 [ pos = "1.3080001,-0.202!" ];
+
+    title [ pos = "0.101,0.078!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>OT_Ext_Rm02<br align="left"/>Scripts<br align="left"/><b>OT_Ext_Rm02_PuzBarrier_script</b><br align="left"/></font>> ];
+}

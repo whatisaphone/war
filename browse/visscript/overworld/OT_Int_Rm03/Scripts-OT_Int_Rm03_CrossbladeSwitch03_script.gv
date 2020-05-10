@@ -1,0 +1,105 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    45 [ label = <45: <b>base/camerashakemodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;OT_Int_Rm03_MovingWall03&quot;<br align="left"/><b>HorizontalPower</b><br align="left"/>    3<br align="left"/><b>VerticalPower</b><br align="left"/>    3<br align="left"/>> ];
+    45 [ pos = "0.708,-3.7460003!" ];
+
+    51 [ label = <51: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Int_Rm03_crossbladeswitch03<br align="left"/>    A&quot;, &quot;OT_Int_Rm03_crossbladeswitc<br align="left"/>    h03B&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onTrigger&quot;]<br align="left"/>> ];
+    51 [ pos = "0.102000006,-3.7380002!" ];
+    51 -> 53 [ label = "0→0" ];
+
+    52 [ label = <52: <b>StartModule</b><br/><br/>> ];
+    52 [ shape = oval ]
+    52 [ pos = "-0.367,-3.7380002!" ];
+    52 -> 159 [ label = "0→0" ];
+
+    53 [ label = <53: <b>SwitchModule</b><br/><br/>> ];
+    53 [ pos = "0.39900002,-3.7380002!" ];
+    53 -> 45 [ label = "0→0" ];
+    53 -> 45 [ label = "1→0" ];
+    53 -> 135 [ label = "0→0" ];
+    53 -> 136 [ label = "1→0" ];
+
+    69 [ label = <69: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Int_Rm03_crossbladeswitch03<br align="left"/>    A&quot;, &quot;OT_Int_Rm03_crossbladeswitc<br align="left"/>    h03B&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;reset&quot;<br align="left"/>> ];
+    69 [ pos = "1.0120001,-3.719!" ];
+
+    79 [ label = <79: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;ObsidianTow<br align="left"/>    er&quot;, FlagName=&quot;IntRm03_Wall03_Up<br align="left"/>    &quot;, FlagValue=&quot;False&quot;)]<br align="left"/>> ];
+    79 [ pos = "1.0070001,-3.4810002!" ];
+    79 -> 158 [ label = "2→0" ];
+
+    80 [ label = <80: <b>SaveDataModule</b><br/><br/><b>RequireAllTrue</b><br align="left"/>    false<br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;ObsidianTow<br align="left"/>    er&quot;, FlagName=&quot;IntRm03_Wall03_Up<br align="left"/>    &quot;)]<br align="left"/>> ];
+    80 [ pos = "1.0170001,-3.9610002!" ];
+
+    81 [ label = <81: <b>SetLinkImpassableModule</b><br/><br/><i>Set Impassable<br align="left"/></i><br align="left"/><b>LinkNames</b><br align="left"/>    [&quot;ot_int_rm03_TLink_LWall_C_01&quot;,<br align="left"/>     &quot;ot_int_rm03_TLink_RWall_C_00&quot;]<br align="left"/>> ];
+    81 [ pos = "0.711,-3.9840002!" ];
+    81 -> 80 [ label = "0→1" ];
+
+    82 [ label = <82: <b>StartModule</b><br/><br/><i>Set Links and Disable Kill Regs<br align="left"/></i><br align="left"/>> ];
+    82 [ shape = oval ]
+    82 [ pos = "-0.156,-3.0790002!" ];
+    82 -> 154 [ label = "0→0" ];
+    82 -> 155 [ label = "0→0" ];
+    82 -> 156 [ label = "0→2" ];
+
+    83 [ label = <83: <b>SetLinkImpassableModule</b><br/><br/><i>Set Passable<br align="left"/></i><br align="left"/><b>Impassable</b><br align="left"/>    false<br align="left"/><b>LinkNames</b><br align="left"/>    [&quot;ot_int_rm03_TLink_LWall_C_00&quot;,<br align="left"/>     &quot;ot_int_rm03_TLink_LWall_C_02&quot;,<br align="left"/>     &quot;ot_int_rm03_TLink_RWall_C_01&quot;]<br align="left"/>> ];
+    83 [ pos = "0.711,-4.0730004!" ];
+
+    135 [ label = <135: <b>AnimatorModule</b><br/><br/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;OT_Int_Rm03_Wall03&quot;, Animatio<br align="left"/>    nID=1)]<br align="left"/>> ];
+    135 [ pos = "0.39800003,-3.5040002!" ];
+    135 -> 69 [ label = "1→0" ];
+    135 -> 53 [ label = "1→1" ];
+    135 -> 152 [ label = "0→0" ];
+    135 -> 151 [ label = "1→0" ];
+
+    136 [ label = <136: <b>AnimatorModule</b><br/><br/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;OT_Int_Rm03_Wall03&quot;, Animatio<br align="left"/>    nID=3)]<br align="left"/>> ];
+    136 [ pos = "0.39600003,-3.9840002!" ];
+    136 -> 69 [ label = "1→0" ];
+    136 -> 53 [ label = "1→3" ];
+    136 -> 150 [ label = "1→0" ];
+    136 -> 81 [ label = "0→0" ];
+    136 -> 83 [ label = "1→0" ];
+
+    150 [ label = <150: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;OT_Int_Rm03_Enc04_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;OT_Int_Rm03_Enc04&quot;<br align="left"/>> ];
+    150 [ pos = "0.60400003,-3.851!" ];
+
+    151 [ label = <151: <b>SetLinkImpassableModule</b><br/><br/><i>Set Passable<br align="left"/></i><br align="left"/><b>Impassable</b><br align="left"/>    false<br align="left"/><b>LinkNames</b><br align="left"/>    [&quot;ot_int_rm03_TLink_LWall_C_01&quot;,<br align="left"/>     &quot;ot_int_rm03_TLink_RWall_C_00&quot;]<br align="left"/>> ];
+    151 [ pos = "0.703,-3.5870001!" ];
+    151 -> 157 [ label = "0→2" ];
+
+    152 [ label = <152: <b>SetLinkImpassableModule</b><br/><br/><i>Set Impassable<br align="left"/></i><br align="left"/><b>LinkNames</b><br align="left"/>    [&quot;ot_int_rm03_TLink_LWall_C_00&quot;,<br align="left"/>     &quot;ot_int_rm03_TLink_LWall_C_02&quot;,<br align="left"/>     &quot;ot_int_rm03_TLink_RWall_C_01&quot;]<br align="left"/>> ];
+    152 [ pos = "0.70100003,-3.5040002!" ];
+    152 -> 79 [ label = "0→1" ];
+
+    154 [ label = <154: <b>SetLinkImpassableModule</b><br/><br/><i>Set Impassable<br align="left"/></i><br align="left"/><b>LinkNames</b><br align="left"/>    [&quot;ot_int_rm03_TLink_LWall_C_01&quot;,<br align="left"/>     &quot;ot_int_rm03_TLink_RWall_C_00&quot;]<br align="left"/>> ];
+    154 [ pos = "0.07300001,-3.0790002!" ];
+
+    155 [ label = <155: <b>SetLinkImpassableModule</b><br/><br/><i>Set Passable<br align="left"/></i><br align="left"/><b>Impassable</b><br align="left"/>    false<br align="left"/><b>LinkNames</b><br align="left"/>    [&quot;ot_int_rm03_TLink_LWall_C_00&quot;,<br align="left"/>     &quot;ot_int_rm03_TLink_LWall_C_02&quot;,<br align="left"/>     &quot;ot_int_rm03_TLink_RWall_C_01&quot;]<br align="left"/>> ];
+    155 [ pos = "0.07300001,-3.1680002!" ];
+
+    156 [ label = <156: <b>ObjectToggleModule</b><br/><br/><b>ObjectList</b><br align="left"/>    [&quot;OT_Int_Rm03_KReg_LWall_C_00&quot;, <br align="left"/>    &quot;OT_Int_Rm03_KReg_LWall_C_02&quot;]<br align="left"/>> ];
+    156 [ pos = "0.074,-3.2410002!" ];
+
+    157 [ label = <157: <b>ObjectToggleModule</b><br/><br/><i>Activate/Deactivate Kill Regs<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;OT_Int_Rm03_KReg_LWall_C_00&quot;, <br align="left"/>    &quot;OT_Int_Rm03_KReg_LWall_C_02&quot;]<br align="left"/>> ];
+    157 [ pos = "1.521,-3.5270002!" ];
+
+    158 [ label = <158: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    3.75<br align="left"/>> ];
+    158 [ pos = "1.279,-3.5500002!" ];
+    158 -> 157 [ label = "0→1" ];
+
+    159 [ label = <159: <b>ObjectAttacherModule</b><br/><br/><b>ChildObject</b><br align="left"/>    &quot;OT_Int_Rm03_BRingGlow03&quot;<br align="left"/><b>ParentObject</b><br align="left"/>    &quot;OT_Int_Rm03_Wall03&quot;<br align="left"/><b>ParentNode</b><br align="left"/>    &quot;OT_Int_Rm03_Wall03_A&quot;<br align="left"/><b>Relative</b><br align="left"/>    true<br align="left"/>> ];
+    159 [ pos = "-0.135,-3.7380002!" ];
+    159 -> 51 [ label = "0→0" ];
+
+    title [ pos = "-0.36800003,-3.078!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>OT_Int_Rm03<br align="left"/>Scripts<br align="left"/><b>OT_Int_Rm03_CrossbladeSwitch03_script</b><br align="left"/></font>> ];
+}

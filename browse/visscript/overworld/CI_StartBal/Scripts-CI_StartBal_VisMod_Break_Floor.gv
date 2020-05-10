@@ -1,0 +1,52 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    9 [ label = <9: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;CI_StartBal_Trigger_Break_Floo<br align="left"/>    r&quot;, &quot;&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    9 [ shape = oval ]
+    9 [ pos = "-0.291,0.033!" ];
+    9 -> 10 [ label = "0→0" ];
+    9 -> 17 [ label = "0→0" ];
+
+    10 [ label = <10: <b>DamageActorModule</b><br/><br/><i>Destroy Floor<br align="left"/></i><br align="left"/><b>DamageAmount</b><br align="left"/>    1000<br align="left"/><b>TargetActorNames</b><br align="left"/>    [&quot;StartBal_BrokenFloor&quot;]<br align="left"/><b>WeaponType</b><br align="left"/>    2<br align="left"/>> ];
+    10 [ pos = "0.158,-0.09900001!" ];
+    10 -> 22 [ label = "0→1" ];
+
+    15 [ label = <15: <b>base/camerashakemodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;StartBal_BrokenFloor&quot;<br align="left"/><b>HorizontalPower</b><br align="left"/>    4<br align="left"/><b>VerticalPower</b><br align="left"/>    4<br align="left"/><b>Duration</b><br align="left"/>    1<br align="left"/><b>EaseIn</b><br align="left"/>    1<br align="left"/>> ];
+    15 [ pos = "0.384,0.179!" ];
+
+    16 [ label = <16: <b>SoundModule</b><br/><br/><i>Break Sound<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;city_startblding/City_StartBuil<br align="left"/>    ding_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    46<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;War&quot;<br align="left"/>> ];
+    16 [ pos = "0.388,0.079!" ];
+
+    17 [ label = <17: <b>DelayModule</b><br/><br/><i>Wait .5<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    0.2<br align="left"/>> ];
+    17 [ pos = "0.16000001,0.13000001!" ];
+    17 -> 15 [ label = "0→0" ];
+    17 -> 16 [ label = "0→0" ];
+
+    19 [ label = <19: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;CI_StartBal<br align="left"/>    &quot;, FlagName=&quot;StartBal_BrokenFloo<br align="left"/>    rComplete&quot;)]<br align="left"/>> ];
+    19 [ pos = "-0.078,0.374!" ];
+    19 -> 21 [ label = "0→2" ];
+
+    20 [ label = <20: <b>StartModule</b><br/><br/>> ];
+    20 [ shape = oval ]
+    20 [ pos = "-0.307,0.423!" ];
+    20 -> 19 [ label = "0→0" ];
+
+    21 [ label = <21: <b>ObjectToggleModule</b><br/><br/><b>ObjectList</b><br align="left"/>    [&quot;StartBal_BrokenFloor&quot;]<br align="left"/>> ];
+    21 [ pos = "0.186,0.42000002!" ];
+
+    22 [ label = <22: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;CI_StartBal<br align="left"/>    &quot;, FlagName=&quot;StartBal_BrokenFloo<br align="left"/>    rComplete&quot;)]<br align="left"/>> ];
+    22 [ pos = "0.393,-0.076000005!" ];
+
+    title [ pos = "-0.30800003,0.42400002!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>CI_StartBal<br align="left"/>Scripts<br align="left"/><b>CI_StartBal_VisMod_Break_Floor</b><br align="left"/></font>> ];
+}

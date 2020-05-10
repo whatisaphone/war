@@ -1,0 +1,54 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    32 [ label = <32: <b>SaveDataModule</b><br/><br/><i>Set AllDead 01a<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;Rm06_Enc03_AllDead&quot;)]<br align="left"/>> ];
+    32 [ pos = "1.3080001,0.09!" ];
+
+    39 [ label = <39: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;ChCatRm06_Enc03&quot;<br align="left"/>> ];
+    39 [ pos = "0.56,0.09200001!" ];
+    39 -> 54 [ label = "0→0" ];
+    39 -> 41 [ style = dashed ];
+
+    40 [ label = <40: <b>SpawnMonsterEventModule</b><br/><br/><b>IsRandom</b><br align="left"/>    false<br align="left"/><b>DelayTime</b><br align="left"/>    0.46<br align="left"/>> ];
+    40 [ pos = "1.0070001,0.09200001!" ];
+    40 -> 32 [ label = "2→1" ];
+    41 -> 40 [ style = dashed ];
+
+    41 [ label = <41: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    41 [ shape = parallelogram ]
+    41 [ pos = "0.591,-0.038000003!" ];
+
+    50 [ label = <50: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;Ch_Cat_Rm06_Enc03_TrigReg&quot;, &quot;&quot;<br align="left"/>    ]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    50 [ shape = oval ]
+    50 [ pos = "-0.27,0.09200001!" ];
+    50 -> 51 [ label = "0→0" ];
+
+    51 [ label = <51: <b>SaveDataModule</b><br/><br/><i>got sword?<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;gotCatRm06Sword&quot;)]<br align="left"/>> ];
+    51 [ pos = "-0.021000002,0.021000002!" ];
+    51 -> 52 [ label = "0→0" ];
+
+    52 [ label = <52: <b>SaveDataModule</b><br/><br/><i>AllDead?<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;Rm06_Enc03_AllDead&quot;)]<br align="left"/>> ];
+    52 [ pos = "0.19100001,0.09200001!" ];
+    52 -> 53 [ label = "1→0" ];
+
+    53 [ label = <53: <b>base/oneshotmodule</b><br/><br/>> ];
+    53 [ pos = "0.39600003,0.09200001!" ];
+    53 -> 39 [ label = "0→0" ];
+
+    54 [ label = <54: <b>DelayModule</b><br/><br/>> ];
+    54 [ pos = "0.818,0.09200001!" ];
+    54 -> 40 [ label = "0→0" ];
+
+    title [ pos = "-0.27100003,0.093!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>Ch_Cat_Rm06<br align="left"/>Combat<br align="left"/><b>Ch_Cat_Rm06_Enc03_Script</b><br align="left"/></font>> ];
+}

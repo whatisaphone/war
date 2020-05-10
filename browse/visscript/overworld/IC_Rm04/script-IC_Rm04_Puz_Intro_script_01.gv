@@ -1,0 +1,66 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>TriggerEventModule</b><br/><br/><i>DISABLED<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;IC_Rm04_Puz_Intro_TrgReg&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "-1.263,-0.155!" ];
+    1 -> 17 [ label = "0→0" ];
+
+    17 [ label = <17: <b>SaveDataModule</b><br/><br/><i>check for cin played<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;ic_rm04&quot;, F<br align="left"/>    lagName=&quot;puz_intro_cin_played&quot;)]<br align="left"/>> ];
+    17 [ pos = "-1.01,-0.155!" ];
+    17 -> 29 [ label = "1→0" ];
+    17 -> 25 [ label = "1→0" ];
+    17 -> 18 [ label = "1→0" ];
+    17 -> 98 [ label = "1→0" ];
+
+    18 [ label = <18: <b>CinematicModule</b><br/><br/><b>CinematicName</b><br align="left"/>    &quot;IC_Rm04_Puz_Intro_Cin_01&quot;<br align="left"/>> ];
+    18 [ pos = "-0.757,0.287!" ];
+    18 -> 19 [ label = "1→1" ];
+
+    19 [ label = <19: <b>SaveDataModule</b><br/><br/><i>set cin played<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;ic_rm04&quot;, F<br align="left"/>    lagName=&quot;puz_intro_cin_played&quot;)]<br align="left"/>> ];
+    19 [ pos = "-0.53900003,0.28800002!" ];
+
+    21 [ label = <21: <b>PlayEffectModule</b><br/><br/><b>TargetObjs</b><br align="left"/>    [&quot;IC_Rm04_Puz_Intro_FX_Wypt&quot;]<br align="left"/><b>Package</b><br align="left"/>    &quot;debris&quot;<br align="left"/><b>Effect</b><br align="left"/>    &quot;Debris_RocksFall_01&quot;<br align="left"/>> ];
+    21 [ pos = "-0.514,-0.51000005!" ];
+    21 -> 43 [ label = "0→0" ];
+    21 -> 31 [ label = "0→0" ];
+
+    25 [ label = <25: <b>DelayModule</b><br/><br/><i>Rubble Falling... distracting th<br align="left"/>e Spider<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    0.1<br align="left"/>> ];
+    25 [ pos = "-0.71000004,-0.51000005!" ];
+    25 -> 21 [ label = "0→2" ];
+
+    29 [ label = <29: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    29 [ pos = "-0.734,0.062000003!" ];
+    29 -> 30 [ label = "0→0" ];
+
+    30 [ label = <30: <b>ObjectMoverModule</b><br/><br/><i>Move War<br align="left"/></i><br align="left"/><b>ObjectName</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>MoveVal</b><br align="left"/>    0<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;IC_Rm04_Teleport_Player_End_Cin<br align="left"/>    &quot;<br align="left"/><b>RotateObject</b><br align="left"/>    true<br align="left"/>> ];
+    30 [ pos = "-0.518,0.061000004!" ];
+
+    31 [ label = <31: <b>DelayModule</b><br/><br/>> ];
+    31 [ pos = "-0.512,-0.31500003!" ];
+    31 -> 21 [ label = "0→2" ];
+
+    43 [ label = <43: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    3<br align="left"/>> ];
+    43 [ pos = "-0.52900004,-0.71500003!" ];
+    43 -> 21 [ label = "0→1" ];
+
+    97 [ label = <97: <b>VisScriptCallModule</b><br/><br/><i>Distract the Spider<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;IC_Rm04_Enc00_Spider_AI&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;SendCanopyToKnockdownPosition&quot;<br align="left"/>> ];
+    97 [ pos = "-0.54,-0.178!" ];
+
+    98 [ label = <98: <b>DelayModule</b><br/><br/>> ];
+    98 [ pos = "-0.71300006,-0.178!" ];
+    98 -> 97 [ label = "0→0" ];
+
+    title [ pos = "-1.264,0.289!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>IC_Rm04<br align="left"/>script<br align="left"/><b>IC_Rm04_Puz_Intro_script_01</b><br align="left"/></font>> ];
+}

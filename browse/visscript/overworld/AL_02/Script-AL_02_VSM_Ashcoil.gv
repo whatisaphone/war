@@ -1,0 +1,146 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    3 [ label = <3: <b>ObjectMoverModule</b><br/><br/><i>Just move ashcoil into position<br align="left"/></i><br align="left"/><b>ObjectName</b><br align="left"/>    &quot;openingashcoil1&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>MoveVal</b><br align="left"/>    0.2<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;Anim_Ash_01&quot;<br align="left"/><b>RotateObject</b><br align="left"/>    true<br align="left"/>> ];
+    3 [ pos = "0.307,0.37600002!" ];
+    3 -> 4 [ label = "1→0" ];
+    3 -> 11 [ label = "1→0" ];
+    3 -> 16 [ label = "1→0" ];
+
+    4 [ label = <4: <b>InvokeMethodModule</b><br/><br/><i>Forces the ashcoil to rampage em<br align="left"/>erge<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;openingashcoil1&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;rampage&quot;<br align="left"/>> ];
+    4 [ pos = "0.661,0.49!" ];
+
+    6 [ label = <6: <b>ObjectMoverModule</b><br/><br/><i>Move ashcoil into place<br align="left"/></i><br align="left"/><b>ObjectName</b><br align="left"/>    &quot;openingashcoil1&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>MoveVal</b><br align="left"/>    0.2<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;Anim_Ash_02&quot;<br align="left"/><b>RotateObject</b><br align="left"/>    true<br align="left"/>> ];
+    6 [ pos = "0.33200002,-0.49800003!" ];
+    6 -> 7 [ label = "1→0" ];
+    6 -> 12 [ label = "1→0" ];
+    6 -> 15 [ label = "1→0" ];
+
+    7 [ label = <7: <b>InvokeMethodModule</b><br/><br/><i>Tell ashcoil to emerge<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;openingashcoil1&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;rampage&quot;<br align="left"/>> ];
+    7 [ pos = "0.68500006,-0.40500003!" ];
+    7 -> 71 [ label = "0→0" ];
+
+    11 [ label = <11: <b>SoundModule</b><br/><br/><b>SoundDescFile</b><br align="left"/>    &quot;ashlandcoil/AshlandCoil_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    9<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;openingashcoil1&quot;<br align="left"/>> ];
+    11 [ pos = "0.66400003,0.351!" ];
+
+    12 [ label = <12: <b>SoundModule</b><br/><br/><b>SoundDescFile</b><br align="left"/>    &quot;ashlandcoil/AshlandCoil_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    9<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;openingashcoil1&quot;<br align="left"/>> ];
+    12 [ pos = "0.689,-0.54800004!" ];
+
+    15 [ label = <15: <b>base/camerashakemodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>HorizontalPower</b><br align="left"/>    0.8<br align="left"/><b>VerticalPower</b><br align="left"/>    0.8<br align="left"/>> ];
+    15 [ pos = "0.688,-0.70100003!" ];
+
+    16 [ label = <16: <b>base/camerashakemodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>HorizontalPower</b><br align="left"/>    0.8<br align="left"/><b>VerticalPower</b><br align="left"/>    0.8<br align="left"/>> ];
+    16 [ pos = "0.66700006,0.21100001!" ];
+
+    17 [ label = <17: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.5<br align="left"/>> ];
+    17 [ pos = "0.3,0.735!" ];
+    17 -> 64 [ label = "0→0" ];
+    17 -> 70 [ label = "0→0" ];
+
+    18 [ label = <18: <b>ObjectToggleModule</b><br/><br/><i>Removes rock chunk, we should ma<br align="left"/>ke this a breakable!<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;ash_break_01&quot;]<br align="left"/>> ];
+    18 [ pos = "-0.26000002,0.725!" ];
+
+    19 [ label = <19: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.5<br align="left"/>> ];
+    19 [ pos = "0.347,-0.20600002!" ];
+    19 -> 63 [ label = "0→0" ];
+    19 -> 69 [ label = "0→0" ];
+
+    20 [ label = <20: <b>ObjectToggleModule</b><br/><br/><i>Remove rock chunk<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;ash_break_02&quot;]<br align="left"/>> ];
+    20 [ pos = "-0.43800002,-0.25500003!" ];
+
+    63 [ label = <63: <b>SoundModule</b><br/><br/><b>SoundDescFile</b><br align="left"/>    &quot;ashlands_02/Amb_Ashlands_Sounds<br align="left"/>    &quot;<br align="left"/><b>SoundID</b><br align="left"/>    43<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;ash_break_02&quot;<br align="left"/>> ];
+    63 [ pos = "0.69100004,-0.20600002!" ];
+
+    64 [ label = <64: <b>SoundModule</b><br/><br/><b>SoundDescFile</b><br align="left"/>    &quot;ashlands_02/Amb_Ashlands_Sounds<br align="left"/>    &quot;<br align="left"/><b>SoundID</b><br align="left"/>    43<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;ash_break_01&quot;<br align="left"/>> ];
+    64 [ pos = "0.66700006,0.735!" ];
+
+    65 [ label = <65: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;AL_02&quot;, Fla<br align="left"/>    gName=&quot;AL_02_Ashcoil_Burst_01&quot;)]<br align="left"/>> ];
+    65 [ pos = "-0.583,0.58500004!" ];
+    65 -> 18 [ label = "0→2" ];
+
+    66 [ label = <66: <b>StartModule</b><br/><br/>> ];
+    66 [ shape = oval ]
+    66 [ pos = "-0.8,0.58500004!" ];
+    66 -> 65 [ label = "0→0" ];
+
+    67 [ label = <67: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;AL_02&quot;, Fla<br align="left"/>    gName=&quot;AL_02_Ashcoil_Burst_02&quot;)]<br align="left"/>> ];
+    67 [ pos = "-0.89000005,-0.45200002!" ];
+    67 -> 20 [ label = "0→2" ];
+    67 -> 74 [ label = "0→1" ];
+    67 -> 82 [ label = "0→1" ];
+
+    68 [ label = <68: <b>StartModule</b><br/><br/>> ];
+    68 [ shape = oval ]
+    68 [ pos = "-1.146,-0.45200002!" ];
+    68 -> 67 [ label = "0→0" ];
+
+    69 [ label = <69: <b>DamageActorModule</b><br/><br/><b>DamageAmount</b><br align="left"/>    1000<br align="left"/><b>TargetActorNames</b><br align="left"/>    [&quot;ash_break_02&quot;]<br align="left"/><b>WeaponType</b><br align="left"/>    2<br align="left"/><b>Power</b><br align="left"/>    3<br align="left"/><b>ApplyKnockBackUp</b><br align="left"/>    true<br align="left"/><b>DamageLocation</b><br align="left"/>    &quot;ash_break_02&quot;<br align="left"/><b>KnockUp</b><br align="left"/>    500<br align="left"/>> ];
+    69 [ pos = "0.688,-0.040000003!" ];
+
+    70 [ label = <70: <b>DamageActorModule</b><br/><br/><b>DamageAmount</b><br align="left"/>    1000<br align="left"/><b>TargetActorNames</b><br align="left"/>    [&quot;ash_break_01&quot;]<br align="left"/><b>WeaponType</b><br align="left"/>    2<br align="left"/><b>Power</b><br align="left"/>    3<br align="left"/><b>ApplyKnockBackUp</b><br align="left"/>    true<br align="left"/><b>DamageLocation</b><br align="left"/>    &quot;ash_break_02&quot;<br align="left"/><b>KnockUp</b><br align="left"/>    500<br align="left"/>> ];
+    70 [ pos = "0.671,0.87000006!" ];
+
+    71 [ label = <71: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    5<br align="left"/>> ];
+    71 [ pos = "0.97700006,-0.40500003!" ];
+    71 -> 72 [ label = "0→0" ];
+
+    72 [ label = <72: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;openingashcoil1&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;returnToPatrol&quot;<br align="left"/>> ];
+    72 [ pos = "1.222,-0.40600002!" ];
+
+    74 [ label = <74: <b>TriggerEventModule</b><br/><br/><i>In game moment where aschcoil sm<br align="left"/>ashes through the first piece of<br align="left"/> rock<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;AL_02_Ashcoil_Trigger03&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/><b>EventHandler</b><br align="left"/>    VisScriptEventHandler(Position=[<br align="left"/>    263771940000000000000000, 459762<br align="left"/>    3800000000000000000, 16928742000<br align="left"/>    000000000000])<br align="left"/>> ];
+    74 [ shape = oval ]
+    74 [ pos = "-0.441,-0.512!" ];
+    74 -> 79 [ label = "0→0" ];
+    74 -> 78 [ label = "0→0" ];
+    74 -> 79 [ label = "1→1" ];
+
+    76 [ label = <76: <b>VisScriptCallModule</b><br/><br/><i>Trigger Damage Actor<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;AL_02_Enc03_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;AL_02_Enc03_Ash_Break_Triggered<br align="left"/>    &quot;<br align="left"/>> ];
+    76 [ pos = "0.671,0.93200004!" ];
+
+    77 [ label = <77: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.3<br align="left"/>> ];
+    77 [ pos = "0.29900002,0.915!" ];
+    77 -> 76 [ label = "0→0" ];
+    77 -> 85 [ label = "0→1" ];
+
+    78 [ label = <78: <b>SoundModule</b><br/><br/><i>Distant Scream<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;al_com/AL_ashcoil_distant_Sound<br align="left"/>    s&quot;<br align="left"/><b>SoundID</b><br align="left"/>    3<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;Anim_Ash_02&quot;<br align="left"/>> ];
+    78 [ pos = "-0.07,-0.47200003!" ];
+
+    79 [ label = <79: <b>SoundModule</b><br/><br/><i>Ashcoil Rumbe<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;ashlandcoil/AshlandCoil_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    25<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;Anim_Ash_02&quot;<br align="left"/>> ];
+    79 [ pos = "-0.07,-0.33100003!" ];
+
+    82 [ label = <82: <b>TriggerEventModule</b><br/><br/><i>In game moment where aschcoil sm<br align="left"/>ashes through the first piece of<br align="left"/> rock<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;AL_02_Ashcoil_Trigger05&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/><b>EventHandler</b><br align="left"/>    VisScriptEventHandler(Position=[<br align="left"/>    263771940000000000000000, 459762<br align="left"/>    3800000000000000000, 16928742000<br align="left"/>    000000000000])<br align="left"/>> ];
+    82 [ shape = oval ]
+    82 [ pos = "-0.347,-0.814!" ];
+    82 -> 78 [ label = "0→1" ];
+    82 -> 79 [ label = "0→1" ];
+    82 -> 79 [ label = "0→3" ];
+    82 -> 6 [ label = "0→0" ];
+    82 -> 19 [ label = "0→0" ];
+    82 -> 86 [ label = "0→1" ];
+
+    84 [ label = <84: <b>ExternalCallModule</b><br/><br/><b>EventName</b><br align="left"/>    &quot;Ash_Burst_Phantom&quot;<br align="left"/>> ];
+    84 [ shape = oval ]
+    84 [ pos = "-0.177,0.37600002!" ];
+    84 -> 3 [ label = "0→0" ];
+    84 -> 17 [ label = "0→0" ];
+    84 -> 77 [ label = "0→0" ];
+
+    85 [ label = <85: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;AL_02&quot;, Fla<br align="left"/>    gName=&quot;AL_02_Ashcoil_Burst_01&quot;)]<br align="left"/>> ];
+    85 [ pos = "0.68100005,1.0910001!" ];
+
+    86 [ label = <86: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;AL_02&quot;, Fla<br align="left"/>    gName=&quot;AL_02_Ashcoil_Burst_02&quot;)]<br align="left"/>> ];
+    86 [ pos = "0.33100003,-0.67!" ];
+
+    title [ pos = "-1.1470001,1.092!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>AL_02<br align="left"/>Script<br align="left"/><b>AL_02_VSM_Ashcoil</b><br align="left"/></font>> ];
+}

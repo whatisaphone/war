@@ -1,0 +1,196 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>SaveDataModule</b><br/><br/><i>Check Spawned<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;Spawned_Ch_Int_Rm04_Enc0<br align="left"/>    1&quot;)]<br align="left"/>> ];
+    1 [ pos = "0.462,-0.349!" ];
+    1 -> 18 [ label = "1→1" ];
+    1 -> 23 [ label = "1→0" ];
+
+    5 [ label = <5: <b>SaveDataModule</b><br/><br/><i>Set AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_Ch_Int_Rm04_Enc0<br align="left"/>    1&quot;)]<br align="left"/>> ];
+    5 [ pos = "1.748,-0.54!" ];
+
+    13 [ label = <13: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    2<br align="left"/>> ];
+    13 [ pos = "1.465,-0.563!" ];
+    13 -> 5 [ label = "0→1" ];
+    13 -> 25 [ label = "0→0" ];
+
+    14 [ label = <14: <b>StartModule</b><br/><br/>> ];
+    14 [ shape = oval ]
+    14 [ pos = "-0.123,-0.349!" ];
+    14 -> 15 [ label = "0→0" ];
+
+    15 [ label = <15: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    3<br align="left"/>> ];
+    15 [ pos = "0.053000003,-0.349!" ];
+    15 -> 22 [ label = "0→0" ];
+
+    18 [ label = <18: <b>SaveDataModule</b><br/><br/><i>Set Spawned<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;Spawned_Ch_Int_Rm04_Enc0<br align="left"/>    1&quot;)]<br align="left"/>> ];
+    18 [ pos = "0.70600003,-0.349!" ];
+
+    22 [ label = <22: <b>AttachEventModule</b><br/><br/><i>Sword got!<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;ch_int_swordaltar&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onInteractive&quot;]<br align="left"/>> ];
+    22 [ pos = "0.20400001,-0.349!" ];
+    22 -> 1 [ label = "0→0" ];
+    22 -> 62 [ label = "0→1" ];
+    22 -> 75 [ label = "0→0" ];
+
+    23 [ label = <23: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    4<br align="left"/>> ];
+    23 [ pos = "0.707,-0.517!" ];
+    23 -> 28 [ label = "0→0" ];
+
+    25 [ label = <25: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    3<br align="left"/>> ];
+    25 [ pos = "1.7470001,-0.68100005!" ];
+    25 -> 50 [ label = "0→0" ];
+
+    27 [ label = <27: <b>SpawnMonsterEventModule</b><br/><br/><b>DelayTime</b><br align="left"/>    0.4<br align="left"/>> ];
+    27 [ pos = "1.1570001,-0.517!" ];
+    27 -> 13 [ label = "2→0" ];
+    29 -> 27 [ style = dashed ];
+    27 -> 37 [ style = dashed ];
+
+    28 [ label = <28: <b>PopSpawnPointsModule</b><br/><br/><i>ChInt04_Enc01<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;ChInt04_Enc01&quot;<br align="left"/>> ];
+    28 [ pos = "0.89900005,-0.517!" ];
+    28 -> 27 [ label = "0→0" ];
+    28 -> 45 [ label = "0→0" ];
+    28 -> 76 [ label = "0→0" ];
+    28 -> 29 [ style = dashed ];
+
+    29 [ label = <29: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    29 [ shape = parallelogram ]
+    29 [ pos = "0.93700004,-0.67!" ];
+
+    37 [ label = <37: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    37 [ shape = parallelogram ]
+    37 [ pos = "1.1810001,-0.75900006!" ];
+
+    43 [ label = <43: <b>VisScriptCallModule</b><br/><br/><i>start_LightCombat<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;start_LightCombat&quot;<br align="left"/>> ];
+    43 [ pos = "0.48800004,-0.513!" ];
+
+    44 [ label = <44: <b>VisScriptCallModule</b><br/><br/><i>kill_LightCombat<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;kill_LightCombat&quot;<br align="left"/>> ];
+    44 [ pos = "1.7450001,-0.44700003!" ];
+
+    45 [ label = <45: <b>CinematicModule</b><br/><br/><i>triggers doors to lock and barri<br align="left"/>ers to come up.<br align="left"/></i><br align="left"/><b>CinematicName</b><br align="left"/>    &quot;Ch_Int_Rm04_Enc01_Cine01&quot;<br align="left"/>> ];
+    45 [ pos = "1.164,-0.351!" ];
+
+    46 [ label = <46: <b>base/titledisplaycharactermodule</b><br/><br/><b>CharacterClass</b><br align="left"/>    &quot;undead_reform_blackgold/undead_<br align="left"/>    reform_blackgold&quot;<br align="left"/>> ];
+    46 [ pos = "1.6620001,-0.22100002!" ];
+
+    47 [ label = <47: <b>ExternalCallModule</b><br/><br/><b>EventName</b><br align="left"/>    &quot;ShowBossText&quot;<br align="left"/>> ];
+    47 [ shape = oval ]
+    47 [ pos = "1.386,-0.22100002!" ];
+
+    48 [ label = <48: <b>ExternalCallModule</b><br/><br/><i>from encounter cine<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;RaiseBarriers&quot;<br align="left"/>> ];
+    48 [ shape = oval ]
+    48 [ pos = "1.394,-0.042000003!" ];
+    48 -> 49 [ label = "0→0" ];
+
+    49 [ label = <49: <b>InvokeMethodModule</b><br/><br/><i>raise barriers.<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;Ch_Int_Rm04_Enc01_Barrier_01&quot;,<br align="left"/>     &quot;Ch_Int_Rm04_Enc01_Barrier_02&quot;,<br align="left"/>     &quot;Ch_Int_Rm04_Enc01_Barrier_03&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOn&quot;<br align="left"/>> ];
+    49 [ pos = "1.664,-0.042000003!" ];
+    49 -> 57 [ label = "0→0" ];
+
+    50 [ label = <50: <b>InvokeMethodModule</b><br/><br/><i>drop barriers.<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;Ch_Int_Rm04_Enc01_Barrier_01&quot;,<br align="left"/>     &quot;Ch_Int_Rm04_Enc01_Barrier_02&quot;,<br align="left"/>     &quot;Ch_Int_Rm04_Enc01_Barrier_03&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOff&quot;<br align="left"/>> ];
+    50 [ pos = "1.914,-0.68100005!" ];
+    50 -> 58 [ label = "0→0" ];
+
+    51 [ label = <51: <b>base/setspawnpointmodule</b><br/><br/><b>World</b><br align="left"/>    &quot;Overworld&quot;<br align="left"/><b>Region</b><br align="left"/>    &quot;Ch_Int_Rm04&quot;<br align="left"/><b>SpawnPoint</b><br align="left"/>    &quot;Ch_Int_Rm04_SwordEncounterRespa<br align="left"/>    wn&quot;<br align="left"/><b>SpawnLoadRegion</b><br align="left"/>    &quot;StartLoadRegion&quot;<br align="left"/>> ];
+    51 [ pos = "0.91300005,-0.030000001!" ];
+    51 -> 52 [ label = "0→0" ];
+
+    52 [ label = <52: <b>base/autosavemodule</b><br/><br/>> ];
+    52 [ pos = "1.1190001,-0.030000001!" ];
+
+    53 [ label = <53: <b>base/setspawnpointmodule</b><br/><br/><b>World</b><br align="left"/>    &quot;Overworld&quot;<br align="left"/><b>Region</b><br align="left"/>    &quot;Ch_Int_Rm01&quot;<br align="left"/><b>SpawnPoint</b><br align="left"/>    &quot;Start&quot;<br align="left"/><b>SpawnLoadRegion</b><br align="left"/>    &quot;StartLoadRegion&quot;<br align="left"/>> ];
+    53 [ pos = "2.7110002,-0.68!" ];
+    53 -> 54 [ label = "0→0" ];
+
+    54 [ label = <54: <b>base/autosavemodule</b><br/><br/>> ];
+    54 [ pos = "2.9080002,-0.68!" ];
+
+    55 [ label = <55: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.25<br align="left"/>> ];
+    55 [ pos = "0.75000006,-0.030000001!" ];
+    55 -> 51 [ label = "0→0" ];
+
+    56 [ label = <56: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.25<br align="left"/>> ];
+    56 [ pos = "2.3390002,-0.68!" ];
+    56 -> 70 [ label = "0→0" ];
+
+    57 [ label = <57: <b>InvokeMethodModule</b><br/><br/><i>deactivate doors<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;ch_int_Rm01_to_Rm04_leftdoor&quot;,<br align="left"/>     &quot;ch_int_Rm04_to_Rm05_door&quot;, &quot;ch<br align="left"/>    _int_Rm04_swordstatue&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;deactivate&quot;<br align="left"/>> ];
+    57 [ pos = "1.881,-0.042000003!" ];
+
+    58 [ label = <58: <b>InvokeMethodModule</b><br/><br/><i>activate int01/04 door and sword<br align="left"/> statue<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;ch_int_Rm01_to_Rm04_leftdoor&quot;,<br align="left"/>     &quot;ch_int_Rm04_swordstatue&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;activate&quot;<br align="left"/>> ];
+    58 [ pos = "2.13,-0.68!" ];
+    58 -> 56 [ label = "0→0" ];
+
+    59 [ label = <59: <b>SaveDataModule</b><br/><br/><i>Int_Rm05_Unlocked<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;Int_Rm05_Unlocked&quot;)]<br align="left"/>> ];
+    59 [ pos = "2.4080002,-0.411!" ];
+    59 -> 60 [ label = "0→0" ];
+
+    60 [ label = <60: <b>InvokeMethodModule</b><br/><br/><i>activate 04/05 door<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;ch_int_Rm04_to_Rm05_door&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;activate&quot;<br align="left"/>> ];
+    60 [ pos = "2.6590002,-0.411!" ];
+
+    61 [ label = <61: <b>TriggerEventModule</b><br/><br/><i>stores or commits until you take<br align="left"/> the sword.<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;Ch_Int_Rm04_CombatStoreTrigger<br align="left"/>    &quot;, &quot;&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    61 [ shape = oval ]
+    61 [ pos = "-0.883,-0.76600003!" ];
+    61 -> 63 [ label = "0→0" ];
+    61 -> 65 [ label = "1→0" ];
+
+    62 [ label = <62: <b>SaveDataModule</b><br/><br/><i>Int_Rm04_SwordTaken<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;Int_Rm04_SwordTaken&quot;)]<br align="left"/>> ];
+    62 [ pos = "0.462,-0.18400002!" ];
+
+    63 [ label = <63: <b>SaveDataModule</b><br/><br/><i>Int_Rm04_SwordTaken<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;Int_Rm04_SwordTaken&quot;)]<br align="left"/>> ];
+    63 [ pos = "-0.52400005,-0.70000005!" ];
+    63 -> 67 [ label = "1→0" ];
+
+    64 [ label = <64: <b>base/storesavedatamodule</b><br/><br/>> ];
+    64 [ pos = "-0.087000005,-0.72300005!" ];
+
+    65 [ label = <65: <b>SaveDataModule</b><br/><br/><i>Int_Rm04_SwordTaken<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;Int_Rm04_SwordTaken&quot;)]<br align="left"/>> ];
+    65 [ pos = "-0.52500004,-0.85400003!" ];
+    65 -> 66 [ label = "1→0" ];
+
+    66 [ label = <66: <b>base/commitsavedatamodule</b><br/><br/>> ];
+    66 [ pos = "-0.317,-0.87700003!" ];
+    66 -> 69 [ label = "0→0" ];
+
+    67 [ label = <67: <b>base/setspawnpointmodule</b><br/><br/><b>World</b><br align="left"/>    &quot;Overworld&quot;<br align="left"/><b>Region</b><br align="left"/>    &quot;Ch_Int_Rm04&quot;<br align="left"/><b>SpawnPoint</b><br align="left"/>    &quot;Ch_Int_Rm04_SwordEncounterRespa<br align="left"/>    wn&quot;<br align="left"/><b>SpawnLoadRegion</b><br align="left"/>    &quot;StartLoadRegion&quot;<br align="left"/>> ];
+    67 [ pos = "-0.316,-0.72300005!" ];
+    67 -> 64 [ label = "0→0" ];
+
+    69 [ label = <69: <b>base/setspawnpointmodule</b><br/><br/><b>World</b><br align="left"/>    &quot;Overworld&quot;<br align="left"/><b>Region</b><br align="left"/>    &quot;Ch_Int_Rm01&quot;<br align="left"/><b>SpawnPoint</b><br align="left"/>    &quot;Start&quot;<br align="left"/><b>SpawnLoadRegion</b><br align="left"/>    &quot;StartLoadRegion&quot;<br align="left"/>> ];
+    69 [ pos = "-0.086,-0.87700003!" ];
+
+    70 [ label = <70: <b>base/commitsavedatamodule</b><br/><br/>> ];
+    70 [ pos = "2.4840002,-0.68!" ];
+    70 -> 53 [ label = "0→0" ];
+
+    75 [ label = <75: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;Gripper01&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;onGripperDisabled&quot;<br align="left"/>> ];
+    75 [ pos = "0.268,-0.56!" ];
+
+    76 [ label = <76: <b>SpawnMonsterEventModule</b><br/><br/><i>ChInt04_Enc01Crys<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;ChInt04_Enc01Crys&quot;<br align="left"/><b>DelayTime</b><br align="left"/>    0.4<br align="left"/>> ];
+    76 [ pos = "1.153,-0.83900005!" ];
+    76 -> 13 [ label = "2→0" ];
+    76 -> 80 [ label = "0→0" ];
+    76 -> 78 [ label = "2→0" ];
+
+    78 [ label = <78: <b>SetLinkImpassableModule</b><br/><br/><b>LinkNames</b><br align="left"/>    [&quot;TraversalLink_ShouldAttk_01&quot;, <br align="left"/>    &quot;TraversalLink_ShouldAttk_02&quot;]<br align="left"/>> ];
+    78 [ pos = "1.2880001,-1.159!" ];
+
+    79 [ label = <79: <b>StartModule</b><br/><br/>> ];
+    79 [ shape = oval ]
+    79 [ pos = "1.087,-1.159!" ];
+    79 -> 78 [ label = "0→0" ];
+
+    80 [ label = <80: <b>SetLinkImpassableModule</b><br/><br/><b>Impassable</b><br align="left"/>    false<br align="left"/><b>LinkNames</b><br align="left"/>    [&quot;TraversalLink_ShouldAttk_01&quot;, <br align="left"/>    &quot;TraversalLink_ShouldAttk_02&quot;]<br align="left"/>> ];
+    80 [ pos = "1.491,-1.0380001!" ];
+
+    title [ pos = "-0.88400006,-0.029000001!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>Ch_Int_Rm04<br align="left"/>Combat<br align="left"/><b>Ch_Int_Rm04_Enc01_Script</b><br align="left"/></font>> ];
+}

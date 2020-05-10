@@ -1,0 +1,91 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>TriggerEventModule</b><br/><br/><i>Triggers the straga meteor<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;May_TrgReg_StragaMeteor&quot;, &quot;&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "0.293,-0.21900001!" ];
+    1 -> 2 [ label = "0→0" ];
+    1 -> 5 [ label = "0→0" ];
+    1 -> 10 [ label = "0→0" ];
+    1 -> 15 [ label = "0→1" ];
+    1 -> 20 [ label = "0→1" ];
+
+    2 [ label = <2: <b>AnimatorModule</b><br/><br/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;Mayhem_Straga_Meteor&quot;, Animat<br align="left"/>    ionID=1)]<br align="left"/>> ];
+    2 [ pos = "0.564,-0.22000001!" ];
+    2 -> 3 [ label = "1→0" ];
+    2 -> 6 [ label = "1→0" ];
+
+    3 [ label = <3: <b>AnimatorModule</b><br/><br/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;Mayhem_Straga_Meteor&quot;, Animat<br align="left"/>    ionID=2)]<br align="left"/>> ];
+    3 [ pos = "0.822,-0.24300002!" ];
+    3 -> 4 [ label = "1→2" ];
+
+    4 [ label = <4: <b>ObjectToggleModule</b><br/><br/><i>Pull out the meteor<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;Mayhem_Straga_Meteor&quot;]<br align="left"/>> ];
+    4 [ pos = "1.069,-0.22000001!" ];
+
+    5 [ label = <5: <b>CinematicModule</b><br/><br/><i>Cin following the meteor<br align="left"/></i><br align="left"/><b>CinematicName</b><br align="left"/>    &quot;Mayhem_Cin_Straga_Meteor&quot;<br align="left"/>> ];
+    5 [ pos = "0.6,-0.081!" ];
+
+    6 [ label = <6: <b>SoundModule</b><br/><br/><i>People scream<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;mayhem_fx/mayhem_fx&quot;<br align="left"/><b>SoundID</b><br align="left"/>    5<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;War&quot;<br align="left"/>> ];
+    6 [ pos = "0.82000005,-0.069000006!" ];
+
+    9 [ label = <9: <b>SoundModule</b><br/><br/><b>SoundDescFile</b><br align="left"/>    &quot;base/Music&quot;<br align="left"/><b>SoundID</b><br align="left"/>    616<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;War&quot;<br align="left"/>> ];
+    9 [ pos = "0.90000004,0.134!" ];
+    9 -> 11 [ label = "0→0" ];
+
+    10 [ label = <10: <b>DelayModule</b><br/><br/>> ];
+    10 [ pos = "0.702,0.134!" ];
+    10 -> 9 [ label = "0→0" ];
+    10 -> 13 [ label = "0→0" ];
+
+    11 [ label = <11: <b>DelayModule</b><br/><br/>> ];
+    11 [ pos = "1.1120001,0.134!" ];
+    11 -> 12 [ label = "0→0" ];
+
+    12 [ label = <12: <b>VisScriptCallModule</b><br/><br/><i>start combat music<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scripted_HeavyCombat&quot;<br align="left"/>> ];
+    12 [ pos = "1.2980001,0.134!" ];
+
+    13 [ label = <13: <b>ObjectToggleModule</b><br/><br/><i>Toggle the fire <br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;Mayhem_MeteorBuilding_Hole&quot;, &quot;<br align="left"/>    Mayhem_MeteorBuilding_Wall&quot;, &quot;Ma<br align="left"/>    yhem_Fire_Large_18&quot;, &quot;Mayhem_Fir<br align="left"/>    e_Large_11&quot;]<br align="left"/>> ];
+    13 [ pos = "0.785,-0.74!" ];
+
+    14 [ label = <14: <b>StartModule</b><br/><br/>> ];
+    14 [ shape = oval ]
+    14 [ pos = "0.544,-0.74!" ];
+    14 -> 13 [ label = "0→0" ];
+
+    15 [ label = <15: <b>SoundModule</b><br/><br/><i>Combat_Heavy_BOSS_Main_06<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;base/Music&quot;<br align="left"/><b>SoundID</b><br align="left"/>    645<br align="left"/><b>Music</b><br align="left"/>    true<br align="left"/><b>Transition</b><br align="left"/>    true<br align="left"/>> ];
+    15 [ pos = "0.45700002,0.030000001!" ];
+
+    16 [ label = <16: <b>ObjectToggleModule</b><br/><br/><b>ObjectList</b><br align="left"/>    [&quot;mayhem_area_6_straga_spikes&quot;, <br align="left"/>    &quot;mayhem_area_6_straga_blocker&quot;, <br align="left"/>    &quot;br_may_temp_stragablockwall&quot;, &quot;<br align="left"/>    May_Straga_MovementBlocker&quot;]<br align="left"/>> ];
+    16 [ pos = "0.58400005,0.40500003!" ];
+
+    17 [ label = <17: <b>StartModule</b><br/><br/>> ];
+    17 [ shape = oval ]
+    17 [ pos = "0.381,0.40500003!" ];
+    17 -> 16 [ label = "0→0" ];
+
+    18 [ label = <18: <b>StartModule</b><br/><br/>> ];
+    18 [ shape = oval ]
+    18 [ pos = "-0.136,-0.24200001!" ];
+    18 -> 19 [ label = "0→0" ];
+
+    19 [ label = <19: <b>SaveDataModule</b><br/><br/><i>Straga meteor played?<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Mayhem&quot;, Fl<br align="left"/>    agName=&quot;StragaMeteor&quot;)]<br align="left"/>> ];
+    19 [ pos = "0.074,-0.24200001!" ];
+    19 -> 1 [ label = "0→1" ];
+    19 -> 13 [ label = "0→1" ];
+
+    20 [ label = <20: <b>SaveDataModule</b><br/><br/><i>Straga meteor played?<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Mayhem&quot;, Fl<br align="left"/>    agName=&quot;StragaMeteor&quot;)]<br align="left"/>> ];
+    20 [ pos = "0.57500005,-0.61300004!" ];
+
+    title [ pos = "-0.13700001,0.40600002!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>Mayhem_06<br align="left"/>Scripts<br align="left"/><b>May_VSM_StragaMeteor</b><br align="left"/></font>> ];
+}

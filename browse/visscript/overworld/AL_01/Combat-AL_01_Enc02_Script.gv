@@ -1,0 +1,109 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    3 [ label = <3: <b>SpawnMonsterEventModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;AL_01_Enc02&quot;<br align="left"/>> ];
+    3 [ pos = "0.062000003,-0.045!" ];
+    3 -> 34 [ label = "0→2" ];
+    3 -> 47 [ label = "3→1" ];
+    3 -> 61 [ label = "0→0" ];
+    3 -> 31 [ style = dashed ];
+
+    13 [ label = <13: <b>StartModule</b><br/><br/>> ];
+    13 [ shape = oval ]
+    13 [ pos = "-0.80600005,-0.039!" ];
+    13 -> 21 [ label = "0→0" ];
+
+    21 [ label = <21: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;AL_01_Enc02_Trigger_01&quot;, &quot;AL_0<br align="left"/>    1_Enc02_Trigger_02&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    21 [ shape = oval ]
+    21 [ pos = "-0.6,-0.039!" ];
+    21 -> 46 [ label = "0→0" ];
+    21 -> 50 [ label = "0→1" ];
+
+    31 [ label = <31: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    31 [ shape = parallelogram ]
+    31 [ pos = "0.356,-0.21000001!" ];
+
+    33 [ label = <33: <b>ObjectToggleModule</b><br/><br/>> ];
+    33 -> 21 [ label = "0→2" ];
+    31 -> 33 [ style = dashed ];
+
+    34 [ label = <34: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;AL_01_Enc02_RemoveTrigger_01&quot;,<br align="left"/>     &quot;AL_01_Enc02_RemoveTrigger_02&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    34 [ shape = oval ]
+    34 [ pos = "0.43400002,0.156!" ];
+    34 -> 33 [ label = "0→2" ];
+
+    42 [ label = <42: <b>base/isinviewmodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;AL_01_Enc02_Fallen_InView&quot;<br align="left"/><b>MaxDistance</b><br align="left"/>    &quot;2000&quot;<br align="left"/>> ];
+    42 [ pos = "0.35700002,-0.347!" ];
+    42 -> 48 [ label = "0→0" ];
+
+    43 [ label = <43: <b>SpawnMonsterEventModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;AL_01_Enc02_Fallen&quot;<br align="left"/>> ];
+    43 [ pos = "0.81600004,-0.34600002!" ];
+    43 -> 49 [ label = "3→1" ];
+    43 -> 54 [ label = "0→0" ];
+    43 -> 55 [ label = "0→0" ];
+    43 -> 44 [ style = dashed ];
+
+    44 [ label = <44: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    44 [ shape = parallelogram ]
+    44 [ pos = "0.88400006,-0.611!" ];
+
+    46 [ label = <46: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;AL_01&quot;, Fla<br align="left"/>    gName=&quot;Enc02_WickedDead&quot;)]<br align="left"/>> ];
+    46 [ pos = "-0.25,0.037!" ];
+    46 -> 3 [ label = "1→0" ];
+
+    47 [ label = <47: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;AL_01&quot;, Fla<br align="left"/>    gName=&quot;Enc02_WickedDead&quot;)]<br align="left"/>> ];
+    47 [ pos = "0.367,-0.080000006!" ];
+
+    48 [ label = <48: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;AL_01&quot;, Fla<br align="left"/>    gName=&quot;Enc02_FallenDead&quot;)]<br align="left"/>> ];
+    48 [ pos = "0.609,-0.347!" ];
+    48 -> 43 [ label = "1→0" ];
+
+    49 [ label = <49: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;AL_01&quot;, Fla<br align="left"/>    gName=&quot;Enc02_FallenDead&quot;)]<br align="left"/>> ];
+    49 [ pos = "1.274,-0.37100002!" ];
+
+    50 [ label = <50: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;AL_01_Enc02_TrigDisable&quot;, &quot;&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    50 [ shape = oval ]
+    50 [ pos = "-0.60700005,0.17!" ];
+    50 -> 21 [ label = "0→1" ];
+    50 -> 21 [ label = "1→0" ];
+
+    54 [ label = <54: <b>InvokeMethodModule</b><br/><br/><i>setPatrolUnreachable<br align="left"/></i><br align="left"/><b>MethodName</b><br align="left"/>    &quot;setPatrolUnreachable&quot;<br align="left"/>> ];
+    54 [ pos = "1.2320001,-0.193!" ];
+    44 -> 54 [ style = dashed ];
+
+    55 [ label = <55: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;AL_01_Enc02_TrigRegSetPath&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    55 [ shape = oval ]
+    55 [ pos = "0.82000005,-0.702!" ];
+    55 -> 56 [ label = "0→0" ];
+
+    56 [ label = <56: <b>PropertySetModule</b><br/><br/><b>PropertyName</b><br align="left"/>    &quot;PatrolPathName&quot;<br align="left"/><b>StringValue</b><br align="left"/>    &quot;AL_01_Enc02_Fallen_PatrolPath&quot;<br align="left"/>> ];
+    56 [ pos = "1.0480001,-0.703!" ];
+    56 -> 58 [ label = "0→0" ];
+    44 -> 56 [ style = dashed ];
+
+    58 [ label = <58: <b>base/settargetmodule</b><br/><br/><b>Target</b><br align="left"/>    &quot;War&quot;<br align="left"/>> ];
+    58 [ pos = "1.233,-0.70400006!" ];
+    58 -> 60 [ label = "0→0" ];
+    44 -> 58 [ style = dashed ];
+
+    60 [ label = <60: <b>InvokeMethodModule</b><br/><br/><b>MethodName</b><br align="left"/>    &quot;setBehaviorCombat&quot;<br align="left"/>> ];
+    60 [ pos = "1.47,-0.70400006!" ];
+    44 -> 60 [ style = dashed ];
+
+    61 [ label = <61: <b>base/oneshotmodule</b><br/><br/>> ];
+    61 [ pos = "0.16700001,-0.404!" ];
+    61 -> 42 [ label = "0→0" ];
+
+    title [ pos = "-0.80700004,0.171!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>AL_01<br align="left"/>Combat<br align="left"/><b>AL_01_Enc02_Script</b><br align="left"/></font>> ];
+}

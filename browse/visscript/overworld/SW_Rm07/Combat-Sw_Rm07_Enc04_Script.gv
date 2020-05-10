@@ -1,0 +1,244 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    4 [ label = <4: <b>SaveDataModule</b><br/><br/><i>Check AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_Sw_Rm07_Enc04&quot;)]<br align="left"/>> ];
+    4 [ pos = "-0.22900002,-0.058000002!" ];
+    4 -> 21 [ label = "1→0" ];
+
+    8 [ label = <8: <b>SpawnMonsterEventModule</b><br/><br/><b>DelayTime</b><br align="left"/>    0.03<br align="left"/>> ];
+    8 [ pos = "0.37500003,-0.048!" ];
+    8 -> 63 [ label = "2→0" ];
+    8 -> 67 [ label = "0→0" ];
+    10 -> 8 [ style = dashed ];
+    8 -> 12 [ style = dashed ];
+
+    9 [ label = <9: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;Sw_Rm07_Enc04&quot;<br align="left"/>> ];
+    9 [ pos = "0.065000005,-0.076000005!" ];
+    9 -> 8 [ label = "0→0" ];
+    9 -> 10 [ style = dashed ];
+
+    10 [ label = <10: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    10 [ shape = parallelogram ]
+    10 [ pos = "0.106000006,-0.23400001!" ];
+
+    11 [ label = <11: <b>SaveDataModule</b><br/><br/><i>Set AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_Sw_Rm07_Enc04&quot;)]<br align="left"/>> ];
+    11 [ pos = "1.292,0.058000002!" ];
+
+    12 [ label = <12: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    12 [ shape = parallelogram ]
+    12 [ pos = "0.38700002,-0.27400002!" ];
+
+    15 [ label = <15: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;Sw_Rm07_Enc04_TrigRegBlock&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>Enable</b><br align="left"/>    false<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    15 [ shape = oval ]
+    15 [ pos = "-0.77300006,-0.18100001!" ];
+    15 -> 55 [ label = "0→0" ];
+
+    21 [ label = <21: <b>CinematicModule</b><br/><br/><b>CinematicName</b><br align="left"/>    &quot;Sw_Rm07_Enc04_Cine01&quot;<br align="left"/>> ];
+    21 [ pos = "-0.07,0.11800001!" ];
+
+    23 [ label = <23: <b>SpawnMonsterEventModule</b><br/><br/><b>NumberToSpawn</b><br align="left"/>    2<br align="left"/>> ];
+    23 [ pos = "1.033,-0.71500003!" ];
+    23 -> 78 [ label = "0→0" ];
+    23 -> 79 [ label = "1→0" ];
+    32 -> 23 [ style = dashed ];
+
+    24 [ label = <24: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;Sw_Rm07_Enc04w2&quot;<br align="left"/>> ];
+    24 [ pos = "-0.39000002,-0.47200003!" ];
+    24 -> 31 [ label = "0→0" ];
+    24 -> 25 [ style = dashed ];
+
+    25 [ label = <25: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    25 [ shape = parallelogram ]
+    25 [ pos = "-0.273,-0.63600004!" ];
+
+    31 [ label = <31: <b>base/inviewlistmodule</b><br/><br/>> ];
+    31 [ pos = "-0.147,-0.47200003!" ];
+    31 -> 52 [ label = "0→0" ];
+    25 -> 31 [ style = dashed ];
+    31 -> 32 [ style = dashed ];
+
+    32 [ label = <32: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    32 [ shape = parallelogram ]
+    32 [ pos = "-0.032,-0.62700003!" ];
+
+    34 [ label = <34: <b>ApplyMultipleModule</b><br/><br/><i>count list items<br align="left"/></i><br align="left"/>> ];
+    34 [ pos = "0.532,-0.36100003!" ];
+    34 -> 35 [ label = "0→0" ];
+    32 -> 34 [ style = dashed ];
+
+    35 [ label = <35: <b>base/intincrement</b><br/><br/>> ];
+    35 [ pos = "0.69000006,-0.36!" ];
+    36 -> 35 [ style = dashed ];
+    35 -> 36 [ style = dashed ];
+
+    36 [ label = <36: <b>VisScriptVariableInt</b><br/><br/>> ];
+    36 [ shape = parallelogram ]
+    36 [ pos = "0.55700004,-0.535!" ];
+
+    37 [ label = <37: <b>base/intincrement</b><br/><br/><i>reset list count<br align="left"/></i><br align="left"/><b>Operator</b><br align="left"/>    1<br align="left"/>> ];
+    37 [ pos = "0.37600002,-0.47200003!" ];
+    37 -> 34 [ label = "0→0" ];
+    37 -> 40 [ label = "0→0" ];
+    36 -> 37 [ style = dashed ];
+    37 -> 36 [ style = dashed ];
+    36 -> 37 [ style = dashed ];
+
+    38 [ label = <38: <b>VisScriptVariableInt</b><br/><br/><b>Value</b><br align="left"/>    1<br align="left"/>> ];
+    38 [ shape = parallelogram ]
+    38 [ pos = "0.67200005,-0.70900005!" ];
+
+    39 [ label = <39: <b>IntCompareModule</b><br/><br/>> ];
+    39 [ pos = "0.799,-0.59400004!" ];
+    39 -> 23 [ label = "0→0" ];
+    39 -> 42 [ label = "1→0" ];
+    39 -> 42 [ label = "2→0" ];
+    36 -> 39 [ style = dashed ];
+    38 -> 39 [ style = dashed ];
+
+    40 [ label = <40: <b>DelayModule</b><br/><br/>> ];
+    40 [ pos = "0.53400004,-0.59400004!" ];
+    40 -> 39 [ label = "0→0" ];
+
+    42 [ label = <42: <b>base/gatemodule</b><br/><br/>> ];
+    42 [ pos = "0.287,-0.827!" ];
+    42 -> 43 [ label = "0→0" ];
+
+    43 [ label = <43: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    43 [ pos = "0.485,-0.83300006!" ];
+    43 -> 24 [ label = "0→0" ];
+
+    45 [ label = <45: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    5<br align="left"/>> ];
+    45 [ pos = "1.6340001,-0.646!" ];
+    45 -> 72 [ label = "0→2" ];
+
+    52 [ label = <52: <b>base/splitlistmodule</b><br/><br/><b>MaxInGroup1</b><br align="left"/>    8<br align="left"/><b>SortByClosest</b><br align="left"/>    true<br align="left"/>> ];
+    52 [ pos = "0.12100001,-0.47200003!" ];
+    52 -> 37 [ label = "0→0" ];
+    32 -> 52 [ style = dashed ];
+    52 -> 32 [ style = dashed ];
+
+    53 [ label = <53: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;Sw_Rm07_Enc04_TrigReg&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>Enable</b><br align="left"/>    false<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    53 [ shape = oval ]
+    53 [ pos = "-0.78000003,0.017!" ];
+    53 -> 55 [ label = "0→0" ];
+
+    55 [ label = <55: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    2<br align="left"/><b>Enable</b><br align="left"/>    false<br align="left"/>> ];
+    55 [ pos = "-0.46500003,-0.059000004!" ];
+    55 -> 4 [ label = "0→0" ];
+
+    56 [ label = <56: <b>ExternalCallModule</b><br/><br/><i>PlayTeaser<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;PlayTeaser&quot;<br align="left"/>> ];
+    56 [ shape = oval ]
+    56 [ pos = "0.142,0.18200001!" ];
+    56 -> 58 [ label = "0→0" ];
+
+    57 [ label = <57: <b>ExternalCallModule</b><br/><br/><i>SpawnMinions<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;SpawnMinions&quot;<br align="left"/>> ];
+    57 [ shape = oval ]
+    57 [ pos = "0.13700001,0.064!" ];
+    57 -> 9 [ label = "0→0" ];
+
+    58 [ label = <58: <b>SoundModule</b><br/><br/><i>minion teaser<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sw_rm07/SW_Rm07_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    20<br align="left"/>> ];
+    58 [ pos = "0.416,0.187!" ];
+
+    59 [ label = <59: <b>SpawnMonsterEventModule</b><br/><br/><b>DelayTime</b><br align="left"/>    0.03<br align="left"/>> ];
+    59 [ pos = "0.39200002,0.469!" ];
+    59 -> 63 [ label = "2→0" ];
+    59 -> 65 [ label = "0→0" ];
+    61 -> 59 [ style = dashed ];
+    59 -> 62 [ style = dashed ];
+
+    60 [ label = <60: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;Sw_Rm07_Enc04PG&quot;<br align="left"/>> ];
+    60 [ pos = "0.082,0.46300003!" ];
+    60 -> 59 [ label = "0→0" ];
+    60 -> 61 [ style = dashed ];
+
+    61 [ label = <61: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    61 [ shape = parallelogram ]
+    61 [ pos = "0.123,0.305!" ];
+
+    62 [ label = <62: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    62 [ shape = parallelogram ]
+    62 [ pos = "0.40100002,0.252!" ];
+
+    63 [ label = <63: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    2<br align="left"/>> ];
+    63 [ pos = "1.026,0.066!" ];
+    63 -> 11 [ label = "0→1" ];
+
+    64 [ label = <64: <b>ExternalCallModule</b><br/><br/><i>SpawnPG<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;SpawnPG&quot;<br align="left"/>> ];
+    64 [ shape = oval ]
+    64 [ pos = "-0.162,0.46800002!" ];
+    64 -> 60 [ label = "0→0" ];
+
+    65 [ label = <65: <b>InvokeMethodModule</b><br/><br/><b>MethodName</b><br align="left"/>    &quot;useNarrowChargeSlope&quot;<br align="left"/>> ];
+    65 [ pos = "0.66400003,0.675!" ];
+    62 -> 65 [ style = dashed ];
+
+    67 [ label = <67: <b>HealthStatsModule</b><br/><br/>> ];
+    67 [ pos = "1.2290001,-0.44000003!" ];
+    67 -> 73 [ label = "0→0" ];
+    67 -> 68 [ style = dashed ];
+    12 -> 67 [ style = dashed ];
+
+    68 [ label = <68: <b>VisScriptVariableInt</b><br/><br/>> ];
+    68 [ shape = parallelogram ]
+    68 [ pos = "1.2360001,-0.633!" ];
+
+    69 [ label = <69: <b>IntCompareModule</b><br/><br/>> ];
+    69 [ pos = "1.8600001,-0.44700003!" ];
+    69 -> 72 [ label = "1→0" ];
+    69 -> 72 [ label = "2→0" ];
+    69 -> 71 [ label = "0→0" ];
+    70 -> 69 [ style = dashed ];
+    77 -> 69 [ style = dashed ];
+
+    70 [ label = <70: <b>VisScriptVariableInt</b><br/><br/><b>Value</b><br align="left"/>    2<br align="left"/>> ];
+    70 [ shape = parallelogram ]
+    70 [ pos = "1.8640001,-0.59800005!" ];
+
+    71 [ label = <71: <b>DelayModule</b><br/><br/>> ];
+    71 [ pos = "1.547,-0.25500003!" ];
+    71 -> 67 [ label = "0→0" ];
+
+    72 [ label = <72: <b>base/gatemodule</b><br/><br/>> ];
+    72 [ pos = "2.0800002,-0.537!" ];
+    72 -> 24 [ label = "0→0" ];
+
+    73 [ label = <73: <b>base/intincrement</b><br/><br/>> ];
+    73 [ pos = "1.6060001,-0.44000003!" ];
+    73 -> 69 [ label = "0→0" ];
+    68 -> 73 [ style = dashed ];
+    76 -> 73 [ style = dashed ];
+    73 -> 77 [ style = dashed ];
+
+    76 [ label = <76: <b>VisScriptVariableInt</b><br/><br/>> ];
+    76 [ shape = parallelogram ]
+    76 [ pos = "1.4180001,-0.63900006!" ];
+
+    77 [ label = <77: <b>VisScriptVariableInt</b><br/><br/>> ];
+    77 [ shape = parallelogram ]
+    77 [ pos = "1.6170001,-0.564!" ];
+
+    78 [ label = <78: <b>base/intincrement</b><br/><br/><b>Increment</b><br align="left"/>    2<br align="left"/>> ];
+    78 [ pos = "1.3820001,-0.711!" ];
+    78 -> 45 [ label = "0→0" ];
+    78 -> 67 [ label = "0→0" ];
+    78 -> 76 [ style = dashed ];
+    76 -> 78 [ style = dashed ];
+
+    79 [ label = <79: <b>base/intincrement</b><br/><br/><b>Operator</b><br align="left"/>    1<br align="left"/>> ];
+    79 [ pos = "1.649,-0.832!" ];
+    79 -> 76 [ style = dashed ];
+    76 -> 79 [ style = dashed ];
+
+    title [ pos = "-0.781,0.67600006!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SW_Rm07<br align="left"/>Combat<br align="left"/><b>Sw_Rm07_Enc04_Script</b><br align="left"/></font>> ];
+}

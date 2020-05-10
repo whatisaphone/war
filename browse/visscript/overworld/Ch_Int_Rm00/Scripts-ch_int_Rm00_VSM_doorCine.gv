@@ -1,0 +1,56 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;ch_int_Rm00_swordstatue_01&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onTrigger&quot;, &quot;onInteractive&quot;]<br align="left"/>> ];
+    1 [ pos = "0.057000004,-0.37500003!" ];
+    1 -> 4 [ label = "0→0" ];
+    1 -> 13 [ label = "1→1" ];
+
+    2 [ label = <2: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;Ch_Int_Doorlock_to_INT_Rm_01&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;open&quot;<br align="left"/>> ];
+    2 [ pos = "0.48000002,-0.37500003!" ];
+
+    4 [ label = <4: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.25<br align="left"/>> ];
+    4 [ pos = "0.27,-0.37500003!" ];
+    4 -> 2 [ label = "0→0" ];
+    4 -> 5 [ label = "0→0" ];
+    4 -> 8 [ label = "0→0" ];
+
+    5 [ label = <5: <b>CinematicModule</b><br/><br/><b>CinematicName</b><br align="left"/>    &quot;ch_int_RM00_DoorCine&quot;<br align="left"/>> ];
+    5 [ pos = "0.48200002,-0.23400001!" ];
+
+    7 [ label = <7: <b>SoundModule</b><br/><br/><b>SoundDescFile</b><br align="left"/>    &quot;base/Music&quot;<br align="left"/><b>SoundID</b><br align="left"/>    90<br align="left"/>> ];
+    7 [ pos = "0.634,-0.045!" ];
+
+    8 [ label = <8: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    4<br align="left"/>> ];
+    8 [ pos = "0.483,-0.045!" ];
+    8 -> 7 [ label = "0→0" ];
+
+    9 [ label = <9: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;Ch_Int_Doorlock_to_INT_Rm_01&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;open&quot;<br align="left"/>> ];
+    9 [ pos = "0.060000002,-0.208!" ];
+
+    11 [ label = <11: <b>StartModule</b><br/><br/>> ];
+    11 [ shape = oval ]
+    11 [ pos = "-0.41500002,-0.208!" ];
+    11 -> 12 [ label = "0→0" ];
+
+    12 [ label = <12: <b>SaveDataModule</b><br/><br/><i>Int_Rm00_DoorOpened<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;Int_Rm00_DoorOpened&quot;)]<br align="left"/>> ];
+    12 [ pos = "-0.19500001,-0.208!" ];
+    12 -> 9 [ label = "0→0" ];
+    12 -> 1 [ label = "1→0" ];
+
+    13 [ label = <13: <b>SaveDataModule</b><br/><br/><i>Int_Rm00_DoorOpened<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;Int_Rm00_DoorOpened&quot;)]<br align="left"/>> ];
+    13 [ pos = "0.27,-0.58000004!" ];
+
+    title [ pos = "-0.416,-0.044000003!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>Ch_Int_Rm00<br align="left"/>Scripts<br align="left"/><b>ch_int_Rm00_VSM_doorCine</b><br align="left"/></font>> ];
+}

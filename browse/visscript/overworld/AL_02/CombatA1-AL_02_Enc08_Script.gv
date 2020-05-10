@@ -1,0 +1,107 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    35 [ label = <35: <b>PopSpawnPointsModule</b><br/><br/><i>AL_02_Enc08<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;AL_02_Enc08&quot;<br align="left"/>> ];
+    35 [ pos = "0.24400002,0.504!" ];
+    35 -> 36 [ label = "0→0" ];
+    35 -> 37 [ style = dashed ];
+
+    36 [ label = <36: <b>SpawnMonsterEventModule</b><br/><br/><b>NumberToSpawn</b><br align="left"/>    -1<br align="left"/>> ];
+    36 [ pos = "0.499,0.504!" ];
+    36 -> 72 [ label = "3→0" ];
+    36 -> 80 [ label = "0→0" ];
+    37 -> 36 [ style = dashed ];
+    36 -> 38 [ style = dashed ];
+
+    37 [ label = <37: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    37 [ shape = parallelogram ]
+    37 [ pos = "0.266,0.381!" ];
+
+    38 [ label = <38: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    38 [ shape = parallelogram ]
+    38 [ pos = "0.51100004,0.25100002!" ];
+
+    45 [ label = <45: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    45 -> 35 [ label = "0→0" ];
+
+    47 [ label = <47: <b>TriggerEventModule</b><br/><br/><i>AL_02_Enc08_Trigger<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;AL_02_Enc08_Trigger&quot;, &quot;&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    47 [ shape = oval ]
+    47 [ pos = "-0.56700003,0.527!" ];
+    47 -> 51 [ label = "0→0" ];
+
+    51 [ label = <51: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;AL_02&quot;, Fla<br align="left"/>    gName=&quot;AL_02_Enc08&quot;)]<br align="left"/>> ];
+    51 [ pos = "-0.259,0.527!" ];
+    51 -> 45 [ label = "1→0" ];
+
+    72 [ label = <72: <b>VisScriptCallModule</b><br/><br/><i>AL_02_Enc08_Dead, leads to AL_02<br align="left"/>_Enc07_Script<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;AL_02_Enc07_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;AL_02_Enc08_Dead&quot;<br align="left"/>> ];
+    72 [ pos = "0.82500005,0.39200002!" ];
+
+    74 [ label = <74: <b>InvokeMethodModule</b><br/><br/><i>setBehaviorAmbient<br align="left"/></i><br align="left"/><b>MethodName</b><br align="left"/>    &quot;setBehaviorAmbient&quot;<br align="left"/>> ];
+    74 [ pos = "0.416,0.096!" ];
+    74 -> 75 [ label = "0→0" ];
+    38 -> 74 [ style = dashed ];
+
+    75 [ label = <75: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.5<br align="left"/>> ];
+    75 [ pos = "0.642,0.148!" ];
+    75 -> 76 [ label = "0→0" ];
+
+    76 [ label = <76: <b>InvokeMethodModule</b><br/><br/><i>ScriptedTaunt<br align="left"/></i><br align="left"/><b>MethodName</b><br align="left"/>    &quot;ScriptedTaunt&quot;<br align="left"/>> ];
+    76 [ pos = "0.887,0.09200001!" ];
+    76 -> 84 [ label = "0→0" ];
+    76 -> 88 [ label = "0→0" ];
+    38 -> 76 [ style = dashed ];
+
+    79 [ label = <79: <b>ExternalCallModule</b><br/><br/><i>AL_02_Enc08_Taunt<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;AL_02_Enc08_Taunt&quot;<br align="left"/>> ];
+    79 [ shape = oval ]
+    79 [ pos = "-0.17600001,0.085!" ];
+    79 -> 74 [ label = "0→0" ];
+    79 -> 89 [ label = "0→0" ];
+
+    80 [ label = <80: <b>base/setfactionoverride</b><br/><br/><b>FactionOverride</b><br align="left"/>    -3<br align="left"/>> ];
+    80 [ pos = "0.808,0.53400004!" ];
+    38 -> 80 [ style = dashed ];
+
+    81 [ label = <81: <b>base/setfactionoverride</b><br/><br/><b>FactionOverride</b><br align="left"/>    1<br align="left"/>> ];
+    81 [ pos = "1.4670001,0.33100003!" ];
+    81 -> 87 [ label = "0→0" ];
+    38 -> 81 [ style = dashed ];
+
+    83 [ label = <83: <b>ExternalCallModule</b><br/><br/><b>EventName</b><br align="left"/>    &quot;AL_02_Enc08_Faction&quot;<br align="left"/>> ];
+    83 [ shape = oval ]
+    83 [ pos = "0.94400007,0.333!" ];
+
+    84 [ label = <84: <b>SoundModule</b><br/><br/><i>vo_phantom_general_summon<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;phantomguard_prisonguard/Phanto<br align="left"/>    mGuard_PrisonGuard_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    19<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;War&quot;<br align="left"/>> ];
+    84 [ pos = "1.1420001,0.053000003!" ];
+
+    87 [ label = <87: <b>base/settargetmodule</b><br/><br/><b>Target</b><br align="left"/>    &quot;War&quot;<br align="left"/>> ];
+    87 [ pos = "1.7700001,0.28800002!" ];
+    38 -> 87 [ style = dashed ];
+
+    88 [ label = <88: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    7.5<br align="left"/>> ];
+    88 [ pos = "1.261,0.37!" ];
+    88 -> 81 [ label = "0→0" ];
+
+    89 [ label = <89: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    7.5<br align="left"/>> ];
+    89 [ pos = "0.43100002,-0.172!" ];
+    89 -> 90 [ label = "0→0" ];
+
+    90 [ label = <90: <b>InvokeMethodModule</b><br/><br/><i>setBehaviorCombat<br align="left"/></i><br align="left"/><b>MethodName</b><br align="left"/>    &quot;setBehaviorCombat&quot;<br align="left"/>> ];
+    90 [ pos = "0.929,-0.155!" ];
+    38 -> 90 [ style = dashed ];
+
+    92 [ label = <92: <b>InvokeMethodModule</b><br/><br/><i>ScriptedTaunt<br align="left"/></i><br align="left"/><b>MethodName</b><br align="left"/>    &quot;ScriptedTaunt&quot;<br align="left"/>> ];
+    92 [ pos = "0.98300004,-0.36900002!" ];
+
+    title [ pos = "-0.568,0.535!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>AL_02<br align="left"/>CombatA1<br align="left"/><b>AL_02_Enc08_Script</b><br align="left"/></font>> ];
+}

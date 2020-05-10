@@ -1,0 +1,55 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    3 [ label = <3: <b>SaveDataModule</b><br/><br/><i>Check AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_Sw_Rm10_Enc04&quot;)]<br align="left"/>> ];
+    3 [ pos = "0.256,-0.194!" ];
+    3 -> 4 [ label = "1→0" ];
+
+    4 [ label = <4: <b>DelayModule</b><br/><br/><i>go Encounter<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    4 [ pos = "0.48900002,-0.141!" ];
+    4 -> 8 [ label = "0→0" ];
+
+    7 [ label = <7: <b>SpawnMonsterEventModule</b><br/><br/>> ];
+    7 [ pos = "0.897,-0.080000006!" ];
+    7 -> 10 [ label = "2→1" ];
+    9 -> 7 [ style = dashed ];
+    7 -> 23 [ style = dashed ];
+
+    8 [ label = <8: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;Sw_Rm10_Enc04&quot;<br align="left"/>> ];
+    8 [ pos = "0.66400003,-0.080000006!" ];
+    8 -> 7 [ label = "0→0" ];
+    8 -> 9 [ style = dashed ];
+
+    9 [ label = <9: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    9 [ shape = parallelogram ]
+    9 [ pos = "0.68500006,-0.209!" ];
+
+    10 [ label = <10: <b>SaveDataModule</b><br/><br/><i>Set AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_Sw_Rm10_Enc04&quot;)]<br align="left"/>> ];
+    10 [ pos = "1.176,-0.104!" ];
+
+    23 [ label = <23: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    23 [ shape = parallelogram ]
+    23 [ pos = "0.89800006,-0.266!" ];
+
+    31 [ label = <31: <b>ExternalCallModule</b><br/><br/><b>EventName</b><br align="left"/>    &quot;StartEncounter&quot;<br align="left"/>> ];
+    31 [ shape = oval ]
+    31 [ pos = "-0.13800001,-0.193!" ];
+    31 -> 32 [ label = "0→0" ];
+
+    32 [ label = <32: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    32 [ pos = "0.095000006,-0.194!" ];
+    32 -> 3 [ label = "0→0" ];
+
+    title [ pos = "-0.13900001,-0.079!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SW_Rm10<br align="left"/>Combat<br align="left"/><b>Sw_Rm10_Enc04_Script</b><br align="left"/><br/><i>Minions</i><br align="left"/></font>> ];
+}

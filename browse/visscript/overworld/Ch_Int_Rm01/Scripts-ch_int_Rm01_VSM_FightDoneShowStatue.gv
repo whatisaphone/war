@@ -1,0 +1,54 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>StartModule</b><br/><br/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "-0.18200001,-0.379!" ];
+    1 -> 4 [ label = "0→0" ];
+
+    2 [ label = <2: <b>CinematicModule</b><br/><br/><b>CinematicName</b><br align="left"/>    &quot;ch_int_Rm01_ShowStatueCine&quot;<br align="left"/>> ];
+    2 [ pos = "0.791,-0.48400003!" ];
+
+    3 [ label = <3: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;ch_int_Rm01_FightDoneShowStatu<br align="left"/>    eTrig&quot;, &quot;&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    3 [ shape = oval ]
+    3 [ pos = "0.505,-0.42700002!" ];
+    3 -> 8 [ label = "0→1" ];
+
+    4 [ label = <4: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;ch_int_Rm01_RtSide_swordstatue<br align="left"/>    &quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onTrigger&quot;]<br align="left"/>> ];
+    4 [ pos = "-0.016,-0.379!" ];
+    4 -> 7 [ label = "0→3" ];
+
+    5 [ label = <5: <b>ExternalCallModule</b><br/><br/><i>all bats dead<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;enableSwordStatueCine&quot;<br align="left"/>> ];
+    5 [ shape = oval ]
+    5 [ pos = "-0.022000002,-0.31!" ];
+    5 -> 7 [ label = "0→0" ];
+
+    6 [ label = <6: <b>SaveDataModule</b><br/><br/><i>Check AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_Ch_Int_Rm01_Enc0<br align="left"/>    3&quot;)]<br align="left"/>> ];
+    6 [ pos = "0.079,-0.023000002!" ];
+
+    7 [ label = <7: <b>SaveDataModule</b><br/><br/><i>showed this already, don't show <br align="left"/>again.<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;ch_int_Rm01_ShowStatueCi<br align="left"/>    nePlayed&quot;)]<br align="left"/>> ];
+    7 [ pos = "0.256,-0.31!" ];
+    7 -> 3 [ label = "0→1" ];
+    7 -> 3 [ label = "1→0" ];
+
+    8 [ label = <8: <b>SaveDataModule</b><br/><br/><i>showed this already, don't show <br align="left"/>again.<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;ch_int_Rm01_ShowStatueCi<br align="left"/>    nePlayed&quot;)]<br align="left"/>> ];
+    8 [ pos = "0.79200006,-0.35000002!" ];
+
+    9 [ label = <9: <b>StartModule</b><br/><br/><i>disable on start<br align="left"/></i><br align="left"/>> ];
+    9 [ shape = oval ]
+    9 [ pos = "0.28300002,-0.51000005!" ];
+    9 -> 3 [ label = "0→1" ];
+
+    title [ pos = "-0.18300001,-0.022000002!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>Ch_Int_Rm01<br align="left"/>Scripts<br align="left"/><b>ch_int_Rm01_VSM_FightDoneShowStatue</b><br align="left"/></font>> ];
+}

@@ -1,0 +1,295 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>StartModule</b><br/><br/><i>Hax<br align="left"/></i><br align="left"/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "-0.79700005,0.157!" ];
+
+    16 [ label = <16: <b>SoundModule</b><br/><br/><b>SoundDescFile</b><br align="left"/>    &quot;phantomguard_prisonguard/Phanto<br align="left"/>    mGuard_PrisonGuard_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    38<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;War&quot;<br align="left"/>> ];
+    16 [ pos = "1.057,0.43400002!" ];
+
+    17 [ label = <17: <b>InvokeMethodModule</b><br/><br/><i>Put the Barrier up<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;AL_Hunter_Enc01_Barrier01&quot;, &quot;A<br align="left"/>    L_Hunter_Enc01_Barrier02&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOn&quot;<br align="left"/>> ];
+    17 [ pos = "1.2210001,0.231!" ];
+
+    18 [ label = <18: <b>DelayModule</b><br/><br/>> ];
+    18 [ pos = "1.028,0.231!" ];
+    18 -> 17 [ label = "0→0" ];
+
+    22 [ label = <22: <b>TriggerEventModule</b><br/><br/><i>Start Brute Reveal Event<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;AL_Hunter_Enc01_Barrier_Trigge<br align="left"/>    r&quot;, &quot;&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    22 [ shape = oval ]
+    22 [ pos = "-0.82500005,-0.058000002!" ];
+    22 -> 129 [ label = "0→0" ];
+    22 -> 154 [ label = "0→0" ];
+
+    57 [ label = <57: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn Brute<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;AL_Hunter_Enc01&quot;<br align="left"/>> ];
+    57 [ pos = "0.541,0.23200001!" ];
+    57 -> 86 [ label = "0→0" ];
+    57 -> 100 [ label = "0→0" ];
+    57 -> 76 [ label = "1→0" ];
+    57 -> 138 [ label = "3→1" ];
+    57 -> 101 [ style = dashed ];
+
+    58 [ label = <58: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn Light PGs<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;AL_Hunter_Enc01_W1&quot;<br align="left"/>> ];
+    58 [ pos = "0.545,-0.082!" ];
+    58 -> 62 [ label = "1→0" ];
+
+    59 [ label = <59: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn Medium PGs<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;AL_Hunter_Enc01_W2&quot;<br align="left"/>> ];
+    59 [ pos = "0.55200005,-0.36100003!" ];
+    59 -> 62 [ label = "1→0" ];
+
+    60 [ label = <60: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    5<br align="left"/>> ];
+    60 [ pos = "0.35200003,-0.101!" ];
+    60 -> 58 [ label = "0→0" ];
+
+    61 [ label = <61: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    5<br align="left"/>> ];
+    61 [ pos = "0.351,-0.347!" ];
+    61 -> 59 [ label = "0→0" ];
+
+    62 [ label = <62: <b>AccumulatorModule</b><br/><br/><i>Wait until 2 die and...<br align="left"/></i><br align="left"/><b>CountTo</b><br align="left"/>    2<br align="left"/>> ];
+    62 [ pos = "1.0040001,-0.319!" ];
+    62 -> 64 [ label = "0→0" ];
+    62 -> 113 [ label = "0→0" ];
+    62 -> 153 [ label = "0→0" ];
+
+    64 [ label = <64: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn 2 Medium PGs<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;AL_Hunter_Enc01_W5&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    2<br align="left"/>> ];
+    64 [ pos = "1.2830001,-0.319!" ];
+    64 -> 70 [ label = "1→0" ];
+    64 -> 141 [ label = "0→0" ];
+
+    65 [ label = <65: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn Single PG<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;AL_Hunter_Enc01_W3&quot;<br align="left"/>> ];
+    65 [ pos = "0.549,-0.688!" ];
+    65 -> 62 [ label = "1→0" ];
+
+    66 [ label = <66: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    5.25<br align="left"/>> ];
+    66 [ pos = "0.36,-0.688!" ];
+    66 -> 65 [ label = "0→0" ];
+
+    67 [ label = <67: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn 2 Light PGs<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;AL_Hunter_Enc01_W4&quot;<br align="left"/>> ];
+    67 [ pos = "1.3750001,-0.80100006!" ];
+    67 -> 70 [ label = "1→0" ];
+
+    70 [ label = <70: <b>AccumulatorModule</b><br/><br/><i>When all dead...<br align="left"/></i><br align="left"/><b>CountTo</b><br align="left"/>    6<br align="left"/>> ];
+    70 [ pos = "1.7500001,-0.684!" ];
+    70 -> 106 [ label = "0→0" ];
+    70 -> 108 [ label = "0→0" ];
+    70 -> 146 [ label = "0→0" ];
+
+    75 [ label = <75: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;AL_Hunter_Enc01_Barrier01&quot;, &quot;A<br align="left"/>    L_Hunter_Enc01_Barrier02&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOff&quot;<br align="left"/>> ];
+    75 [ pos = "3.9910002,-0.757!" ];
+
+    76 [ label = <76: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    5<br align="left"/>> ];
+    76 [ pos = "3.1550002,-0.758!" ];
+    76 -> 115 [ label = "0→0" ];
+    76 -> 128 [ label = "0→1" ];
+
+    77 [ label = <77: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    77 [ pos = "3.788,-0.757!" ];
+    77 -> 75 [ label = "0→0" ];
+    77 -> 168 [ label = "0→0" ];
+
+    79 [ label = <79: <b>CinematicModule</b><br/><br/><i>Play AL_Hunter_Enc03_Cinematic_0<br align="left"/>1<br align="left"/></i><br align="left"/><b>CinematicName</b><br align="left"/>    &quot;AL_Hunter_Enc03_Cinematic_01&quot;<br align="left"/>> ];
+    79 [ pos = "0.317,0.67700005!" ];
+    79 -> 85 [ label = "0→0" ];
+
+    85 [ label = <85: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>MoveVal</b><br align="left"/>    0<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;AL_Hunter_Enc03_Move_War&quot;<br align="left"/><b>RotateObject</b><br align="left"/>    true<br align="left"/>> ];
+    85 [ pos = "0.535,0.67600006!" ];
+
+    86 [ label = <86: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    4.5<br align="left"/>> ];
+    86 [ pos = "0.82800007,0.231!" ];
+    86 -> 16 [ label = "0→0" ];
+    86 -> 18 [ label = "0→0" ];
+
+    97 [ label = <97: <b>CinematicModule</b><br/><br/><b>CinematicName</b><br align="left"/>    &quot;AL_Hunter_Enc03_Cinematic_02&quot;<br align="left"/>> ];
+    97 [ pos = "2.5430002,-0.56!" ];
+    97 -> 126 [ label = "0→0" ];
+
+    99 [ label = <99: <b>InvokeMethodModule</b><br/><br/><i>setBehaviorDefensiveIdle<br align="left"/></i><br align="left"/><b>MethodName</b><br align="left"/>    &quot;setBehaviorDefensiveIdle&quot;<br align="left"/>> ];
+    99 [ pos = "1.2210001,0.054!" ];
+    101 -> 99 [ style = dashed ];
+
+    100 [ label = <100: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    5<br align="left"/>> ];
+    100 [ pos = "1.0270001,0.054!" ];
+    100 -> 99 [ label = "0→0" ];
+
+    101 [ label = <101: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    101 [ shape = parallelogram ]
+    101 [ pos = "0.83800006,-0.11100001!" ];
+
+    102 [ label = <102: <b>SoundModule</b><br/><br/><b>SoundDescFile</b><br align="left"/>    &quot;phantomguard_prisonguard/Phanto<br align="left"/>    mGuard_PrisonGuard_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    38<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;War&quot;<br align="left"/>> ];
+    102 [ pos = "1.807,-0.342!" ];
+
+    103 [ label = <103: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn Last 2 Medium PGs<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;AL_Hunter_Enc01_W6&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    1<br align="left"/>> ];
+    103 [ pos = "2.3690002,-1.3470001!" ];
+    103 -> 110 [ label = "0→0" ];
+    103 -> 76 [ label = "1→0" ];
+
+    105 [ label = <105: <b>SoundModule</b><br/><br/><b>SoundDescFile</b><br align="left"/>    &quot;phantomguard_prisonguard/Phanto<br align="left"/>    mGuard_PrisonGuard_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    38<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;War&quot;<br align="left"/>> ];
+    105 [ pos = "2.801,-0.74200004!" ];
+
+    106 [ label = <106: <b>DelayModule</b><br/><br/>> ];
+    106 [ pos = "2.068,-0.71800005!" ];
+    106 -> 140 [ label = "0→0" ];
+
+    108 [ label = <108: <b>DelayModule</b><br/><br/>> ];
+    108 [ pos = "2.065,-0.53800005!" ];
+    108 -> 144 [ label = "0→0" ];
+
+    109 [ label = <109: <b>InvokeMethodModule</b><br/><br/><i>setBehaviorCombat for PG Mediums<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;AL_Hunter_Enc01_W6_Spawn_01&quot;, <br align="left"/>    &quot;AL_Hunter_Enc01_W6_Spawn_02&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;setBehaviorCombat&quot;<br align="left"/>> ];
+    109 [ pos = "2.9420002,-1.4020001!" ];
+
+    110 [ label = <110: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2.5<br align="left"/>> ];
+    110 [ pos = "2.7220001,-1.4020001!" ];
+    110 -> 109 [ label = "0→0" ];
+
+    111 [ label = <111: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn Last 2 Medium PGs<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;AL_Hunter_Enc01_W7&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    1<br align="left"/>> ];
+    111 [ pos = "2.371,-1.6710001!" ];
+    111 -> 110 [ label = "0→0" ];
+    111 -> 76 [ label = "1→0" ];
+
+    113 [ label = <113: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    3<br align="left"/>> ];
+    113 [ pos = "1.1960001,-0.8!" ];
+    113 -> 67 [ label = "0→0" ];
+
+    114 [ label = <114: <b>CinematicModule</b><br/><br/><i>Barriers go down<br align="left"/></i><br align="left"/><b>CinematicName</b><br align="left"/>    &quot;AL_Hunter_Enc03_Cinematic_03&quot;<br align="left"/>> ];
+    114 [ pos = "3.7930002,-0.586!" ];
+    114 -> 137 [ label = "0→0" ];
+    114 -> 156 [ label = "0→0" ];
+
+    115 [ label = <115: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2.25<br align="left"/>> ];
+    115 [ pos = "3.3920002,-0.758!" ];
+    115 -> 114 [ label = "0→0" ];
+    115 -> 77 [ label = "0→0" ];
+
+    122 [ label = <122: <b>InvokeMethodModule</b><br/><br/><i>setBehaviorCombat on the Brute<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;AL_Hunter_Enc01_Spawn_01&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;setBehaviorCombat&quot;<br align="left"/>> ];
+    122 [ pos = "3.0370002,-0.56!" ];
+
+    123 [ label = <123: <b>base/setcharactermovestate</b><br/><br/><b>Character</b><br align="left"/>    &quot;AL_Hunter_Enc01_Spawn_01&quot;<br align="left"/><b>MoveState</b><br align="left"/>    &quot;Brute Taunt&quot;<br align="left"/>> ];
+    123 [ pos = "2.801,-0.874!" ];
+
+    126 [ label = <126: <b>DelayModule</b><br/><br/>> ];
+    126 [ pos = "2.802,-0.56!" ];
+    126 -> 122 [ label = "0→0" ];
+
+    128 [ label = <128: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Ashlands&quot;, <br align="left"/>    FlagName=&quot;AL_Hunter_Complete&quot;)]<br align="left"/>> ];
+    128 [ pos = "3.39,-0.934!" ];
+
+    129 [ label = <129: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Ashlands&quot;, <br align="left"/>    FlagName=&quot;AL_Hunter_Complete&quot;)]<br align="left"/>> ];
+    129 [ pos = "-0.53000003,-0.058000002!" ];
+    129 -> 164 [ label = "1→0" ];
+
+    136 [ label = <136: <b>VisScriptCallModule</b><br/><br/><i>scripted_HeavyCombat<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scripted_HeavyCombat&quot;<br align="left"/>> ];
+    136 [ pos = "0.34800002,0.007!" ];
+
+    137 [ label = <137: <b>VisScriptCallModule</b><br/><br/><i>scriptedHeavyOutro<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scriptedHeavyOutro&quot;<br align="left"/>> ];
+    137 [ pos = "4.0880003,-0.586!" ];
+
+    138 [ label = <138: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Ashalnds&quot;, <br align="left"/>    FlagName=&quot;Brute_Dead&quot;)]<br align="left"/>> ];
+    138 [ pos = "1.0380001,0.57000005!" ];
+
+    140 [ label = <140: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Ashalnds&quot;, <br align="left"/>    FlagName=&quot;Brute_Dead&quot;), FlagInfo<br align="left"/>    (FlagLevel=&quot;Ashlands&quot;, FlagName=<br align="left"/>    &quot;Cinematic_02_Disabled&quot;)]<br align="left"/>> ];
+    140 [ pos = "2.2870002,-0.71800005!" ];
+    140 -> 105 [ label = "1→0" ];
+    140 -> 123 [ label = "1→0" ];
+
+    141 [ label = <141: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Ashalnds&quot;, <br align="left"/>    FlagName=&quot;Brute_Dead&quot;)]<br align="left"/>> ];
+    141 [ pos = "1.57,-0.319!" ];
+    141 -> 102 [ label = "1→0" ];
+
+    142 [ label = <142: <b>TriggerEventModule</b><br/><br/><i>If War or the Brute hit this, di<br align="left"/>sable Cinematic_02<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;AL_Hunter_Enc03_DisableCinemat<br align="left"/>    ic_02_TrigReg&quot;, &quot;&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    142 [ shape = oval ]
+    142 [ pos = "2.176,-2.3390002!" ];
+    142 -> 143 [ label = "0→1" ];
+
+    143 [ label = <143: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Ashlands&quot;, <br align="left"/>    FlagName=&quot;Cinematic_02_Disabled&quot;<br align="left"/>    )]<br align="left"/>> ];
+    143 [ pos = "2.4450002,-2.3390002!" ];
+    143 -> 151 [ label = "3→0" ];
+
+    144 [ label = <144: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Ashlands&quot;, <br align="left"/>    FlagName=&quot;Cinematic_02_Disabled&quot;<br align="left"/>    )]<br align="left"/>> ];
+    144 [ pos = "2.2910001,-0.537!" ];
+    144 -> 97 [ label = "1→0" ];
+
+    145 [ label = <145: <b>InvokeMethodModule</b><br/><br/><i>Set Brute Combat Behavior<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;AL_Hunter_Enc01_Spawn_01&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;setBehaviorCombat&quot;<br align="left"/>> ];
+    145 [ pos = "2.8890002,-2.3460002!" ];
+
+    146 [ label = <146: <b>SaveDataModule</b><br/><br/><i>If The Brute is still Alive and <br align="left"/>Trigger hasn't been hit<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Ashalnds&quot;, <br align="left"/>    FlagName=&quot;Brute_Dead&quot;), FlagInfo<br align="left"/>    (FlagLevel=&quot;Ashlands&quot;, FlagName=<br align="left"/>    &quot;Cinematic_02_Disabled&quot;)]<br align="left"/>> ];
+    146 [ pos = "1.9390001,-1.151!" ];
+    146 -> 103 [ label = "1→0" ];
+    146 -> 111 [ label = "1→0" ];
+    146 -> 147 [ label = "0→0" ];
+    146 -> 162 [ label = "1→0" ];
+
+    147 [ label = <147: <b>SpawnMonsterEventModule</b><br/><br/><i>AL_Hunter_Enc01a_Contingency_01<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;AL_Hunter_Enc01a_Contingency_01<br align="left"/>    &quot;<br align="left"/>> ];
+    147 [ pos = "2.3660002,-1.0250001!" ];
+    147 -> 76 [ label = "1→0" ];
+
+    151 [ label = <151: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Ashlands&quot;, <br align="left"/>    FlagName=&quot;Cinematic_02_Disabled&quot;<br align="left"/>    )]<br align="left"/>> ];
+    151 [ pos = "2.673,-2.3460002!" ];
+    151 -> 145 [ label = "0→0" ];
+
+    152 [ label = <152: <b>SpawnMonsterEventModule</b><br/><br/><i>AL_Hunter_Enc01_Wraith_01<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;AL_Hunter_Enc01_Wraith_01&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    2<br align="left"/><b>PreferInView</b><br align="left"/>    true<br align="left"/><b>PreferInRange</b><br align="left"/>    true<br align="left"/><b>MinRange</b><br align="left"/>    10<br align="left"/>> ];
+    152 [ pos = "1.3770001,-1.1220001!" ];
+    152 -> 70 [ label = "1→0" ];
+
+    153 [ label = <153: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    6<br align="left"/>> ];
+    153 [ pos = "1.2010001,-1.1220001!" ];
+    153 -> 152 [ label = "0→0" ];
+
+    154 [ label = <154: <b>LoaderModule</b><br/><br/><b>Load</b><br align="left"/>    [[255, 8]]<br align="left"/>> ];
+    154 [ pos = "-0.532,-0.18900001!" ];
+
+    156 [ label = <156: <b>LoaderModule</b><br/><br/><b>Unload</b><br align="left"/>    [[255, 8]]<br align="left"/>> ];
+    156 [ pos = "4.091,-0.47800002!" ];
+
+    158 [ label = <158: <b>SpawnMonsterEventModule</b><br/><br/><i>AL_Hunter_Enc01_Wraith_02<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;AL_Hunter_Enc01_Wraith_02&quot;<br align="left"/>> ];
+    158 [ pos = "2.378,-1.9660001!" ];
+    158 -> 76 [ label = "1→0" ];
+    158 -> 161 [ label = "0→0" ];
+
+    160 [ label = <160: <b>InvokeMethodModule</b><br/><br/><i>setBehaviorCombat for Wraiths<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;Enc01_Wraith_01&quot;, &quot;Enc01_Wrait<br align="left"/>    h_02&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;setBehaviorCombat&quot;<br align="left"/>> ];
+    160 [ pos = "2.9490001,-1.968!" ];
+
+    161 [ label = <161: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    8<br align="left"/>> ];
+    161 [ pos = "2.739,-1.9670001!" ];
+    161 -> 160 [ label = "0→0" ];
+
+    162 [ label = <162: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    3<br align="left"/>> ];
+    162 [ pos = "2.214,-1.9660001!" ];
+    162 -> 158 [ label = "0→0" ];
+
+    164 [ label = <164: <b>base/autosavemodule</b><br/><br/>> ];
+    164 [ pos = "-0.264,-0.081!" ];
+    164 -> 165 [ label = "0→0" ];
+
+    165 [ label = <165: <b>base/storesavedatamodule</b><br/><br/>> ];
+    165 [ pos = "-0.065000005,-0.081!" ];
+    165 -> 79 [ label = "0→0" ];
+    165 -> 57 [ label = "0→0" ];
+    165 -> 136 [ label = "0→0" ];
+    165 -> 60 [ label = "0→0" ];
+    165 -> 61 [ label = "0→0" ];
+    165 -> 66 [ label = "0→0" ];
+
+    166 [ label = <166: <b>base/autosavemodule</b><br/><br/>> ];
+    166 [ pos = "4.432,-0.89300007!" ];
+
+    167 [ label = <167: <b>base/commitsavedatamodule</b><br/><br/>> ];
+    167 [ pos = "4.201,-0.89300007!" ];
+    167 -> 166 [ label = "0→0" ];
+
+    168 [ label = <168: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    168 [ pos = "3.9900002,-0.89300007!" ];
+    168 -> 167 [ label = "0→0" ];
+
+    title [ pos = "-0.82600003,0.67800003!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>AL_Hunter<br align="left"/>Combat<br align="left"/><b>AL_Hunter_Enc03_Script</b><br align="left"/></font>> ];
+}

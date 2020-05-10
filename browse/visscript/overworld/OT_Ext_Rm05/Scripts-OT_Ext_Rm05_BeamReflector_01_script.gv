@@ -1,0 +1,69 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>StartModule</b><br/><br/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "0.14400001,-0.147!" ];
+    1 -> 2 [ label = "0→0" ];
+
+    2 [ label = <2: <b>AttachEventModule</b><br/><br/><i>play reflector cinematic<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Ext_Rm05_BeamReflector_01&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onBeamContactStart&quot;]<br align="left"/>> ];
+    2 [ pos = "0.39000002,-0.147!" ];
+    2 -> 3 [ label = "0→0" ];
+
+    3 [ label = <3: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm05<br align="left"/>    &quot;, FlagName=&quot;reflector_cine_play<br align="left"/>    ed&quot;)]<br align="left"/>> ];
+    3 [ pos = "0.70500004,-0.147!" ];
+    3 -> 4 [ label = "1→0" ];
+    3 -> 8 [ label = "1→0" ];
+    3 -> 10 [ label = "1→0" ];
+    3 -> 12 [ label = "1→0" ];
+
+    4 [ label = <4: <b>CinematicModule</b><br/><br/><b>CinematicName</b><br align="left"/>    &quot;OT_Ext_Rm05_BeamReflector_01_ci<br align="left"/>    ne&quot;<br align="left"/>> ];
+    4 [ pos = "0.95600003,-0.17!" ];
+    4 -> 5 [ label = "0→1" ];
+    4 -> 6 [ label = "0→0" ];
+    4 -> 17 [ label = "1→2" ];
+
+    5 [ label = <5: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm05<br align="left"/>    &quot;, FlagName=&quot;reflector_cine_play<br align="left"/>    ed&quot;)]<br align="left"/>> ];
+    5 [ pos = "1.2270001,-0.147!" ];
+
+    6 [ label = <6: <b>SoundModule</b><br/><br/><i>play discovery music<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;base/Music&quot;<br align="left"/><b>SoundID</b><br align="left"/>    89<br align="left"/>> ];
+    6 [ pos = "1.228,-0.3!" ];
+
+    8 [ label = <8: <b>ObjectMoverModule</b><br/><br/><i>Force Reflectors down<br align="left"/></i><br align="left"/><b>ObjectName</b><br align="left"/>    &quot;OT_Ext_Rm05_BeamReflector_05&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>MoveVal</b><br align="left"/>    3<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;OT_Ext_Rm05_BeamReflector_05_Wy<br align="left"/>    pt_Up&quot;<br align="left"/>> ];
+    8 [ pos = "0.961,-0.305!" ];
+
+    10 [ label = <10: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;OT_Ext_Rm05_BeamReflector_04&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>MoveVal</b><br align="left"/>    0<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;OT_Ext_Rm05_BeamReflector_04_Wy<br align="left"/>    pt_Down&quot;<br align="left"/>> ];
+    10 [ pos = "0.9620001,-0.462!" ];
+
+    12 [ label = <12: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;OT_Ext_Rm05_BeamReflector_06&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>MoveVal</b><br align="left"/>    0<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;OT_Ext_Rm05_BeamReflector_06_Wy<br align="left"/>    pt_Up&quot;<br align="left"/>> ];
+    12 [ pos = "0.9620001,-0.62200004!" ];
+    12 -> 14 [ label = "1→0" ];
+
+    14 [ label = <14: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Ext_Rm05_BeamReflector_04_S<br align="left"/>    witch&quot;, &quot;OT_Ext_Rm05_BeamReflect<br align="left"/>    or_05_Switch&quot;, &quot;OT_Ext_Rm05_Beam<br align="left"/>    Reflector_06_Switch&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;reset&quot;<br align="left"/>> ];
+    14 [ pos = "1.23,-0.64500004!" ];
+
+    15 [ label = <15: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm05<br align="left"/>    &quot;, FlagName=&quot;reflector_cine_play<br align="left"/>    ed&quot;)]<br align="left"/>> ];
+    15 [ pos = "0.957,0.148!" ];
+    15 -> 17 [ label = "0→2" ];
+
+    16 [ label = <16: <b>StartModule</b><br/><br/><i>Remove Beam blocker<br align="left"/></i><br align="left"/>> ];
+    16 [ shape = oval ]
+    16 [ pos = "0.70000005,0.148!" ];
+    16 -> 15 [ label = "0→0" ];
+
+    17 [ label = <17: <b>ObjectToggleModule</b><br/><br/><b>ObjectList</b><br align="left"/>    [&quot;OT_Ext_Rm05_BeamBlockerPhantom<br align="left"/>    &quot;]<br align="left"/>> ];
+    17 [ pos = "1.23,0.194!" ];
+
+    title [ pos = "0.143,0.19500001!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>OT_Ext_Rm05<br align="left"/>Scripts<br align="left"/><b>OT_Ext_Rm05_BeamReflector_01_script</b><br align="left"/></font>> ];
+}

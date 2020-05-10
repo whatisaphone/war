@@ -1,0 +1,97 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    2 [ label = <2: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;T23_Enc01&quot;<br align="left"/>> ];
+    2 [ pos = "0.73700005,-0.23900001!" ];
+    2 -> 3 [ label = "0→0" ];
+    2 -> 4 [ style = dashed ];
+
+    3 [ label = <3: <b>SpawnMonsterEventModule</b><br/><br/>> ];
+    3 [ pos = "0.97700006,-0.23900001!" ];
+    4 -> 3 [ style = dashed ];
+    3 -> 12 [ style = dashed ];
+
+    4 [ label = <4: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    4 [ shape = parallelogram ]
+    4 [ pos = "0.73700005,-0.37!" ];
+
+    5 [ label = <5: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;T23_Enc01_TrigReg&quot;, &quot;&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    5 [ shape = oval ]
+    5 [ pos = "-0.22000001,-0.23!" ];
+    5 -> 6 [ label = "0→0" ];
+
+    6 [ label = <6: <b>SaveDataModule</b><br/><br/><i>TransC0203.Minion_Revealed<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;TransC0203&quot;<br align="left"/>    , FlagName=&quot;Minion_Revealed&quot;)]<br align="left"/>> ];
+    6 [ pos = "0.022000002,-0.23!" ];
+    6 -> 7 [ label = "1→1" ];
+    6 -> 8 [ label = "1→0" ];
+
+    7 [ label = <7: <b>SaveDataModule</b><br/><br/><i>TransC0203.Minion_Revealed<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;TransC0203&quot;<br align="left"/>    , FlagName=&quot;Minion_Revealed&quot;)]<br align="left"/>> ];
+    7 [ pos = "0.24100001,-0.425!" ];
+
+    8 [ label = <8: <b>CinematicModule</b><br/><br/><b>CinematicName</b><br align="left"/>    &quot;T23_Enc01_Cine01&quot;<br align="left"/>> ];
+    8 [ pos = "0.22600001,-0.231!" ];
+
+    9 [ label = <9: <b>ExternalCallModule</b><br/><br/><i>SpawnMinion (from Cine)<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;SpawnMinion&quot;<br align="left"/>> ];
+    9 [ shape = oval ]
+    9 [ pos = "0.504,-0.23900001!" ];
+    9 -> 2 [ label = "0→0" ];
+
+    10 [ label = <10: <b>ExternalCallModule</b><br/><br/><i>MinionTaunt<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;MinionTaunt&quot;<br align="left"/>> ];
+    10 [ shape = oval ]
+    10 [ pos = "0.523,-0.48600003!" ];
+    10 -> 11 [ label = "0→0" ];
+
+    11 [ label = <11: <b>InvokeMethodModule</b><br/><br/><b>MethodName</b><br align="left"/>    &quot;ScriptedTaunt&quot;<br align="left"/>> ];
+    11 [ pos = "0.74100006,-0.48600003!" ];
+    11 -> 13 [ label = "0→0" ];
+    12 -> 11 [ style = dashed ];
+
+    12 [ label = <12: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    12 [ shape = parallelogram ]
+    12 [ pos = "0.9710001,-0.45900002!" ];
+
+    13 [ label = <13: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.5<br align="left"/>> ];
+    13 [ pos = "0.93900007,-0.532!" ];
+    13 -> 19 [ label = "0→0" ];
+
+    14 [ label = <14: <b>InvokeMethodModule</b><br/><br/><b>MethodName</b><br align="left"/>    &quot;setBehaviorDefensiveIdle&quot;<br align="left"/>> ];
+    14 [ pos = "1.5020001,-0.536!" ];
+    14 -> 17 [ label = "0→0" ];
+    12 -> 14 [ style = dashed ];
+
+    15 [ label = <15: <b>base/isinviewmodule</b><br/><br/><b>AutoTriggerTime</b><br align="left"/>    &quot;6&quot;<br align="left"/>> ];
+    15 [ pos = "1.9160001,-0.544!" ];
+    15 -> 16 [ label = "0→0" ];
+    15 -> 16 [ label = "1→0" ];
+    12 -> 15 [ style = dashed ];
+
+    16 [ label = <16: <b>InvokeMethodModule</b><br/><br/><b>MethodName</b><br align="left"/>    &quot;setBehaviorCombat&quot;<br align="left"/>> ];
+    16 [ pos = "2.1920002,-0.55300003!" ];
+    12 -> 16 [ style = dashed ];
+
+    17 [ label = <17: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2.5<br align="left"/>> ];
+    17 [ pos = "1.7300001,-0.536!" ];
+    17 -> 15 [ label = "0→0" ];
+
+    18 [ label = <18: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    18 [ pos = "1.366,-0.536!" ];
+    18 -> 14 [ label = "0→0" ];
+
+    19 [ label = <19: <b>InvokeMethodModule</b><br/><br/><b>MethodName</b><br align="left"/>    &quot;setBehaviorCombat&quot;<br align="left"/>> ];
+    19 [ pos = "1.128,-0.541!" ];
+    19 -> 18 [ label = "0→0" ];
+    12 -> 19 [ style = dashed ];
+
+    title [ pos = "-0.22100002,-0.22900002!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>CI_T_02-03<br align="left"/>Combat<br align="left"/><b>T23_Enc01_Script</b><br align="left"/></font>> ];
+}

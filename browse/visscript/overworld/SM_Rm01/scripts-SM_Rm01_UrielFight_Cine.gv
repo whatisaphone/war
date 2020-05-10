@@ -1,0 +1,127 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    2 [ label = <2: <b>CinematicModule</b><br/><br/><b>CinematicName</b><br align="left"/>    &quot;SM_Rm01_WarFightsUriel_Cine&quot;<br align="left"/>> ];
+    2 [ pos = "0.27400002,-0.24000001!" ];
+    2 -> 14 [ label = "0→0" ];
+    2 -> 5 [ label = "1→0" ];
+    2 -> 15 [ label = "0→0" ];
+
+    3 [ label = <3: <b>SoundModule</b><br/><br/><b>SoundDescFile</b><br align="left"/>    &quot;smith/Smith_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    50108<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;Smith1&quot;<br align="left"/>> ];
+    3 [ pos = "0.36800003,-0.45600003!" ];
+
+    5 [ label = <5: <b>VisScriptCallModule</b><br/><br/><i>UrielGo<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SM_Rm01_Enc16_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;UrielGo&quot;<br align="left"/>> ];
+    5 [ pos = "0.546,-0.32500002!" ];
+
+    6 [ label = <6: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;SM_Rm01_War_UrielFightTrig_01&quot;<br align="left"/>    , &quot;SM_Rm01_War_UrielFightTrig_02<br align="left"/>    &quot;, &quot;SM_Rm01_War_UrielFightTrig_0<br align="left"/>    3&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    6 [ shape = oval ]
+    6 [ pos = "-0.462,-0.30100003!" ];
+    6 -> 7 [ label = "0→0" ];
+
+    7 [ label = <7: <b>AccumulatorModule</b><br/><br/>> ];
+    7 [ pos = "-0.17400001,-0.21700001!" ];
+    7 -> 12 [ label = "0→0" ];
+
+    10 [ label = <10: <b>StartModule</b><br/><br/>> ];
+    10 [ shape = oval ]
+    10 [ pos = "-0.596,-0.132!" ];
+    10 -> 11 [ label = "0→0" ];
+
+    11 [ label = <11: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;SM_Rm01_lift_door_03&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onClosed&quot;]<br align="left"/>> ];
+    11 [ pos = "-0.41900003,-0.132!" ];
+    11 -> 7 [ label = "0→0" ];
+
+    12 [ label = <12: <b>SaveDataModule</b><br/><br/><i>Set AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_SM_Rm01_Enc16&quot;)]<br align="left"/>> ];
+    12 [ pos = "0.062000003,-0.21700001!" ];
+    12 -> 2 [ label = "1→0" ];
+
+    14 [ label = <14: <b>VisScriptCallModule</b><br/><br/><i>SpawnUriel<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SM_Rm01_Enc16_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;SpawnUriel&quot;<br align="left"/>> ];
+    14 [ pos = "0.54700005,-0.24000001!" ];
+
+    15 [ label = <15: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    6.75<br align="left"/>> ];
+    15 [ pos = "0.549,-0.056!" ];
+    15 -> 20 [ label = "0→2" ];
+
+    18 [ label = <18: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;Smith_UrielFight&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;setSmithToNeutral&quot;<br align="left"/>> ];
+    18 [ pos = "1.4330001,-0.010000001!" ];
+
+    19 [ label = <19: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;Smith_UrielFight&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;setFollowDefensive&quot;<br align="left"/>> ];
+    19 [ pos = "1.2310001,-0.011000001!" ];
+    19 -> 18 [ label = "0→0" ];
+
+    20 [ label = <20: <b>ObjectToggleModule</b><br/><br/><b>ObjectList</b><br align="left"/>    [&quot;Smith1&quot;]<br align="left"/>> ];
+    20 [ pos = "0.69900006,-0.010000001!" ];
+    20 -> 21 [ label = "0→0" ];
+
+    21 [ label = <21: <b>SpawnMonsterEventModule</b><br/><br/><b>SpawnPoints</b><br align="left"/>    [&quot;SM_Rm01_SmithSpawnPoint_UrielF<br align="left"/>    ightPos&quot;]<br align="left"/><b>NumberToSpawn</b><br align="left"/>    1<br align="left"/>> ];
+    21 [ pos = "0.93700004,-0.010000001!" ];
+    21 -> 22 [ label = "0→0" ];
+    21 -> 23 [ label = "0→0" ];
+    21 -> 24 [ label = "0→0" ];
+
+    22 [ label = <22: <b>AttachEventModule</b><br/><br/><i>War onHit<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;War&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onHit&quot;]<br align="left"/>> ];
+    22 [ pos = "1.233,0.45600003!" ];
+    22 -> 37 [ label = "0→0" ];
+
+    23 [ label = <23: <b>AttachEventModule</b><br/><br/><i>Uriel onHit<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;Uriel&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onHit&quot;]<br align="left"/>> ];
+    23 [ pos = "1.2440001,0.202!" ];
+    23 -> 38 [ label = "0→0" ];
+
+    24 [ label = <24: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    30<br align="left"/><b>Variance</b><br align="left"/>    10<br align="left"/>> ];
+    24 [ pos = "1.2340001,0.74100006!" ];
+    24 -> 36 [ label = "0→0" ];
+
+    25 [ label = <25: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;Smith_UrielFight&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;setWallLaugh&quot;<br align="left"/>> ];
+    25 [ pos = "1.322,0.957!" ];
+    25 -> 24 [ label = "0→0" ];
+
+    26 [ label = <26: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    5<br align="left"/>> ];
+    26 [ pos = "1.7170001,0.43300003!" ];
+    26 -> 28 [ label = "0→0" ];
+
+    27 [ label = <27: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    5<br align="left"/>> ];
+    27 [ pos = "1.725,0.179!" ];
+    27 -> 29 [ label = "0→0" ];
+
+    28 [ label = <28: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;Smith_UrielFight&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;setWallTaunt&quot;<br align="left"/>> ];
+    28 [ pos = "1.9490001,0.43300003!" ];
+    28 -> 32 [ label = "0→0" ];
+    28 -> 27 [ label = "0→4" ];
+
+    29 [ label = <29: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;Smith_UrielFight&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;setWallCheer&quot;<br align="left"/>> ];
+    29 [ pos = "1.9620001,0.179!" ];
+    29 -> 32 [ label = "0→0" ];
+    29 -> 26 [ label = "0→4" ];
+
+    32 [ label = <32: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    20<br align="left"/>> ];
+    32 [ pos = "2.207,0.29000002!" ];
+    32 -> 26 [ label = "0→3" ];
+    32 -> 27 [ label = "0→3" ];
+    32 -> 26 [ label = "0→2" ];
+    32 -> 27 [ label = "0→2" ];
+
+    36 [ label = <36: <b>SaveDataModule</b><br/><br/><i>Set AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_SM_Rm01_Enc16&quot;)]<br align="left"/>> ];
+    36 [ pos = "1.409,0.74100006!" ];
+    36 -> 25 [ label = "1→0" ];
+
+    37 [ label = <37: <b>SaveDataModule</b><br/><br/><i>Set AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_SM_Rm01_Enc16&quot;)]<br align="left"/>> ];
+    37 [ pos = "1.44,0.45600003!" ];
+    37 -> 26 [ label = "1→0" ];
+
+    38 [ label = <38: <b>SaveDataModule</b><br/><br/><i>Set AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_SM_Rm01_Enc16&quot;)]<br align="left"/>> ];
+    38 [ pos = "1.463,0.202!" ];
+    38 -> 27 [ label = "1→0" ];
+
+    title [ pos = "-0.597,0.95800006!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SM_Rm01<br align="left"/>scripts<br align="left"/><b>SM_Rm01_UrielFight_Cine</b><br align="left"/></font>> ];
+}

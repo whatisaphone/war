@@ -1,0 +1,44 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    5 [ label = <5: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;IC_Tns2-8_Trigger_SpawnCaster2<br align="left"/>    _01&quot;, &quot;&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    5 [ shape = oval ]
+    5 [ pos = "0.062000003,-0.54300004!" ];
+    5 -> 13 [ label = "0→0" ];
+
+    9 [ label = <9: <b>SpawnMonsterEventModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;IC_Tns2-8_Enc00_Caster2&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    -1<br align="left"/><b>IsRandom</b><br align="left"/>    false<br align="left"/><b>DelayTime</b><br align="left"/>    0.5<br align="left"/>> ];
+    9 [ pos = "0.61600006,-0.565!" ];
+    9 -> 12 [ label = "0→0" ];
+
+    10 [ label = <10: <b>SpawnMonsterEventModule</b><br/><br/><b>NumberToSpawn</b><br align="left"/>    -1<br align="left"/><b>IsRandom</b><br align="left"/>    false<br align="left"/><b>DelayTime</b><br align="left"/>    0.5<br align="left"/>> ];
+    10 [ pos = "0.61600006,-0.565!" ];
+
+    12 [ label = <12: <b>CinematicModule</b><br/><br/><b>CinematicName</b><br align="left"/>    &quot;IC_Tns2-08_Cin_LookAtCaster&quot;<br align="left"/>> ];
+    12 [ pos = "0.95100003,-0.56600004!" ];
+    12 -> 14 [ label = "0→1" ];
+    12 -> 15 [ label = "1→0" ];
+
+    13 [ label = <13: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;IC&quot;, FlagNa<br align="left"/>    me=&quot;Show_caster2_Cinematic&quot;)]<br align="left"/>> ];
+    13 [ pos = "0.33800003,-0.54300004!" ];
+    13 -> 9 [ label = "1→0" ];
+
+    14 [ label = <14: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;IC&quot;, FlagNa<br align="left"/>    me=&quot;Show_caster2_Cinematic&quot;)]<br align="left"/>> ];
+    14 [ pos = "1.171,-0.54200006!" ];
+
+    15 [ label = <15: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    3<br align="left"/>> ];
+    15 [ pos = "0.804,-0.90900004!" ];
+    15 -> 9 [ label = "0→3" ];
+
+    title [ pos = "0.061000004,-0.541!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>IC_Tns2-8<br align="left"/>combat<br align="left"/><b>VisScriptModuleSystem</b><br align="left"/></font>> ];
+}

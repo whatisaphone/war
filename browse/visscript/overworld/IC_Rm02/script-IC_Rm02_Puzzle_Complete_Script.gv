@@ -1,0 +1,58 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>StartModule</b><br/><br/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "0.12200001,-0.165!" ];
+
+    2 [ label = <2: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;War&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onEnterFrenzy&quot;]<br align="left"/>> ];
+    2 [ pos = "0.316,-0.165!" ];
+    2 -> 3 [ label = "0→0" ];
+
+    3 [ label = <3: <b>SaveDataModule</b><br/><br/><i>Frenzy Totem Check<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;ic_rm02&quot;, F<br align="left"/>    lagName=&quot;frenzytotem_music_hint&quot;<br align="left"/>    )]<br align="left"/>> ];
+    3 [ pos = "0.55,-0.165!" ];
+    3 -> 4 [ label = "1→0" ];
+
+    4 [ label = <4: <b>SoundModule</b><br/><br/><b>SoundDescFile</b><br align="left"/>    &quot;base/Music&quot;<br align="left"/><b>SoundID</b><br align="left"/>    1216<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;War&quot;<br align="left"/>> ];
+    4 [ pos = "0.78300005,-0.18800001!" ];
+    4 -> 5 [ label = "0→1" ];
+    4 -> 10 [ label = "0→0" ];
+
+    5 [ label = <5: <b>SaveDataModule</b><br/><br/><i>Frenzy Totem Check<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;ic_rm02&quot;, F<br align="left"/>    lagName=&quot;frenzytotem_music_hint&quot;<br align="left"/>    )]<br align="left"/>> ];
+    5 [ pos = "0.97800004,-0.165!" ];
+
+    6 [ label = <6: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;IC_Rm02_Puzzle_Complete_TrgReg<br align="left"/>    &quot;, &quot;&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    6 [ shape = oval ]
+    6 [ pos = "1.1680001,-0.30900002!" ];
+
+    7 [ label = <7: <b>SaveDataModule</b><br/><br/><i>Puzzle check<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;ic_rm02&quot;, F<br align="left"/>    lagName=&quot;puzzle_complete&quot;)]<br align="left"/>> ];
+    7 [ pos = "1.4590001,-0.30900002!" ];
+    7 -> 8 [ label = "1→0" ];
+
+    8 [ label = <8: <b>SoundModule</b><br/><br/><b>SoundDescFile</b><br align="left"/>    &quot;base/Music&quot;<br align="left"/><b>SoundID</b><br align="left"/>    90<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;War&quot;<br align="left"/>> ];
+    8 [ pos = "1.6980001,-0.33200002!" ];
+    8 -> 9 [ label = "0→1" ];
+
+    9 [ label = <9: <b>SaveDataModule</b><br/><br/><i>Puzzle check<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;ic_rm02&quot;, F<br align="left"/>    lagName=&quot;puzzle_complete&quot;)]<br align="left"/>> ];
+    9 [ pos = "1.889,-0.30900002!" ];
+
+    10 [ label = <10: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.75<br align="left"/>> ];
+    10 [ pos = "0.98,-0.30900002!" ];
+
+    11 [ label = <11: <b>StartModule</b><br/><br/>> ];
+    11 [ shape = oval ]
+    11 [ pos = "0.95400006,-0.47800002!" ];
+
+    title [ pos = "0.12100001,-0.164!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>IC_Rm02<br align="left"/>script<br align="left"/><b>IC_Rm02_Puzzle_Complete_Script</b><br align="left"/></font>> ];
+}

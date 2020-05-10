@@ -1,0 +1,72 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>ObjectToggleModule</b><br/><br/><b>ObjectList</b><br align="left"/>    [&quot;finalhorseman_skydome&quot;]<br align="left"/>> ];
+    1 [ pos = "0.123,-0.15900001!" ];
+
+    2 [ label = <2: <b>ObjectToggleModule</b><br/><br/><b>ObjectList</b><br align="left"/>    [&quot;ci01_skydome&quot;]<br align="left"/>> ];
+    2 [ pos = "-0.15200001,-0.609!" ];
+
+    4 [ label = <4: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.01<br align="left"/>> ];
+    4 [ pos = "-0.095000006,-0.37800002!" ];
+    4 -> 1 [ label = "0→1" ];
+    4 -> 5 [ label = "0→2" ];
+
+    5 [ label = <5: <b>ObjectToggleModule</b><br/><br/><b>ObjectList</b><br align="left"/>    [&quot;ot_boss_skydome&quot;]<br align="left"/>> ];
+    5 [ pos = "0.124000005,-0.50600004!" ];
+
+    6 [ label = <6: <b>ExternalCallModule</b><br/><br/><i>Lastsky<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;Lastsky&quot;<br align="left"/>> ];
+    6 [ shape = oval ]
+    6 [ pos = "-0.34100002,-0.37800002!" ];
+    6 -> 4 [ label = "0→0" ];
+
+    7 [ label = <7: <b>ObjectToggleModule</b><br/><br/><b>ObjectList</b><br align="left"/>    [&quot;finalhorseman_skydome&quot;]<br align="left"/>> ];
+    7 [ pos = "0.124000005,-0.68100005!" ];
+
+    9 [ label = <9: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.01<br align="left"/>> ];
+    9 [ pos = "-0.094000004,-0.90000004!" ];
+    9 -> 7 [ label = "0→2" ];
+    9 -> 10 [ label = "0→1" ];
+
+    10 [ label = <10: <b>ObjectToggleModule</b><br/><br/><b>ObjectList</b><br align="left"/>    [&quot;ot_boss_skydome&quot;]<br align="left"/>> ];
+    10 [ pos = "0.125,-1.028!" ];
+
+    11 [ label = <11: <b>ExternalCallModule</b><br/><br/><i>OTsky<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;OTsky&quot;<br align="left"/>> ];
+    11 [ shape = oval ]
+    11 [ pos = "-0.33400002,-0.90000004!" ];
+    11 -> 9 [ label = "0→0" ];
+
+    12 [ label = <12: <b>StartModule</b><br/><br/>> ];
+    12 [ shape = oval ]
+    12 [ pos = "-0.367,-0.65500003!" ];
+    12 -> 2 [ label = "0→2" ];
+
+    14 [ label = <14: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;lastbossbattle_stage2&quot;<br align="left"/><b>MoveVal</b><br align="left"/>    0<br align="left"/><b>RotationVector</b><br align="left"/>    [0, 0, -105]<br align="left"/><b>MoveObject</b><br align="left"/>    false<br align="left"/><b>RotateObject</b><br align="left"/>    true<br align="left"/>> ];
+    14 [ pos = "-0.09,-1.2320001!" ];
+
+    15 [ label = <15: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;lastbossbattle_stage2&quot;<br align="left"/><b>MoveVal</b><br align="left"/>    0<br align="left"/><b>RotationVector</b><br align="left"/>    [0, 0, 105]<br align="left"/><b>MoveObject</b><br align="left"/>    false<br align="left"/><b>RotateObject</b><br align="left"/>    true<br align="left"/>> ];
+    15 [ pos = "-0.09,-1.3840001!" ];
+
+    16 [ label = <16: <b>ExternalCallModule</b><br/><br/><i>RotateWorld<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;RotateWorld&quot;<br align="left"/>> ];
+    16 [ shape = oval ]
+    16 [ pos = "-0.33900002,-1.2320001!" ];
+    16 -> 14 [ label = "0→0" ];
+
+    17 [ label = <17: <b>ExternalCallModule</b><br/><br/><i>RotateWorldBack<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;RotateWorldBack&quot;<br align="left"/>> ];
+    17 [ shape = oval ]
+    17 [ pos = "-0.333,-1.3840001!" ];
+    17 -> 15 [ label = "0→0" ];
+
+    title [ pos = "-0.36800003,-0.158!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>~CS_46-60<br align="left"/>CS_052B<br align="left"/><b>CS052SkySwitcher</b><br align="left"/></font>> ];
+}

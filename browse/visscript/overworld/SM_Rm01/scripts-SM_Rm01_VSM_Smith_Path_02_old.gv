@@ -1,0 +1,118 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    24 [ label = <24: <b>base/setinitialwaypoint</b><br/><br/><i>move smith to door across bridge<br align="left"/></i><br align="left"/><b>MonsterName</b><br align="left"/>    &quot;Smith1&quot;<br align="left"/><b>Waypoint</b><br align="left"/>    &quot;SM_Rm01_SmithPoint_10&quot;<br align="left"/>> ];
+    24 [ pos = "0.51900005,0.294!" ];
+    24 -> 153 [ label = "0→0" ];
+
+    44 [ label = <44: <b>AttachEventModule</b><br/><br/><i>switch to lower bridge<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;SM_Rm01_LowerBridgeOneSwitch&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onInteractive&quot;]<br align="left"/>> ];
+    44 [ pos = "-0.23,0.27600002!" ];
+    44 -> 46 [ label = "0→0" ];
+
+    45 [ label = <45: <b>ObjectMoverModule</b><br/><br/><i>move bridge<br align="left"/></i><br align="left"/><b>ObjectName</b><br align="left"/>    &quot;SM_Rm01_CanalBridge_01&quot;<br align="left"/><b>MoveVal</b><br align="left"/>    4<br align="left"/><b>RotationVector</b><br align="left"/>    [0, -80, 0]<br align="left"/><b>MoveObject</b><br align="left"/>    false<br align="left"/><b>RotateObject</b><br align="left"/>    true<br align="left"/>> ];
+    45 [ pos = "0.158,0.29700002!" ];
+    45 -> 47 [ label = "1→0" ];
+
+    46 [ label = <46: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    4.4<br align="left"/>> ];
+    46 [ pos = "-0.025,0.296!" ];
+    46 -> 45 [ label = "0→0" ];
+
+    47 [ label = <47: <b>DelayModule</b><br/><br/>> ];
+    47 [ pos = "0.34500003,0.29700002!" ];
+    47 -> 24 [ label = "0→0" ];
+
+    149 [ label = <149: <b>ExternalCallModule</b><br/><br/><i>receives call from script one to<br align="left"/> initiate this<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;startScript2&quot;<br align="left"/>> ];
+    149 [ shape = oval ]
+    149 [ pos = "-1.6350001,0.28800002!" ];
+
+    153 [ label = <153: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;Smith1&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;setFollowWithCombat&quot;<br align="left"/>> ];
+    153 [ pos = "0.8,0.29000002!" ];
+
+    156 [ label = <156: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;Smith1&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;setFollowDefensiveOnWpReached&quot;<br align="left"/>> ];
+    156 [ pos = "-0.96000004,0.29000002!" ];
+    156 -> 189 [ label = "0→1" ];
+
+    162 [ label = <162: <b>TriggerEventModule</b><br/><br/><i>SM_Rm01_SmithTalks_02<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;SM_Rm01_SmithTalks_02&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    162 [ shape = oval ]
+    162 [ pos = "-1.1620001,-0.41700003!" ];
+    162 -> 164 [ label = "0→0" ];
+    162 -> 168 [ label = "0→0" ];
+
+    163 [ label = <163: <b>TextModule</b><br/><br/><b>Text</b><br align="left"/>    &quot;Need your help on this one war.<br align="left"/>    \\n     Come here for a sec.&quot;<br align="left"/><b>Duration</b><br align="left"/>    6<br align="left"/>> ];
+    163 [ pos = "-0.749,-0.26500002!" ];
+
+    164 [ label = <164: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.75<br align="left"/>> ];
+    164 [ pos = "-0.89800006,-0.264!" ];
+
+    167 [ label = <167: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    3<br align="left"/>> ];
+    167 [ pos = "-0.591,-0.45900002!" ];
+    167 -> 180 [ label = "0→0" ];
+
+    168 [ label = <168: <b>base/gatemodule</b><br/><br/>> ];
+    168 [ pos = "-0.88600004,-0.46!" ];
+    168 -> 169 [ label = "0→0" ];
+
+    169 [ label = <169: <b>base/gatemodule</b><br/><br/>> ];
+    169 [ pos = "-0.75500005,-0.46300003!" ];
+    169 -> 168 [ label = "0→2" ];
+    169 -> 167 [ label = "0→0" ];
+
+    177 [ label = <177: <b>ExternalCallModule</b><br/><br/><i>Shortcut to post-door 1<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;SM_Rm01_Launch2&quot;<br align="left"/>> ];
+    177 [ shape = oval ]
+    177 [ pos = "-1.6830001,0.034!" ];
+
+    180 [ label = <180: <b>VisScriptCallModule</b><br/><br/><i>Start Encounter 03<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SM_Rm01_Enc03_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;StartEncounter&quot;<br align="left"/>> ];
+    180 [ pos = "-0.40600002,-0.45900002!" ];
+
+    182 [ label = <182: <b>base/setinitialwaypoint</b><br/><br/><b>MonsterName</b><br align="left"/>    &quot;Smith1&quot;<br align="left"/><b>Waypoint</b><br align="left"/>    &quot;SM_Rm01_SmithPoint_10&quot;<br align="left"/>> ];
+    182 [ pos = "-1.4490001,0.034!" ];
+    182 -> 192 [ label = "0→0" ];
+
+    188 [ label = <188: <b>ExternalCallModule</b><br/><br/><i>An interactive has been complete<br align="left"/>d<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;path_02_War_RiverToss&quot;<br align="left"/>> ];
+    188 [ shape = oval ]
+    188 [ pos = "-0.88600004,0.439!" ];
+    188 -> 189 [ label = "0→0" ];
+
+    189 [ label = <189: <b>base/gatemodule</b><br/><br/><i>Wait for this module to start.<br align="left"/></i><br align="left"/><b>enable</b><br align="left"/>    false<br align="left"/>> ];
+    189 [ pos = "-0.508,0.312!" ];
+    189 -> 190 [ label = "0→0" ];
+
+    190 [ label = <190: <b>base/gatemodule</b><br/><br/>> ];
+    190 [ pos = "-0.36200002,0.296!" ];
+    190 -> 189 [ label = "0→2" ];
+    190 -> 44 [ label = "0→0" ];
+
+    192 [ label = <192: <b>DelayModule</b><br/><br/>> ];
+    192 [ pos = "-1.1040001,0.28800002!" ];
+    192 -> 156 [ label = "0→0" ];
+
+    193 [ label = <193: <b>TextModule</b><br/><br/><i>Lets Go<br align="left"/></i><br align="left"/><b>Text</b><br align="left"/>    &quot;Lets go War!&quot;<br align="left"/><b>Duration</b><br align="left"/>    6<br align="left"/><b>X</b><br align="left"/>    0.2<br align="left"/>> ];
+    193 [ pos = "-0.75100005,0.20400001!" ];
+    193 -> 189 [ label = "0→1" ];
+
+    195 [ label = <195: <b>StartModule</b><br/><br/>> ];
+    195 [ shape = oval ]
+    195 [ pos = "-0.26700002,0.49300003!" ];
+    195 -> 44 [ label = "0→0" ];
+
+    196 [ label = <196: <b>StartModule</b><br/><br/>> ];
+    196 [ shape = oval ]
+    196 [ pos = "-0.638,0.094000004!" ];
+    196 -> 197 [ label = "0→0" ];
+
+    197 [ label = <197: <b>InvokeMethodModule</b><br/><br/><i>Reset the switch everytime we re<br align="left"/>start<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;SM_Rm01_LowerBridgeOneSwitch&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;reset&quot;<br align="left"/>> ];
+    197 [ pos = "-0.43100002,0.094000004!" ];
+
+    title [ pos = "-1.6840001,0.49400002!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SM_Rm01<br align="left"/>scripts<br align="left"/><b>SM_Rm01_VSM_Smith_Path_02_old</b><br align="left"/><br/><i>toss war across gap, lower bridge, move up to door 2</i><br align="left"/></font>> ];
+}

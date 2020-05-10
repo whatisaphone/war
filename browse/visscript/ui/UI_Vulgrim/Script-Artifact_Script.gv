@@ -1,0 +1,53 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>StartModule</b><br/><br/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "0.16700001,-0.142!" ];
+    1 -> 2 [ label = "0→0" ];
+
+    2 [ label = <2: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;UI&quot;, FlagNa<br align="left"/>    me=&quot;ArtifactShown&quot;)]<br align="left"/>> ];
+    2 [ pos = "0.342,-0.142!" ];
+    2 -> 5 [ label = "0→2" ];
+    2 -> 8 [ label = "1→0" ];
+    2 -> 10 [ label = "1→0" ];
+
+    3 [ label = <3: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;UI&quot;, FlagNa<br align="left"/>    me=&quot;ArtifactShown&quot;)]<br align="left"/>> ];
+    3 [ pos = "1.4540001,0.12100001!" ];
+
+    5 [ label = <5: <b>ObjectToggleModule</b><br/><br/><b>ObjectList</b><br align="left"/>    [&quot;Artifact_Pawn&quot;]<br align="left"/>> ];
+    5 [ pos = "1.222,0.098000005!" ];
+    5 -> 3 [ label = "0→1" ];
+
+    7 [ label = <7: <b>AnimatorModule</b><br/><br/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;Artifact_Pawn&quot;, AnimationID=1<br align="left"/>    )]<br align="left"/>> ];
+    7 [ pos = "1.011,-0.18800001!" ];
+    7 -> 5 [ label = "1→2" ];
+
+    8 [ label = <8: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;Artifact_Pawn&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>MoveVal</b><br align="left"/>    15<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;Artifact_EndPoint&quot;<br align="left"/>> ];
+    8 [ pos = "0.63500005,-0.165!" ];
+    8 -> 9 [ label = "1→0" ];
+
+    9 [ label = <9: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    3.33<br align="left"/>> ];
+    9 [ pos = "0.83500004,-0.18800001!" ];
+    9 -> 7 [ label = "0→0" ];
+
+    10 [ label = <10: <b>AnimatorModule</b><br/><br/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;Artifact_Pawn&quot;, AnimationID=0<br align="left"/>    )]<br align="left"/>> ];
+    10 [ pos = "0.62,-0.38700002!" ];
+    10 -> 11 [ label = "1→0" ];
+
+    11 [ label = <11: <b>AnimatorModule</b><br/><br/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;Artifact_Pawn&quot;, AnimationID=0<br align="left"/>    )]<br align="left"/>> ];
+    11 [ pos = "0.82600003,-0.41000003!" ];
+
+    title [ pos = "0.16600001,0.12200001!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">ui<br align="left"/>UI_Vulgrim<br align="left"/>Script<br align="left"/><b>Artifact_Script</b><br align="left"/></font>> ];
+}

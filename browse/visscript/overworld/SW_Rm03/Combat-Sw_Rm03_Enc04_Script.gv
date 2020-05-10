@@ -1,0 +1,68 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    7 [ label = <7: <b>SpawnMonsterEventModule</b><br/><br/><b>IsRandom</b><br align="left"/>    false<br align="left"/>> ];
+    7 [ pos = "0.80500007,0.004!" ];
+    7 -> 31 [ label = "0→0" ];
+    9 -> 7 [ style = dashed ];
+    7 -> 32 [ style = dashed ];
+
+    9 [ label = <9: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    9 [ shape = parallelogram ]
+    9 [ pos = "0.568,-0.19100001!" ];
+
+    21 [ label = <21: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;Sw_Rm03_Enc04&quot;<br align="left"/>> ];
+    21 [ pos = "0.291,-0.11400001!" ];
+    21 -> 7 [ label = "0→0" ];
+    21 -> 9 [ style = dashed ];
+
+    28 [ label = <28: <b>ExternalCallModule</b><br/><br/><i>(from Rm02 script_DrainSwitching<br align="left"/>Room)<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;EndEncounter&quot;<br align="left"/>> ];
+    28 [ shape = oval ]
+    28 [ pos = "-0.257,-0.47300002!" ];
+    28 -> 36 [ label = "0→2" ];
+
+    29 [ label = <29: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;Sw_Rm03_Enc04_TrigReg01&quot;, &quot;Sw_<br align="left"/>    Rm03_Enc04_TrigReg02&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    29 [ shape = oval ]
+    29 [ pos = "-0.40100002,-0.193!" ];
+    29 -> 30 [ label = "0→0" ];
+
+    30 [ label = <30: <b>base/oneshotmodule</b><br/><br/>> ];
+    30 [ pos = "-0.15300001,-0.193!" ];
+    30 -> 35 [ label = "0→0" ];
+
+    31 [ label = <31: <b>base/distancedelay</b><br/><br/><b>Distance</b><br align="left"/>    2000<br align="left"/><b>CheckInterval</b><br align="left"/>    2<br align="left"/>> ];
+    31 -> 36 [ label = "0→2" ];
+    32 -> 31 [ style = dashed ];
+
+    32 [ label = <32: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    32 [ shape = parallelogram ]
+    32 [ pos = "1.103,-0.246!" ];
+
+    35 [ label = <35: <b>SaveDataModule</b><br/><br/><i>Rm02_NoWater<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;SW_Rm02_NoWater&quot;)]<br align="left"/>> ];
+    35 [ pos = "0.030000001,-0.11400001!" ];
+    35 -> 21 [ label = "1→0" ];
+
+    36 [ label = <36: <b>ObjectToggleModule</b><br/><br/>> ];
+    36 [ pos = "1.396,-0.187!" ];
+    36 -> 30 [ label = "0→1" ];
+    32 -> 36 [ style = dashed ];
+
+    41 [ label = <41: <b>ExternalCallModule</b><br/><br/><i>Call to despawn lurker<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;GauntletDespawn&quot;<br align="left"/>> ];
+    41 [ shape = oval ]
+    41 [ pos = "-0.43,-0.71000004!" ];
+    41 -> 29 [ label = "0→1" ];
+    41 -> 36 [ label = "0→4" ];
+
+    title [ pos = "-0.43100002,0.0050000004!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SW_Rm03<br align="left"/>Combat<br align="left"/><b>Sw_Rm03_Enc04_Script</b><br align="left"/><br/><i>Fishie</i><br align="left"/></font>> ];
+}

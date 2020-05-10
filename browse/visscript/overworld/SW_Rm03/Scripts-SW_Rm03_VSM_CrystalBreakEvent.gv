@@ -1,0 +1,54 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>StartModule</b><br/><br/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "0.148,-0.18900001!" ];
+    1 -> 4 [ label = "0→0" ];
+
+    3 [ label = <3: <b>VisScriptCallModule</b><br/><br/><i>StartEncounter Sw_Rm03_Enc02<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;Sw_Rm03_Enc02_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;StartEncounter&quot;<br align="left"/>> ];
+    3 [ pos = "1.0350001,-0.21200001!" ];
+
+    4 [ label = <4: <b>AttachEventModule</b><br/><br/><i>onBreak SW_Rm03_GauntletCrystal<br align="left"/></i><br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onBreak&quot;]<br align="left"/>> ];
+    4 [ pos = "0.34,-0.18900001!" ];
+    4 -> 5 [ label = "0→0" ];
+    8 -> 4 [ style = dashed ];
+
+    5 [ label = <5: <b>AccumulatorModule</b><br/><br/>> ];
+    5 [ pos = "0.54800004,-0.18900001!" ];
+    5 -> 7 [ label = "0→0" ];
+    5 -> 9 [ label = "0→0" ];
+
+    6 [ label = <6: <b>SaveDataModule</b><br/><br/><i>ReturnedFromRm08<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;ReturnedFromRm08&quot;)]<br align="left"/>> ];
+    6 [ pos = "1.036,-0.291!" ];
+
+    7 [ label = <7: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;ReturnedFromRm08&quot;)]<br align="left"/>> ];
+    7 [ pos = "0.776,-0.18900001!" ];
+    7 -> 3 [ label = "1→0" ];
+    7 -> 12 [ label = "1→0" ];
+    7 -> 6 [ label = "1→1" ];
+
+    8 [ label = <8: <b>VisScriptVariableWorldObjectList</b><br/><br/><b>Value</b><br align="left"/>    [&quot;SW_Rm08_gauntlet_crystal&quot;, &quot;SW<br align="left"/>    _Rm08_gauntlet_crystal_01&quot;]<br align="left"/>> ];
+    8 [ shape = parallelogram ]
+    8 [ pos = "0.374,-0.48600003!" ];
+
+    9 [ label = <9: <b>DamageActorModule</b><br/><br/><b>DamageAmount</b><br align="left"/>    400<br align="left"/><b>WeaponType</b><br align="left"/>    15<br align="left"/>> ];
+    9 [ pos = "0.80500007,-0.38900003!" ];
+    8 -> 9 [ style = dashed ];
+
+    12 [ label = <12: <b>VisScriptCallModule</b><br/><br/><i>Call to remove lurker Sw_Rm03_En<br align="left"/>c04_Script<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;Sw_Rm03_Enc04_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;GauntletDespawn&quot;<br align="left"/>> ];
+    12 [ pos = "1.0370001,-0.102000006!" ];
+
+    title [ pos = "0.147,-0.101!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SW_Rm03<br align="left"/>Scripts<br align="left"/><b>SW_Rm03_VSM_CrystalBreakEvent</b><br align="left"/></font>> ];
+}

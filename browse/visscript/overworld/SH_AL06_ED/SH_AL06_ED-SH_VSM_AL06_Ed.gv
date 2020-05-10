@@ -1,0 +1,160 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    2 [ label = <2: <b>TriggerEventModule</b><br/><br/><i>Warps them to destination<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;SH_Teleport_Region&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    2 [ shape = oval ]
+    2 [ pos = "0.379,-0.47400004!" ];
+    2 -> 22 [ label = "0→0" ];
+    2 -> 24 [ label = "0→0" ];
+
+    8 [ label = <8: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>MoveVal</b><br align="left"/>    0<br align="left"/><b>RotateObject</b><br align="left"/>    true<br align="left"/>> ];
+    8 [ pos = "1.366,-0.544!" ];
+    8 -> 25 [ label = "0→0" ];
+    35 -> 8 [ style = dashed ];
+
+    9 [ label = <9: <b>FadeSceneModule</b><br/><br/>> ];
+    9 [ pos = "1.3640001,-0.35300002!" ];
+
+    11 [ label = <11: <b>ObjectMoverModule</b><br/><br/><i>Move War to start position<br align="left"/></i><br align="left"/><b>ObjectName</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>MoveVal</b><br align="left"/>    0<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;SH_Start&quot;<br align="left"/><b>RotateObject</b><br align="left"/>    true<br align="left"/>> ];
+    11 [ pos = "0.99600005,0.23400001!" ];
+    11 -> 18 [ label = "0→0" ];
+
+    12 [ label = <12: <b>FadeSceneModule</b><br/><br/><b>FadeTime</b><br align="left"/>    0.75<br align="left"/>> ];
+    12 [ pos = "1.1240001,0.404!" ];
+    12 -> 42 [ label = "1→0" ];
+
+    14 [ label = <14: <b>LoaderModule</b><br/><br/><b>Load</b><br align="left"/>    [[273, 0], [273, 1], [273, 3], [<br align="left"/>    273, 4], [273, 5], [273, 6], [27<br align="left"/>    3, 7], [274, -1], [386, -1]]<br align="left"/><b>Unload</b><br align="left"/>    [[380, -1], [379, -1], [382, -1]<br align="left"/>    , [410, -1], [378, -1], [371, -1<br align="left"/>    ], [372, -1], [373, -1], [374, -<br align="left"/>    1], [375, -1], [376, -1], [384, <br align="left"/>    -1], [385, -1]]<br align="left"/>> ];
+    14 [ pos = "1.9180001,-0.9760001!" ];
+
+    17 [ label = <17: <b>CinematicModule</b><br/><br/><b>CinematicName</b><br align="left"/>    &quot;SH_AL06_ED_CinIn&quot;<br align="left"/>> ];
+    17 [ pos = "0.929,0.381!" ];
+    17 -> 12 [ label = "0→1" ];
+
+    18 [ label = <18: <b>base/setcharactermovestate</b><br/><br/><i>Set Teleport In Movestate<br align="left"/></i><br align="left"/><b>MoveStateID</b><br align="left"/>    112024<br align="left"/>> ];
+    18 [ pos = "1.2420001,0.23400001!" ];
+
+    19 [ label = <19: <b>DelayModule</b><br/><br/>> ];
+    19 [ pos = "0.77800006,0.12900001!" ];
+    19 -> 11 [ label = "0→0" ];
+    19 -> 21 [ label = "0→0" ];
+
+    20 [ label = <20: <b>ObjectToggleModule</b><br/><br/><i>Remove Teleport Effect<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;TeleportInEffect&quot;]<br align="left"/>> ];
+    20 [ pos = "1.256,0.076000005!" ];
+
+    21 [ label = <21: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.5<br align="left"/>> ];
+    21 [ pos = "1.001,0.030000001!" ];
+    21 -> 20 [ label = "0→2" ];
+
+    22 [ label = <22: <b>base/setcharactermovestate</b><br/><br/><i>Set Teleport Out Movestate<br align="left"/></i><br align="left"/><b>MoveStateID</b><br align="left"/>    112021<br align="left"/>> ];
+    22 [ pos = "0.683,-0.70000005!" ];
+
+    23 [ label = <23: <b>FadeSceneModule</b><br/><br/><b>FadeTime</b><br align="left"/>    0.75<br align="left"/><b>StayFadedOut</b><br align="left"/>    true<br align="left"/>> ];
+    23 [ pos = "0.88100004,-0.47400004!" ];
+    23 -> 29 [ label = "0→0" ];
+    23 -> 30 [ label = "0→0" ];
+    23 -> 31 [ label = "0→0" ];
+    23 -> 41 [ label = "0→0" ];
+
+    24 [ label = <24: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.5<br align="left"/>> ];
+    24 [ pos = "0.68200004,-0.47400004!" ];
+    24 -> 23 [ label = "0→0" ];
+    24 -> 43 [ label = "0→1" ];
+
+    25 [ label = <25: <b>base/setcharactermovestate</b><br/><br/><i>Set Teleport In Movestate<br align="left"/></i><br align="left"/><b>MoveStateID</b><br align="left"/>    112024<br align="left"/>> ];
+    25 [ pos = "1.605,-0.544!" ];
+
+    26 [ label = <26: <b>StartModule</b><br/><br/>> ];
+    26 [ shape = oval ]
+    26 [ pos = "-0.32700002,-0.651!" ];
+    26 -> 27 [ label = "0→2" ];
+
+    27 [ label = <27: <b>ObjectToggleModule</b><br/><br/><b>ObjectList</b><br align="left"/>    [&quot;SH_Teleport_Region&quot;, &quot;SH_Telep<br align="left"/>    ortOutEffect&quot;]<br align="left"/>> ];
+    27 [ pos = "-0.047000002,-0.54300004!" ];
+    27 -> 2 [ label = "0→3" ];
+
+    28 [ label = <28: <b>ExternalCallModule</b><br/><br/><i>Called when destination done loa<br align="left"/>ding<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;onDoneLoading&quot;<br align="left"/>> ];
+    28 [ shape = oval ]
+    28 [ pos = "-0.36200002,-0.56600004!" ];
+    28 -> 27 [ label = "0→1" ];
+
+    29 [ label = <29: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;SH_TeleportOutEffect&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>MoveVal</b><br align="left"/>    0<br align="left"/><b>RotateObject</b><br align="left"/>    true<br align="left"/>> ];
+    29 [ pos = "1.136,-0.93700004!" ];
+    35 -> 29 [ style = dashed ];
+
+    30 [ label = <30: <b>CinematicModule</b><br/><br/><b>CinematicName</b><br align="left"/>    &quot;SH_AL06_ED_CinOut&quot;<br align="left"/>> ];
+    30 [ pos = "1.1350001,-0.78000003!" ];
+    30 -> 44 [ label = "1→0" ];
+
+    31 [ label = <31: <b>DelayModule</b><br/><br/>> ];
+    31 [ pos = "1.143,-0.544!" ];
+    31 -> 8 [ label = "0→0" ];
+    31 -> 32 [ label = "0→0" ];
+    31 -> 9 [ label = "0→1" ];
+
+    32 [ label = <32: <b>DelayModule</b><br/><br/>> ];
+    32 [ pos = "1.3700001,-0.74700004!" ];
+    32 -> 33 [ label = "0→2" ];
+    32 -> 34 [ label = "0→0" ];
+
+    33 [ label = <33: <b>ObjectToggleModule</b><br/><br/><i>Remove Teleport Effect<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;SH_TeleportOutEffect&quot;]<br align="left"/>> ];
+    33 [ pos = "1.616,-0.70100003!" ];
+
+    34 [ label = <34: <b>DelayModule</b><br/><br/>> ];
+    34 [ pos = "1.7060001,-0.9760001!" ];
+    34 -> 14 [ label = "0→0" ];
+
+    35 [ label = <35: <b>VisScriptVariableWorldObject</b><br/><br/><i>Start_PortalFromAL_06<br align="left"/></i><br align="left"/><b>Value</b><br align="left"/>    &quot;Start_PortalFromAL_06&quot;<br align="left"/>> ];
+    35 [ shape = parallelogram ]
+    35 [ pos = "0.67800003,-1.0610001!" ];
+
+    36 [ label = <36: <b>DelayModule</b><br/><br/>> ];
+    36 [ pos = "0.763,0.381!" ];
+    36 -> 17 [ label = "0→0" ];
+
+    37 [ label = <37: <b>LoaderModule</b><br/><br/><i>Loads the SH_Sky region<br align="left"/></i><br align="left"/><b>Load</b><br align="left"/>    [[410, -1]]<br align="left"/>> ];
+    37 [ pos = "0.81900007,0.551!" ];
+
+    38 [ label = <38: <b>ExternalCallModule</b><br/><br/><b>EventName</b><br align="left"/>    &quot;SH_Warp&quot;<br align="left"/>> ];
+    38 [ shape = oval ]
+    38 [ pos = "0.418,0.30200002!" ];
+    38 -> 37 [ label = "0→0" ];
+    38 -> 36 [ label = "0→0" ];
+    38 -> 19 [ label = "0→0" ];
+
+    39 [ label = <39: <b>StartModule</b><br/><br/>> ];
+    39 [ shape = oval ]
+    39 [ pos = "-0.358,-0.32000002!" ];
+    39 -> 40 [ label = "0→0" ];
+
+    40 [ label = <40: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;AL_06_To_Eden_VSM_WarpScript&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;onDoneLoading&quot;<br align="left"/>> ];
+    40 [ pos = "-0.13000001,-0.32000002!" ];
+
+    41 [ label = <41: <b>LoaderModule</b><br/><br/><i>unload sh sky<br align="left"/></i><br align="left"/><b>Unload</b><br align="left"/>    [[410, -1], [409, -1], [384, -1]<br align="left"/>    ]<br align="left"/>> ];
+    41 [ pos = "1.113,-0.38200003!" ];
+
+    42 [ label = <42: <b>base/enablecharactercontrolmodule</b><br/><br/>> ];
+    42 [ pos = "1.378,0.381!" ];
+
+    43 [ label = <43: <b>base/enablecharactercontrolmodule</b><br/><br/>> ];
+    43 [ pos = "0.88900006,-0.277!" ];
+
+    44 [ label = <44: <b>base/enablecharactercontrolmodule</b><br/><br/>> ];
+    44 [ pos = "1.381,-0.975!" ];
+
+    45 [ label = <45: <b>StartModule</b><br/><br/>> ];
+    45 [ shape = oval ]
+    45 [ pos = "0.43500003,0.47100002!" ];
+
+    title [ pos = "-0.363,0.55200005!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SH_AL06_ED<br align="left"/>SH_AL06_ED<br align="left"/><b>SH_VSM_AL06_Ed</b><br align="left"/></font>> ];
+}

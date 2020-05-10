@@ -1,0 +1,152 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    21 [ label = <21: <b>AnimatorModule</b><br/><br/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;OT_Int_Rm07_AnimFloor01&quot;, Ani<br align="left"/>    mationID=22), AnimatedTargetInfo<br align="left"/>    (AnimatedActor=&quot;OT_Int_Rm07_Anim<br align="left"/>    Floor06&quot;, AnimationID=22)]<br align="left"/>> ];
+    21 [ pos = "0.48400003,-1.189!" ];
+    21 -> 244 [ label = "0→0" ];
+
+    22 [ label = <22: <b>AnimatorModule</b><br/><br/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;OT_Int_Rm07_AnimFloor02&quot;, Ani<br align="left"/>    mationID=22), AnimatedTargetInfo<br align="left"/>    (AnimatedActor=&quot;OT_Int_Rm07_Anim<br align="left"/>    Floor07&quot;, AnimationID=22)]<br align="left"/>> ];
+    22 [ pos = "0.86300004,-1.189!" ];
+    22 -> 245 [ label = "0→0" ];
+
+    211 [ label = <211: <b>ExternalCallModule</b><br/><br/><i>Turn ON Bridge<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;TurnONFloor&quot;<br align="left"/>> ];
+    211 [ shape = oval ]
+    211 [ pos = "0.17500001,-1.189!" ];
+    211 -> 21 [ label = "0→0" ];
+
+    212 [ label = <212: <b>ExternalCallModule</b><br/><br/><i>Turn OFF Bridge<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;TurnOFFFloor&quot;<br align="left"/>> ];
+    212 [ shape = oval ]
+    212 [ pos = "0.18900001,-1.4870001!" ];
+    212 -> 243 [ label = "0→0" ];
+
+    226 [ label = <226: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Int_Rm07<br align="left"/>    &quot;, FlagName=&quot;OT_Int_Rm07_Looming<br align="left"/>    RockReveal&quot;)]<br align="left"/>> ];
+    226 [ pos = "1.1350001,-0.49100003!" ];
+
+    230 [ label = <230: <b>CinematicModule</b><br/><br/><b>CinematicName</b><br align="left"/>    &quot;OT_Int_Rm07_LoomingRockReveal_C<br align="left"/>    ine&quot;<br align="left"/>> ];
+    230 [ pos = "0.53400004,-0.514!" ];
+    230 -> 235 [ label = "0→0" ];
+    230 -> 258 [ label = "0→0" ];
+    230 -> 261 [ label = "0→0" ];
+
+    232 [ label = <232: <b>TriggerEventModule</b><br/><br/><i>Call Cinematic Once Beam is back<br align="left"/> in the room<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;OT_Int_Rm07_AnimFloor_Trg&quot;, &quot;&quot;<br align="left"/>    ]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    232 [ shape = oval ]
+    232 [ pos = "-0.32000002,-0.49100003!" ];
+    232 -> 234 [ label = "0→0" ];
+
+    233 [ label = <233: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Int_Rm07<br align="left"/>    &quot;, FlagName=&quot;OT_Int_Rm07_Looming<br align="left"/>    RockReveal&quot;)]<br align="left"/>> ];
+    233 [ pos = "0.266,-0.49100003!" ];
+    233 -> 230 [ label = "1→0" ];
+
+    234 [ label = <234: <b>SaveDataModule</b><br/><br/><i>Check for beam received<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm07<br align="left"/>    &quot;, FlagName=&quot;OT_Ext_Rm07_Beam_Re<br align="left"/>    ceiver&quot;)]<br align="left"/>> ];
+    234 [ pos = "-0.015000001,-0.49100003!" ];
+    234 -> 233 [ label = "0→0" ];
+
+    235 [ label = <235: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;OT_Int_Rm07_Looming_Rock&quot;<br align="left"/><b>MoveVal</b><br align="left"/>    5<br align="left"/><b>MovementVector</b><br align="left"/>    [0, 0, -700]<br align="left"/><b>RotateObject</b><br align="left"/>    true<br align="left"/>> ];
+    235 [ pos = "0.80200005,-0.514!" ];
+    235 -> 226 [ label = "0→1" ];
+    235 -> 251 [ label = "0→0" ];
+
+    236 [ label = <236: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;OT_Int_Rm07_Looming_Rock&quot;<br align="left"/><b>MoveVal</b><br align="left"/>    0<br align="left"/><b>MovementVector</b><br align="left"/>    [0, 0, -700]<br align="left"/><b>RotateObject</b><br align="left"/>    true<br align="left"/>> ];
+    236 [ pos = "0.693,-0.098000005!" ];
+
+    237 [ label = <237: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Int_Rm07<br align="left"/>    &quot;, FlagName=&quot;OT_Int_Rm07_Looming<br align="left"/>    RockReveal&quot;)]<br align="left"/>> ];
+    237 [ pos = "0.36200002,-0.16600001!" ];
+    237 -> 236 [ label = "0→0" ];
+    237 -> 253 [ label = "1→0" ];
+    237 -> 262 [ label = "0→0" ];
+
+    238 [ label = <238: <b>StartModule</b><br/><br/>> ];
+    238 [ shape = oval ]
+    238 [ pos = "0.15400001,-0.16600001!" ];
+    238 -> 237 [ label = "0→0" ];
+
+    239 [ label = <239: <b>AnimatorModule</b><br/><br/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;OT_Int_Rm07_AnimFloor03&quot;, Ani<br align="left"/>    mationID=22)]<br align="left"/>> ];
+    239 [ pos = "1.289,-1.189!" ];
+
+    241 [ label = <241: <b>AnimatorModule</b><br/><br/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;OT_Int_Rm07_AnimFloor06&quot;, Ani<br align="left"/>    mationID=21)]<br align="left"/>> ];
+    241 [ pos = "2.0340002,-1.4870001!" ];
+
+    242 [ label = <242: <b>AnimatorModule</b><br/><br/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;OT_Int_Rm07_AnimFloor07&quot;, Ani<br align="left"/>    mationID=21)]<br align="left"/>> ];
+    242 [ pos = "1.6520001,-1.4870001!" ];
+    242 -> 247 [ label = "0→0" ];
+
+    243 [ label = <243: <b>AnimatorModule</b><br/><br/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;OT_Int_Rm07_AnimFloor03&quot;, Ani<br align="left"/>    mationID=21)]<br align="left"/>> ];
+    243 [ pos = "0.46400002,-1.4870001!" ];
+    243 -> 246 [ label = "0→0" ];
+
+    244 [ label = <244: <b>DelayModule</b><br/><br/>> ];
+    244 [ pos = "0.69900006,-1.189!" ];
+    244 -> 22 [ label = "0→0" ];
+
+    245 [ label = <245: <b>DelayModule</b><br/><br/>> ];
+    245 [ pos = "1.0860001,-1.189!" ];
+    245 -> 239 [ label = "0→0" ];
+
+    246 [ label = <246: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.5<br align="left"/>> ];
+    246 [ pos = "0.67300004,-1.4870001!" ];
+    246 -> 254 [ label = "0→0" ];
+
+    247 [ label = <247: <b>DelayModule</b><br/><br/>> ];
+    247 [ pos = "1.868,-1.4870001!" ];
+    247 -> 241 [ label = "0→0" ];
+
+    249 [ label = <249: <b>AnimatorModule</b><br/><br/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;OT_Int_Rm07_AnimFloor04&quot;, Ani<br align="left"/>    mationID=22)]<br align="left"/>> ];
+    249 [ pos = "1.2160001,-0.693!" ];
+    249 -> 252 [ label = "0→0" ];
+
+    250 [ label = <250: <b>AnimatorModule</b><br/><br/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;OT_Int_Rm07_AnimFloor05&quot;, Ani<br align="left"/>    mationID=22)]<br align="left"/>> ];
+    250 [ pos = "1.603,-0.693!" ];
+
+    251 [ label = <251: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    9<br align="left"/>> ];
+    251 [ pos = "1.0400001,-0.693!" ];
+    251 -> 249 [ label = "0→0" ];
+
+    252 [ label = <252: <b>DelayModule</b><br/><br/>> ];
+    252 [ pos = "1.4230001,-0.693!" ];
+    252 -> 250 [ label = "0→0" ];
+
+    253 [ label = <253: <b>AnimatorModule</b><br/><br/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;OT_Int_Rm07_AnimFloor04&quot;, Ani<br align="left"/>    mationID=23), AnimatedTargetInfo<br align="left"/>    (AnimatedActor=&quot;OT_Int_Rm07_Anim<br align="left"/>    Floor05&quot;, AnimationID=23)]<br align="left"/>> ];
+    253 [ pos = "0.688,-0.277!" ];
+
+    254 [ label = <254: <b>AnimatorModule</b><br/><br/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;OT_Int_Rm07_AnimFloor02&quot;, Ani<br align="left"/>    mationID=21)]<br align="left"/>> ];
+    254 [ pos = "0.84800005,-1.4870001!" ];
+    254 -> 256 [ label = "0→0" ];
+
+    255 [ label = <255: <b>AnimatorModule</b><br/><br/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;OT_Int_Rm07_AnimFloor01&quot;, Ani<br align="left"/>    mationID=21)]<br align="left"/>> ];
+    255 [ pos = "1.25,-1.4870001!" ];
+    255 -> 257 [ label = "0→0" ];
+
+    256 [ label = <256: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.5<br align="left"/>> ];
+    256 [ pos = "1.067,-1.4870001!" ];
+    256 -> 255 [ label = "0→0" ];
+
+    257 [ label = <257: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.5<br align="left"/>> ];
+    257 [ pos = "1.4670001,-1.4870001!" ];
+    257 -> 242 [ label = "0→0" ];
+
+    258 [ label = <258: <b>VisScriptCallModule</b><br/><br/><i>play stinger<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;OT_Beam_Emitter_Music_script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;stinger 3&quot;<br align="left"/>> ];
+    258 [ pos = "0.836,-0.42100003!" ];
+
+    260 [ label = <260: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Int_Rm07_TempestCloakFissur<br align="left"/>    e_01&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;activate&quot;<br align="left"/>> ];
+    260 [ pos = "1.0120001,-0.90200007!" ];
+
+    261 [ label = <261: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    6<br align="left"/>> ];
+    261 [ pos = "0.81600004,-0.90200007!" ];
+    261 -> 260 [ label = "0→0" ];
+
+    262 [ label = <262: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Int_Rm07_TempestCloakFissur<br align="left"/>    e_01&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;activate&quot;<br align="left"/>> ];
+    262 [ pos = "0.68500006,0.054!" ];
+
+    title [ pos = "-0.321,0.055000003!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>OT_Int_Rm07<br align="left"/>Scripts<br align="left"/><b>OT_Int_Rm07_AnimFloor_Script</b><br align="left"/></font>> ];
+}

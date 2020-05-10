@@ -1,0 +1,265 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>SpawnMonsterEventModule</b><br/><br/><i>SM_Rm01_Enc01_Brute<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;SM_Rm01_Enc01_Brute&quot;<br align="left"/>> ];
+    1 [ pos = "0.064,-0.085!" ];
+    1 -> 24 [ label = "2→0" ];
+    1 -> 70 [ label = "0→0" ];
+    1 -> 39 [ style = dashed ];
+
+    5 [ label = <5: <b>ExternalCallModule</b><br/><br/><i>StartEncounter<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;StartEncounter&quot;<br align="left"/>> ];
+    5 [ shape = oval ]
+    5 [ pos = "-0.786,-0.017!" ];
+    5 -> 11 [ label = "0→0" ];
+
+    11 [ label = <11: <b>DelayModule</b><br/><br/><i>go Encounter<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    11 [ pos = "-0.563,-0.017!" ];
+    11 -> 1 [ label = "0→0" ];
+    11 -> 29 [ label = "0→0" ];
+    11 -> 25 [ label = "0→0" ];
+
+    14 [ label = <14: <b>SaveDataModule</b><br/><br/><i>Set AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_SM_Rm01_Enc01&quot;)]<br align="left"/>> ];
+    14 [ pos = "1.7080001,-0.074!" ];
+
+    15 [ label = <15: <b>base/settargetmodule</b><br/><br/><b>Monster</b><br align="left"/>    &quot;Smith1&quot;<br align="left"/><b>Target</b><br align="left"/>    &quot;SM_Rm01_Enc01_SmithTarget1&quot;<br align="left"/>> ];
+    15 [ pos = "0.72200006,0.298!" ];
+    15 -> 17 [ label = "0→0" ];
+
+    17 [ label = <17: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;Smith1&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;setDefensivePathHome&quot;<br align="left"/>> ];
+    17 [ pos = "0.94100004,0.298!" ];
+    17 -> 84 [ label = "0→0" ];
+
+    19 [ label = <19: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SM_Rm01_VSM_Smith_Path_01&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;Enc01_AllDead&quot;<br align="left"/>> ];
+    19 [ pos = "1.7080001,-0.22200002!" ];
+
+    20 [ label = <20: <b>SpawnMonsterEventModule</b><br/><br/><i>SM_Rm01_Enc01<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;SM_Rm01_Enc01&quot;<br align="left"/><b>DelayTime</b><br align="left"/>    0.2<br align="left"/>> ];
+    20 [ pos = "0.758,-0.085!" ];
+    20 -> 24 [ label = "2→0" ];
+    20 -> 40 [ style = dashed ];
+
+    23 [ label = <23: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    8<br align="left"/>> ];
+    23 [ pos = "0.57900006,-0.085!" ];
+    23 -> 20 [ label = "0→0" ];
+
+    24 [ label = <24: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    5<br align="left"/>> ];
+    24 [ pos = "1.2950001,-0.15900001!" ];
+    24 -> 14 [ label = "0→1" ];
+    24 -> 19 [ label = "0→0" ];
+    24 -> 83 [ label = "0→0" ];
+
+    25 [ label = <25: <b>SpawnMonsterEventModule</b><br/><br/><i>SM_Rm01_Enc01_Wave2_Brute<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;SM_Rm01_Enc01_Wave2_Brute&quot;<br align="left"/>> ];
+    25 [ pos = "0.062000003,-0.41200003!" ];
+    25 -> 24 [ label = "2→0" ];
+    25 -> 33 [ label = "0→0" ];
+    25 -> 56 [ label = "0→0" ];
+    25 -> 41 [ style = dashed ];
+
+    29 [ label = <29: <b>SpawnMonsterEventModule</b><br/><br/><i>SM_Rm01_Enc01_Wave2<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;SM_Rm01_Enc01_Wave2&quot;<br align="left"/>> ];
+    29 [ pos = "0.39000002,0.23500001!" ];
+    29 -> 24 [ label = "2→0" ];
+    29 -> 15 [ label = "0→0" ];
+    29 -> 42 [ style = dashed ];
+
+    33 [ label = <33: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    33 [ pos = "1.2720001,-0.80700004!" ];
+    33 -> 34 [ label = "0→0" ];
+
+    34 [ label = <34: <b>HealthStatsModule</b><br/><br/>> ];
+    34 [ pos = "1.1240001,-1.0090001!" ];
+    34 -> 35 [ label = "0→0" ];
+    34 -> 36 [ style = dashed ];
+    39 -> 34 [ style = dashed ];
+    40 -> 34 [ style = dashed ];
+    42 -> 34 [ style = dashed ];
+
+    35 [ label = <35: <b>FloatCompareModule</b><br/><br/>> ];
+    35 [ pos = "1.409,-0.998!" ];
+    35 -> 33 [ label = "2→0" ];
+    35 -> 33 [ label = "0→0" ];
+    35 -> 38 [ label = "1→0" ];
+    36 -> 35 [ style = dashed ];
+    37 -> 35 [ style = dashed ];
+
+    36 [ label = <36: <b>VisScriptVariableFloat</b><br/><br/>> ];
+    36 [ shape = parallelogram ]
+    36 [ pos = "1.299,-1.0940001!" ];
+
+    37 [ label = <37: <b>VisScriptVariableFloat</b><br/><br/><b>Value</b><br align="left"/>    0.6<br align="left"/>> ];
+    37 [ shape = parallelogram ]
+    37 [ pos = "1.294,-1.172!" ];
+
+    38 [ label = <38: <b>InvokeMethodModule</b><br/><br/><b>MethodName</b><br align="left"/>    &quot;setBehaviorCombat&quot;<br align="left"/>> ];
+    38 [ pos = "1.672,-1.0300001!" ];
+    38 -> 33 [ label = "0→2" ];
+    38 -> 69 [ label = "0→0" ];
+    41 -> 38 [ style = dashed ];
+    42 -> 38 [ style = dashed ];
+
+    39 [ label = <39: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    39 [ shape = parallelogram ]
+    39 [ pos = "0.07300001,-0.32900003!" ];
+
+    40 [ label = <40: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    40 [ shape = parallelogram ]
+    40 [ pos = "0.76100004,-0.333!" ];
+
+    41 [ label = <41: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    41 [ shape = parallelogram ]
+    41 [ pos = "0.071,-0.65400004!" ];
+
+    42 [ label = <42: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    42 [ shape = parallelogram ]
+    42 [ pos = "0.39100003,-0.010000001!" ];
+
+    43 [ label = <43: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;SM_Rm01_Enc01_Wave3&quot;<br align="left"/>> ];
+    43 [ pos = "-0.545,-1.531!" ];
+    43 -> 44 [ label = "0→0" ];
+    43 -> 48 [ style = dashed ];
+
+    44 [ label = <44: <b>base/inviewlistmodule</b><br/><br/>> ];
+    44 [ pos = "-0.27600002,-1.5350001!" ];
+    44 -> 45 [ label = "0→0" ];
+    48 -> 44 [ style = dashed ];
+    44 -> 50 [ style = dashed ];
+
+    45 [ label = <45: <b>base/splitlistmodule</b><br/><br/><b>MaxInGroup1</b><br align="left"/>    4<br align="left"/><b>SortByClosest</b><br align="left"/>    true<br align="left"/>> ];
+    45 [ pos = "-0.032,-1.5320001!" ];
+    45 -> 49 [ label = "0→0" ];
+    50 -> 45 [ style = dashed ];
+    45 -> 51 [ style = dashed ];
+
+    48 [ label = <48: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    48 [ shape = parallelogram ]
+    48 [ pos = "-0.51600003,-1.672!" ];
+
+    49 [ label = <49: <b>base/mergelistmodule</b><br/><br/><b>MaxEntries</b><br align="left"/>    4<br align="left"/>> ];
+    49 [ pos = "0.223,-1.521!" ];
+    49 -> 53 [ label = "0→0" ];
+    49 -> 52 [ style = dashed ];
+    51 -> 49 [ style = dashed ];
+    48 -> 49 [ style = dashed ];
+
+    50 [ label = <50: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    50 [ shape = parallelogram ]
+    50 [ pos = "-0.082,-1.6910001!" ];
+
+    51 [ label = <51: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    51 [ shape = parallelogram ]
+    51 [ pos = "0.126,-1.7040001!" ];
+
+    52 [ label = <52: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    52 [ shape = parallelogram ]
+    52 [ pos = "0.32500002,-1.7540001!" ];
+
+    53 [ label = <53: <b>SpawnMonsterEventModule</b><br/><br/><b>DelayTime</b><br align="left"/>    0.65<br align="left"/>> ];
+    53 [ pos = "0.46,-1.5220001!" ];
+    53 -> 24 [ label = "2→0" ];
+    53 -> 62 [ label = "0→0" ];
+    52 -> 53 [ style = dashed ];
+    53 -> 63 [ style = dashed ];
+
+    54 [ label = <54: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    4<br align="left"/>> ];
+    54 [ pos = "-0.71500003,-1.529!" ];
+    54 -> 43 [ label = "0→0" ];
+
+    55 [ label = <55: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    55 [ pos = "1.044,-1.245!" ];
+    55 -> 56 [ label = "0→0" ];
+
+    56 [ label = <56: <b>HealthStatsModule</b><br/><br/>> ];
+    56 [ pos = "1,-1.4330001!" ];
+    56 -> 57 [ label = "0→0" ];
+    56 -> 58 [ style = dashed ];
+    39 -> 56 [ style = dashed ];
+    40 -> 56 [ style = dashed ];
+    41 -> 56 [ style = dashed ];
+    42 -> 56 [ style = dashed ];
+
+    57 [ label = <57: <b>FloatCompareModule</b><br/><br/>> ];
+    57 [ pos = "1.33,-1.4380001!" ];
+    57 -> 55 [ label = "2→0" ];
+    57 -> 55 [ label = "0→0" ];
+    57 -> 54 [ label = "1→0" ];
+    57 -> 55 [ label = "1→2" ];
+    58 -> 57 [ style = dashed ];
+    59 -> 57 [ style = dashed ];
+
+    58 [ label = <58: <b>VisScriptVariableFloat</b><br/><br/>> ];
+    58 [ shape = parallelogram ]
+    58 [ pos = "1.1750001,-1.549!" ];
+
+    59 [ label = <59: <b>VisScriptVariableFloat</b><br/><br/><b>Value</b><br align="left"/>    0.4<br align="left"/>> ];
+    59 [ shape = parallelogram ]
+    59 [ pos = "1.174,-1.644!" ];
+
+    62 [ label = <62: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    10<br align="left"/>> ];
+    62 [ pos = "0.72800004,-1.815!" ];
+    62 -> 64 [ label = "0→0" ];
+
+    63 [ label = <63: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    63 [ shape = parallelogram ]
+    63 [ pos = "0.68500006,-1.7080001!" ];
+
+    64 [ label = <64: <b>InvokeMethodModule</b><br/><br/><b>MethodName</b><br align="left"/>    &quot;setBehaviorCombat&quot;<br align="left"/>> ];
+    64 [ pos = "0.90000004,-1.8080001!" ];
+    63 -> 64 [ style = dashed ];
+
+    68 [ label = <68: <b>base/setsplinecombatmode</b><br/><br/><b>FlySpeed</b><br align="left"/>    650<br align="left"/><b>FlyMovestate</b><br align="left"/>    &quot;FlySpline&quot;<br align="left"/>> ];
+    68 [ pos = "0.896,0.039!" ];
+    42 -> 68 [ style = dashed ];
+
+    69 [ label = <69: <b>base/settargetmodule</b><br/><br/><b>Target</b><br align="left"/>    &quot;Smith1&quot;<br align="left"/>> ];
+    69 [ pos = "1.9620001,-1.016!" ];
+    41 -> 69 [ style = dashed ];
+
+    70 [ label = <70: <b>base/settargetmodule</b><br/><br/><b>Target</b><br align="left"/>    &quot;Smith1&quot;<br align="left"/>> ];
+    70 [ pos = "0.347,-0.085!" ];
+    70 -> 23 [ label = "0→0" ];
+    39 -> 70 [ style = dashed ];
+
+    83 [ label = <83: <b>VisScriptCallModule</b><br/><br/><i>scripted_LightCombat_04_Path<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scripted_LightCombat_04_Path&quot;<br align="left"/>> ];
+    83 [ pos = "1.7090001,-0.30800003!" ];
+
+    84 [ label = <84: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    4.5<br align="left"/>> ];
+    84 [ pos = "1.128,0.29700002!" ];
+    84 -> 88 [ label = "0→0" ];
+
+    85 [ label = <85: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;SM_Rm01_Enc01_W2Spawn_05&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;setBehaviorCombat&quot;<br align="left"/>> ];
+    85 [ pos = "1.7370001,0.30800003!" ];
+
+    86 [ label = <86: <b>StartModule</b><br/><br/>> ];
+    86 [ shape = oval ]
+    86 [ pos = "-0.78200006,0.94900006!" ];
+
+    87 [ label = <87: <b>SpawnMonsterEventModule</b><br/><br/><b>SpawnPoints</b><br align="left"/>    [&quot;SM_Rm01_Enc17_Spawn_05&quot;, &quot;SM_R<br align="left"/>    m01_Enc17_Spawn_06&quot;]<br align="left"/><b>NumberToSpawn</b><br align="left"/>    1<br align="left"/><b>DelayTime</b><br align="left"/>    2<br align="left"/>> ];
+    87 [ pos = "-0.57100004,0.9480001!" ];
+
+    88 [ label = <88: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;Smith1&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;setBehaviorCombat&quot;<br align="left"/>> ];
+    88 [ pos = "1.294,0.298!" ];
+    88 -> 89 [ label = "0→0" ];
+    88 -> 91 [ label = "0→0" ];
+
+    89 [ label = <89: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    89 [ pos = "1.4900001,0.31!" ];
+    89 -> 85 [ label = "0→0" ];
+
+    90 [ label = <90: <b>VisScriptCallModule</b><br/><br/><i>SM_Rm01_VSM_KillChallengeVO<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SM_Rm01_VSM_KillChallengeVO&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;StartChallenge&quot;<br align="left"/>> ];
+    90 [ pos = "1.728,0.5!" ];
+
+    91 [ label = <91: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.8<br align="left"/>> ];
+    91 [ pos = "1.559,0.499!" ];
+    91 -> 90 [ label = "0→0" ];
+
+    title [ pos = "-0.78700006,0.95000005!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SM_Rm01<br align="left"/>Combat<br align="left"/><b>SM_Rm01_Enc01_Script</b><br align="left"/></font>> ];
+}

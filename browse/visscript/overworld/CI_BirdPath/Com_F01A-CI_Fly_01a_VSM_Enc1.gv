@@ -1,0 +1,60 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;Fly01A_Enc01_Trigger_01&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "0.171,-0.20500001!" ];
+    1 -> 2 [ label = "0→0" ];
+    1 -> 16 [ label = "0→1" ];
+
+    2 [ label = <2: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;CI_Fly_01a_Enc_01&quot;<br align="left"/>> ];
+    2 [ pos = "0.432,-0.20500001!" ];
+    2 -> 4 [ label = "0→0" ];
+    2 -> 3 [ style = dashed ];
+
+    3 [ label = <3: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    3 [ shape = parallelogram ]
+    3 [ pos = "0.67,-0.32500002!" ];
+
+    4 [ label = <4: <b>SpawnMonsterEventModule</b><br/><br/><b>NumberToSpawn</b><br align="left"/>    4<br align="left"/><b>DelayTime</b><br align="left"/>    0.35<br align="left"/>> ];
+    4 [ pos = "0.882,-0.20500001!" ];
+    4 -> 5 [ label = "0→0" ];
+    4 -> 14 [ label = "1→0" ];
+    3 -> 4 [ style = dashed ];
+    4 -> 7 [ style = dashed ];
+
+    5 [ label = <5: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    20<br align="left"/>> ];
+    5 [ pos = "1.1650001,-0.20500001!" ];
+    5 -> 6 [ label = "0→0" ];
+
+    6 [ label = <6: <b>InvokeMethodModule</b><br/><br/><b>MethodName</b><br align="left"/>    &quot;splineBreakout&quot;<br align="left"/>> ];
+    6 [ pos = "1.3360001,-0.20500001!" ];
+    7 -> 6 [ style = dashed ];
+
+    7 [ label = <7: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    7 [ shape = parallelogram ]
+    7 [ pos = "1.1520001,-0.37100002!" ];
+
+    14 [ label = <14: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    3<br align="left"/>> ];
+    14 [ pos = "1.1930001,-0.51000005!" ];
+    14 -> 15 [ label = "0→1" ];
+
+    15 [ label = <15: <b>SaveDataModule</b><br/><br/><i>fly01_enc1_3Dead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Ci_Fly01A&quot;,<br align="left"/>     FlagName=&quot;fly01_enc1_3Dead&quot;)]<br align="left"/>> ];
+    15 [ pos = "1.4260001,-0.48700002!" ];
+
+    16 [ label = <16: <b>SaveDataModule</b><br/><br/><i>FlightPathPlayed?<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Ch_Ext&quot;, Fl<br align="left"/>    agName=&quot;FlightPathPlayed&quot;)]<br align="left"/>> ];
+    16 [ pos = "0.43600002,-0.052!" ];
+
+    title [ pos = "0.17,-0.051000003!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>CI_BirdPath<br align="left"/>Com_F01A<br align="left"/><b>CI_Fly_01a_VSM_Enc1</b><br align="left"/></font>> ];
+}

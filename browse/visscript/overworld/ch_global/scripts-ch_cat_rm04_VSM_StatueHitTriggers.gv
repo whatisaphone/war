@@ -1,0 +1,174 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    11 [ label = <11: <b>StartModule</b><br/><br/>> ];
+    11 [ shape = oval ]
+    11 [ pos = "-0.52900004,0.193!" ];
+    11 -> 12 [ label = "0→0" ];
+
+    12 [ label = <12: <b>DelayModule</b><br/><br/><i>wait for props layer to load<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    3<br align="left"/>> ];
+    12 [ pos = "-0.34,0.193!" ];
+    12 -> 13 [ label = "0→0" ];
+
+    13 [ label = <13: <b>AttachEventModule</b><br/><br/><i>statue one key placed<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;ch_cat_Rm04_statue01&quot;, &quot;ch_cat<br align="left"/>    _Rm04_statue02&quot;, &quot;ch_cat_Rm04_st<br align="left"/>    atue03&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onSwitchSwords&quot;, &quot;onInteractiv<br align="left"/>    e&quot;]<br align="left"/>> ];
+    13 [ pos = "-0.16700001,0.193!" ];
+    13 -> 17 [ label = "0→0" ];
+    13 -> 19 [ label = "0→0" ];
+    13 -> 21 [ label = "0→0" ];
+    13 -> 109 [ label = "1→0" ];
+
+    17 [ label = <17: <b>AccumulatorModule</b><br/><br/><i>trigger cine counter<br align="left"/></i><br align="left"/><b>CountTo</b><br align="left"/>    3<br align="left"/>> ];
+    17 [ pos = "0.28500003,0.193!" ];
+    17 -> 82 [ label = "0→0" ];
+    17 -> 97 [ label = "0→0" ];
+    17 -> 98 [ label = "0→0" ];
+    17 -> 59 [ label = "0→1" ];
+    17 -> 116 [ label = "0→0" ];
+
+    19 [ label = <19: <b>AccumulatorModule</b><br/><br/><i>unlock door to room 6<br align="left"/></i><br align="left"/>> ];
+    19 [ pos = "0.296,1.0120001!" ];
+    19 -> 23 [ label = "0→1" ];
+    19 -> 112 [ label = "0→0" ];
+
+    20 [ label = <20: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;ch_cat_Rm04_to_Rm06_gratedoor&quot;<br align="left"/>    ]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;open&quot;<br align="left"/>> ];
+    20 [ pos = "2.371,1.149!" ];
+
+    21 [ label = <21: <b>AccumulatorModule</b><br/><br/><i>unlock door to room 10<br align="left"/></i><br align="left"/><b>CountTo</b><br align="left"/>    2<br align="left"/>> ];
+    21 [ pos = "0.291,0.60200006!" ];
+    21 -> 58 [ label = "0→1" ];
+
+    22 [ label = <22: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;ch_cat_Rm04_to_Rm10_gratedoor&quot;<br align="left"/>    ]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;open&quot;<br align="left"/>> ];
+    22 [ pos = "2.279,0.72300005!" ];
+
+    23 [ label = <23: <b>SaveDataModule</b><br/><br/><i>save sword 1<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;ch_cat_rm04_firstSwordPl<br align="left"/>    aced&quot;)]<br align="left"/>> ];
+    23 [ pos = "0.544,1.149!" ];
+
+    26 [ label = <26: <b>SaveDataModule</b><br/><br/><i>check sword 1<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;ch_cat_rm04_firstSwordPl<br align="left"/>    aced&quot;)]<br align="left"/>> ];
+    26 [ pos = "-0.15400001,0.615!" ];
+    26 -> 19 [ label = "0→4" ];
+    26 -> 21 [ label = "0→0" ];
+    26 -> 17 [ label = "0→0" ];
+
+    27 [ label = <27: <b>SaveDataModule</b><br/><br/><i>check sword 2<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;ch_cat_rm04_secondSwordP<br align="left"/>    laced&quot;)]<br align="left"/>> ];
+    27 [ pos = "-0.15300001,0.46600002!" ];
+    27 -> 17 [ label = "0→0" ];
+    27 -> 21 [ label = "0→4" ];
+
+    28 [ label = <28: <b>StartModule</b><br/><br/>> ];
+    28 [ shape = oval ]
+    28 [ pos = "-0.37300003,0.541!" ];
+    28 -> 26 [ label = "0→0" ];
+    28 -> 27 [ label = "0→0" ];
+
+    49 [ label = <49: <b>CinematicModule</b><br/><br/><b>CinematicName</b><br align="left"/>    &quot;ch_cat_Rm04_LookAtRm06Door&quot;<br align="left"/>> ];
+    49 [ pos = "2.253,1.33!" ];
+    49 -> 75 [ label = "0→0" ];
+
+    50 [ label = <50: <b>DelayModule</b><br/><br/><i>focus camera<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    6<br align="left"/>> ];
+    50 [ pos = "2.184,1.149!" ];
+    50 -> 20 [ label = "0→0" ];
+
+    52 [ label = <52: <b>CinematicModule</b><br/><br/><b>CinematicName</b><br align="left"/>    &quot;ch_cat_Rm04_LookAtRm10Door&quot;<br align="left"/>> ];
+    52 [ pos = "2.157,0.89500004!" ];
+    52 -> 77 [ label = "0→0" ];
+
+    54 [ label = <54: <b>DelayModule</b><br/><br/><i>focus camera<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    6<br align="left"/>> ];
+    54 [ pos = "2.134,0.72300005!" ];
+    54 -> 22 [ label = "0→0" ];
+
+    58 [ label = <58: <b>SaveDataModule</b><br/><br/><i>save sword 2<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;ch_cat_rm04_secondSwordP<br align="left"/>    laced&quot;)]<br align="left"/>> ];
+    58 [ pos = "0.513,0.625!" ];
+    58 -> 103 [ label = "3→0" ];
+
+    59 [ label = <59: <b>SaveDataModule</b><br/><br/><i>save sword 3<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;ch_cat_rm04_thirdSwordPl<br align="left"/>    aced&quot;)]<br align="left"/>> ];
+    59 [ pos = "0.59400004,-0.15300001!" ];
+
+    74 [ label = <74: <b>SoundModule</b><br/><br/><b>SoundDescFile</b><br align="left"/>    &quot;base/Music&quot;<br align="left"/><b>SoundID</b><br align="left"/>    90<br align="left"/><b>Music</b><br align="left"/>    true<br align="left"/>> ];
+    74 [ pos = "2.6710002,1.33!" ];
+
+    75 [ label = <75: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    7.5<br align="left"/>> ];
+    75 [ pos = "2.4770002,1.33!" ];
+    75 -> 74 [ label = "0→0" ];
+
+    76 [ label = <76: <b>SoundModule</b><br/><br/><b>SoundDescFile</b><br align="left"/>    &quot;base/Music&quot;<br align="left"/><b>SoundID</b><br align="left"/>    90<br align="left"/><b>Music</b><br align="left"/>    true<br align="left"/>> ];
+    76 [ pos = "2.489,0.89500004!" ];
+
+    77 [ label = <77: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    7.5<br align="left"/>> ];
+    77 [ pos = "2.345,0.89500004!" ];
+    77 -> 76 [ label = "0→0" ];
+
+    80 [ label = <80: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    80 [ pos = "1.9740001,1.149!" ];
+    80 -> 50 [ label = "0→0" ];
+    80 -> 49 [ label = "0→0" ];
+
+    81 [ label = <81: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    81 [ pos = "1.9710001,0.72300005!" ];
+    81 -> 54 [ label = "0→0" ];
+    81 -> 52 [ label = "0→0" ];
+
+    82 [ label = <82: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    82 [ pos = "0.59400004,0.193!" ];
+    82 -> 95 [ label = "0→0" ];
+
+    95 [ label = <95: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;ch_cat_rm04_VSM_BossDoor&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;RaiseBossPlatform&quot;<br align="left"/>> ];
+    95 [ pos = "0.80700004,0.193!" ];
+
+    97 [ label = <97: <b>LoaderModule</b><br/><br/><b>Load</b><br align="left"/>    [[207, -1], [299, -1], [192, -1]<br align="left"/>    , [208, -1], [226, -1], [203, -1<br align="left"/>    ], [209, -1], [206, -1]]<br align="left"/><b>Unload</b><br align="left"/>    [[-1, -1]]<br align="left"/>> ];
+    97 [ pos = "0.59400004,0.284!" ];
+
+    98 [ label = <98: <b>VisScriptCallModule</b><br/><br/><i>KillCrystalMob<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;Ch_Cat_Rm04_Enc02_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;KillCrystalMob&quot;<br align="left"/>> ];
+    98 [ pos = "0.592,-0.32000002!" ];
+
+    100 [ label = <100: <b>base/autosavemodule</b><br/><br/>> ];
+    100 [ pos = "1.4640001,0.57100004!" ];
+
+    103 [ label = <103: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.5<br align="left"/>> ];
+    103 [ pos = "0.739,0.57900006!" ];
+    103 -> 117 [ label = "0→0" ];
+
+    109 [ label = <109: <b>base/storesavedatamodule</b><br/><br/>> ];
+    109 [ pos = "0.068,0.113000005!" ];
+
+    110 [ label = <110: <b>base/commitsavedatamodule</b><br/><br/>> ];
+    110 [ pos = "1.228,0.57100004!" ];
+    110 -> 100 [ label = "0→0" ];
+
+    111 [ label = <111: <b>base/autosavemodule</b><br/><br/>> ];
+    111 [ pos = "0.94200003,1.0120001!" ];
+
+    112 [ label = <112: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.1<br align="left"/>> ];
+    112 [ pos = "0.544,1.0120001!" ];
+    112 -> 113 [ label = "0→0" ];
+
+    113 [ label = <113: <b>base/commitsavedatamodule</b><br/><br/>> ];
+    113 [ pos = "0.70600003,1.0120001!" ];
+    113 -> 111 [ label = "0→0" ];
+
+    114 [ label = <114: <b>base/storesavedatamodule</b><br/><br/>> ];
+    114 [ pos = "1.024,0.026!" ];
+
+    115 [ label = <115: <b>base/setspawnpointmodule</b><br/><br/><b>World</b><br align="left"/>    &quot;Overworld&quot;<br align="left"/><b>Region</b><br align="left"/>    &quot;Ch_Int_Rm04&quot;<br align="left"/><b>SpawnPoint</b><br align="left"/>    &quot;Ch_Int_Rm04_BossStart&quot;<br align="left"/><b>SpawnLoadRegion</b><br align="left"/>    &quot;StartLoadRegion&quot;<br align="left"/>> ];
+    115 [ pos = "0.808,0.026!" ];
+    115 -> 114 [ label = "0→0" ];
+
+    116 [ label = <116: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.1<br align="left"/>> ];
+    116 [ pos = "0.59400004,0.026!" ];
+    116 -> 115 [ label = "0→0" ];
+
+    117 [ label = <117: <b>VisScriptCallModule</b><br/><br/><i>Show_CatRm05_Opening<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;Ch_Cat_Rm04_Script_UnlockDoor&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;Show_CatRm05_Opening&quot;<br align="left"/>> ];
+    117 [ pos = "0.91800004,0.57900006!" ];
+
+    title [ pos = "-0.53000003,1.3310001!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>ch_global<br align="left"/>scripts<br align="left"/><b>ch_cat_rm04_VSM_StatueHitTriggers</b><br align="left"/></font>> ];
+}

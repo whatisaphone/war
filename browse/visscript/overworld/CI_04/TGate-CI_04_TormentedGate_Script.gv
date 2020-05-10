@@ -1,0 +1,281 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    2 [ label = <2: <b>StartModule</b><br/><br/>> ];
+    2 [ shape = oval ]
+    2 [ pos = "1.3920001,-1.376!" ];
+    2 -> 87 [ label = "0→0" ];
+
+    4 [ label = <4: <b>InvokeMethodModule</b><br/><br/><i>Tormented Gate Reveal/Imbue<br align="left"/></i><br align="left"/><b>MethodName</b><br align="left"/>    &quot;doImbue&quot;<br align="left"/>> ];
+    4 [ pos = "2.9350002,0.052!" ];
+    7 -> 4 [ style = dashed ];
+
+    5 [ label = <5: <b>SpawnMonsterEventModule</b><br/><br/><b>NumberToSpawn</b><br align="left"/>    1<br align="left"/>> ];
+    5 [ pos = "2.459,-1.399!" ];
+    5 -> 114 [ label = "0→0" ];
+    5 -> 7 [ style = dashed ];
+    8 -> 5 [ style = dashed ];
+
+    6 [ label = <6: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;CI_04_TormentedGate&quot;<br align="left"/>> ];
+    6 [ pos = "1.9360001,-1.399!" ];
+    6 -> 5 [ label = "0→0" ];
+    6 -> 8 [ style = dashed ];
+
+    7 [ label = <7: <b>VisScriptVariableWorldObjectList</b><br/><br/><i>Save the gate object<br align="left"/></i><br align="left"/>> ];
+    7 [ shape = parallelogram ]
+    7 [ pos = "2.7960002,-1.3080001!" ];
+
+    8 [ label = <8: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    8 [ shape = parallelogram ]
+    8 [ pos = "2.2210002,-1.588!" ];
+
+    69 [ label = <69: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>MoveVal</b><br align="left"/>    0<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;CI_04_TormentedGate_Reveal_View<br align="left"/>    point&quot;<br align="left"/><b>RotateObject</b><br align="left"/>    true<br align="left"/>> ];
+    69 [ pos = "1.113,-0.19900002!" ];
+
+    71 [ label = <71: <b>SaveDataModule</b><br/><br/><i>All Prowlers Dead?<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;CI_04&quot;, Fla<br align="left"/>    gName=&quot;CI_04_ProwlersDead&quot;)]<br align="left"/>> ];
+    71 [ pos = "2.003,0.075!" ];
+    71 -> 72 [ label = "1→0" ];
+    71 -> 109 [ label = "1→0" ];
+    71 -> 222 [ label = "0→1" ];
+    71 -> 238 [ label = "0→0" ];
+
+    72 [ label = <72: <b>CinematicModule</b><br/><br/><i>Return<br align="left"/></i><br align="left"/><b>CinematicName</b><br align="left"/>    &quot;CI_04_TormentedGate_Cinema_Retu<br align="left"/>    rn&quot;<br align="left"/>> ];
+    72 [ pos = "2.3230002,0.052!" ];
+    72 -> 4 [ label = "0→0" ];
+    72 -> 251 [ label = "1→0" ];
+
+    87 [ label = <87: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;CI_04&quot;, Fla<br align="left"/>    gName=&quot;CI_04_TormentedGate_Gone&quot;<br align="left"/>    )]<br align="left"/>> ];
+    87 [ pos = "1.659,-1.376!" ];
+    87 -> 6 [ label = "1→0" ];
+
+    109 [ label = <109: <b>PropertySetModule</b><br/><br/><i>Set Talk Time for Gate<br align="left"/></i><br align="left"/><b>PropertyName</b><br align="left"/>    &quot;TalkTime&quot;<br align="left"/><b>StringValue</b><br align="left"/>    &quot;16&quot;<br align="left"/>> ];
+    109 [ pos = "2.3230002,-0.09!" ];
+    7 -> 109 [ style = dashed ];
+
+    114 [ label = <114: <b>PropertySetModule</b><br/><br/><b>PropertyName</b><br align="left"/>    &quot;GateScriptModule&quot;<br align="left"/><b>StringValue</b><br align="left"/>    &quot;CI_04_TormentedGate_Script&quot;<br align="left"/>> ];
+    114 [ pos = "3.1890001,-1.399!" ];
+    7 -> 114 [ style = dashed ];
+
+    115 [ label = <115: <b>ExternalCallModule</b><br/><br/><b>EventName</b><br align="left"/>    &quot;openGate&quot;<br align="left"/>> ];
+    115 [ shape = oval ]
+    115 [ pos = "0.30100003,-0.39100003!" ];
+    115 -> 247 [ label = "0→0" ];
+
+    116 [ label = <116: <b>MaskOfShadowsTriggerModule</b><br/><br/>> ];
+    116 [ pos = "1.6420001,0.246!" ];
+
+    123 [ label = <123: <b>ObjectToggleModule</b><br/><br/><b>ObjectList</b><br align="left"/>    [&quot;CI_04_TormentedGate_Blocker&quot;, <br align="left"/>    &quot;MonsterZoneBarrier_TGate_01&quot;]<br align="left"/>> ];
+    123 [ pos = "3.5860002,0.36100003!" ];
+    123 -> 228 [ label = "0→0" ];
+
+    154 [ label = <154: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    3<br align="left"/>> ];
+    154 [ pos = "0.85,-0.39100003!" ];
+    154 -> 69 [ label = "0→0" ];
+    154 -> 163 [ label = "0→0" ];
+
+    163 [ label = <163: <b>SaveDataModule</b><br/><br/><i>Quest Started?<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;CI_04&quot;, Fla<br align="left"/>    gName=&quot;CI_04_QuestStarted&quot;)]<br align="left"/>> ];
+    163 [ pos = "1.172,-0.39100003!" ];
+    163 -> 71 [ label = "0→0" ];
+    163 -> 206 [ label = "1→0" ];
+
+    164 [ label = <164: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;CI_04&quot;, Fla<br align="left"/>    gName=&quot;CI_04_QuestStarted&quot;)]<br align="left"/>> ];
+    164 [ pos = "1.9020001,-0.596!" ];
+    164 -> 237 [ label = "3→1" ];
+
+    181 [ label = <181: <b>SaveDataModule</b><br/><br/><i>CI_04_TormentedGate_Gone<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;CI_04&quot;, Fla<br align="left"/>    gName=&quot;CI_04_TormentedGate_Gone&quot;<br align="left"/>    )]<br align="left"/>> ];
+    181 [ pos = "3.338,0.36100003!" ];
+    181 -> 123 [ label = "3→2" ];
+    181 -> 232 [ label = "3→0" ];
+
+    185 [ label = <185: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;CI_04&quot;, Fla<br align="left"/>    gName=&quot;CI_04_GateImbued&quot;)]<br align="left"/>> ];
+    185 [ pos = "1.899,-0.462!" ];
+
+    186 [ label = <186: <b>LoaderModule</b><br/><br/><b>Load</b><br align="left"/>    [[295, 0], [295, 1], [295, 2], [<br align="left"/>    295, 3], [295, 8]]<br align="left"/><b>Unload</b><br align="left"/>    [[7, 8]]<br align="left"/>> ];
+    186 [ pos = "1.7590001,-1.0170001!" ];
+
+    187 [ label = <187: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;CI_04_CombatBarrier_SR&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOn&quot;<br align="left"/>> ];
+    187 [ pos = "1.9110001,-0.75100005!" ];
+    187 -> 216 [ label = "0→0" ];
+
+    188 [ label = <188: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CI_04_ProwlerSpawn_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;CI_04_Enable_OverseerMapIcons&quot;<br align="left"/>> ];
+    188 [ pos = "1.894,-0.252!" ];
+
+    190 [ label = <190: <b>base/commitsavedatamodule</b><br/><br/>> ];
+    190 [ pos = "2.341,-0.41500002!" ];
+    190 -> 191 [ label = "0→0" ];
+
+    191 [ label = <191: <b>base/autosavemodule</b><br/><br/>> ];
+    191 [ pos = "2.607,-0.41500002!" ];
+
+    192 [ label = <192: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.5<br align="left"/>> ];
+    192 [ pos = "2.1490002,-0.41500002!" ];
+    192 -> 190 [ label = "0→0" ];
+    192 -> 250 [ label = "0→0" ];
+
+    198 [ label = <198: <b>LoaderModule</b><br/><br/><b>Load</b><br align="left"/>    [[7, 8], [122, -1], [329, -1]]<br align="left"/><b>Unload</b><br align="left"/>    [[7, 14], [295, -1]]<br align="left"/>> ];
+    198 [ pos = "5.025,0.36100003!" ];
+
+    199 [ label = <199: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;CI_04&quot;, Fla<br align="left"/>    gName=&quot;CI_04_QuestStarted&quot;)]<br align="left"/>> ];
+    199 [ pos = "1.3900001,-0.67600006!" ];
+    199 -> 201 [ label = "0→0" ];
+
+    200 [ label = <200: <b>StartModule</b><br/><br/>> ];
+    200 [ shape = oval ]
+    200 [ pos = "1.217,-0.67600006!" ];
+    200 -> 199 [ label = "0→0" ];
+
+    201 [ label = <201: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;CI_04&quot;, Fla<br align="left"/>    gName=&quot;CI_04_TormentedGate_Gone&quot;<br align="left"/>    )]<br align="left"/>> ];
+    201 [ pos = "1.631,-0.72800004!" ];
+    201 -> 187 [ label = "1→0" ];
+
+    206 [ label = <206: <b>PlayVideoModule</b><br/><br/><i>Reveal<br align="left"/></i><br align="left"/><b>VideoName</b><br align="left"/>    &quot;Scene_TGate3.oo&quot;<br align="left"/><b>CamPositionObject</b><br align="left"/>    &quot;CI_04_TormentedGate_Reveal_View<br align="left"/>    point_CamPos&quot;<br align="left"/><b>CamLookatObject</b><br align="left"/>    &quot;CI_04_TormentedGate_Reveal_View<br align="left"/>    point_CamLook&quot;<br align="left"/><b>PlayerPositionObject</b><br align="left"/>    &quot;CI_04_TormentedGate_Reveal_View<br align="left"/>    point&quot;<br align="left"/>> ];
+    206 [ pos = "1.4770001,-0.41400003!" ];
+    206 -> 188 [ label = "0→0" ];
+    206 -> 186 [ label = "0→0" ];
+    206 -> 185 [ label = "0→1" ];
+    206 -> 164 [ label = "0→1" ];
+    206 -> 187 [ label = "0→0" ];
+    206 -> 192 [ label = "0→0" ];
+    206 -> 116 [ label = "0→0" ];
+    206 -> 224 [ label = "0→0" ];
+
+    207 [ label = <207: <b>PlayVideoModule</b><br/><br/><i>Complete<br align="left"/></i><br align="left"/><b>VideoName</b><br align="left"/>    &quot;Scene_TGate3b.oo&quot;<br align="left"/><b>CamPositionObject</b><br align="left"/>    &quot;CI_04_TormentedGate_Gone_Viewpo<br align="left"/>    int_CamPos&quot;<br align="left"/><b>CamLookatObject</b><br align="left"/>    &quot;CI_04_TormentedGate_Gone_Viewpo<br align="left"/>    int_CamLook&quot;<br align="left"/><b>PlayerPositionObject</b><br align="left"/>    &quot;CI_04_TormentedGate_Gone_Viewpo<br align="left"/>    int&quot;<br align="left"/>> ];
+    207 [ pos = "2.947,0.33800003!" ];
+    207 -> 221 [ label = "0→0" ];
+
+    215 [ label = <215: <b>VisScriptCallModule</b><br/><br/><i>CI04_Enc21_Script -&amp;gt; TGateQuestS<br align="left"/>tart<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CI04_Enc21_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;TGateQuestStart&quot;<br align="left"/>> ];
+    215 [ pos = "2.2870002,-0.75100005!" ];
+
+    216 [ label = <216: <b>base/gatemodule</b><br/><br/>> ];
+    216 [ pos = "2.1200001,-0.75100005!" ];
+    216 -> 215 [ label = "0→0" ];
+    216 -> 217 [ label = "0→0" ];
+    216 -> 218 [ label = "0→0" ];
+
+    217 [ label = <217: <b>VisScriptCallModule</b><br/><br/><i>CI04_Enc06_Script -&amp;gt; TGateQuestS<br align="left"/>tart<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CI04_Enc06_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;TGateQuestStart&quot;<br align="left"/>> ];
+    217 [ pos = "2.288,-0.82900006!" ];
+
+    218 [ label = <218: <b>VisScriptCallModule</b><br/><br/><i>CI04_Enc10_Script -&amp;gt; TGateQuestS<br align="left"/>tart<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CI04_Enc10_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;TGateQuestStart&quot;<br align="left"/>> ];
+    218 [ pos = "2.2870002,-0.92300004!" ];
+
+    219 [ label = <219: <b>SpawnMonsterEventModule</b><br/><br/><i>Hook up to onLoad to allow a qui<br align="left"/>ck bypass of arenas<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;SkipArenaByKillingMe&quot;<br align="left"/>> ];
+    219 [ pos = "1.9980001,-1.023!" ];
+    219 -> 220 [ label = "2→1" ];
+
+    220 [ label = <220: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;CI_04&quot;, Fla<br align="left"/>    gName=&quot;CI_04_ProwlersDead&quot;)]<br align="left"/>> ];
+    220 [ pos = "2.296,-1.0170001!" ];
+
+    221 [ label = <221: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;CI_04_CombatBarrier_SR&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOff&quot;<br align="left"/>> ];
+    221 [ pos = "3.1250002,0.33800003!" ];
+    221 -> 5 [ label = "0→3" ];
+    221 -> 181 [ label = "0→1" ];
+    221 -> 240 [ label = "0→0" ];
+
+    222 [ label = <222: <b>MaskOfShadowsTriggerModule</b><br/><br/>> ];
+    222 [ pos = "2.3460002,0.33800003!" ];
+    222 -> 223 [ label = "0→0" ];
+
+    223 [ label = <223: <b>base/setdefaultwatcherdialogmodule</b><br/><br/><i>vo_watcher_to_samael_03<br align="left"/></i><br align="left"/><b>Dialog</b><br align="left"/>    &quot;vo_watcher_to_samael_03&quot;<br align="left"/>> ];
+    223 [ pos = "2.661,0.33800003!" ];
+    223 -> 207 [ label = "0→0" ];
+
+    224 [ label = <224: <b>VisScriptCallModule</b><br/><br/><i>CI04_Enc16_Script -&amp;gt; ForceRemove<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CI04_Enc16_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;ForceRemove&quot;<br align="left"/>> ];
+    224 [ pos = "1.8930001,-0.34800002!" ];
+
+    225 [ label = <225: <b>base/commitsavedatamodule</b><br/><br/>> ];
+    225 [ pos = "4.3820004,0.36100003!" ];
+    225 -> 236 [ label = "0→0" ];
+
+    226 [ label = <226: <b>base/autosavemodule</b><br/><br/>> ];
+    226 [ pos = "4.8370004,0.36100003!" ];
+    226 -> 198 [ label = "0→0" ];
+
+    227 [ label = <227: <b>DelayModule</b><br/><br/>> ];
+    227 [ pos = "4.2070003,0.36100003!" ];
+    227 -> 225 [ label = "0→0" ];
+
+    228 [ label = <228: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.5<br align="left"/>> ];
+    228 [ pos = "3.8360002,0.36100003!" ];
+    228 -> 227 [ label = "0→0" ];
+    228 -> 252 [ label = "0→0" ];
+
+    229 [ label = <229: <b>base/giveitemmodule</b><br/><br/><i>Give Armor Piece<br align="left"/></i><br align="left"/><b>Item</b><br align="left"/>    &quot;armor/Item_ArmorPiece&quot;<br align="left"/><b>HidePopup</b><br align="left"/>    false<br align="left"/>> ];
+    229 [ pos = "4.215,0.50600004!" ];
+
+    232 [ label = <232: <b>LoaderModule</b><br/><br/><b>Load</b><br align="left"/>    [[122, 0], [329, -1]]<br align="left"/>> ];
+    232 [ pos = "3.5790002,0.47000003!" ];
+
+    236 [ label = <236: <b>base/setspawnpointmodule</b><br/><br/><b>World</b><br align="left"/>    &quot;Overworld&quot;<br align="left"/><b>Region</b><br align="left"/>    &quot;CI_04&quot;<br align="left"/><b>SpawnPoint</b><br align="left"/>    &quot;CI_04_Restart_01&quot;<br align="left"/><b>SpawnLoadRegion</b><br align="left"/>    &quot;StartLoadRegion_04toSmith&quot;<br align="left"/>> ];
+    236 [ pos = "4.6150002,0.36100003!" ];
+    236 -> 226 [ label = "0→0" ];
+
+    237 [ label = <237: <b>base/toggleteleportabilityitemmodule</b><br/><br/>> ];
+    237 [ pos = "2.15,-0.619!" ];
+
+    238 [ label = <238: <b>base/toggleteleportabilityitemmodule</b><br/><br/>> ];
+    238 [ pos = "2.3470001,0.216!" ];
+
+    239 [ label = <239: <b>SpawnMonsterEventModule</b><br/><br/><b>NumberToSpawn</b><br align="left"/>    1<br align="left"/>> ];
+    239 [ pos = "3.9210002,0.080000006!" ];
+    241 -> 239 [ style = dashed ];
+
+    240 [ label = <240: <b>PopSpawnPointsModule</b><br/><br/><i>Spawn Walking Gate<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;CI_04_TormentedGate_Warp&quot;<br align="left"/>> ];
+    240 [ pos = "3.3980002,0.080000006!" ];
+    240 -> 239 [ label = "0→0" ];
+    240 -> 241 [ style = dashed ];
+
+    241 [ label = <241: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    241 [ shape = parallelogram ]
+    241 [ pos = "3.683,-0.109000005!" ];
+
+    242 [ label = <242: <b>LoaderModule</b><br/><br/><b>Unload</b><br align="left"/>    [[7, 10]]<br align="left"/>> ];
+    242 [ pos = "3.9620001,-0.26000002!" ];
+
+    243 [ label = <243: <b>TriggerEventModule</b><br/><br/><i>Remove Walking Gate<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;CI_04_TormentedGate_Remove_Trg<br align="left"/>    &quot;, &quot;&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    243 [ shape = oval ]
+    243 [ pos = "3.6430001,-0.26000002!" ];
+    243 -> 239 [ label = "0→3" ];
+    243 -> 242 [ label = "0→0" ];
+
+    247 [ label = <247: <b>base/gatemodule</b><br/><br/>> ];
+    247 [ pos = "0.61200005,-0.39100003!" ];
+    247 -> 248 [ label = "0→0" ];
+    247 -> 154 [ label = "0→0" ];
+
+    248 [ label = <248: <b>base/oneshotmodule</b><br/><br/>> ];
+    248 [ pos = "0.61700004,-0.55600005!" ];
+    248 -> 247 [ label = "0→2" ];
+
+    249 [ label = <249: <b>ExternalCallModule</b><br/><br/><b>EventName</b><br align="left"/>    &quot;enableopenGate&quot;<br align="left"/>> ];
+    249 [ shape = oval ]
+    249 [ pos = "0.333,-0.57900006!" ];
+    249 -> 247 [ label = "0→1" ];
+    249 -> 248 [ label = "0→1" ];
+
+    250 [ label = <250: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CI_04_TormentedGate_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;enableopenGate&quot;<br align="left"/>> ];
+    250 [ pos = "2.344,-0.48900002!" ];
+
+    251 [ label = <251: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CI_04_TormentedGate_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;enableopenGate&quot;<br align="left"/>> ];
+    251 [ pos = "2.5990002,-0.032!" ];
+
+    252 [ label = <252: <b>base/hasitemmodule</b><br/><br/><i>Has Abyssum Armor<br align="left"/></i><br align="left"/><b>Item</b><br align="left"/>    &quot;armor/item_abyssumarmor&quot;<br align="left"/>> ];
+    252 [ pos = "4.0160003,0.586!" ];
+    252 -> 229 [ label = "1→0" ];
+    252 -> 253 [ label = "0→0" ];
+
+    253 [ label = <253: <b>LurcherSpawnerModule</b><br/><br/><i>Give 500 Lurchers<br align="left"/></i><br align="left"/><b>SpawnPoint</b><br align="left"/>    &quot;CI_04_TormentedGate_Spawn_Lurch<br align="left"/>    ers&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    500<br align="left"/>> ];
+    253 [ pos = "4.21,0.684!" ];
+
+    title [ pos = "0.3,0.68500006!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>CI_04<br align="left"/>TGate<br align="left"/><b>CI_04_TormentedGate_Script</b><br align="left"/></font>> ];
+}

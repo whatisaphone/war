@@ -1,0 +1,97 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>VisScriptVariableWorldObjectList</b><br/><br/><i>enemies<br align="left"/></i><br align="left"/>> ];
+    1 [ shape = parallelogram ]
+    1 [ pos = "0.279,-0.058000002!" ];
+
+    2 [ label = <2: <b>base/splitlistmodule</b><br/><br/>> ];
+    2 [ pos = "0.45100003,-0.15900001!" ];
+    2 -> 5 [ label = "0→0" ];
+    1 -> 2 [ style = dashed ];
+    2 -> 4 [ style = dashed ];
+    2 -> 3 [ style = dashed ];
+
+    3 [ label = <3: <b>VisScriptVariableWorldObjectList</b><br/><br/><i>rest of the enemies<br align="left"/></i><br align="left"/>> ];
+    3 [ shape = parallelogram ]
+    3 [ pos = "0.69900006,-0.10300001!" ];
+
+    4 [ label = <4: <b>VisScriptVariableWorldObjectList</b><br/><br/><i>top 6 enemies near war<br align="left"/></i><br align="left"/>> ];
+    4 [ shape = parallelogram ]
+    4 [ pos = "0.703,-0.024!" ];
+
+    5 [ label = <5: <b>base/forloop</b><br/><br/>> ];
+    5 [ pos = "0.70400006,-0.15900001!" ];
+    5 -> 9 [ label = "0→0" ];
+    5 -> 6 [ style = dashed ];
+
+    6 [ label = <6: <b>VisScriptVariableWorldObject</b><br/><br/><i>enemy who needs a friendly targe<br align="left"/>t<br align="left"/></i><br align="left"/>> ];
+    6 [ shape = parallelogram ]
+    6 [ pos = "0.712,-0.33600003!" ];
+
+    8 [ label = <8: <b>base/forloop</b><br/><br/>> ];
+    8 [ pos = "1.1650001,-0.20500001!" ];
+    8 -> 12 [ label = "0→0" ];
+    8 -> 12 [ label = "1→0" ];
+    8 -> 9 [ label = "1→1" ];
+    8 -> 9 [ label = "0→2" ];
+    10 -> 8 [ style = dashed ];
+    8 -> 11 [ style = dashed ];
+
+    9 [ label = <9: <b>base/gatemodule</b><br/><br/>> ];
+    9 [ pos = "0.93900007,-0.15900001!" ];
+    9 -> 8 [ label = "0→0" ];
+    9 -> 8 [ label = "1→1" ];
+
+    10 [ label = <10: <b>VisScriptVariableWorldObjectList</b><br/><br/><i>friendlies<br align="left"/></i><br align="left"/>> ];
+    10 [ shape = parallelogram ]
+    10 [ pos = "0.277,0.025!" ];
+
+    11 [ label = <11: <b>VisScriptVariableWorldObject</b><br/><br/><i>candidate to be a target<br align="left"/></i><br align="left"/>> ];
+    11 [ shape = parallelogram ]
+    11 [ pos = "1.166,-0.38200003!" ];
+
+    12 [ label = <12: <b>HealthStatsModule</b><br/><br/>> ];
+    12 [ pos = "1.3670001,-0.22700001!" ];
+    12 -> 13 [ label = "0→0" ];
+    12 -> 14 [ style = dashed ];
+
+    13 [ label = <13: <b>IntCompareModule</b><br/><br/>> ];
+    13 [ pos = "1.6010001,-0.20600002!" ];
+    13 -> 16 [ label = "0→0" ];
+    13 -> 16 [ label = "2→0" ];
+    13 -> 9 [ label = "1→0" ];
+    14 -> 13 [ style = dashed ];
+    15 -> 13 [ style = dashed ];
+
+    14 [ label = <14: <b>VisScriptVariableInt</b><br/><br/>> ];
+    14 [ shape = parallelogram ]
+    14 [ pos = "1.4300001,-0.40500003!" ];
+
+    15 [ label = <15: <b>VisScriptVariableInt</b><br/><br/><i>alive = 1<br align="left"/></i><br align="left"/><b>Value</b><br align="left"/>    1<br align="left"/>> ];
+    15 [ shape = parallelogram ]
+    15 [ pos = "1.6020001,-0.15300001!" ];
+
+    16 [ label = <16: <b>base/settargetmodule</b><br/><br/>> ];
+    16 [ pos = "1.797,-0.20600002!" ];
+    16 -> 17 [ label = "0→0" ];
+    6 -> 16 [ style = dashed ];
+    11 -> 16 [ style = dashed ];
+
+    17 [ label = <17: <b>base/gatemodule</b><br/><br/>> ];
+    17 [ pos = "1.9690001,0.035!" ];
+    17 -> 5 [ label = "0→1" ];
+
+    title [ pos = "0.27600002,0.036000002!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SR_Arena<br align="left"/>Scripts<br align="left"/><b>VSM_example_setting_targets</b><br align="left"/></font>> ];
+}

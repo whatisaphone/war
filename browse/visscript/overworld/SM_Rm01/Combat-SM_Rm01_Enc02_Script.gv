@@ -1,0 +1,90 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>SpawnMonsterEventModule</b><br/><br/><b>DelayTime</b><br align="left"/>    0.3<br align="left"/>> ];
+    1 [ pos = "0.63900006,-0.23200001!" ];
+    1 -> 25 [ label = "0→0" ];
+    1 -> 30 [ label = "2→0" ];
+    3 -> 1 [ style = dashed ];
+
+    2 [ label = <2: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;SM_Rm01_Enc02&quot;<br align="left"/>> ];
+    2 [ pos = "0.37500003,-0.22900002!" ];
+    2 -> 1 [ label = "0→0" ];
+    2 -> 3 [ style = dashed ];
+
+    3 [ label = <3: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    3 [ shape = parallelogram ]
+    3 [ pos = "0.42800003,-0.36400002!" ];
+
+    8 [ label = <8: <b>StartModule</b><br/><br/>> ];
+    8 [ shape = oval ]
+    8 [ pos = "-1.09,-0.223!" ];
+    8 -> 31 [ label = "0→0" ];
+    8 -> 32 [ label = "0→0" ];
+
+    11 [ label = <11: <b>DelayModule</b><br/><br/><i>go Encounter<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    11 [ pos = "-0.43400002,-0.023000002!" ];
+    11 -> 31 [ label = "0→1" ];
+    11 -> 38 [ label = "0→0" ];
+
+    13 [ label = <13: <b>SaveDataModule</b><br/><br/><i>Set Spawned<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;Spawned_SM_Rm01_Enc02&quot;)]<br align="left"/>> ];
+    13 [ pos = "-0.37300003,-0.22600001!" ];
+
+    14 [ label = <14: <b>SaveDataModule</b><br/><br/><i>Set AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_SM_Rm01_Enc02&quot;)]<br align="left"/>> ];
+    14 [ pos = "1.228,-0.18300001!" ];
+
+    24 [ label = <24: <b>base/settargetmodule</b><br/><br/><b>Monster</b><br align="left"/>    &quot;Smith1&quot;<br align="left"/><b>Target</b><br align="left"/>    &quot;SM_Rm01_Enc02_SmithTarget1&quot;<br align="left"/>> ];
+    24 [ pos = "1.075,-0.49800003!" ];
+    24 -> 26 [ label = "0→0" ];
+
+    25 [ label = <25: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    6.6<br align="left"/>> ];
+    25 [ pos = "0.90400004,-0.49800003!" ];
+    25 -> 24 [ label = "0→0" ];
+
+    26 [ label = <26: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;Smith1&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;setBehaviorCombat&quot;<br align="left"/>> ];
+    26 [ pos = "1.3100001,-0.49800003!" ];
+
+    30 [ label = <30: <b>AccumulatorModule</b><br/><br/>> ];
+    30 [ pos = "0.975,-0.20500001!" ];
+    30 -> 14 [ label = "0→1" ];
+    30 -> 35 [ label = "0→0" ];
+
+    31 [ label = <31: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;SM_Rm01_Enc02_TrigReg&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>Enable</b><br align="left"/>    false<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    31 [ shape = oval ]
+    31 [ pos = "-0.702,-0.067!" ];
+    31 -> 11 [ label = "0→0" ];
+    31 -> 13 [ label = "0→1" ];
+
+    32 [ label = <32: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;SM_Rm01_Enc02_TrigDestCar&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>Enable</b><br align="left"/>    false<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    32 [ shape = oval ]
+    32 [ pos = "-0.71400005,-0.36800003!" ];
+    32 -> 34 [ label = "0→0" ];
+
+    33 [ label = <33: <b>DamageActorModule</b><br/><br/><b>DamageAmount</b><br align="left"/>    1000<br align="left"/><b>TargetActorNames</b><br align="left"/>    [&quot;CI_Hatchback_01&quot;]<br align="left"/>> ];
+    33 [ pos = "-0.25100002,-0.37!" ];
+
+    34 [ label = <34: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.2<br align="left"/>> ];
+    34 [ pos = "-0.432,-0.365!" ];
+    34 -> 33 [ label = "0→0" ];
+
+    35 [ label = <35: <b>VisScriptCallModule</b><br/><br/><i>SM_Rm01_VSM_Smith_Path_03-&amp;gt;Enc02<br align="left"/>AllDead<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SM_Rm01_VSM_Smith_Path_03&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;Enc02AllDead&quot;<br align="left"/>> ];
+    35 [ pos = "1.2360001,-0.098000005!" ];
+
+    38 [ label = <38: <b>base/isinviewmodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;SM_Rm01_Enc02_LOSTrig&quot;<br align="left"/><b>AutoTriggerTime</b><br align="left"/>    &quot;9&quot;<br align="left"/><b>WidthScaleWS</b><br align="left"/>    &quot;.75&quot;<br align="left"/><b>HeightScaleWS</b><br align="left"/>    &quot;.9&quot;<br align="left"/><b>WidthScaleNS</b><br align="left"/>    &quot;.88&quot;<br align="left"/><b>HeightScaleNS</b><br align="left"/>    &quot;.9&quot;<br align="left"/>> ];
+    38 [ pos = "-0.068,-0.093!" ];
+    38 -> 2 [ label = "0→0" ];
+    38 -> 2 [ label = "1→0" ];
+
+    title [ pos = "-1.0910001,-0.022000002!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SM_Rm01<br align="left"/>Combat<br align="left"/><b>SM_Rm01_Enc02_Script</b><br align="left"/></font>> ];
+}

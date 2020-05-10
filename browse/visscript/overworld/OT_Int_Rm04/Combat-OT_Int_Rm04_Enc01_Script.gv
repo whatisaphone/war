@@ -1,0 +1,445 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    84 [ label = <84: <b>SaveDataModule</b><br/><br/><i>OT_IntRm04_Enc01_Complete<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Int_Rm04<br align="left"/>    &quot;, FlagName=&quot;OT_IntRm04_Enc01_Co<br align="left"/>    mplete&quot;)]<br align="left"/>> ];
+    84 [ pos = "-0.82000005,-0.56700003!" ];
+    84 -> 149 [ label = "1→0" ];
+
+    85 [ label = <85: <b>SaveDataModule</b><br/><br/><i>OT_IntRm04_Enc01_Complete<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Int_Rm04<br align="left"/>    &quot;, FlagName=&quot;OT_IntRm04_Enc01_Co<br align="left"/>    mplete&quot;)]<br align="left"/>> ];
+    85 [ pos = "4.333,-0.40500003!" ];
+    85 -> 155 [ label = "3→0" ];
+
+    94 [ label = <94: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn PGMedium<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;OT_Int_Rm04_Enc01a&quot;<br align="left"/>> ];
+    94 [ pos = "-0.054,-0.59000003!" ];
+    94 -> 141 [ label = "1→0" ];
+    94 -> 195 [ label = "0→2" ];
+    94 -> 223 [ label = "0→0" ];
+    94 -> 259 [ label = "1→0" ];
+
+    109 [ label = <109: <b>TriggerEventModule</b><br/><br/><i>OT_Int_Rm04_Enc01<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;OT_Int_Rm04_Enc01_TrigReg&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    109 [ shape = oval ]
+    109 [ pos = "-1.059,-0.56700003!" ];
+    109 -> 84 [ label = "0→0" ];
+
+    121 [ label = <121: <b>InvokeMethodModule</b><br/><br/><i>Turn off combat barrier<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;OT_IntRm04_Enc01_Barrier01&quot;, &quot;<br align="left"/>    OT_IntRm04_Enc01_Barrier02&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOff&quot;<br align="left"/>> ];
+    121 [ pos = "5.037,-0.45100003!" ];
+    121 -> 159 [ label = "0→0" ];
+
+    122 [ label = <122: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    122 [ pos = "4.841,-0.45100003!" ];
+    122 -> 121 [ label = "0→0" ];
+    122 -> 145 [ label = "0→0" ];
+
+    141 [ label = <141: <b>AccumulatorModule</b><br/><br/><i>Undead Killed = 3?<br align="left"/></i><br align="left"/><b>CountTo</b><br align="left"/>    3<br align="left"/>> ];
+    141 [ pos = "0.39100003,-1.2260001!" ];
+    141 -> 213 [ label = "0→0" ];
+
+    145 [ label = <145: <b>CinematicModule</b><br/><br/><i>Play barrier down cinematic<br align="left"/></i><br align="left"/><b>CinematicName</b><br align="left"/>    &quot;OT_IntRm04_Enc01_BarrierDownCin<br align="left"/>    ematic&quot;<br align="left"/>> ];
+    145 [ pos = "5.037,-0.61200005!" ];
+
+    146 [ label = <146: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    146 [ pos = "4.1070004,-0.42800003!" ];
+    146 -> 85 [ label = "0→1" ];
+
+    149 [ label = <149: <b>base/storesavedatamodule</b><br/><br/>> ];
+    149 [ pos = "-0.61,-0.59000003!" ];
+    149 -> 193 [ label = "0→2" ];
+
+    150 [ label = <150: <b>base/commitsavedatamodule</b><br/><br/>> ];
+    150 [ pos = "5.5140004,-0.45100003!" ];
+    150 -> 151 [ label = "0→0" ];
+
+    151 [ label = <151: <b>base/autosavemodule</b><br/><br/>> ];
+    151 [ pos = "5.7460003,-0.45100003!" ];
+    151 -> 154 [ label = "0→0" ];
+
+    154 [ label = <154: <b>VisScriptCallModule</b><br/><br/><i>call save spawnpoint<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;OT_Int_Rm04_VisMod_Elevator&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;encounter complete&quot;<br align="left"/>> ];
+    154 [ pos = "5.9170003,-0.45100003!" ];
+
+    155 [ label = <155: <b>SaveDataModule</b><br/><br/><i>Set Elevator Up<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Int_Rm04<br align="left"/>    &quot;, FlagName=&quot;OT_Int_Rm04_Elevato<br align="left"/>    r_Up&quot;)]<br align="left"/>> ];
+    155 [ pos = "4.603,-0.45100003!" ];
+    155 -> 122 [ label = "0→0" ];
+
+    156 [ label = <156: <b>SaveDataModule</b><br/><br/><i>OT_IntRm04_Enc01_Complete<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Int_Rm04<br align="left"/>    &quot;, FlagName=&quot;OT_IntRm04_Enc01_Co<br align="left"/>    mplete&quot;)]<br align="left"/>> ];
+    156 [ pos = "4.5690002,-0.22600001!" ];
+    156 -> 122 [ label = "0→0" ];
+
+    157 [ label = <157: <b>ExternalCallModule</b><br/><br/><i>Call to Check Barrier<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;DropBarrier&quot;<br align="left"/>> ];
+    157 [ shape = oval ]
+    157 [ pos = "4.322,-0.22600001!" ];
+    157 -> 156 [ label = "0→0" ];
+
+    159 [ label = <159: <b>base/setspawnpointmodule</b><br/><br/><b>World</b><br align="left"/>    &quot;Overworld&quot;<br align="left"/><b>Region</b><br align="left"/>    &quot;OT_Int_Rm05&quot;<br align="left"/><b>SpawnPoint</b><br align="left"/>    &quot;OT_Int_Rm05_Respawn_01&quot;<br align="left"/><b>SpawnLoadRegion</b><br align="left"/>    &quot;StartLoadRegion&quot;<br align="left"/>> ];
+    159 [ pos = "5.267,-0.45100003!" ];
+    159 -> 150 [ label = "0→0" ];
+
+    162 [ label = <162: <b>AccumulatorModule</b><br/><br/><i>Undead Killed = 2?<br align="left"/></i><br align="left"/><b>CountTo</b><br align="left"/>    2<br align="left"/>> ];
+    162 [ pos = "2.035,-1.5120001!" ];
+    162 -> 214 [ label = "0→0" ];
+
+    170 [ label = <170: <b>StartModule</b><br/><br/><i>OT_IntRm04_Enc01 Attach Spawners<br align="left"/> to Elevators<br align="left"/></i><br align="left"/>> ];
+    170 [ shape = oval ]
+    170 [ pos = "-0.896,1.0480001!" ];
+    170 -> 171 [ label = "0→0" ];
+    170 -> 172 [ label = "0→0" ];
+    170 -> 173 [ label = "0→0" ];
+    170 -> 174 [ label = "0→0" ];
+    170 -> 175 [ label = "0→0" ];
+    170 -> 176 [ label = "0→0" ];
+    170 -> 217 [ label = "0→0" ];
+    170 -> 218 [ label = "0→0" ];
+    170 -> 219 [ label = "0→0" ];
+    170 -> 220 [ label = "0→0" ];
+    170 -> 221 [ label = "0→0" ];
+    170 -> 222 [ label = "0→0" ];
+    170 -> 231 [ label = "0→0" ];
+    170 -> 274 [ label = "0→0" ];
+    170 -> 275 [ label = "0→0" ];
+
+    171 [ label = <171: <b>ObjectAttacherModule</b><br/><br/><b>ChildObject</b><br align="left"/>    &quot;OT_Int_Rm04_Enc01_PGM_01&quot;<br align="left"/><b>ParentObject</b><br align="left"/>    &quot;OT_Int_Rm04_ElevPlatform&quot;<br align="left"/><b>Relative</b><br align="left"/>    true<br align="left"/>> ];
+    171 [ pos = "-0.53800005,1.281!" ];
+    171 -> 177 [ label = "0→0" ];
+
+    172 [ label = <172: <b>ObjectAttacherModule</b><br/><br/><b>ChildObject</b><br align="left"/>    &quot;OT_Int_Rm04_Enc01_PGM_02&quot;<br align="left"/><b>ParentObject</b><br align="left"/>    &quot;OT_Int_Rm04_ElevPlatform&quot;<br align="left"/><b>Relative</b><br align="left"/>    true<br align="left"/>> ];
+    172 [ pos = "-0.537,1.1880001!" ];
+    172 -> 178 [ label = "0→0" ];
+
+    173 [ label = <173: <b>ObjectAttacherModule</b><br/><br/><b>ChildObject</b><br align="left"/>    &quot;OT_Int_Rm04_Enc01_PGM_03&quot;<br align="left"/><b>ParentObject</b><br align="left"/>    &quot;OT_Int_Rm04_ElevPlatform&quot;<br align="left"/><b>Relative</b><br align="left"/>    true<br align="left"/>> ];
+    173 [ pos = "-0.53900003,1.097!" ];
+    173 -> 179 [ label = "0→0" ];
+
+    174 [ label = <174: <b>ObjectAttacherModule</b><br/><br/><b>ChildObject</b><br align="left"/>    &quot;OT_Int_Rm04_Enc01_PGM_04&quot;<br align="left"/><b>ParentObject</b><br align="left"/>    &quot;OT_Int_Rm04_ElevPlatform&quot;<br align="left"/><b>Relative</b><br align="left"/>    true<br align="left"/>> ];
+    174 [ pos = "-0.537,0.994!" ];
+    174 -> 180 [ label = "0→0" ];
+
+    175 [ label = <175: <b>ObjectAttacherModule</b><br/><br/><b>ChildObject</b><br align="left"/>    &quot;OT_Int_Rm04_Enc01_PGM_05&quot;<br align="left"/><b>ParentObject</b><br align="left"/>    &quot;OT_Int_Rm04_ElevPlatform&quot;<br align="left"/><b>Relative</b><br align="left"/>    true<br align="left"/>> ];
+    175 [ pos = "-0.536,0.89300007!" ];
+    175 -> 181 [ label = "0→0" ];
+
+    176 [ label = <176: <b>ObjectAttacherModule</b><br/><br/><b>ChildObject</b><br align="left"/>    &quot;OT_Int_Rm04_Enc01_PGM_06&quot;<br align="left"/><b>ParentObject</b><br align="left"/>    &quot;OT_Int_Rm04_ElevPlatform&quot;<br align="left"/><b>Relative</b><br align="left"/>    true<br align="left"/>> ];
+    176 [ pos = "-0.537,0.79600006!" ];
+    176 -> 182 [ label = "0→0" ];
+
+    177 [ label = <177: <b>ObjectAttacherModule</b><br/><br/><b>ChildObject</b><br align="left"/>    &quot;OT_Int_Rm04_Enc01_PGM_01_Effect<br align="left"/>    &quot;<br align="left"/><b>ParentObject</b><br align="left"/>    &quot;OT_Int_Rm04_ElevPlatform&quot;<br align="left"/><b>Relative</b><br align="left"/>    true<br align="left"/>> ];
+    177 [ pos = "-0.351,1.281!" ];
+
+    178 [ label = <178: <b>ObjectAttacherModule</b><br/><br/><b>ChildObject</b><br align="left"/>    &quot;OT_Int_Rm04_Enc01_PGM_02_Effect<br align="left"/>    &quot;<br align="left"/><b>ParentObject</b><br align="left"/>    &quot;OT_Int_Rm04_ElevPlatform&quot;<br align="left"/><b>Relative</b><br align="left"/>    true<br align="left"/>> ];
+    178 [ pos = "-0.35000002,1.1880001!" ];
+
+    179 [ label = <179: <b>ObjectAttacherModule</b><br/><br/><b>ChildObject</b><br align="left"/>    &quot;OT_Int_Rm04_Enc01_PGM_03_Effect<br align="left"/>    &quot;<br align="left"/><b>ParentObject</b><br align="left"/>    &quot;OT_Int_Rm04_ElevPlatform&quot;<br align="left"/><b>Relative</b><br align="left"/>    true<br align="left"/>> ];
+    179 [ pos = "-0.35200003,1.097!" ];
+
+    180 [ label = <180: <b>ObjectAttacherModule</b><br/><br/><b>ChildObject</b><br align="left"/>    &quot;OT_Int_Rm04_Enc01_PGM_04_Effect<br align="left"/>    &quot;<br align="left"/><b>ParentObject</b><br align="left"/>    &quot;OT_Int_Rm04_ElevPlatform&quot;<br align="left"/><b>Relative</b><br align="left"/>    true<br align="left"/>> ];
+    180 [ pos = "-0.35000002,0.994!" ];
+
+    181 [ label = <181: <b>ObjectAttacherModule</b><br/><br/><b>ChildObject</b><br align="left"/>    &quot;OT_Int_Rm04_Enc01_PGM_05_Effect<br align="left"/>    &quot;<br align="left"/><b>ParentObject</b><br align="left"/>    &quot;OT_Int_Rm04_ElevPlatform&quot;<br align="left"/><b>Relative</b><br align="left"/>    true<br align="left"/>> ];
+    181 [ pos = "-0.349,0.89300007!" ];
+
+    182 [ label = <182: <b>ObjectAttacherModule</b><br/><br/><b>ChildObject</b><br align="left"/>    &quot;OT_Int_Rm04_Enc01_PGM_06_Effect<br align="left"/>    &quot;<br align="left"/><b>ParentObject</b><br align="left"/>    &quot;OT_Int_Rm04_ElevPlatform&quot;<br align="left"/><b>Relative</b><br align="left"/>    true<br align="left"/>> ];
+    182 [ pos = "-0.35000002,0.79600006!" ];
+
+    183 [ label = <183: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn PGMedium<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;OT_Int_Rm04_Enc01b&quot;<br align="left"/>> ];
+    183 [ pos = "-0.052,-0.87000006!" ];
+    183 -> 141 [ label = "1→0" ];
+    183 -> 196 [ label = "0→2" ];
+    183 -> 224 [ label = "0→0" ];
+    183 -> 259 [ label = "1→0" ];
+
+    184 [ label = <184: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn PGMedium<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;OT_Int_Rm04_Enc01c&quot;<br align="left"/>> ];
+    184 [ pos = "-0.048,-1.138!" ];
+    184 -> 141 [ label = "1→0" ];
+    184 -> 197 [ label = "0→2" ];
+    184 -> 225 [ label = "0→0" ];
+    184 -> 259 [ label = "1→0" ];
+
+    185 [ label = <185: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn PGMedium<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;OT_Int_Rm04_Enc01d&quot;<br align="left"/>> ];
+    185 [ pos = "-0.046000004,-1.4210001!" ];
+    185 -> 141 [ label = "1→0" ];
+    185 -> 226 [ label = "0→0" ];
+    185 -> 259 [ label = "1→0" ];
+
+    187 [ label = <187: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.5<br align="left"/>> ];
+    187 [ pos = "-0.22800002,-0.87000006!" ];
+    187 -> 183 [ label = "0→0" ];
+
+    188 [ label = <188: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.5<br align="left"/>> ];
+    188 [ pos = "-0.21800001,-1.138!" ];
+    188 -> 184 [ label = "0→0" ];
+
+    189 [ label = <189: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.5<br align="left"/>> ];
+    189 [ pos = "-0.215,-1.4210001!" ];
+    189 -> 185 [ label = "0→0" ];
+
+    193 [ label = <193: <b>PlayEffectModule</b><br/><br/><b>TargetObjs</b><br align="left"/>    [&quot;OT_Int_Rm04_Enc01_PGM_01_Effec<br align="left"/>    t&quot;]<br align="left"/><b>Package</b><br align="left"/>    &quot;phantomguard&quot;<br align="left"/><b>Effect</b><br align="left"/>    &quot;phantomguard_portal&quot;<br align="left"/>> ];
+    193 [ pos = "-0.402,-0.59000003!" ];
+    193 -> 194 [ label = "0→0" ];
+
+    194 [ label = <194: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.5<br align="left"/>> ];
+    194 [ pos = "-0.238,-0.59000003!" ];
+    194 -> 94 [ label = "0→0" ];
+
+    195 [ label = <195: <b>PlayEffectModule</b><br/><br/><b>TargetObjs</b><br align="left"/>    [&quot;OT_Int_Rm04_Enc01_PGM_02_Effec<br align="left"/>    t&quot;]<br align="left"/><b>Package</b><br align="left"/>    &quot;phantomguard&quot;<br align="left"/><b>Effect</b><br align="left"/>    &quot;phantomguard_portal&quot;<br align="left"/>> ];
+    195 [ pos = "-0.409,-0.87000006!" ];
+    195 -> 187 [ label = "0→0" ];
+
+    196 [ label = <196: <b>PlayEffectModule</b><br/><br/><b>TargetObjs</b><br align="left"/>    [&quot;OT_Int_Rm04_Enc01_PGM_03_Effec<br align="left"/>    t&quot;]<br align="left"/><b>Package</b><br align="left"/>    &quot;phantomguard&quot;<br align="left"/><b>Effect</b><br align="left"/>    &quot;phantomguard_portal&quot;<br align="left"/>> ];
+    196 [ pos = "-0.41500002,-1.138!" ];
+    196 -> 188 [ label = "0→0" ];
+
+    197 [ label = <197: <b>PlayEffectModule</b><br/><br/><b>TargetObjs</b><br align="left"/>    [&quot;OT_Int_Rm04_Enc01_PGM_04_Effec<br align="left"/>    t&quot;]<br align="left"/><b>Package</b><br align="left"/>    &quot;phantomguard&quot;<br align="left"/><b>Effect</b><br align="left"/>    &quot;phantomguard_portal&quot;<br align="left"/>> ];
+    197 [ pos = "-0.393,-1.4210001!" ];
+    197 -> 189 [ label = "0→0" ];
+
+    201 [ label = <201: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn PGMedium<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;OT_Int_Rm04_Enc01e&quot;<br align="left"/>> ];
+    201 [ pos = "1.508,-1.3230001!" ];
+    201 -> 206 [ label = "0→2" ];
+    201 -> 162 [ label = "1→0" ];
+    201 -> 246 [ label = "0→0" ];
+    201 -> 260 [ label = "1→0" ];
+
+    202 [ label = <202: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.5<br align="left"/>> ];
+    202 [ pos = "1.3340001,-1.3230001!" ];
+    202 -> 201 [ label = "0→0" ];
+
+    203 [ label = <203: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn PGMedium<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;OT_Int_Rm04_Enc01f&quot;<br align="left"/>> ];
+    203 [ pos = "1.506,-1.5910001!" ];
+    203 -> 162 [ label = "1→0" ];
+    203 -> 249 [ label = "0→0" ];
+    203 -> 260 [ label = "1→0" ];
+
+    204 [ label = <204: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.5<br align="left"/>> ];
+    204 [ pos = "1.3440001,-1.5910001!" ];
+    204 -> 203 [ label = "0→0" ];
+
+    205 [ label = <205: <b>PlayEffectModule</b><br/><br/><b>TargetObjs</b><br align="left"/>    [&quot;OT_Int_Rm04_Enc01_PGM_05_Effec<br align="left"/>    t&quot;]<br align="left"/><b>Package</b><br align="left"/>    &quot;phantomguard&quot;<br align="left"/><b>Effect</b><br align="left"/>    &quot;phantomguard_portal&quot;<br align="left"/>> ];
+    205 [ pos = "1.1650001,-1.3230001!" ];
+    205 -> 202 [ label = "0→0" ];
+
+    206 [ label = <206: <b>PlayEffectModule</b><br/><br/><b>TargetObjs</b><br align="left"/>    [&quot;OT_Int_Rm04_Enc01_PGM_06_Effec<br align="left"/>    t&quot;]<br align="left"/><b>Package</b><br align="left"/>    &quot;phantomguard&quot;<br align="left"/><b>Effect</b><br align="left"/>    &quot;phantomguard_portal&quot;<br align="left"/>> ];
+    206 [ pos = "1.164,-1.5910001!" ];
+    206 -> 204 [ label = "0→0" ];
+
+    207 [ label = <207: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn PGMedium<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;OT_Int_Rm04_Enc01g&quot;<br align="left"/>> ];
+    207 [ pos = "3.2730002,-1.6!" ];
+    207 -> 212 [ label = "0→2" ];
+    207 -> 256 [ label = "0→0" ];
+    207 -> 261 [ label = "1→0" ];
+
+    208 [ label = <208: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.5<br align="left"/>> ];
+    208 [ pos = "3.0960002,-1.6!" ];
+    208 -> 207 [ label = "0→0" ];
+
+    209 [ label = <209: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn PGMedium<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;OT_Int_Rm04_Enc01h&quot;<br align="left"/>> ];
+    209 [ pos = "3.2630002,-1.9150001!" ];
+    209 -> 261 [ label = "1→0" ];
+    209 -> 263 [ label = "0→0" ];
+
+    210 [ label = <210: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.5<br align="left"/>> ];
+    210 [ pos = "3.0990002,-1.9150001!" ];
+    210 -> 209 [ label = "0→0" ];
+
+    211 [ label = <211: <b>PlayEffectModule</b><br/><br/><b>TargetObjs</b><br align="left"/>    [&quot;OT_Int_Rm04_Enc01_PGM_05_Effec<br align="left"/>    t&quot;]<br align="left"/><b>Package</b><br align="left"/>    &quot;phantomguard&quot;<br align="left"/><b>Effect</b><br align="left"/>    &quot;phantomguard_portal&quot;<br align="left"/>> ];
+    211 [ pos = "2.904,-1.6!" ];
+    211 -> 208 [ label = "0→0" ];
+
+    212 [ label = <212: <b>PlayEffectModule</b><br/><br/><b>TargetObjs</b><br align="left"/>    [&quot;OT_Int_Rm04_Enc01_PGM_06_Effec<br align="left"/>    t&quot;]<br align="left"/><b>Package</b><br align="left"/>    &quot;phantomguard&quot;<br align="left"/><b>Effect</b><br align="left"/>    &quot;phantomguard_portal&quot;<br align="left"/>> ];
+    212 [ pos = "2.9190001,-1.9150001!" ];
+    212 -> 210 [ label = "0→0" ];
+
+    213 [ label = <213: <b>SaveDataModule</b><br/><br/><i>Set Elevator Up<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Int_Rm04<br align="left"/>    &quot;, FlagName=&quot;OT_Int_Rm04_Elevato<br align="left"/>    r_Up&quot;)]<br align="left"/>> ];
+    213 [ pos = "0.62200004,-1.2260001!" ];
+    213 -> 215 [ label = "0→0" ];
+    213 -> 266 [ label = "1→0" ];
+
+    214 [ label = <214: <b>SaveDataModule</b><br/><br/><i>Set Elevator Up<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Int_Rm04<br align="left"/>    &quot;, FlagName=&quot;OT_Int_Rm04_Elevato<br align="left"/>    r_Up&quot;)]<br align="left"/>> ];
+    214 [ pos = "2.312,-1.5120001!" ];
+    214 -> 216 [ label = "0→0" ];
+    214 -> 270 [ label = "1→0" ];
+
+    215 [ label = <215: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn PGMedium<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;OT_Int_Rm04_Enc01i&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    2<br align="left"/><b>DelayTime</b><br align="left"/>    0.5<br align="left"/>> ];
+    215 [ pos = "1.414,-1.034!" ];
+    215 -> 162 [ label = "1→0" ];
+    215 -> 260 [ label = "1→0" ];
+
+    216 [ label = <216: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn PGMedium<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;OT_Int_Rm04_Enc01i&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    2<br align="left"/><b>DelayTime</b><br align="left"/>    0.5<br align="left"/>> ];
+    216 [ pos = "3.0200002,-1.266!" ];
+    216 -> 261 [ label = "1→0" ];
+
+    217 [ label = <217: <b>ObjectAttacherModule</b><br/><br/><b>ChildObject</b><br align="left"/>    &quot;OT_Int_Rm04_Enc01_PGM_07&quot;<br align="left"/><b>ParentObject</b><br align="left"/>    &quot;OT_Int_Rm04_ElevPlatform&quot;<br align="left"/><b>Relative</b><br align="left"/>    true<br align="left"/>> ];
+    217 [ pos = "-0.53300005,0.69600004!" ];
+
+    218 [ label = <218: <b>ObjectAttacherModule</b><br/><br/><b>ChildObject</b><br align="left"/>    &quot;OT_Int_Rm04_Enc01_PGM_08&quot;<br align="left"/><b>ParentObject</b><br align="left"/>    &quot;OT_Int_Rm04_ElevPlatform&quot;<br align="left"/><b>Relative</b><br align="left"/>    true<br align="left"/>> ];
+    218 [ pos = "-0.532,0.60300004!" ];
+
+    219 [ label = <219: <b>ObjectAttacherModule</b><br/><br/><b>ChildObject</b><br align="left"/>    &quot;OT_Int_Rm04_Enc01_PGM_09&quot;<br align="left"/><b>ParentObject</b><br align="left"/>    &quot;OT_Int_Rm04_ElevPlatform&quot;<br align="left"/><b>Relative</b><br align="left"/>    true<br align="left"/>> ];
+    219 [ pos = "-0.53400004,0.512!" ];
+
+    220 [ label = <220: <b>ObjectAttacherModule</b><br/><br/><b>ChildObject</b><br align="left"/>    &quot;OT_Int_Rm04_Enc01_PGM_10&quot;<br align="left"/><b>ParentObject</b><br align="left"/>    &quot;OT_Int_Rm04_ElevPlatform&quot;<br align="left"/><b>Relative</b><br align="left"/>    true<br align="left"/>> ];
+    220 [ pos = "-0.532,0.409!" ];
+
+    221 [ label = <221: <b>ObjectAttacherModule</b><br/><br/><b>ChildObject</b><br align="left"/>    &quot;OT_Int_Rm04_Enc01_PGM_11&quot;<br align="left"/><b>ParentObject</b><br align="left"/>    &quot;OT_Int_Rm04_ElevPlatform&quot;<br align="left"/><b>Relative</b><br align="left"/>    true<br align="left"/>> ];
+    221 [ pos = "-0.53300005,0.314!" ];
+
+    222 [ label = <222: <b>ObjectAttacherModule</b><br/><br/><b>ChildObject</b><br align="left"/>    &quot;OT_Int_Rm04_Enc01_PGM_12&quot;<br align="left"/><b>ParentObject</b><br align="left"/>    &quot;OT_Int_Rm04_ElevPlatform&quot;<br align="left"/><b>Relative</b><br align="left"/>    true<br align="left"/>> ];
+    222 [ pos = "-0.531,0.21100001!" ];
+
+    223 [ label = <223: <b>base/setcharactermovestate</b><br/><br/><b>Character</b><br align="left"/>    &quot;OT_Int_Rm04_Enc01a&quot;<br align="left"/><b>MoveState</b><br align="left"/>    &quot;Fall&quot;<br align="left"/><b>MoveStateID</b><br align="left"/>    612<br align="left"/>> ];
+    223 [ pos = "0.33900002,-0.559!" ];
+    223 -> 243 [ label = "0→0" ];
+
+    224 [ label = <224: <b>base/setcharactermovestate</b><br/><br/><b>Character</b><br align="left"/>    &quot;OT_Int_Rm04_Enc01b&quot;<br align="left"/><b>MoveState</b><br align="left"/>    &quot;Fall&quot;<br align="left"/><b>MoveStateID</b><br align="left"/>    612<br align="left"/>> ];
+    224 [ pos = "0.40300003,-0.794!" ];
+    224 -> 244 [ label = "0→0" ];
+
+    225 [ label = <225: <b>base/setcharactermovestate</b><br/><br/><b>Character</b><br align="left"/>    &quot;OT_Int_Rm04_Enc01c&quot;<br align="left"/><b>MoveState</b><br align="left"/>    &quot;Fall&quot;<br align="left"/><b>MoveStateID</b><br align="left"/>    612<br align="left"/>> ];
+    225 [ pos = "0.39400002,-1.005!" ];
+    225 -> 245 [ label = "0→0" ];
+
+    226 [ label = <226: <b>base/setcharactermovestate</b><br/><br/><b>Character</b><br align="left"/>    &quot;OT_Int_Rm04_Enc01d&quot;<br align="left"/><b>MoveState</b><br align="left"/>    &quot;Fall&quot;<br align="left"/><b>MoveStateID</b><br align="left"/>    612<br align="left"/>> ];
+    226 [ pos = "0.35500002,-1.531!" ];
+    226 -> 242 [ label = "0→0" ];
+
+    228 [ label = <228: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Int_Rm04_Enc01a&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;setBehaviorCombat&quot;<br align="left"/>> ];
+    228 [ pos = "0.771,-0.559!" ];
+
+    231 [ label = <231: <b>ObjectAttacherModule</b><br/><br/><b>ChildObject</b><br align="left"/>    &quot;OT_Int_Rm04_Enc01_Combat_Trg&quot;<br align="left"/><b>ParentObject</b><br align="left"/>    &quot;OT_Int_Rm04_ElevPlatform&quot;<br align="left"/><b>Relative</b><br align="left"/>    true<br align="left"/>> ];
+    231 [ pos = "-0.537,-0.09200001!" ];
+
+    236 [ label = <236: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Int_Rm04_Enc01b&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;setBehaviorCombat&quot;<br align="left"/>> ];
+    236 [ pos = "0.837,-0.794!" ];
+
+    238 [ label = <238: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Int_Rm04_Enc01c&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;setBehaviorCombat&quot;<br align="left"/>> ];
+    238 [ pos = "0.823,-1.005!" ];
+
+    240 [ label = <240: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Int_Rm04_Enc01d&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;setBehaviorCombat&quot;<br align="left"/>> ];
+    240 [ pos = "0.78400004,-1.5320001!" ];
+
+    242 [ label = <242: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.5<br align="left"/>> ];
+    242 [ pos = "0.61600006,-1.5320001!" ];
+    242 -> 240 [ label = "0→0" ];
+
+    243 [ label = <243: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.5<br align="left"/>> ];
+    243 [ pos = "0.60200006,-0.559!" ];
+    243 -> 228 [ label = "0→0" ];
+
+    244 [ label = <244: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.5<br align="left"/>> ];
+    244 [ pos = "0.66800004,-0.794!" ];
+    244 -> 236 [ label = "0→0" ];
+
+    245 [ label = <245: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.5<br align="left"/>> ];
+    245 [ pos = "0.65400004,-1.005!" ];
+    245 -> 238 [ label = "0→0" ];
+
+    246 [ label = <246: <b>base/setcharactermovestate</b><br/><br/><b>Character</b><br align="left"/>    &quot;OT_Int_Rm04_Enc01e&quot;<br align="left"/><b>MoveState</b><br align="left"/>    &quot;Fall&quot;<br align="left"/><b>MoveStateID</b><br align="left"/>    612<br align="left"/>> ];
+    246 [ pos = "1.9240001,-1.3230001!" ];
+    246 -> 248 [ label = "0→0" ];
+
+    247 [ label = <247: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Int_Rm04_Enc01e&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;setBehaviorCombat&quot;<br align="left"/>> ];
+    247 [ pos = "2.3560002,-1.3230001!" ];
+
+    248 [ label = <248: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.5<br align="left"/>> ];
+    248 [ pos = "2.187,-1.3230001!" ];
+    248 -> 247 [ label = "0→0" ];
+
+    249 [ label = <249: <b>base/setcharactermovestate</b><br/><br/><b>Character</b><br align="left"/>    &quot;OT_Int_Rm04_Enc01f&quot;<br align="left"/><b>MoveState</b><br align="left"/>    &quot;Fall&quot;<br align="left"/><b>MoveStateID</b><br align="left"/>    612<br align="left"/>> ];
+    249 [ pos = "1.8800001,-1.728!" ];
+    249 -> 251 [ label = "0→0" ];
+
+    250 [ label = <250: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Int_Rm04_Enc01f&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;setBehaviorCombat&quot;<br align="left"/>> ];
+    250 [ pos = "2.312,-1.728!" ];
+
+    251 [ label = <251: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.5<br align="left"/>> ];
+    251 [ pos = "2.1430001,-1.728!" ];
+    251 -> 250 [ label = "0→0" ];
+
+    256 [ label = <256: <b>base/setcharactermovestate</b><br/><br/><b>Character</b><br align="left"/>    &quot;OT_Int_Rm04_Enc01g&quot;<br align="left"/><b>MoveState</b><br align="left"/>    &quot;Fall&quot;<br align="left"/><b>MoveStateID</b><br align="left"/>    612<br align="left"/>> ];
+    256 [ pos = "3.6160002,-1.6!" ];
+    256 -> 258 [ label = "0→0" ];
+
+    257 [ label = <257: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Int_Rm04_Enc01g&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;setBehaviorCombat&quot;<br align="left"/>> ];
+    257 [ pos = "4.046,-1.6!" ];
+
+    258 [ label = <258: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.5<br align="left"/>> ];
+    258 [ pos = "3.877,-1.6!" ];
+    258 -> 257 [ label = "0→0" ];
+
+    259 [ label = <259: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    4<br align="left"/>> ];
+    259 [ pos = "0.356,-0.35700002!" ];
+    259 -> 262 [ label = "0→0" ];
+
+    260 [ label = <260: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    2<br align="left"/>> ];
+    260 [ pos = "1.9580001,-1.0580001!" ];
+    260 -> 262 [ label = "0→0" ];
+
+    261 [ label = <261: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    2<br align="left"/>> ];
+    261 [ pos = "3.6310003,-1.2900001!" ];
+    261 -> 262 [ label = "0→0" ];
+
+    262 [ label = <262: <b>AccumulatorModule</b><br/><br/><i>All waves dead?<br align="left"/></i><br align="left"/><b>CountTo</b><br align="left"/>    3<br align="left"/>> ];
+    262 [ pos = "3.8710003,-0.42800003!" ];
+    262 -> 146 [ label = "0→0" ];
+
+    263 [ label = <263: <b>base/setcharactermovestate</b><br/><br/><b>Character</b><br align="left"/>    &quot;OT_Int_Rm04_Enc01h&quot;<br align="left"/><b>MoveState</b><br align="left"/>    &quot;Fall&quot;<br align="left"/><b>MoveStateID</b><br align="left"/>    612<br align="left"/>> ];
+    263 [ pos = "3.5820003,-1.9150001!" ];
+    263 -> 265 [ label = "0→0" ];
+
+    264 [ label = <264: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Int_Rm04_Enc01h&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;setBehaviorCombat&quot;<br align="left"/>> ];
+    264 [ pos = "4.011,-1.9150001!" ];
+
+    265 [ label = <265: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.5<br align="left"/>> ];
+    265 [ pos = "3.8430002,-1.9150001!" ];
+    265 -> 264 [ label = "0→0" ];
+
+    266 [ label = <266: <b>SaveDataModule</b><br/><br/><i>Clip Zone<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Int_Rm04<br align="left"/>    &quot;, FlagName=&quot;OT_Int_Rm04_Clip_Zo<br align="left"/>    ne&quot;)]<br align="left"/>> ];
+    266 [ pos = "0.86700004,-1.3000001!" ];
+    266 -> 268 [ label = "0→0" ];
+    266 -> 205 [ label = "1→2" ];
+
+    268 [ label = <268: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    10<br align="left"/>> ];
+    268 [ pos = "1.164,-1.1450001!" ];
+    268 -> 215 [ label = "0→0" ];
+
+    270 [ label = <270: <b>SaveDataModule</b><br/><br/><i>Clip Zone<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Int_Rm04<br align="left"/>    &quot;, FlagName=&quot;OT_Int_Rm04_Clip_Zo<br align="left"/>    ne&quot;)]<br align="left"/>> ];
+    270 [ pos = "2.6090002,-1.5780001!" ];
+    270 -> 271 [ label = "0→0" ];
+    270 -> 211 [ label = "1→2" ];
+
+    271 [ label = <271: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    10<br align="left"/>> ];
+    271 [ pos = "2.812,-1.4030001!" ];
+    271 -> 216 [ label = "0→0" ];
+
+    272 [ label = <272: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;OT_Int_Rm04_Enc01_TrigReg_Clip<br align="left"/>    &quot;, &quot;&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    272 [ shape = oval ]
+    272 [ pos = "1.4300001,-0.72700006!" ];
+    272 -> 273 [ label = "0→1" ];
+
+    273 [ label = <273: <b>SaveDataModule</b><br/><br/><i>Clip Zone<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Int_Rm04<br align="left"/>    &quot;, FlagName=&quot;OT_Int_Rm04_Clip_Zo<br align="left"/>    ne&quot;)]<br align="left"/>> ];
+    273 [ pos = "1.733,-0.70400006!" ];
+
+    274 [ label = <274: <b>ObjectAttacherModule</b><br/><br/><b>ChildObject</b><br align="left"/>    &quot;OT_Int_Rm04_Enc01_PGM_13&quot;<br align="left"/><b>ParentObject</b><br align="left"/>    &quot;OT_Int_Rm04_ElevPlatform&quot;<br align="left"/><b>Relative</b><br align="left"/>    true<br align="left"/>> ];
+    274 [ pos = "-0.53000003,0.108!" ];
+    274 -> 276 [ label = "0→0" ];
+
+    275 [ label = <275: <b>ObjectAttacherModule</b><br/><br/><b>ChildObject</b><br align="left"/>    &quot;OT_Int_Rm04_Enc01_PGM_14&quot;<br align="left"/><b>ParentObject</b><br align="left"/>    &quot;OT_Int_Rm04_ElevPlatform&quot;<br align="left"/><b>Relative</b><br align="left"/>    true<br align="left"/>> ];
+    275 [ pos = "-0.53000003,0.011000001!" ];
+    275 -> 277 [ label = "0→0" ];
+
+    276 [ label = <276: <b>ObjectAttacherModule</b><br/><br/><b>ChildObject</b><br align="left"/>    &quot;OT_Int_Rm04_Enc01_PGM_13_Effect<br align="left"/>    &quot;<br align="left"/><b>ParentObject</b><br align="left"/>    &quot;OT_Int_Rm04_ElevPlatform&quot;<br align="left"/><b>Relative</b><br align="left"/>    true<br align="left"/>> ];
+    276 [ pos = "-0.335,0.108!" ];
+
+    277 [ label = <277: <b>ObjectAttacherModule</b><br/><br/><b>ChildObject</b><br align="left"/>    &quot;OT_Int_Rm04_Enc01_PGM_14_Effect<br align="left"/>    &quot;<br align="left"/><b>ParentObject</b><br align="left"/>    &quot;OT_Int_Rm04_ElevPlatform&quot;<br align="left"/><b>Relative</b><br align="left"/>    true<br align="left"/>> ];
+    277 [ pos = "-0.335,0.011000001!" ];
+
+    title [ pos = "-1.0600001,1.2820001!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>OT_Int_Rm04<br align="left"/>Combat<br align="left"/><b>OT_Int_Rm04_Enc01_Script</b><br align="left"/></font>> ];
+}

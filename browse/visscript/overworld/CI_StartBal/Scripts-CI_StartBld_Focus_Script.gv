@@ -1,0 +1,48 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    10 [ label = <10: <b>ExternalCallModule</b><br/><br/><b>EventName</b><br align="left"/>    &quot;ShowPopup&quot;<br align="left"/>> ];
+    10 [ shape = oval ]
+    10 [ pos = "-0.059000004,-0.15400001!" ];
+    10 -> 16 [ label = "0→0" ];
+
+    11 [ label = <11: <b>base/getplayerstats</b><br/><br/><b>Stat</b><br align="left"/>    2<br align="left"/>> ];
+    11 [ pos = "0.44000003,-0.15400001!" ];
+    11 -> 14 [ label = "0→0" ];
+    11 -> 12 [ style = dashed ];
+
+    12 [ label = <12: <b>VisScriptVariableInt</b><br/><br/>> ];
+    12 [ shape = parallelogram ]
+    12 [ pos = "0.647,-0.20500001!" ];
+
+    13 [ label = <13: <b>VisScriptVariableInt</b><br/><br/><b>Value</b><br align="left"/>    2<br align="left"/>> ];
+    13 [ shape = parallelogram ]
+    13 [ pos = "0.651,-0.30900002!" ];
+
+    14 [ label = <14: <b>IntCompareModule</b><br/><br/>> ];
+    14 [ pos = "0.80300003,-0.15400001!" ];
+    14 -> 15 [ label = "2→0" ];
+    14 -> 15 [ label = "1→0" ];
+    13 -> 14 [ style = dashed ];
+    12 -> 14 [ style = dashed ];
+
+    15 [ label = <15: <b>base/giveitemmodule</b><br/><br/><b>Item</b><br align="left"/>    &quot;base/tip_focus&quot;<br align="left"/>> ];
+    15 [ pos = "1.047,-0.187!" ];
+
+    16 [ label = <16: <b>SaveDataModule</b><br/><br/><i>Debug.DemoMode check<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Config&quot;, Fl<br align="left"/>    agName=&quot;Debug.DemoMode&quot;, FlagVal<br align="left"/>    ue=&quot;true&quot;)]<br align="left"/>> ];
+    16 [ pos = "0.2,-0.15400001!" ];
+    16 -> 11 [ label = "0→0" ];
+
+    title [ pos = "-0.060000002,-0.15300001!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>CI_StartBal<br align="left"/>Scripts<br align="left"/><b>CI_StartBld_Focus_Script</b><br align="left"/></font>> ];
+}

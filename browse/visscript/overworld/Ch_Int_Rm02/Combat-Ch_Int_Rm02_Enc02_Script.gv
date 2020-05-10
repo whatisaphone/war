@@ -1,0 +1,108 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    2 [ label = <2: <b>SaveDataModule</b><br/><br/><i>Check Spawned<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;Spawned_Ch_Int_Rm02_Enc0<br align="left"/>    2&quot;)]<br align="left"/>> ];
+    2 [ pos = "-0.025,-0.046000004!" ];
+    2 -> 51 [ label = "1→0" ];
+
+    8 [ label = <8: <b>SaveDataModule</b><br/><br/><i>Set AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_Ch_Int_Rm02_Enc0<br align="left"/>    2&quot;)]<br align="left"/>> ];
+    8 [ pos = "1.4590001,-0.27800003!" ];
+
+    19 [ label = <19: <b>VisScriptCallModule</b><br/><br/><i>delete any remaining Rm02_Enc01 <br align="left"/>mobs<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;Ch_Int_Rm02_Enc01_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;Clear&quot;<br align="left"/>> ];
+    19 [ pos = "0.619,-0.037!" ];
+
+    31 [ label = <31: <b>StartModule</b><br/><br/>> ];
+    31 [ shape = oval ]
+    31 [ pos = "-0.64900005,-0.015000001!" ];
+    31 -> 32 [ label = "0→0" ];
+    31 -> 50 [ label = "0→1" ];
+
+    32 [ label = <32: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    5<br align="left"/>> ];
+    32 [ pos = "-0.43100002,-0.054!" ];
+
+    39 [ label = <39: <b>DamageActorModule</b><br/><br/><b>DamageAmount</b><br align="left"/>    1000<br align="left"/>> ];
+    39 [ pos = "1.4280001,0.162!" ];
+    41 -> 39 [ style = dashed ];
+
+    40 [ label = <40: <b>TriggerEventModule</b><br/><br/><i>Death region for falling undead<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;Ch_Int_Rm02_Enc02_TrigRegUndea<br align="left"/>    dFall&quot;]<br align="left"/><b>Enable</b><br align="left"/>    false<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    40 [ shape = oval ]
+    40 [ pos = "0.975,0.15900001!" ];
+    40 -> 39 [ label = "0→0" ];
+    40 -> 41 [ style = dashed ];
+
+    41 [ label = <41: <b>VisScriptVariableWorldObject</b><br/><br/>> ];
+    41 [ shape = parallelogram ]
+    41 [ pos = "1.2260001,0.08400001!" ];
+
+    48 [ label = <48: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;Ch_Int_Rm02_Enc02_TrigRegGoBat<br align="left"/>    &quot;, &quot;&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>Enable</b><br align="left"/>    false<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    48 [ shape = oval ]
+    48 [ pos = "0.432,-0.39200002!" ];
+    48 -> 60 [ label = "0→0" ];
+    48 -> 61 [ label = "0→0" ];
+
+    50 [ label = <50: <b>TriggerEventModule</b><br/><br/><i>Death region for falling undead<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;Ch_Int_Rm02_Enc02_TrigRegPlyFa<br align="left"/>    ll&quot;]<br align="left"/><b>Enable</b><br align="left"/>    false<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    50 [ shape = oval ]
+    50 [ pos = "0.97700006,0.388!" ];
+    50 -> 40 [ label = "0→1" ];
+
+    51 [ label = <51: <b>DelayModule</b><br/><br/><i>go encounter<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    51 [ pos = "0.291,-0.067!" ];
+    51 -> 40 [ label = "0→0" ];
+    51 -> 19 [ label = "0→0" ];
+    51 -> 52 [ label = "0→1" ];
+    51 -> 48 [ label = "0→0" ];
+    51 -> 50 [ label = "0→0" ];
+    51 -> 66 [ label = "0→0" ];
+
+    52 [ label = <52: <b>SaveDataModule</b><br/><br/><i>Set Spawned<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;Spawned_Ch_Int_Rm02_Enc0<br align="left"/>    2&quot;)]<br align="left"/>> ];
+    52 [ pos = "0.60800004,0.25100002!" ];
+
+    55 [ label = <55: <b>AccumulatorModule</b><br/><br/>> ];
+    55 [ pos = "1.223,-0.172!" ];
+    55 -> 8 [ label = "0→1" ];
+    55 -> 62 [ label = "0→0" ];
+
+    59 [ label = <59: <b>VisScriptCallModule</b><br/><br/><i>Start_ch_combat_Music<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;ch_VSM_LoopingCombatMusic&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;Start_ch_combat_Music&quot;<br align="left"/>> ];
+    59 [ pos = "1.021,-0.61600006!" ];
+
+    60 [ label = <60: <b>VisScriptCallModule</b><br/><br/><i>kill INT music<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;ch_int_VSM_LoopingIntMusic&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;KillAllMusic&quot;<br align="left"/>> ];
+    60 [ pos = "0.78700006,-0.51900005!" ];
+
+    61 [ label = <61: <b>DelayModule</b><br/><br/>> ];
+    61 [ pos = "0.78900003,-0.61600006!" ];
+    61 -> 59 [ label = "0→0" ];
+
+    62 [ label = <62: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    5<br align="left"/>> ];
+    62 [ pos = "1.473,-0.079!" ];
+    62 -> 64 [ label = "0→0" ];
+
+    64 [ label = <64: <b>VisScriptCallModule</b><br/><br/><i>Start_ch_int_Music<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;ch_int_VSM_LoopingIntMusic&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;Start_ch_int_Music&quot;<br align="left"/>> ];
+    64 [ pos = "1.7,-0.079!" ];
+
+    66 [ label = <66: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;ChInt02_Enc02&quot;<br align="left"/>> ];
+    66 [ pos = "0.61800003,-0.134!" ];
+    66 -> 67 [ label = "0→0" ];
+    66 -> 68 [ style = dashed ];
+
+    67 [ label = <67: <b>SpawnMonsterEventModule</b><br/><br/>> ];
+    67 [ pos = "0.89800006,-0.134!" ];
+    67 -> 55 [ label = "2→0" ];
+    68 -> 67 [ style = dashed ];
+
+    68 [ label = <68: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    68 [ shape = parallelogram ]
+    68 [ pos = "0.656,-0.266!" ];
+
+    title [ pos = "-0.65000004,0.38900003!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>Ch_Int_Rm02<br align="left"/>Combat<br align="left"/><b>Ch_Int_Rm02_Enc02_Script</b><br align="left"/><br/><i>Kill off any udead that fall down...</i><br align="left"/></font>> ];
+}

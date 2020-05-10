@@ -1,0 +1,132 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    11 [ label = <11: <b>base/setdefaultwatcherdialogmodule</b><br/><br/><i>set watcher default = vo_watcher<br align="left"/>_smith_01<br align="left"/></i><br align="left"/><b>Dialog</b><br align="left"/>    &quot;vo_watcher_smith_01&quot;<br align="left"/>> ];
+    11 [ pos = "0.36600003,-0.90200007!" ];
+
+    19 [ label = <19: <b>base/havocformisactivemodule</b><br/><br/>> ];
+    19 [ pos = "0.537,-0.637!" ];
+    19 -> 20 [ label = "0→1" ];
+    19 -> 20 [ label = "1→1" ];
+    19 -> 25 [ label = "1→0" ];
+    19 -> 24 [ label = "1→0" ];
+
+    20 [ label = <20: <b>base/chaoslevellistener</b><br/><br/><i>Start giving tips once you have <br align="left"/>max chaos<br align="left"/></i><br align="left"/>> ];
+    20 [ pos = "-0.05,-0.526!" ];
+    20 -> 21 [ label = "1→0" ];
+
+    21 [ label = <21: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    7<br align="left"/>> ];
+    21 [ pos = "0.35700002,-0.637!" ];
+    21 -> 19 [ label = "0→0" ];
+
+    23 [ label = <23: <b>base/dowatcherdialogmodule</b><br/><br/><i>vo_watcher_smith_01<br align="left"/></i><br align="left"/><b>Dialog</b><br align="left"/>    &quot;vo_watcher_smith_01&quot;<br align="left"/>> ];
+    23 [ pos = "0.504,-1.041!" ];
+
+    24 [ label = <24: <b>base/setnudgewatcherdialogmodule</b><br/><br/><i>vo_watcher_smith2<br align="left"/></i><br align="left"/><b>Dialog</b><br align="left"/>    &quot;vo_watcher_smith2&quot;<br align="left"/>> ];
+    24 [ pos = "0.79300004,-0.66!" ];
+    24 -> 27 [ label = "0→0" ];
+    24 -> 45 [ label = "0→0" ];
+
+    25 [ label = <25: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    20<br align="left"/>> ];
+    25 [ pos = "0.49400002,-0.409!" ];
+    25 -> 19 [ label = "0→0" ];
+
+    26 [ label = <26: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    20<br align="left"/>> ];
+    26 [ pos = "0.068,-1.018!" ];
+    26 -> 46 [ label = "0→0" ];
+
+    27 [ label = <27: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    30<br align="left"/>> ];
+    27 [ pos = "1.062,-0.66!" ];
+    27 -> 28 [ label = "0→0" ];
+
+    28 [ label = <28: <b>base/havocformisactivemodule</b><br/><br/>> ];
+    28 [ pos = "1.23,-0.66!" ];
+    28 -> 30 [ label = "1→0" ];
+
+    29 [ label = <29: <b>base/giveitemmodule</b><br/><br/><b>Item</b><br align="left"/>    &quot;base/tip_useHavoc&quot;<br align="left"/><b>HidePopup</b><br align="left"/>    false<br align="left"/>> ];
+    29 [ pos = "1.7680001,-0.70600003!" ];
+    29 -> 32 [ label = "0→0" ];
+    29 -> 33 [ label = "0→0" ];
+    29 -> 39 [ style = dashed ];
+
+    30 [ label = <30: <b>base/iswatcherdialogrunningmodule</b><br/><br/>> ];
+    30 [ pos = "1.4860001,-0.683!" ];
+    30 -> 29 [ label = "1→0" ];
+    30 -> 31 [ label = "0→0" ];
+
+    31 [ label = <31: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    31 [ pos = "1.5370001,-0.47100002!" ];
+    31 -> 28 [ label = "0→0" ];
+
+    32 [ label = <32: <b>base/gamepadlistener</b><br/><br/><b>Button</b><br align="left"/>    6<br align="left"/>> ];
+    32 [ pos = "2.187,-0.657!" ];
+    32 -> 34 [ label = "0→0" ];
+    32 -> 34 [ label = "1→1" ];
+
+    33 [ label = <33: <b>base/gamepadlistener</b><br/><br/><b>Button</b><br align="left"/>    5<br align="left"/>> ];
+    33 [ pos = "2.1890001,-0.77000004!" ];
+    33 -> 34 [ label = "0→0" ];
+    33 -> 34 [ label = "1→1" ];
+
+    34 [ label = <34: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    2<br align="left"/>> ];
+    34 [ pos = "2.5700002,-0.717!" ];
+    34 -> 32 [ label = "0→1" ];
+    34 -> 33 [ label = "0→1" ];
+    34 -> 36 [ label = "0→0" ];
+
+    35 [ label = <35: <b>base/infohintstopmodule</b><br/><br/>> ];
+    35 [ pos = "2.9880002,-0.717!" ];
+    39 -> 35 [ style = dashed ];
+
+    36 [ label = <36: <b>DelayModule</b><br/><br/>> ];
+    36 [ pos = "2.799,-0.717!" ];
+    36 -> 35 [ label = "0→0" ];
+
+    39 [ label = <39: <b>VisScriptVariableUInt32</b><br/><br/>> ];
+    39 [ shape = parallelogram ]
+    39 [ pos = "1.9360001,-0.78000003!" ];
+
+    40 [ label = <40: <b>ExternalCallModule</b><br/><br/><i>SM_Rm01_VSM_Smith_Start<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;StartSmithFight&quot;<br align="left"/>> ];
+    40 [ shape = oval ]
+    40 [ pos = "-0.358,-0.90000004!" ];
+    40 -> 20 [ label = "0→0" ];
+    40 -> 11 [ label = "0→0" ];
+    40 -> 26 [ label = "0→0" ];
+
+    41 [ label = <41: <b>ExternalCallModule</b><br/><br/><i>SM_Rm01_VSM_Smith_stop<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;StopSmithFight&quot;<br align="left"/>> ];
+    41 [ shape = oval ]
+    41 [ pos = "-0.36,-0.79700005!" ];
+    41 -> 26 [ label = "0→2" ];
+    41 -> 21 [ label = "0→2" ];
+    41 -> 25 [ label = "0→2" ];
+    41 -> 31 [ label = "0→2" ];
+
+    42 [ label = <42: <b>base/clearnudgewatcherdialogmodule</b><br/><br/>> ];
+    42 [ pos = "1.133,-0.294!" ];
+
+    43 [ label = <43: <b>base/havocformisactivemodule</b><br/><br/>> ];
+    43 [ pos = "0.901,-0.294!" ];
+    43 -> 45 [ label = "1→0" ];
+    43 -> 42 [ label = "0→0" ];
+
+    45 [ label = <45: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.5<br align="left"/>> ];
+    45 [ pos = "0.924,-0.42600003!" ];
+    45 -> 43 [ label = "0→0" ];
+
+    46 [ label = <46: <b>base/havocformisactivemodule</b><br/><br/>> ];
+    46 [ pos = "0.252,-1.018!" ];
+    46 -> 23 [ label = "1→0" ];
+
+    title [ pos = "-0.36100003,-0.293!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SM_Rm01<br align="left"/>scripts<br align="left"/><b>SM_Rm01_VSM_Watcher</b><br align="left"/></font>> ];
+}

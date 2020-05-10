@@ -1,0 +1,54 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    7 [ label = <7: <b>SpawnMonsterEventModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;AL_04_Enc11&quot;<br align="left"/><b>DelayTime</b><br align="left"/>    0.5<br align="left"/>> ];
+    7 [ pos = "0.739,-0.358!" ];
+    7 -> 66 [ label = "3→0" ];
+    7 -> 67 [ label = "3→0" ];
+
+    32 [ label = <32: <b>TriggerEventModule</b><br/><br/><i>AL_04_Enc11_TrgReg<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;AL_04_Enc11_TrgReg&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    32 [ shape = oval ]
+    32 [ pos = "-0.293,-0.335!" ];
+    32 -> 57 [ label = "0→0" ];
+
+    57 [ label = <57: <b>SaveDataModule</b><br/><br/><i>Enc11 complete?<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;AL_04&quot;, Fla<br align="left"/>    gName=&quot;AL_04_Enc11_Complete&quot;)]<br align="left"/>> ];
+    57 [ pos = "-0.029000001,-0.335!" ];
+    57 -> 7 [ label = "1→0" ];
+
+    61 [ label = <61: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;AL_04&quot;, Fla<br align="left"/>    gName=&quot;AL_04_Enc11_Complete&quot;)]<br align="left"/>> ];
+    61 [ pos = "1.046,-0.13700001!" ];
+    61 -> 64 [ label = "3→0" ];
+
+    63 [ label = <63: <b>base/autosavemodule</b><br/><br/>> ];
+    63 [ pos = "1.292,-0.18300001!" ];
+
+    64 [ label = <64: <b>VisScriptCallModule</b><br/><br/><i>scriptedHeavyOutro<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scriptedHeavyOutro&quot;<br align="left"/>> ];
+    64 [ pos = "1.292,-0.266!" ];
+
+    65 [ label = <65: <b>TriggerEventModule</b><br/><br/><i>Has war entered AL_04_Enc11_Spaw<br align="left"/>nstop_TrgReg?<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;AL_04_Enc11_Spawnstop_TrgReg&quot;,<br align="left"/>     &quot;&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    65 [ shape = oval ]
+    65 [ pos = "0.32700002,-0.44200003!" ];
+    65 -> 7 [ label = "0→2" ];
+
+    66 [ label = <66: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    4<br align="left"/>> ];
+    66 [ pos = "0.79300004,-0.62!" ];
+    66 -> 7 [ label = "0→0" ];
+
+    67 [ label = <67: <b>AccumulatorModule</b><br/><br/><i>Have 3 waves respawned?<br align="left"/></i><br align="left"/><b>CountTo</b><br align="left"/>    3<br align="left"/>> ];
+    67 [ pos = "0.76600003,-0.16000001!" ];
+    67 -> 7 [ label = "0→2" ];
+    67 -> 61 [ label = "0→1" ];
+
+    title [ pos = "-0.294,-0.136!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>AL_04<br align="left"/>Combat<br align="left"/><b>AL_04_Enc11_Script</b><br align="left"/></font>> ];
+}

@@ -1,0 +1,37 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>StartModule</b><br/><br/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "0.017,-0.105000004!" ];
+    1 -> 5 [ label = "0→0" ];
+
+    2 [ label = <2: <b>DamageActorModule</b><br/><br/><b>DamageAmount</b><br align="left"/>    2<br align="left"/><b>WeaponType</b><br align="left"/>    2<br align="left"/>> ];
+    2 [ pos = "0.68600005,-0.128!" ];
+    3 -> 2 [ style = dashed ];
+
+    3 [ label = <3: <b>VisScriptVariableWorldObjectList</b><br/><br/><b>Value</b><br align="left"/>    [&quot;sk_sw_rm04_wallBreak_01&quot;, &quot;sk_<br align="left"/>    sw_rm04_wallBreak_02&quot;]<br align="left"/>> ];
+    3 [ shape = parallelogram ]
+    3 [ pos = "0.40300003,-0.24700001!" ];
+
+    4 [ label = <4: <b>SaveDataModule</b><br/><br/><i>Check Dead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;AllDead_Sw_Rm04_Enc01&quot;)]<br align="left"/>> ];
+    4 [ pos = "0.40800002,-0.105000004!" ];
+    4 -> 2 [ label = "1→0" ];
+
+    5 [ label = <5: <b>DelayModule</b><br/><br/>> ];
+    5 [ pos = "0.223,-0.105000004!" ];
+    5 -> 4 [ label = "0→0" ];
+
+    title [ pos = "0.016,-0.104!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SW_Rm04<br align="left"/>Combat<br align="left"/><b>SW_Rm04_VSM_PreDamageWallBreaks</b><br align="left"/></font>> ];
+}

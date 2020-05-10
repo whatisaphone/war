@@ -1,0 +1,158 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    3 [ label = <3: <b>SaveDataModule</b><br/><br/><i>Check AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_Sw_Rm08_Enc03&quot;)]<br align="left"/>> ];
+    3 [ pos = "0.87600005,-0.105000004!" ];
+    3 -> 7 [ label = "1→0" ];
+
+    4 [ label = <4: <b>DelayModule</b><br/><br/><i>go Encounter<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    4 [ pos = "0.84700006,0.303!" ];
+    4 -> 29 [ label = "0→0" ];
+
+    7 [ label = <7: <b>SpawnMonsterEventModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;Sw_Rm08_Enc03&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    3<br align="left"/>> ];
+    7 [ pos = "1.1370001,-0.128!" ];
+    7 -> 10 [ label = "2→1" ];
+    7 -> 55 [ label = "0→0" ];
+
+    10 [ label = <10: <b>SaveDataModule</b><br/><br/><i>Set AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_Sw_Rm08_Enc03&quot;)]<br align="left"/>> ];
+    10 [ pos = "1.501,-0.256!" ];
+    10 -> 50 [ label = "3→1" ];
+    10 -> 62 [ label = "3→0" ];
+
+    12 [ label = <12: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;Sw_Rm08_Enc03_TrigReg&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    12 [ shape = oval ]
+    12 [ pos = "0.363,0.326!" ];
+    12 -> 66 [ label = "0→0" ];
+
+    20 [ label = <20: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;Sw_Rm08_Enc03_TrigRegGuardAggr<br align="left"/>    o&quot;, &quot;&quot;]<br align="left"/><b>Enable</b><br align="left"/>    false<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    20 [ shape = oval ]
+    20 [ pos = "0.363,-0.31300002!" ];
+    20 -> 21 [ label = "0→0" ];
+
+    21 [ label = <21: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;Sw_Rm08_Enc03_Guard1&quot;, &quot;Sw_Rm0<br align="left"/>    8_Enc03_Guard2&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;setBehaviorCombat&quot;<br align="left"/>> ];
+    21 [ pos = "0.628,-0.314!" ];
+    21 -> 20 [ label = "0→1" ];
+
+    22 [ label = <22: <b>CinematicModule</b><br/><br/><b>CinematicName</b><br align="left"/>    &quot;Sw_Rm08_Enc03_Cine&quot;<br align="left"/>> ];
+    22 [ pos = "1.2080001,0.303!" ];
+    22 -> 65 [ label = "0→1" ];
+
+    25 [ label = <25: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;Sw_Rm08_Enc03_Ranged2&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;setBehaviorRanged&quot;<br align="left"/>> ];
+    25 [ pos = "1.937,0.053000003!" ];
+    25 -> 57 [ label = "0→0" ];
+    25 -> 59 [ label = "0→0" ];
+
+    28 [ label = <28: <b>ExternalCallModule</b><br/><br/><b>EventName</b><br align="left"/>    &quot;AggroRanged&quot;<br align="left"/>> ];
+    28 [ shape = oval ]
+    28 [ pos = "1.5250001,0.053000003!" ];
+    28 -> 54 [ label = "0→0" ];
+
+    29 [ label = <29: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.6<br align="left"/>> ];
+    29 [ pos = "1.0530001,0.303!" ];
+    29 -> 22 [ label = "0→0" ];
+
+    30 [ label = <30: <b>ExternalCallModule</b><br/><br/><b>EventName</b><br align="left"/>    &quot;SpawnMinions&quot;<br align="left"/>> ];
+    30 [ shape = oval ]
+    30 [ pos = "0.597,-0.105000004!" ];
+    30 -> 3 [ label = "0→0" ];
+
+    31 [ label = <31: <b>ExternalCallModule</b><br/><br/><b>EventName</b><br align="left"/>    &quot;TriggerGreaver&quot;<br align="left"/>> ];
+    31 [ shape = oval ]
+    31 [ pos = "2.226,-0.41200003!" ];
+    31 -> 32 [ label = "0→0" ];
+    31 -> 61 [ label = "0→0" ];
+
+    32 [ label = <32: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SW_Rm08_Greaver_RoofSmash_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;roofSmash&quot;<br align="left"/>> ];
+    32 [ pos = "2.4970002,-0.41200003!" ];
+
+    38 [ label = <38: <b>base/settargetmodule</b><br/><br/><b>Monster</b><br align="left"/>    &quot;Sw_Rm08_Enc03_Ranged1&quot;<br align="left"/><b>Target</b><br align="left"/>    &quot;War&quot;<br align="left"/>> ];
+    38 [ pos = "2.5560002,0.053000003!" ];
+    38 -> 52 [ label = "0→0" ];
+
+    39 [ label = <39: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.25<br align="left"/>> ];
+    39 [ pos = "0.596,0.78800005!" ];
+    39 -> 41 [ label = "0→0" ];
+
+    41 [ label = <41: <b>base/dowatcherdialogmodule</b><br/><br/><b>Dialog</b><br align="left"/>    &quot;vo_watcher_subway_05&quot;<br align="left"/>> ];
+    41 [ pos = "0.74500006,0.78800005!" ];
+    41 -> 42 [ label = "0→0" ];
+
+    42 [ label = <42: <b>base/setdefaultwatcherdialogmodule</b><br/><br/><b>Dialog</b><br align="left"/>    &quot;vo_watcher_subway_01&quot;<br align="left"/>> ];
+    42 [ pos = "1.0200001,0.78800005!" ];
+
+    50 [ label = <50: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;Sw_Rm08_Enc03_KillMusicTrig_01<br align="left"/>    &quot;, &quot;Sw_Rm08_Enc03_KillMusicTrig_<br align="left"/>    02&quot;, &quot;&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    50 [ shape = oval ]
+    50 [ pos = "1.7680001,-0.374!" ];
+    50 -> 62 [ label = "0→0" ];
+
+    51 [ label = <51: <b>VisScriptCallModule</b><br/><br/><i>scripted_HeavyCombat<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scripted_HeavyCombat&quot;<br align="left"/>> ];
+    51 [ pos = "0.84700006,0.46100003!" ];
+
+    52 [ label = <52: <b>base/settargetmodule</b><br/><br/><b>Monster</b><br align="left"/>    &quot;Sw_Rm08_Enc03_Ranged2&quot;<br align="left"/><b>Target</b><br align="left"/>    &quot;War&quot;<br align="left"/>> ];
+    52 [ pos = "2.809,-0.12900001!" ];
+
+    53 [ label = <53: <b>ExternalCallModule</b><br/><br/><b>EventName</b><br align="left"/>    &quot;WatcherDialog&quot;<br align="left"/>> ];
+    53 [ shape = oval ]
+    53 [ pos = "0.35000002,0.78800005!" ];
+    53 -> 39 [ label = "0→0" ];
+
+    54 [ label = <54: <b>DelayModule</b><br/><br/>> ];
+    54 [ pos = "1.7680001,0.053000003!" ];
+    54 -> 25 [ label = "0→0" ];
+
+    55 [ label = <55: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    5<br align="left"/>> ];
+    55 [ pos = "1.769,-0.128!" ];
+    55 -> 52 [ label = "0→0" ];
+
+    56 [ label = <56: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;Sw_Rm08_Enc03_Ranged1&quot;, &quot;Sw_Rm<br align="left"/>    08_Enc03_Gore1&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;setBehaviorCombat&quot;<br align="left"/>> ];
+    56 [ pos = "2.3530002,0.053000003!" ];
+    56 -> 38 [ label = "0→0" ];
+
+    57 [ label = <57: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    4<br align="left"/>> ];
+    57 [ pos = "2.1880002,0.24400002!" ];
+    57 -> 58 [ label = "0→0" ];
+
+    58 [ label = <58: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;Sw_Rm08_Enc03_Ranged2&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;setBehaviorCombat&quot;<br align="left"/>> ];
+    58 [ pos = "2.352,0.24400002!" ];
+
+    59 [ label = <59: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.2<br align="left"/>> ];
+    59 [ pos = "2.1850002,0.053000003!" ];
+    59 -> 56 [ label = "0→0" ];
+
+    61 [ label = <61: <b>VisScriptCallModule</b><br/><br/><i>scriptedHeavyOutro<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scriptedHeavyOutro&quot;<br align="left"/>> ];
+    61 [ pos = "2.519,-0.30200002!" ];
+
+    62 [ label = <62: <b>base/oneshotmodule</b><br/><br/>> ];
+    62 [ pos = "2.127,-0.30200002!" ];
+    62 -> 61 [ label = "0→0" ];
+
+    63 [ label = <63: <b>SaveDataModule</b><br/><br/><i>Set AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_Sw_Rm08_Enc03&quot;)]<br align="left"/>> ];
+    63 [ pos = "1.501,-0.44700003!" ];
+    63 -> 50 [ label = "3→1" ];
+
+    64 [ label = <64: <b>StartModule</b><br/><br/>> ];
+    64 [ shape = oval ]
+    64 [ pos = "1.3230001,-0.44700003!" ];
+    64 -> 63 [ label = "0→0" ];
+
+    65 [ label = <65: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;Sw_Rm08_GreaverAppear&quot;)]<br align="left"/>> ];
+    65 [ pos = "1.4080001,0.505!" ];
+
+    66 [ label = <66: <b>SaveDataModule</b><br/><br/><i>Sw_Rm08_GreaverAppear<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;Sw_Rm08_GreaverAppear&quot;)]<br align="left"/>> ];
+    66 [ pos = "0.60800004,0.326!" ];
+    66 -> 51 [ label = "1→0" ];
+    66 -> 4 [ label = "1→0" ];
+
+    title [ pos = "0.349,0.78900003!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SW_Rm08<br align="left"/>Combat<br align="left"/><b>Sw_Rm08_Enc03_Script</b><br align="left"/></font>> ];
+}

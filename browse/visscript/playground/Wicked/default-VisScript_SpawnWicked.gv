@@ -1,0 +1,39 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>StartModule</b><br/><br/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "0.26500002,-0.115!" ];
+    1 -> 2 [ label = "0→0" ];
+
+    2 [ label = <2: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;Wicked_SpawnGroup&quot;<br align="left"/>> ];
+    2 [ pos = "0.44200003,-0.11400001!" ];
+    2 -> 3 [ label = "0→0" ];
+    2 -> 4 [ style = dashed ];
+
+    3 [ label = <3: <b>SpawnMonsterEventModule</b><br/><br/>> ];
+    3 [ pos = "0.71800005,-0.105000004!" ];
+    3 -> 5 [ label = "2→0" ];
+    4 -> 3 [ style = dashed ];
+
+    4 [ label = <4: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    4 [ shape = parallelogram ]
+    4 [ pos = "0.462,-0.261!" ];
+
+    5 [ label = <5: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.5<br align="left"/>> ];
+    5 [ pos = "0.625,0.069000006!" ];
+    5 -> 2 [ label = "0→0" ];
+
+    title [ pos = "0.264,0.07!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">playground<br align="left"/>Wicked<br align="left"/>default<br align="left"/><b>VisScript_SpawnWicked</b><br align="left"/></font>> ];
+}

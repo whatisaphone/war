@@ -1,0 +1,70 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    100 [ label = <100: <b>ExternalCallModule</b><br/><br/><b>EventName</b><br align="left"/>    &quot;StartEncounter&quot;<br align="left"/>> ];
+    100 [ shape = oval ]
+    100 [ pos = "-0.058000002,0.439!" ];
+    100 -> 124 [ label = "0→0" ];
+
+    124 [ label = <124: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;CI06Sw_Enc01_TrigReg&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>Enable</b><br align="left"/>    false<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    124 [ shape = oval ]
+    124 [ pos = "0.171,0.439!" ];
+    124 -> 155 [ label = "0→0" ];
+
+    136 [ label = <136: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    136 [ shape = parallelogram ]
+    136 [ pos = "0.96900004,0.193!" ];
+
+    137 [ label = <137: <b>SpawnMonsterEventModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;CI06Sw_Enc01&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    -1<br align="left"/><b>IsRandom</b><br align="left"/>    false<br align="left"/><b>DelayTime</b><br align="left"/>    0.8<br align="left"/>> ];
+    137 [ pos = "0.95800006,0.439!" ];
+    137 -> 150 [ label = "0→0" ];
+    137 -> 136 [ style = dashed ];
+
+    149 [ label = <149: <b>base/isinviewmodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;CI06Sw_Enc01_LOSTrig&quot;<br align="left"/><b>AutoTriggerTime</b><br align="left"/>    &quot;6&quot;<br align="left"/>> ];
+    149 [ pos = "0.69500005,0.439!" ];
+    149 -> 137 [ label = "0→0" ];
+
+    150 [ label = <150: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;CI06Sw_Enc01_TrigRegDelete&quot;, &quot;<br align="left"/>    &quot;]<br align="left"/><b>Enable</b><br align="left"/>    false<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    150 [ shape = oval ]
+    150 [ pos = "1.241,0.439!" ];
+    150 -> 152 [ label = "0→2" ];
+    150 -> 151 [ label = "0→0" ];
+    150 -> 156 [ label = "0→1" ];
+    150 -> 153 [ style = dashed ];
+
+    151 [ label = <151: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    2<br align="left"/>> ];
+    151 [ pos = "1.5460001,0.58400005!" ];
+    151 -> 154 [ label = "0→0" ];
+
+    152 [ label = <152: <b>ObjectToggleModule</b><br/><br/>> ];
+    152 [ pos = "1.945,0.41700003!" ];
+    153 -> 152 [ style = dashed ];
+
+    153 [ label = <153: <b>VisScriptVariableWorldObject</b><br/><br/>> ];
+    153 [ shape = parallelogram ]
+    153 [ pos = "1.5450001,0.26900002!" ];
+
+    154 [ label = <154: <b>DelayModule</b><br/><br/>> ];
+    154 [ pos = "1.7590001,0.58400005!" ];
+    154 -> 152 [ label = "0→4" ];
+
+    155 [ label = <155: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;CI06&quot;, Flag<br align="left"/>    Name=&quot;CI06Sw_Enc01_OneTime&quot;)]<br align="left"/>> ];
+    155 [ pos = "0.42700002,0.439!" ];
+    155 -> 149 [ label = "1→0" ];
+
+    156 [ label = <156: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;CI06&quot;, Flag<br align="left"/>    Name=&quot;CI06Sw_Enc01_OneTime&quot;)]<br align="left"/>> ];
+    156 [ pos = "1.9230001,0.22600001!" ];
+
+    title [ pos = "-0.059000004,0.58500004!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>CI_06<br align="left"/>Combat_Swrd<br align="left"/><b>CI06Sw_Enc01_Script</b><br align="left"/><br/><i>spawns near T03</i><br align="left"/></font>> ];
+}

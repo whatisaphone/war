@@ -1,0 +1,45 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>ExternalCallModule</b><br/><br/><i>Begin Round 0<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;onBeginRound&quot;<br align="left"/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "1.0480001,0.119!" ];
+    1 -> 16 [ label = "0→0" ];
+
+    16 [ label = <16: <b>SpawnMonsterEventModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;ot_boss_fallenangel&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    4<br align="left"/><b>DelayTime</b><br align="left"/>    0.25<br align="left"/>> ];
+    16 [ pos = "1.6170001,0.115!" ];
+    16 -> 20 [ label = "2→0" ];
+    16 -> 36 [ label = "1→0" ];
+
+    20 [ label = <20: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    2<br align="left"/>> ];
+    20 [ pos = "2.7250001,0.063!" ];
+    20 -> 34 [ label = "0→0" ];
+    20 -> 32 [ label = "0→0" ];
+
+    32 [ label = <32: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;Straga&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;onCombatDone&quot;<br align="left"/>> ];
+    32 [ pos = "3.1030002,-0.002!" ];
+
+    34 [ label = <34: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;OT_Boss_VSM_BossScript&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;loadEden&quot;<br align="left"/>> ];
+    34 [ pos = "3.0990002,0.086!" ];
+
+    35 [ label = <35: <b>SpawnMonsterEventModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;ot_boss_fallenangel&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    2<br align="left"/><b>DelayTime</b><br align="left"/>    0.25<br align="left"/>> ];
+    35 [ pos = "2.2340002,0.523!" ];
+    35 -> 20 [ label = "2→0" ];
+
+    36 [ label = <36: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    2<br align="left"/>> ];
+    36 [ pos = "1.932,0.41400003!" ];
+    36 -> 35 [ label = "0→0" ];
+
+    title [ pos = "1.047,0.52400005!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>OT_Boss<br align="left"/>Combat2<br align="left"/><b>ot_boss_stragacombat02</b><br align="left"/></font>> ];
+}

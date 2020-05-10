@@ -1,0 +1,105 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    10 [ label = <10: <b>VisScriptVariableWorldObjectList</b><br/><br/><i>pre greaver dead crystals<br align="left"/></i><br align="left"/><b>Value</b><br align="left"/>    [&quot;SW_TNS_00_TremorGrowth_07&quot;, &quot;S<br align="left"/>    W_TNS_00_TremorGrowth_08&quot;, &quot;SW_T<br align="left"/>    NS_00_TremorGrowth_09&quot;, &quot;SW_TNS_<br align="left"/>    00_TremorGrowth_10&quot;]<br align="left"/>> ];
+    10 [ shape = parallelogram ]
+    10 [ pos = "-0.60200006,-1.4360001!" ];
+
+    13 [ label = <13: <b>AttachEventModule</b><br/><br/><b>EventNames</b><br align="left"/>    [&quot;onBreak&quot;]<br align="left"/>> ];
+    13 [ pos = "-0.2,-1.19!" ];
+    13 -> 26 [ label = "0→0" ];
+    10 -> 13 [ style = dashed ];
+
+    14 [ label = <14: <b>StartModule</b><br/><br/><i>Gating Crystals<br align="left"/></i><br align="left"/>> ];
+    14 [ shape = oval ]
+    14 [ pos = "-1.5180001,-0.98800004!" ];
+    14 -> 34 [ label = "0→0" ];
+
+    15 [ label = <15: <b>SaveDataModule</b><br/><br/><i>SW_RM15_GreaverDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;SW_RM15_GreaverDead&quot;)]<br align="left"/>> ];
+    15 [ pos = "-1.0990001,-1.011!" ];
+    15 -> 16 [ label = "1→0" ];
+    15 -> 20 [ label = "0→0" ];
+
+    16 [ label = <16: <b>DelayModule</b><br/><br/><i>Add correct crystals and attach <br align="left"/>event<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    0.1<br align="left"/>> ];
+    16 [ pos = "-0.85700005,-1.133!" ];
+    16 -> 21 [ label = "0→1" ];
+
+    17 [ label = <17: <b>ObjectToggleModule</b><br/><br/><i>remove all crystals<br align="left"/></i><br align="left"/>> ];
+    17 [ pos = "-0.51900005,-0.85300004!" ];
+    17 -> 22 [ label = "0→0" ];
+    19 -> 17 [ style = dashed ];
+
+    18 [ label = <18: <b>StartModule</b><br/><br/><i>Remove Gating Crystals<br align="left"/></i><br align="left"/>> ];
+    18 [ shape = oval ]
+    18 [ pos = "-0.72700006,-1.0090001!" ];
+    18 -> 17 [ label = "0→2" ];
+
+    19 [ label = <19: <b>VisScriptVariableWorldObjectList</b><br/><br/><i>post greaver dead crystals<br align="left"/></i><br align="left"/><b>Value</b><br align="left"/>    [&quot;SW_TNS_00_TremorGrowth_04&quot;, &quot;S<br align="left"/>    W_TNS_00_TremorGrowth_05&quot;, &quot;SW_T<br align="left"/>    NS_00_TremorGrowth_06&quot;, &quot;SW_TNS_<br align="left"/>    00_TremorGrowth_07&quot;, &quot;SW_TNS_00_<br align="left"/>> ];
+    19 [ shape = parallelogram ]
+    19 [ pos = "-0.52400005,-1.0760001!" ];
+
+    20 [ label = <20: <b>DelayModule</b><br/><br/><i>Add correct crystals and attach <br align="left"/>event<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    0.1<br align="left"/>> ];
+    20 [ pos = "-0.85800004,-0.92800003!" ];
+    20 -> 17 [ label = "0→1" ];
+    20 -> 37 [ label = "0→2" ];
+
+    21 [ label = <21: <b>ObjectToggleModule</b><br/><br/><i>remove all crystals<br align="left"/></i><br align="left"/>> ];
+    21 [ pos = "-0.517,-1.19!" ];
+    21 -> 13 [ label = "0→0" ];
+    10 -> 21 [ style = dashed ];
+
+    22 [ label = <22: <b>AttachEventModule</b><br/><br/><b>EventNames</b><br align="left"/>    [&quot;onBreak&quot;]<br align="left"/>> ];
+    22 [ pos = "-0.192,-0.85300004!" ];
+    22 -> 24 [ label = "0→0" ];
+    19 -> 22 [ style = dashed ];
+
+    23 [ label = <23: <b>DamageActorModule</b><br/><br/><b>DamageAmount</b><br align="left"/>    500<br align="left"/><b>WeaponType</b><br align="left"/>    15<br align="left"/><b>ApplyKnockBackUp</b><br align="left"/>    true<br align="left"/><b>DamageLocation</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>KnockBack</b><br align="left"/>    10000<br align="left"/><b>KnockUp</b><br align="left"/>    2500<br align="left"/>> ];
+    23 [ pos = "0.22200002,-0.966!" ];
+    23 -> 33 [ label = "0→1" ];
+    19 -> 23 [ style = dashed ];
+
+    24 [ label = <24: <b>base/oneshotmodule</b><br/><br/>> ];
+    24 [ pos = "0.003,-0.85300004!" ];
+    24 -> 23 [ label = "0→0" ];
+
+    25 [ label = <25: <b>DamageActorModule</b><br/><br/><b>DamageAmount</b><br align="left"/>    500<br align="left"/><b>WeaponType</b><br align="left"/>    15<br align="left"/><b>ApplyKnockBackUp</b><br align="left"/>    true<br align="left"/><b>DamageLocation</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>KnockBack</b><br align="left"/>    10000<br align="left"/><b>KnockUp</b><br align="left"/>    2500<br align="left"/>> ];
+    25 [ pos = "0.22600001,-1.297!" ];
+    10 -> 25 [ style = dashed ];
+
+    26 [ label = <26: <b>base/oneshotmodule</b><br/><br/>> ];
+    26 [ pos = "0.0050000004,-1.19!" ];
+    26 -> 25 [ label = "0→0" ];
+
+    33 [ label = <33: <b>SaveDataModule</b><br/><br/><i>GatingCrystalsGone<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SW_Tns_00&quot;,<br align="left"/>     FlagName=&quot;GatingCrystalsGone&quot;)]<br align="left"/>> ];
+    33 [ pos = "0.43600002,-0.943!" ];
+    33 -> 35 [ label = "3→2" ];
+
+    34 [ label = <34: <b>SaveDataModule</b><br/><br/><i>GatingCrystalsGone<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SW_Tns_00&quot;,<br align="left"/>     FlagName=&quot;GatingCrystalsGone&quot;)]<br align="left"/>> ];
+    34 [ pos = "-1.335,-0.98800004!" ];
+    34 -> 15 [ label = "1→0" ];
+    34 -> 37 [ label = "0→2" ];
+
+    35 [ label = <35: <b>ObjectToggleModule</b><br/><br/><i>remove the blocker<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;SW_Tns_00_GatingCrystalBlocker<br align="left"/>    &quot;, &quot;SW_Tns_00_PreGreaverBlocker_<br align="left"/>    01&quot;, &quot;SW_Tns_00_PreGreaverBlocke<br align="left"/>    r_02&quot;, &quot;SW_Tns_00_PreGreaverBloc<br align="left"/>    ker_03&quot;, &quot;SW_Tns_00_PreGreaverBl<br align="left"/>> ];
+    35 [ pos = "0.66,-0.943!" ];
+
+    36 [ label = <36: <b>VisScriptVariableWorldObjectList</b><br/><br/><i>remove initial blockers<br align="left"/></i><br align="left"/><b>Value</b><br align="left"/>    [&quot;SW_Tns_00_PreGreaverBlocker_01<br align="left"/>    &quot;, &quot;SW_Tns_00_PreGreaverBlocker_<br align="left"/>    02&quot;, &quot;SW_Tns_00_PreGreaverBlocke<br align="left"/>    r_03&quot;, &quot;SW_Tns_00_PreGreaverBloc<br align="left"/>    ker_04&quot;, &quot;SW_Tns_00_GatingCrysta<br align="left"/>> ];
+    36 [ shape = parallelogram ]
+    36 [ pos = "-0.901,-0.657!" ];
+
+    37 [ label = <37: <b>ObjectToggleModule</b><br/><br/><i>remove all crystals<br align="left"/></i><br align="left"/>> ];
+    37 [ pos = "-0.549,-0.57600003!" ];
+    36 -> 37 [ style = dashed ];
+
+    title [ pos = "-1.519,-0.57500005!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SW_Tns_00<br align="left"/>Scripts<br align="left"/><b>SW_TNS_00_VSM_GatingCrystalManager</b><br align="left"/></font>> ];
+}

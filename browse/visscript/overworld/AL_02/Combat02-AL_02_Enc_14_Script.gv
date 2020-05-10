@@ -1,0 +1,52 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>StartModule</b><br/><br/><i>Hax<br align="left"/></i><br align="left"/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "-0.11000001,-0.24800001!" ];
+
+    2 [ label = <2: <b>SpawnMonsterEventModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;AL_02_Enc_14&quot;<br align="left"/>> ];
+    2 [ pos = "0.365,-0.638!" ];
+    2 -> 9 [ label = "0→1" ];
+    2 -> 14 [ style = dashed ];
+
+    5 [ label = <5: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;AL_02_Enc_13_TrigReg_01&quot;, &quot;AL_<br align="left"/>    02_Enc_13_TrigReg_02&quot;, &quot;AL_02_En<br align="left"/>    c_13_TrigReg_03&quot;, &quot;&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    5 [ shape = oval ]
+    5 [ pos = "-0.109000005,-0.41500002!" ];
+    5 -> 2 [ label = "0→0" ];
+    5 -> 15 [ label = "0→0" ];
+
+    9 [ label = <9: <b>DamageEventModule</b><br/><br/>> ];
+    9 [ pos = "0.795,-0.808!" ];
+    9 -> 10 [ label = "0→0" ];
+    14 -> 9 [ style = dashed ];
+
+    10 [ label = <10: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;AL_02_Enc_14_Rider_01&quot;, &quot;AL_02<br align="left"/>    _Enc_14_Rider_02&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;setBehaviorCombat&quot;<br align="left"/>> ];
+    10 [ pos = "1.1010001,-0.80700004!" ];
+
+    14 [ label = <14: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    14 [ shape = parallelogram ]
+    14 [ pos = "0.633,-0.9480001!" ];
+
+    15 [ label = <15: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    15 [ pos = "-0.071,-0.632!" ];
+    15 -> 5 [ label = "0→1" ];
+
+    16 [ label = <16: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;AL_02_Enc_13_TrigReg_04&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    16 [ shape = oval ]
+    16 [ pos = "-0.432,-0.39200002!" ];
+    16 -> 5 [ label = "0→0" ];
+
+    title [ pos = "-0.43300003,-0.24700001!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>AL_02<br align="left"/>Combat02<br align="left"/><b>AL_02_Enc_14_Script</b><br align="left"/></font>> ];
+}

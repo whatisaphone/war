@@ -1,0 +1,118 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    2 [ label = <2: <b>TriggerEventModule</b><br/><br/><i>(Enabled) Ch_Cat_Rm04_Enc01_Trig<br align="left"/>Reg<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;Ch_Cat_Rm04_Enc01_TrigReg&quot;, &quot;C<br align="left"/>    h_Cat_Rm04_Enc01_TrigReg2&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/><b>EventHandler</b><br align="left"/>    VisScriptEventHandler(Position=[<br align="left"/>    223.32132, 56688.98, 0])<br align="left"/>> ];
+    2 [ shape = oval ]
+    2 [ pos = "-0.526,0.032!" ];
+    2 -> 114 [ label = "0→0" ];
+
+    15 [ label = <15: <b>VisScriptCallModule</b><br/><br/><i>Ch_Cat_Rm04_Script_UnlockDoor -&amp;gt;<br align="left"/> AllDead_Ch_Cat_Rm04_Enc01<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;Ch_Cat_Rm04_Script_UnlockDoor&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;AllDead_Ch_Cat_Rm04_Enc01&quot;<br align="left"/>> ];
+    15 [ pos = "2.907,-0.036000002!" ];
+
+    19 [ label = <19: <b>SaveDataModule</b><br/><br/><i>set AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_Ch_Cat_Rm04_Enc0<br align="left"/>    1&quot;)]<br align="left"/>> ];
+    19 [ pos = "2.9110003,-0.20500001!" ];
+
+    21 [ label = <21: <b>AccumulatorModule</b><br/><br/><i>ALL DEAD Counter<br align="left"/></i><br align="left"/>> ];
+    21 [ pos = "2.614,-0.036000002!" ];
+    21 -> 19 [ label = "0→1" ];
+    21 -> 127 [ label = "0→0" ];
+    21 -> 15 [ label = "0→0" ];
+
+    69 [ label = <69: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;Ch_Cat_Rm04_Enc01_Spawn01_mons<br align="left"/>    ter&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;ScriptedEmergeReveal&quot;<br align="left"/>> ];
+    69 [ pos = "1.6830001,0.094000004!" ];
+    69 -> 96 [ label = "0→0" ];
+
+    78 [ label = <78: <b>CinematicModule</b><br/><br/><b>CinematicName</b><br align="left"/>    &quot;Ch_Cat_Rm04_Enc01_Cine01&quot;<br align="left"/>> ];
+    78 [ pos = "0.767,0.19100001!" ];
+    78 -> 128 [ label = "0→0" ];
+
+    79 [ label = <79: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.3<br align="left"/>> ];
+    79 [ pos = "0.76500005,0.028!" ];
+    79 -> 98 [ label = "0→0" ];
+    79 -> 101 [ label = "0→0" ];
+
+    96 [ label = <96: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    5<br align="left"/>> ];
+    96 [ pos = "1.8960001,0.094000004!" ];
+    96 -> 97 [ label = "0→0" ];
+
+    97 [ label = <97: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;Ch_Cat_Rm04_Enc01_Spawn01_mons<br align="left"/>    ter&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;setBehaviorCombat&quot;<br align="left"/>> ];
+    97 [ pos = "2.0930002,0.094000004!" ];
+
+    98 [ label = <98: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;ch_cat_Rm02_to_Rm04_gratedoor&quot;<br align="left"/>    ]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;close&quot;<br align="left"/>> ];
+    98 [ pos = "0.998,-0.194!" ];
+
+    101 [ label = <101: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;ChCat04_Enc01&quot;<br align="left"/>> ];
+    101 [ pos = "0.9990001,0.010000001!" ];
+    101 -> 102 [ label = "0→0" ];
+    101 -> 103 [ style = dashed ];
+
+    102 [ label = <102: <b>SpawnMonsterEventModule</b><br/><br/><b>IsRandom</b><br align="left"/>    false<br align="left"/><b>DelayTime</b><br align="left"/>    0.5<br align="left"/>> ];
+    102 [ pos = "1.271,0.010000001!" ];
+    102 -> 21 [ label = "2→0" ];
+    102 -> 69 [ label = "0→0" ];
+    103 -> 102 [ style = dashed ];
+    102 -> 104 [ style = dashed ];
+
+    103 [ label = <103: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    103 [ shape = parallelogram ]
+    103 [ pos = "1.064,-0.132!" ];
+
+    104 [ label = <104: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    104 [ shape = parallelogram ]
+    104 [ pos = "1.312,-0.22700001!" ];
+
+    114 [ label = <114: <b>SaveDataModule</b><br/><br/><i>Check AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_Ch_Cat_Rm04_Enc0<br align="left"/>    1&quot;)]<br align="left"/>> ];
+    114 [ pos = "-0.25800002,0.032!" ];
+    114 -> 133 [ label = "1→0" ];
+
+    117 [ label = <117: <b>base/storesavedatamodule</b><br/><br/>> ];
+    117 [ pos = "0.514,0.028!" ];
+    117 -> 79 [ label = "0→0" ];
+    117 -> 128 [ label = "0→0" ];
+
+    123 [ label = <123: <b>VisScriptCallModule</b><br/><br/><i>kill_LightCombat<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;kill_LightCombat&quot;<br align="left"/>> ];
+    123 [ pos = "-0.30200002,0.656!" ];
+
+    124 [ label = <124: <b>VisScriptCallModule</b><br/><br/><i>start_LightCombat<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;start_LightCombat&quot;<br align="left"/>> ];
+    124 [ pos = "-0.30100003,0.578!" ];
+
+    125 [ label = <125: <b>VisScriptCallModule</b><br/><br/><i>start_HeavyCombat<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;start_HeavyCombat&quot;<br align="left"/>> ];
+    125 [ pos = "1.171,0.19000001!" ];
+
+    127 [ label = <127: <b>VisScriptCallModule</b><br/><br/><i>scriptedHeavyOutro<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scriptedHeavyOutro&quot;<br align="left"/>> ];
+    127 [ pos = "2.907,-0.11800001!" ];
+
+    128 [ label = <128: <b>VisScriptCallModule</b><br/><br/><i>scripted_HeavyCombat<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scripted_HeavyCombat&quot;<br align="left"/>> ];
+    128 [ pos = "0.98300004,0.19100001!" ];
+
+    131 [ label = <131: <b>VisScriptCallModule</b><br/><br/><i>CrossbladeGrindTutorial Moved to<br align="left"/> cat rm01<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;Global_Tutorial_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;CrossbladeGrindTutorial&quot;<br align="left"/>> ];
+    131 [ pos = "1.6830001,0.16600001!" ];
+
+    132 [ label = <132: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.2<br align="left"/>> ];
+    132 [ pos = "0.363,0.028!" ];
+    132 -> 117 [ label = "0→0" ];
+
+    133 [ label = <133: <b>base/setspawnpointmodule</b><br/><br/><b>World</b><br align="left"/>    &quot;Overworld&quot;<br align="left"/><b>Region</b><br align="left"/>    &quot;Ch_Cat_Rm02&quot;<br align="left"/><b>SpawnPoint</b><br align="left"/>    &quot;ch_cat_Rm04_CombatDeathRespawn&quot;<br align="left"/><b>SpawnLoadRegion</b><br align="left"/>    &quot;StartLoadRegion&quot;<br align="left"/>> ];
+    133 [ pos = "-0.048,0.028!" ];
+    133 -> 134 [ label = "0→0" ];
+
+    134 [ label = <134: <b>base/autosavemodule</b><br/><br/>> ];
+    134 [ pos = "0.163,0.028!" ];
+    134 -> 132 [ label = "0→0" ];
+
+    145 [ label = <145: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;ch_cat_Rm02_to_Rm04_gratedoor&quot;<br align="left"/>    ]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;close&quot;<br align="left"/>> ];
+    145 [ pos = "0.99700004,-0.34500003!" ];
+
+    title [ pos = "-0.527,0.657!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>Ch_Cat_Rm04<br align="left"/>Combat<br align="left"/><b>Ch_Cat_Rm04_Enc01_Script</b><br align="left"/></font>> ];
+}

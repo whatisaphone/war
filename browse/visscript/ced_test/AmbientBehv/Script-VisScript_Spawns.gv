@@ -1,0 +1,48 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>StartModule</b><br/><br/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "0.054,-0.18800001!" ];
+    1 -> 2 [ label = "0→0" ];
+
+    2 [ label = <2: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    2 [ pos = "0.24400002,-0.18800001!" ];
+    2 -> 5 [ label = "0→0" ];
+
+    3 [ label = <3: <b>SpawnMonsterEventModule</b><br/><br/>> ];
+    3 [ pos = "1.005,-0.18800001!" ];
+    4 -> 3 [ style = dashed ];
+    6 -> 3 [ style = dashed ];
+
+    4 [ label = <4: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    4 [ shape = parallelogram ]
+    4 [ pos = "0.416,-0.38500002!" ];
+
+    5 [ label = <5: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;EncGround&quot;<br align="left"/>> ];
+    5 [ pos = "0.411,-0.18800001!" ];
+    5 -> 7 [ label = "0→0" ];
+    5 -> 4 [ style = dashed ];
+
+    6 [ label = <6: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    6 [ shape = parallelogram ]
+    6 [ pos = "0.684,-0.323!" ];
+
+    7 [ label = <7: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;EncAir&quot;<br align="left"/>> ];
+    7 [ pos = "0.679,-0.18800001!" ];
+    7 -> 3 [ label = "0→0" ];
+    7 -> 6 [ style = dashed ];
+
+    title [ pos = "0.053000003,-0.187!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">ced_test<br align="left"/>AmbientBehv<br align="left"/>Script<br align="left"/><b>VisScript_Spawns</b><br align="left"/></font>> ];
+}

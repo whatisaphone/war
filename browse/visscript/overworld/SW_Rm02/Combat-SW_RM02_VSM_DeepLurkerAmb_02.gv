@@ -1,0 +1,40 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>StartModule</b><br/><br/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "0.010000001,-0.010000001!" ];
+    1 -> 5 [ label = "0→0" ];
+
+    2 [ label = <2: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;SW_RM02_DeepLurker_Amb02&quot;<br align="left"/>> ];
+    2 [ pos = "0.42600003,-0.033!" ];
+    2 -> 3 [ label = "0→0" ];
+    2 -> 4 [ style = dashed ];
+
+    3 [ label = <3: <b>SpawnMonsterEventModule</b><br/><br/>> ];
+    3 [ pos = "0.78900003,-0.033!" ];
+    4 -> 3 [ style = dashed ];
+
+    4 [ label = <4: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    4 [ shape = parallelogram ]
+    4 [ pos = "0.55600005,-0.208!" ];
+
+    5 [ label = <5: <b>SaveDataModule</b><br/><br/><i>player received gauntlets<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;GearCheck&quot;,<br align="left"/>     FlagName=&quot;PlayerGotGauntlets&quot;)]<br align="left"/>> ];
+    5 [ pos = "0.194,-0.010000001!" ];
+    5 -> 2 [ label = "1→0" ];
+    5 -> 3 [ label = "0→2" ];
+    5 -> 3 [ label = "0→3" ];
+
+    title [ pos = "0.009000001,-0.009000001!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SW_Rm02<br align="left"/>Combat<br align="left"/><b>SW_RM02_VSM_DeepLurkerAmb_02</b><br align="left"/></font>> ];
+}

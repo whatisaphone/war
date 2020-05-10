@@ -1,0 +1,44 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    10 [ label = <10: <b>SaveDataModule</b><br/><br/><i>Set ALL SPAWN<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;AllSpawn_Sw_Rm10_Enc01&quot;)<br align="left"/>    ]<br align="left"/>> ];
+    10 [ pos = "0.527,-0.164!" ];
+
+    12 [ label = <12: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;Sw_Rm10_Enc01_TrigReg&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    12 [ shape = oval ]
+    12 [ pos = "-0.544,-0.141!" ];
+    12 -> 27 [ label = "0→0" ];
+
+    27 [ label = <27: <b>SaveDataModule</b><br/><br/><i>Puzzle Check<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;SW_Rm10_PuzzleComplete&quot;)<br align="left"/>    ]<br align="left"/>> ];
+    27 [ pos = "-0.296,-0.141!" ];
+    27 -> 57 [ label = "1→0" ];
+
+    28 [ label = <28: <b>SpawnMonsterEventModule</b><br/><br/><i>locusts<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;Sw_Rm10a_Enc01&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    5<br align="left"/><b>IsRandom</b><br align="left"/>    false<br align="left"/>> ];
+    28 [ pos = "0.21700001,-0.187!" ];
+    28 -> 10 [ label = "0→1" ];
+
+    35 [ label = <35: <b>ExternalCallModule</b><br/><br/><i>from SW_Rm10_Puzzle_VSM on compl<br align="left"/>ete<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;Remove_SW10A_Spawns&quot;<br align="left"/>> ];
+    35 [ shape = oval ]
+    35 [ pos = "-0.257,-0.48400003!" ];
+    35 -> 28 [ label = "0→3" ];
+
+    57 [ label = <57: <b>SaveDataModule</b><br/><br/><i>Set ALL SPAWN<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;AllSpawn_Sw_Rm10_Enc01&quot;)<br align="left"/>    ]<br align="left"/>> ];
+    57 [ pos = "-0.091000006,-0.164!" ];
+    57 -> 28 [ label = "1→0" ];
+
+    59 [ label = <59: <b>SpawnMonsterEventModule</b><br/><br/><i>locusts<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;Sw_Rm10a_Enc01&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    5<br align="left"/><b>IsRandom</b><br align="left"/>    false<br align="left"/>> ];
+    59 [ pos = "0.21800001,-0.48400003!" ];
+
+    title [ pos = "-0.545,-0.14!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SW_Rm10a<br align="left"/>Combat<br align="left"/><b>Sw_Rm10_Enc01_Script</b><br align="left"/><br/><i>Minions</i><br align="left"/></font>> ];
+}

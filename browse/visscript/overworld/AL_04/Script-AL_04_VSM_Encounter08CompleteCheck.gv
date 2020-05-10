@@ -1,0 +1,37 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>AnimatorModule</b><br/><br/><i>Put drawbridge down<br align="left"/></i><br align="left"/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;AL_04_Drawbridge&quot;, AnimationI<br align="left"/>    D=6)]<br align="left"/>> ];
+    1 [ pos = "0.48700002,-0.010000001!" ];
+    1 -> 6 [ label = "0→1" ];
+
+    2 [ label = <2: <b>StartModule</b><br/><br/>> ];
+    2 [ shape = oval ]
+    2 [ pos = "0.010000001,-0.12200001!" ];
+    2 -> 3 [ label = "0→0" ];
+
+    3 [ label = <3: <b>SaveDataModule</b><br/><br/><i>Enc08 complete?<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;AL_04&quot;, Fla<br align="left"/>    gName=&quot;AL_04_Enc08_Complete&quot;)]<br align="left"/>> ];
+    3 [ pos = "0.24200001,-0.12200001!" ];
+    3 -> 1 [ label = "0→0" ];
+    3 -> 4 [ label = "1→0" ];
+
+    4 [ label = <4: <b>AnimatorModule</b><br/><br/><i>Put drawbridge up<br align="left"/></i><br align="left"/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;AL_04_Drawbridge&quot;, AnimationI<br align="left"/>    D=0)]<br align="left"/>> ];
+    4 [ pos = "0.48600003,-0.14500001!" ];
+
+    6 [ label = <6: <b>TriggerEventModule</b><br/><br/><i>Guy reaches crank<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;BridgeCrank_TrgReg&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    6 [ shape = oval ]
+    6 [ pos = "0.726,0.013!" ];
+
+    title [ pos = "0.009000001,0.014!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>AL_04<br align="left"/>Script<br align="left"/><b>AL_04_VSM_Encounter08CompleteCheck</b><br align="left"/></font>> ];
+}

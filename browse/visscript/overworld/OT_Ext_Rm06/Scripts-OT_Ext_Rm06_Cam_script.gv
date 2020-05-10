@@ -1,0 +1,41 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    24 [ label = <24: <b>CameraTrackModule</b><br/><br/><b>CharacterPath</b><br align="left"/>    &quot;OT_Ext_Rm06_Cam_Tar_spline&quot;<br align="left"/><b>CameraPath1</b><br align="left"/>    &quot;OT_Ext_Rm06_Cam_Pos_spline&quot;<br align="left"/><b>CameraLook1</b><br align="left"/>    &quot;OT_Ext_Rm06_Cam_Tar_spline&quot;<br align="left"/><b>CameraSpeedModifier</b><br align="left"/>    6<br align="left"/>> ];
+    24 [ pos = "0.998,-0.046000004!" ];
+
+    25 [ label = <25: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm06<br align="left"/>    &quot;, FlagName=&quot;OT_Ext_Rm06_Enc01&quot;)<br align="left"/>    ]<br align="left"/>> ];
+    25 [ pos = "0.49,0.096!" ];
+    25 -> 29 [ label = "1→0" ];
+
+    26 [ label = <26: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm06<br align="left"/>    &quot;, FlagName=&quot;OT_Ext_Rm06_Enc01&quot;)<br align="left"/>    ]<br align="left"/>> ];
+    26 [ pos = "0.492,-0.046000004!" ];
+    26 -> 24 [ label = "1→1" ];
+
+    27 [ label = <27: <b>ExternalCallModule</b><br/><br/><i>camera on<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;camera on&quot;<br align="left"/>> ];
+    27 [ shape = oval ]
+    27 [ pos = "0.21100001,0.096!" ];
+    27 -> 25 [ label = "0→0" ];
+
+    28 [ label = <28: <b>ExternalCallModule</b><br/><br/><i>camera off<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;camera off&quot;<br align="left"/>> ];
+    28 [ shape = oval ]
+    28 [ pos = "0.21300001,-0.046000004!" ];
+    28 -> 26 [ label = "0→0" ];
+
+    29 [ label = <29: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    3<br align="left"/>> ];
+    29 [ pos = "0.71300006,0.07300001!" ];
+    29 -> 24 [ label = "0→0" ];
+
+    title [ pos = "0.21000001,0.097!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>OT_Ext_Rm06<br align="left"/>Scripts<br align="left"/><b>OT_Ext_Rm06_Cam_script</b><br align="left"/></font>> ];
+}

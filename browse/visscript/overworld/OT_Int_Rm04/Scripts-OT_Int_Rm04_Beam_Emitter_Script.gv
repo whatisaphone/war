@@ -1,0 +1,72 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Int_Rm04_Beam_Emitter&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onReceiveBeam&quot;]<br align="left"/>> ];
+    1 [ pos = "0.178,-0.28800002!" ];
+    1 -> 2 [ label = "0→0" ];
+
+    2 [ label = <2: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Int_Rm04<br align="left"/>    &quot;, FlagName=&quot;OT_Int_Rm04_Beam_Em<br align="left"/>    itter&quot;)]<br align="left"/>> ];
+    2 [ pos = "0.42100003,-0.28800002!" ];
+    2 -> 4 [ label = "1→0" ];
+    2 -> 3 [ label = "1→1" ];
+    2 -> 9 [ label = "1→0" ];
+    2 -> 14 [ label = "1→0" ];
+    2 -> 17 [ label = "1→1" ];
+
+    3 [ label = <3: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Int_Rm04<br align="left"/>    &quot;, FlagName=&quot;OT_Int_Rm04_Beam_Em<br align="left"/>    itter&quot;)]<br align="left"/>> ];
+    3 [ pos = "0.70400006,-0.40300003!" ];
+
+    4 [ label = <4: <b>CinematicModule</b><br/><br/><b>CinematicName</b><br align="left"/>    &quot;OT_Int_Rm04_Beam_Emitter_Cine&quot;<br align="left"/>> ];
+    4 [ pos = "0.702,-0.27600002!" ];
+    4 -> 13 [ label = "0→0" ];
+    4 -> 16 [ label = "1→0" ];
+    4 -> 18 [ label = "1→1" ];
+
+    5 [ label = <5: <b>StartModule</b><br/><br/>> ];
+    5 [ shape = oval ]
+    5 [ pos = "-0.028,-0.28800002!" ];
+    5 -> 1 [ label = "0→0" ];
+
+    6 [ label = <6: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;OT_Int_Rm04_Beam_Emitter&quot;<br align="left"/><b>MoveVal</b><br align="left"/>    2<br align="left"/><b>MovementVector</b><br align="left"/>    [0, 0, 155]<br align="left"/><b>RotateObject</b><br align="left"/>    true<br align="left"/><b>EaseOut</b><br align="left"/>    1<br align="left"/>> ];
+    6 [ pos = "0.93900007,0.012!" ];
+    6 -> 8 [ label = "1→0" ];
+
+    8 [ label = <8: <b>ObjectAttacherModule</b><br/><br/><b>ChildObject</b><br align="left"/>    &quot;OT_Int_Rm04_Beam_Emitter&quot;<br align="left"/><b>ParentObject</b><br align="left"/>    &quot;OT_Int_Rm04_ElevPlatform&quot;<br align="left"/><b>ParentNode</b><br align="left"/>    &quot;&quot;<br align="left"/><b>Relative</b><br align="left"/>    true<br align="left"/>> ];
+    8 [ pos = "1.174,-0.011000001!" ];
+
+    9 [ label = <9: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    5<br align="left"/>> ];
+    9 [ pos = "0.721,0.012!" ];
+    9 -> 6 [ label = "0→0" ];
+
+    12 [ label = <12: <b>base/autosavemodule</b><br/><br/>> ];
+    12 [ pos = "1.195,-0.34600002!" ];
+
+    13 [ label = <13: <b>VisScriptCallModule</b><br/><br/><i>play music<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;OT_Beam_Emitter_Music_script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;stinger 4&quot;<br align="left"/>> ];
+    13 [ pos = "0.95800006,-0.27600002!" ];
+
+    14 [ label = <14: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;OT_Int_Rm05_BeamReflector_Scrip<br align="left"/>    t&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;StopReflectors&quot;<br align="left"/>> ];
+    14 [ pos = "0.702,-0.20600002!" ];
+
+    16 [ label = <16: <b>DelayModule</b><br/><br/>> ];
+    16 [ pos = "0.957,-0.34600002!" ];
+    16 -> 12 [ label = "0→0" ];
+
+    17 [ label = <17: <b>SaveDataModule</b><br/><br/><i>In Cinematic<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Int_Rm04<br align="left"/>    &quot;, FlagName=&quot;OT_Int_Rm04_Beam_Em<br align="left"/>    itter_Cin&quot;)]<br align="left"/>> ];
+    17 [ pos = "0.70600003,-0.56600004!" ];
+
+    18 [ label = <18: <b>SaveDataModule</b><br/><br/><i>Out Cinematic<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Int_Rm04<br align="left"/>    &quot;, FlagName=&quot;OT_Int_Rm04_Beam_Em<br align="left"/>    itter_Cin&quot;, FlagValue=&quot;False&quot;)]<br align="left"/>> ];
+    18 [ pos = "0.95800006,-0.56200004!" ];
+
+    title [ pos = "-0.029000001,0.013!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>OT_Int_Rm04<br align="left"/>Scripts<br align="left"/><b>OT_Int_Rm04_Beam_Emitter_Script</b><br align="left"/></font>> ];
+}

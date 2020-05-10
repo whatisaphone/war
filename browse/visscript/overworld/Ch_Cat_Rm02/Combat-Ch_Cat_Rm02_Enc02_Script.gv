@@ -1,0 +1,73 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    3 [ label = <3: <b>StartModule</b><br/><br/>> ];
+    3 [ shape = oval ]
+    3 [ pos = "0.019000001,-0.010000001!" ];
+    3 -> 49 [ label = "0→0" ];
+
+    6 [ label = <6: <b>base/hasitemmodule</b><br/><br/><b>Item</b><br align="left"/>    &quot;items/item_dungeonkey&quot;<br align="left"/>> ];
+    6 [ pos = "0.277,-0.238!" ];
+    6 -> 50 [ label = "0→0" ];
+
+    18 [ label = <18: <b>SaveDataModule</b><br/><br/><i>Set AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_Ch_Cat_Rm02_Enc0<br align="left"/>    2&quot;)]<br align="left"/>> ];
+    18 [ pos = "1.741,-0.22600001!" ];
+
+    19 [ label = <19: <b>AccumulatorModule</b><br/><br/>> ];
+    19 [ pos = "1.5120001,-0.24200001!" ];
+    19 -> 18 [ label = "0→1" ];
+
+    20 [ label = <20: <b>SaveDataModule</b><br/><br/><i>Set Done Previous<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_Ch_Cat_Rm04_Enc0<br align="left"/>    2&quot;)]<br align="left"/>> ];
+    20 [ pos = "0.88100004,-0.05!" ];
+
+    37 [ label = <37: <b>SpawnMonsterEventModule</b><br/><br/>> ];
+    37 [ pos = "1.118,-0.23600002!" ];
+    37 -> 19 [ label = "2→0" ];
+    39 -> 37 [ style = dashed ];
+    37 -> 40 [ style = dashed ];
+
+    38 [ label = <38: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;ChCat02_Enc02&quot;<br align="left"/>> ];
+    38 [ pos = "0.86800003,-0.238!" ];
+    38 -> 37 [ label = "0→0" ];
+    38 -> 39 [ style = dashed ];
+
+    39 [ label = <39: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    39 [ shape = parallelogram ]
+    39 [ pos = "0.89800006,-0.384!" ];
+
+    40 [ label = <40: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    40 [ shape = parallelogram ]
+    40 [ pos = "1.154,-0.43400002!" ];
+
+    47 [ label = <47: <b>ExternalCallModule</b><br/><br/><i>Cat_Doors.DoorCat2To4Opened<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;DoorCat2To4Opened&quot;<br align="left"/>> ];
+    47 [ shape = oval ]
+    47 [ pos = "0.007,-0.215!" ];
+    47 -> 6 [ label = "0→0" ];
+
+    48 [ label = <48: <b>ExternalCallModule</b><br/><br/><i>Cat_Doors.DoorCat2To4Opened<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;DoorCat1To2Opened&quot;<br align="left"/>> ];
+    48 [ shape = oval ]
+    48 [ pos = "0.0050000004,-0.321!" ];
+    48 -> 6 [ label = "0→0" ];
+
+    49 [ label = <49: <b>SaveDataModule</b><br/><br/><i>Set AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_Ch_Cat_Rm02_Enc0<br align="left"/>    2&quot;)]<br align="left"/>> ];
+    49 [ pos = "0.20700002,-0.010000001!" ];
+    49 -> 50 [ label = "1→1" ];
+
+    50 [ label = <50: <b>base/oneshotmodule</b><br/><br/><b>triggered</b><br align="left"/>    true<br align="left"/>> ];
+    50 [ pos = "0.564,-0.238!" ];
+    50 -> 38 [ label = "0→0" ];
+    50 -> 20 [ label = "0→1" ];
+
+    title [ pos = "0.004,-0.009000001!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>Ch_Cat_Rm02<br align="left"/>Combat<br align="left"/><b>Ch_Cat_Rm02_Enc02_Script</b><br align="left"/><br/><i>backtrack</i><br align="left"/></font>> ];
+}

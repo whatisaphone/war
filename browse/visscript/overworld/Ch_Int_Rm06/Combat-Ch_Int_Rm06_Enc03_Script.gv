@@ -1,0 +1,59 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    2 [ label = <2: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;Ch_Int_Rm06_Enc03_TrigReg&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    2 [ shape = oval ]
+    2 [ pos = "-0.08400001,-0.027!" ];
+    2 -> 197 [ label = "0→0" ];
+
+    3 [ label = <3: <b>SaveDataModule</b><br/><br/><i>set AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_Ch_Int_Rm06_Enc0<br align="left"/>    3&quot;)]<br align="left"/>> ];
+    3 [ pos = "1.741,-0.028!" ];
+
+    93 [ label = <93: <b>AccumulatorModule</b><br/><br/>> ];
+    93 [ pos = "1.5150001,-0.028!" ];
+    93 -> 3 [ label = "0→1" ];
+
+    132 [ label = <132: <b>SpawnMonsterEventModule</b><br/><br/>> ];
+    132 [ pos = "1.246,-0.027!" ];
+    132 -> 93 [ label = "2→0" ];
+    134 -> 132 [ style = dashed ];
+
+    133 [ label = <133: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;ChInt06_Enc03&quot;<br align="left"/>> ];
+    133 [ pos = "0.73600006,-0.027!" ];
+    133 -> 198 [ label = "0→0" ];
+    133 -> 134 [ style = dashed ];
+
+    134 [ label = <134: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    134 [ shape = parallelogram ]
+    134 [ pos = "0.73600006,-0.158!" ];
+
+    168 [ label = <168: <b>SaveDataModule</b><br/><br/><i>check AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_Ch_Int_Rm06_Enc0<br align="left"/>    3&quot;)]<br align="left"/>> ];
+    168 [ pos = "0.36400002,-0.027!" ];
+    168 -> 196 [ label = "1→0" ];
+
+    196 [ label = <196: <b>base/oneshotmodule</b><br/><br/>> ];
+    196 [ pos = "0.573,-0.027!" ];
+    196 -> 133 [ label = "0→0" ];
+
+    197 [ label = <197: <b>SaveDataModule</b><br/><br/><i>check previous AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_Ch_Int_Rm06_Enc0<br align="left"/>    2&quot;)]<br align="left"/>> ];
+    197 [ pos = "0.15400001,-0.027!" ];
+    197 -> 168 [ label = "0→0" ];
+
+    198 [ label = <198: <b>base/isinviewmodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;Ch_Int_Rm06_Enc03_Sp_01_AltHome<br align="left"/>    &quot;<br align="left"/><b>AutoTriggerTime</b><br align="left"/>    &quot;2.5&quot;<br align="left"/>> ];
+    198 [ pos = "0.99300003,-0.027!" ];
+    198 -> 132 [ label = "0→0" ];
+    134 -> 198 [ style = dashed ];
+
+    title [ pos = "-0.085,-0.026!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>Ch_Int_Rm06<br align="left"/>Combat<br align="left"/><b>Ch_Int_Rm06_Enc03_Script</b><br align="left"/></font>> ];
+}

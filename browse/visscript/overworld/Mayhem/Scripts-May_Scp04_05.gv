@@ -1,0 +1,68 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;May_Scp05_TrgReg_Fight&quot;, &quot;&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "-0.455,-0.19000001!" ];
+    1 -> 16 [ label = "0→0" ];
+    1 -> 17 [ label = "0→0" ];
+
+    2 [ label = <2: <b>SpawnMonsterEventModule</b><br/><br/><b>IsRandom</b><br align="left"/>    false<br align="left"/><b>DelayTime</b><br align="left"/>    0.1<br align="left"/>> ];
+    2 [ pos = "0.48800004,-0.046000004!" ];
+    2 -> 7 [ label = "2→0" ];
+    13 -> 2 [ style = dashed ];
+
+    5 [ label = <5: <b>SpawnMonsterEventModule</b><br/><br/><b>IsRandom</b><br align="left"/>    false<br align="left"/><b>DelayTime</b><br align="left"/>    0.1<br align="left"/>> ];
+    5 [ pos = "0.535,-0.307!" ];
+    5 -> 6 [ label = "2→0" ];
+    5 -> 17 [ label = "0→2" ];
+    21 -> 5 [ style = dashed ];
+
+    6 [ label = <6: <b>DelayModule</b><br/><br/>> ];
+    6 [ pos = "0.58900005,-0.56700003!" ];
+    6 -> 5 [ label = "0→0" ];
+
+    7 [ label = <7: <b>DelayModule</b><br/><br/>> ];
+    7 [ pos = "0.264,0.120000005!" ];
+    7 -> 12 [ label = "0→0" ];
+
+    12 [ label = <12: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;Minionz&quot;<br align="left"/>> ];
+    12 [ pos = "0.143,-0.1!" ];
+    12 -> 2 [ label = "0→0" ];
+    12 -> 16 [ label = "0→2" ];
+    12 -> 13 [ style = dashed ];
+
+    13 [ label = <13: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    13 [ shape = parallelogram ]
+    13 [ pos = "0.273,-0.24800001!" ];
+
+    16 [ label = <16: <b>base/gatemodule</b><br/><br/>> ];
+    16 [ pos = "-0.178,-0.034!" ];
+    16 -> 12 [ label = "0→0" ];
+
+    17 [ label = <17: <b>base/gatemodule</b><br/><br/>> ];
+    17 [ pos = "0.043,-0.344!" ];
+    17 -> 20 [ label = "0→0" ];
+
+    20 [ label = <20: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;May_Scp05_BruteSpn&quot;<br align="left"/>> ];
+    20 [ pos = "0.187,-0.33800003!" ];
+    20 -> 5 [ label = "0→0" ];
+    20 -> 21 [ style = dashed ];
+
+    21 [ label = <21: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    21 [ shape = parallelogram ]
+    21 [ pos = "0.358,-0.504!" ];
+
+    title [ pos = "-0.45600003,0.12100001!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>Mayhem<br align="left"/>Scripts<br align="left"/><b>May_Scp04_05</b><br align="left"/></font>> ];
+}

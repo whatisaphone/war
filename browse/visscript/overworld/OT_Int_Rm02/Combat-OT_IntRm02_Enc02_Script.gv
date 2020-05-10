@@ -1,0 +1,127 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    2 [ label = <2: <b>base/oneshotmodule</b><br/><br/>> ];
+    2 [ pos = "0.025,-0.21300001!" ];
+    2 -> 3 [ label = "0→0" ];
+
+    3 [ label = <3: <b>SaveDataModule</b><br/><br/><i>AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OblivionTow<br align="left"/>    er&quot;, FlagName=&quot;IntRm02_Enc02_All<br align="left"/>    Dead&quot;)]<br align="left"/>> ];
+    3 [ pos = "0.18,-0.21300001!" ];
+    3 -> 4 [ label = "1→0" ];
+
+    4 [ label = <4: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;OT_IntRm02_Enc02&quot;<br align="left"/>> ];
+    4 [ pos = "0.40100002,-0.21300001!" ];
+    4 -> 21 [ label = "0→0" ];
+    4 -> 23 [ label = "0→0" ];
+    4 -> 6 [ style = dashed ];
+
+    5 [ label = <5: <b>SpawnMonsterEventModule</b><br/><br/>> ];
+    5 [ pos = "1.0680001,-0.21200001!" ];
+    5 -> 10 [ label = "0→0" ];
+    5 -> 27 [ label = "2→0" ];
+    6 -> 5 [ style = dashed ];
+
+    6 [ label = <6: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    6 [ shape = parallelogram ]
+    6 [ pos = "0.40100002,-0.34600002!" ];
+
+    7 [ label = <7: <b>SaveDataModule</b><br/><br/><i>AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OblivionTow<br align="left"/>    er&quot;, FlagName=&quot;IntRm02_Enc02_All<br align="left"/>    Dead&quot;)]<br align="left"/>> ];
+    7 [ pos = "1.7060001,-0.21400002!" ];
+
+    9 [ label = <9: <b>TriggerEventModule</b><br/><br/><i>Disabled Combat<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;OT_IntRm02_Enc02_TrigReg&quot;, &quot;&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    9 [ shape = oval ]
+    9 [ pos = "-0.21700001,-0.21400002!" ];
+
+    10 [ label = <10: <b>base/setwraithteleportarray</b><br/><br/>> ];
+    10 [ pos = "0.896,-0.546!" ];
+    10 -> 17 [ label = "0→0" ];
+    11 -> 10 [ style = dashed ];
+    18 -> 10 [ style = dashed ];
+
+    11 [ label = <11: <b>VisScriptVariableWorldObjectList</b><br/><br/><b>Value</b><br align="left"/>    [&quot;OT_IntRm02_Enc02_Sp01_TelWp_01<br align="left"/>    &quot;, &quot;OT_IntRm02_Enc02_Sp01_TelWp_<br align="left"/>    02&quot;, &quot;OT_IntRm02_Enc02_Sp01_TelW<br align="left"/>    p_03&quot;]<br align="left"/>> ];
+    11 [ shape = parallelogram ]
+    11 [ pos = "0.91700006,-0.652!" ];
+
+    13 [ label = <13: <b>base/forloop</b><br/><br/>> ];
+    13 [ pos = "1.3330001,-0.546!" ];
+    13 -> 16 [ label = "0→0" ];
+    13 -> 22 [ label = "1→0" ];
+    11 -> 13 [ style = dashed ];
+    13 -> 14 [ style = dashed ];
+
+    14 [ label = <14: <b>VisScriptVariableWorldObject</b><br/><br/>> ];
+    14 [ shape = parallelogram ]
+    14 [ pos = "1.335,-0.711!" ];
+
+    15 [ label = <15: <b>DelayModule</b><br/><br/>> ];
+    15 [ pos = "1.774,-0.546!" ];
+    15 -> 20 [ label = "0→0" ];
+
+    16 [ label = <16: <b>base/isinviewmodule</b><br/><br/><b>AutoTriggerTime</b><br align="left"/>    &quot;8&quot;<br align="left"/><b>ValidateWithRayCast</b><br align="left"/>    true<br align="left"/>> ];
+    16 [ pos = "1.5120001,-0.546!" ];
+    16 -> 15 [ label = "0→0" ];
+    16 -> 15 [ label = "1→0" ];
+    18 -> 16 [ style = dashed ];
+
+    17 [ label = <17: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.25<br align="left"/>> ];
+    17 [ pos = "1.166,-0.546!" ];
+    17 -> 13 [ label = "0→0" ];
+
+    18 [ label = <18: <b>VisScriptVariableWorldObjectList</b><br/><br/><b>Value</b><br align="left"/>    [&quot;OT_IntRm02_Enc02_Spawn_01_mons<br align="left"/>    ter&quot;]<br align="left"/>> ];
+    18 [ shape = parallelogram ]
+    18 [ pos = "0.684,-0.596!" ];
+
+    19 [ label = <19: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    19 [ pos = "2.105,-0.50100005!" ];
+    19 -> 13 [ label = "0→1" ];
+
+    20 [ label = <20: <b>InvokeMethodModule</b><br/><br/><b>MethodName</b><br align="left"/>    &quot;TeleportNext&quot;<br align="left"/>> ];
+    20 [ pos = "1.9110001,-0.54700005!" ];
+    20 -> 19 [ label = "0→0" ];
+    18 -> 20 [ style = dashed ];
+
+    21 [ label = <21: <b>base/isinviewmodule</b><br/><br/><b>ValidateWithRayCast</b><br align="left"/>    true<br align="left"/>> ];
+    21 [ pos = "0.703,-0.215!" ];
+    21 -> 5 [ label = "0→0" ];
+    6 -> 21 [ style = dashed ];
+
+    22 [ label = <22: <b>InvokeMethodModule</b><br/><br/><b>MethodName</b><br align="left"/>    &quot;setBehaviorAmbient&quot;<br align="left"/>> ];
+    22 [ pos = "1.1500001,-0.832!" ];
+    18 -> 22 [ style = dashed ];
+
+    23 [ label = <23: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;OT_IntRm02_Enc02_TrigRegW2&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>Enable</b><br align="left"/>    false<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    23 [ shape = oval ]
+    23 [ pos = "0.043,-0.82900006!" ];
+    23 -> 24 [ label = "0→0" ];
+
+    24 [ label = <24: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;OT_IntRm02_Enc02w2&quot;<br align="left"/>> ];
+    24 [ pos = "0.28100002,-0.83000004!" ];
+    24 -> 26 [ label = "0→0" ];
+    24 -> 25 [ style = dashed ];
+
+    25 [ label = <25: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    25 [ shape = parallelogram ]
+    25 [ pos = "0.28100002,-0.96300006!" ];
+
+    26 [ label = <26: <b>SpawnMonsterEventModule</b><br/><br/><b>DelayTime</b><br align="left"/>    1.5<br align="left"/>> ];
+    26 [ pos = "0.54700005,-0.83000004!" ];
+    26 -> 27 [ label = "2→0" ];
+    25 -> 26 [ style = dashed ];
+
+    27 [ label = <27: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    2<br align="left"/>> ];
+    27 [ pos = "1.427,-0.21000001!" ];
+    27 -> 7 [ label = "0→1" ];
+
+    title [ pos = "-0.21800001,-0.209!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>OT_Int_Rm02<br align="left"/>Combat<br align="left"/><b>OT_IntRm02_Enc02_Script</b><br align="left"/></font>> ];
+}

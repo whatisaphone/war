@@ -1,0 +1,188 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>SpawnMonsterEventModule</b><br/><br/>> ];
+    1 [ pos = "0.637,-0.22700001!" ];
+    1 -> 55 [ label = "0→0" ];
+    1 -> 72 [ label = "2→0" ];
+    1 -> 73 [ label = "0→0" ];
+    3 -> 1 [ style = dashed ];
+    1 -> 29 [ style = dashed ];
+
+    2 [ label = <2: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;SM_Rm01_Enc06&quot;<br align="left"/>> ];
+    2 [ pos = "0.38200003,-0.22600001!" ];
+    2 -> 1 [ label = "0→0" ];
+    2 -> 3 [ style = dashed ];
+
+    3 [ label = <3: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    3 [ shape = parallelogram ]
+    3 [ pos = "0.40100002,-0.36100003!" ];
+
+    11 [ label = <11: <b>DelayModule</b><br/><br/><i>go Encounter<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    11 [ pos = "-0.015000001,-0.017!" ];
+    11 -> 40 [ label = "0→0" ];
+
+    12 [ label = <12: <b>SaveDataModule</b><br/><br/><i>Check Spawned<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;Spawned_SM_Rm01_Enc06&quot;)]<br align="left"/>> ];
+    12 [ pos = "-0.39200002,-0.086!" ];
+    12 -> 11 [ label = "1→0" ];
+    12 -> 13 [ label = "1→1" ];
+
+    13 [ label = <13: <b>SaveDataModule</b><br/><br/><i>Set Spawned<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;Spawned_SM_Rm01_Enc06&quot;)]<br align="left"/>> ];
+    13 [ pos = "-0.16900001,-0.19000001!" ];
+
+    15 [ label = <15: <b>base/isinviewmodule</b><br/><br/><b>AutoTriggerTime</b><br align="left"/>    &quot;10&quot;<br align="left"/><b>MaxDistance</b><br align="left"/>    &quot;1400&quot;<br align="left"/><b>ValidateWithRayCast</b><br align="left"/>    true<br align="left"/><b>WidthScaleWS</b><br align="left"/>    &quot;.7500&quot;<br align="left"/><b>WidthScaleNS</b><br align="left"/>    &quot;.88&quot;<br align="left"/>> ];
+    15 [ pos = "-0.657,-0.094000004!" ];
+    15 -> 12 [ label = "0→0" ];
+    15 -> 12 [ label = "1→0" ];
+    16 -> 15 [ style = dashed ];
+
+    16 [ label = <16: <b>VisScriptVariableWorldObjectList</b><br/><br/><b>Value</b><br align="left"/>    [&quot;SM_Rm01_Enc06_TrigLOS&quot;]<br align="left"/>> ];
+    16 [ shape = parallelogram ]
+    16 [ pos = "-0.878,-0.21400002!" ];
+
+    29 [ label = <29: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    29 [ shape = parallelogram ]
+    29 [ pos = "0.64900005,-0.47900003!" ];
+
+    32 [ label = <32: <b>InvokeMethodModule</b><br/><br/><b>MethodName</b><br align="left"/>    &quot;setScriptedShoot&quot;<br align="left"/>> ];
+    32 [ pos = "1.225,-0.18!" ];
+    32 -> 49 [ label = "0→0" ];
+    29 -> 32 [ style = dashed ];
+
+    36 [ label = <36: <b>base/settargetmodule</b><br/><br/><b>Target</b><br align="left"/>    &quot;SM_Rm01_Enc06_TargetDummy1&quot;<br align="left"/>> ];
+    36 [ pos = "0.91800004,0.08400001!" ];
+    36 -> 71 [ label = "0→0" ];
+    29 -> 36 [ style = dashed ];
+
+    40 [ label = <40: <b>SpawnerEventModule</b><br/><br/><i>Target helper<br align="left"/></i><br align="left"/><b>SpawnPoints</b><br align="left"/>    [&quot;SM_Rm01_Enc06_Spawn_TargetDumm<br align="left"/>    y&quot;]<br align="left"/><b>ClassToSpawn</b><br align="left"/>    &quot;smith/smithtargethelper&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    1<br align="left"/><b>NameRoot</b><br align="left"/>    &quot;SM_Rm01_Enc06_TargetDummy&quot;<br align="left"/>> ];
+    40 [ pos = "0.11100001,-0.22700001!" ];
+    40 -> 2 [ label = "0→0" ];
+
+    42 [ label = <42: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;SM_Rm01_Enc06_TrigRegBruteNoGo<br align="left"/>    &quot;, &quot;&quot;]<br align="left"/><b>Enable</b><br align="left"/>    false<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    42 [ shape = oval ]
+    42 [ pos = "-0.23500001,-0.609!" ];
+    42 -> 43 [ label = "0→0" ];
+
+    43 [ label = <43: <b>InvokeMethodModule</b><br/><br/><b>MethodName</b><br align="left"/>    &quot;forceMoveSMRm01Enc06&quot;<br align="left"/>> ];
+    43 [ pos = "0.065000005,-0.643!" ];
+    29 -> 43 [ style = dashed ];
+
+    45 [ label = <45: <b>SoundModule</b><br/><br/><b>SoundDescFile</b><br align="left"/>    &quot;impact_fx/materials&quot;<br align="left"/><b>SoundID</b><br align="left"/>    45166<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;SM_Rm01_WallBreak&quot;<br align="left"/>> ];
+    45 [ pos = "1.598,-0.18100001!" ];
+    45 -> 48 [ label = "0→0" ];
+
+    48 [ label = <48: <b>DamageActorModule</b><br/><br/><b>DamageAmount</b><br align="left"/>    1000<br align="left"/><b>TargetActorNames</b><br align="left"/>    [&quot;SM_Rm01_WallBreak&quot;]<br align="left"/><b>WeaponType</b><br align="left"/>    2<br align="left"/><b>ApplyKnockBackUp</b><br align="left"/>    true<br align="left"/><b>DamageLocation</b><br align="left"/>    &quot;SM_Rm01_Enc06_BreakSource&quot;<br align="left"/><b>KnockBack</b><br align="left"/>    500<br align="left"/><b>KnockUp</b><br align="left"/>    100<br align="left"/>> ];
+    48 [ pos = "1.7860001,-0.18200001!" ];
+    48 -> 51 [ label = "0→0" ];
+
+    49 [ label = <49: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.5<br align="left"/>> ];
+    49 [ pos = "1.427,-0.18300001!" ];
+    49 -> 45 [ label = "0→0" ];
+
+    50 [ label = <50: <b>base/settargetmodule</b><br/><br/><b>Target</b><br align="left"/>    &quot;War&quot;<br align="left"/>> ];
+    50 [ pos = "2.2050002,-0.18!" ];
+    29 -> 50 [ style = dashed ];
+
+    51 [ label = <51: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.2<br align="left"/>> ];
+    51 [ pos = "2.015,-0.15100001!" ];
+    51 -> 50 [ label = "0→0" ];
+
+    52 [ label = <52: <b>ExternalCallModule</b><br/><br/><i>BridgeDown from Path_4?<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;BridgeDown&quot;<br align="left"/>> ];
+    52 [ shape = oval ]
+    52 [ pos = "-1.047,-0.095000006!" ];
+    52 -> 53 [ label = "0→0" ];
+
+    53 [ label = <53: <b>base/oneshotmodule</b><br/><br/>> ];
+    53 [ pos = "-0.81700003,-0.095000006!" ];
+    53 -> 15 [ label = "0→0" ];
+
+    54 [ label = <54: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;SM_Rm01_Enc06_TrigRegBrkWall&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    54 [ shape = oval ]
+    54 [ pos = "0.68100005,0.08400001!" ];
+    54 -> 36 [ label = "0→0" ];
+    54 -> 42 [ label = "0→0" ];
+
+    55 [ label = <55: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;SM_Rm01_Enc06_TrigRegShoot_01&quot;<br align="left"/>    , &quot;SM_Rm01_Enc06_TrigRegShoot_02<br align="left"/>    &quot;, &quot;SM_Rm01_Enc06_TrigRegShoot_0<br align="left"/>    3&quot;, &quot;SM_Rm01_Enc06_TrigRegShoot_<br align="left"/>    04&quot;, &quot;SM_Rm01_Enc06_TrigRegShoot<br align="left"/><b>Enable</b><br align="left"/>    false<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    55 [ shape = oval ]
+    55 [ pos = "0.91800004,-0.60800004!" ];
+    55 -> 59 [ label = "0→0" ];
+
+    56 [ label = <56: <b>base/setsplinecombatmode</b><br/><br/><b>FlyMovestate</b><br align="left"/>    &quot;FlySpline RangedAttack&quot;<br align="left"/>> ];
+    56 [ pos = "1.9250001,-0.60700005!" ];
+    29 -> 56 [ style = dashed ];
+
+    59 [ label = <59: <b>base/settargetmodule</b><br/><br/><b>Target</b><br align="left"/>    &quot;SM_Rm01_Enc06_TargetDummy1&quot;<br align="left"/>> ];
+    59 [ pos = "1.146,-0.60800004!" ];
+    59 -> 60 [ label = "0→0" ];
+    29 -> 59 [ style = dashed ];
+
+    60 [ label = <60: <b>base/intincrement</b><br/><br/>> ];
+    60 [ pos = "1.3740001,-0.60700005!" ];
+    60 -> 62 [ label = "0→0" ];
+    61 -> 60 [ style = dashed ];
+    60 -> 61 [ style = dashed ];
+
+    61 [ label = <61: <b>VisScriptVariableInt</b><br/><br/>> ];
+    61 [ shape = parallelogram ]
+    61 [ pos = "1.4350001,-0.777!" ];
+
+    62 [ label = <62: <b>BranchModule</b><br/><br/><b>Branches</b><br align="left"/>    [1, 2, 3, 4, 5]<br align="left"/>> ];
+    62 [ pos = "1.58,-0.60800004!" ];
+    62 -> 63 [ label = "1→0" ];
+    62 -> 63 [ label = "0→0" ];
+    62 -> 67 [ label = "2→0" ];
+    62 -> 68 [ label = "3→0" ];
+    62 -> 69 [ label = "4→0" ];
+    62 -> 70 [ label = "5→0" ];
+    61 -> 62 [ style = dashed ];
+
+    63 [ label = <63: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;SM_Rm01_Enc06_TargetDummy1&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>MoveVal</b><br align="left"/>    0<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;SM_Rm01_Enc06_WPShoot_01&quot;<br align="left"/>> ];
+    63 [ pos = "1.738,-0.60800004!" ];
+    63 -> 56 [ label = "1→0" ];
+
+    67 [ label = <67: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;SM_Rm01_Enc06_TargetDummy1&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>MoveVal</b><br align="left"/>    0<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;SM_Rm01_Enc06_WPShoot_02&quot;<br align="left"/>> ];
+    67 [ pos = "1.7370001,-0.76000005!" ];
+    67 -> 56 [ label = "1→0" ];
+
+    68 [ label = <68: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;SM_Rm01_Enc06_TargetDummy1&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>MoveVal</b><br align="left"/>    0<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;SM_Rm01_Enc06_WPShoot_03&quot;<br align="left"/>> ];
+    68 [ pos = "1.7370001,-0.91300005!" ];
+    68 -> 56 [ label = "1→0" ];
+
+    69 [ label = <69: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;SM_Rm01_Enc06_TargetDummy1&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>MoveVal</b><br align="left"/>    0<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;SM_Rm01_Enc06_WPShoot_04&quot;<br align="left"/>> ];
+    69 [ pos = "1.7360001,-1.0680001!" ];
+    69 -> 56 [ label = "1→0" ];
+
+    70 [ label = <70: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;SM_Rm01_Enc06_TargetDummy1&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>MoveVal</b><br align="left"/>    0<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;SM_Rm01_Enc06_WPShoot_05&quot;<br align="left"/>> ];
+    70 [ pos = "1.733,-1.222!" ];
+    70 -> 56 [ label = "1→0" ];
+    70 -> 55 [ label = "1→1" ];
+
+    71 [ label = <71: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;SM_Rm01_Enc06_TargetDummy1&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>MoveVal</b><br align="left"/>    0<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;SM_Rm01_Enc06_Spawn_TargetDummy<br align="left"/>    &quot;<br align="left"/>> ];
+    71 [ pos = "1.1450001,0.08400001!" ];
+    71 -> 32 [ label = "1→0" ];
+    71 -> 74 [ label = "0→0" ];
+
+    72 [ label = <72: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SM_Rm01_VSM_Smith_Path_05&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;Enc06_AllDead&quot;<br align="left"/>> ];
+    72 [ pos = "1.0040001,-0.356!" ];
+
+    73 [ label = <73: <b>InvokeMethodModule</b><br/><br/><b>MethodName</b><br align="left"/>    &quot;setInvulnerable&quot;<br align="left"/>> ];
+    73 [ pos = "0.96300006,-0.18800001!" ];
+    29 -> 73 [ style = dashed ];
+
+    74 [ label = <74: <b>InvokeMethodModule</b><br/><br/><b>MethodName</b><br align="left"/>    &quot;setVulnerable&quot;<br align="left"/>> ];
+    74 [ pos = "1.3820001,0.08800001!" ];
+    29 -> 74 [ style = dashed ];
+
+    title [ pos = "-1.0480001,0.089!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SM_Rm01<br align="left"/>Combat<br align="left"/><b>SM_Rm01_Enc06_Script</b><br align="left"/></font>> ];
+}

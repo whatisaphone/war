@@ -1,0 +1,236 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    57 [ label = <57: <b>ObjectMoverModule</b><br/><br/><i>Move elevator UP slowly<br align="left"/></i><br align="left"/><b>ObjectName</b><br align="left"/>    &quot;OT_Int_Rm04_ElevPlatform&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>MoveVal</b><br align="left"/>    75<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;OT_Int_Rm04_WayPnt_Elev02&quot;<br align="left"/><b>EaseIn</b><br align="left"/>    4<br align="left"/><b>EaseOut</b><br align="left"/>    4<br align="left"/>> ];
+    57 [ pos = "0.522,-0.9710001!" ];
+    57 -> 65 [ label = "1→1" ];
+    57 -> 97 [ label = "0→0" ];
+    57 -> 98 [ label = "0→0" ];
+    57 -> 99 [ label = "1→0" ];
+    57 -> 98 [ label = "1→1" ];
+    57 -> 123 [ label = "0→2" ];
+    57 -> 123 [ label = "1→3" ];
+    57 -> 148 [ label = "1→2" ];
+    57 -> 157 [ label = "1→1" ];
+
+    64 [ label = <64: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Int_Rm04_GearCrank&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onTrigger&quot;]<br align="left"/>> ];
+    64 [ pos = "-0.93200004,-1.0760001!" ];
+    64 -> 145 [ label = "0→0" ];
+    64 -> 88 [ label = "0→1" ];
+
+    65 [ label = <65: <b>SwitchModule</b><br/><br/>> ];
+    65 [ pos = "0.25500003,-1.0760001!" ];
+    65 -> 69 [ label = "1→0" ];
+    65 -> 57 [ label = "0→0" ];
+    65 -> 141 [ label = "0→0" ];
+
+    66 [ label = <66: <b>InvokeMethodModule</b><br/><br/><i>Reset gear crank<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Int_Rm04_GearCrank&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;reset&quot;<br align="left"/>> ];
+    66 [ pos = "0.85,-0.85700005!" ];
+
+    67 [ label = <67: <b>StartModule</b><br/><br/>> ];
+    67 [ shape = oval ]
+    67 [ pos = "-1.1500001,-1.075!" ];
+    67 -> 64 [ label = "0→0" ];
+    67 -> 68 [ label = "0→0" ];
+    67 -> 85 [ label = "0→0" ];
+
+    68 [ label = <68: <b>ObjectAttacherModule</b><br/><br/><i>Attach gear to elev platform<br align="left"/></i><br align="left"/><b>ChildObject</b><br align="left"/>    &quot;OT_Int_Rm04_GearCrank&quot;<br align="left"/><b>ParentObject</b><br align="left"/>    &quot;OT_Int_Rm04_ElevPlatform&quot;<br align="left"/><b>ParentNode</b><br align="left"/>    &quot;OT_ElevatorPlatform_Node&quot;<br align="left"/><b>Relative</b><br align="left"/>    true<br align="left"/>> ];
+    68 [ pos = "-0.92700005,-1.251!" ];
+
+    69 [ label = <69: <b>ObjectMoverModule</b><br/><br/><i>Move elevator DOWN fast<br align="left"/></i><br align="left"/><b>ObjectName</b><br align="left"/>    &quot;OT_Int_Rm04_ElevPlatform&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>MoveVal</b><br align="left"/>    20<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;OT_Int_Rm04_WayPnt_Elev01&quot;<br align="left"/><b>EaseIn</b><br align="left"/>    4<br align="left"/><b>EaseOut</b><br align="left"/>    4<br align="left"/>> ];
+    69 [ pos = "0.49400002,-1.3900001!" ];
+    69 -> 66 [ label = "1→0" ];
+    69 -> 65 [ label = "1→3" ];
+    69 -> 100 [ label = "0→0" ];
+    69 -> 101 [ label = "0→0" ];
+    69 -> 101 [ label = "1→1" ];
+    69 -> 102 [ label = "1→0" ];
+    69 -> 70 [ label = "1→1" ];
+    69 -> 123 [ label = "0→2" ];
+    69 -> 123 [ label = "1→3" ];
+    69 -> 147 [ label = "1→2" ];
+    69 -> 152 [ label = "1→0" ];
+
+    70 [ label = <70: <b>SaveDataModule</b><br/><br/><i>Set Elevator Down<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Int_Rm04<br align="left"/>    &quot;, FlagName=&quot;OT_Int_Rm04_Elevato<br align="left"/>    r_Up&quot;, FlagValue=&quot;False&quot;)]<br align="left"/>> ];
+    70 [ pos = "0.94500005,-1.256!" ];
+
+    71 [ label = <71: <b>SaveDataModule</b><br/><br/><i>Set Elevator Up<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Int_Rm04<br align="left"/>    &quot;, FlagName=&quot;OT_Int_Rm04_Elevato<br align="left"/>    r_Up&quot;)]<br align="left"/>> ];
+    71 [ pos = "1.195,-0.35900003!" ];
+    71 -> 135 [ label = "3→0" ];
+
+    73 [ label = <73: <b>SaveDataModule</b><br/><br/><i>Is elevator UP?<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Int_Rm04<br align="left"/>    &quot;, FlagName=&quot;OT_Int_Rm04_Elevato<br align="left"/>    r_Up&quot;)]<br align="left"/>> ];
+    73 [ pos = "-0.335,-0.416!" ];
+    73 -> 131 [ label = "0→0" ];
+    73 -> 160 [ label = "1→0" ];
+
+    74 [ label = <74: <b>StartModule</b><br/><br/>> ];
+    74 [ shape = oval ]
+    74 [ pos = "-0.61600006,-0.416!" ];
+    74 -> 73 [ label = "0→0" ];
+    74 -> 94 [ label = "0→0" ];
+    74 -> 136 [ label = "0→0" ];
+    74 -> 137 [ label = "0→0" ];
+    74 -> 159 [ label = "0→0" ];
+
+    84 [ label = <84: <b>ObjectMoverModule</b><br/><br/><i>Move elevator UP<br align="left"/></i><br align="left"/><b>ObjectName</b><br align="left"/>    &quot;OT_Int_Rm04_ElevPlatform&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;OT_Int_Rm04_WayPnt_Elev02&quot;<br align="left"/>> ];
+    84 [ pos = "0.056,-0.416!" ];
+    84 -> 65 [ label = "1→1" ];
+    84 -> 66 [ label = "1→0" ];
+    84 -> 160 [ label = "1→0" ];
+
+    85 [ label = <85: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Int_Rm04_GearCrank&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;reset&quot;<br align="left"/>> ];
+    85 [ pos = "-0.92600006,-1.345!" ];
+
+    86 [ label = <86: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    86 [ pos = "0.049000002,-1.0760001!" ];
+    86 -> 65 [ label = "0→0" ];
+
+    88 [ label = <88: <b>ObjectToggleModule</b><br/><br/><i>Add movement blocker<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;OT_Int_Rm04_Blocker_01&quot;, &quot;OT_I<br align="left"/>    nt_Rm04_Blocker_02&quot;]<br align="left"/>> ];
+    88 [ pos = "-0.58000004,-1.7880001!" ];
+
+    90 [ label = <90: <b>StartModule</b><br/><br/><i>remove movement blocker on start<br align="left"/></i><br align="left"/>> ];
+    90 [ shape = oval ]
+    90 [ pos = "-0.81700003,-1.8340001!" ];
+    90 -> 88 [ label = "0→2" ];
+
+    94 [ label = <94: <b>ObjectAttacherModule</b><br/><br/><b>ChildObject</b><br align="left"/>    &quot;OT_Int_Rm04_Beam_Emitter&quot;<br align="left"/><b>ParentObject</b><br align="left"/>    &quot;OT_Int_Rm04_ElevPlatform&quot;<br align="left"/><b>ParentNode</b><br align="left"/>    &quot;&quot;<br align="left"/><b>Relative</b><br align="left"/>    true<br align="left"/>> ];
+    94 [ pos = "-0.33600003,-0.10700001!" ];
+
+    97 [ label = <97: <b>SoundModule</b><br/><br/><i>Start<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;ot_com/Tower_Props_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    2<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;OT_Int_Rm04_ElevPlatform&quot;<br align="left"/>> ];
+    97 [ pos = "0.82100004,0.30600002!" ];
+
+    98 [ label = <98: <b>SoundModule</b><br/><br/><i>Loop<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;ot_com/Tower_Props_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    0<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;OT_Int_Rm04_ElevPlatform&quot;<br align="left"/>> ];
+    98 [ pos = "0.82500005,0.15100001!" ];
+
+    99 [ label = <99: <b>SoundModule</b><br/><br/><i>Stop<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;ot_com/Tower_Props_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    1<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;OT_Int_Rm04_ElevPlatform&quot;<br align="left"/>> ];
+    99 [ pos = "0.827,0.002!" ];
+
+    100 [ label = <100: <b>SoundModule</b><br/><br/><i>Start<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;ot_com/Tower_Props_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    2<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;OT_Int_Rm04_ElevPlatform&quot;<br align="left"/>> ];
+    100 [ pos = "0.72700006,-1.582!" ];
+
+    101 [ label = <101: <b>SoundModule</b><br/><br/><i>Loop<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;ot_com/Tower_Props_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    0<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;OT_Int_Rm04_ElevPlatform&quot;<br align="left"/>> ];
+    101 [ pos = "0.72900003,-1.733!" ];
+
+    102 [ label = <102: <b>SoundModule</b><br/><br/><i>Stop<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;ot_com/Tower_Props_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    1<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;OT_Int_Rm04_ElevPlatform&quot;<br align="left"/>> ];
+    102 [ pos = "0.73,-1.8870001!" ];
+
+    121 [ label = <121: <b>base/setspawnpointmodule</b><br/><br/><b>World</b><br align="left"/>    &quot;Overworld&quot;<br align="left"/><b>Region</b><br align="left"/>    &quot;OT_Int_Rm05&quot;<br align="left"/><b>SpawnPoint</b><br align="left"/>    &quot;OT_Int_Rm05_Respawn_01&quot;<br align="left"/><b>SpawnLoadRegion</b><br align="left"/>    &quot;StartLoadRegion&quot;<br align="left"/>> ];
+    121 [ pos = "0.97900003,-0.38200003!" ];
+    121 -> 71 [ label = "0→1" ];
+
+    123 [ label = <123: <b>PlayEffectModule</b><br/><br/><i>Elevator Effect<br align="left"/></i><br align="left"/><b>TargetObjs</b><br align="left"/>    [&quot;OT_Int_Rm04_ElevPlatform&quot;]<br align="left"/><b>Package</b><br align="left"/>    &quot;ot_int_rm04&quot;<br align="left"/><b>Effect</b><br align="left"/>    &quot;OT_Int_Rm04_ElevPlatform_Move&quot;<br align="left"/>> ];
+    123 [ pos = "1.3130001,-0.975!" ];
+
+    125 [ label = <125: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Int_Rm04_Beam_Emitter&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;open&quot;<br align="left"/>> ];
+    125 [ pos = "1.2490001,-1.503!" ];
+
+    126 [ label = <126: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Int_Rm04<br align="left"/>    &quot;, FlagName=&quot;OT_Int_Rm04_Beam_Em<br align="left"/>    itter_Open&quot;)]<br align="left"/>> ];
+    126 [ pos = "0.98300004,-1.4130001!" ];
+    126 -> 125 [ label = "1→0" ];
+    126 -> 127 [ label = "1→1" ];
+
+    127 [ label = <127: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Int_Rm04<br align="left"/>    &quot;, FlagName=&quot;OT_Int_Rm04_Beam_Em<br align="left"/>    itter_Open&quot;)]<br align="left"/>> ];
+    127 [ pos = "1.2470001,-1.353!" ];
+
+    128 [ label = <128: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;OT_Int_Rm04_Beam_Emitter&quot;<br align="left"/><b>MoveVal</b><br align="left"/>    0.1<br align="left"/><b>MovementVector</b><br align="left"/>    [0, 0, 155]<br align="left"/><b>RotateObject</b><br align="left"/>    true<br align="left"/>> ];
+    128 [ pos = "0.36900002,-0.13800001!" ];
+    128 -> 134 [ label = "1→0" ];
+
+    129 [ label = <129: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Int_Rm04<br align="left"/>    &quot;, FlagName=&quot;OT_Int_Rm04_Beam_Em<br align="left"/>    itter&quot;)]<br align="left"/>> ];
+    129 [ pos = "0.143,-0.13800001!" ];
+    129 -> 128 [ label = "0→0" ];
+
+    131 [ label = <131: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.25<br align="left"/>> ];
+    131 [ pos = "-0.109000005,-0.416!" ];
+    131 -> 84 [ label = "0→0" ];
+
+    134 [ label = <134: <b>ObjectAttacherModule</b><br/><br/><b>ChildObject</b><br align="left"/>    &quot;OT_Int_Rm04_Beam_Emitter&quot;<br align="left"/><b>ParentObject</b><br align="left"/>    &quot;OT_Int_Rm04_ElevPlatform&quot;<br align="left"/><b>ParentNode</b><br align="left"/>    &quot;&quot;<br align="left"/><b>Relative</b><br align="left"/>    true<br align="left"/>> ];
+    134 [ pos = "0.505,0.015000001!" ];
+
+    135 [ label = <135: <b>base/autosavemodule</b><br/><br/>> ];
+    135 [ pos = "1.452,-0.40500003!" ];
+
+    136 [ label = <136: <b>ObjectAttacherModule</b><br/><br/><b>ChildObject</b><br align="left"/>    &quot;OT_Int_Rm04_BEMovePiece&quot;<br align="left"/><b>ParentObject</b><br align="left"/>    &quot;OT_Int_Rm04_Beam_Emitter&quot;<br align="left"/><b>ParentNode</b><br align="left"/>    &quot;&quot;<br align="left"/><b>Relative</b><br align="left"/>    true<br align="left"/>> ];
+    136 [ pos = "-0.337,-0.215!" ];
+
+    137 [ label = <137: <b>ObjectAttacherModule</b><br/><br/><b>ChildObject</b><br align="left"/>    &quot;Dummy_Spawn01&quot;<br align="left"/><b>ParentObject</b><br align="left"/>    &quot;OT_Int_Rm04_ElevPlatform&quot;<br align="left"/><b>Relative</b><br align="left"/>    true<br align="left"/>> ];
+    137 [ pos = "-0.33800003,-0.008!" ];
+
+    138 [ label = <138: <b>InvokeMethodModule</b><br/><br/><i>Turn on barriers<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;OT_IntRm04_Enc01_Barrier02&quot;, &quot;<br align="left"/>    OT_IntRm04_Enc01_Barrier01&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOn&quot;<br align="left"/>> ];
+    138 [ pos = "-0.15300001,-0.9250001!" ];
+    138 -> 86 [ label = "0→0" ];
+
+    139 [ label = <139: <b>CinematicModule</b><br/><br/><i>Play barrierup cinematic<br align="left"/></i><br align="left"/><b>CinematicName</b><br align="left"/>    &quot;OT_Int_Rm04_BarrierUpCinematic&quot;<br align="left"/>> ];
+    139 [ pos = "-0.508,-0.9250001!" ];
+    139 -> 158 [ label = "0→0" ];
+
+    141 [ label = <141: <b>SaveDataModule</b><br/><br/><i>Check Encounter Complete<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Int_Rm04<br align="left"/>    &quot;, FlagName=&quot;OT_IntRm04_Enc01_Co<br align="left"/>    mplete&quot;)]<br align="left"/>> ];
+    141 [ pos = "0.254,-0.74300003!" ];
+    141 -> 57 [ label = "1→0" ];
+    141 -> 142 [ label = "0→0" ];
+
+    142 [ label = <142: <b>ObjectMoverModule</b><br/><br/><i>Move elevator UP fast<br align="left"/></i><br align="left"/><b>ObjectName</b><br align="left"/>    &quot;OT_Int_Rm04_ElevPlatform&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>MoveVal</b><br align="left"/>    20<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;OT_Int_Rm04_WayPnt_Elev02&quot;<br align="left"/><b>EaseIn</b><br align="left"/>    4<br align="left"/><b>EaseOut</b><br align="left"/>    4<br align="left"/>> ];
+    142 [ pos = "0.47300002,-0.48900002!" ];
+    142 -> 65 [ label = "1→1" ];
+    142 -> 66 [ label = "1→0" ];
+    142 -> 97 [ label = "0→0" ];
+    142 -> 98 [ label = "0→0" ];
+    142 -> 99 [ label = "1→0" ];
+    142 -> 98 [ label = "1→1" ];
+    142 -> 123 [ label = "0→2" ];
+    142 -> 123 [ label = "1→3" ];
+    142 -> 121 [ label = "1→0" ];
+    142 -> 148 [ label = "1→2" ];
+
+    144 [ label = <144: <b>ExternalCallModule</b><br/><br/><i>save one-time if encounter compl<br align="left"/>ete<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;encounter complete&quot;<br align="left"/>> ];
+    144 [ shape = oval ]
+    144 [ pos = "0.781,-0.588!" ];
+    144 -> 121 [ label = "0→0" ];
+    144 -> 66 [ label = "0→0" ];
+
+    145 [ label = <145: <b>SaveDataModule</b><br/><br/><i>Check Encounter Complete<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Int_Rm04<br align="left"/>    &quot;, FlagName=&quot;OT_IntRm04_Enc01_Co<br align="left"/>    mplete&quot;)]<br align="left"/>> ];
+    145 [ pos = "-0.72200006,-1.0760001!" ];
+    145 -> 139 [ label = "1→0" ];
+    145 -> 86 [ label = "0→0" ];
+
+    147 [ label = <147: <b>ObjectToggleModule</b><br/><br/><i>remove movement blocker<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;OT_Int_Rm04_Blocker_01&quot;, &quot;OT_I<br align="left"/>    nt_Rm04_Blocker_02&quot;]<br align="left"/>> ];
+    147 [ pos = "0.73,-2.045!" ];
+
+    148 [ label = <148: <b>ObjectToggleModule</b><br/><br/><i>remove movement blocker<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;OT_Int_Rm04_Blocker_01&quot;, &quot;OT_I<br align="left"/>    nt_Rm04_Blocker_02&quot;]<br align="left"/>> ];
+    148 [ pos = "1.1780001,-0.69500005!" ];
+
+    152 [ label = <152: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Int_Rm04<br align="left"/>    &quot;, FlagName=&quot;OT_Int_Rm04_Beam_Em<br align="left"/>    itter&quot;)]<br align="left"/>> ];
+    152 [ pos = "0.77300006,-1.4120001!" ];
+    152 -> 126 [ label = "0→0" ];
+
+    153 [ label = <153: <b>VisScriptCallModule</b><br/><br/><i>Call to Drop Barrier<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;OT_Int_Rm04_Enc01_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;DropBarrier&quot;<br align="left"/>> ];
+    153 [ pos = "1.483,-1.215!" ];
+
+    157 [ label = <157: <b>SaveDataModule</b><br/><br/><i>Set Elevator Up<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Int_Rm04<br align="left"/>    &quot;, FlagName=&quot;OT_Int_Rm04_Elevato<br align="left"/>    r_Up&quot;)]<br align="left"/>> ];
+    157 [ pos = "1.2470001,-1.169!" ];
+    157 -> 153 [ label = "3→0" ];
+
+    158 [ label = <158: <b>DelayModule</b><br/><br/>> ];
+    158 [ pos = "-0.316,-0.9250001!" ];
+    158 -> 138 [ label = "0→0" ];
+
+    159 [ label = <159: <b>ObjectAttacherModule</b><br/><br/><b>ChildObject</b><br align="left"/>    &quot;OT_Int_Rm04_Enc_KillReg&quot;<br align="left"/><b>ParentObject</b><br align="left"/>    &quot;OT_Int_Rm04_ElevPlatform&quot;<br align="left"/><b>Relative</b><br align="left"/>    true<br align="left"/>> ];
+    159 [ pos = "-0.33800003,-0.30100003!" ];
+
+    160 [ label = <160: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.25<br align="left"/>> ];
+    160 [ pos = "-0.033,-0.136!" ];
+    160 -> 129 [ label = "0→0" ];
+
+    title [ pos = "-1.151,0.307!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>OT_Int_Rm04<br align="left"/>Scripts<br align="left"/><b>OT_Int_Rm04_VisMod_Elevator</b><br align="left"/></font>> ];
+}

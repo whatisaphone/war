@@ -1,0 +1,41 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>StartModule</b><br/><br/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "0.16100001,-0.27100003!" ];
+    1 -> 2 [ label = "0→0" ];
+
+    2 [ label = <2: <b>SaveDataModule</b><br/><br/><i>persistence check<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;ci_02_04&quot;, <br align="left"/>    FlagName=&quot;path_open&quot;)]<br align="left"/>> ];
+    2 [ pos = "0.379,-0.27100003!" ];
+    2 -> 4 [ label = "1→0" ];
+    2 -> 6 [ label = "0→2" ];
+
+    3 [ label = <3: <b>SaveDataModule</b><br/><br/><i>Set remove crystals TRUE<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;ci_02_04&quot;, <br align="left"/>    FlagName=&quot;path_open&quot;)]<br align="left"/>> ];
+    3 [ pos = "1.0810001,-0.27100003!" ];
+
+    4 [ label = <4: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;CI_02_04_Bomb_Growth_00&quot;, &quot;CI_<br align="left"/>    02_04_Bomb_Growth_01&quot;, &quot;CI_02_04<br align="left"/>    _Bomb_Growth_02&quot;, &quot;CI_02_04_Bomb<br align="left"/>    _Growth_03&quot;, &quot;CI_02_04_Bomb_Grow<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onBreak&quot;]<br align="left"/>> ];
+    4 [ pos = "0.643,-0.294!" ];
+    4 -> 5 [ label = "0→0" ];
+
+    5 [ label = <5: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.1<br align="left"/>> ];
+    5 [ pos = "0.86700004,-0.294!" ];
+    5 -> 3 [ label = "0→1" ];
+    5 -> 6 [ label = "0→2" ];
+
+    6 [ label = <6: <b>ObjectToggleModule</b><br/><br/><b>ObjectList</b><br align="left"/>    [&quot;CI_02_04_Bomb_Growth_00&quot;, &quot;CI_<br align="left"/>    02_04_Bomb_Growth_01&quot;, &quot;CI_02_04<br align="left"/>    _Bomb_Growth_02&quot;, &quot;CI_02_04_Bomb<br align="left"/>    _Growth_03&quot;, &quot;CI_02_04_Bomb_Grow<br align="left"/>> ];
+    6 [ pos = "1.0780001,-0.068!" ];
+
+    title [ pos = "0.16000001,-0.067!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>CI_02<br align="left"/>Scripts<br align="left"/><b>CI_02_04_BombGrowth_Script</b><br align="left"/></font>> ];
+}

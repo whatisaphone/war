@@ -1,0 +1,53 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;AL_Tns_02_Enc03_Trigger&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "0.08800001,-0.11000001!" ];
+    1 -> 3 [ label = "0→0" ];
+
+    3 [ label = <3: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;AL_Tns_02_Enc03&quot;<br align="left"/>> ];
+    3 [ pos = "0.34300002,-0.11000001!" ];
+    3 -> 5 [ label = "0→0" ];
+    3 -> 4 [ style = dashed ];
+
+    4 [ label = <4: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    4 [ shape = parallelogram ]
+    4 [ pos = "0.582,-0.20700002!" ];
+
+    5 [ label = <5: <b>SpawnMonsterEventModule</b><br/><br/>> ];
+    5 [ pos = "0.83300006,-0.11000001!" ];
+    5 -> 19 [ label = "0→0" ];
+    4 -> 5 [ style = dashed ];
+    5 -> 7 [ style = dashed ];
+
+    7 [ label = <7: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    7 [ shape = parallelogram ]
+    7 [ pos = "1.102,-0.27600002!" ];
+
+    9 [ label = <9: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;AL_Tns_02_Enc01&quot;<br align="left"/>> ];
+    9 [ pos = "0.34300002,-0.11000001!" ];
+    9 -> 5 [ label = "0→0" ];
+    9 -> 4 [ style = dashed ];
+
+    19 [ label = <19: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    19 [ pos = "1.3610001,-0.109000005!" ];
+    19 -> 20 [ label = "0→0" ];
+
+    20 [ label = <20: <b>InvokeMethodModule</b><br/><br/><b>MethodName</b><br align="left"/>    &quot;setBehaviorCombat&quot;<br align="left"/>> ];
+    20 [ pos = "1.5990001,-0.14!" ];
+    7 -> 20 [ style = dashed ];
+
+    title [ pos = "0.087000005,-0.108!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>AL_Tns_02<br align="left"/>Combat<br align="left"/><b>AL_Tns_02_Enc03_Script</b><br align="left"/></font>> ];
+}

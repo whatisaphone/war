@@ -1,0 +1,44 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>SpawnMonsterEventModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;AL_01_Enc04&quot;<br align="left"/>> ];
+    1 [ pos = "0.532,-0.25!" ];
+    1 -> 6 [ label = "0→2" ];
+    1 -> 4 [ style = dashed ];
+
+    2 [ label = <2: <b>StartModule</b><br/><br/>> ];
+    2 [ shape = oval ]
+    2 [ pos = "0.010000001,-0.25!" ];
+    2 -> 1 [ label = "0→0" ];
+
+    3 [ label = <3: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;AL_01_Enc04_Trigger_01&quot;, &quot;AL_0<br align="left"/>    1_Enc04_Trigger_02&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    3 [ shape = oval ]
+    3 [ pos = "0.194,-0.33600003!" ];
+
+    4 [ label = <4: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    4 [ shape = parallelogram ]
+    4 [ pos = "0.94200003,-0.416!" ];
+
+    5 [ label = <5: <b>ObjectToggleModule</b><br/><br/>> ];
+    5 [ pos = "1.3080001,-0.20300001!" ];
+    5 -> 3 [ label = "0→2" ];
+    4 -> 5 [ style = dashed ];
+
+    6 [ label = <6: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;AL_01_Enc04_RemoveTrigger_01&quot;,<br align="left"/>     &quot;AL_01_Enc04_RemoveTrigger_02&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    6 [ shape = oval ]
+    6 [ pos = "1.033,-0.010000001!" ];
+    6 -> 5 [ label = "0→2" ];
+
+    title [ pos = "0.009000001,-0.009000001!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>AL_01<br align="left"/>CombatRuin<br align="left"/><b>AL_01_Enc04_Script</b><br align="left"/></font>> ];
+}

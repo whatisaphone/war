@@ -1,0 +1,87 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>SpawnerEventModule</b><br/><br/><i>spawn duskqueen<br align="left"/></i><br align="left"/><b>SpawnPoints</b><br align="left"/>    [&quot;DBQ_Interact2Spawner_Duskbat&quot;]<br align="left"/><b>ClassToSpawn</b><br align="left"/>    &quot;dskqueen_angbeast_interact/dusk<br align="left"/>    queeninteract02&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    1<br align="left"/><b>NameRoot</b><br align="left"/>    &quot;DBQ&quot;<br align="left"/>> ];
+    1 [ pos = "0.381,-0.30100003!" ];
+
+    3 [ label = <3: <b>SpawnerEventModule</b><br/><br/><i>spawn angelic<br align="left"/></i><br align="left"/><b>SpawnPoints</b><br align="left"/>    [&quot;DBQ_Interact2Spawner_Angelic&quot;]<br align="left"/><b>ClassToSpawn</b><br align="left"/>    &quot;dskqueen_angbeast_interact/Ange<br align="left"/>    licBeastInteract02&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    1<br align="left"/><b>NameRoot</b><br align="left"/>    &quot;grif&quot;<br align="left"/>> ];
+    3 [ pos = "0.37800002,-0.082!" ];
+    3 -> 11 [ label = "0→0" ];
+
+    5 [ label = <5: <b>SaveDataModule</b><br/><br/><i>cine played check<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;DBQ_Interact2PlayedCine&quot;<br align="left"/>    )]<br align="left"/>> ];
+    5 [ pos = "-0.25800002,-0.15300001!" ];
+    5 -> 27 [ label = "1→0" ];
+
+    7 [ label = <7: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;DBQ_Interact2Played&quot;)]<br align="left"/>> ];
+    7 [ pos = "0.549,0.13700001!" ];
+    7 -> 28 [ label = "3→0" ];
+
+    11 [ label = <11: <b>SoundModule</b><br/><br/><i>Start Music Stinger<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;base/Music&quot;<br align="left"/><b>SoundID</b><br align="left"/>    87<br align="left"/><b>Music</b><br align="left"/>    true<br align="left"/>> ];
+    11 [ pos = "0.64100003,-0.082!" ];
+
+    12 [ label = <12: <b>StartModule</b><br/><br/>> ];
+    12 [ shape = oval ]
+    12 [ pos = "-0.90400004,-0.15300001!" ];
+    12 -> 21 [ label = "0→0" ];
+
+    13 [ label = <13: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;ch_int_Rm01_to_Rm04_leftdoor&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onInteractive&quot;]<br align="left"/>> ];
+    13 [ pos = "-0.476,-0.15300001!" ];
+    13 -> 5 [ label = "0→0" ];
+
+    14 [ label = <14: <b>CinematicModule</b><br/><br/><b>CinematicName</b><br align="left"/>    &quot;ch_int_Rm04_Cin_DBQvsAngelic01&quot;<br align="left"/>> ];
+    14 [ pos = "0.38200003,-0.512!" ];
+
+    15 [ label = <15: <b>ExternalCallModule</b><br/><br/><b>EventName</b><br align="left"/>    &quot;SnapWar&quot;<br align="left"/>> ];
+    15 [ shape = oval ]
+    15 [ pos = "0.384,-1.041!" ];
+    15 -> 16 [ label = "0→0" ];
+
+    16 [ label = <16: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>MoveVal</b><br align="left"/>    0<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;ch_int_Rm04_SnapWar&quot;<br align="left"/><b>RotateObject</b><br align="left"/>    true<br align="left"/>> ];
+    16 [ pos = "0.628,-1.041!" ];
+
+    18 [ label = <18: <b>VisScriptCallModule</b><br/><br/><i>start COMBAT music<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;ch_VSM_LoopingCombatMusic&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;Start_ch_combat_Music&quot;<br align="left"/>> ];
+    18 [ pos = "0.623,-0.61200005!" ];
+
+    21 [ label = <21: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    5<br align="left"/>> ];
+    21 [ pos = "-0.70100003,-0.15300001!" ];
+    21 -> 13 [ label = "0→0" ];
+
+    22 [ label = <22: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    15<br align="left"/>> ];
+    22 [ pos = "0.381,0.11400001!" ];
+    22 -> 7 [ label = "0→1" ];
+
+    25 [ label = <25: <b>SaveDataModule</b><br/><br/><i>cine played set<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;DBQ_Interact2PlayedCine&quot;<br align="left"/>    )]<br align="left"/>> ];
+    25 [ pos = "0.38200003,-0.638!" ];
+
+    26 [ label = <26: <b>SaveDataModule</b><br/><br/><i>DB_cine1Played<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;DB_cine1Played&quot;)]<br align="left"/>> ];
+    26 [ pos = "0.38200003,-0.794!" ];
+
+    27 [ label = <27: <b>base/storesavedatamodule</b><br/><br/>> ];
+    27 [ pos = "-0.042000003,-0.17600001!" ];
+    27 -> 22 [ label = "0→0" ];
+    27 -> 3 [ label = "0→0" ];
+    27 -> 1 [ label = "0→0" ];
+    27 -> 14 [ label = "0→0" ];
+    27 -> 25 [ label = "0→1" ];
+    27 -> 26 [ label = "0→1" ];
+
+    28 [ label = <28: <b>base/commitsavedatamodule</b><br/><br/>> ];
+    28 [ pos = "0.81100005,0.091000006!" ];
+    28 -> 29 [ label = "0→0" ];
+
+    29 [ label = <29: <b>base/autosavemodule</b><br/><br/>> ];
+    29 [ pos = "1.049,0.091000006!" ];
+
+    title [ pos = "-0.90500003,0.13800001!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>Ch_Int_Rm01<br align="left"/>Scripts<br align="left"/><b>Ch_Int_Rm04_VSM_dbqVSangelic02</b><br align="left"/></font>> ];
+}

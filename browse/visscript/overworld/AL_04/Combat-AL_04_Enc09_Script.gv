@@ -1,0 +1,51 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    7 [ label = <7: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn 3 waves across the drawbri<br align="left"/>dge<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;AL_04_Enc09a&quot;<br align="left"/><b>DelayTime</b><br align="left"/>    0.75<br align="left"/><b>PreferInView</b><br align="left"/>    true<br align="left"/>> ];
+    7 [ pos = "1.195,-0.344!" ];
+    7 -> 67 [ label = "3→0" ];
+    7 -> 69 [ label = "3→0" ];
+
+    32 [ label = <32: <b>TriggerEventModule</b><br/><br/><i>AL_04_Enc09_TrgReg<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;AL_04_Enc09_TrgReg&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    32 [ shape = oval ]
+    32 [ pos = "0.18200001,-0.321!" ];
+    32 -> 57 [ label = "0→0" ];
+
+    57 [ label = <57: <b>SaveDataModule</b><br/><br/><i>Enc09 Complete?<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;AL_04&quot;, Fla<br align="left"/>    gName=&quot;AL_04_Enc09_Complete&quot;)]<br align="left"/>> ];
+    57 [ pos = "0.446,-0.321!" ];
+    57 -> 7 [ label = "1→0" ];
+    57 -> 66 [ label = "1→0" ];
+
+    61 [ label = <61: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;AL_04&quot;, Fla<br align="left"/>    gName=&quot;AL_04_Enc09_Complete&quot;)]<br align="left"/>> ];
+    61 [ pos = "1.5280001,-0.09900001!" ];
+
+    63 [ label = <63: <b>base/autosavemodule</b><br/><br/>> ];
+    63 [ pos = "1.7930001,-0.14500001!" ];
+
+    66 [ label = <66: <b>TriggerEventModule</b><br/><br/><i>Hase war entered AL_04_Enc11_Trg<br align="left"/>Reg?<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;AL_04_Enc11_TrgReg&quot;, &quot;&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    66 [ shape = oval ]
+    66 [ pos = "0.78800005,-0.441!" ];
+    66 -> 7 [ label = "0→2" ];
+
+    67 [ label = <67: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    4<br align="left"/>> ];
+    67 [ pos = "1.243,-0.623!" ];
+    67 -> 7 [ label = "0→0" ];
+
+    69 [ label = <69: <b>AccumulatorModule</b><br/><br/><i>3 wave respawns dead?<br align="left"/></i><br align="left"/><b>CountTo</b><br align="left"/>    3<br align="left"/>> ];
+    69 [ pos = "1.2210001,-0.12200001!" ];
+    69 -> 7 [ label = "0→2" ];
+    69 -> 61 [ label = "0→1" ];
+
+    title [ pos = "0.18100001,-0.098000005!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>AL_04<br align="left"/>Combat<br align="left"/><b>AL_04_Enc09_Script</b><br align="left"/></font>> ];
+}

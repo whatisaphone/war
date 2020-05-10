@@ -1,0 +1,71 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>ExternalCallModule</b><br/><br/><b>EventName</b><br align="left"/>    &quot;SetWatcher&quot;<br align="left"/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "0.142,-0.268!" ];
+    1 -> 2 [ label = "0→0" ];
+
+    2 [ label = <2: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.5<br align="left"/>> ];
+    2 [ pos = "0.404,-0.268!" ];
+    2 -> 3 [ label = "0→0" ];
+    2 -> 12 [ label = "0→0" ];
+
+    3 [ label = <3: <b>base/dowatcherdialogmodule</b><br/><br/><b>Dialog</b><br align="left"/>    &quot;vo_watcher_church_int_01&quot;<br align="left"/>> ];
+    3 [ pos = "0.59800005,-0.268!" ];
+
+    4 [ label = <4: <b>base/setdefaultwatcherdialogmodule</b><br/><br/><b>Dialog</b><br align="left"/>    &quot;vo_watcher_church_int_02&quot;<br align="left"/>> ];
+    4 [ pos = "0.81500006,-0.07700001!" ];
+    4 -> 11 [ label = "0→1" ];
+
+    5 [ label = <5: <b>SaveDataModule</b><br/><br/><i>CH_Bat_BossQueenDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;CH_Bat_BossQueenDead&quot;)]<br align="left"/>> ];
+    5 [ pos = "0.294,-0.031000001!" ];
+    5 -> 10 [ label = "1→0" ];
+    5 -> 15 [ label = "0→0" ];
+
+    6 [ label = <6: <b>StartModule</b><br/><br/>> ];
+    6 [ shape = oval ]
+    6 [ pos = "0.094000004,-0.031000001!" ];
+    6 -> 5 [ label = "0→0" ];
+
+    10 [ label = <10: <b>SaveDataModule</b><br/><br/><i>CH_Ext_WatcherSetOnce<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;CH_Ext_WatcherSetOnce&quot;)]<br align="left"/>> ];
+    10 [ pos = "0.57600003,-0.054!" ];
+    10 -> 4 [ label = "1→0" ];
+
+    11 [ label = <11: <b>SaveDataModule</b><br/><br/><i>CH_Ext_WatcherSetOnce<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;CH_Ext_WatcherSetOnce&quot;)]<br align="left"/>> ];
+    11 [ pos = "1.0910001,-0.054!" ];
+
+    12 [ label = <12: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    6<br align="left"/>> ];
+    12 [ pos = "0.59800005,-0.37600002!" ];
+    12 -> 13 [ label = "0→0" ];
+
+    13 [ label = <13: <b>base/autosavemodule</b><br/><br/>> ];
+    13 [ pos = "0.75900006,-0.37600002!" ];
+
+    14 [ label = <14: <b>base/imagedialogmodule</b><br/><br/><i>For E3 only<br align="left"/></i><br align="left"/><b>Title</b><br align="left"/>    &quot;$WrathPowersTutorial.Title&quot;<br align="left"/><b>Details</b><br align="left"/>    &quot;$WrathPowersTutorial.Descriptio<br align="left"/>    n&quot;<br align="left"/><b>Icon</b><br align="left"/>    23<br align="left"/>> ];
+    14 [ pos = "1.0580001,-0.39000002!" ];
+
+    15 [ label = <15: <b>SaveDataModule</b><br/><br/><i>BatQueenDeadQuestUpdated<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;BatQueenDeadQuestUpdated<br align="left"/>    &quot;)]<br align="left"/>> ];
+    15 [ pos = "0.577,0.108!" ];
+    15 -> 16 [ label = "1→1" ];
+
+    16 [ label = <16: <b>SaveDataModule</b><br/><br/><i>BatQueenDeadQuestUpdated<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;BatQueenDeadQuestUpdated<br align="left"/>    &quot;)]<br align="left"/>> ];
+    16 [ pos = "0.79300004,0.108!" ];
+    16 -> 18 [ label = "3→0" ];
+
+    18 [ label = <18: <b>VisScriptCallModule</b><br/><br/><i>tiamat dead set new objective.<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;VSM_Game_Questline&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;task_heart_quest_obj_1&quot;<br align="left"/>> ];
+    18 [ pos = "1.0070001,0.062000003!" ];
+
+    title [ pos = "0.093,0.109000005!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>Ch_Ext<br align="left"/>Script<br align="left"/><b>Ch_Ext_VSM_SetWatcherDialogue</b><br align="left"/></font>> ];
+}

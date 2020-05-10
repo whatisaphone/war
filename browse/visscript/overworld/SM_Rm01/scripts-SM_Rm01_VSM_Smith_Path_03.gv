@@ -1,0 +1,85 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    100 [ label = <100: <b>TriggerEventModule</b><br/><br/><i>Smith walks through Door #2<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;SM_Rm01_SmithTalks_03&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>Enable</b><br align="left"/>    false<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    100 [ shape = oval ]
+    100 [ pos = "1.388,-1.2950001!" ];
+    100 -> 163 [ label = "0→0" ];
+
+    149 [ label = <149: <b>VisScriptCallModule</b><br/><br/><i>attaches and enables events in s<br align="left"/>cript 04<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SM_Rm01_VSM_Smith_Path_04&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;startScript04&quot;<br align="left"/>> ];
+    149 [ pos = "1.9470001,-1.2950001!" ];
+
+    150 [ label = <150: <b>base/setinitialwaypoint</b><br/><br/><i>move Smith up to Door #2<br align="left"/></i><br align="left"/><b>MonsterName</b><br align="left"/>    &quot;Smith1&quot;<br align="left"/><b>Waypoint</b><br align="left"/>    &quot;SM_Rm01_SmithPoint_10&quot;<br align="left"/>> ];
+    150 [ pos = "0.517,-1.291!" ];
+    150 -> 151 [ label = "0→0" ];
+    150 -> 168 [ label = "0→0" ];
+
+    151 [ label = <151: <b>InvokeMethodModule</b><br/><br/><i>let smith fight on this stretch<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;Smith1&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;setFollowWithCombat&quot;<br align="left"/>> ];
+    151 [ pos = "0.813,-1.291!" ];
+
+    160 [ label = <160: <b>ExternalCallModule</b><br/><br/><i>path_03_Door_Open from Start scr<br align="left"/>opt<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;path_03_Door_Open&quot;<br align="left"/>> ];
+    160 [ shape = oval ]
+    160 [ pos = "1.1040001,-1.2950001!" ];
+    160 -> 100 [ label = "0→0" ];
+
+    163 [ label = <163: <b>base/setinitialwaypoint</b><br/><br/><i>move smith to waypoint at the bu<br align="left"/>ilding<br align="left"/></i><br align="left"/><b>MonsterName</b><br align="left"/>    &quot;Smith1&quot;<br align="left"/><b>Waypoint</b><br align="left"/>    &quot;SM_Rm01_SmithPoint_14b&quot;<br align="left"/>> ];
+    163 [ pos = "1.6530001,-1.2950001!" ];
+    163 -> 149 [ label = "0→0" ];
+
+    165 [ label = <165: <b>ExternalCallModule</b><br/><br/><i>Enc02AllDead (from Combat, Enc02<br align="left"/>)<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;Enc02AllDead&quot;<br align="left"/>> ];
+    165 [ shape = oval ]
+    165 [ pos = "-0.26700002,-1.3950001!" ];
+    165 -> 171 [ label = "0→0" ];
+
+    167 [ label = <167: <b>SoundModule</b><br/><br/><b>SoundDescFile</b><br align="left"/>    &quot;smith/Smith_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    50120<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;Smith1&quot;<br align="left"/>> ];
+    167 [ pos = "0.98700005,-1.0250001!" ];
+
+    168 [ label = <168: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.5<br align="left"/>> ];
+    168 [ pos = "0.804,-1.0250001!" ];
+    168 -> 167 [ label = "0→0" ];
+
+    169 [ label = <169: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;SM_Rm01_SmithBreakCrystal_09&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onBreak&quot;]<br align="left"/>> ];
+    169 [ pos = "-0.22700001,-1.2270001!" ];
+    169 -> 171 [ label = "0→2" ];
+    169 -> 172 [ label = "0→0" ];
+
+    170 [ label = <170: <b>StartModule</b><br/><br/>> ];
+    170 [ shape = oval ]
+    170 [ pos = "-0.42700002,-1.2270001!" ];
+    170 -> 169 [ label = "0→0" ];
+
+    171 [ label = <171: <b>base/gatemodule</b><br/><br/>> ];
+    171 [ pos = "-0.030000001,-1.182!" ];
+    171 -> 173 [ label = "1→0" ];
+    171 -> 174 [ label = "0→0" ];
+
+    172 [ label = <172: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;SM_Rm01_SmithBreakCrystal_11&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onBreak&quot;]<br align="left"/>> ];
+    172 [ pos = "0.001,-1.314!" ];
+    172 -> 173 [ label = "0→2" ];
+
+    173 [ label = <173: <b>base/gatemodule</b><br/><br/>> ];
+    173 [ pos = "0.20500001,-1.268!" ];
+    173 -> 150 [ label = "1→0" ];
+    173 -> 175 [ label = "0→0" ];
+
+    174 [ label = <174: <b>base/setinitialwaypoint</b><br/><br/><i>move Smith up to crystal 1<br align="left"/></i><br align="left"/><b>MonsterName</b><br align="left"/>    &quot;Smith1&quot;<br align="left"/><b>Waypoint</b><br align="left"/>    &quot;SM_Rm01_SmithPoint_06&quot;<br align="left"/>> ];
+    174 [ pos = "0.36900002,-1.12!" ];
+    174 -> 151 [ label = "0→0" ];
+
+    175 [ label = <175: <b>base/setinitialwaypoint</b><br/><br/><i>move Smith up to crystal 2<br align="left"/></i><br align="left"/><b>MonsterName</b><br align="left"/>    &quot;Smith1&quot;<br align="left"/><b>Waypoint</b><br align="left"/>    &quot;SM_Rm01_SmithPoint_07&quot;<br align="left"/>> ];
+    175 [ pos = "0.388,-1.207!" ];
+    175 -> 151 [ label = "0→0" ];
+
+    title [ pos = "-0.42800003,-1.024!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SM_Rm01<br align="left"/>scripts<br align="left"/><b>SM_Rm01_VSM_Smith_Path_03</b><br align="left"/><br/><i>Cross the Bridge, and open Door 2</i><br align="left"/></font>> ];
+}

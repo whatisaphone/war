@@ -1,0 +1,44 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>StartModule</b><br/><br/><i>Hax<br align="left"/></i><br align="left"/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "0.135,-0.192!" ];
+
+    2 [ label = <2: <b>SpawnMonsterEventModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;AL_Tnl_01_Enc20&quot;<br align="left"/>> ];
+    2 [ pos = "0.50200003,-0.33200002!" ];
+    2 -> 5 [ label = "1→0" ];
+
+    3 [ label = <3: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;AL_Tnl_01_Enc20_TrigReg&quot;, &quot;&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    3 [ shape = oval ]
+    3 [ pos = "0.096,-0.33200002!" ];
+    3 -> 2 [ label = "0→0" ];
+
+    4 [ label = <4: <b>SpawnMonsterEventModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;AL_Tnl_01_Enc20&quot;<br align="left"/>> ];
+    4 [ pos = "1.3820001,-0.33400002!" ];
+    4 -> 7 [ label = "3→1" ];
+
+    5 [ label = <5: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    3<br align="left"/>> ];
+    5 [ pos = "0.88500005,-0.335!" ];
+    5 -> 6 [ label = "0→0" ];
+
+    6 [ label = <6: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Ashlands&quot;, <br align="left"/>    FlagName=&quot;AL_Tnl_01_Enc20&quot;)]<br align="left"/>> ];
+    6 [ pos = "1.144,-0.33200002!" ];
+    6 -> 4 [ label = "1→0" ];
+
+    7 [ label = <7: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Ashlands&quot;, <br align="left"/>    FlagName=&quot;AL_Tnl_01_Enc20&quot;)]<br align="left"/>> ];
+    7 [ pos = "1.6600001,-0.335!" ];
+
+    title [ pos = "0.095000006,-0.19100001!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>AL_Tnl_01<br align="left"/>Combat02<br align="left"/><b>VisScriptModuleSystem</b><br align="left"/></font>> ];
+}

@@ -1,0 +1,138 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>TriggerEventModule</b><br/><br/><i>Trigger to start encounter<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;SW_RM03_Enc06_TrigReg_01&quot;, &quot;&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "-0.224,-0.24000001!" ];
+    1 -> 45 [ label = "0→0" ];
+
+    2 [ label = <2: <b>SpawnMonsterEventModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;SW_RM03_Enc07A&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    1<br align="left"/><b>IsRandom</b><br align="left"/>    false<br align="left"/>> ];
+    2 [ pos = "0.754,-0.263!" ];
+    2 -> 28 [ label = "3→0" ];
+    2 -> 36 [ label = "0→0" ];
+
+    5 [ label = <5: <b>CinematicModule</b><br/><br/><i>Cinema of minions<br align="left"/></i><br align="left"/><b>CinematicName</b><br align="left"/>    &quot;SW_RM03_Enc06_Cine_01&quot;<br align="left"/>> ];
+    5 [ pos = "0.86500007,-0.578!" ];
+    5 -> 47 [ label = "0→0" ];
+
+    6 [ label = <6: <b>DelayModule</b><br/><br/><i>Cinema of Minions<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    6 [ pos = "0.68,-0.578!" ];
+    6 -> 5 [ label = "0→0" ];
+    6 -> 11 [ label = "0→0" ];
+
+    7 [ label = <7: <b>DelayModule</b><br/><br/><i>Time total - Time First delay<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    4<br align="left"/>> ];
+    7 [ pos = "1.8140001,-0.94400007!" ];
+    7 -> 8 [ label = "0→0" ];
+
+    8 [ label = <8: <b>InvokeMethodModule</b><br/><br/><i>turns behavior to combat<br align="left"/></i><br align="left"/><b>MethodName</b><br align="left"/>    &quot;setBehaviorCombat&quot;<br align="left"/>> ];
+    8 [ pos = "2.002,-0.94400007!" ];
+
+    11 [ label = <11: <b>DelayModule</b><br/><br/><i>Barriers go up<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    3.7<br align="left"/>> ];
+    11 [ pos = "0.873,-0.758!" ];
+    11 -> 12 [ label = "0→0" ];
+
+    12 [ label = <12: <b>InvokeMethodModule</b><br/><br/><i>In view barrier up<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;SW_Rm03_CombatBarrier_Front&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOn&quot;<br align="left"/>> ];
+    12 [ pos = "1.052,-0.758!" ];
+    12 -> 14 [ label = "0→0" ];
+
+    13 [ label = <13: <b>InvokeMethodModule</b><br/><br/><i>barrier behind war goes up<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;SW_Rm03_CombatBarrier_Back&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOn&quot;<br align="left"/>> ];
+    13 [ pos = "1.4460001,-0.79300004!" ];
+
+    14 [ label = <14: <b>DelayModule</b><br/><br/><i>delay between barriers for cinem<br align="left"/>a to catch up<br align="left"/></i><br align="left"/>> ];
+    14 [ pos = "1.2540001,-0.758!" ];
+    14 -> 13 [ label = "0→0" ];
+
+    15 [ label = <15: <b>InvokeMethodModule</b><br/><br/><i>front barrier off<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;SW_Rm03_CombatBarrier_Front&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOff&quot;<br align="left"/>> ];
+    15 [ pos = "2.6520002,-0.646!" ];
+    15 -> 17 [ label = "0→0" ];
+
+    16 [ label = <16: <b>InvokeMethodModule</b><br/><br/><i>back barrier turns off<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;SW_Rm03_CombatBarrier_Back&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOff&quot;<br align="left"/>> ];
+    16 [ pos = "3.0760002,-0.669!" ];
+
+    17 [ label = <17: <b>DelayModule</b><br/><br/><i>delay between barriers for cinem<br align="left"/>a to catch up<br align="left"/></i><br align="left"/>> ];
+    17 [ pos = "2.8720002,-0.646!" ];
+    17 -> 16 [ label = "0→0" ];
+
+    18 [ label = <18: <b>DelayModule</b><br/><br/><i>Cinematic Behaviors<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    18 [ pos = "1.6400001,-0.94400007!" ];
+    18 -> 7 [ label = "0→0" ];
+
+    22 [ label = <22: <b>SpawnMonsterEventModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;SW_RM03_Enc07&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    2<br align="left"/><b>IsRandom</b><br align="left"/>    false<br align="left"/><b>PreferInView</b><br align="left"/>    true<br align="left"/><b>MinRange</b><br align="left"/>    500<br align="left"/>> ];
+    22 [ pos = "1.6110001,-0.33200002!" ];
+    22 -> 44 [ label = "3→1" ];
+    22 -> 52 [ label = "3→0" ];
+
+    28 [ label = <28: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.5<br align="left"/>> ];
+    28 [ pos = "1.075,-0.33200002!" ];
+    28 -> 43 [ label = "0→0" ];
+
+    31 [ label = <31: <b>CinematicModule</b><br/><br/><i>Doors open cinema<br align="left"/></i><br align="left"/><b>CinematicName</b><br align="left"/>    &quot;SW_RM03_Enc06_Cine_03&quot;<br align="left"/>> ];
+    31 [ pos = "2.3040001,-0.39900002!" ];
+
+    32 [ label = <32: <b>DelayModule</b><br/><br/>> ];
+    32 [ pos = "2.131,-0.39900002!" ];
+    32 -> 31 [ label = "0→0" ];
+    32 -> 33 [ label = "0→0" ];
+
+    33 [ label = <33: <b>DelayModule</b><br/><br/>> ];
+    33 [ pos = "2.479,-0.646!" ];
+    33 -> 15 [ label = "0→0" ];
+
+    35 [ label = <35: <b>AnimatorModule</b><br/><br/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;Sw_Rm03_Enc07A_Spawn_01&quot;, Ani<br align="left"/>    mationID=5)]<br align="left"/>> ];
+    35 [ pos = "1.2700001,0.07700001!" ];
+
+    36 [ label = <36: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    36 [ pos = "1.0580001,0.14!" ];
+    36 -> 35 [ label = "0→0" ];
+    36 -> 40 [ label = "0→0" ];
+
+    40 [ label = <40: <b>SoundModule</b><br/><br/><i>minion growl<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;minion_common/minion_common_sou<br align="left"/>    nds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    16007<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;Sw_Rm03_Enc07A_Spawn_01&quot;<br align="left"/>> ];
+    40 [ pos = "1.2720001,0.24000001!" ];
+
+    43 [ label = <43: <b>DelayModule</b><br/><br/>> ];
+    43 [ pos = "1.4250001,-0.33200002!" ];
+    43 -> 22 [ label = "0→0" ];
+
+    44 [ label = <44: <b>SaveDataModule</b><br/><br/><i>SetAllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;Alldead_Sw_Rm03_Enc07&quot;)]<br align="left"/>> ];
+    44 [ pos = "1.8970001,-0.37800002!" ];
+    44 -> 32 [ label = "3→0" ];
+
+    45 [ label = <45: <b>SaveDataModule</b><br/><br/><i>AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;Alldead_Sw_Rm03_Enc07&quot;)]<br align="left"/>> ];
+    45 [ pos = "0.026,-0.24000001!" ];
+    45 -> 53 [ label = "0→0" ];
+    45 -> 50 [ label = "1→0" ];
+    45 -> 6 [ label = "1→0" ];
+
+    46 [ label = <46: <b>DelayModule</b><br/><br/>> ];
+    46 [ pos = "0.80100006,-0.036000002!" ];
+
+    47 [ label = <47: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2.5<br align="left"/>> ];
+    47 [ pos = "1.08,-0.54700005!" ];
+    47 -> 48 [ label = "0→0" ];
+
+    48 [ label = <48: <b>ObjectMoverModule</b><br/><br/><i>Move War to WP<br align="left"/></i><br align="left"/><b>ObjectName</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;Sw_Rm03_WP_WarMove&quot;<br align="left"/>> ];
+    48 [ pos = "1.2590001,-0.54700005!" ];
+
+    50 [ label = <50: <b>InvokeMethodModule</b><br/><br/><i>deactivate door <br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;sw_Rm03b_to_Rm04_Door&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;deactivate&quot;<br align="left"/>> ];
+    50 [ pos = "0.47500002,-0.263!" ];
+    50 -> 2 [ label = "0→0" ];
+
+    52 [ label = <52: <b>InvokeMethodModule</b><br/><br/><i>activate door <br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;sw_Rm03b_to_Rm04_Door&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;activate&quot;<br align="left"/>> ];
+    52 [ pos = "1.8980001,-0.18900001!" ];
+
+    53 [ label = <53: <b>InvokeMethodModule</b><br/><br/><i>activate door <br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;sw_Rm03b_to_Rm04_Door&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;activate&quot;<br align="left"/>> ];
+    53 [ pos = "0.23600002,-0.085!" ];
+
+    title [ pos = "-0.22500001,0.24100001!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SW_Rm03<br align="left"/>Combat<br align="left"/><b>SW_RM03_Enc06_Script_01</b><br align="left"/><br/><i>Triggers minions to jump off wall</i><br align="left"/></font>> ];
+}

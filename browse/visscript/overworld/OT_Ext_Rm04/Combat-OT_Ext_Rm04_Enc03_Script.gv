@@ -1,0 +1,116 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>TriggerEventModule</b><br/><br/><i>disabled encounter<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;OT_Ext_Rm04_Enc03_TrigReg&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "-0.513,-2.321!" ];
+
+    79 [ label = <79: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn Casters<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;OT_Ext_Rm04_Enc03a&quot;<br align="left"/><b>DelayTime</b><br align="left"/>    0.5<br align="left"/>> ];
+    79 [ pos = "0.777,-2.344!" ];
+    79 -> 191 [ label = "0→0" ];
+    79 -> 177 [ label = "3→0" ];
+
+    106 [ label = <106: <b>SaveDataModule</b><br/><br/><i>Check if OT_Ext_Rm04_Enc03_Compl<br align="left"/>ete<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm04<br align="left"/>    &quot;, FlagName=&quot;OT_Ext_Rm04_Enc03_C<br align="left"/>    omplete&quot;)]<br align="left"/>> ];
+    106 [ pos = "0.025,-2.321!" ];
+    106 -> 206 [ label = "1→0" ];
+    106 -> 216 [ label = "1→0" ];
+
+    176 [ label = <176: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn undead<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;OT_Ext_Rm04_Enc03b&quot;<br align="left"/>> ];
+    176 [ pos = "1.327,-2.344!" ];
+    176 -> 177 [ label = "3→0" ];
+
+    177 [ label = <177: <b>AccumulatorModule</b><br/><br/><i>wait for all dead<br align="left"/></i><br align="left"/><b>CountTo</b><br align="left"/>    2<br align="left"/>> ];
+    177 [ pos = "1.6450001,-2.8390002!" ];
+    177 -> 215 [ label = "0→0" ];
+    177 -> 229 [ label = "0→1" ];
+
+    191 [ label = <191: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.5<br align="left"/>> ];
+    191 [ pos = "1.09,-2.344!" ];
+    191 -> 176 [ label = "0→0" ];
+
+    192 [ label = <192: <b>DelayModule</b><br/><br/>> ];
+    192 [ pos = "2.3140001,-2.8620002!" ];
+    192 -> 237 [ label = "0→0" ];
+
+    199 [ label = <199: <b>InvokeMethodModule</b><br/><br/><i>turn on barriers<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Ext_Rm04_Enc01_CombatBarrie<br align="left"/>    r01&quot;, &quot;OT_Ext_Rm04_Enc01_CombatB<br align="left"/>    arrier02&quot;, &quot;OT_Ext_Rm04_Enc01_Co<br align="left"/>    mbatBarrier03&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOn&quot;<br align="left"/>> ];
+    199 [ pos = "1.024,-2.1090002!" ];
+
+    203 [ label = <203: <b>CinematicModule</b><br/><br/><i>Play Intro Cine<br align="left"/></i><br align="left"/><b>CinematicName</b><br align="left"/>    &quot;OT_Ext_Rm04_Enc03_Intro_Cine&quot;<br align="left"/>> ];
+    203 [ pos = "0.777,-2.1090002!" ];
+    203 -> 199 [ label = "0→0" ];
+
+    204 [ label = <204: <b>CinematicModule</b><br/><br/><i>Play barrier down cinematic<br align="left"/></i><br align="left"/><b>CinematicName</b><br align="left"/>    &quot;OT_Ext_Rm04_Enc03_Outro_Cine&quot;<br align="left"/>> ];
+    204 [ pos = "2.3140001,-3.065!" ];
+
+    205 [ label = <205: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    205 [ pos = "2.1130002,-2.8620002!" ];
+    205 -> 192 [ label = "0→0" ];
+    205 -> 204 [ label = "0→0" ];
+
+    206 [ label = <206: <b>base/storesavedatamodule</b><br/><br/>> ];
+    206 [ pos = "0.26700002,-2.344!" ];
+    206 -> 236 [ label = "0→0" ];
+
+    207 [ label = <207: <b>base/commitsavedatamodule</b><br/><br/>> ];
+    207 [ pos = "2.993,-2.8160002!" ];
+    207 -> 208 [ label = "0→0" ];
+
+    208 [ label = <208: <b>base/autosavemodule</b><br/><br/>> ];
+    208 [ pos = "3.2370002,-2.8160002!" ];
+
+    215 [ label = <215: <b>VisScriptCallModule</b><br/><br/><i>scriptedHeavyOutro<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scriptedHeavyOutro&quot;<br align="left"/>> ];
+    215 [ pos = "1.886,-2.9940002!" ];
+
+    216 [ label = <216: <b>VisScriptCallModule</b><br/><br/><i>scripted_HeavyCombat<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scripted_HeavyCombat&quot;<br align="left"/>> ];
+    216 [ pos = "0.26900002,-2.4480002!" ];
+
+    227 [ label = <227: <b>SaveDataModule</b><br/><br/><i>check for return<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm05<br align="left"/>    &quot;, FlagName=&quot;OT_Ext_Rm05_Beam_Re<br align="left"/>    ceiver_01&quot;)]<br align="left"/>> ];
+    227 [ pos = "-0.22900002,-2.321!" ];
+    227 -> 106 [ label = "0→0" ];
+
+    229 [ label = <229: <b>SaveDataModule</b><br/><br/><i>Set if OT_Ext_Rm04_Enc03_Complet<br align="left"/>e<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm04<br align="left"/>    &quot;, FlagName=&quot;OT_Ext_Rm04_Enc03_C<br align="left"/>    omplete&quot;)]<br align="left"/>> ];
+    229 [ pos = "1.8870001,-2.8160002!" ];
+    229 -> 205 [ label = "3→0" ];
+
+    231 [ label = <231: <b>StartModule</b><br/><br/><i>check to remove void clear regio<br align="left"/>n<br align="left"/></i><br align="left"/>> ];
+    231 [ shape = oval ]
+    231 [ pos = "-0.51600003,-1.6930001!" ];
+    231 -> 232 [ label = "0→0" ];
+    231 -> 234 [ label = "0→2" ];
+
+    232 [ label = <232: <b>SaveDataModule</b><br/><br/><i>check guardian dead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm06<br align="left"/>    &quot;, FlagName=&quot;OT_Ext_Rm06_Enc01&quot;)<br align="left"/>    ]<br align="left"/>> ];
+    232 [ pos = "-0.25500003,-1.503!" ];
+    232 -> 233 [ label = "0→0" ];
+
+    233 [ label = <233: <b>SaveDataModule</b><br/><br/><i>Check if OT_Ext_Rm04_Enc03_Compl<br align="left"/>ete<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm04<br align="left"/>    &quot;, FlagName=&quot;OT_Ext_Rm04_Enc03_C<br align="left"/>    omplete&quot;)]<br align="left"/>> ];
+    233 [ pos = "0.011000001,-1.503!" ];
+
+    234 [ label = <234: <b>ObjectToggleModule</b><br/><br/><b>ObjectList</b><br align="left"/>    [&quot;OT_Ext_Rm04_Enc03_VoidClearReg<br align="left"/>    &quot;]<br align="left"/>> ];
+    234 [ pos = "0.22500001,-1.7950001!" ];
+
+    235 [ label = <235: <b>ObjectToggleModule</b><br/><br/><i>Remove Void Clear Region<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;OT_Ext_Rm04_Enc03_VoidClearReg<br align="left"/>    &quot;]<br align="left"/>> ];
+    235 [ pos = "2.7380002,-2.8160002!" ];
+    235 -> 207 [ label = "0→0" ];
+
+    236 [ label = <236: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.1<br align="left"/>> ];
+    236 [ pos = "0.485,-2.344!" ];
+    236 -> 79 [ label = "0→0" ];
+    236 -> 203 [ label = "0→0" ];
+
+    237 [ label = <237: <b>InvokeMethodModule</b><br/><br/><i>turn off barriers<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Ext_Rm04_Enc01_CombatBarrie<br align="left"/>    r01&quot;, &quot;OT_Ext_Rm04_Enc01_CombatB<br align="left"/>    arrier02&quot;, &quot;OT_Ext_Rm04_Enc01_Co<br align="left"/>    mbatBarrier03&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOff&quot;<br align="left"/>> ];
+    237 [ pos = "2.5110002,-2.8620002!" ];
+    237 -> 235 [ label = "0→2" ];
+
+    title [ pos = "-0.517,-1.5020001!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>OT_Ext_Rm04<br align="left"/>Combat<br align="left"/><b>OT_Ext_Rm04_Enc03_Script</b><br align="left"/></font>> ];
+}

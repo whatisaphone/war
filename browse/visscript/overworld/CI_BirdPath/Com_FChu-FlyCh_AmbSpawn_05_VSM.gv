@@ -1,0 +1,52 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    117 [ label = <117: <b>SpawnMonsterEventModule</b><br/><br/><b>NumberToSpawn</b><br align="left"/>    16<br align="left"/><b>DelayTime</b><br align="left"/>    0.1<br align="left"/>> ];
+    117 [ pos = "0.47900003,-2.5660002!" ];
+    119 -> 117 [ style = dashed ];
+
+    118 [ label = <118: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;FlyCh_AmbSpawn_05&quot;<br align="left"/>> ];
+    118 [ pos = "0.022000002,-2.5660002!" ];
+    118 -> 117 [ label = "0→0" ];
+    118 -> 119 [ style = dashed ];
+
+    119 [ label = <119: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    119 [ shape = parallelogram ]
+    119 [ pos = "0.27600002,-2.686!" ];
+
+    120 [ label = <120: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;FlyCh_AmbSpawn_Trigger_04&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    120 [ shape = oval ]
+    120 [ pos = "-0.48700002,-2.565!" ];
+    120 -> 157 [ label = "0→0" ];
+
+    157 [ label = <157: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    157 [ pos = "-0.192,-2.5630002!" ];
+    157 -> 118 [ label = "0→0" ];
+
+    159 [ label = <159: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;FlyCh_AmbSpawn_Kill_Trigger_01<br align="left"/>    &quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    159 [ shape = oval ]
+    159 [ pos = "-0.45700002,-2.7960002!" ];
+    159 -> 160 [ label = "0→2" ];
+    159 -> 161 [ style = dashed ];
+
+    160 [ label = <160: <b>ObjectToggleModule</b><br/><br/>> ];
+    160 [ pos = "-0.020000001,-2.7500002!" ];
+    161 -> 160 [ style = dashed ];
+
+    161 [ label = <161: <b>VisScriptVariableWorldObject</b><br/><br/>> ];
+    161 [ shape = parallelogram ]
+    161 [ pos = "-0.21400002,-2.94!" ];
+
+    title [ pos = "-0.48800004,-2.562!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>CI_BirdPath<br align="left"/>Com_FChu<br align="left"/><b>FlyCh_AmbSpawn_05_VSM</b><br align="left"/></font>> ];
+}

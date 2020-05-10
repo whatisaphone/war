@@ -1,0 +1,110 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>TriggerEventModule</b><br/><br/><i>disabled encounter<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;OT_Ext_Rm04_PuzBarrier_TrgReg&quot;<br align="left"/>    ]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "0.003,-2.71!" ];
+
+    79 [ label = <79: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn Caster2<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;OT_Ext_Rm04_Enc01a&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    1<br align="left"/><b>IsRandom</b><br align="left"/>    false<br align="left"/><b>DelayTime</b><br align="left"/>    0.5<br align="left"/>> ];
+    79 [ pos = "1.189,-2.414!" ];
+    79 -> 119 [ label = "0→0" ];
+    79 -> 118 [ label = "3→0" ];
+
+    106 [ label = <106: <b>SaveDataModule</b><br/><br/><i>Check if OT_Ext_Rm04_Enc01_Compl<br align="left"/>ete true<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm04<br align="left"/>    &quot;, FlagName=&quot;OT_Ext_Rm04_Enc01_C<br align="left"/>    omplete&quot;)]<br align="left"/>> ];
+    106 [ pos = "0.275,-2.368!" ];
+    106 -> 123 [ label = "1→0" ];
+    106 -> 134 [ label = "1→0" ];
+
+    107 [ label = <107: <b>SaveDataModule</b><br/><br/><i>Check if OT_Ext_Rm01_Enc01_Compl<br align="left"/>ete true<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm04<br align="left"/>    &quot;, FlagName=&quot;OT_Ext_Rm04_Enc01_C<br align="left"/>    omplete&quot;)]<br align="left"/>> ];
+    107 [ pos = "2.242,-2.7580001!" ];
+    107 -> 113 [ label = "3→0" ];
+    107 -> 120 [ label = "3→0" ];
+
+    112 [ label = <112: <b>InvokeMethodModule</b><br/><br/><i>Turn Off the large barrier<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Ext_Rm04_Enc01_CombatBarrie<br align="left"/>    r01&quot;, &quot;OT_Ext_Rm04_Enc01_CombatB<br align="left"/>    arrier02&quot;, &quot;OT_Ext_Rm04_Enc01_Co<br align="left"/>    mbatBarrier03&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOff&quot;<br align="left"/>> ];
+    112 [ pos = "2.6920002,-2.8040001!" ];
+    112 -> 124 [ label = "0→0" ];
+
+    113 [ label = <113: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    5<br align="left"/>> ];
+    113 [ pos = "2.493,-2.8040001!" ];
+    113 -> 112 [ label = "0→0" ];
+
+    116 [ label = <116: <b>CinematicModule</b><br/><br/><i>Play intro cinematic<br align="left"/></i><br align="left"/><b>CinematicName</b><br align="left"/>    &quot;OT_Ext_Rm04_Enc01_IntroCinemati<br align="left"/>    c&quot;<br align="left"/>> ];
+    116 [ pos = "0.74300003,-2.391!" ];
+    116 -> 128 [ label = "0→0" ];
+
+    117 [ label = <117: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn Forsaken<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;OT_Ext_Rm04_Enc01b&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    1<br align="left"/><b>IsRandom</b><br align="left"/>    false<br align="left"/>> ];
+    117 [ pos = "1.6960001,-2.414!" ];
+    117 -> 118 [ label = "3→0" ];
+
+    118 [ label = <118: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    2<br align="left"/>> ];
+    118 [ pos = "1.9970001,-2.7810001!" ];
+    118 -> 107 [ label = "0→1" ];
+    118 -> 135 [ label = "0→0" ];
+
+    119 [ label = <119: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.5<br align="left"/>> ];
+    119 [ pos = "1.4940001,-2.414!" ];
+    119 -> 117 [ label = "0→0" ];
+
+    120 [ label = <120: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    3<br align="left"/>> ];
+    120 [ pos = "2.4950001,-3.0040002!" ];
+    120 -> 121 [ label = "0→0" ];
+
+    121 [ label = <121: <b>CinematicModule</b><br/><br/><i>Play barrier down cinematic<br align="left"/></i><br align="left"/><b>CinematicName</b><br align="left"/>    &quot;OT_Ext_Rm04_BarrierDownCinemati<br align="left"/>    c&quot;<br align="left"/>> ];
+    121 [ pos = "2.6950002,-3.0040002!" ];
+
+    122 [ label = <122: <b>InvokeMethodModule</b><br/><br/><i>turn on barrier<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Ext_Rm04_Enc01_CombatBarrie<br align="left"/>    r01&quot;, &quot;OT_Ext_Rm04_Enc01_CombatB<br align="left"/>    arrier02&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOn&quot;<br align="left"/>> ];
+    122 [ pos = "0.97200006,-2.6420002!" ];
+
+    123 [ label = <123: <b>base/storesavedatamodule</b><br/><br/>> ];
+    123 [ pos = "0.50200003,-2.391!" ];
+    123 -> 116 [ label = "0→0" ];
+    123 -> 129 [ label = "0→0" ];
+    123 -> 132 [ label = "0→0" ];
+
+    124 [ label = <124: <b>base/commitsavedatamodule</b><br/><br/>> ];
+    124 [ pos = "2.923,-2.8040001!" ];
+    124 -> 125 [ label = "0→0" ];
+
+    125 [ label = <125: <b>base/autosavemodule</b><br/><br/>> ];
+    125 [ pos = "3.183,-2.8040001!" ];
+
+    128 [ label = <128: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    4.5<br align="left"/>> ];
+    128 [ pos = "0.97700006,-2.414!" ];
+    128 -> 79 [ label = "0→0" ];
+
+    129 [ label = <129: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2.5<br align="left"/>> ];
+    129 [ pos = "0.744,-2.6420002!" ];
+    129 -> 122 [ label = "0→0" ];
+
+    131 [ label = <131: <b>TextModule</b><br/><br/><b>Text</b><br align="left"/>    &quot;Casters DEAD!&quot;<br align="left"/>> ];
+    131 [ pos = "2.263,-2.5990002!" ];
+
+    132 [ label = <132: <b>DelayModule</b><br/><br/>> ];
+    132 [ pos = "0.70900005,-2.8430002!" ];
+    132 -> 133 [ label = "0→0" ];
+
+    133 [ label = <133: <b>InvokeMethodModule</b><br/><br/><i>turn on barrier<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Ext_Rm04_Enc01_CombatBarrie<br align="left"/>    r01&quot;, &quot;OT_Ext_Rm04_Enc01_CombatB<br align="left"/>    arrier03&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOn&quot;<br align="left"/>> ];
+    133 [ pos = "0.924,-2.8430002!" ];
+
+    134 [ label = <134: <b>VisScriptCallModule</b><br/><br/><i>scripted_HeavyCombat<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scripted_HeavyCombat&quot;<br align="left"/>> ];
+    134 [ pos = "0.50100005,-2.486!" ];
+
+    135 [ label = <135: <b>VisScriptCallModule</b><br/><br/><i>scriptedHeavyOutro<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scriptedHeavyOutro&quot;<br align="left"/>> ];
+    135 [ pos = "2.2440002,-2.9150002!" ];
+
+    136 [ label = <136: <b>CinematicModule</b><br/><br/><i>PLay door barrier down cinematic<br align="left"/></i><br align="left"/><b>CinematicName</b><br align="left"/>    &quot;OT_Ext_Rm04_DoorBarrierDown&quot;<br align="left"/>> ];
+    136 [ pos = "0.27800003,-2.71!" ];
+
+    title [ pos = "0.002,-2.367!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>OT_Ext_Rm04<br align="left"/>Combat<br align="left"/><b>OT_Ext_Rm04_Enc01_Script</b><br align="left"/><br/><i>OT_Ext_Rm01_Enc01_Script</i><br align="left"/></font>> ];
+}

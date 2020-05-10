@@ -1,0 +1,286 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    3 [ label = <3: <b>TriggerEventModule</b><br/><br/><i>MBall_Enc01_TrigReg<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;MBall_Enc01_TrigReg&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    3 [ shape = oval ]
+    3 [ pos = "-0.49400002,0.335!" ];
+    3 -> 19 [ label = "0→0" ];
+    3 -> 82 [ label = "0→1" ];
+    3 -> 83 [ label = "0→0" ];
+    3 -> 97 [ label = "0→1" ];
+
+    9 [ label = <9: <b>CinematicModule</b><br/><br/><i>MBall_Enc01_CineEnd<br align="left"/></i><br align="left"/><b>CinematicName</b><br align="left"/>    &quot;MBall_Enc01_CineEnd&quot;<br align="left"/>> ];
+    9 [ pos = "1.779,-0.15!" ];
+    9 -> 15 [ label = "0→0" ];
+
+    14 [ label = <14: <b>InvokeMethodModule</b><br/><br/><i>turn on combat barriers<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;MBall_Enc01_CombatBarrier_01&quot;,<br align="left"/>     &quot;MBall_Enc01_CombatBarrier_02&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOn&quot;<br align="left"/>> ];
+    14 [ pos = "0.592,0.393!" ];
+
+    15 [ label = <15: <b>InvokeMethodModule</b><br/><br/><i>Turn off combat barriers<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;MBall_Enc01_CombatBarrier_01&quot;,<br align="left"/>     &quot;MBall_Enc01_CombatBarrier_02&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOff&quot;<br align="left"/>> ];
+    15 [ pos = "1.968,-0.15400001!" ];
+
+    16 [ label = <16: <b>DelayModule</b><br/><br/><i>2.0 sec<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    16 [ pos = "1.6350001,-0.15!" ];
+    16 -> 9 [ label = "0→0" ];
+
+    18 [ label = <18: <b>SaveDataModule</b><br/><br/><i>BallroomFightDone<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Mayhem&quot;, Fl<br align="left"/>    agName=&quot;BallroomFightDone&quot;)]<br align="left"/>> ];
+    18 [ pos = "1.6350001,-0.347!" ];
+
+    19 [ label = <19: <b>SaveDataModule</b><br/><br/><i>BallroomFightDone<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Mayhem&quot;, Fl<br align="left"/>    agName=&quot;BallroomFightDone&quot;)]<br align="left"/>> ];
+    19 [ pos = "-0.261,0.335!" ];
+    19 -> 24 [ label = "1→0" ];
+    19 -> 46 [ label = "1→0" ];
+    19 -> 56 [ label = "1→0" ];
+    19 -> 73 [ label = "1→0" ];
+    19 -> 75 [ label = "1→0" ];
+
+    22 [ label = <22: <b>ExternalCallModule</b><br/><br/><i>SpawnMinions (from Cine)<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;SpawnMinions&quot;<br align="left"/>> ];
+    22 [ shape = oval ]
+    22 [ pos = "0.39000002,0.10300001!" ];
+    22 -> 36 [ label = "0→0" ];
+
+    23 [ label = <23: <b>ExternalCallModule</b><br/><br/><i>RaiseBarriers (from Cine)<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;RaiseBarriers&quot;<br align="left"/>> ];
+    23 [ shape = oval ]
+    23 [ pos = "0.36900002,0.425!" ];
+    23 -> 14 [ label = "0→0" ];
+
+    24 [ label = <24: <b>CinematicModule</b><br/><br/><i>MBall_Enc01_CineStart<br align="left"/></i><br align="left"/><b>CinematicName</b><br align="left"/>    &quot;MBall_Enc01_CineStart&quot;<br align="left"/>> ];
+    24 [ pos = "0.164,0.32900003!" ];
+    24 -> 76 [ label = "1→0" ];
+    24 -> 100 [ label = "0→0" ];
+
+    28 [ label = <28: <b>AnimatorModule</b><br/><br/><i>Raise FloorBreak Spike<br align="left"/></i><br align="left"/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;Ballroom_FloorBreak&quot;, Animati<br align="left"/>    onID=1)]<br align="left"/>> ];
+    28 [ pos = "1.09,0.63600004!" ];
+    28 -> 35 [ label = "0→0" ];
+    28 -> 55 [ label = "1→0" ];
+
+    33 [ label = <33: <b>base/camerashakemodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>HorizontalPower</b><br align="left"/>    4<br align="left"/><b>VerticalPower</b><br align="left"/>    5<br align="left"/><b>HorizontalFreq</b><br align="left"/>    40<br align="left"/><b>VerticalFreq</b><br align="left"/>    25<br align="left"/><b>Duration</b><br align="left"/>    0.85<br align="left"/>> ];
+    33 [ pos = "0.873,0.63600004!" ];
+    33 -> 28 [ label = "0→0" ];
+
+    35 [ label = <35: <b>DamageActorModule</b><br/><br/><b>DamageAmount</b><br align="left"/>    10<br align="left"/><b>TargetActorNames</b><br align="left"/>    [&quot;MBall_Enc01_Spawn_04_monster&quot;,<br align="left"/>     &quot;MBall_Enc01_Spawn_05_monster&quot;,<br align="left"/>     &quot;MBall_Enc01_Spawn_06_monster&quot;]<br align="left"/><b>HitType</b><br align="left"/>    0<br align="left"/><b>Power</b><br align="left"/>    2<br align="left"/><b>ApplyKnockBackUp</b><br align="left"/>    true<br align="left"/><b>DamageLocation</b><br align="left"/>    &quot;MBall_Enc01_KnockbackWP&quot;<br align="left"/><b>KnockBack</b><br align="left"/>    200<br align="left"/><b>KnockUp</b><br align="left"/>    450<br align="left"/>> ];
+    35 [ pos = "1.3180001,0.638!" ];
+    39 -> 35 [ style = dashed ];
+
+    36 [ label = <36: <b>SpawnMonsterEventModule</b><br/><br/><b>IsRandom</b><br align="left"/>    false<br align="left"/><b>DelayTime</b><br align="left"/>    0.65<br align="left"/>> ];
+    36 [ pos = "0.84900004,0.21000001!" ];
+    36 -> 40 [ label = "2→0" ];
+    36 -> 52 [ label = "1→0" ];
+    36 -> 91 [ label = "1→0" ];
+    36 -> 92 [ label = "1→0" ];
+    36 -> 95 [ label = "1→0" ];
+    38 -> 36 [ style = dashed ];
+    36 -> 39 [ style = dashed ];
+
+    38 [ label = <38: <b>VisScriptVariableWorldObjectList</b><br/><br/><b>Value</b><br align="left"/>    [&quot;MBall_Enc01_Spawn_04&quot;, &quot;MBall_<br align="left"/>    Enc01_Spawn_05&quot;, &quot;MBall_Enc01_Sp<br align="left"/>    awn_06&quot;]<br align="left"/>> ];
+    38 [ shape = parallelogram ]
+    38 [ pos = "0.59900004,0.079!" ];
+
+    39 [ label = <39: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    39 [ shape = parallelogram ]
+    39 [ pos = "0.85,-0.031000001!" ];
+
+    40 [ label = <40: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    3<br align="left"/>> ];
+    40 [ pos = "1.3980001,-0.149!" ];
+    40 -> 16 [ label = "0→0" ];
+    40 -> 18 [ label = "0→1" ];
+
+    41 [ label = <41: <b>ExternalCallModule</b><br/><br/><b>EventName</b><br align="left"/>    &quot;Aggro&quot;<br align="left"/>> ];
+    41 [ shape = oval ]
+    41 [ pos = "1.6370001,0.147!" ];
+    41 -> 43 [ label = "0→0" ];
+
+    42 [ label = <42: <b>InvokeMethodModule</b><br/><br/><b>MethodName</b><br align="left"/>    &quot;setBehaviorCombat&quot;<br align="left"/>> ];
+    42 [ pos = "2.019,0.148!" ];
+    42 -> 44 [ label = "0→0" ];
+    45 -> 42 [ style = dashed ];
+
+    43 [ label = <43: <b>base/forloop</b><br/><br/>> ];
+    43 [ pos = "1.8650001,0.14600001!" ];
+    43 -> 42 [ label = "0→0" ];
+    39 -> 43 [ style = dashed ];
+    43 -> 45 [ style = dashed ];
+
+    44 [ label = <44: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.25<br align="left"/>> ];
+    44 [ pos = "1.8900001,0.323!" ];
+    44 -> 43 [ label = "0→1" ];
+
+    45 [ label = <45: <b>VisScriptVariableWorldObject</b><br/><br/>> ];
+    45 [ shape = parallelogram ]
+    45 [ pos = "1.8470001,-0.003!" ];
+
+    46 [ label = <46: <b>TriggerEventModule</b><br/><br/><i>just minions in the normal spot<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;MBall_Enc01_TrigRegSpike_02&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>Enable</b><br align="left"/>    false<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    46 [ shape = oval ]
+    46 [ pos = "0.21100001,0.62!" ];
+    46 -> 47 [ label = "0→0" ];
+
+    47 [ label = <47: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.25<br align="left"/>> ];
+    47 [ pos = "0.44500002,0.62!" ];
+    47 -> 57 [ label = "0→0" ];
+
+    48 [ label = <48: <b>ObjectToggleModule</b><br/><br/><b>ObjectList</b><br align="left"/>    [&quot;MBall_Enc01_CamInfuence&quot;]<br align="left"/>> ];
+    48 [ pos = "1.32,0.98800004!" ];
+
+    49 [ label = <49: <b>StartModule</b><br/><br/>> ];
+    49 [ shape = oval ]
+    49 [ pos = "1.01,0.93900007!" ];
+    49 -> 48 [ label = "0→2" ];
+
+    50 [ label = <50: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.5<br align="left"/>> ];
+    50 [ pos = "0.85800004,0.8880001!" ];
+    50 -> 48 [ label = "0→2" ];
+
+    51 [ label = <51: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;MBall_Enc01w2&quot;<br align="left"/>> ];
+    51 [ pos = "0.365,-0.53300005!" ];
+    51 -> 64 [ label = "0→0" ];
+    51 -> 54 [ style = dashed ];
+
+    52 [ label = <52: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    2<br align="left"/>> ];
+    52 [ pos = "0.141,-0.531!" ];
+    52 -> 51 [ label = "0→0" ];
+
+    53 [ label = <53: <b>SpawnMonsterEventModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;MBall_Enc01w2&quot;<br align="left"/><b>IsRandom</b><br align="left"/>    false<br align="left"/><b>DelayTime</b><br align="left"/>    0.625<br align="left"/>> ];
+    53 [ pos = "1.01,-0.531!" ];
+    53 -> 40 [ label = "2→0" ];
+    53 -> 91 [ label = "1→0" ];
+    53 -> 92 [ label = "1→0" ];
+    53 -> 90 [ style = dashed ];
+
+    54 [ label = <54: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    54 [ shape = parallelogram ]
+    54 [ pos = "0.367,-0.66700006!" ];
+
+    55 [ label = <55: <b>AnimatorModule</b><br/><br/><i>Raise FloorBreak Spike<br align="left"/></i><br align="left"/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;Ballroom_FloorBreak&quot;, Animati<br align="left"/>    onID=2)]<br align="left"/>> ];
+    55 [ pos = "1.654,0.78400004!" ];
+
+    56 [ label = <56: <b>TriggerEventModule</b><br/><br/><i>if player or minions get too clo<br align="left"/>se to spike<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;MBall_Enc01_TrigRegSpike_01&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>Enable</b><br align="left"/>    false<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    56 [ shape = oval ]
+    56 [ pos = "0.20600002,0.83000004!" ];
+    56 -> 57 [ label = "0→0" ];
+
+    57 [ label = <57: <b>base/oneshotmodule</b><br/><br/>> ];
+    57 [ pos = "0.69100004,0.63600004!" ];
+    57 -> 33 [ label = "0→0" ];
+    57 -> 48 [ label = "0→1" ];
+    57 -> 50 [ label = "0→0" ];
+
+    58 [ label = <58: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;MBall_Enc01w3&quot;<br align="left"/>> ];
+    58 [ pos = "1.6350001,-0.572!" ];
+    58 -> 93 [ label = "0→0" ];
+    58 -> 60 [ style = dashed ];
+
+    59 [ label = <59: <b>SpawnMonsterEventModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;MBall_Enc01w3&quot;<br align="left"/><b>IsRandom</b><br align="left"/>    false<br align="left"/><b>DelayTime</b><br align="left"/>    0.8<br align="left"/>> ];
+    59 [ pos = "0.98,-0.837!" ];
+    59 -> 40 [ label = "2→0" ];
+
+    60 [ label = <60: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    60 [ shape = parallelogram ]
+    60 [ pos = "1.639,-0.70600003!" ];
+
+    64 [ label = <64: <b>base/isinviewmodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;MBall_Enc01_LOSTrigW2&quot;<br align="left"/><b>AutoTriggerTime</b><br align="left"/>    &quot;4.0&quot;<br align="left"/><b>WidthScaleWS</b><br align="left"/>    &quot;.75&quot;<br align="left"/><b>WidthScaleNS</b><br align="left"/>    &quot;.9&quot;<br align="left"/>> ];
+    64 [ pos = "0.62,-0.53300005!" ];
+    64 -> 96 [ label = "0→0" ];
+    64 -> 96 [ label = "1→0" ];
+
+    71 [ label = <71: <b>SaveDataModule</b><br/><br/><i>BallroomFightDone<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Mayhem&quot;, Fl<br align="left"/>    agName=&quot;BallroomFightDone&quot;)]<br align="left"/>> ];
+    71 [ pos = "1.342,0.78300005!" ];
+    71 -> 55 [ label = "0→0" ];
+
+    72 [ label = <72: <b>StartModule</b><br/><br/>> ];
+    72 [ shape = oval ]
+    72 [ pos = "1.151,0.78400004!" ];
+    72 -> 71 [ label = "0→0" ];
+
+    73 [ label = <73: <b>SoundModule</b><br/><br/><b>SoundDescFile</b><br align="left"/>    &quot;ma_ballroom/Ballroom_Reveal_Sou<br align="left"/>    nds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    109<br align="left"/>> ];
+    73 [ pos = "0.148,0.12200001!" ];
+
+    74 [ label = <74: <b>SoundModule</b><br/><br/>> ];
+    74 [ pos = "0.64000005,-0.16700001!" ];
+
+    75 [ label = <75: <b>SoundModule</b><br/><br/><b>SoundDescFile</b><br align="left"/>    &quot;ma_ballroom/Ballroom_FloorBreak<br align="left"/>    _Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    107<br align="left"/>> ];
+    75 [ pos = "0.15300001,-0.023000002!" ];
+
+    76 [ label = <76: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.5<br align="left"/>> ];
+    76 [ pos = "0.386,0.30600002!" ];
+    76 -> 77 [ label = "0→0" ];
+
+    77 [ label = <77: <b>VisScriptCallModule</b><br/><br/><i>DashTutorial<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;Mayhem_Tutorial_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;DashTutorial&quot;<br align="left"/>> ];
+    77 [ pos = "0.597,0.24200001!" ];
+
+    79 [ label = <79: <b>VisScriptCallModule</b><br/><br/><i>scripted_HeavyCombat_06_Smith<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scripted_HeavyCombat_06_Smith&quot;<br align="left"/>> ];
+    79 [ pos = "0.18800001,-0.20400001!" ];
+
+    80 [ label = <80: <b>SaveDataModule</b><br/><br/><i>Boss Music Persistence<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Mayhem&quot;, Fl<br align="left"/>    agName=&quot;BossMusic&quot;)]<br align="left"/>> ];
+    80 [ pos = "-0.042000003,-0.18100001!" ];
+    80 -> 79 [ label = "1→0" ];
+
+    81 [ label = <81: <b>SaveDataModule</b><br/><br/><i>Ballroom Music<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Mayhem&quot;, Fl<br align="left"/>    agName=&quot;BallroomMusic&quot;)]<br align="left"/>> ];
+    81 [ pos = "-0.264,-0.18!" ];
+    81 -> 80 [ label = "0→0" ];
+
+    82 [ label = <82: <b>SaveDataModule</b><br/><br/><i>Sets ballroom music active<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Mayhem&quot;, Fl<br align="left"/>    agName=&quot;BallroomMusic&quot;)]<br align="left"/>> ];
+    82 [ pos = "-0.21700001,0.12900001!" ];
+
+    83 [ label = <83: <b>DelayModule</b><br/><br/>> ];
+    83 [ pos = "-0.45900002,-0.143!" ];
+    83 -> 81 [ label = "0→0" ];
+
+    90 [ label = <90: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    90 [ shape = parallelogram ]
+    90 [ pos = "1.021,-0.77000004!" ];
+
+    91 [ label = <91: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    4<br align="left"/>> ];
+    91 [ pos = "1.3850001,-0.57000005!" ];
+    91 -> 58 [ label = "0→0" ];
+
+    92 [ label = <92: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    5<br align="left"/>> ];
+    92 [ pos = "1.3980001,-0.76100004!" ];
+    92 -> 94 [ label = "0→0" ];
+
+    93 [ label = <93: <b>base/isinviewmodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;MBall_Enc01_LOSTrigW3&quot;<br align="left"/><b>AutoTriggerTime</b><br align="left"/>    &quot;4.0&quot;<br align="left"/><b>WidthScaleWS</b><br align="left"/>    &quot;.75&quot;<br align="left"/><b>WidthScaleNS</b><br align="left"/>    &quot;.9&quot;<br align="left"/>> ];
+    93 [ pos = "1.9210001,-0.564!" ];
+    93 -> 94 [ label = "0→0" ];
+    93 -> 94 [ label = "1→0" ];
+    60 -> 93 [ style = dashed ];
+
+    94 [ label = <94: <b>base/oneshotmodule</b><br/><br/>> ];
+    94 [ pos = "2.236,-0.70400006!" ];
+    94 -> 59 [ label = "0→0" ];
+
+    95 [ label = <95: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    3<br align="left"/>> ];
+    95 [ pos = "0.136,-0.731!" ];
+    95 -> 96 [ label = "0→0" ];
+
+    96 [ label = <96: <b>base/oneshotmodule</b><br/><br/>> ];
+    96 [ pos = "0.772,-0.72!" ];
+    96 -> 53 [ label = "0→0" ];
+
+    97 [ label = <97: <b>ObjectToggleModule</b><br/><br/><i>Adds/Removes the monster zone ba<br align="left"/>rrier for minions<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;May_MonZonBar_Minons_02&quot;]<br align="left"/>> ];
+    97 [ pos = "-0.16800001,0.58900005!" ];
+
+    98 [ label = <98: <b>StartModule</b><br/><br/>> ];
+    98 [ shape = oval ]
+    98 [ pos = "-0.60400003,0.61200005!" ];
+    98 -> 99 [ label = "0→0" ];
+
+    99 [ label = <99: <b>SaveDataModule</b><br/><br/><i>BallroomFightDone<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Mayhem&quot;, Fl<br align="left"/>    agName=&quot;BallroomFightDone&quot;)]<br align="left"/>> ];
+    99 [ pos = "-0.41000003,0.61200005!" ];
+    99 -> 97 [ label = "0→2" ];
+    99 -> 97 [ label = "1→0" ];
+
+    100 [ label = <100: <b>VisScriptCallModule</b><br/><br/><i>Mayhem_VSM_WallClimbMinions - De<br align="left"/>leteSpawns<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;Mayhem_VSM_WallClimbMinions&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;DeleteSpawns&quot;<br align="left"/>> ];
+    100 [ pos = "0.135,0.18800001!" ];
+
+    title [ pos = "-0.605,0.989!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>May_Int_02<br align="left"/>Combat<br align="left"/><b>MBall_Enc01_Script</b><br align="left"/></font>> ];
+}

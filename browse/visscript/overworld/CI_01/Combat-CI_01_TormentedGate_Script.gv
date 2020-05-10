@@ -1,0 +1,239 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    114 [ label = <114: <b>StartModule</b><br/><br/>> ];
+    114 [ shape = oval ]
+    114 [ pos = "-0.45700002,0.77000004!" ];
+    114 -> 126 [ label = "0→0" ];
+
+    115 [ label = <115: <b>SpawnMonsterEventModule</b><br/><br/><b>NumberToSpawn</b><br align="left"/>    1<br align="left"/>> ];
+    115 [ pos = "0.282,0.74700004!" ];
+    115 -> 135 [ label = "0→0" ];
+    115 -> 117 [ style = dashed ];
+    118 -> 115 [ style = dashed ];
+
+    116 [ label = <116: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;CI_01_TormentedGate&quot;<br align="left"/>> ];
+    116 [ pos = "0.030000001,0.74700004!" ];
+    116 -> 115 [ label = "0→0" ];
+    116 -> 118 [ style = dashed ];
+
+    117 [ label = <117: <b>VisScriptVariableWorldObjectList</b><br/><br/><i>Save the gate object<br align="left"/></i><br align="left"/>> ];
+    117 [ shape = parallelogram ]
+    117 [ pos = "0.716,0.38500002!" ];
+
+    118 [ label = <118: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    118 [ shape = parallelogram ]
+    118 [ pos = "0.052,0.574!" ];
+
+    123 [ label = <123: <b>ExternalCallModule</b><br/><br/><i>Sent from Vulgrim's script when <br align="left"/>soul quest is complete<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;CI_01_GateActivate&quot;<br align="left"/>> ];
+    123 [ shape = oval ]
+    123 [ pos = "-0.717,1.082!" ];
+    123 -> 153 [ label = "0→1" ];
+    123 -> 150 [ label = "0→0" ];
+
+    124 [ label = <124: <b>SaveDataModule</b><br/><br/><i>is SoulQuestComplete?<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;CI_01&quot;, Fla<br align="left"/>    gName=&quot;SoulQuestComplete&quot;)]<br align="left"/>> ];
+    124 [ pos = "0.078,1.082!" ];
+    124 -> 202 [ label = "0→0" ];
+
+    125 [ label = <125: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.1<br align="left"/>> ];
+    125 [ pos = "-0.155,1.082!" ];
+    125 -> 124 [ label = "0→0" ];
+
+    126 [ label = <126: <b>SaveDataModule</b><br/><br/><i>is CI_01_GateMoved<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;CI_01&quot;, Fla<br align="left"/>    gName=&quot;CI_01_GateMoved&quot;)]<br align="left"/>> ];
+    126 [ pos = "-0.19000001,0.77000004!" ];
+    126 -> 116 [ label = "1→0" ];
+    126 -> 124 [ label = "0→3" ];
+    126 -> 137 [ label = "0→2" ];
+
+    127 [ label = <127: <b>ObjectMoverModule</b><br/><br/><i>Move Gate to final positions<br align="left"/></i><br align="left"/><b>ObjectName</b><br align="left"/>    &quot;CI_01_TormentedGate&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>MoveVal</b><br align="left"/>    0<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;CI_01_TormentedGate_Warp&quot;<br align="left"/><b>RotateObject</b><br align="left"/>    true<br align="left"/>> ];
+    127 [ pos = "2.0630002,1.3180001!" ];
+    127 -> 137 [ label = "0→2" ];
+    127 -> 141 [ label = "0→0" ];
+
+    131 [ label = <131: <b>ObjectToggleModule</b><br/><br/><i>TEMP: Manually Remove The Gate F<br align="left"/>or Now<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;CI_01_TormentedGate&quot;]<br align="left"/>> ];
+    131 [ pos = "3.3270001,1.389!" ];
+
+    132 [ label = <132: <b>base/giveitemmodule</b><br/><br/><i>Give the Horn<br align="left"/></i><br align="left"/><b>Item</b><br align="left"/>    &quot;gear_horn/playergearhorn&quot;<br align="left"/><b>HidePopup</b><br align="left"/>    false<br align="left"/>> ];
+    132 [ pos = "0.29500002,0.99600005!" ];
+    132 -> 134 [ label = "0→0" ];
+    132 -> 211 [ label = "0→0" ];
+
+    134 [ label = <134: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.5<br align="left"/>> ];
+    134 [ pos = "0.462,0.99600005!" ];
+    134 -> 188 [ label = "0→0" ];
+    134 -> 199 [ label = "0→0" ];
+
+    135 [ label = <135: <b>PropertySetModule</b><br/><br/><b>PropertyName</b><br align="left"/>    &quot;GateScriptModule&quot;<br align="left"/><b>StringValue</b><br align="left"/>    &quot;CI_01_TormentedGate_Script&quot;<br align="left"/>> ];
+    135 [ pos = "0.61,0.74700004!" ];
+    135 -> 172 [ label = "0→0" ];
+    117 -> 135 [ style = dashed ];
+
+    136 [ label = <136: <b>ExternalCallModule</b><br/><br/><i>openGate<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;openGate&quot;<br align="left"/>> ];
+    136 [ shape = oval ]
+    136 [ pos = "0.134,1.6980001!" ];
+    136 -> 168 [ label = "0→0" ];
+
+    137 [ label = <137: <b>ObjectToggleModule</b><br/><br/><i>blocker so War can't pass<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;CI_01_TormentedGate_Blocker&quot;]<br align="left"/>> ];
+    137 [ pos = "1.2750001,0.93100005!" ];
+
+    139 [ label = <139: <b>DelayModule</b><br/><br/>> ];
+    139 [ pos = "1.302,1.3410001!" ];
+    139 -> 154 [ label = "0→0" ];
+
+    140 [ label = <140: <b>ObjectToggleModule</b><br/><br/><i>Gate_ActivateRegion<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;CI_01_TormentedGate_ActivateRe<br align="left"/>    gion&quot;]<br align="left"/>> ];
+    140 [ pos = "0.96500003,1.172!" ];
+
+    141 [ label = <141: <b>InvokeMethodModule</b><br/><br/><b>MethodName</b><br align="left"/>    &quot;gateJump&quot;<br align="left"/>> ];
+    141 [ pos = "2.3270001,1.3180001!" ];
+    141 -> 181 [ label = "0→0" ];
+    141 -> 193 [ label = "0→0" ];
+    117 -> 141 [ style = dashed ];
+
+    142 [ label = <142: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;CI_01_TormentedGate_DeleteTrig<br align="left"/>    ger&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    142 [ shape = oval ]
+    142 [ pos = "2.9980001,1.343!" ];
+    142 -> 207 [ label = "0→0" ];
+    142 -> 131 [ label = "0→2" ];
+    142 -> 151 [ label = "0→0" ];
+
+    148 [ label = <148: <b>StartModule</b><br/><br/>> ];
+    148 [ shape = oval ]
+    148 [ pos = "0.53000003,1.463!" ];
+    148 -> 140 [ label = "0→2" ];
+
+    150 [ label = <150: <b>PropertySetModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;CI_01_TormentedGate_ActivateRe<br align="left"/>    gion&quot;]<br align="left"/><b>StringValue</b><br align="left"/>    &quot;false&quot;<br align="left"/>> ];
+    150 [ pos = "-0.36900002,1.082!" ];
+    150 -> 125 [ label = "0→0" ];
+
+    151 [ label = <151: <b>VisScriptCallModule</b><br/><br/><i>Kill Tortured Gate Sound<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CI_01_TorturedGate_Sound&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;CI_01_TorturedGate_Removed&quot;<br align="left"/>> ];
+    151 [ pos = "3.325,1.478!" ];
+
+    152 [ label = <152: <b>SaveDataModule</b><br/><br/><i>set CI_01_GateMoved<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;CI_01&quot;, Fla<br align="left"/>    gName=&quot;CI_01_GateMoved&quot;)]<br align="left"/>> ];
+    152 [ pos = "1.179,1.6850001!" ];
+
+    153 [ label = <153: <b>SaveDataModule</b><br/><br/><i>set SoulQuestComplete<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;CI_01&quot;, Fla<br align="left"/>    gName=&quot;SoulQuestComplete&quot;)]<br align="left"/>> ];
+    153 [ pos = "-0.358,1.2700001!" ];
+
+    154 [ label = <154: <b>PlayVideoModule</b><br/><br/><i>Scene_09<br align="left"/></i><br align="left"/><b>VideoName</b><br align="left"/>    &quot;Scene_TGate1.oo&quot;<br align="left"/><b>CamPositionObject</b><br align="left"/>    &quot;C1_Waypoint_TorturedGate_WarpWa<br align="left"/>    r_Pos_01&quot;<br align="left"/><b>CamLookatObject</b><br align="left"/>    &quot;C1_Waypoint_TorturedGate_WarpWa<br align="left"/>    r_Look_01&quot;<br align="left"/><b>PlayerPositionObject</b><br align="left"/>    &quot;C1_Waypoint_TorturedGate_WarpWa<br align="left"/>    r_02&quot;<br align="left"/>> ];
+    154 [ pos = "1.5370001,1.3410001!" ];
+    154 -> 187 [ label = "0→0" ];
+    154 -> 208 [ label = "0→0" ];
+
+    158 [ label = <158: <b>base/commitsavedatamodule</b><br/><br/>> ];
+    158 [ pos = "2.5900002,1.222!" ];
+
+    167 [ label = <167: <b>InvokeMethodModule</b><br/><br/><i>Tell the tormented gate to do hi<br align="left"/>s Reveal<br align="left"/></i><br align="left"/><b>MethodName</b><br align="left"/>    &quot;doImbue&quot;<br align="left"/>> ];
+    167 [ pos = "1.3100001,1.1340001!" ];
+    117 -> 167 [ style = dashed ];
+
+    168 [ label = <168: <b>base/oneshotmodule</b><br/><br/>> ];
+    168 [ pos = "0.38000003,1.6980001!" ];
+    168 -> 179 [ label = "0→0" ];
+
+    169 [ label = <169: <b>ObjectMoverModule</b><br/><br/><i>Warp Player to Match Video<br align="left"/></i><br align="left"/><b>ObjectName</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>MoveVal</b><br align="left"/>    0<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;C1_Waypoint_TorturedGate_WarpWa<br align="left"/>    r_01&quot;<br align="left"/><b>RotateObject</b><br align="left"/>    true<br align="left"/>> ];
+    169 [ pos = "1.393,1.508!" ];
+
+    170 [ label = <170: <b>CinematicModule</b><br/><br/><i>Warp Camera<br align="left"/></i><br align="left"/><b>CinematicName</b><br align="left"/>    &quot;C1_Cinematic_TorturedGate_WarpW<br align="left"/>    ar_01&quot;<br align="left"/><b>HideUI</b><br align="left"/>    false<br align="left"/>> ];
+    170 [ pos = "1.1800001,1.508!" ];
+    170 -> 169 [ label = "0→0" ];
+
+    172 [ label = <172: <b>PropertySetModule</b><br/><br/><i>Set Talk Time for Gate<br align="left"/></i><br align="left"/><b>PropertyName</b><br align="left"/>    &quot;TalkTime&quot;<br align="left"/><b>StringValue</b><br align="left"/>    &quot;5&quot;<br align="left"/>> ];
+    172 [ pos = "0.84800005,0.74700004!" ];
+    117 -> 172 [ style = dashed ];
+
+    179 [ label = <179: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    179 [ pos = "0.57500005,1.6980001!" ];
+    179 -> 152 [ label = "0→1" ];
+    179 -> 139 [ label = "0→0" ];
+    179 -> 140 [ label = "0→2" ];
+
+    180 [ label = <180: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CI_01_VSM_Watcher_PostGate&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;SetWatcher&quot;<br align="left"/>> ];
+    180 [ pos = "2.7610002,1.416!" ];
+
+    181 [ label = <181: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    3<br align="left"/>> ];
+    181 [ pos = "2.5860002,1.416!" ];
+    181 -> 180 [ label = "0→0" ];
+
+    182 [ label = <182: <b>StartModule</b><br/><br/><i>watcher hax start point.<br align="left"/></i><br align="left"/>> ];
+    182 [ shape = oval ]
+    182 [ pos = "2.4850001,1.593!" ];
+
+    183 [ label = <183: <b>FadeSceneModule</b><br/><br/><b>FadeTime</b><br align="left"/>    3<br align="left"/>> ];
+    183 [ pos = "2.0530002,1.4770001!" ];
+
+    184 [ label = <184: <b>base/showmenumodule</b><br/><br/><i>Demo menu<br align="left"/></i><br align="left"/><b>MenuName</b><br align="left"/>    &quot;ui_hud/CITYDEMOEND&quot;<br align="left"/><b>UICategory</b><br align="left"/>    &quot;Hud&quot;<br align="left"/>> ];
+    184 [ pos = "2.249,1.6600001!" ];
+
+    185 [ label = <185: <b>SoundModule</b><br/><br/><i>Demo sound<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;base/Music&quot;<br align="left"/><b>SoundID</b><br align="left"/>    208<br align="left"/><b>Music</b><br align="left"/>    true<br align="left"/>> ];
+    185 [ pos = "2.249,1.5780001!" ];
+
+    186 [ label = <186: <b>DelayModule</b><br/><br/><i>Demo stuff after this<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    186 [ pos = "2.056,1.6600001!" ];
+    186 -> 184 [ label = "0→0" ];
+    186 -> 185 [ label = "0→0" ];
+
+    187 [ label = <187: <b>SaveDataModule</b><br/><br/><i>Check IF DEMO<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Config&quot;, Fl<br align="left"/>    agName=&quot;Demo&quot;)]<br align="left"/>> ];
+    187 [ pos = "1.7400001,1.3410001!" ];
+    187 -> 186 [ label = "0→0" ];
+    187 -> 127 [ label = "1→0" ];
+    187 -> 183 [ label = "1→1" ];
+
+    188 [ label = <188: <b>VisScriptCallModule</b><br/><br/><i>ToMoveAMountain<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;VSM_Achievements&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;ToMoveAMountain&quot;<br align="left"/>> ];
+    188 [ pos = "0.656,1.085!" ];
+
+    190 [ label = <190: <b>DelayModule</b><br/><br/><i>pwn was asked to be removed from<br align="left"/> torture gate giving the item.<br align="left"/></i><br align="left"/>> ];
+    190 [ pos = "2.749,1.6320001!" ];
+    190 -> 191 [ label = "0→0" ];
+
+    191 [ label = <191: <b>base/giveitemmodule</b><br/><br/><b>Item</b><br align="left"/>    &quot;artifact_pawn/artifact_pawn&quot;<br align="left"/><b>HidePopup</b><br align="left"/>    false<br align="left"/>> ];
+    191 [ pos = "2.91,1.6320001!" ];
+
+    193 [ label = <193: <b>base/autosavemodule</b><br/><br/>> ];
+    193 [ pos = "2.5870001,1.1450001!" ];
+
+    194 [ label = <194: <b>base/autosavemodule</b><br/><br/>> ];
+    194 [ pos = "0.87000006,0.91600007!" ];
+
+    199 [ label = <199: <b>base/commitsavedatamodule</b><br/><br/><i>Player has Horn Commit<br align="left"/></i><br align="left"/>> ];
+    199 [ pos = "0.64900005,0.91600007!" ];
+    199 -> 194 [ label = "0→0" ];
+
+    202 [ label = <202: <b>base/setdefaultwatcherdialogmodule</b><br/><br/><b>Dialog</b><br align="left"/>    &quot;vo_watcher_start_area_05&quot;<br align="left"/>> ];
+    202 [ pos = "0.08800001,0.873!" ];
+    202 -> 132 [ label = "0→0" ];
+
+    207 [ label = <207: <b>VisScriptCallModule</b><br/><br/><i>Add Pit Blocker<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CI_01_Coll_Pit_Blocker_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;AddPitBlocker&quot;<br align="left"/>> ];
+    207 [ pos = "3.3300002,1.1800001!" ];
+
+    208 [ label = <208: <b>VisScriptCallModule</b><br/><br/><i>Remove Pit Blocker<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CI_01_Coll_Pit_Blocker_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;RemovePitBlocker&quot;<br align="left"/>> ];
+    208 [ pos = "1.8010001,1.488!" ];
+
+    211 [ label = <211: <b>VisScriptCallModule</b><br/><br/><i>Gear Item Tutorial<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;Global_Tutorial_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;MapGearTutorial&quot;<br align="left"/>> ];
+    211 [ pos = "0.499,1.1630001!" ];
+
+    213 [ label = <213: <b>AttachEventModule</b><br/><br/><i>Player Equiped Horn?<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;War&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onHornEquip&quot;]<br align="left"/>> ];
+    213 [ pos = "0.31,1.309!" ];
+    213 -> 214 [ label = "0→0" ];
+
+    214 [ label = <214: <b>PropertySetModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;CI_01_HornTutorial_Trigger&quot;]<br align="left"/><b>StringValue</b><br align="left"/>    &quot;true&quot;<br align="left"/>> ];
+    214 [ pos = "0.537,1.309!" ];
+    214 -> 140 [ label = "0→1" ];
+
+    215 [ label = <215: <b>StartModule</b><br/><br/>> ];
+    215 [ shape = oval ]
+    215 [ pos = "0.126,1.309!" ];
+    215 -> 213 [ label = "0→0" ];
+
+    title [ pos = "-0.71800005,1.6990001!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>CI_01<br align="left"/>Combat<br align="left"/><b>CI_01_TormentedGate_Script</b><br align="left"/></font>> ];
+}

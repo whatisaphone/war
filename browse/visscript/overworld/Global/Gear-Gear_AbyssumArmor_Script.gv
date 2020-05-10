@@ -1,0 +1,64 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>StartModule</b><br/><br/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "-0.31300002,-0.116000004!" ];
+    1 -> 2 [ label = "0→0" ];
+
+    2 [ label = <2: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Gear&quot;, Flag<br align="left"/>    Name=&quot;AbyssumArmorCutsceneFinish<br align="left"/>    ed&quot;)]<br align="left"/>> ];
+    2 [ pos = "-0.12900001,-0.116000004!" ];
+    2 -> 3 [ label = "1→0" ];
+
+    3 [ label = <3: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;War&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;AbyssumArmorAcquired&quot;]<br align="left"/>> ];
+    3 [ pos = "0.091000006,-0.13900001!" ];
+    3 -> 20 [ label = "0→0" ];
+    3 -> 21 [ label = "0→1" ];
+
+    6 [ label = <6: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Gear&quot;, Flag<br align="left"/>    Name=&quot;AbyssumArmorCutsceneFinish<br align="left"/>    ed&quot;)]<br align="left"/>> ];
+    6 [ pos = "1.2110001,-0.33200002!" ];
+
+    7 [ label = <7: <b>FadeSceneModule</b><br/><br/><b>FadeTime</b><br align="left"/>    1.4<br align="left"/><b>StayFadedOut</b><br align="left"/>    true<br align="left"/>> ];
+    7 [ pos = "0.9850001,-0.079!" ];
+    7 -> 21 [ label = "1→0" ];
+
+    9 [ label = <9: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    9 [ pos = "0.93100005,-0.558!" ];
+    9 -> 10 [ label = "0→0" ];
+    9 -> 18 [ label = "0→2" ];
+
+    10 [ label = <10: <b>base/setcharactermovestate</b><br/><br/><b>MoveState</b><br align="left"/>    &quot;Cutscene Abyssum Armor&quot;<br align="left"/>> ];
+    10 [ pos = "1.1040001,-0.558!" ];
+
+    11 [ label = <11: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.1<br align="left"/>> ];
+    11 [ pos = "0.70000005,-0.124000005!" ];
+    11 -> 7 [ label = "0→0" ];
+    11 -> 3 [ label = "0→2" ];
+
+    18 [ label = <18: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;War&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onArmorEquipped&quot;]<br align="left"/>> ];
+    18 [ pos = "0.70000005,-0.35000002!" ];
+    18 -> 7 [ label = "0→1" ];
+    18 -> 9 [ label = "0→0" ];
+    18 -> 6 [ label = "0→1" ];
+
+    20 [ label = <20: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Gear&quot;, Flag<br align="left"/>    Name=&quot;AbyssumArmorCutsceneFinish<br align="left"/>    ed&quot;)]<br align="left"/>> ];
+    20 [ pos = "0.42400002,0.061000004!" ];
+    20 -> 11 [ label = "1→0" ];
+
+    21 [ label = <21: <b>base/enablecharactercontrolmodule</b><br/><br/>> ];
+    21 [ pos = "0.409,-0.324!" ];
+    21 -> 18 [ label = "2→0" ];
+
+    title [ pos = "-0.314,0.062000003!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>Global<br align="left"/>Gear<br align="left"/><b>Gear_AbyssumArmor_Script</b><br align="left"/></font>> ];
+}

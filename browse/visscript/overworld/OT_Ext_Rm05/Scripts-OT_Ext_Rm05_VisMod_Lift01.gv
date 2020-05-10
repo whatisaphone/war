@@ -1,0 +1,176 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    5 [ label = <5: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;OT_Ext_Rm05_Lift01&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>MoveVal</b><br align="left"/>    5<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;OT_Ext_Rm05_Lift01_Up&quot;<br align="left"/><b>EaseIn</b><br align="left"/>    2<br align="left"/><b>EaseOut</b><br align="left"/>    2<br align="left"/>> ];
+    5 [ pos = "0.439,-0.134!" ];
+    5 -> 8 [ label = "1→1" ];
+    5 -> 10 [ label = "1→0" ];
+    5 -> 19 [ label = "0→0" ];
+    5 -> 20 [ label = "0→0" ];
+    5 -> 20 [ label = "1→1" ];
+    5 -> 21 [ label = "1→0" ];
+    5 -> 32 [ label = "0→1" ];
+    5 -> 32 [ label = "1→2" ];
+    5 -> 34 [ label = "0→2" ];
+    5 -> 34 [ label = "1→3" ];
+    5 -> 36 [ label = "1→1" ];
+    5 -> 44 [ label = "0→0" ];
+
+    6 [ label = <6: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;OT_Ext_Rm05_Lift01&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>MoveVal</b><br align="left"/>    5<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;OT_Ext_Rm05_Lift01_Down&quot;<br align="left"/><b>EaseIn</b><br align="left"/>    2<br align="left"/><b>EaseOut</b><br align="left"/>    2<br align="left"/>> ];
+    6 [ pos = "0.437,-0.536!" ];
+    6 -> 8 [ label = "1→3" ];
+    6 -> 10 [ label = "1→0" ];
+    6 -> 22 [ label = "0→0" ];
+    6 -> 23 [ label = "0→0" ];
+    6 -> 23 [ label = "1→1" ];
+    6 -> 24 [ label = "1→0" ];
+    6 -> 32 [ label = "0→1" ];
+    6 -> 32 [ label = "1→2" ];
+    6 -> 34 [ label = "0→2" ];
+    6 -> 34 [ label = "1→3" ];
+
+    8 [ label = <8: <b>SwitchModule</b><br/><br/>> ];
+    8 [ pos = "0.42800003,-0.30400002!" ];
+    8 -> 5 [ label = "0→0" ];
+    8 -> 6 [ label = "1→0" ];
+
+    10 [ label = <10: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Ext_Rm05_GearCrank_01&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;reset&quot;<br align="left"/>> ];
+    10 [ pos = "0.79700005,-0.34800002!" ];
+
+    12 [ label = <12: <b>StartModule</b><br/><br/>> ];
+    12 [ shape = oval ]
+    12 [ pos = "-0.055000003,-0.30400002!" ];
+    12 -> 14 [ label = "0→0" ];
+    12 -> 18 [ label = "0→0" ];
+    12 -> 52 [ label = "0→0" ];
+
+    14 [ label = <14: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Ext_Rm05_GearCrank_01&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onTrigger&quot;]<br align="left"/>> ];
+    14 [ pos = "0.15900001,-0.30400002!" ];
+    14 -> 8 [ label = "0→0" ];
+
+    18 [ label = <18: <b>ObjectAttacherModule</b><br/><br/><b>ChildObject</b><br align="left"/>    &quot;OT_Ext_Rm05_GearCrank_01&quot;<br align="left"/><b>ParentObject</b><br align="left"/>    &quot;OT_Ext_Rm05_Lift01&quot;<br align="left"/><b>ParentNode</b><br align="left"/>    &quot;OT_Ext_Rm05_Lift01_Node&quot;<br align="left"/><b>Relative</b><br align="left"/>    true<br align="left"/>> ];
+    18 [ pos = "0.15300001,-0.11800001!" ];
+
+    19 [ label = <19: <b>SoundModule</b><br/><br/><i>Start<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;ot_com/Tower_Props_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    3<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;OT_Ext_Rm05_Lift01&quot;<br align="left"/>> ];
+    19 [ pos = "1.1800001,0.155!" ];
+
+    20 [ label = <20: <b>SoundModule</b><br/><br/><i>Loop<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;ot_com/Tower_Props_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    5<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;OT_Ext_Rm05_Lift01&quot;<br align="left"/>> ];
+    20 [ pos = "1.184,0.004!" ];
+
+    21 [ label = <21: <b>SoundModule</b><br/><br/><i>Stop<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;ot_com/Tower_Props_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    4<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;OT_Ext_Rm05_Lift01&quot;<br align="left"/>> ];
+    21 [ pos = "1.1860001,-0.14500001!" ];
+
+    22 [ label = <22: <b>SoundModule</b><br/><br/><i>Start<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;ot_com/Tower_Props_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    3<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;OT_Ext_Rm05_Lift01&quot;<br align="left"/>> ];
+    22 [ pos = "0.785,-0.537!" ];
+
+    23 [ label = <23: <b>SoundModule</b><br/><br/><i>Loop<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;ot_com/Tower_Props_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    5<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;OT_Ext_Rm05_Lift01&quot;<br align="left"/>> ];
+    23 [ pos = "0.78900003,-0.69200003!" ];
+
+    24 [ label = <24: <b>SoundModule</b><br/><br/><i>Stop<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;ot_com/Tower_Props_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    4<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;OT_Ext_Rm05_Lift01&quot;<br align="left"/>> ];
+    24 [ pos = "0.791,-0.841!" ];
+
+    25 [ label = <25: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm06<br align="left"/>    &quot;, FlagName=&quot;OT_Ext_Rm06_BeamGen<br align="left"/>    erated&quot;)]<br align="left"/>> ];
+    25 [ pos = "-0.29200003,0.446!" ];
+    25 -> 29 [ label = "0→0" ];
+    25 -> 28 [ label = "0→0" ];
+
+    26 [ label = <26: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;OT_Ext_Rm05_Gate02&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;OT_Ext_Rm05_Gate02_Down_Wypt&quot;<br align="left"/>> ];
+    26 [ pos = "1.276,0.638!" ];
+    26 -> 63 [ label = "0→1" ];
+
+    27 [ label = <27: <b>StartModule</b><br/><br/>> ];
+    27 [ shape = oval ]
+    27 [ pos = "-0.504,0.446!" ];
+    27 -> 42 [ label = "0→0" ];
+    27 -> 25 [ label = "0→0" ];
+
+    28 [ label = <28: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;OT_Ext_Rm05_Gate02&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>MoveVal</b><br align="left"/>    0<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;OT_Ext_Rm05_Gate02_Down_Wypt&quot;<br align="left"/>> ];
+    28 [ pos = "0.063,0.36600003!" ];
+
+    29 [ label = <29: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;OT_Ext_Rm05_Gate01&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>MoveVal</b><br align="left"/>    0<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;OT_Ext_Rm05_Gate01_Up_Wypt&quot;<br align="left"/>> ];
+    29 [ pos = "0.063,0.526!" ];
+    29 -> 62 [ label = "0→2" ];
+
+    32 [ label = <32: <b>ObjectToggleModule</b><br/><br/><i>Add/Remove Blockers<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;OT_Ext_Rm05_Blocker_01&quot;, &quot;OT_E<br align="left"/>    xt_Rm05_Blocker_02&quot;, &quot;OT_Ext_Rm0<br align="left"/>    5_Blocker_03&quot;, &quot;OT_Ext_Rm05_Bloc<br align="left"/>    ker_04&quot;, &quot;OT_Ext_Rm05_Blocker_05<br align="left"/>> ];
+    32 [ pos = "1.1800001,-0.34!" ];
+
+    33 [ label = <33: <b>StartModule</b><br/><br/>> ];
+    33 [ shape = oval ]
+    33 [ pos = "0.402,0.05!" ];
+    33 -> 32 [ label = "0→2" ];
+    33 -> 10 [ label = "0→0" ];
+
+    34 [ label = <34: <b>PlayEffectModule</b><br/><br/><i>Elevator Effect<br align="left"/></i><br align="left"/><b>TargetObjs</b><br align="left"/>    [&quot;OT_Ext_Rm05_Lift01&quot;]<br align="left"/><b>Package</b><br align="left"/>    &quot;ot_ext_rm05&quot;<br align="left"/><b>Effect</b><br align="left"/>    &quot;OT_Ext_Rm05_Lift01_Move&quot;<br align="left"/>> ];
+    34 [ pos = "1.5630001,-0.367!" ];
+
+    36 [ label = <36: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm05<br align="left"/>    &quot;, FlagName=&quot;OT_Ext_Rm05_Lift01_<br align="left"/>    Up&quot;)]<br align="left"/>> ];
+    36 [ pos = "0.79600006,0.36400002!" ];
+    36 -> 46 [ label = "3→0" ];
+
+    37 [ label = <37: <b>StartModule</b><br/><br/>> ];
+    37 [ shape = oval ]
+    37 [ pos = "-0.342,-0.86800003!" ];
+    37 -> 38 [ label = "0→0" ];
+
+    38 [ label = <38: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm05<br align="left"/>    &quot;, FlagName=&quot;OT_Ext_Rm05_Lift01_<br align="left"/>    Up&quot;)]<br align="left"/>> ];
+    38 [ pos = "-0.127,-0.86800003!" ];
+    38 -> 39 [ label = "0→0" ];
+    38 -> 40 [ label = "1→0" ];
+
+    39 [ label = <39: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;OT_Ext_Rm05_Lift01&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>MoveVal</b><br align="left"/>    0.25<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;OT_Ext_Rm05_Lift01_Up&quot;<br align="left"/>> ];
+    39 [ pos = "0.13700001,-0.76900005!" ];
+    39 -> 8 [ label = "1→1" ];
+
+    40 [ label = <40: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;OT_Ext_Rm05_Lift01&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>MoveVal</b><br align="left"/>    0.25<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;OT_Ext_Rm05_Lift01_Down&quot;<br align="left"/>> ];
+    40 [ pos = "0.136,-0.96900004!" ];
+
+    42 [ label = <42: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm06<br align="left"/>    &quot;, FlagName=&quot;OT_Ext_Rm06_Gate02_<br align="left"/>    Dropped&quot;)]<br align="left"/>> ];
+    42 [ pos = "-0.294,0.63900006!" ];
+    42 -> 43 [ label = "0→0" ];
+    42 -> 57 [ label = "1→2" ];
+
+    43 [ label = <43: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;OT_Ext_Rm05_Gate02&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>MoveVal</b><br align="left"/>    0<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;OT_Ext_Rm05_Gate02_Down_Wypt&quot;<br align="left"/>> ];
+    43 [ pos = "-0.043,0.71400005!" ];
+
+    44 [ label = <44: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm06<br align="left"/>    &quot;, FlagName=&quot;OT_Ext_Rm06_Gate02_<br align="left"/>    Dropped&quot;)]<br align="left"/>> ];
+    44 [ pos = "0.77800006,0.684!" ];
+    44 -> 45 [ label = "1→1" ];
+
+    45 [ label = <45: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm06<br align="left"/>    &quot;, FlagName=&quot;OT_Ext_Rm06_Gate02_<br align="left"/>    Dropped&quot;)]<br align="left"/>> ];
+    45 [ pos = "1.026,0.684!" ];
+    45 -> 26 [ label = "3→0" ];
+
+    46 [ label = <46: <b>base/setspawnpointmodule</b><br/><br/><b>World</b><br align="left"/>    &quot;Overworld&quot;<br align="left"/><b>Region</b><br align="left"/>    &quot;OT_Ext_Rm06&quot;<br align="left"/><b>SpawnPoint</b><br align="left"/>    &quot;OT_Ext_Rm06_Respawn&quot;<br align="left"/><b>SpawnLoadRegion</b><br align="left"/>    &quot;StartLoadRegion&quot;<br align="left"/>> ];
+    46 [ pos = "1.0300001,0.31800002!" ];
+
+    50 [ label = <50: <b>VisScriptCallModule</b><br/><br/><i>spline cam on (OLD)<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;OT_Ext_Rm06_Cam_script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;camera on&quot;<br align="left"/>> ];
+    50 [ pos = "1.5560001,-0.012!" ];
+
+    51 [ label = <51: <b>VisScriptCallModule</b><br/><br/><i>spline cam off (OLD)<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;OT_Ext_Rm06_Cam_script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;camera off&quot;<br align="left"/>> ];
+    51 [ pos = "1.5580001,-0.108!" ];
+
+    52 [ label = <52: <b>ObjectAttacherModule</b><br/><br/><b>ChildObject</b><br align="left"/>    &quot;OT_Ext_Rm05_Lift01_PortalDetReg<br align="left"/>    &quot;<br align="left"/><b>ParentObject</b><br align="left"/>    &quot;OT_Ext_Rm05_Lift01&quot;<br align="left"/><b>ParentNode</b><br align="left"/>    &quot;OT_Ext_Rm05_Lift01_Node&quot;<br align="left"/><b>Relative</b><br align="left"/>    true<br align="left"/>> ];
+    52 [ pos = "0.15300001,-0.20400001!" ];
+
+    57 [ label = <57: <b>ObjectToggleModule</b><br/><br/><i>adding portcullis 01 tile if the<br align="left"/> lift went up<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;Ext_Rm05_PortCullis_01&quot;]<br align="left"/>> ];
+    57 [ pos = "-0.037,0.89800006!" ];
+
+    62 [ label = <62: <b>ObjectToggleModule</b><br/><br/><b>ObjectList</b><br align="left"/>    [&quot;Ext_Rm05_PortCullis&quot;]<br align="left"/>> ];
+    62 [ pos = "0.287,0.572!" ];
+
+    63 [ label = <63: <b>ObjectToggleModule</b><br/><br/><i>adding portcullis 01 tile if the<br align="left"/> lift went up<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;Ext_Rm05_PortCullis_01&quot;]<br align="left"/>> ];
+    63 [ pos = "1.5040001,0.661!" ];
+
+    title [ pos = "-0.505,0.89900005!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>OT_Ext_Rm05<br align="left"/>Scripts<br align="left"/><b>OT_Ext_Rm05_VisMod_Lift01</b><br align="left"/></font>> ];
+}

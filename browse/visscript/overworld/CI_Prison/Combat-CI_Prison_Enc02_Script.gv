@@ -1,0 +1,511 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    4 [ label = <4: <b>SpawnMonsterEventModule</b><br/><br/><b>SpawnPoints</b><br align="left"/>    [&quot;CI_Prison_Enc02_Spawn_01&quot;]<br align="left"/><b>NumberToSpawn</b><br align="left"/>    1<br align="left"/>> ];
+    4 [ pos = "0.65400004,0.040000003!" ];
+    4 -> 88 [ label = "2→1" ];
+    4 -> 88 [ label = "2→0" ];
+    4 -> 125 [ label = "0→0" ];
+    4 -> 8 [ style = dashed ];
+
+    5 [ label = <5: <b>ExternalCallModule</b><br/><br/><b>EventName</b><br align="left"/>    &quot;StartEncounter&quot;<br align="left"/>> ];
+    5 [ shape = oval ]
+    5 [ pos = "0.036000002,0.16800001!" ];
+    5 -> 121 [ label = "0→0" ];
+
+    8 [ label = <8: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    8 [ shape = parallelogram ]
+    8 [ pos = "0.684,-0.178!" ];
+
+    10 [ label = <10: <b>CinematicModule</b><br/><br/><i>PR_Cinematic_Intro<br align="left"/></i><br align="left"/><b>CinematicName</b><br align="left"/>    &quot;PR_Cinematic_Intro&quot;<br align="left"/>> ];
+    10 [ pos = "3.045,-0.155!" ];
+    10 -> 127 [ label = "0→0" ];
+    10 -> 136 [ label = "1→0" ];
+    10 -> 160 [ label = "1→0" ];
+
+    11 [ label = <11: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    11 [ pos = "2.7670002,-0.155!" ];
+    11 -> 10 [ label = "0→0" ];
+    11 -> 132 [ label = "0→0" ];
+    11 -> 122 [ label = "0→0" ];
+
+    12 [ label = <12: <b>ExternalCallModule</b><br/><br/><i>spawnPrisonguardMinions<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;spawnPrisonguardMinions&quot;<br align="left"/>> ];
+    12 [ shape = oval ]
+    12 [ pos = "0.009000001,-0.388!" ];
+    12 -> 39 [ label = "0→0" ];
+
+    13 [ label = <13: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;CI_Prison_Enc02_Backup&quot;<br align="left"/>> ];
+    13 [ pos = "0.693,-0.32700002!" ];
+    13 -> 16 [ label = "0→0" ];
+    13 -> 144 [ label = "0→0" ];
+    13 -> 15 [ style = dashed ];
+
+    15 [ label = <15: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    15 [ shape = parallelogram ]
+    15 [ pos = "0.711,-0.46400002!" ];
+
+    16 [ label = <16: <b>base/inviewlistmodule</b><br/><br/>> ];
+    16 [ pos = "0.95100003,-0.31300002!" ];
+    16 -> 18 [ label = "0→0" ];
+    15 -> 16 [ style = dashed ];
+    16 -> 17 [ style = dashed ];
+
+    17 [ label = <17: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    17 [ shape = parallelogram ]
+    17 [ pos = "0.97,-0.46300003!" ];
+
+    18 [ label = <18: <b>base/splitlistmodule</b><br/><br/><b>MaxInGroup1</b><br align="left"/>    4<br align="left"/><b>SortByClosest</b><br align="left"/>    true<br align="left"/>> ];
+    18 [ pos = "1.215,-0.30600002!" ];
+    18 -> 21 [ label = "0→0" ];
+    17 -> 18 [ style = dashed ];
+    18 -> 19 [ style = dashed ];
+
+    19 [ label = <19: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    19 [ shape = parallelogram ]
+    19 [ pos = "1.2290001,-0.469!" ];
+
+    20 [ label = <20: <b>SpawnMonsterEventModule</b><br/><br/><b>DelayTime</b><br align="left"/>    0.25<br align="left"/>> ];
+    20 [ pos = "1.8560001,-0.32500002!" ];
+    20 -> 92 [ label = "2→0" ];
+    19 -> 20 [ style = dashed ];
+    20 -> 96 [ style = dashed ];
+
+    21 [ label = <21: <b>base/listsize</b><br/><br/>> ];
+    21 [ pos = "1.4300001,-0.32200003!" ];
+    21 -> 24 [ label = "0→0" ];
+    19 -> 21 [ style = dashed ];
+    21 -> 22 [ style = dashed ];
+
+    22 [ label = <22: <b>VisScriptVariableInt</b><br/><br/>> ];
+    22 [ shape = parallelogram ]
+    22 [ pos = "1.4810001,-0.42800003!" ];
+
+    23 [ label = <23: <b>VisScriptVariableInt</b><br/><br/><b>Value</b><br align="left"/>    3<br align="left"/>> ];
+    23 [ shape = parallelogram ]
+    23 [ pos = "1.5370001,-0.49100003!" ];
+
+    24 [ label = <24: <b>IntCompareModule</b><br/><br/>> ];
+    24 [ pos = "1.618,-0.31800002!" ];
+    24 -> 20 [ label = "0→0" ];
+    24 -> 20 [ label = "2→0" ];
+    24 -> 25 [ label = "1→0" ];
+    22 -> 24 [ style = dashed ];
+    23 -> 24 [ style = dashed ];
+
+    25 [ label = <25: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;CI_Prison_Enc02_Backup&quot;<br align="left"/>> ];
+    25 [ pos = "0.67200005,-0.55700004!" ];
+    25 -> 29 [ label = "0→0" ];
+    25 -> 26 [ style = dashed ];
+
+    26 [ label = <26: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    26 [ shape = parallelogram ]
+    26 [ pos = "0.684,-0.697!" ];
+
+    29 [ label = <29: <b>base/splitlistmodule</b><br/><br/><b>MaxInGroup1</b><br align="left"/>    4<br align="left"/><b>SortByClosest</b><br align="left"/>    true<br align="left"/>> ];
+    29 [ pos = "0.9620001,-0.53900003!" ];
+    29 -> 31 [ label = "0→0" ];
+    29 -> 30 [ style = dashed ];
+    26 -> 29 [ style = dashed ];
+
+    30 [ label = <30: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    30 [ shape = parallelogram ]
+    30 [ pos = "0.96300006,-0.702!" ];
+
+    31 [ label = <31: <b>SpawnMonsterEventModule</b><br/><br/><b>DelayTime</b><br align="left"/>    0.25<br align="left"/>> ];
+    31 [ pos = "1.194,-0.563!" ];
+    31 -> 92 [ label = "2→0" ];
+    30 -> 31 [ style = dashed ];
+    31 -> 96 [ style = dashed ];
+
+    37 [ label = <37: <b>BranchModule</b><br/><br/><b>Branches</b><br align="left"/>    [1, 2, 3]<br align="left"/>> ];
+    37 [ pos = "0.47700003,-0.388!" ];
+    37 -> 13 [ label = "1→0" ];
+    37 -> 40 [ label = "2→0" ];
+    37 -> 72 [ label = "3→0" ];
+    37 -> 89 [ label = "1→2" ];
+    37 -> 90 [ label = "2→2" ];
+    37 -> 91 [ label = "3→2" ];
+    38 -> 37 [ style = dashed ];
+
+    38 [ label = <38: <b>VisScriptVariableInt</b><br/><br/>> ];
+    38 [ shape = parallelogram ]
+    38 [ pos = "0.26200002,-0.531!" ];
+
+    39 [ label = <39: <b>base/intincrement</b><br/><br/>> ];
+    39 [ pos = "0.254,-0.38900003!" ];
+    39 -> 37 [ label = "0→0" ];
+    38 -> 39 [ style = dashed ];
+    39 -> 38 [ style = dashed ];
+
+    40 [ label = <40: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;CI_Prison_Enc02_Backup&quot;<br align="left"/>> ];
+    40 [ pos = "0.65800005,-0.83800006!" ];
+    40 -> 42 [ label = "0→0" ];
+    40 -> 41 [ style = dashed ];
+
+    41 [ label = <41: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    41 [ shape = parallelogram ]
+    41 [ pos = "0.67600006,-0.975!" ];
+
+    42 [ label = <42: <b>base/inviewlistmodule</b><br/><br/>> ];
+    42 [ pos = "0.91600007,-0.82400006!" ];
+    42 -> 44 [ label = "0→0" ];
+    41 -> 42 [ style = dashed ];
+    42 -> 43 [ style = dashed ];
+
+    43 [ label = <43: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    43 [ shape = parallelogram ]
+    43 [ pos = "0.94100004,-0.97700006!" ];
+
+    44 [ label = <44: <b>base/splitlistmodule</b><br/><br/><b>MaxInGroup1</b><br align="left"/>    4<br align="left"/><b>SortByClosest</b><br align="left"/>    true<br align="left"/>> ];
+    44 [ pos = "1.1620001,-0.837!" ];
+    44 -> 47 [ label = "0→0" ];
+    43 -> 44 [ style = dashed ];
+    44 -> 45 [ style = dashed ];
+
+    45 [ label = <45: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    45 [ shape = parallelogram ]
+    45 [ pos = "1.194,-0.98!" ];
+
+    46 [ label = <46: <b>SpawnMonsterEventModule</b><br/><br/><b>DelayTime</b><br align="left"/>    0.25<br align="left"/>> ];
+    46 [ pos = "1.838,-0.82600003!" ];
+    46 -> 93 [ label = "2→0" ];
+    45 -> 46 [ style = dashed ];
+    46 -> 97 [ style = dashed ];
+
+    47 [ label = <47: <b>base/listsize</b><br/><br/>> ];
+    47 [ pos = "1.3950001,-0.83300006!" ];
+    47 -> 50 [ label = "0→0" ];
+    45 -> 47 [ style = dashed ];
+    47 -> 48 [ style = dashed ];
+
+    48 [ label = <48: <b>VisScriptVariableInt</b><br/><br/>> ];
+    48 [ shape = parallelogram ]
+    48 [ pos = "1.4460001,-0.93900007!" ];
+
+    49 [ label = <49: <b>VisScriptVariableInt</b><br/><br/><b>Value</b><br align="left"/>    3<br align="left"/>> ];
+    49 [ shape = parallelogram ]
+    49 [ pos = "1.5020001,-1.0020001!" ];
+
+    50 [ label = <50: <b>IntCompareModule</b><br/><br/>> ];
+    50 [ pos = "1.5830001,-0.82900006!" ];
+    50 -> 46 [ label = "0→0" ];
+    50 -> 46 [ label = "2→0" ];
+    50 -> 51 [ label = "1→0" ];
+    48 -> 50 [ style = dashed ];
+    49 -> 50 [ style = dashed ];
+
+    51 [ label = <51: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;CI_Prison_Enc02_Backup&quot;<br align="left"/>> ];
+    51 [ pos = "0.637,-1.0680001!" ];
+    51 -> 53 [ label = "0→0" ];
+    51 -> 52 [ style = dashed ];
+
+    52 [ label = <52: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    52 [ shape = parallelogram ]
+    52 [ pos = "0.64900005,-1.2080001!" ];
+
+    53 [ label = <53: <b>base/splitlistmodule</b><br/><br/><b>MaxInGroup1</b><br align="left"/>    4<br align="left"/><b>SortByClosest</b><br align="left"/>    true<br align="left"/>> ];
+    53 [ pos = "0.89900005,-1.07!" ];
+    53 -> 55 [ label = "0→0" ];
+    53 -> 54 [ style = dashed ];
+    52 -> 53 [ style = dashed ];
+
+    54 [ label = <54: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    54 [ shape = parallelogram ]
+    54 [ pos = "0.92800003,-1.213!" ];
+
+    55 [ label = <55: <b>SpawnMonsterEventModule</b><br/><br/><b>DelayTime</b><br align="left"/>    0.25<br align="left"/>> ];
+    55 [ pos = "1.159,-1.074!" ];
+    55 -> 93 [ label = "2→0" ];
+    54 -> 55 [ style = dashed ];
+    55 -> 97 [ style = dashed ];
+
+    72 [ label = <72: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;CI_Prison_Enc02_Backup&quot;<br align="left"/>> ];
+    72 [ pos = "0.66800004,-1.3460001!" ];
+    72 -> 74 [ label = "0→0" ];
+    72 -> 73 [ style = dashed ];
+
+    73 [ label = <73: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    73 [ shape = parallelogram ]
+    73 [ pos = "0.68600005,-1.483!" ];
+
+    74 [ label = <74: <b>base/inviewlistmodule</b><br/><br/>> ];
+    74 [ pos = "0.92600006,-1.332!" ];
+    74 -> 76 [ label = "0→0" ];
+    73 -> 74 [ style = dashed ];
+    74 -> 75 [ style = dashed ];
+
+    75 [ label = <75: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    75 [ shape = parallelogram ]
+    75 [ pos = "0.95100003,-1.485!" ];
+
+    76 [ label = <76: <b>base/splitlistmodule</b><br/><br/><b>MaxInGroup1</b><br align="left"/>    3<br align="left"/><b>SortByClosest</b><br align="left"/>    true<br align="left"/>> ];
+    76 [ pos = "1.172,-1.345!" ];
+    76 -> 79 [ label = "0→0" ];
+    75 -> 76 [ style = dashed ];
+    76 -> 77 [ style = dashed ];
+
+    77 [ label = <77: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    77 [ shape = parallelogram ]
+    77 [ pos = "1.2040001,-1.488!" ];
+
+    78 [ label = <78: <b>SpawnMonsterEventModule</b><br/><br/><b>DelayTime</b><br align="left"/>    0.25<br align="left"/>> ];
+    78 [ pos = "1.848,-1.3340001!" ];
+    78 -> 94 [ label = "2→0" ];
+    77 -> 78 [ style = dashed ];
+    78 -> 98 [ style = dashed ];
+
+    79 [ label = <79: <b>base/listsize</b><br/><br/>> ];
+    79 [ pos = "1.4050001,-1.3410001!" ];
+    79 -> 82 [ label = "0→0" ];
+    77 -> 79 [ style = dashed ];
+    79 -> 80 [ style = dashed ];
+
+    80 [ label = <80: <b>VisScriptVariableInt</b><br/><br/>> ];
+    80 [ shape = parallelogram ]
+    80 [ pos = "1.4560001,-1.447!" ];
+
+    81 [ label = <81: <b>VisScriptVariableInt</b><br/><br/><b>Value</b><br align="left"/>    3<br align="left"/>> ];
+    81 [ shape = parallelogram ]
+    81 [ pos = "1.5120001,-1.5100001!" ];
+
+    82 [ label = <82: <b>IntCompareModule</b><br/><br/>> ];
+    82 [ pos = "1.593,-1.337!" ];
+    82 -> 78 [ label = "0→0" ];
+    82 -> 78 [ label = "2→0" ];
+    82 -> 83 [ label = "1→0" ];
+    80 -> 82 [ style = dashed ];
+    81 -> 82 [ style = dashed ];
+
+    83 [ label = <83: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;CI_Prison_Enc02_Backup&quot;<br align="left"/>> ];
+    83 [ pos = "0.647,-1.5760001!" ];
+    83 -> 85 [ label = "0→0" ];
+    83 -> 84 [ style = dashed ];
+
+    84 [ label = <84: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    84 [ shape = parallelogram ]
+    84 [ pos = "0.65900004,-1.7160001!" ];
+
+    85 [ label = <85: <b>base/splitlistmodule</b><br/><br/><b>MaxInGroup1</b><br align="left"/>    3<br align="left"/><b>SortByClosest</b><br align="left"/>    true<br align="left"/>> ];
+    85 [ pos = "0.90900004,-1.5780001!" ];
+    85 -> 87 [ label = "0→0" ];
+    85 -> 86 [ style = dashed ];
+    84 -> 85 [ style = dashed ];
+
+    86 [ label = <86: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    86 [ shape = parallelogram ]
+    86 [ pos = "0.938,-1.7210001!" ];
+
+    87 [ label = <87: <b>SpawnMonsterEventModule</b><br/><br/><b>DelayTime</b><br align="left"/>    0.25<br align="left"/>> ];
+    87 [ pos = "1.169,-1.582!" ];
+    87 -> 94 [ label = "2→0" ];
+    86 -> 87 [ style = dashed ];
+    87 -> 98 [ style = dashed ];
+
+    88 [ label = <88: <b>base/gatemodule</b><br/><br/><i>Prison Guard<br align="left"/></i><br align="left"/><b>enable</b><br align="left"/>    false<br align="left"/>> ];
+    88 [ pos = "2.0900002,0.027!" ];
+    88 -> 89 [ label = "0→0" ];
+
+    89 [ label = <89: <b>base/gatemodule</b><br/><br/><i>Wave 1<br align="left"/></i><br align="left"/>> ];
+    89 [ pos = "2.259,-0.030000001!" ];
+    89 -> 90 [ label = "0→0" ];
+
+    90 [ label = <90: <b>base/gatemodule</b><br/><br/><i>Wave 2<br align="left"/></i><br align="left"/>> ];
+    90 [ pos = "2.3920002,-0.108!" ];
+    90 -> 91 [ label = "0→0" ];
+
+    91 [ label = <91: <b>base/gatemodule</b><br/><br/><i>Wave 3<br align="left"/></i><br align="left"/>> ];
+    91 [ pos = "2.548,-0.21200001!" ];
+    91 -> 11 [ label = "0→0" ];
+    91 -> 100 [ label = "0→0" ];
+    91 -> 115 [ label = "0→1" ];
+
+    92 [ label = <92: <b>base/gatemodule</b><br/><br/>> ];
+    92 [ pos = "2.167,-0.47300002!" ];
+    92 -> 89 [ label = "0→1" ];
+    92 -> 88 [ label = "0→0" ];
+    92 -> 141 [ label = "0→0" ];
+
+    93 [ label = <93: <b>base/gatemodule</b><br/><br/>> ];
+    93 [ pos = "2.1490002,-1.065!" ];
+    93 -> 90 [ label = "0→1" ];
+    93 -> 88 [ label = "0→0" ];
+    93 -> 142 [ label = "0→0" ];
+
+    94 [ label = <94: <b>base/gatemodule</b><br/><br/>> ];
+    94 [ pos = "2.115,-1.5530001!" ];
+    94 -> 91 [ label = "0→1" ];
+    94 -> 88 [ label = "0→0" ];
+
+    96 [ label = <96: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    96 [ shape = parallelogram ]
+    96 [ pos = "1.8640001,-0.53800005!" ];
+
+    97 [ label = <97: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    97 [ shape = parallelogram ]
+    97 [ pos = "1.8590001,-1.09!" ];
+
+    98 [ label = <98: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    98 [ shape = parallelogram ]
+    98 [ pos = "1.863,-1.554!" ];
+
+    100 [ label = <100: <b>DamageActorModule</b><br/><br/><b>DamageAmount</b><br align="left"/>    3000<br align="left"/><b>HitType</b><br align="left"/>    1<br align="left"/>> ];
+    100 [ pos = "2.7670002,-0.34500003!" ];
+    96 -> 100 [ style = dashed ];
+    97 -> 100 [ style = dashed ];
+    98 -> 100 [ style = dashed ];
+
+    106 [ label = <106: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.35<br align="left"/>> ];
+    106 [ pos = "1.016,0.067!" ];
+    106 -> 107 [ label = "0→0" ];
+
+    107 [ label = <107: <b>InvokeMethodModule</b><br/><br/><b>MethodName</b><br align="left"/>    &quot;ScriptedSummon&quot;<br align="left"/>> ];
+    107 [ pos = "1.1780001,0.067!" ];
+    8 -> 107 [ style = dashed ];
+
+    115 [ label = <115: <b>SaveDataModule</b><br/><br/><i>CI_Prison_Enc02_Complete<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;CI_Prison&quot;,<br align="left"/>     FlagName=&quot;CI_Prison_Enc02_Compl<br align="left"/>    ete&quot;)]<br align="left"/>> ];
+    115 [ pos = "2.765,0.09200001!" ];
+    115 -> 138 [ label = "3→0" ];
+
+    120 [ label = <120: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;pr_prisondemongate&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOn&quot;<br align="left"/>> ];
+    120 [ pos = "0.65000004,0.316!" ];
+    120 -> 131 [ label = "0→0" ];
+
+    121 [ label = <121: <b>base/storesavedatamodule</b><br/><br/>> ];
+    121 [ pos = "0.26900002,0.16800001!" ];
+    121 -> 120 [ label = "0→0" ];
+    121 -> 4 [ label = "0→0" ];
+
+    122 [ label = <122: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;PR_VisMod_RaiseCell&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;CI_Prison_ActivateStatues&quot;<br align="left"/>> ];
+    122 [ pos = "3.0470002,-0.36200002!" ];
+
+    125 [ label = <125: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.75<br align="left"/>> ];
+    125 [ pos = "0.98100007,0.26900002!" ];
+    125 -> 126 [ label = "0→0" ];
+
+    126 [ label = <126: <b>base/titledisplaycharactermodule</b><br/><br/><b>CharacterClass</b><br align="left"/>    &quot;phantomguard_prisonguard/phanto<br align="left"/>    mguard_prisonguard&quot;<br align="left"/>> ];
+    126 [ pos = "1.1270001,0.26900002!" ];
+    126 -> 159 [ label = "0→0" ];
+
+    127 [ label = <127: <b>SoundModule</b><br/><br/><i>Stinger_Secret_01<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;base/Music&quot;<br align="left"/><b>SoundID</b><br align="left"/>    86<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;Sameal_Roar_SoundPos&quot;<br align="left"/>> ];
+    127 [ pos = "3.285,-0.155!" ];
+    127 -> 128 [ label = "0→0" ];
+
+    128 [ label = <128: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    7<br align="left"/>> ];
+    128 [ pos = "3.4770002,-0.155!" ];
+
+    129 [ label = <129: <b>SoundModule</b><br/><br/><i>Stinger_Secret_02<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;base/Music&quot;<br align="left"/><b>SoundID</b><br align="left"/>    88<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;Sameal_Roar_SoundPos&quot;<br align="left"/>> ];
+    129 [ pos = "3.65,-0.155!" ];
+
+    131 [ label = <131: <b>VisScriptCallModule</b><br/><br/><i>scripted_HeavyCombat<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scripted_HeavyCombat&quot;<br align="left"/>> ];
+    131 [ pos = "0.86,0.316!" ];
+
+    132 [ label = <132: <b>VisScriptCallModule</b><br/><br/><i>scriptedHeavyOutro<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scriptedHeavyOutro&quot;<br align="left"/>> ];
+    132 [ pos = "3.0460002,-0.28300002!" ];
+
+    133 [ label = <133: <b>base/commitsavedatamodule</b><br/><br/>> ];
+    133 [ pos = "3.6440003,0.046000004!" ];
+    133 -> 134 [ label = "0→0" ];
+
+    134 [ label = <134: <b>base/autosavemodule</b><br/><br/>> ];
+    134 [ pos = "3.8810003,0.046000004!" ];
+
+    136 [ label = <136: <b>VisScriptCallModule</b><br/><br/><i>StartPrisonNudges<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;PrisonStartVSM_SetDialogue&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;StartPrisonNudges&quot;<br align="left"/>> ];
+    136 [ pos = "3.2860003,-0.30800003!" ];
+
+    137 [ label = <137: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;pr_prisondemongate&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOff&quot;<br align="left"/>> ];
+    137 [ pos = "3.2430003,0.046000004!" ];
+    137 -> 139 [ label = "0→0" ];
+
+    138 [ label = <138: <b>DelayModule</b><br/><br/>> ];
+    138 [ pos = "3.0470002,0.046000004!" ];
+    138 -> 137 [ label = "0→0" ];
+
+    139 [ label = <139: <b>DelayModule</b><br/><br/>> ];
+    139 [ pos = "3.463,0.046000004!" ];
+    139 -> 133 [ label = "0→0" ];
+
+    141 [ label = <141: <b>InvokeMethodModule</b><br/><br/><i>1st wave dead<br align="left"/></i><br align="left"/><b>MethodName</b><br align="left"/>    &quot;secondWave&quot;<br align="left"/>> ];
+    141 [ pos = "2.368,-0.47200003!" ];
+    8 -> 141 [ style = dashed ];
+
+    142 [ label = <142: <b>InvokeMethodModule</b><br/><br/><i>2nd wave dead<br align="left"/></i><br align="left"/><b>MethodName</b><br align="left"/>    &quot;finalCombatBehavior&quot;<br align="left"/>> ];
+    142 [ pos = "2.391,-1.0530001!" ];
+    8 -> 142 [ style = dashed ];
+
+    144 [ label = <144: <b>VisScriptCallModule</b><br/><br/><i>Wrath Tutorial for CI_Prison_Enc<br align="left"/>02_Script<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CI_Prison_Enc02_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;ShowWrathTutorial&quot;<br align="left"/>> ];
+    144 [ pos = "0.97300005,-0.215!" ];
+
+    145 [ label = <145: <b>ExternalCallModule</b><br/><br/><i>Show Focus Tutorial<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;ShowFocusTutorial&quot;<br align="left"/>> ];
+    145 [ shape = oval ]
+    145 [ pos = "0.611,-2.104!" ];
+    145 -> 156 [ label = "0→0" ];
+
+    146 [ label = <146: <b>ExternalCallModule</b><br/><br/><i>Show Wrath Tutorial<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;ShowWrathTutorial&quot;<br align="left"/>> ];
+    146 [ shape = oval ]
+    146 [ pos = "0.611,-2.434!" ];
+    146 -> 157 [ label = "0→0" ];
+
+    147 [ label = <147: <b>base/giveitemmodule</b><br/><br/><i>Focus tutorial<br align="left"/></i><br align="left"/><b>Item</b><br align="left"/>    &quot;base/tip_focus&quot;<br align="left"/>> ];
+    147 [ pos = "1.031,-2.1030002!" ];
+    147 -> 149 [ label = "0→0" ];
+    147 -> 149 [ label = "1→1" ];
+    147 -> 148 [ style = dashed ];
+
+    148 [ label = <148: <b>VisScriptVariableUInt32</b><br/><br/>> ];
+    148 [ shape = parallelogram ]
+    148 [ pos = "1.3790001,-2.236!" ];
+
+    149 [ label = <149: <b>base/gamepadlistener</b><br/><br/><b>Button</b><br align="left"/>    4<br align="left"/>> ];
+    149 [ pos = "1.35,-2.1030002!" ];
+    149 -> 151 [ label = "0→0" ];
+
+    150 [ label = <150: <b>base/infohintstopmodule</b><br/><br/>> ];
+    150 [ pos = "1.8330001,-2.102!" ];
+    148 -> 150 [ style = dashed ];
+
+    151 [ label = <151: <b>DelayModule</b><br/><br/>> ];
+    151 [ pos = "1.6190001,-2.1030002!" ];
+    151 -> 150 [ label = "0→0" ];
+
+    153 [ label = <153: <b>base/giveitemmodule</b><br/><br/><i>Wrath use<br align="left"/></i><br align="left"/><b>Item</b><br align="left"/>    &quot;base/tip_wrathMoveUse&quot;<br align="left"/>> ];
+    153 [ pos = "1.0370001,-2.434!" ];
+    153 -> 154 [ label = "0→0" ];
+
+    154 [ label = <154: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    154 [ pos = "1.2160001,-2.434!" ];
+    154 -> 155 [ label = "0→0" ];
+
+    155 [ label = <155: <b>base/removeitemmodule</b><br/><br/><i>base/tip_wrathMoveUse<br align="left"/></i><br align="left"/><b>Item</b><br align="left"/>    &quot;base/tip_wrathMoveUse&quot;<br align="left"/>> ];
+    155 [ pos = "1.3920001,-2.434!" ];
+
+    156 [ label = <156: <b>DelayModule</b><br/><br/>> ];
+    156 [ pos = "0.85200006,-2.104!" ];
+    156 -> 147 [ label = "0→0" ];
+
+    157 [ label = <157: <b>DelayModule</b><br/><br/>> ];
+    157 [ pos = "0.85200006,-2.434!" ];
+    157 -> 153 [ label = "0→0" ];
+
+    158 [ label = <158: <b>VisScriptCallModule</b><br/><br/><i>Focus Tutorial for CI_Prison_Enc<br align="left"/>02_Script<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CI_Prison_Enc02_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;ShowFocusTutorial&quot;<br align="left"/>> ];
+    158 [ pos = "1.603,0.26900002!" ];
+
+    159 [ label = <159: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    5<br align="left"/>> ];
+    159 [ pos = "1.4280001,0.26900002!" ];
+    159 -> 158 [ label = "0→0" ];
+
+    160 [ label = <160: <b>base/setdefaultwatcherdialogmodule</b><br/><br/><b>Dialog</b><br align="left"/>    &quot;vo_watcher_start_area_08&quot;<br align="left"/>> ];
+    160 [ pos = "3.285,-0.386!" ];
+
+    title [ pos = "0.008,0.317!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>CI_Prison<br align="left"/>Combat<br align="left"/><b>CI_Prison_Enc02_Script</b><br align="left"/></font>> ];
+}

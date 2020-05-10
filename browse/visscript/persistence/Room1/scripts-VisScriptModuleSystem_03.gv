@@ -1,0 +1,45 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>StartModule</b><br/><br/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "-0.23200001,-0.38300002!" ];
+    1 -> 7 [ label = "0→0" ];
+    1 -> 9 [ label = "0→0" ];
+    1 -> 11 [ label = "0→0" ];
+
+    7 [ label = <7: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;Chest_KeyChest&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onInteractive&quot;]<br align="left"/>> ];
+    7 [ pos = "0.053000003,-0.38300002!" ];
+    7 -> 8 [ label = "0→1" ];
+    7 -> 10 [ label = "0→1" ];
+
+    8 [ label = <8: <b>ObjectToggleModule</b><br/><br/><b>ObjectList</b><br align="left"/>    [&quot;KeyBarrier_IC_GHRoom&quot;, &quot;Dgn_Ke<br align="left"/>    yLock&quot;]<br align="left"/>> ];
+    8 [ pos = "0.35700002,-0.51900005!" ];
+
+    9 [ label = <9: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;room1&quot;, Fla<br align="left"/>    gName=&quot;chestOpened&quot;)]<br align="left"/>> ];
+    9 [ pos = "0.052,-0.54200006!" ];
+    9 -> 8 [ label = "1→2" ];
+
+    10 [ label = <10: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;room1&quot;, Fla<br align="left"/>    gName=&quot;chestOpened&quot;)]<br align="left"/>> ];
+    10 [ pos = "0.32700002,-0.36!" ];
+
+    11 [ label = <11: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;Dgn_KeyLock&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onTrigger&quot;]<br align="left"/>> ];
+    11 [ pos = "0.056,-0.19900002!" ];
+    11 -> 12 [ label = "0→1" ];
+
+    12 [ label = <12: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;room1&quot;, Fla<br align="left"/>    gName=&quot;chestOpened&quot;, FlagValue=&quot;<br align="left"/>    False&quot;)]<br align="left"/>> ];
+    12 [ pos = "0.23600002,-0.17600001!" ];
+
+    title [ pos = "-0.23300001,-0.17500001!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">persistence<br align="left"/>Room1<br align="left"/>scripts<br align="left"/><b>VisScriptModuleSystem_03</b><br align="left"/></font>> ];
+}

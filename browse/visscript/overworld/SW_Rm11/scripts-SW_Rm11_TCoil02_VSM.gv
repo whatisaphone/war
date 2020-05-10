@@ -1,0 +1,303 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    3 [ label = <3: <b>TriggerEventModule</b><br/><br/><i>Checks if player enters emerge t<br align="left"/>rigger<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;SW_Rm11_TCoil02_Emerge_Trigger<br align="left"/>    &quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    3 [ shape = oval ]
+    3 [ pos = "-0.31500003,-0.93000007!" ];
+    3 -> 17 [ label = "0→0" ];
+    3 -> 18 [ label = "1→0" ];
+
+    17 [ label = <17: <b>InvokeMethodModule</b><br/><br/><i>TCoil Emerge<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;SW_Rm11_TCoil02&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;emerge&quot;<br align="left"/>> ];
+    17 [ pos = "-0.057000004,-0.93000007!" ];
+    17 -> 123 [ label = "0→0" ];
+
+    18 [ label = <18: <b>InvokeMethodModule</b><br/><br/><i>TCoil Demerge<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;SW_Rm11_TCoil02&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;demerge&quot;<br align="left"/>> ];
+    18 [ pos = "-0.053000003,-1.0780001!" ];
+
+    20 [ label = <20: <b>InvokeMethodModule</b><br/><br/><i>Play demerged Idle on TCoil02<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;SW_Rm11_TCoil02&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;demergeIdle&quot;<br align="left"/>> ];
+    20 [ pos = "-0.48900002,-1.2490001!" ];
+
+    21 [ label = <21: <b>TriggerEventModule</b><br/><br/><i>Checks if player enters attack t<br align="left"/>rigger<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;SW_Rm11_TCoil02_Attack_Trigger<br align="left"/>    &quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    21 [ shape = oval ]
+    21 [ pos = "-0.37600002,0.18900001!" ];
+    21 -> 28 [ label = "0→0" ];
+
+    24 [ label = <24: <b>InvokeMethodModule</b><br/><br/><i>Tell Tortured Coil to lash to th<br align="left"/>e left<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;SW_Rm11_TCoil02&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;lashShortLeft&quot;<br align="left"/>> ];
+    24 [ pos = "0.124000005,0.18900001!" ];
+    24 -> 26 [ label = "0→0" ];
+
+    26 [ label = <26: <b>base/aionactioncomplete</b><br/><br/><i>When done lashing...<br align="left"/></i><br align="left"/><b>Character</b><br align="left"/>    &quot;SW_Rm11_TCoil02&quot;<br align="left"/><b>Enabled</b><br align="left"/>    false<br align="left"/>> ];
+    26 [ pos = "0.36,0.18900001!" ];
+    26 -> 27 [ label = "0→0" ];
+
+    27 [ label = <27: <b>InvokeMethodModule</b><br/><br/><i>Tell Tortured Coil to idle in em<br align="left"/>erged state<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;SW_Rm11_TCoil02&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;emergeIdle&quot;<br align="left"/>> ];
+    27 [ pos = "0.59400004,0.18900001!" ];
+
+    28 [ label = <28: <b>base/settargetmodule</b><br/><br/><i>Set Tortured Coil's target to Pl<br align="left"/>ayer<br align="left"/></i><br align="left"/><b>Monster</b><br align="left"/>    &quot;SW_Rm11_TCoil02&quot;<br align="left"/><b>Target</b><br align="left"/>    &quot;War&quot;<br align="left"/>> ];
+    28 [ pos = "-0.119,0.18900001!" ];
+    28 -> 24 [ label = "0→0" ];
+
+    30 [ label = <30: <b>TriggerEventModule</b><br/><br/><i>Checks if Train enters TrainGrab<br align="left"/> trigger<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;SW_Rm11_TCoil02_TrainGrab_Trig<br align="left"/>    ger&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    30 [ shape = oval ]
+    30 [ pos = "-0.37100002,-0.36200002!" ];
+    30 -> 64 [ label = "0→1" ];
+    30 -> 41 [ label = "0→0" ];
+    30 -> 21 [ label = "0→1" ];
+    30 -> 3 [ label = "0→1" ];
+    30 -> 120 [ label = "0→0" ];
+    30 -> 128 [ label = "0→0" ];
+
+    31 [ label = <31: <b>base/settargetmodule</b><br/><br/><i>Set Tortured Coil's target to Ci<br align="left"/>nematic Train<br align="left"/></i><br align="left"/><b>Monster</b><br align="left"/>    &quot;SW_Rm11_TCoil02&quot;<br align="left"/><b>Target</b><br align="left"/>    &quot;SW_Rm11_TCoil02_Cinematic_Train<br align="left"/>    &quot;<br align="left"/>> ];
+    31 [ pos = "0.47200003,-0.36200002!" ];
+    31 -> 33 [ label = "0→0" ];
+
+    33 [ label = <33: <b>InvokeMethodModule</b><br/><br/><i>Tell Tortured Coil to grab train<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;SW_Rm11_TCoil02&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;grabSubwayCar&quot;<br align="left"/>> ];
+    33 [ pos = "0.75000006,-0.36200002!" ];
+    33 -> 42 [ label = "0→0" ];
+
+    37 [ label = <37: <b>ObjectToggleModule</b><br/><br/><i>Toggle crushed train, cinematic <br align="left"/>train off<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;SW_Rm11_TCoil02_Crushed_Train&quot;<br align="left"/>    , &quot;SW_Rm11_TCoil02_Cinematic_Tra<br align="left"/>    in&quot;]<br align="left"/>> ];
+    37 [ pos = "-0.48700002,-1.4130001!" ];
+
+    40 [ label = <40: <b>ObjectToggleModule</b><br/><br/><i>Toggle pushable train off and ci<br align="left"/>nematic train on<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;SW_Rm11_Pushable_Train02&quot;, &quot;SW<br align="left"/>    _Rm11_TCoil02_Cinematic_Train&quot;]<br align="left"/>> ];
+    40 [ pos = "0.18200001,-0.35300002!" ];
+    40 -> 31 [ label = "0→0" ];
+
+    41 [ label = <41: <b>base/objectalignmodule</b><br/><br/><i>Align cinematic train with pusha<br align="left"/>ble train<br align="left"/></i><br align="left"/><b>SourceObject</b><br align="left"/>    &quot;SW_Rm11_TCoil02_Cinematic_Train<br align="left"/>    &quot;<br align="left"/><b>TargetObject</b><br align="left"/>    &quot;SW_Rm11_Pushable_Train02&quot;<br align="left"/>> ];
+    41 [ pos = "-0.08400001,-0.45900002!" ];
+    41 -> 40 [ label = "0→0" ];
+
+    42 [ label = <42: <b>base/aionactioncomplete</b><br/><br/><i>Done Eating Train<br align="left"/></i><br align="left"/><b>Character</b><br align="left"/>    &quot;SW_Rm11_TCoil02&quot;<br align="left"/><b>Enabled</b><br align="left"/>    false<br align="left"/>> ];
+    42 [ pos = "1.031,-0.36200002!" ];
+    42 -> 45 [ label = "0→1" ];
+    42 -> 44 [ label = "0→2" ];
+
+    43 [ label = <43: <b>base/objectalignmodule</b><br/><br/><i>Align crushed train with end of <br align="left"/>cinematic train<br align="left"/></i><br align="left"/><b>SourceObject</b><br align="left"/>    &quot;SW_Rm11_TCoil02_Crushed_Train&quot;<br align="left"/><b>TargetObject</b><br align="left"/>    &quot;SW_Rm11_TCoil02_Cinematic_Train<br align="left"/>    &quot;<br align="left"/>> ];
+    43 [ pos = "1.2620001,-0.544!" ];
+    43 -> 44 [ label = "0→2" ];
+    43 -> 45 [ label = "0→1" ];
+
+    44 [ label = <44: <b>ObjectToggleModule</b><br/><br/><i>Remove coil and cinematic train<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;SW_Rm11_TCoil02&quot;, &quot;SW_Rm11_TCo<br align="left"/>    il02_Cinematic_Train&quot;]<br align="left"/>> ];
+    44 [ pos = "1.608,-0.541!" ];
+    44 -> 100 [ label = "0→0" ];
+
+    45 [ label = <45: <b>ObjectToggleModule</b><br/><br/><i>Add crushed train<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;SW_Rm11_TCoil02_Crushed_Train&quot;<br align="left"/>    ]<br align="left"/>> ];
+    45 [ pos = "1.6070001,-0.33600003!" ];
+
+    48 [ label = <48: <b>SaveDataModule</b><br/><br/><i>Checks flag for Tcoil02 hole bei<br align="left"/>ng blocked<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;SW_Rm11_TCoil02_Blocked&quot;<br align="left"/>    )]<br align="left"/>> ];
+    48 [ pos = "-0.703,-0.95300007!" ];
+    48 -> 3 [ label = "0→1" ];
+
+    49 [ label = <49: <b>StartModule</b><br/><br/>> ];
+    49 [ shape = oval ]
+    49 [ pos = "-0.97,-0.569!" ];
+    49 -> 48 [ label = "0→0" ];
+    49 -> 65 [ label = "0→0" ];
+    49 -> 66 [ label = "0→0" ];
+    49 -> 67 [ label = "0→0" ];
+    49 -> 69 [ label = "0→0" ];
+
+    50 [ label = <50: <b>ObjectToggleModule</b><br/><br/><i>Toggle Pushable Train, Cinematic<br align="left"/> Train, TCoil02 off<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;SW_Rm11_Pushable_Train02&quot;, &quot;SW<br align="left"/>    _Rm11_TCoil02_Cinematic_Train&quot;, <br align="left"/>    &quot;SW_Rm11_TCoil02&quot;]<br align="left"/>> ];
+    50 [ pos = "-0.42200002,0.46600002!" ];
+
+    64 [ label = <64: <b>SaveDataModule</b><br/><br/><i>Sets flag for Tcoil02 hole being<br align="left"/> blocked<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;SW_Rm11_TCoil02_Blocked&quot;<br align="left"/>    )]<br align="left"/>> ];
+    64 [ pos = "-0.095000006,-0.54700005!" ];
+    64 -> 136 [ label = "3→0" ];
+
+    65 [ label = <65: <b>SaveDataModule</b><br/><br/><i>Checks flag for Tcoil02 hole bei<br align="left"/>ng blocked<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;SW_Rm11_TCoil02_Blocked&quot;<br align="left"/>    )]<br align="left"/>> ];
+    65 [ pos = "-0.69100004,0.16600001!" ];
+    65 -> 21 [ label = "0→1" ];
+
+    66 [ label = <66: <b>SaveDataModule</b><br/><br/><i>Checks flag for Tcoil02 hole bei<br align="left"/>ng blocked<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;SW_Rm11_TCoil02_Blocked&quot;<br align="left"/>    )]<br align="left"/>> ];
+    66 [ pos = "-0.68100005,-0.38500002!" ];
+    66 -> 30 [ label = "0→1" ];
+
+    67 [ label = <67: <b>SaveDataModule</b><br/><br/><i>Checks flag for Tcoil02 hole bei<br align="left"/>ng blocked<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;SW_Rm11_TCoil02_Blocked&quot;<br align="left"/>    )]<br align="left"/>> ];
+    67 [ pos = "-0.698,0.42000002!" ];
+    67 -> 50 [ label = "0→2" ];
+    67 -> 138 [ label = "0→1" ];
+    67 -> 138 [ label = "1→2" ];
+
+    69 [ label = <69: <b>SaveDataModule</b><br/><br/><i>Checks flag for Tcoil02 hole bei<br align="left"/>ng blocked<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;SW_Rm11_TCoil02_Blocked&quot;<br align="left"/>    )]<br align="left"/>> ];
+    69 [ pos = "-0.725,-1.2260001!" ];
+    69 -> 37 [ label = "1→2" ];
+    69 -> 20 [ label = "1→0" ];
+
+    70 [ label = <70: <b>CinematicModule</b><br/><br/><b>CinematicName</b><br align="left"/>    &quot;SW_Rm11_TCoil_02_Cine&quot;<br align="left"/>> ];
+    70 [ pos = "0.119,-0.186!" ];
+    70 -> 129 [ label = "0→0" ];
+
+    71 [ label = <71: <b>RumbleModule</b><br/><br/><b>LeftPower</b><br align="left"/>    0.25<br align="left"/><b>RightPower</b><br align="left"/>    0.25<br align="left"/><b>EaseOut</b><br align="left"/>    1<br align="left"/><b>SourceObject</b><br align="left"/>    &quot;War&quot;<br align="left"/>> ];
+    71 [ pos = "-0.55700004,0.92200005!" ];
+
+    72 [ label = <72: <b>base/camerashakemodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>HorizontalPower</b><br align="left"/>    0<br align="left"/><b>VerticalPower</b><br align="left"/>    3<br align="left"/><b>BlurPower</b><br align="left"/>    0.025<br align="left"/><b>Duration</b><br align="left"/>    0<br align="left"/><b>EaseOut</b><br align="left"/>    0.5<br align="left"/>> ];
+    72 [ pos = "0.12100001,0.85800004!" ];
+
+    73 [ label = <73: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2.9<br align="left"/>> ];
+    73 [ pos = "-0.038000003,0.85800004!" ];
+    73 -> 72 [ label = "0→0" ];
+    73 -> 90 [ label = "0→0" ];
+
+    75 [ label = <75: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    3.75<br align="left"/>> ];
+    75 [ pos = "0.303,0.85800004!" ];
+    75 -> 76 [ label = "0→0" ];
+    75 -> 91 [ label = "0→0" ];
+
+    76 [ label = <76: <b>base/camerashakemodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>HorizontalPower</b><br align="left"/>    0<br align="left"/><b>VerticalPower</b><br align="left"/>    2.5<br align="left"/><b>BlurPower</b><br align="left"/>    0.01<br align="left"/><b>Duration</b><br align="left"/>    0.5<br align="left"/><b>EaseOut</b><br align="left"/>    0.75<br align="left"/>> ];
+    76 [ pos = "0.46600002,0.85800004!" ];
+
+    77 [ label = <77: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2.5<br align="left"/>> ];
+    77 [ pos = "-0.37600002,0.85700005!" ];
+    77 -> 78 [ label = "0→0" ];
+    77 -> 88 [ label = "0→0" ];
+
+    78 [ label = <78: <b>base/camerashakemodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>HorizontalPower</b><br align="left"/>    0<br align="left"/><b>VerticalPower</b><br align="left"/>    3<br align="left"/><b>BlurPower</b><br align="left"/>    0.025<br align="left"/><b>Duration</b><br align="left"/>    0<br align="left"/><b>EaseOut</b><br align="left"/>    0.25<br align="left"/>> ];
+    78 [ pos = "-0.23,0.85700005!" ];
+
+    79 [ label = <79: <b>DelayModule</b><br/><br/>> ];
+    79 [ pos = "-0.70000005,0.85700005!" ];
+    79 -> 80 [ label = "0→0" ];
+
+    80 [ label = <80: <b>base/camerashakemodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>HorizontalPower</b><br align="left"/>    0<br align="left"/><b>VerticalPower</b><br align="left"/>    1.5<br align="left"/><b>Duration</b><br align="left"/>    0<br align="left"/><b>EaseOut</b><br align="left"/>    0.5<br align="left"/>> ];
+    80 [ pos = "-0.55600005,0.85700005!" ];
+
+    81 [ label = <81: <b>base/camerashakemodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>HorizontalPower</b><br align="left"/>    0<br align="left"/><b>VerticalPower</b><br align="left"/>    3<br align="left"/><b>BlurPower</b><br align="left"/>    0.01<br align="left"/><b>Duration</b><br align="left"/>    0<br align="left"/><b>EaseOut</b><br align="left"/>    0.5<br align="left"/>> ];
+    81 [ pos = "0.79600006,0.859!" ];
+
+    82 [ label = <82: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    4.9<br align="left"/>> ];
+    82 [ pos = "0.656,0.859!" ];
+    82 -> 81 [ label = "0→0" ];
+    82 -> 92 [ label = "0→0" ];
+
+    84 [ label = <84: <b>base/camerashakemodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>HorizontalPower</b><br align="left"/>    0<br align="left"/><b>VerticalPower</b><br align="left"/>    3<br align="left"/><b>Duration</b><br align="left"/>    0<br align="left"/><b>EaseOut</b><br align="left"/>    0.5<br align="left"/>> ];
+    84 [ pos = "0.79600006,0.859!" ];
+
+    85 [ label = <85: <b>base/camerashakemodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>HorizontalPower</b><br align="left"/>    0<br align="left"/><b>VerticalPower</b><br align="left"/>    2<br align="left"/><b>BlurPower</b><br align="left"/>    0.01<br align="left"/><b>EaseOut</b><br align="left"/>    2<br align="left"/>> ];
+    85 [ pos = "1.13,0.85600007!" ];
+
+    86 [ label = <86: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    5.5<br align="left"/>> ];
+    86 [ pos = "0.99000007,0.85600007!" ];
+    86 -> 85 [ label = "0→0" ];
+    86 -> 93 [ label = "0→0" ];
+
+    87 [ label = <87: <b>base/camerashakemodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>HorizontalPower</b><br align="left"/>    0<br align="left"/><b>VerticalPower</b><br align="left"/>    3<br align="left"/><b>Duration</b><br align="left"/>    0<br align="left"/><b>EaseOut</b><br align="left"/>    0.5<br align="left"/>> ];
+    87 [ pos = "1.13,0.85600007!" ];
+
+    88 [ label = <88: <b>RumbleModule</b><br/><br/><b>RightPower</b><br align="left"/>    0<br align="left"/><b>Duration</b><br align="left"/>    0.25<br align="left"/><b>SourceObject</b><br align="left"/>    &quot;War&quot;<br align="left"/>> ];
+    88 [ pos = "-0.231,0.92200005!" ];
+
+    89 [ label = <89: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.25<br align="left"/>> ];
+    89 [ pos = "-0.70100003,1.01!" ];
+    89 -> 71 [ label = "0→0" ];
+
+    90 [ label = <90: <b>RumbleModule</b><br/><br/><b>RightPower</b><br align="left"/>    0.75<br align="left"/><b>Duration</b><br align="left"/>    0.25<br align="left"/><b>SourceObject</b><br align="left"/>    &quot;War&quot;<br align="left"/>> ];
+    90 [ pos = "0.12100001,0.9250001!" ];
+
+    91 [ label = <91: <b>RumbleModule</b><br/><br/><b>RightPower</b><br align="left"/>    0.75<br align="left"/><b>Duration</b><br align="left"/>    0.25<br align="left"/><b>SourceObject</b><br align="left"/>    &quot;War&quot;<br align="left"/>> ];
+    91 [ pos = "0.46800002,0.924!" ];
+
+    92 [ label = <92: <b>RumbleModule</b><br/><br/><b>RightPower</b><br align="left"/>    0.75<br align="left"/><b>Duration</b><br align="left"/>    0.25<br align="left"/><b>SourceObject</b><br align="left"/>    &quot;War&quot;<br align="left"/>> ];
+    92 [ pos = "0.794,0.92700005!" ];
+
+    93 [ label = <93: <b>RumbleModule</b><br/><br/><b>LeftPower</b><br align="left"/>    0.25<br align="left"/><b>RightPower</b><br align="left"/>    0.25<br align="left"/><b>Duration</b><br align="left"/>    3<br align="left"/><b>EaseOut</b><br align="left"/>    2<br align="left"/><b>SourceObject</b><br align="left"/>    &quot;War&quot;<br align="left"/>> ];
+    93 [ pos = "1.133,0.92300004!" ];
+
+    98 [ label = <98: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    8.5<br align="left"/>> ];
+    98 [ pos = "1.3180001,0.85300004!" ];
+    98 -> 99 [ label = "0→0" ];
+
+    99 [ label = <99: <b>RumbleModule</b><br/><br/><b>RightPower</b><br align="left"/>    0.75<br align="left"/><b>Duration</b><br align="left"/>    0.25<br align="left"/><b>SourceObject</b><br align="left"/>    &quot;War&quot;<br align="left"/>> ];
+    99 [ pos = "1.503,0.92!" ];
+
+    100 [ label = <100: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    100 [ pos = "1.848,-0.95500004!" ];
+    100 -> 3 [ label = "0→1" ];
+    100 -> 30 [ label = "0→1" ];
+    100 -> 21 [ label = "0→1" ];
+
+    111 [ label = <111: <b>TriggerEventModule</b><br/><br/><i>If War respawns, have the Tcoil <br align="left"/>demergeIdle<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;SW_Rm11_War_Respawn_Trigger&quot;, <br align="left"/>    &quot;&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    111 [ shape = oval ]
+    111 [ pos = "0.085,0.386!" ];
+    111 -> 117 [ label = "0→0" ];
+    111 -> 26 [ label = "0→1" ];
+
+    113 [ label = <113: <b>InvokeMethodModule</b><br/><br/><i>TCoil Demerge<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;SW_Rm11_TCoil02&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;demergeIdle&quot;<br align="left"/>> ];
+    113 [ pos = "0.517,0.386!" ];
+
+    117 [ label = <117: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.1<br align="left"/>> ];
+    117 [ pos = "0.358,0.386!" ];
+    117 -> 113 [ label = "0→0" ];
+
+    120 [ label = <120: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.15<br align="left"/>> ];
+    120 [ pos = "-0.09200001,-0.68200004!" ];
+    120 -> 124 [ label = "0→0" ];
+
+    121 [ label = <121: <b>DamageActorModule</b><br/><br/><b>DamageAmount</b><br align="left"/>    500<br align="left"/><b>TargetActorNames</b><br align="left"/>    [&quot;Subway_Wall_Breakable&quot;]<br align="left"/><b>WeaponType</b><br align="left"/>    2<br align="left"/><b>HitType</b><br align="left"/>    8<br align="left"/><b>ApplyKnockBackUp</b><br align="left"/>    true<br align="left"/><b>DamageLocation</b><br align="left"/>    &quot;SW_Rm11_TCoil1_WallBreakCenter_<br align="left"/>    01&quot;<br align="left"/><b>KnockBack</b><br align="left"/>    25000<br align="left"/><b>KnockUp</b><br align="left"/>    300<br align="left"/>> ];
+    121 [ pos = "0.64900005,-0.707!" ];
+    122 -> 121 [ style = dashed ];
+
+    122 [ label = <122: <b>VisScriptVariableWorldObjectList</b><br/><br/><b>Value</b><br align="left"/>    [&quot;Subway_Wall_Breakable&quot;]<br align="left"/>> ];
+    122 [ shape = parallelogram ]
+    122 [ pos = "0.40600002,-0.86600006!" ];
+
+    123 [ label = <123: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.25<br align="left"/>> ];
+    123 [ pos = "0.19000001,-0.777!" ];
+    123 -> 124 [ label = "0→0" ];
+
+    124 [ label = <124: <b>base/oneshotmodule</b><br/><br/>> ];
+    124 [ pos = "0.40600002,-0.707!" ];
+    124 -> 121 [ label = "0→0" ];
+
+    125 [ label = <125: <b>TriggerEventModule</b><br/><br/><i>Checks if Train enters TrainGrab<br align="left"/> trigger<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;SW_Rm11_TCoil02_TrainGrab_WarC<br align="left"/>    heck_01&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    125 [ shape = oval ]
+    125 [ pos = "-1.9640001,-0.10300001!" ];
+    125 -> 135 [ label = "1→0" ];
+    125 -> 134 [ label = "0→0" ];
+
+    126 [ label = <126: <b>SaveDataModule</b><br/><br/><i>TCoil2_TrainGrabWarCheck = true<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;TCoil2_TrainGrabWarCheck<br align="left"/>    &quot;)]<br align="left"/>> ];
+    126 [ pos = "-1.202,-0.029000001!" ];
+
+    127 [ label = <127: <b>SaveDataModule</b><br/><br/><i>TCoil2_TrainGrabWarCheck = false<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;TCoil2_TrainGrabWarCheck<br align="left"/>    &quot;, FlagValue=&quot;False&quot;)]<br align="left"/>> ];
+    127 [ pos = "-1.401,-0.19900002!" ];
+    127 -> 131 [ label = "3→0" ];
+
+    128 [ label = <128: <b>SaveDataModule</b><br/><br/><i>TCoil2_TrainGrabWarCheck = true<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;TCoil2_TrainGrabWarCheck<br align="left"/>    &quot;)]<br align="left"/>> ];
+    128 [ pos = "-0.095000006,-0.186!" ];
+    128 -> 70 [ label = "0→0" ];
+
+    129 [ label = <129: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>MoveVal</b><br align="left"/>    0<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;SW_Rm11_Tcoil2_WarWarp&quot;<br align="left"/>> ];
+    129 [ pos = "0.44400004,-0.101!" ];
+
+    130 [ label = <130: <b>base/storesavedatamodule</b><br/><br/>> ];
+    130 [ pos = "-1.4020001,-0.052!" ];
+    130 -> 126 [ label = "0→1" ];
+
+    131 [ label = <131: <b>base/commitsavedatamodule</b><br/><br/>> ];
+    131 [ pos = "-1.21,-0.245!" ];
+
+    134 [ label = <134: <b>SaveDataModule</b><br/><br/><i>Sets flag for Tcoil02 hole being<br align="left"/> blocked<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;SW_Rm11_TCoil02_Blocked&quot;<br align="left"/>    )]<br align="left"/>> ];
+    134 [ pos = "-1.646,-0.029000001!" ];
+    134 -> 130 [ label = "1→0" ];
+
+    135 [ label = <135: <b>SaveDataModule</b><br/><br/><i>Sets flag for Tcoil02 hole being<br align="left"/> blocked<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;SW_Rm11_TCoil02_Blocked&quot;<br align="left"/>    )]<br align="left"/>> ];
+    135 [ pos = "-1.6530001,-0.19900002!" ];
+    135 -> 127 [ label = "1→1" ];
+
+    136 [ label = <136: <b>base/commitsavedatamodule</b><br/><br/>> ];
+    136 [ pos = "0.120000005,-0.59300005!" ];
+
+    138 [ label = <138: <b>ObjectToggleModule</b><br/><br/><i>adds breakable state since the b<br align="left"/>reakable autopersists and remove<br align="left"/>s the damaged state on reload.<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;Subway_Wall_Breakable_PostBrea<br align="left"/>    k&quot;]<br align="left"/>> ];
+    138 [ pos = "-0.41900003,0.65800005!" ];
+
+    title [ pos = "-1.9650002,1.011!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SW_Rm11<br align="left"/>scripts<br align="left"/><b>SW_Rm11_TCoil02_VSM</b><br align="left"/></font>> ];
+}

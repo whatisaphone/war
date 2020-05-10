@@ -1,0 +1,59 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    12 [ label = <12: <b>TriggerEventModule</b><br/><br/><i>Trigger Earthquake<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;SB_G_TrgReg_CollapseCeiling01&quot;<br align="left"/>    ]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/><b>EventHandler</b><br align="left"/>    VisScriptEventHandler(Position=[<br align="left"/>    74445817000000000000000000000000<br align="left"/>    000, 0.0000000000000033639242, 1<br align="left"/>    7863204000000000000000000000000]<br align="left"/>    )<br align="left"/>> ];
+    12 [ shape = oval ]
+    12 [ pos = "0.08400001,-0.29900002!" ];
+    12 -> 26 [ label = "0→0" ];
+    12 -> 32 [ label = "0→0" ];
+
+    14 [ label = <14: <b>SpawnerEventModule</b><br/><br/><i>Spawn Broken Ceiling<br align="left"/></i><br align="left"/><b>SpawnPoints</b><br align="left"/>    [&quot;SB_G_BrkDebrisDSpawn&quot;]<br align="left"/><b>ClassToSpawn</b><br align="left"/>    &quot;city_startblding/PG_BrkDebrisDd<br align="left"/>    es&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    1<br align="left"/><b>EventHandler</b><br align="left"/>    VisScriptEventHandler(Position=[<br align="left"/>    223.47443, 72106.734, 0])<br align="left"/>> ];
+    14 [ pos = "0.37600002,-0.614!" ];
+    14 -> 29 [ label = "0→0" ];
+
+    15 [ label = <15: <b>DamageActorModule</b><br/><br/><i>Break Intact Ceiling<br align="left"/></i><br align="left"/><b>DamageAmount</b><br align="left"/>    1000<br align="left"/><b>TargetActorNames</b><br align="left"/>    [&quot;PG_BrkDebrisD&quot;]<br align="left"/><b>WeaponType</b><br align="left"/>    3<br align="left"/>> ];
+    15 [ pos = "0.82100004,-0.614!" ];
+    15 -> 38 [ label = "0→0" ];
+    15 -> 43 [ label = "0→1" ];
+
+    26 [ label = <26: <b>SoundModule</b><br/><br/><i>Earthquake Sound<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;City_StartBlding/City_StartBuil<br align="left"/>    ding_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    45<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;SB_G_BrkDebrisDSpawn&quot;<br align="left"/>> ];
+    26 [ pos = "0.39100003,-0.34300002!" ];
+
+    29 [ label = <29: <b>SoundModule</b><br/><br/><i>Ceiling Break Sound<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;City_StartBlding/City_StartBuil<br align="left"/>    ding_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    46<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;SB_G_BrkDebrisDSpawn&quot;<br align="left"/>> ];
+    29 [ pos = "0.647,-0.614!" ];
+    29 -> 15 [ label = "0→0" ];
+
+    32 [ label = <32: <b>base/camerashakemodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;SB_G_BrkDebrisDSpawn&quot;<br align="left"/><b>HorizontalPower</b><br align="left"/>    4<br align="left"/><b>VerticalPower</b><br align="left"/>    4<br align="left"/><b>Duration</b><br align="left"/>    1<br align="left"/><b>EaseIn</b><br align="left"/>    1<br align="left"/>> ];
+    32 [ pos = "0.38500002,-0.23400001!" ];
+
+    37 [ label = <37: <b>HudTextModule</b><br/><br/><i>Jump to reach Interactives<br align="left"/></i><br align="left"/><b>Text</b><br align="left"/>    &quot;Jump (A) to reach objects War c<br align="left"/>    an climb along.&quot;<br align="left"/><b>Duration</b><br align="left"/>    5<br align="left"/><b>ScrollRate</b><br align="left"/>    25<br align="left"/><b>EnableButtonSkip</b><br align="left"/>    false<br align="left"/>> ];
+    37 [ pos = "1.197,-0.61300004!" ];
+
+    38 [ label = <38: <b>DelayModule</b><br/><br/><i>Wait 3 Seconds<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    3<br align="left"/>> ];
+    38 [ pos = "1.0500001,-0.614!" ];
+
+    39 [ label = <39: <b>ExternalCallModule</b><br/><br/><b>EventName</b><br align="left"/>    &quot;DestroyCeiling&quot;<br align="left"/>> ];
+    39 [ shape = oval ]
+    39 [ pos = "-0.163,-0.591!" ];
+    39 -> 42 [ label = "0→0" ];
+
+    42 [ label = <42: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;CI_StartBld<br align="left"/>    &quot;, FlagName=&quot;PG_BrkDebrisD_Broke<br align="left"/>    n&quot;)]<br align="left"/>> ];
+    42 [ pos = "0.09,-0.591!" ];
+    42 -> 14 [ label = "1→0" ];
+
+    43 [ label = <43: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;CI_StartBld<br align="left"/>    &quot;, FlagName=&quot;PG_BrkDebrisD_Broke<br align="left"/>    n&quot;)]<br align="left"/>> ];
+    43 [ pos = "1.054,-0.78300005!" ];
+
+    title [ pos = "-0.164,-0.23300001!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>CI_StartBld<br align="left"/>Scripts<br align="left"/><b>SB_G_VisMod_CollapseCeiling</b><br align="left"/></font>> ];
+}

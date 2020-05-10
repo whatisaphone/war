@@ -1,0 +1,70 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    3 [ label = <3: <b>SaveDataModule</b><br/><br/><i>AllSpawn_Sw_Rm09_Enc01<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;AllSpawn_Sw_Rm09_Enc01&quot;)<br align="left"/>    ]<br align="left"/>> ];
+    3 [ pos = "0.19100001,-0.202!" ];
+    3 -> 7 [ label = "1→0" ];
+
+    7 [ label = <7: <b>SpawnMonsterEventModule</b><br/><br/><i>spawns PGM Sw_Rm09_Enc01P<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;Sw_Rm09_Enc01P&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    1<br align="left"/><b>IsRandom</b><br align="left"/>    false<br align="left"/><b>DelayTime</b><br align="left"/>    0.03<br align="left"/><b>MinRange</b><br align="left"/>    100<br align="left"/>> ];
+    7 [ pos = "0.517,-0.22500001!" ];
+    7 -> 54 [ label = "0→0" ];
+    7 -> 10 [ label = "0→1" ];
+
+    10 [ label = <10: <b>SaveDataModule</b><br/><br/><i>set encounter spawn flag<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;AllSpawn_Sw_Rm09_Enc01&quot;)<br align="left"/>    ]<br align="left"/>> ];
+    10 [ pos = "0.859,-0.202!" ];
+
+    39 [ label = <39: <b>SpawnMonsterEventModule</b><br/><br/><i>spawns minions ranged Sw_Rm09_En<br align="left"/>c01W<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;Sw_Rm09_Enc01M&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    2<br align="left"/><b>IsRandom</b><br align="left"/>    false<br align="left"/><b>DelayTime</b><br align="left"/>    0.03<br align="left"/>> ];
+    39 [ pos = "1.8880001,-0.07300001!" ];
+
+    48 [ label = <48: <b>TriggerEventModule</b><br/><br/><i>on Sw_Rm09_Enc01_TrigReg_01 ente<br align="left"/>r<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;Sw_Rm09_Enc01_TrigReg_01&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    48 [ shape = oval ]
+    48 [ pos = "-0.061000004,-0.202!" ];
+    48 -> 3 [ label = "0→0" ];
+
+    53 [ label = <53: <b>SoundModule</b><br/><br/><i>PG taunt sound<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;phantomguard/phantomguard_commo<br align="left"/>    n_sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    106<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;Sw_Rm09_Enc01PGM_Spawn_01&quot;<br align="left"/>> ];
+    53 [ pos = "1.1650001,-0.011000001!" ];
+
+    54 [ label = <54: <b>TriggerEventModule</b><br/><br/><i>Player gets close to door<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;Sw_Rm09_Enc01_Trig_Taunt&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    54 [ shape = oval ]
+    54 [ pos = "0.85800004,-0.011000001!" ];
+    54 -> 53 [ label = "0→0" ];
+    54 -> 55 [ label = "0→0" ];
+
+    55 [ label = <55: <b>InvokeMethodModule</b><br/><br/><i>setBehaviorCombat<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;Sw_Rm09_Enc01PGM_Spawn_01&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;setBehaviorCombat&quot;<br align="left"/>> ];
+    55 [ pos = "1.1650001,0.149!" ];
+    55 -> 69 [ label = "0→0" ];
+
+    65 [ label = <65: <b>InvokeMethodModule</b><br/><br/><i>Scripted Taunt<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;Sw_Rm09_Enc01PGM_Spawn_01&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;ScriptedTaunt&quot;<br align="left"/>> ];
+    65 [ pos = "1.7350001,0.149!" ];
+    65 -> 66 [ label = "0→0" ];
+
+    66 [ label = <66: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    66 [ pos = "1.9590001,0.18300001!" ];
+    66 -> 67 [ label = "0→0" ];
+
+    67 [ label = <67: <b>InvokeMethodModule</b><br/><br/><i>setBehaviorCombat<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;Sw_Rm09_Enc01PGM_Spawn_01&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;setBehaviorCombat&quot;<br align="left"/>> ];
+    67 [ pos = "2.1490002,0.155!" ];
+
+    69 [ label = <69: <b>TriggerEventModule</b><br/><br/><i>PGM gets ready to summon and tau<br align="left"/>nt<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;Sw_Rm09_Enc01_Trig_Taunt_02&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    69 [ shape = oval ]
+    69 [ pos = "1.4660001,0.192!" ];
+    69 -> 65 [ label = "0→0" ];
+    69 -> 76 [ label = "0→0" ];
+
+    76 [ label = <76: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.5<br align="left"/>> ];
+    76 [ pos = "1.7290001,-0.07300001!" ];
+    76 -> 39 [ label = "0→0" ];
+
+    title [ pos = "-0.062000003,0.193!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SW_Rm09<br align="left"/>Combat<br align="left"/><b>Sw_Rm09_Enc01_Script</b><br align="left"/><br/><i>Minions</i><br align="left"/></font>> ];
+}

@@ -1,0 +1,57 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    2 [ label = <2: <b>StartModule</b><br/><br/>> ];
+    2 [ shape = oval ]
+    2 [ pos = "-0.71000004,0.007!" ];
+    2 -> 8 [ label = "0→0" ];
+
+    5 [ label = <5: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;AL_02_Elevator02_Crank&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onTrigger&quot;]<br align="left"/>> ];
+    5 [ pos = "0.045,-0.14400001!" ];
+    5 -> 6 [ label = "0→0" ];
+    5 -> 7 [ label = "0→0" ];
+    5 -> 12 [ label = "0→1" ];
+
+    6 [ label = <6: <b>AnimatorModule</b><br/><br/><i>Moves Elevator Down -370<br align="left"/></i><br align="left"/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;AL_02_Rig_Elevator_02&quot;, Anima<br align="left"/>    tionID=3)]<br align="left"/>> ];
+    6 [ pos = "0.35000002,-0.208!" ];
+    6 -> 15 [ label = "1→0" ];
+
+    7 [ label = <7: <b>RumbleModule</b><br/><br/><b>Duration</b><br align="left"/>    3<br align="left"/><b>SourceObject</b><br align="left"/>    &quot;AL_02_Rig_Elevator_02&quot;<br align="left"/>> ];
+    7 [ pos = "0.349,-0.105000004!" ];
+
+    8 [ label = <8: <b>ObjectAttacherModule</b><br/><br/><b>ChildObject</b><br align="left"/>    &quot;AL_02_Frenzy02&quot;<br align="left"/><b>ParentObject</b><br align="left"/>    &quot;AL_02_Rig_Elevator_02&quot;<br align="left"/><b>ParentNode</b><br align="left"/>    &quot;AL_Elev&quot;<br align="left"/><b>Relative</b><br align="left"/>    true<br align="left"/>> ];
+    8 [ pos = "-0.49500003,0.007!" ];
+    8 -> 9 [ label = "0→0" ];
+
+    9 [ label = <9: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Ashlands&quot;, <br align="left"/>    FlagName=&quot;AL_02_Rig_Elevator_02_<br align="left"/>    Complete&quot;)]<br align="left"/>> ];
+    9 [ pos = "-0.282,0.007!" ];
+    9 -> 5 [ label = "0→2" ];
+    9 -> 5 [ label = "1→0" ];
+    9 -> 14 [ label = "1→0" ];
+
+    12 [ label = <12: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Ashlands&quot;, <br align="left"/>    FlagName=&quot;AL_02_Rig_Elevator_02_<br align="left"/>    Complete&quot;)]<br align="left"/>> ];
+    12 [ pos = "0.35000002,-0.33800003!" ];
+
+    13 [ label = <13: <b>AnimatorModule</b><br/><br/><i>Set Idle<br align="left"/></i><br align="left"/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;AL_02_Rig_Elevator_02&quot;, Anima<br align="left"/>    tionID=2)]<br align="left"/>> ];
+    13 [ pos = "0.35300002,0.116000004!" ];
+
+    14 [ label = <14: <b>InvokeMethodModule</b><br/><br/><i>disable totem by default<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;AL_02_Frenzy02&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;disable&quot;<br align="left"/>> ];
+    14 [ pos = "0.047000002,0.116000004!" ];
+    14 -> 13 [ label = "0→0" ];
+
+    15 [ label = <15: <b>InvokeMethodModule</b><br/><br/><i>enable totem<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;AL_02_Frenzy02&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;enable&quot;<br align="left"/>> ];
+    15 [ pos = "0.66,-0.231!" ];
+
+    title [ pos = "-0.711,0.117000006!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>AL_02<br align="left"/>Script<br align="left"/><b>AL_02_VSM_Plat02</b><br align="left"/></font>> ];
+}

@@ -1,0 +1,109 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    30 [ label = <30: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;CI03_Enc15a_TrigReg&quot;, &quot;&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>Enable</b><br align="left"/>    false<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    30 [ shape = oval ]
+    30 [ pos = "-0.35500002,-0.126!" ];
+    30 -> 75 [ label = "0→0" ];
+    30 -> 77 [ label = "0→2" ];
+
+    32 [ label = <32: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;CI03&quot;, Flag<br align="left"/>    Name=&quot;Enc15Played&quot;)]<br align="left"/>> ];
+    32 [ pos = "0.24100001,-0.266!" ];
+    32 -> 85 [ label = "2→0" ];
+
+    34 [ label = <34: <b>SpawnMonsterEventModule</b><br/><br/><i>CI03_Enc15a<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;CI03_Enc15a&quot;<br align="left"/><b>IsRandom</b><br align="left"/>    false<br align="left"/>> ];
+    34 [ pos = "0.66800004,-0.127!" ];
+    34 -> 80 [ label = "1→0" ];
+    34 -> 78 [ label = "0→0" ];
+    34 -> 41 [ style = dashed ];
+    34 -> 79 [ style = dashed ];
+
+    41 [ label = <41: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    41 [ shape = parallelogram ]
+    41 [ pos = "0.65300006,-0.377!" ];
+
+    44 [ label = <44: <b>CinematicModule</b><br/><br/><b>CinematicName</b><br align="left"/>    &quot;CI03_Enc15a_Cine&quot;<br align="left"/>> ];
+    44 [ pos = "0.079,-0.127!" ];
+    44 -> 32 [ label = "0→1" ];
+
+    45 [ label = <45: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;CI03&quot;, Flag<br align="left"/>    Name=&quot;Enc15Played&quot;)]<br align="left"/>> ];
+    45 [ pos = "-0.64000005,-0.124000005!" ];
+    45 -> 30 [ label = "1→0" ];
+    45 -> 50 [ label = "1→0" ];
+
+    46 [ label = <46: <b>StartModule</b><br/><br/>> ];
+    46 [ shape = oval ]
+    46 [ pos = "-0.822,-0.124000005!" ];
+    46 -> 45 [ label = "0→0" ];
+
+    50 [ label = <50: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;CI03_Enc15c_TrigReg&quot;, &quot;CI03_En<br align="left"/>    c15b_TrigReg&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>Enable</b><br align="left"/>    false<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    50 [ shape = oval ]
+    50 [ pos = "-0.35700002,-0.43!" ];
+    50 -> 77 [ label = "0→0" ];
+    50 -> 75 [ label = "0→2" ];
+
+    67 [ label = <67: <b>SpawnMonsterEventModule</b><br/><br/><i>CI03_Enc15c<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;CI03_Enc15c&quot;<br align="left"/><b>DelayTime</b><br align="left"/>    1<br align="left"/>> ];
+    67 [ pos = "0.66800004,-0.48900002!" ];
+    67 -> 80 [ label = "1→0" ];
+    67 -> 78 [ label = "0→0" ];
+    67 -> 41 [ style = dashed ];
+    67 -> 79 [ style = dashed ];
+
+    73 [ label = <73: <b>CinematicModule</b><br/><br/><b>CinematicName</b><br align="left"/>    &quot;CI03_Enc15c_Cine&quot;<br align="left"/>> ];
+    73 [ pos = "0.09200001,-0.43!" ];
+    73 -> 32 [ label = "0→1" ];
+
+    75 [ label = <75: <b>base/gatemodule</b><br/><br/>> ];
+    75 [ pos = "-0.08400001,-0.126!" ];
+    75 -> 44 [ label = "0→0" ];
+
+    77 [ label = <77: <b>base/gatemodule</b><br/><br/>> ];
+    77 [ pos = "-0.074,-0.43!" ];
+    77 -> 73 [ label = "0→0" ];
+
+    78 [ label = <78: <b>base/incrementmodulevar</b><br/><br/><i>increment ActiveSpawns by spawns<br align="left"/></i><br align="left"/><b>Increment</b><br align="left"/>    0<br align="left"/><b>VarName</b><br align="left"/>    &quot;ActiveSpawns&quot;<br align="left"/><b>ModuleName</b><br align="left"/>    &quot;CI03_Script_EncounterMaster&quot;<br align="left"/>> ];
+    78 [ pos = "0.975,-0.127!" ];
+    78 -> 83 [ label = "0→0" ];
+    79 -> 78 [ style = dashed ];
+
+    79 [ label = <79: <b>VisScriptVariableInt</b><br/><br/>> ];
+    79 [ shape = parallelogram ]
+    79 [ pos = "0.82000005,-0.377!" ];
+
+    80 [ label = <80: <b>base/incrementmodulevar</b><br/><br/><i>decrement ActiveSpawns by 1<br align="left"/></i><br align="left"/><b>Operator</b><br align="left"/>    1<br align="left"/><b>VarName</b><br align="left"/>    &quot;ActiveSpawns&quot;<br align="left"/><b>ModuleName</b><br align="left"/>    &quot;CI03_Script_EncounterMaster&quot;<br align="left"/>> ];
+    80 [ pos = "1.0730001,-0.395!" ];
+
+    81 [ label = <81: <b>ExternalCallModule</b><br/><br/><i>SpawnUndeadA  (From cine)<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;SpawnUndeadA&quot;<br align="left"/>> ];
+    81 [ shape = oval ]
+    81 [ pos = "0.42200002,-0.127!" ];
+    81 -> 34 [ label = "0→0" ];
+
+    82 [ label = <82: <b>ExternalCallModule</b><br/><br/><i>SpawnUndeadC  (From cine)<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;SpawnUndeadC&quot;<br align="left"/>> ];
+    82 [ shape = oval ]
+    82 [ pos = "0.41400003,-0.48900002!" ];
+    82 -> 67 [ label = "0→0" ];
+
+    83 [ label = <83: <b>base/settargetmodule</b><br/><br/><b>Target</b><br align="left"/>    &quot;War&quot;<br align="left"/>> ];
+    83 [ pos = "1.2370001,-0.128!" ];
+    83 -> 84 [ label = "0→1" ];
+    41 -> 83 [ style = dashed ];
+
+    84 [ label = <84: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;C03&quot;, FlagN<br align="left"/>    ame=&quot;UndeadRevealed&quot;)]<br align="left"/>> ];
+    84 [ pos = "1.475,-0.132!" ];
+
+    85 [ label = <85: <b>SoundModule</b><br/><br/><b>SoundDescFile</b><br align="left"/>    &quot;base/Music&quot;<br align="left"/><b>SoundID</b><br align="left"/>    136<br align="left"/>> ];
+    85 [ pos = "0.3,-0.57500005!" ];
+
+    title [ pos = "-0.823,-0.123!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>CI_03<br align="left"/>Combat<br align="left"/><b>CI03_Enc15_Script</b><br align="left"/><br/><i>Triggers Skeleton</i><br align="left"/></font>> ];
+}

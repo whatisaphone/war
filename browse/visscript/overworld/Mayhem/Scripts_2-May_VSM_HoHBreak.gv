@@ -1,0 +1,76 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;May_TrgReg_HoHMeteor&quot;, &quot;&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "-0.085,-0.27!" ];
+    1 -> 16 [ label = "0→0" ];
+    1 -> 17 [ label = "0→0" ];
+
+    3 [ label = <3: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Mayhem&quot;, Fl<br align="left"/>    agName=&quot;HandOverHandBroken&quot;)]<br align="left"/>> ];
+    3 [ pos = "0.85800004,-0.24700001!" ];
+
+    4 [ label = <4: <b>SaveDataModule</b><br/><br/><i>Checks to remove hand over hand <br align="left"/>and hell climb reveal<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Mayhem&quot;, Fl<br align="left"/>    agName=&quot;HandOverHandBroken&quot;)]<br align="left"/>> ];
+    4 [ pos = "0.56100005,0.11800001!" ];
+    4 -> 6 [ label = "0→2" ];
+    4 -> 1 [ label = "0→1" ];
+    4 -> 12 [ label = "0→0" ];
+    4 -> 17 [ label = "0→2" ];
+
+    5 [ label = <5: <b>StartModule</b><br/><br/>> ];
+    5 [ shape = oval ]
+    5 [ pos = "0.057000004,0.11800001!" ];
+    5 -> 4 [ label = "0→0" ];
+    5 -> 17 [ label = "0→0" ];
+
+    6 [ label = <6: <b>ObjectToggleModule</b><br/><br/><b>ObjectList</b><br align="left"/>    [&quot;MA_WireSupports_Break&quot;, &quot;Mayhe<br align="left"/>    m_Area4_chasm_GHClimb&quot;]<br align="left"/>> ];
+    6 [ pos = "0.832,0.11100001!" ];
+
+    8 [ label = <8: <b>AnimatorModule</b><br/><br/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;Mayhem_Area4_chasm_GHClimb&quot;, <br align="left"/>    AnimationID=1)]<br align="left"/>> ];
+    8 [ pos = "0.544,-0.46300003!" ];
+    8 -> 17 [ label = "1→2" ];
+
+    9 [ label = <9: <b>CinematicModule</b><br/><br/><b>CinematicName</b><br align="left"/>    &quot;May_Cin_HellClimb3&quot;<br align="left"/>> ];
+    9 [ pos = "0.54300004,-0.57600003!" ];
+
+    10 [ label = <10: <b>AnimatorModule</b><br/><br/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;mayhem_area_4_cutwire&quot;, Anima<br align="left"/>    tionID=1)]<br align="left"/>> ];
+    10 [ pos = "0.60300004,-0.27!" ];
+    10 -> 3 [ label = "0→1" ];
+
+    12 [ label = <12: <b>AnimatorModule</b><br/><br/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;mayhem_area_4_cutwire&quot;, Anima<br align="left"/>    tionID=2)]<br align="left"/>> ];
+    12 [ pos = "0.832,0.26200002!" ];
+
+    13 [ label = <13: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    4.4<br align="left"/>> ];
+    13 [ pos = "0.418,-0.27!" ];
+    13 -> 10 [ label = "0→0" ];
+
+    14 [ label = <14: <b>base/camerashakemodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;mayhem_area_4_cutwire&quot;<br align="left"/><b>HorizontalPower</b><br align="left"/>    3<br align="left"/><b>VerticalPower</b><br align="left"/>    3<br align="left"/><b>Duration</b><br align="left"/>    5<br align="left"/>> ];
+    14 [ pos = "0.522,-0.185!" ];
+
+    15 [ label = <15: <b>base/camerashakemodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;Mayhem_Area4_chasm_GHClimb&quot;<br align="left"/><b>HorizontalPower</b><br align="left"/>    2<br align="left"/><b>VerticalPower</b><br align="left"/>    2<br align="left"/><b>Duration</b><br align="left"/>    5<br align="left"/>> ];
+    15 [ pos = "0.522,-0.106000006!" ];
+
+    16 [ label = <16: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.25<br align="left"/>> ];
+    16 [ pos = "0.19500001,-0.26900002!" ];
+    16 -> 15 [ label = "0→0" ];
+    16 -> 14 [ label = "0→0" ];
+    16 -> 13 [ label = "0→0" ];
+    16 -> 8 [ label = "0→0" ];
+    16 -> 9 [ label = "0→0" ];
+
+    17 [ label = <17: <b>ObjectToggleModule</b><br/><br/><i>Controls the blocker that hard-p<br align="left"/>revents backtracking on hand ove<br align="left"/>r hand<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;May_Blocker_HandOverHand&quot;]<br align="left"/>> ];
+    17 [ pos = "0.316,0.27800003!" ];
+
+    title [ pos = "-0.086,0.279!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>Mayhem<br align="left"/>Scripts_2<br align="left"/><b>May_VSM_HoHBreak</b><br align="left"/></font>> ];
+}

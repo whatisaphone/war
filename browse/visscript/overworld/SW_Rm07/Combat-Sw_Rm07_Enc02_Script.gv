@@ -1,0 +1,74 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    4 [ label = <4: <b>SaveDataModule</b><br/><br/><i>Check AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_Sw_Rm07_Enc02&quot;)]<br align="left"/>> ];
+    4 [ pos = "0.298,-0.064!" ];
+    4 -> 5 [ label = "1→0" ];
+
+    5 [ label = <5: <b>DelayModule</b><br/><br/><i>go Encounter<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    5 [ pos = "0.64100003,-0.042000003!" ];
+    5 -> 9 [ label = "0→0" ];
+
+    8 [ label = <8: <b>SpawnMonsterEventModule</b><br/><br/>> ];
+    8 [ pos = "1.172,-0.033!" ];
+    8 -> 11 [ label = "2→1" ];
+    8 -> 21 [ label = "0→0" ];
+    10 -> 8 [ style = dashed ];
+
+    9 [ label = <9: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;Sw_Rm07_Enc02&quot;<br align="left"/>> ];
+    9 [ pos = "0.80200005,-0.033!" ];
+    9 -> 8 [ label = "0→0" ];
+    9 -> 10 [ style = dashed ];
+
+    10 [ label = <10: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    10 [ shape = parallelogram ]
+    10 [ pos = "0.82800007,-0.19600001!" ];
+
+    11 [ label = <11: <b>SaveDataModule</b><br/><br/><i>Set AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_Sw_Rm07_Enc02&quot;)]<br align="left"/>> ];
+    11 [ pos = "1.5230001,-0.033!" ];
+
+    15 [ label = <15: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;Sw_Rm07_Enc02_TrigReg&quot;, &quot;&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    15 [ shape = oval ]
+    15 [ pos = "0.013,-0.062000003!" ];
+    15 -> 4 [ label = "0→0" ];
+
+    20 [ label = <20: <b>SpawnMonsterEventModule</b><br/><br/><b>IsRandom</b><br align="left"/>    false<br align="left"/><b>DelayTime</b><br align="left"/>    0.06<br align="left"/>> ];
+    20 [ pos = "1.1580001,-0.781!" ];
+    27 -> 20 [ style = dashed ];
+
+    21 [ label = <21: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;Sw_Rm07_Enc02w2&quot;<br align="left"/>> ];
+    21 [ pos = "0.509,-0.46500003!" ];
+    21 -> 25 [ label = "0→0" ];
+    21 -> 22 [ style = dashed ];
+
+    22 [ label = <22: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    22 [ shape = parallelogram ]
+    22 [ pos = "0.58000004,-0.605!" ];
+
+    25 [ label = <25: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    3<br align="left"/>> ];
+    25 [ pos = "0.91600007,-0.42000002!" ];
+    25 -> 26 [ label = "0→0" ];
+
+    26 [ label = <26: <b>base/inviewlistmodule</b><br/><br/><b>ValidateWithRayCast</b><br align="left"/>    true<br align="left"/>> ];
+    26 [ pos = "1.085,-0.43300003!" ];
+    26 -> 20 [ label = "0→0" ];
+    22 -> 26 [ style = dashed ];
+    26 -> 27 [ style = dashed ];
+
+    27 [ label = <27: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    27 [ shape = parallelogram ]
+    27 [ pos = "1.075,-0.574!" ];
+
+    title [ pos = "0.012,-0.032!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SW_Rm07<br align="left"/>Combat<br align="left"/><b>Sw_Rm07_Enc02_Script</b><br align="left"/></font>> ];
+}

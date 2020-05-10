@@ -1,0 +1,61 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    14 [ label = <14: <b>base/distancedelay</b><br/><br/><b>Distance</b><br align="left"/>    2600<br align="left"/>> ];
+    14 [ pos = "0.943,-0.098000005!" ];
+    14 -> 15 [ label = "0→2" ];
+    20 -> 14 [ style = dashed ];
+
+    15 [ label = <15: <b>ObjectToggleModule</b><br/><br/>> ];
+    15 [ pos = "1.1570001,0.020000001!" ];
+    15 -> 29 [ label = "0→0" ];
+    20 -> 15 [ style = dashed ];
+
+    17 [ label = <17: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    17 [ shape = parallelogram ]
+    17 [ pos = "0.381,-0.231!" ];
+
+    20 [ label = <20: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    20 [ shape = parallelogram ]
+    20 [ pos = "0.91,-0.27!" ];
+
+    23 [ label = <23: <b>SpawnMonsterEventModule</b><br/><br/><b>NumberToSpawn</b><br align="left"/>    -1<br align="left"/><b>DelayTime</b><br align="left"/>    0.03<br align="left"/>> ];
+    23 [ pos = "0.67700005,-0.10700001!" ];
+    23 -> 29 [ label = "2→2" ];
+    23 -> 14 [ label = "0→0" ];
+    23 -> 20 [ style = dashed ];
+    17 -> 23 [ style = dashed ];
+
+    29 [ label = <29: <b>base/gatemodule</b><br/><br/>> ];
+    29 [ pos = "-0.108,-0.034!" ];
+    29 -> 40 [ label = "0→0" ];
+
+    34 [ label = <34: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;CI_01_Enc10&quot;<br align="left"/>> ];
+    34 [ pos = "0.38500002,-0.101!" ];
+    34 -> 23 [ label = "0→0" ];
+    34 -> 40 [ label = "0→1" ];
+    34 -> 17 [ style = dashed ];
+
+    39 [ label = <39: <b>StartModule</b><br/><br/>> ];
+    39 [ shape = oval ]
+    39 [ pos = "-0.34300002,-0.07300001!" ];
+    39 -> 29 [ label = "0→0" ];
+
+    40 [ label = <40: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;CI_01_Enc10_TrigReg&quot;, &quot;&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    40 [ shape = oval ]
+    40 [ pos = "0.08800001,-0.075!" ];
+    40 -> 34 [ label = "0→0" ];
+
+    title [ pos = "-0.344,0.021000002!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>CI_01<br align="left"/>Combat<br align="left"/><b>CI_01_Enc10_Script</b><br align="left"/><br/><i>Library - steps</i><br align="left"/></font>> ];
+}

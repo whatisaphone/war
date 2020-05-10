@@ -1,0 +1,76 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    10 [ label = <10: <b>base/setspawnpointmodule</b><br/><br/><b>World</b><br align="left"/>    &quot;Overworld&quot;<br align="left"/><b>Region</b><br align="left"/>    &quot;IC_Rm01&quot;<br align="left"/><b>SpawnPoint</b><br align="left"/>    &quot;wp_ic_rm01_respawn_fall_start&quot;<br align="left"/>> ];
+    10 [ pos = "2.1220002,-0.61300004!" ];
+    10 -> 11 [ label = "0→0" ];
+
+    11 [ label = <11: <b>base/autosavemodule</b><br/><br/>> ];
+    11 [ pos = "2.3470001,-0.61300004!" ];
+
+    14 [ label = <14: <b>TriggerEventModule</b><br/><br/><i>save checkpoint after cinematic <br align="left"/>&amp; set save flag<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;IC_Rm01_Checkpt_TrgReg&quot;, &quot;&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    14 [ shape = oval ]
+    14 [ pos = "-0.202,-0.544!" ];
+    14 -> 16 [ label = "0→0" ];
+
+    16 [ label = <16: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;IC_TNS_02&quot;,<br align="left"/>     FlagName=&quot;BeenToCanopy&quot;)]<br align="left"/>> ];
+    16 [ pos = "0.041,-0.544!" ];
+    16 -> 27 [ label = "1→0" ];
+
+    18 [ label = <18: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;IC_TNS_02&quot;,<br align="left"/>     FlagName=&quot;BeenToCanopy&quot;)]<br align="left"/>> ];
+    18 [ pos = "1.125,-0.544!" ];
+    18 -> 23 [ label = "2→0" ];
+
+    19 [ label = <19: <b>base/setdefaultwatcherdialogmodule</b><br/><br/><b>Dialog</b><br align="left"/>    &quot;vo_watcher_summon_01&quot;<br align="left"/>> ];
+    19 [ pos = "1.843,-0.61300004!" ];
+    19 -> 10 [ label = "0→0" ];
+
+    20 [ label = <20: <b>LoaderModule</b><br/><br/><b>Unload</b><br align="left"/>    [[150, 16]]<br align="left"/>> ];
+    20 [ pos = "1.57,-0.61300004!" ];
+    20 -> 19 [ label = "0→0" ];
+
+    21 [ label = <21: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;IC_Rm01_Cocoon&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;startWebStruggle&quot;<br align="left"/>> ];
+    21 [ pos = "0.69600004,-0.56700003!" ];
+    21 -> 22 [ label = "0→0" ];
+
+    22 [ label = <22: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;IC_Rm01_Cocoon&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onWarFreed&quot;]<br align="left"/>> ];
+    22 [ pos = "0.90900004,-0.56700003!" ];
+    22 -> 18 [ label = "0→1" ];
+
+    23 [ label = <23: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    3<br align="left"/>> ];
+    23 [ pos = "1.381,-0.61300004!" ];
+    23 -> 20 [ label = "0→0" ];
+
+    24 [ label = <24: <b>LoaderModule</b><br/><br/><b>Load</b><br align="left"/>    [[229, -1]]<br align="left"/><b>Unload</b><br align="left"/>    [[160, -1], [158, -1], [341, -1]<br align="left"/>    , [344, -1]]<br align="left"/>> ];
+    24 [ pos = "0.69500005,-0.42400002!" ];
+    24 -> 25 [ label = "0→0" ];
+
+    25 [ label = <25: <b>LoaderModule</b><br/><br/><b>Load</b><br align="left"/>    [[347, -1], [229, -1]]<br align="left"/>> ];
+    25 [ pos = "0.96900004,-0.42400002!" ];
+    25 -> 26 [ label = "0→0" ];
+
+    26 [ label = <26: <b>LoaderModule</b><br/><br/><b>Load</b><br align="left"/>    [[150, 0], [150, 1], [150, 2], [<br align="left"/>    150, 3], [150, 4], [150, 5], [15<br align="left"/>    0, 6], [150, 7], [150, 8], [150,<br align="left"/>     10], [150, 13], [150, 14], [150<br align="left"/>    , 15], [150, 17], [147, 0], [147<br align="left"/>> ];
+    26 [ pos = "1.2340001,-0.42400002!" ];
+
+    27 [ label = <27: <b>base/setspawnpointmodule</b><br/><br/><b>World</b><br align="left"/>    &quot;Overworld&quot;<br align="left"/><b>Region</b><br align="left"/>    &quot;IC_Rm01&quot;<br align="left"/><b>SpawnPoint</b><br align="left"/>    &quot;Start&quot;<br align="left"/><b>SpawnLoadRegion</b><br align="left"/>    &quot;StartLoadRegion&quot;<br align="left"/>> ];
+    27 [ pos = "0.245,-0.56700003!" ];
+    27 -> 28 [ label = "0→0" ];
+
+    28 [ label = <28: <b>base/autosavemodule</b><br/><br/>> ];
+    28 [ pos = "0.455,-0.56700003!" ];
+    28 -> 21 [ label = "0→0" ];
+    28 -> 24 [ label = "0→0" ];
+
+    title [ pos = "-0.20300001,-0.423!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>IC_Rm01<br align="left"/>script<br align="left"/><b>IC_Rm01_Checkpoint_Script</b><br align="left"/></font>> ];
+}

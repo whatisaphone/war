@@ -1,0 +1,119 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    56 [ label = <56: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;CI_05_Enc03_TrigReg_01&quot;, &quot;CI_0<br align="left"/>    5_Enc03_TrigReg_02&quot;, &quot;CI_05_Enc0<br align="left"/>    3_TrigReg_03&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    56 [ shape = oval ]
+    56 [ pos = "-1.2490001,-1.8050001!" ];
+    56 -> 103 [ label = "0→0" ];
+
+    71 [ label = <71: <b>SpawnMonsterEventModule</b><br/><br/><i>CI_05_Enc03Cine<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;CI_05_Enc03Cine&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    -1<br align="left"/><b>IsRandom</b><br align="left"/>    false<br align="left"/><b>DelayTime</b><br align="left"/>    1<br align="left"/>> ];
+    71 [ pos = "-0.043,-1.2880001!" ];
+    71 -> 92 [ style = dashed ];
+
+    88 [ label = <88: <b>CinematicModule</b><br/><br/><b>CinematicName</b><br align="left"/>    &quot;CI_05_Enc03_Cine01&quot;<br align="left"/>> ];
+    88 [ pos = "-0.374,-1.2650001!" ];
+    88 -> 71 [ label = "0→0" ];
+    88 -> 93 [ label = "1→2" ];
+    88 -> 113 [ label = "0→0" ];
+
+    91 [ label = <91: <b>SpawnMonsterEventModule</b><br/><br/><i>CI_05_Enc03<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;CI_05_Enc03&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    -1<br align="left"/><b>IsRandom</b><br align="left"/>    false<br align="left"/>> ];
+    91 [ pos = "0.011000001,-1.6340001!" ];
+    91 -> 95 [ label = "1→0" ];
+    91 -> 97 [ label = "1→0" ];
+    91 -> 107 [ label = "2→0" ];
+
+    92 [ label = <92: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    92 [ shape = parallelogram ]
+    92 [ pos = "-0.011000001,-1.5430001!" ];
+
+    93 [ label = <93: <b>ObjectToggleModule</b><br/><br/>> ];
+    93 [ pos = "-0.22600001,-1.6340001!" ];
+    93 -> 91 [ label = "0→0" ];
+    92 -> 93 [ style = dashed ];
+
+    94 [ label = <94: <b>DelayModule</b><br/><br/>> ];
+    94 [ pos = "-0.75600004,-2.3700001!" ];
+    94 -> 101 [ label = "0→0" ];
+
+    95 [ label = <95: <b>AccumulatorModule</b><br/><br/>> ];
+    95 [ pos = "0.33800003,-2.048!" ];
+    95 -> 94 [ label = "0→0" ];
+
+    96 [ label = <96: <b>SpawnMonsterEventModule</b><br/><br/><b>NumberToSpawn</b><br align="left"/>    -1<br align="left"/><b>IsRandom</b><br align="left"/>    false<br align="left"/><b>DelayTime</b><br align="left"/>    1.25<br align="left"/>> ];
+    96 [ pos = "-0.057000004,-2.3690002!" ];
+    96 -> 97 [ label = "1→0" ];
+    96 -> 107 [ label = "2→0" ];
+    102 -> 96 [ style = dashed ];
+
+    97 [ label = <97: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    2<br align="left"/>> ];
+    97 [ pos = "0.30600002,-2.368!" ];
+    97 -> 99 [ label = "0→0" ];
+
+    99 [ label = <99: <b>VisScriptCallModule</b><br/><br/><i>AttractDog<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CI_05_Enc04_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;AttractDog&quot;<br align="left"/>> ];
+    99 [ pos = "0.536,-2.367!" ];
+
+    100 [ label = <100: <b>base/isinviewmodule</b><br/><br/><b>AutoTriggerTime</b><br align="left"/>    &quot;5&quot;<br align="left"/><b>WidthScaleWS</b><br align="left"/>    &quot;.75&quot;<br align="left"/><b>WidthScaleNS</b><br align="left"/>    &quot;.88&quot;<br align="left"/>> ];
+    100 [ pos = "-0.34800002,-2.3700001!" ];
+    100 -> 96 [ label = "0→0" ];
+    100 -> 96 [ label = "1→0" ];
+    102 -> 100 [ style = dashed ];
+
+    101 [ label = <101: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;CI_05_Enc03w2&quot;<br align="left"/>> ];
+    101 [ pos = "-0.59300005,-2.3700001!" ];
+    101 -> 100 [ label = "0→0" ];
+    101 -> 102 [ style = dashed ];
+
+    102 [ label = <102: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    102 [ shape = parallelogram ]
+    102 [ pos = "-0.568,-2.502!" ];
+
+    103 [ label = <103: <b>SaveDataModule</b><br/><br/><i>Enc03_Angels_AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;CI_05&quot;, Fla<br align="left"/>    gName=&quot;Enc03_Angels_AllDead&quot;)]<br align="left"/>> ];
+    103 [ pos = "-1.0070001,-1.8050001!" ];
+    103 -> 106 [ label = "1→0" ];
+
+    104 [ label = <104: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;CI_05&quot;, Fla<br align="left"/>    gName=&quot;Enc03_Angels_AllDead&quot;)]<br align="left"/>> ];
+    104 [ pos = "0.595,-2.6100001!" ];
+
+    106 [ label = <106: <b>SaveDataModule</b><br/><br/><i>Ruin_Collected<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Ashlands&quot;, <br align="left"/>    FlagName=&quot;Ruin_Collected&quot;)]<br align="left"/>> ];
+    106 [ pos = "-0.78000003,-1.8280001!" ];
+    106 -> 108 [ label = "1→0" ];
+
+    107 [ label = <107: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    2<br align="left"/>> ];
+    107 [ pos = "0.30400002,-2.615!" ];
+    107 -> 104 [ label = "0→1" ];
+
+    108 [ label = <108: <b>SaveDataModule</b><br/><br/><i>Enc03_Cine_PlayOnce<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;CI_05&quot;, Fla<br align="left"/>    gName=&quot;Enc03_Cine_PlayOnce&quot;)]<br align="left"/>> ];
+    108 [ pos = "-0.53400004,-1.8500001!" ];
+    108 -> 109 [ label = "1→1" ];
+    108 -> 88 [ label = "1→0" ];
+    108 -> 110 [ label = "0→0" ];
+
+    109 [ label = <109: <b>SaveDataModule</b><br/><br/><i>Enc03_Cine_PlayOnce<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;CI_05&quot;, Fla<br align="left"/>    gName=&quot;Enc03_Cine_PlayOnce&quot;)]<br align="left"/>> ];
+    109 [ pos = "-0.303,-1.9390001!" ];
+
+    110 [ label = <110: <b>SpawnMonsterEventModule</b><br/><br/><i>CI_05_Enc03w0<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;CI_05_Enc03w0&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    -1<br align="left"/><b>IsRandom</b><br align="left"/>    false<br align="left"/>> ];
+    110 [ pos = "-0.043,-2.0170002!" ];
+    110 -> 95 [ label = "1→0" ];
+    110 -> 97 [ label = "1→0" ];
+    110 -> 107 [ label = "2→0" ];
+
+    111 [ label = <111: <b>SoundModule</b><br/><br/><b>SoundDescFile</b><br align="left"/>    &quot;base/Music&quot;<br align="left"/><b>SoundID</b><br align="left"/>    1016<br align="left"/>> ];
+    111 [ pos = "0.156,-1.052!" ];
+
+    113 [ label = <113: <b>DelayModule</b><br/><br/>> ];
+    113 [ pos = "-0.05,-1.052!" ];
+    113 -> 111 [ label = "0→0" ];
+
+    title [ pos = "-1.25,-1.051!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>CI_05<br align="left"/>Combat<br align="left"/><b>CI_05_Enc03_Script</b><br align="left"/><br/><i>fallenz</i><br align="left"/></font>> ];
+}

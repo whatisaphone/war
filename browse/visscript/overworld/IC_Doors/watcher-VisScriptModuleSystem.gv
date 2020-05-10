@@ -1,0 +1,46 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>base/watchersetpoimodule</b><br/><br/><b>POI</b><br align="left"/>    &quot;IC_Rm04_Watcher_Goal&quot;<br align="left"/>> ];
+    1 [ pos = "1.016,-0.33600003!" ];
+
+    3 [ label = <3: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;IC_Rm04_Watcher_Trigger&quot;, &quot;&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    3 [ shape = oval ]
+    3 [ pos = "0.07300001,-0.080000006!" ];
+    3 -> 5 [ label = "0→0" ];
+
+    4 [ label = <4: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;IC_Rm04_Watcher_Trigger_Reache<br align="left"/>    d&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    4 [ shape = oval ]
+    4 [ pos = "0.51000005,-0.35900003!" ];
+    4 -> 1 [ label = "0→1" ];
+
+    5 [ label = <5: <b>SaveDataModule</b><br/><br/><i>Spider on her back<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;IC&quot;, FlagNa<br align="left"/>    me=&quot;Rm04_Spider_Knockdown_Foreve<br align="left"/>    r&quot;)]<br align="left"/>> ];
+    5 [ pos = "0.32000002,-0.080000006!" ];
+    5 -> 6 [ label = "0→0" ];
+
+    6 [ label = <6: <b>SaveDataModule</b><br/><br/><i>Already Did this?<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;IC&quot;, FlagNa<br align="left"/>    me=&quot;Rm04_Watcher_Done&quot;)]<br align="left"/>> ];
+    6 [ pos = "0.551,-0.080000006!" ];
+    6 -> 7 [ label = "1→1" ];
+    6 -> 1 [ label = "1→0" ];
+
+    7 [ label = <7: <b>SaveDataModule</b><br/><br/><i>We Did IT<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;IC&quot;, FlagNa<br align="left"/>    me=&quot;Rm04_Watcher_Done&quot;)]<br align="left"/>> ];
+    7 [ pos = "0.934,-0.080000006!" ];
+
+    8 [ label = <8: <b>TriggerEventModule</b><br/><br/><i>Disable the watcher when we leav<br align="left"/>e...in case we have not used him<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;IC_Rm04_Watcher_Trigger_Disabl<br align="left"/>    e&quot;, &quot;&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    8 [ shape = oval ]
+    8 [ pos = "0.53300005,0.18300001!" ];
+    8 -> 7 [ label = "0→1" ];
+
+    title [ pos = "0.072000004,0.18400002!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>IC_Doors<br align="left"/>watcher<br align="left"/><b>VisScriptModuleSystem</b><br align="left"/></font>> ];
+}

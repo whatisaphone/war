@@ -1,0 +1,56 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;May_Scp04_TrgReg_BruteAttack&quot;,<br align="left"/>     &quot;&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "0.124000005,0.024!" ];
+    1 -> 6 [ label = "0→0" ];
+
+    2 [ label = <2: <b>SpawnMonsterEventModule</b><br/><br/><b>SpawnPoints</b><br align="left"/>    [&quot;May_Scp04_SpnPnt&quot;]<br align="left"/><b>NumberToSpawn</b><br align="left"/>    1<br align="left"/>> ];
+    2 [ pos = "0.017,0.537!" ];
+
+    3 [ label = <3: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;May_Scp04_TrgReg_MinionAttack&quot;<br align="left"/>    , &quot;&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    3 [ shape = oval ]
+    3 [ pos = "0.19700001,-0.386!" ];
+    3 -> 4 [ label = "0→0" ];
+
+    4 [ label = <4: <b>SpawnMonsterEventModule</b><br/><br/><b>SpawnPoints</b><br align="left"/>    [&quot;May_Scp04_SpnPnt_Min_01&quot;, &quot;May<br align="left"/>    _Scp04_SpnPnt_Min_02&quot;]<br align="left"/><b>NumberToSpawn</b><br align="left"/>    4<br align="left"/><b>DelayTime</b><br align="left"/>    1<br align="left"/>> ];
+    4 [ pos = "0.49500003,-0.411!" ];
+
+    5 [ label = <5: <b>SpawnMonsterEventModule</b><br/><br/><b>SpawnPoints</b><br align="left"/>    [&quot;May_Scp04_SpnPnt_Fallen&quot;]<br align="left"/><b>NumberToSpawn</b><br align="left"/>    1<br align="left"/><b>DelayTime</b><br align="left"/>    1<br align="left"/>> ];
+    5 [ pos = "0.012,0.29900002!" ];
+
+    6 [ label = <6: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;Fallen_vs_Brute&quot;<br align="left"/>> ];
+    6 [ pos = "0.388,0.024!" ];
+    6 -> 8 [ label = "0→0" ];
+    6 -> 7 [ style = dashed ];
+
+    7 [ label = <7: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    7 [ shape = parallelogram ]
+    7 [ pos = "0.628,-0.07300001!" ];
+
+    8 [ label = <8: <b>SpawnMonsterEventModule</b><br/><br/>> ];
+    8 [ pos = "0.86200005,0.024!" ];
+    8 -> 13 [ label = "0→0" ];
+    7 -> 8 [ style = dashed ];
+
+    12 [ label = <12: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;May_Fallen_human_interact_scrip<br align="left"/>    t&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;FallenHumanInteractive&quot;<br align="left"/>> ];
+    12 [ pos = "1.4380001,-0.0050000004!" ];
+
+    13 [ label = <13: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    3.5<br align="left"/>> ];
+    13 [ pos = "1.2340001,-0.0050000004!" ];
+    13 -> 12 [ label = "0→0" ];
+
+    title [ pos = "0.011000001,0.53800005!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>Mayhem<br align="left"/>Fallen<br align="left"/><b>May_Scp04</b><br align="left"/></font>> ];
+}

@@ -1,0 +1,77 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>ExternalCallModule</b><br/><br/><i>KeyChestOpened<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;KeyChestOpened&quot;<br align="left"/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "0.066,-0.18200001!" ];
+    1 -> 4 [ label = "0→0" ];
+
+    2 [ label = <2: <b>SaveDataModule</b><br/><br/><i>GotKey<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm05<br align="left"/>    &quot;, FlagName=&quot;OT_Ext_Rm05_GotKey&quot;<br align="left"/>    )]<br align="left"/>> ];
+    2 [ pos = "0.209,-0.35300002!" ];
+    2 -> 15 [ label = "0→0" ];
+
+    4 [ label = <4: <b>base/oneshotmodule</b><br/><br/>> ];
+    4 [ pos = "0.282,-0.18200001!" ];
+    4 -> 14 [ label = "0→0" ];
+
+    6 [ label = <6: <b>SaveDataModule</b><br/><br/><i>AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OblivionTow<br align="left"/>    er&quot;, FlagName=&quot;ExtRm05_Enc02_All<br align="left"/>    Dead&quot;)]<br align="left"/>> ];
+    6 [ pos = "0.648,-0.18200001!" ];
+    6 -> 7 [ label = "1→0" ];
+
+    7 [ label = <7: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;OT_ExtRm05_Enc02&quot;<br align="left"/>> ];
+    7 [ pos = "0.855,-0.18200001!" ];
+    7 -> 8 [ label = "0→0" ];
+    7 -> 9 [ style = dashed ];
+
+    8 [ label = <8: <b>SpawnMonsterEventModule</b><br/><br/>> ];
+    8 [ pos = "1.1090001,-0.18200001!" ];
+    8 -> 10 [ label = "2→1" ];
+    9 -> 8 [ style = dashed ];
+
+    9 [ label = <9: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    9 [ shape = parallelogram ]
+    9 [ pos = "0.85600007,-0.321!" ];
+
+    10 [ label = <10: <b>SaveDataModule</b><br/><br/><i>AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OblivionTow<br align="left"/>    er&quot;, FlagName=&quot;ExtRm05_Enc02_All<br align="left"/>    Dead&quot;)]<br align="left"/>> ];
+    10 [ pos = "1.4670001,-0.23600002!" ];
+
+    12 [ label = <12: <b>TriggerEventModule</b><br/><br/><i>Disabled Combat<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;OT_ExtRm05_Enc01_TrigReg&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    12 [ shape = oval ]
+    12 [ pos = "-0.23,-0.36600003!" ];
+
+    13 [ label = <13: <b>base/oneshotmodule</b><br/><br/>> ];
+    13 [ pos = "0.046000004,-0.35300002!" ];
+    13 -> 2 [ label = "0→0" ];
+
+    14 [ label = <14: <b>base/gatemodule</b><br/><br/>> ];
+    14 [ pos = "0.46100003,-0.18200001!" ];
+    14 -> 6 [ label = "0→0" ];
+    14 -> 15 [ label = "0→2" ];
+
+    15 [ label = <15: <b>base/gatemodule</b><br/><br/>> ];
+    15 [ pos = "0.46100003,-0.35300002!" ];
+    15 -> 14 [ label = "0→2" ];
+    15 -> 17 [ label = "0→0" ];
+
+    16 [ label = <16: <b>ExternalCallModule</b><br/><br/><i>KickDoorOpened<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;KickDoorOpened&quot;<br align="left"/>> ];
+    16 [ shape = oval ]
+    16 [ pos = "0.066,-0.588!" ];
+    16 -> 15 [ label = "0→2" ];
+
+    17 [ label = <17: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    17 [ pos = "0.61800003,-0.35300002!" ];
+    17 -> 6 [ label = "0→0" ];
+
+    title [ pos = "-0.231,-0.18100001!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>OT_Ext_Rm05<br align="left"/>Combat<br align="left"/><b>OT_ExtRm05_Enc02_Script</b><br align="left"/></font>> ];
+}

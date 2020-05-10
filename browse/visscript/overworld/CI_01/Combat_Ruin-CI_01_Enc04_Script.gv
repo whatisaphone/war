@@ -1,0 +1,38 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    3 [ label = <3: <b>ExternalCallModule</b><br/><br/><i>StartEncounter<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;StartEncounter&quot;<br align="left"/>> ];
+    3 [ shape = oval ]
+    3 [ pos = "0.43100002,0.246!" ];
+    3 -> 68 [ label = "0→0" ];
+
+    66 [ label = <66: <b>VisScriptVariableInt</b><br/><br/>> ];
+    66 [ shape = parallelogram ]
+    66 [ pos = "0.79700005,-0.012!" ];
+
+    67 [ label = <67: <b>base/incrementmodulevar</b><br/><br/><i>increment ActiveSpawns by spawns<br align="left"/></i><br align="left"/><b>Increment</b><br align="left"/>    0<br align="left"/><b>VarName</b><br align="left"/>    &quot;ActiveSpawns&quot;<br align="left"/><b>ModuleName</b><br align="left"/>    &quot;CI_01_Script_EncounterMaster&quot;<br align="left"/>> ];
+    67 [ pos = "0.94600004,0.333!" ];
+    66 -> 67 [ style = dashed ];
+
+    68 [ label = <68: <b>SpawnMonsterEventModule</b><br/><br/><i>CI_01_Enc04<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;CI_01_Enc04&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    -1<br align="left"/><b>IsRandom</b><br align="left"/>    false<br align="left"/>> ];
+    68 [ pos = "0.657,0.246!" ];
+    68 -> 69 [ label = "1→0" ];
+    68 -> 67 [ label = "0→0" ];
+    68 -> 66 [ style = dashed ];
+
+    69 [ label = <69: <b>base/incrementmodulevar</b><br/><br/><i>decrement ActiveSpawns by 1<br align="left"/></i><br align="left"/><b>Operator</b><br align="left"/>    1<br align="left"/><b>VarName</b><br align="left"/>    &quot;ActiveSpawns&quot;<br align="left"/><b>ModuleName</b><br align="left"/>    &quot;CI_01_Script_EncounterMaster&quot;<br align="left"/>> ];
+    69 [ pos = "0.94500005,0.223!" ];
+
+    title [ pos = "0.43,0.33400002!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>CI_01<br align="left"/>Combat_Ruin<br align="left"/><b>CI_01_Enc04_Script</b><br align="left"/><br/><i>Street - near hellgrowth, past library</i><br align="left"/></font>> ];
+}

@@ -1,0 +1,169 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>SpawnerEventModule</b><br/><br/><i>Spawn Fighting version of the as<br align="left"/>hcoil<br align="left"/></i><br align="left"/><b>SpawnPoints</b><br align="left"/>    [&quot;Opening_Ash_AL_03&quot;]<br align="left"/><b>ClassToSpawn</b><br align="left"/>    &quot;ashlandcoil/ashlandcoil_al03&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    1<br align="left"/><b>NameRoot</b><br align="left"/>    &quot;openingashcoil&quot;<br align="left"/><b>EventHandler</b><br align="left"/>    VisScriptEventHandler(Position=[<br align="left"/>    208693670000, 110818.82, 0])<br align="left"/>> ];
+    1 [ pos = "0.83000004,-0.268!" ];
+    1 -> 46 [ label = "0→0" ];
+    1 -> 29 [ label = "0→0" ];
+    1 -> 34 [ label = "0→0" ];
+    1 -> 51 [ label = "0→0" ];
+    1 -> 67 [ label = "0→0" ];
+
+    2 [ label = <2: <b>SaveDataModule</b><br/><br/><i>Sets a flag signifying the ashco<br align="left"/>il is dead!<br align="left"/></i><br align="left"/><b>RequireAllTrue</b><br align="left"/>    false<br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Ashlands&quot;, <br align="left"/>    FlagName=&quot;Ashcoil_1_Dead&quot;)]<br align="left"/>> ];
+    2 [ pos = "1.588,-0.24800001!" ];
+    2 -> 75 [ label = "3→0" ];
+    2 -> 86 [ label = "3→0" ];
+
+    17 [ label = <17: <b>ExternalCallModule</b><br/><br/><i>Start the aschoil fight!<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;StartAshcoilFight&quot;<br align="left"/>> ];
+    17 [ shape = oval ]
+    17 [ pos = "0.35700002,-0.27!" ];
+    17 -> 1 [ label = "0→0" ];
+    17 -> 63 [ label = "0→0" ];
+    17 -> 64 [ label = "0→2" ];
+    17 -> 90 [ label = "0→1" ];
+
+    29 [ label = <29: <b>base/setdefaultwatcherdialogmodule</b><br/><br/><i>Set watcher dialog for the fight<br align="left"/></i><br align="left"/><b>Dialog</b><br align="left"/>    &quot;vo_watcher_ashlands_08&quot;<br align="left"/>> ];
+    29 [ pos = "1.2780001,-0.652!" ];
+
+    31 [ label = <31: <b>VisScriptVariableFloat</b><br/><br/>> ];
+    31 [ shape = parallelogram ]
+    31 [ pos = "1.9560001,-0.96300006!" ];
+
+    32 [ label = <32: <b>VisScriptVariableFloat</b><br/><br/><b>Value</b><br align="left"/>    0.999<br align="left"/>> ];
+    32 [ shape = parallelogram ]
+    32 [ pos = "1.9520001,-1.09!" ];
+
+    33 [ label = <33: <b>HealthStatsModule</b><br/><br/>> ];
+    33 [ pos = "1.748,-0.88900006!" ];
+    33 -> 38 [ label = "0→0" ];
+    37 -> 33 [ style = dashed ];
+    33 -> 31 [ style = dashed ];
+
+    34 [ label = <34: <b>DelayModule</b><br/><br/><i>Delay for Watcher nudge<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    20<br align="left"/>> ];
+    34 [ pos = "1.261,-0.88900006!" ];
+    34 -> 72 [ label = "0→0" ];
+
+    37 [ label = <37: <b>VisScriptVariableWorldObject</b><br/><br/><i>Ashcoil<br align="left"/></i><br align="left"/><b>Value</b><br align="left"/>    &quot;openingashcoil1&quot;<br align="left"/>> ];
+    37 [ shape = parallelogram ]
+    37 [ pos = "1.261,-1.1400001!" ];
+
+    38 [ label = <38: <b>FloatCompareModule</b><br/><br/>> ];
+    38 [ pos = "2.1130002,-0.88900006!" ];
+    38 -> 39 [ label = "0→0" ];
+    31 -> 38 [ style = dashed ];
+    32 -> 38 [ style = dashed ];
+
+    39 [ label = <39: <b>base/setnudgewatcherdialogmodule</b><br/><br/><i>In case the player hasn't figure<br align="left"/>d out to shoot it in the mouth, <br align="left"/>give them a hint<br align="left"/></i><br align="left"/><b>Dialog</b><br align="left"/>    &quot;vo_watcher_ashlands_09&quot;<br align="left"/>> ];
+    39 [ pos = "2.354,-0.88900006!" ];
+    39 -> 72 [ label = "0→2" ];
+
+    46 [ label = <46: <b>AttachEventModule</b><br/><br/><i>The ashcoil has died<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;openingashcoil1&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onBossDead&quot;]<br align="left"/>> ];
+    46 [ pos = "1.1620001,-0.268!" ];
+    46 -> 92 [ label = "0→0" ];
+
+    50 [ label = <50: <b>VisScriptCallModule</b><br/><br/><i>Stop Combat Music<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scriptedHeavyOutro&quot;<br align="left"/>> ];
+    50 [ pos = "1.59,-0.41700003!" ];
+
+    51 [ label = <51: <b>VisScriptCallModule</b><br/><br/><i>Start Combat Music<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scripted_HeavyCombat&quot;<br align="left"/>> ];
+    51 [ pos = "1.2950001,-0.43300003!" ];
+
+    56 [ label = <56: <b>SaveDataModule</b><br/><br/><i>Demo flag check<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Config&quot;, Fl<br align="left"/>    agName=&quot;Demo&quot;)]<br align="left"/>> ];
+    56 [ pos = "1.5910001,-0.50100005!" ];
+
+    60 [ label = <60: <b>SpawnerEventModule</b><br/><br/><i>Spawn sharkcage version of the a<br align="left"/>shcoil<br align="left"/></i><br align="left"/><b>SpawnPoints</b><br align="left"/>    [&quot;Opening_Ash_AL_03&quot;]<br align="left"/><b>ClassToSpawn</b><br align="left"/>    &quot;ashlandcoil/ashlandcoil_sharkca<br align="left"/>    ge&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    1<br align="left"/><b>NameRoot</b><br align="left"/>    &quot;sharkcageashcoil&quot;<br align="left"/>> ];
+    60 [ pos = "0.95600003,0.528!" ];
+    60 -> 80 [ label = "0→0" ];
+
+    61 [ label = <61: <b>ExternalCallModule</b><br/><br/><i>onSpawnSharkcageAshcoil<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;onSpawnSharkcageAshcoil&quot;<br align="left"/>> ];
+    61 [ shape = oval ]
+    61 [ pos = "0.625,0.528!" ];
+    61 -> 60 [ label = "0→0" ];
+
+    63 [ label = <63: <b>DebugOutModule</b><br/><br/><b>Message</b><br align="left"/>    &quot;Is this being calle3d???&quot;<br align="left"/>> ];
+    63 [ pos = "0.80100006,-0.11100001!" ];
+
+    64 [ label = <64: <b>ObjectToggleModule</b><br/><br/><i>Remove all the safe regions<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;AL_03_SharkCage01_SafeRegion&quot;,<br align="left"/>     &quot;AL_03_SharkCage02_SafeRegion&quot;,<br align="left"/>     &quot;AL_03_SharkCage03_SafeRegion&quot;,<br align="left"/>     &quot;AL_03_SharkCage04_SafeRegion&quot;,<br align="left"/>> ];
+    64 [ pos = "0.83400005,-0.614!" ];
+
+    66 [ label = <66: <b>VisScriptCallModule</b><br/><br/><i>This opens the gates at the end <br align="left"/>of the fight<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;AL_03_VSM_GateScript&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;Open_03_Gates_Ash_Dead&quot;<br align="left"/>> ];
+    66 [ pos = "2.117,-0.294!" ];
+
+    67 [ label = <67: <b>DelayModule</b><br/><br/>> ];
+    67 [ pos = "1.148,-0.101!" ];
+    67 -> 68 [ label = "0→0" ];
+
+    68 [ label = <68: <b>base/giveitemmodule</b><br/><br/><i>Ruin charge tip<br align="left"/></i><br align="left"/><b>Item</b><br align="left"/>    &quot;base/tip_ruinCharge&quot;<br align="left"/>> ];
+    68 [ pos = "1.327,-0.101!" ];
+
+    69 [ label = <69: <b>DelayModule</b><br/><br/>> ];
+    69 [ pos = "1.585,-0.049000002!" ];
+    69 -> 70 [ label = "0→0" ];
+
+    70 [ label = <70: <b>LoaderModule</b><br/><br/><b>Load</b><br align="left"/>    [[60, 14], [60, 15]]<br align="left"/><b>Unload</b><br align="left"/>    [[23, 11]]<br align="left"/>> ];
+    70 [ pos = "1.8620001,-0.049000002!" ];
+
+    72 [ label = <72: <b>AttachEventModule</b><br/><br/><b>EventNames</b><br align="left"/>    [&quot;onWeakPointEnable&quot;]<br align="left"/>> ];
+    72 [ pos = "1.45,-0.88900006!" ];
+    72 -> 33 [ label = "0→0" ];
+    37 -> 72 [ style = dashed ];
+
+    75 [ label = <75: <b>base/clearnudgewatcherdialogmodule</b><br/><br/>> ];
+    75 [ pos = "1.797,-0.294!" ];
+    75 -> 66 [ label = "0→0" ];
+
+    80 [ label = <80: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;sharkcageashcoil1&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onBeginChase&quot;, &quot;onEndChase&quot;, &quot;<br align="left"/>    onEmerge&quot;]<br align="left"/>> ];
+    80 [ pos = "1.3720001,0.564!" ];
+    80 -> 82 [ label = "0→0" ];
+    80 -> 83 [ label = "1→0" ];
+    80 -> 82 [ label = "1→1" ];
+    80 -> 81 [ label = "1→1" ];
+
+    81 [ label = <81: <b>SoundModule</b><br/><br/><b>SoundDescFile</b><br align="left"/>    &quot;base/Music&quot;<br align="left"/><b>SoundID</b><br align="left"/>    642<br align="left"/>> ];
+    81 [ pos = "2.035,0.59900004!" ];
+
+    82 [ label = <82: <b>SoundModule</b><br/><br/><b>SoundDescFile</b><br align="left"/>    &quot;base/Music&quot;<br align="left"/><b>SoundID</b><br align="left"/>    636<br align="left"/><b>Transition</b><br align="left"/>    true<br align="left"/>> ];
+    82 [ pos = "1.7770001,0.624!" ];
+    82 -> 81 [ label = "0→0" ];
+
+    83 [ label = <83: <b>SoundModule</b><br/><br/><b>SoundDescFile</b><br align="left"/>    &quot;base/Music&quot;<br align="left"/><b>SoundID</b><br align="left"/>    647<br align="left"/><b>Transition</b><br align="left"/>    true<br align="left"/>> ];
+    83 [ pos = "1.7800001,0.266!" ];
+
+    86 [ label = <86: <b>base/setdefaultwatcherdialogmodule</b><br/><br/><i>vo_watcher_ashlands_11<br align="left"/></i><br align="left"/><b>Dialog</b><br align="left"/>    &quot;vo_watcher_ashlands_11&quot;<br align="left"/>> ];
+    86 [ pos = "1.7990001,-0.374!" ];
+
+    87 [ label = <87: <b>StartModule</b><br/><br/>> ];
+    87 [ shape = oval ]
+    87 [ pos = "0.425,-1.1730001!" ];
+    87 -> 89 [ label = "0→2" ];
+
+    89 [ label = <89: <b>ObjectToggleModule</b><br/><br/><i>Remove Movement Blocker<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;Mov_Blocker_00&quot;, &quot;Mov_Blocker_<br align="left"/>    01&quot;, &quot;Mov_Blocker_02&quot;]<br align="left"/>> ];
+    89 [ pos = "0.657,-1.1270001!" ];
+
+    90 [ label = <90: <b>ObjectToggleModule</b><br/><br/><i>Add Blockers<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;Mov_Blocker_00&quot;, &quot;Mov_Blocker_<br align="left"/>    01&quot;, &quot;Mov_Blocker_02&quot;]<br align="left"/>> ];
+    90 [ pos = "0.83800006,-0.809!" ];
+
+    91 [ label = <91: <b>ObjectToggleModule</b><br/><br/><i>Remove Blockers<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;Mov_Blocker_00&quot;, &quot;Mov_Blocker_<br align="left"/>    01&quot;, &quot;Mov_Blocker_02&quot;]<br align="left"/>> ];
+    91 [ pos = "1.59,-0.65400004!" ];
+
+    92 [ label = <92: <b>base/oneshotmodule</b><br/><br/>> ];
+    92 [ pos = "1.3610001,-0.268!" ];
+    92 -> 72 [ label = "0→2" ];
+    92 -> 56 [ label = "0→0" ];
+    92 -> 50 [ label = "0→0" ];
+    92 -> 2 [ label = "0→1" ];
+    92 -> 91 [ label = "0→2" ];
+    92 -> 69 [ label = "0→0" ];
+
+    title [ pos = "0.356,0.625!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>AL_03<br align="left"/>Ashcoil<br align="left"/><b>AL03_VSM_Ashcoil</b><br align="left"/></font>> ];
+}

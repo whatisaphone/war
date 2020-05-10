@@ -1,0 +1,120 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>StartModule</b><br/><br/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "0.128,-0.215!" ];
+    1 -> 3 [ label = "0→0" ];
+
+    2 [ label = <2: <b>AnimatorModule</b><br/><br/><i>Fan on animation<br align="left"/></i><br align="left"/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;SW_Rm_05_Fan_01&quot;, AnimationID<br align="left"/>    =2)]<br align="left"/>> ];
+    2 [ pos = "0.568,-0.34300002!" ];
+
+    3 [ label = <3: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;SW_Rm_05_Fan_01_Off&quot;)]<br align="left"/>> ];
+    3 [ pos = "0.30900002,-0.215!" ];
+    3 -> 2 [ label = "1→0" ];
+    3 -> 4 [ label = "0→0" ];
+    3 -> 7 [ label = "1→0" ];
+    3 -> 18 [ label = "0→2" ];
+
+    4 [ label = <4: <b>AnimatorModule</b><br/><br/><i>Off Idle<br align="left"/></i><br align="left"/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;SW_Rm_05_Fan_01&quot;, AnimationID<br align="left"/>    =1)]<br align="left"/>> ];
+    4 [ pos = "0.56700003,-0.215!" ];
+
+    5 [ label = <5: <b>ExternalCallModule</b><br/><br/><i>Turns off fan<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;TurnOff&quot;<br align="left"/>> ];
+    5 [ shape = oval ]
+    5 [ pos = "0.045,0.209!" ];
+    5 -> 9 [ label = "0→0" ];
+    5 -> 13 [ label = "0→0" ];
+    5 -> 18 [ label = "0→2" ];
+
+    6 [ label = <6: <b>VisScriptCallModule</b><br/><br/><i>Turn Off fan<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SW_Rm_05_Fan_01_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;TurnOff&quot;<br align="left"/>> ];
+    6 [ pos = "0.82500005,-0.45900002!" ];
+
+    7 [ label = <7: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;SW_Rm_05_GearCrank_01&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onInteractive&quot;]<br align="left"/>> ];
+    7 [ pos = "0.57000005,-0.45900002!" ];
+    7 -> 6 [ label = "0→0" ];
+    7 -> 26 [ label = "0→0" ];
+    7 -> 29 [ label = "0→0" ];
+    7 -> 40 [ label = "0→0" ];
+
+    8 [ label = <8: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;SW_Rm_05_Fan_01_Off&quot;)]<br align="left"/>> ];
+    8 [ pos = "0.86200005,0.536!" ];
+
+    9 [ label = <9: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    5<br align="left"/>> ];
+    9 [ pos = "0.43600002,0.40300003!" ];
+    9 -> 10 [ label = "0→0" ];
+
+    10 [ label = <10: <b>AnimatorModule</b><br/><br/><i>Fan turnoff animation<br align="left"/></i><br align="left"/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;SW_Rm_05_Fan_01&quot;, AnimationID<br align="left"/>    =3)]<br align="left"/>> ];
+    10 [ pos = "0.62,0.40300003!" ];
+    10 -> 16 [ label = "1→0" ];
+    10 -> 8 [ label = "1→1" ];
+
+    12 [ label = <12: <b>CinematicModule</b><br/><br/><b>CinematicName</b><br align="left"/>    &quot;SW_Rm_05_Fan_01_Cine&quot;<br align="left"/>> ];
+    12 [ pos = "0.62,0.209!" ];
+    12 -> 27 [ label = "0→0" ];
+    12 -> 30 [ label = "0→0" ];
+    12 -> 31 [ label = "0→0" ];
+
+    13 [ label = <13: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    3<br align="left"/>> ];
+    13 [ pos = "0.437,0.209!" ];
+    13 -> 12 [ label = "0→0" ];
+
+    15 [ label = <15: <b>VisScriptCallModule</b><br/><br/><i>Activate Barnacles<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SW_Rm05_Barnacles_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;TurnOnBarnacles&quot;<br align="left"/>> ];
+    15 [ pos = "1.044,0.38000003!" ];
+
+    16 [ label = <16: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.2<br align="left"/>> ];
+    16 [ pos = "0.86300004,0.38000003!" ];
+    16 -> 15 [ label = "0→0" ];
+
+    18 [ label = <18: <b>ObjectToggleModule</b><br/><br/><b>ObjectList</b><br align="left"/>    [&quot;SW_Rm_05_Fan_01_Resistance&quot;]<br align="left"/>> ];
+    18 [ pos = "0.56600004,-0.008!" ];
+
+    24 [ label = <24: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;SW_Rm_05_Fan_CycleComple<br align="left"/>    te&quot;)]<br align="left"/>> ];
+    24 [ pos = "0.822,-0.298!" ];
+
+    26 [ label = <26: <b>AnimatorModule</b><br/><br/><i>Fan on animation<br align="left"/></i><br align="left"/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;SW_Rm_05_Fan_01&quot;, AnimationID<br align="left"/>    =2)]<br align="left"/>> ];
+    26 [ pos = "0.82800007,-0.54!" ];
+
+    27 [ label = <27: <b>RumbleModule</b><br/><br/><b>LeftPower</b><br align="left"/>    0.2<br align="left"/><b>RightPower</b><br align="left"/>    0<br align="left"/><b>Duration</b><br align="left"/>    4<br align="left"/><b>EaseOut</b><br align="left"/>    3<br align="left"/>> ];
+    27 [ pos = "0.882,0.209!" ];
+    27 -> 37 [ label = "0→0" ];
+
+    28 [ label = <28: <b>StartModule</b><br/><br/><i>haxzor<br align="left"/></i><br align="left"/>> ];
+    28 [ shape = oval ]
+    28 [ pos = "-0.014,-0.675!" ];
+
+    29 [ label = <29: <b>VisScriptCallModule</b><br/><br/><i>FanSwitchTurned<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;Sw_Rm05_Enc01_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;FanSwitchTurned&quot;<br align="left"/>> ];
+    29 [ pos = "0.82800007,-0.669!" ];
+
+    30 [ label = <30: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SW_Rm05_VSM_SwitchCam&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;TurnCameraOff&quot;<br align="left"/>> ];
+    30 [ pos = "0.882,0.128!" ];
+
+    31 [ label = <31: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    13<br align="left"/>> ];
+    31 [ pos = "0.883,0.044000003!" ];
+    31 -> 32 [ label = "0→0" ];
+
+    32 [ label = <32: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SW_Rm05_VSM_SwitchCam&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;TurnCameraOn&quot;<br align="left"/>> ];
+    32 [ pos = "1.0380001,0.044000003!" ];
+
+    36 [ label = <36: <b>SoundModule</b><br/><br/><b>SoundDescFile</b><br align="left"/>    &quot;base/Music&quot;<br align="left"/><b>SoundID</b><br align="left"/>    90<br align="left"/>> ];
+    36 [ pos = "1.246,0.209!" ];
+
+    37 [ label = <37: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    5<br align="left"/>> ];
+    37 [ pos = "1.0860001,0.209!" ];
+    37 -> 36 [ label = "0→0" ];
+
+    40 [ label = <40: <b>VisScriptCallModule</b><br/><br/><i>despawns any leftover lurkers ne<br align="left"/>ar fan<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;Sw_Rm05_Enc01_Script2&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;Enc01_Despawn&quot;<br align="left"/>> ];
+    40 [ pos = "0.83000004,-0.757!" ];
+
+    title [ pos = "-0.015000001,0.537!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SW_Rm05<br align="left"/>Scripts<br align="left"/><b>SW_Rm_05_Fan_01_VSM</b><br align="left"/></font>> ];
+}

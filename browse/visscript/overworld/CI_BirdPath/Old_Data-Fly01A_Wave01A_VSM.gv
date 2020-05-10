@@ -1,0 +1,82 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    37 [ label = <37: <b>SpawnMonsterEventModule</b><br/><br/><b>NumberToSpawn</b><br align="left"/>    -1<br align="left"/>> ];
+    37 [ pos = "0.65800005,-2.641!" ];
+    37 -> 154 [ label = "0→0" ];
+    37 -> 155 [ label = "0→0" ];
+    39 -> 37 [ style = dashed ];
+    37 -> 44 [ style = dashed ];
+
+    38 [ label = <38: <b>PopSpawnPointsModule</b><br/><br/><i>Spawn First Trauma and Wicked<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;Fly01A_Wave01A&quot;<br align="left"/>> ];
+    38 [ pos = "0.21700001,-2.641!" ];
+    38 -> 37 [ label = "0→0" ];
+    38 -> 158 [ label = "0→0" ];
+    38 -> 162 [ label = "0→0" ];
+    38 -> 39 [ style = dashed ];
+
+    39 [ label = <39: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    39 [ shape = parallelogram ]
+    39 [ pos = "0.45700002,-2.7380002!" ];
+
+    44 [ label = <44: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    44 [ shape = parallelogram ]
+    44 [ pos = "0.734,-2.903!" ];
+
+    123 [ label = <123: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;Fly01A_Wave01_Trigger_01&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    123 [ shape = oval ]
+    123 [ pos = "-0.277,-2.641!" ];
+    123 -> 38 [ label = "0→0" ];
+
+    124 [ label = <124: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;EchoGorge&quot;,<br align="left"/>     FlagName=&quot;Fly01A_Wave01_Trigger<br align="left"/>    _02_Active&quot;)]<br align="left"/>> ];
+    124 [ pos = "-0.027,-2.832!" ];
+    124 -> 38 [ label = "0→0" ];
+
+    125 [ label = <125: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;Fly01A_Wave01_Trigger_02&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    125 [ shape = oval ]
+    125 [ pos = "-0.275,-2.832!" ];
+    125 -> 124 [ label = "0→0" ];
+
+    139 [ label = <139: <b>SoundModule</b><br/><br/><b>SoundDescFile</b><br align="left"/>    &quot;city_fly_fx/City_Fly_FX_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    44<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_F01A_BreakableRock_02&quot;<br align="left"/>> ];
+    139 [ pos = "1.108,-2.601!" ];
+
+    154 [ label = <154: <b>base/sethealthmodule</b><br/><br/><b>MaxHitPoints</b><br align="left"/>    5<br align="left"/><b>MinHitPoints</b><br align="left"/>    0<br align="left"/>> ];
+    154 [ pos = "1.166,-2.848!" ];
+    44 -> 154 [ style = dashed ];
+
+    155 [ label = <155: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    4<br align="left"/>> ];
+    155 [ pos = "0.989,-2.9350002!" ];
+    155 -> 156 [ label = "0→0" ];
+
+    156 [ label = <156: <b>DamageActorModule</b><br/><br/><b>DamageAmount</b><br align="left"/>    10<br align="left"/>> ];
+    156 [ pos = "1.166,-2.9350002!" ];
+    44 -> 156 [ style = dashed ];
+
+    157 [ label = <157: <b>DamageActorModule</b><br/><br/><b>DamageAmount</b><br align="left"/>    1000<br align="left"/><b>TargetActorNames</b><br align="left"/>    [&quot;CI_F01A_BreakableRock_02&quot;]<br align="left"/>> ];
+    157 [ pos = "1.1040001,-2.466!" ];
+
+    158 [ label = <158: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    3<br align="left"/>> ];
+    158 [ pos = "0.65800005,-2.4870002!" ];
+    158 -> 139 [ label = "0→0" ];
+    158 -> 157 [ label = "0→0" ];
+
+    161 [ label = <161: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;Fly01A_Meteor_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;shootMeteor&quot;<br align="left"/>> ];
+    161 [ pos = "0.822,-2.4020002!" ];
+
+    162 [ label = <162: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    162 [ pos = "0.65800005,-2.3360002!" ];
+    162 -> 161 [ label = "0→0" ];
+
+    title [ pos = "-0.27800003,-2.335!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>CI_BirdPath<br align="left"/>Old_Data<br align="left"/><b>Fly01A_Wave01A_VSM</b><br align="left"/></font>> ];
+}

@@ -1,0 +1,184 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>SpawnMonsterEventModule</b><br/><br/><b>DelayTime</b><br align="left"/>    1.4<br align="left"/>> ];
+    1 [ pos = "0.689,-0.572!" ];
+    1 -> 38 [ label = "0→0" ];
+    1 -> 40 [ label = "2→0" ];
+    1 -> 55 [ label = "2→0" ];
+    1 -> 56 [ label = "2→1" ];
+    3 -> 1 [ style = dashed ];
+    1 -> 37 [ style = dashed ];
+
+    2 [ label = <2: <b>PopSpawnPointsModule</b><br/><br/><i>SM_Rm01_Enc04<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;SM_Rm01_Enc04&quot;<br align="left"/>> ];
+    2 [ pos = "0.37,-0.572!" ];
+    2 -> 1 [ label = "0→0" ];
+    2 -> 3 [ style = dashed ];
+
+    3 [ label = <3: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    3 [ shape = parallelogram ]
+    3 [ pos = "0.48600003,-0.71500003!" ];
+
+    11 [ label = <11: <b>DelayModule</b><br/><br/><i>go Encounter<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    11 [ pos = "0.022000002,-0.017!" ];
+    11 -> 2 [ label = "0→0" ];
+    11 -> 19 [ label = "0→0" ];
+    11 -> 25 [ label = "0→0" ];
+
+    14 [ label = <14: <b>SaveDataModule</b><br/><br/><i>Set AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_SM_Rm01_Enc04&quot;)]<br align="left"/>> ];
+    14 [ pos = "2.463,-0.363!" ];
+
+    18 [ label = <18: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;SM_Rm01_Enc04_Barrier_01&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOn&quot;<br align="left"/>> ];
+    18 [ pos = "0.527,0.293!" ];
+
+    19 [ label = <19: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    19 [ pos = "0.35500002,0.293!" ];
+    19 -> 18 [ label = "0→0" ];
+
+    20 [ label = <20: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;SM_Rm01_Enc04_Barrier_01&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOff&quot;<br align="left"/>> ];
+    20 [ pos = "2.607,-0.615!" ];
+
+    21 [ label = <21: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.5<br align="left"/>> ];
+    21 [ pos = "2.4390001,-0.615!" ];
+    21 -> 20 [ label = "0→0" ];
+    21 -> 49 [ label = "0→0" ];
+
+    22 [ label = <22: <b>SpawnMonsterEventModule</b><br/><br/>> ];
+    22 [ pos = "0.78800005,0.074!" ];
+    22 -> 26 [ label = "0→0" ];
+    22 -> 52 [ label = "2→0" ];
+    22 -> 53 [ label = "0→0" ];
+    24 -> 22 [ style = dashed ];
+    22 -> 27 [ style = dashed ];
+
+    23 [ label = <23: <b>PopSpawnPointsModule</b><br/><br/><i>SM_Rm01_Enc04_SM<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;SM_Rm01_Enc04_SM&quot;<br align="left"/>> ];
+    23 [ pos = "0.52400005,0.074!" ];
+    23 -> 22 [ label = "0→0" ];
+    23 -> 24 [ style = dashed ];
+
+    24 [ label = <24: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    24 [ shape = parallelogram ]
+    24 [ pos = "0.58000004,-0.067!" ];
+
+    25 [ label = <25: <b>DelayModule</b><br/><br/>> ];
+    25 [ pos = "0.34100002,0.074!" ];
+    25 -> 23 [ label = "0→0" ];
+
+    26 [ label = <26: <b>base/settargetmodule</b><br/><br/><b>Target</b><br align="left"/>    &quot;Smith1&quot;<br align="left"/>> ];
+    26 [ pos = "1.0580001,0.075!" ];
+    26 -> 28 [ label = "0→0" ];
+    27 -> 26 [ style = dashed ];
+
+    27 [ label = <27: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    27 [ shape = parallelogram ]
+    27 [ pos = "0.795,-0.148!" ];
+
+    28 [ label = <28: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;Smith1&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;setBehaviorCombat&quot;<br align="left"/>> ];
+    28 [ pos = "1.302,0.076000005!" ];
+
+    30 [ label = <30: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;SM_Rm01_Enc04_TrigReg&quot;, &quot;&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    30 [ shape = oval ]
+    30 [ pos = "-0.688,0.006!" ];
+    30 -> 50 [ label = "0→0" ];
+
+    34 [ label = <34: <b>SaveDataModule</b><br/><br/><i>Save In Building<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SM_Rm01&quot;, F<br align="left"/>    lagName=&quot;SaveInBuilding&quot;)]<br align="left"/>> ];
+    34 [ pos = "2.723,-0.44300002!" ];
+
+    35 [ label = <35: <b>VisScriptCallModule</b><br/><br/><i>SaveBuilding<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SM_Rm01_VSM_LoadingSaveGames&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;SaveBuilding&quot;<br align="left"/>> ];
+    35 [ pos = "2.775,-0.75600004!" ];
+
+    36 [ label = <36: <b>base/settargetmodule</b><br/><br/><b>Target</b><br align="left"/>    &quot;War&quot;<br align="left"/>> ];
+    36 [ pos = "1.23,-0.41500002!" ];
+    36 -> 48 [ label = "0→0" ];
+    37 -> 36 [ style = dashed ];
+
+    37 [ label = <37: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    37 [ shape = parallelogram ]
+    37 [ pos = "0.712,-0.79700005!" ];
+
+    38 [ label = <38: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2.5<br align="left"/>> ];
+    38 [ pos = "1.016,-0.381!" ];
+    38 -> 36 [ label = "0→0" ];
+
+    40 [ label = <40: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    2<br align="left"/>> ];
+    40 [ pos = "2.105,-0.615!" ];
+    40 -> 14 [ label = "0→0" ];
+    40 -> 21 [ label = "0→0" ];
+    40 -> 34 [ label = "0→1" ];
+
+    41 [ label = <41: <b>SpawnMonsterEventModule</b><br/><br/>> ];
+    41 [ pos = "1.649,-0.90400004!" ];
+    41 -> 40 [ label = "2→0" ];
+    43 -> 41 [ style = dashed ];
+    41 -> 45 [ style = dashed ];
+
+    42 [ label = <42: <b>PopSpawnPointsModule</b><br/><br/><i>SM_Rm01_Enc04W2<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;SM_Rm01_Enc04W2&quot;<br align="left"/>> ];
+    42 [ pos = "1.33,-0.90400004!" ];
+    42 -> 41 [ label = "0→0" ];
+    42 -> 43 [ style = dashed ];
+
+    43 [ label = <43: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    43 [ shape = parallelogram ]
+    43 [ pos = "1.4460001,-1.047!" ];
+
+    45 [ label = <45: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    45 [ shape = parallelogram ]
+    45 [ pos = "1.9750001,-1.059!" ];
+
+    48 [ label = <48: <b>InvokeMethodModule</b><br/><br/><b>MethodName</b><br align="left"/>    &quot;setBehaviorCombat&quot;<br align="left"/>> ];
+    48 [ pos = "1.514,-0.30800003!" ];
+    37 -> 48 [ style = dashed ];
+
+    49 [ label = <49: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    49 [ pos = "2.607,-0.75600004!" ];
+    49 -> 35 [ label = "0→0" ];
+
+    50 [ label = <50: <b>SaveDataModule</b><br/><br/><i>Save In Building<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SM_Rm01&quot;, F<br align="left"/>    lagName=&quot;SaveInBuilding&quot;)]<br align="left"/>> ];
+    50 [ pos = "-0.43100002,0.006!" ];
+    50 -> 11 [ label = "1→0" ];
+
+    52 [ label = <52: <b>VisScriptCallModule</b><br/><br/><i>SM_Rm01_VSM_Smith_Path_04-&amp;gt;Enc04<br align="left"/>SM_AllDead<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SM_Rm01_VSM_Smith_Path_04&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;Enc04SM_AllDead&quot;<br align="left"/>> ];
+    52 [ pos = "1.2160001,-0.11800001!" ];
+
+    53 [ label = <53: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;SM_Rm01_Enc04_TrigRegDestSM&quot;, <br align="left"/>    &quot;&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>Enable</b><br align="left"/>    false<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    53 [ shape = oval ]
+    53 [ pos = "1.039,0.386!" ];
+    53 -> 54 [ label = "0→2" ];
+
+    54 [ label = <54: <b>ObjectToggleModule</b><br/><br/>> ];
+    54 [ pos = "1.3510001,0.384!" ];
+    54 -> 52 [ label = "0→0" ];
+    27 -> 54 [ style = dashed ];
+
+    55 [ label = <55: <b>base/isinviewmodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;SM_Rm01_Enc04_LOSTrig&quot;<br align="left"/><b>AutoTriggerTime</b><br align="left"/>    &quot;6.0&quot;<br align="left"/><b>WidthScaleWS</b><br align="left"/>    &quot;.75&quot;<br align="left"/><b>HeightScaleWS</b><br align="left"/>    &quot;.9&quot;<br align="left"/><b>WidthScaleNS</b><br align="left"/>    &quot;.88&quot;<br align="left"/><b>HeightScaleNS</b><br align="left"/>    &quot;.9&quot;<br align="left"/>> ];
+    55 [ pos = "0.832,-1.1880001!" ];
+    55 -> 42 [ label = "0→0" ];
+    55 -> 42 [ label = "1→0" ];
+    55 -> 56 [ label = "0→2" ];
+    55 -> 60 [ label = "1→0" ];
+
+    56 [ label = <56: <b>ObjectToggleModule</b><br/><br/><b>ObjectList</b><br align="left"/>    [&quot;SM_Rm01_Enc04_CameraInfuence&quot;]<br align="left"/>> ];
+    56 [ pos = "1.279,-1.1700001!" ];
+
+    57 [ label = <57: <b>StartModule</b><br/><br/>> ];
+    57 [ shape = oval ]
+    57 [ pos = "0.97,-1.3330001!" ];
+    57 -> 56 [ label = "0→2" ];
+
+    60 [ label = <60: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2.5<br align="left"/>> ];
+    60 [ pos = "1.0760001,-0.94200003!" ];
+    60 -> 56 [ label = "0→2" ];
+
+    title [ pos = "-0.689,0.38700002!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SM_Rm01<br align="left"/>Combat<br align="left"/><b>SM_Rm01_Enc04_Script</b><br align="left"/></font>> ];
+}

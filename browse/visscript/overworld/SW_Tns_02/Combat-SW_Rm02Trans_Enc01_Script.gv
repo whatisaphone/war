@@ -1,0 +1,63 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    2 [ label = <2: <b>StartModule</b><br/><br/>> ];
+    2 [ shape = oval ]
+    2 [ pos = "-0.012,-0.013!" ];
+    2 -> 3 [ label = "0→0" ];
+
+    3 [ label = <3: <b>SaveDataModule</b><br/><br/><i>Check Spawned<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;Spawned_SW_Rm02Trans_Enc<br align="left"/>    01&quot;)]<br align="left"/>> ];
+    3 [ pos = "0.19000001,-0.011000001!" ];
+    3 -> 4 [ label = "0→0" ];
+
+    4 [ label = <4: <b>SaveDataModule</b><br/><br/><i>Check AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_SW_Rm02Trans_Enc<br align="left"/>    01&quot;)]<br align="left"/>> ];
+    4 [ pos = "0.39100003,-0.011000001!" ];
+    4 -> 5 [ label = "1→0" ];
+
+    5 [ label = <5: <b>DelayModule</b><br/><br/><i>go Encounter<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    5 [ pos = "0.615,-0.142!" ];
+    5 -> 9 [ label = "0→0" ];
+
+    6 [ label = <6: <b>SaveDataModule</b><br/><br/><i>Check Spawned<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;Spawned_SW_Rm02Trans_Enc<br align="left"/>    01&quot;)]<br align="left"/>> ];
+    6 [ pos = "0.238,-0.21100001!" ];
+    6 -> 5 [ label = "1→0" ];
+    6 -> 7 [ label = "1→1" ];
+
+    7 [ label = <7: <b>SaveDataModule</b><br/><br/><i>Set Spawned<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;Spawned_SW_Rm02Trans_Enc<br align="left"/>    01&quot;)]<br align="left"/>> ];
+    7 [ pos = "0.46100003,-0.31500003!" ];
+
+    8 [ label = <8: <b>SpawnMonsterEventModule</b><br/><br/>> ];
+    8 [ pos = "1.0170001,-0.142!" ];
+    8 -> 11 [ label = "2→1" ];
+    10 -> 8 [ style = dashed ];
+
+    9 [ label = <9: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;SW_Rm02Trans_Enc01&quot;<br align="left"/>> ];
+    9 [ pos = "0.763,-0.142!" ];
+    9 -> 8 [ label = "0→0" ];
+    9 -> 10 [ style = dashed ];
+
+    10 [ label = <10: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    10 [ shape = parallelogram ]
+    10 [ pos = "0.78400004,-0.27100003!" ];
+
+    11 [ label = <11: <b>SaveDataModule</b><br/><br/><i>Set AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_SW_Rm02Trans_Enc<br align="left"/>    01&quot;)]<br align="left"/>> ];
+    11 [ pos = "1.3440001,-0.13700001!" ];
+
+    16 [ label = <16: <b>ExternalCallModule</b><br/><br/><b>EventName</b><br align="left"/>    &quot;StartEncounter&quot;<br align="left"/>> ];
+    16 [ shape = oval ]
+    16 [ pos = "-0.019000001,-0.21100001!" ];
+    16 -> 6 [ label = "0→0" ];
+
+    title [ pos = "-0.020000001,-0.010000001!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SW_Tns_02<br align="left"/>Combat<br align="left"/><b>SW_Rm02Trans_Enc01_Script</b><br align="left"/></font>> ];
+}

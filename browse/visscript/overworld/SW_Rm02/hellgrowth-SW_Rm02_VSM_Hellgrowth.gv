@@ -1,0 +1,71 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>StartModule</b><br/><br/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "0.21800001,-0.29700002!" ];
+    1 -> 2 [ label = "0→0" ];
+
+    2 [ label = <2: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;SW_Rm02_HellgrowthGone&quot;)<br align="left"/>    ]<br align="left"/>> ];
+    2 [ pos = "0.43600002,-0.29700002!" ];
+    2 -> 4 [ label = "0→2" ];
+    2 -> 4 [ label = "1→0" ];
+
+    4 [ label = <4: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onBreak&quot;]<br align="left"/>> ];
+    4 [ pos = "0.69600004,-0.289!" ];
+    4 -> 10 [ label = "0→0" ];
+    9 -> 4 [ style = dashed ];
+
+    5 [ label = <5: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    5<br align="left"/>> ];
+    5 [ pos = "1.342,-0.289!" ];
+    5 -> 8 [ label = "0→0" ];
+
+    6 [ label = <6: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;SW_Rm02_HellgrowthGone&quot;)<br align="left"/>    ]<br align="left"/>> ];
+    6 [ pos = "1.3440001,-0.11800001!" ];
+
+    7 [ label = <7: <b>base/autosavemodule</b><br/><br/>> ];
+    7 [ pos = "1.7650001,-0.289!" ];
+
+    8 [ label = <8: <b>LoaderModule</b><br/><br/><b>Unload</b><br align="left"/>    [[135, 9]]<br align="left"/>> ];
+    8 [ pos = "1.5070001,-0.289!" ];
+    8 -> 7 [ label = "0→0" ];
+
+    9 [ label = <9: <b>VisScriptVariableWorldObjectList</b><br/><br/><b>Value</b><br align="left"/>    [&quot;SW_Rm02_BGCrystal_01&quot;, &quot;SW_Rm0<br align="left"/>    2_BGCrystal_02&quot;, &quot;SW_Rm02_BGCrys<br align="left"/>    tal_03&quot;, &quot;SW_Rm02_BGCrystal_04&quot;]<br align="left"/>> ];
+    9 [ shape = parallelogram ]
+    9 [ pos = "0.81500006,-0.59400004!" ];
+
+    10 [ label = <10: <b>AccumulatorModule</b><br/><br/>> ];
+    10 [ pos = "0.88900006,-0.289!" ];
+    10 -> 11 [ label = "0→0" ];
+
+    11 [ label = <11: <b>DamageActorModule</b><br/><br/><b>DamageAmount</b><br align="left"/>    300<br align="left"/><b>WeaponType</b><br align="left"/>    22<br align="left"/>> ];
+    11 [ pos = "1.1060001,-0.289!" ];
+    11 -> 5 [ label = "0→0" ];
+    11 -> 6 [ label = "0→1" ];
+    11 -> 12 [ label = "0→0" ];
+    11 -> 14 [ label = "0→0" ];
+    9 -> 11 [ style = dashed ];
+
+    12 [ label = <12: <b>VisScriptCallModule</b><br/><br/><i>kick off Rm02 Enc05<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;Sw_Rm02_Enc05_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;StartEncounter&quot;<br align="left"/>> ];
+    12 [ pos = "1.32,-0.043!" ];
+
+    13 [ label = <13: <b>SoundModule</b><br/><br/><b>SoundDescFile</b><br align="left"/>    &quot;base/Music&quot;<br align="left"/><b>SoundID</b><br align="left"/>    90<br align="left"/>> ];
+    13 [ pos = "1.5230001,-0.521!" ];
+
+    14 [ label = <14: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2.75<br align="left"/>> ];
+    14 [ pos = "1.3470001,-0.521!" ];
+    14 -> 13 [ label = "0→0" ];
+
+    title [ pos = "0.21700001,-0.042000003!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SW_Rm02<br align="left"/>hellgrowth<br align="left"/><b>SW_Rm02_VSM_Hellgrowth</b><br align="left"/></font>> ];
+}

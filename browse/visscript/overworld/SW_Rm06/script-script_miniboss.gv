@@ -1,0 +1,105 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    22 [ label = <22: <b>ExternalCallModule</b><br/><br/><b>EventName</b><br align="left"/>    &quot;BossDead&quot;<br align="left"/>> ];
+    22 [ shape = oval ]
+    22 [ pos = "0.319,0.51900005!" ];
+    22 -> 36 [ label = "0→0" ];
+
+    34 [ label = <34: <b>base/commitsavedatamodule</b><br/><br/><i>battle done, commit and allow pr<br align="left"/>ogression to be saved again.<br align="left"/></i><br align="left"/>> ];
+    34 [ pos = "0.80300003,0.51900005!" ];
+    34 -> 35 [ label = "0→0" ];
+
+    35 [ label = <35: <b>base/autosavemodule</b><br/><br/>> ];
+    35 [ pos = "1.0430001,0.51900005!" ];
+
+    36 [ label = <36: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.1<br align="left"/>> ];
+    36 [ pos = "0.61700004,0.51900005!" ];
+    36 -> 34 [ label = "0→0" ];
+
+    47 [ label = <47: <b>DamageEventModule</b><br/><br/>> ];
+    47 [ pos = "0.53900003,0.776!" ];
+    47 -> 50 [ label = "0→0" ];
+    48 -> 47 [ style = dashed ];
+
+    48 [ label = <48: <b>VisScriptVariableWorldObject</b><br/><br/><b>Value</b><br align="left"/>    &quot;SW_Rm06_Gauntlet_gear_casket&quot;<br align="left"/>> ];
+    48 [ shape = parallelogram ]
+    48 [ pos = "0.33100003,0.679!" ];
+
+    49 [ label = <49: <b>StartModule</b><br/><br/>> ];
+    49 [ shape = oval ]
+    49 [ pos = "0.319,0.776!" ];
+    49 -> 47 [ label = "0→0" ];
+
+    50 [ label = <50: <b>base/oneshotmodule</b><br/><br/>> ];
+    50 [ pos = "0.748,0.776!" ];
+    50 -> 52 [ label = "0→0" ];
+
+    51 [ label = <51: <b>base/autosavemodule</b><br/><br/>> ];
+    51 [ pos = "1.1400001,0.776!" ];
+    51 -> 53 [ label = "0→0" ];
+
+    52 [ label = <52: <b>base/setspawnpointmodule</b><br/><br/><b>World</b><br align="left"/>    &quot;Overworld&quot;<br align="left"/><b>Region</b><br align="left"/>    &quot;SW_Rm06&quot;<br align="left"/><b>SpawnPoint</b><br align="left"/>    &quot;Start&quot;<br align="left"/><b>SpawnLoadRegion</b><br align="left"/>    &quot;StartLoadRegion&quot;<br align="left"/>> ];
+    52 [ pos = "0.93700004,0.776!" ];
+    52 -> 51 [ label = "0→0" ];
+
+    53 [ label = <53: <b>base/storesavedatamodule</b><br/><br/><i>store data before battle.<br align="left"/></i><br align="left"/>> ];
+    53 [ pos = "1.3080001,0.776!" ];
+
+    54 [ label = <54: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;SW_Rm06_Gauntlet_gear_casket&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onInteractiveComplete&quot;, &quot;onInt<br align="left"/>    eractive&quot;]<br align="left"/>> ];
+    54 [ pos = "0.938,1.35!" ];
+    54 -> 55 [ label = "1→0" ];
+    54 -> 57 [ label = "1→1" ];
+    54 -> 63 [ label = "0→1" ];
+    54 -> 56 [ label = "0→1" ];
+
+    55 [ label = <55: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;sw_Rm05_to_Rm06_Door&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;deactivate&quot;<br align="left"/>> ];
+    55 [ pos = "1.246,1.218!" ];
+
+    56 [ label = <56: <b>SaveDataModule</b><br/><br/><i>EnteredMinibossRoom<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;EnteredMinibossRoom&quot;)]<br align="left"/>> ];
+    56 [ pos = "1.246,1.373!" ];
+
+    57 [ label = <57: <b>ObjectToggleModule</b><br/><br/><b>ObjectList</b><br align="left"/>    [&quot;SW_Rm06_FallingRub01&quot;]<br align="left"/>> ];
+    57 [ pos = "1.2440001,1.0300001!" ];
+
+    58 [ label = <58: <b>SaveDataModule</b><br/><br/><i>EnteredMinibossRoom<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;EnteredMinibossRoom&quot;)]<br align="left"/>> ];
+    58 [ pos = "0.34800002,1.0300001!" ];
+    58 -> 57 [ label = "0→1" ];
+    58 -> 57 [ label = "1→2" ];
+    58 -> 55 [ label = "0→0" ];
+    58 -> 60 [ label = "1→0" ];
+    58 -> 60 [ label = "0→0" ];
+
+    59 [ label = <59: <b>StartModule</b><br/><br/>> ];
+    59 [ shape = oval ]
+    59 [ pos = "0.149,1.0300001!" ];
+    59 -> 58 [ label = "0→0" ];
+
+    60 [ label = <60: <b>SaveDataModule</b><br/><br/><i>Set AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_Sw_Rm06_Enc01&quot;)]<br align="left"/>> ];
+    60 [ pos = "0.69200003,1.2880001!" ];
+    60 -> 54 [ label = "1→0" ];
+
+    62 [ label = <62: <b>VisScriptCallModule</b><br/><br/><i>TremorBringer<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;VSM_Achievements&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;TremorBringer&quot;<br align="left"/>> ];
+    62 [ pos = "1.5100001,1.457!" ];
+
+    63 [ label = <63: <b>SaveDataModule</b><br/><br/><i>player received gauntlets<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;GearCheck&quot;,<br align="left"/>     FlagName=&quot;PlayerGotGauntlets&quot;)]<br align="left"/>> ];
+    63 [ pos = "1.246,1.526!" ];
+    63 -> 62 [ label = "3→0" ];
+    63 -> 64 [ label = "3→0" ];
+
+    64 [ label = <64: <b>LoaderModule</b><br/><br/><b>Load</b><br align="left"/>    [[228, -1], [227, -1], [290, -1]<br align="left"/>    , [136, -1], [137, -1], [138, 0]<br align="left"/>    , [138, 3], [138, 5], [138, 6], <br align="left"/>    [138, 7], [215, -1]]<br align="left"/><b>Unload</b><br align="left"/>    [[-1, -1]]<br align="left"/>> ];
+    64 [ pos = "1.5100001,1.5630001!" ];
+
+    title [ pos = "0.148,1.5640001!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SW_Rm06<br align="left"/>script<br align="left"/><b>script_miniboss</b><br align="left"/></font>> ];
+}

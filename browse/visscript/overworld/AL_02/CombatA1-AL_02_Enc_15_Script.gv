@@ -1,0 +1,61 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>StartModule</b><br/><br/><i>Hax<br align="left"/></i><br align="left"/>> ];
+    1 [ shape = oval ]
+
+    2 [ label = <2: <b>SpawnMonsterEventModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;AL_02_Enc_15&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    3<br align="left"/><b>DelayTime</b><br align="left"/>    0.5<br align="left"/><b>MaxRange</b><br align="left"/>    10000<br align="left"/>> ];
+    2 [ pos = "0.757,-0.20700002!" ];
+    2 -> 8 [ label = "3→1" ];
+    2 -> 16 [ label = "3→0" ];
+
+    7 [ label = <7: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;AL_02_Enc_15_TrigReg&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    7 [ shape = oval ]
+    7 [ pos = "0.11100001,-0.18300001!" ];
+    7 -> 9 [ label = "0→0" ];
+
+    8 [ label = <8: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Ashlands&quot;, <br align="left"/>    FlagName=&quot;AL_02_Enc_15&quot;)]<br align="left"/>> ];
+    8 [ pos = "1.0960001,-0.254!" ];
+
+    9 [ label = <9: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Ashlands&quot;, <br align="left"/>    FlagName=&quot;AL_02_Enc_15&quot;)]<br align="left"/>> ];
+    9 [ pos = "0.42100003,-0.18300001!" ];
+    9 -> 2 [ label = "1→0" ];
+
+    10 [ label = <10: <b>LoaderModule</b><br/><br/><b>Load</b><br align="left"/>    [[22, 30]]<br align="left"/>> ];
+    10 [ pos = "0.683,-0.758!" ];
+
+    11 [ label = <11: <b>LoaderModule</b><br/><br/><i>Unload Baddies<br align="left"/></i><br align="left"/><b>Unload</b><br align="left"/>    [[22, 30]]<br align="left"/>> ];
+    11 [ pos = "1.4490001,-0.45400003!" ];
+
+    13 [ label = <13: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;AL_02_Enc_15_TrigRemove&quot;, &quot;&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    13 [ shape = oval ]
+    13 [ pos = "0.791,-0.455!" ];
+    13 -> 11 [ label = "0→0" ];
+    13 -> 8 [ label = "0→1" ];
+
+    14 [ label = <14: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;AL_02_Enc_15_TrigPackage&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    14 [ shape = oval ]
+    14 [ pos = "0.11000001,-0.734!" ];
+    14 -> 15 [ label = "0→0" ];
+
+    15 [ label = <15: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Ashlands&quot;, <br align="left"/>    FlagName=&quot;AL_02_Enc_15&quot;)]<br align="left"/>> ];
+    15 [ pos = "0.42000002,-0.734!" ];
+    15 -> 10 [ label = "1→0" ];
+
+    16 [ label = <16: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    8<br align="left"/>> ];
+    16 [ pos = "1.182,-0.541!" ];
+    16 -> 11 [ label = "0→0" ];
+
+    title [ pos = "0.109000005,-0.18200001!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>AL_02<br align="left"/>CombatA1<br align="left"/><b>AL_02_Enc_15_Script</b><br align="left"/></font>> ];
+}

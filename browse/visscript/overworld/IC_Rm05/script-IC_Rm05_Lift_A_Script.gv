@@ -1,0 +1,101 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    4 [ label = <4: <b>StartModule</b><br/><br/><i>Raise/Lower Lift A<br align="left"/></i><br align="left"/>> ];
+    4 [ shape = oval ]
+    4 [ pos = "0.11100001,-0.201!" ];
+    4 -> 11 [ label = "0→0" ];
+    4 -> 33 [ label = "0→0" ];
+
+    11 [ label = <11: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;IC_Rm05_Lift_A_Switch&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onInteractive&quot;]<br align="left"/>> ];
+    11 [ pos = "0.312,-0.201!" ];
+    11 -> 12 [ label = "0→0" ];
+
+    12 [ label = <12: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    4.4<br align="left"/>> ];
+    12 [ pos = "0.55600005,-0.201!" ];
+    12 -> 49 [ label = "0→0" ];
+
+    15 [ label = <15: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;IC_Rm05_Lift_A_Switch&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;reset&quot;<br align="left"/>> ];
+    15 [ pos = "1.682,-0.115!" ];
+    15 -> 50 [ label = "0→1" ];
+
+    23 [ label = <23: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;IC_Rm05_Lift_A_Switch&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;reset&quot;<br align="left"/>> ];
+    23 [ pos = "1.6930001,-0.35300002!" ];
+    23 -> 51 [ label = "0→1" ];
+
+    33 [ label = <33: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;IC_Rm05_Lift_A_Switch&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;reset&quot;<br align="left"/>> ];
+    33 [ pos = "0.31300002,-0.36600003!" ];
+
+    37 [ label = <37: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;IC_Rm05_Lift_A_Trigger&quot;, &quot;&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    37 [ shape = oval ]
+    37 [ pos = "0.072000004,0.272!" ];
+    37 -> 38 [ label = "0→1" ];
+    37 -> 39 [ label = "1→1" ];
+
+    38 [ label = <38: <b>SaveDataModule</b><br/><br/><i>On Lift A TRUE<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;ic_rm05&quot;, F<br align="left"/>    lagName=&quot;on_lift_a&quot;)]<br align="left"/>> ];
+    38 [ pos = "0.34300002,0.388!" ];
+
+    39 [ label = <39: <b>SaveDataModule</b><br/><br/><i>On Lift A FALSE<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;ic_rm05&quot;, F<br align="left"/>    lagName=&quot;on_lift_a&quot;, FlagValue=&quot;<br align="left"/>    False&quot;)]<br align="left"/>> ];
+    39 [ pos = "0.344,0.18200001!" ];
+
+    40 [ label = <40: <b>AnimatorModule</b><br/><br/><i>Move Up<br align="left"/></i><br align="left"/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;IC_Rm05_lftfloor_A&quot;, Animatio<br align="left"/>    nID=3)]<br align="left"/>> ];
+    40 [ pos = "1.19,-0.09200001!" ];
+    40 -> 43 [ label = "1→1" ];
+    40 -> 45 [ label = "1→0" ];
+    40 -> 15 [ label = "1→0" ];
+
+    42 [ label = <42: <b>SaveDataModule</b><br/><br/><i>On Lift A<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;ic_rm05&quot;, F<br align="left"/>    lagName=&quot;on_lift_a&quot;)]<br align="left"/>> ];
+    42 [ pos = "1.406,0.2!" ];
+    42 -> 44 [ label = "0→0" ];
+    42 -> 43 [ label = "0→0" ];
+
+    43 [ label = <43: <b>ObjectAttacherModule</b><br/><br/><b>ChildObject</b><br align="left"/>    &quot;IC_Rm05_PuzzleDrag&quot;<br align="left"/><b>ParentObject</b><br align="left"/>    &quot;IC_Rm05_lftfloor_A&quot;<br align="left"/><b>ParentNode</b><br align="left"/>    &quot;A1&quot;<br align="left"/><b>Relative</b><br align="left"/>    true<br align="left"/>> ];
+    43 [ pos = "1.6800001,0.2!" ];
+
+    44 [ label = <44: <b>InvokeMethodModule</b><br/><br/><i>deactivate<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;IC_Rm05_lftfloor_A&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;deactivate&quot;<br align="left"/>> ];
+    44 [ pos = "1.6800001,0.33400002!" ];
+
+    45 [ label = <45: <b>InvokeMethodModule</b><br/><br/><i>activate<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;IC_Rm05_lftfloor_A&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;activate&quot;<br align="left"/>> ];
+    45 [ pos = "1.6810001,0.093!" ];
+
+    47 [ label = <47: <b>AnimatorModule</b><br/><br/><i>Move Down<br align="left"/></i><br align="left"/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;IC_Rm05_lftfloor_A&quot;, Animatio<br align="left"/>    nID=6)]<br align="left"/>> ];
+    47 [ pos = "1.1980001,-0.33!" ];
+    47 -> 23 [ label = "1→0" ];
+
+    49 [ label = <49: <b>SaveDataModule</b><br/><br/><i>Lift State UP<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;ic_rm05&quot;, F<br align="left"/>    lagName=&quot;lift_state_a&quot;)]<br align="left"/>> ];
+    49 [ pos = "0.754,-0.201!" ];
+    49 -> 40 [ label = "1→0" ];
+    49 -> 42 [ label = "1→0" ];
+    49 -> 47 [ label = "0→0" ];
+
+    50 [ label = <50: <b>SaveDataModule</b><br/><br/><i>Lift State UP TRUE<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;ic_rm05&quot;, F<br align="left"/>    lagName=&quot;lift_state_a&quot;)]<br align="left"/>> ];
+    50 [ pos = "1.9300001,-0.09200001!" ];
+
+    51 [ label = <51: <b>SaveDataModule</b><br/><br/><i>Lift State UP FALSE<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;ic_rm05&quot;, F<br align="left"/>    lagName=&quot;lift_state_a&quot;, FlagValu<br align="left"/>    e=&quot;False&quot;)]<br align="left"/>> ];
+    51 [ pos = "1.9310001,-0.33!" ];
+
+    52 [ label = <52: <b>StartModule</b><br/><br/><i>Elevator Persistence<br align="left"/></i><br align="left"/>> ];
+    52 [ shape = oval ]
+    52 [ pos = "0.551,-0.62200004!" ];
+    52 -> 53 [ label = "0→0" ];
+
+    53 [ label = <53: <b>SaveDataModule</b><br/><br/><i>Lift State UP<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;ic_rm05&quot;, F<br align="left"/>    lagName=&quot;lift_state_a&quot;)]<br align="left"/>> ];
+    53 [ pos = "0.749,-0.62200004!" ];
+    53 -> 54 [ label = "0→0" ];
+
+    54 [ label = <54: <b>AnimatorModule</b><br/><br/><i>Idle UP<br align="left"/></i><br align="left"/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;IC_Rm05_lftfloor_A&quot;, Animatio<br align="left"/>    nID=4)]<br align="left"/>> ];
+    54 [ pos = "0.989,-0.62200004!" ];
+
+    title [ pos = "0.071,0.38900003!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>IC_Rm05<br align="left"/>script<br align="left"/><b>IC_Rm05_Lift_A_Script</b><br align="left"/></font>> ];
+}

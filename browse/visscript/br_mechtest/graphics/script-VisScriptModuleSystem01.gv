@@ -1,0 +1,53 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    4 [ label = <4: <b>TriggerEventModule</b><br/><br/><i>do one<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;TriggerRegion02&quot;, &quot;TriggerRegi<br align="left"/>    on03&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    4 [ shape = oval ]
+    4 [ pos = "-0.109000005,-0.37600002!" ];
+    4 -> 6 [ label = "1→0" ];
+    4 -> 7 [ label = "0→0" ];
+    4 -> 8 [ label = "0→0" ];
+    4 -> 8 [ label = "1→1" ];
+    4 -> 14 [ label = "0→0" ];
+
+    5 [ label = <5: <b>InvokeMethodModule</b><br/><br/><i>multitrigger test.<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;ch_cat_gratedoor01&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;open&quot;<br align="left"/>> ];
+    5 [ pos = "0.93500006,-0.21300001!" ];
+
+    6 [ label = <6: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;ch_cat_gratedoor01&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;close&quot;<br align="left"/>> ];
+    6 [ pos = "0.56100005,-0.45800003!" ];
+
+    7 [ label = <7: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    4<br align="left"/>> ];
+    7 [ pos = "0.363,-0.15100001!" ];
+    7 -> 8 [ label = "0→2" ];
+    7 -> 15 [ label = "0→0" ];
+
+    8 [ label = <8: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    5<br align="left"/>> ];
+    8 [ pos = "0.629,-0.256!" ];
+    8 -> 5 [ label = "0→0" ];
+
+    14 [ label = <14: <b>TextModule</b><br/><br/><b>Text</b><br align="left"/>    &quot;Disable delay test&quot;<br align="left"/>> ];
+    14 [ pos = "0.089,-0.164!" ];
+
+    15 [ label = <15: <b>HudTextModule</b><br/><br/><b>Text</b><br align="left"/>    &quot;delay disabled.  \\ndoor should<br align="left"/>     NOT open.&quot;<br align="left"/><b>Duration</b><br align="left"/>    5<br align="left"/><b>PauseGame</b><br align="left"/>    true<br align="left"/>> ];
+    15 [ pos = "0.59300005,-0.072000004!" ];
+
+    16 [ label = <16: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;ch_cat_gratedoor01&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;open&quot;<br align="left"/>> ];
+    16 [ pos = "-0.082,-0.61600006!" ];
+
+    17 [ label = <17: <b>StartModule</b><br/><br/>> ];
+    17 [ shape = oval ]
+    17 [ pos = "-0.256,-0.62200004!" ];
+
+    title [ pos = "-0.257,-0.071!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">br_mechtest<br align="left"/>graphics<br align="left"/>script<br align="left"/><b>VisScriptModuleSystem01</b><br align="left"/></font>> ];
+}

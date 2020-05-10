@@ -1,0 +1,97 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>TriggerEventModule</b><br/><br/><i>Subway car too close to greaver<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;SW_15_SubwayCarTrigger&quot;, &quot;&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "0.36800003,-0.055000003!" ];
+    1 -> 2 [ label = "0→0" ];
+    1 -> 3 [ label = "1→0" ];
+
+    2 [ label = <2: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;GreaverBoss&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;subwayCarEnter&quot;<br align="left"/>> ];
+    2 [ pos = "0.726,0.09900001!" ];
+
+    3 [ label = <3: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;GreaverBoss&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;subwayCarExit&quot;<br align="left"/>> ];
+    3 [ pos = "0.72300005,-0.072000004!" ];
+
+    4 [ label = <4: <b>ExternalCallModule</b><br/><br/><b>EventName</b><br align="left"/>    &quot;onStage2&quot;<br align="left"/>> ];
+    4 [ shape = oval ]
+    4 [ pos = "-0.35700002,-0.010000001!" ];
+    4 -> 1 [ label = "0→1" ];
+    4 -> 5 [ label = "0→0" ];
+    4 -> 20 [ label = "0→0" ];
+    4 -> 16 [ label = "0→1" ];
+
+    5 [ label = <5: <b>TriggerEventModule</b><br/><br/><i>Subway car too close to greaver<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;SW_15_SubwayCarTrigger2&quot;, &quot;&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    5 [ shape = oval ]
+    5 [ pos = "0.384,0.21100001!" ];
+    5 -> 2 [ label = "0→0" ];
+    5 -> 3 [ label = "1→0" ];
+
+    7 [ label = <7: <b>StartModule</b><br/><br/>> ];
+    7 [ shape = oval ]
+    7 [ pos = "-0.337,0.187!" ];
+    7 -> 5 [ label = "0→1" ];
+
+    8 [ label = <8: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;SW_RM15_RockTrigger1&quot;, &quot;SW_RM1<br align="left"/>    5_RockTrigger2&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    8 [ shape = oval ]
+    8 [ pos = "0.50100005,-1.024!" ];
+    8 -> 10 [ label = "0→0" ];
+    8 -> 9 [ label = "1→0" ];
+
+    9 [ label = <9: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;GreaverBoss&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;exitLowRockArea&quot;<br align="left"/>> ];
+    9 [ pos = "0.85200006,-1.1860001!" ];
+
+    10 [ label = <10: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;GreaverBoss&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;enterLowRockArea&quot;<br align="left"/>> ];
+    10 [ pos = "0.86200005,-0.975!" ];
+
+    12 [ label = <12: <b>ObjectToggleModule</b><br/><br/><b>ObjectList</b><br align="left"/>    [&quot;SW_RM15_RockTrigger1&quot;, &quot;SW_RM1<br align="left"/>    5_RockTrigger2&quot;]<br align="left"/>> ];
+    12 [ pos = "0.21700001,-1.069!" ];
+    12 -> 8 [ label = "0→3" ];
+
+    13 [ label = <13: <b>StartModule</b><br/><br/>> ];
+    13 [ shape = oval ]
+    13 [ pos = "-0.125,-1.19!" ];
+    13 -> 12 [ label = "0→2" ];
+
+    14 [ label = <14: <b>ExternalCallModule</b><br/><br/><b>EventName</b><br align="left"/>    &quot;onBossBegin&quot;<br align="left"/>> ];
+    14 [ shape = oval ]
+    14 [ pos = "-0.10300001,-1.036!" ];
+    14 -> 12 [ label = "0→1" ];
+
+    16 [ label = <16: <b>TriggerEventModule</b><br/><br/><i>Player is too close to the greav<br align="left"/>er (Region1)<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;SW_RM15_PlayerAttackRegion01&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    16 [ shape = oval ]
+    16 [ pos = "0.069000006,-0.528!" ];
+    16 -> 18 [ label = "0→0" ];
+    16 -> 17 [ label = "1→0" ];
+
+    17 [ label = <17: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;GreaverBoss&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;playerExit&quot;<br align="left"/>> ];
+    17 [ pos = "0.409,-0.65300006!" ];
+
+    18 [ label = <18: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;GreaverBoss&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;playerEnter&quot;<br align="left"/>> ];
+    18 [ pos = "0.41900003,-0.44400004!" ];
+
+    20 [ label = <20: <b>TriggerEventModule</b><br/><br/><i>Player is too close to the greav<br align="left"/>er (Region2)<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;SW_RM15_PlayerAttackRegion02&quot;]<br align="left"/><b>Enable</b><br align="left"/>    false<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    20 [ shape = oval ]
+    20 [ pos = "0.73800004,-0.545!" ];
+    20 -> 22 [ label = "0→0" ];
+    20 -> 21 [ label = "1→0" ];
+
+    21 [ label = <21: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;GreaverBoss&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;playerExit&quot;<br align="left"/>> ];
+    21 [ pos = "1.056,-0.665!" ];
+
+    22 [ label = <22: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;GreaverBoss&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;playerEnter&quot;<br align="left"/>> ];
+    22 [ pos = "1.0660001,-0.45600003!" ];
+
+    title [ pos = "-0.358,0.21200001!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SW_Rm15<br align="left"/>scripts<br align="left"/><b>SW_15_VSM_BossFight</b><br align="left"/></font>> ];
+}

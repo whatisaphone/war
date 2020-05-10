@@ -1,0 +1,149 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    2 [ label = <2: <b>InvokeMethodModule</b><br/><br/><i>Close the gate back to AL_04<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;al_gate_al_03_01&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;Close&quot;<br align="left"/>> ];
+    2 [ pos = "0.74100006,0.26900002!" ];
+
+    3 [ label = <3: <b>SaveDataModule</b><br/><br/><i>Player Has Ruin?<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Ashlands&quot;, <br align="left"/>    FlagName=&quot;Ruin_Collected&quot;)]<br align="left"/>> ];
+    3 [ pos = "-0.462,0.42200002!" ];
+    3 -> 73 [ label = "0→0" ];
+
+    8 [ label = <8: <b>TriggerEventModule</b><br/><br/><i>Triggers Ashcoil Fight<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;AL03_Encounter_Gate_Check_Trig<br align="left"/>    ger&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/><b>EventHandler</b><br align="left"/>    VisScriptEventHandler(Position=[<br align="left"/>    0, 0, 0])<br align="left"/>> ];
+    8 [ shape = oval ]
+    8 [ pos = "-0.72800004,0.42200002!" ];
+    8 -> 3 [ label = "0→0" ];
+
+    10 [ label = <10: <b>InvokeMethodModule</b><br/><br/><i>Open all the gates<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;al_gate_al_03_02&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;Open&quot;<br align="left"/>> ];
+    10 [ pos = "0.209,-0.395!" ];
+    10 -> 30 [ label = "0→0" ];
+
+    13 [ label = <13: <b>ExternalCallModule</b><br/><br/><i>Triggered By Ashcoil Dead<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;Open_03_Gates_Ash_Dead&quot;<br align="left"/>> ];
+    13 [ shape = oval ]
+    13 [ pos = "-0.33600003,-0.41400003!" ];
+    13 -> 56 [ label = "0→0" ];
+
+    19 [ label = <19: <b>CinematicModule</b><br/><br/><i>Gate Locking Cinematic<br align="left"/></i><br align="left"/><b>CinematicName</b><br align="left"/>    &quot;AL_03_Cine_Gate_Lock&quot;<br align="left"/>> ];
+    19 [ pos = "0.73800004,0.42400002!" ];
+    19 -> 63 [ label = "0→0" ];
+
+    21 [ label = <21: <b>CinematicModule</b><br/><br/><i>Cinematic Gates Unlocking<br align="left"/></i><br align="left"/><b>CinematicName</b><br align="left"/>    &quot;AL_03_Cine_Gate_Unlock&quot;<br align="left"/>> ];
+    21 [ pos = "0.39000002,-0.24100001!" ];
+
+    30 [ label = <30: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    5<br align="left"/>> ];
+    30 [ pos = "0.48200002,-0.395!" ];
+    30 -> 52 [ label = "0→0" ];
+
+    31 [ label = <31: <b>base/autosavemodule</b><br/><br/>> ];
+    31 [ pos = "1.6620001,-0.418!" ];
+
+    52 [ label = <52: <b>base/dowatcherdialogmodule</b><br/><br/><i>vo_watcher_ashlands_10<br align="left"/></i><br align="left"/><b>Dialog</b><br align="left"/>    &quot;vo_watcher_ashlands_10&quot;<br align="left"/>> ];
+    52 [ pos = "0.68700004,-0.395!" ];
+    52 -> 53 [ label = "1→0" ];
+
+    53 [ label = <53: <b>base/setdefaultwatcherdialogmodule</b><br/><br/><i>vo_watcher_ashlands_11<br align="left"/></i><br align="left"/><b>Dialog</b><br align="left"/>    &quot;vo_watcher_ashlands_11&quot;<br align="left"/>> ];
+    53 [ pos = "0.96000004,-0.418!" ];
+    53 -> 85 [ label = "0→0" ];
+
+    56 [ label = <56: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    56 [ pos = "-0.049000002,-0.41400003!" ];
+    56 -> 10 [ label = "0→0" ];
+    56 -> 57 [ label = "0→0" ];
+    56 -> 113 [ label = "0→0" ];
+
+    57 [ label = <57: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    57 [ pos = "0.21400002,-0.61700004!" ];
+    57 -> 58 [ label = "0→0" ];
+
+    58 [ label = <58: <b>SoundModule</b><br/><br/><i>Duh duh du du DUH!<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;base/Music&quot;<br align="left"/><b>SoundID</b><br align="left"/>    90<br align="left"/><b>Music</b><br align="left"/>    true<br align="left"/>> ];
+    58 [ pos = "0.47500002,-0.61700004!" ];
+
+    59 [ label = <59: <b>StartModule</b><br/><br/>> ];
+    59 [ shape = oval ]
+    59 [ pos = "-1.406,0.256!" ];
+    59 -> 75 [ label = "0→0" ];
+    59 -> 60 [ label = "0→0" ];
+
+    60 [ label = <60: <b>SaveDataModule</b><br/><br/><i>Ashcoil Is Dead?<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Ashlands&quot;, <br align="left"/>    FlagName=&quot;Ashcoil_1_Dead&quot;)]<br align="left"/>> ];
+    60 [ pos = "-1.01,0.4!" ];
+    60 -> 72 [ label = "0→0" ];
+    60 -> 8 [ label = "0→1" ];
+
+    61 [ label = <61: <b>VisScriptCallModule</b><br/><br/><i>Start the fight!<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;AL03_VSM_Ashcoil&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;StartAshcoilFight&quot;<br align="left"/>> ];
+    61 [ pos = "1.245,0.42400002!" ];
+
+    63 [ label = <63: <b>DelayModule</b><br/><br/><i>Wait for cinematic to finish<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    10<br align="left"/>> ];
+    63 [ pos = "1.001,0.42400002!" ];
+    63 -> 61 [ label = "0→0" ];
+
+    64 [ label = <64: <b>base/setspawnpointmodule</b><br/><br/><b>World</b><br align="left"/>    &quot;Overworld&quot;<br align="left"/><b>Region</b><br align="left"/>    &quot;AL_03&quot;<br align="left"/><b>SpawnPoint</b><br align="left"/>    &quot;Start_AshcoilFight_Respawn&quot;<br align="left"/><b>SpawnLoadRegion</b><br align="left"/>    &quot;StartLoadRegion_AshCoilBattle&quot;<br align="left"/>> ];
+    64 [ pos = "0.11100001,0.42200002!" ];
+    64 -> 65 [ label = "0→0" ];
+
+    65 [ label = <65: <b>base/autosavemodule</b><br/><br/>> ];
+    65 [ pos = "0.316,0.42400002!" ];
+    65 -> 70 [ label = "0→0" ];
+
+    67 [ label = <67: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.25<br align="left"/>> ];
+    67 [ pos = "-0.052,0.42200002!" ];
+    67 -> 64 [ label = "0→0" ];
+
+    70 [ label = <70: <b>base/storesavedatamodule</b><br/><br/>> ];
+    70 [ pos = "0.48100004,0.42400002!" ];
+    70 -> 2 [ label = "0→0" ];
+    70 -> 19 [ label = "0→0" ];
+
+    71 [ label = <71: <b>base/commitsavedatamodule</b><br/><br/><i>Commit any saved data<br align="left"/></i><br align="left"/>> ];
+    71 [ pos = "1.4440001,-0.418!" ];
+    71 -> 31 [ label = "0→0" ];
+
+    72 [ label = <72: <b>InvokeMethodModule</b><br/><br/><i>Open all the gates<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;al_gate_al_03_02&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;Open&quot;<br align="left"/>> ];
+    72 [ pos = "-0.72300005,0.20500001!" ];
+
+    73 [ label = <73: <b>base/oneshotmodule</b><br/><br/>> ];
+    73 [ pos = "-0.22800002,0.42200002!" ];
+    73 -> 67 [ label = "0→0" ];
+
+    74 [ label = <74: <b>InvokeMethodModule</b><br/><br/><i>Open all the gates<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;al_gate_al_03_01&quot;, &quot;al_gate_al<br align="left"/>    _03_02&quot;, &quot;al_gate_al_03_03&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;Open&quot;<br align="left"/>> ];
+    74 [ pos = "-0.71900004,0.0050000004!" ];
+
+    75 [ label = <75: <b>SaveDataModule</b><br/><br/><i>Ashcoil Is Dead?<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Ashlands&quot;, <br align="left"/>    FlagName=&quot;Ashcoil_2_Dead&quot;)]<br align="left"/>> ];
+    75 [ pos = "-1.013,0.0050000004!" ];
+    75 -> 74 [ label = "0→0" ];
+
+    76 [ label = <76: <b>InvokeMethodModule</b><br/><br/><i>Open Gates<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;AL_04_Gate_Arena&quot;, &quot;AL_04_Gate<br align="left"/>    _Arena_01&quot;, &quot;AL_04_Gate_Arena_02<br align="left"/>    &quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;Open&quot;<br align="left"/>> ];
+    76 [ pos = "0.509,1.0200001!" ];
+
+    78 [ label = <78: <b>ExternalCallModule</b><br/><br/><i>Ruin Collected? Open Gates!<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;gates_unlock_04&quot;<br align="left"/>> ];
+    78 [ shape = oval ]
+    78 [ pos = "-0.037,1.0200001!" ];
+    78 -> 76 [ label = "0→0" ];
+    78 -> 80 [ label = "0→0" ];
+
+    79 [ label = <79: <b>InvokeMethodModule</b><br/><br/><i>Open Gates<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;al_gate_al_03_01&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;Open&quot;<br align="left"/>> ];
+    79 [ pos = "0.512,0.85200006!" ];
+
+    80 [ label = <80: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    3<br align="left"/>> ];
+    80 [ pos = "0.30200002,0.85200006!" ];
+    80 -> 79 [ label = "0→0" ];
+
+    85 [ label = <85: <b>base/setspawnpointmodule</b><br/><br/><b>World</b><br align="left"/>    &quot;Overworld&quot;<br align="left"/><b>Region</b><br align="left"/>    &quot;AL_03&quot;<br align="left"/><b>SpawnPoint</b><br align="left"/>    &quot;Start_PostAshcoilFight&quot;<br align="left"/><b>SpawnLoadRegion</b><br align="left"/>    &quot;StartLoadRegion_AshCoilBattle&quot;<br align="left"/>> ];
+    85 [ pos = "1.2310001,-0.418!" ];
+    85 -> 71 [ label = "0→0" ];
+
+    113 [ label = <113: <b>base/oneshotmodule</b><br/><br/>> ];
+    113 [ pos = "0.21900001,-0.24100001!" ];
+    113 -> 21 [ label = "0→0" ];
+
+    title [ pos = "-1.4070001,1.021!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>AL_03<br align="left"/>Script<br align="left"/><b>AL_03_VSM_GateScript</b><br align="left"/></font>> ];
+}

@@ -1,0 +1,42 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>StartModule</b><br/><br/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "-0.029000001,-0.22100002!" ];
+    1 -> 5 [ label = "0→0" ];
+
+    2 [ label = <2: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;global_gearcrank&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onTrigger&quot;]<br align="left"/>> ];
+    2 [ pos = "0.39800003,-0.261!" ];
+    2 -> 4 [ label = "0→1" ];
+    2 -> 3 [ label = "0→0" ];
+
+    3 [ label = <3: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;looming_rock_01&quot;<br align="left"/><b>MoveVal</b><br align="left"/>    5<br align="left"/><b>MovementVector</b><br align="left"/>    [0, 0, 300]<br align="left"/><b>EaseIn</b><br align="left"/>    1<br align="left"/><b>EaseOut</b><br align="left"/>    1<br align="left"/>> ];
+    3 [ pos = "0.703,-0.126!" ];
+    3 -> 6 [ label = "1→0" ];
+
+    4 [ label = <4: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;room1&quot;, Fla<br align="left"/>    gName=&quot;looming_rock_Move&quot;)]<br align="left"/>> ];
+    4 [ pos = "0.61,-0.48000002!" ];
+
+    5 [ label = <5: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;room1&quot;, Fla<br align="left"/>    gName=&quot;looming_rock_Move&quot;)]<br align="left"/>> ];
+    5 [ pos = "0.148,-0.22100002!" ];
+    5 -> 2 [ label = "1→0" ];
+    5 -> 3 [ label = "0→0" ];
+
+    6 [ label = <6: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;looming_rock_01&quot;<br align="left"/><b>MoveVal</b><br align="left"/>    5<br align="left"/><b>MovementVector</b><br align="left"/>    [0, 0, -300]<br align="left"/><b>EaseIn</b><br align="left"/>    1<br align="left"/><b>EaseOut</b><br align="left"/>    1<br align="left"/>> ];
+    6 [ pos = "0.703,-0.29700002!" ];
+    6 -> 3 [ label = "1→0" ];
+
+    title [ pos = "-0.030000001,-0.125!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">persistence<br align="left"/>Room1<br align="left"/>scripts<br align="left"/><b>VisScriptModuleSystem</b><br align="left"/></font>> ];
+}

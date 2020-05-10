@@ -1,0 +1,93 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>TriggerEventModule</b><br/><br/><i>(one shot)<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;Ch_Cat_Rm10_Enc04_TrigReg&quot;]<br align="left"/><b>Enable</b><br align="left"/>    false<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "-0.372,-0.172!" ];
+    1 -> 2 [ label = "0→0" ];
+
+    2 [ label = <2: <b>SaveDataModule</b><br/><br/><i>Check Spawned<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;Spawned_Ch_Cat_Rm10_Enc0<br align="left"/>    4&quot;)]<br align="left"/>> ];
+    2 [ pos = "-0.091000006,-0.16900001!" ];
+    2 -> 13 [ label = "1→1" ];
+    2 -> 27 [ label = "1→0" ];
+
+    7 [ label = <7: <b>AccumulatorModule</b><br/><br/>> ];
+    7 [ pos = "1.194,-0.25!" ];
+    7 -> 18 [ label = "0→1" ];
+
+    8 [ label = <8: <b>StartModule</b><br/><br/>> ];
+    8 [ shape = oval ]
+    8 [ pos = "-0.943,-0.194!" ];
+    8 -> 9 [ label = "0→0" ];
+
+    9 [ label = <9: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    4<br align="left"/>> ];
+    9 [ pos = "-0.77800006,-0.19500001!" ];
+    9 -> 10 [ label = "0→0" ];
+
+    10 [ label = <10: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;ch_cat_rm10_Lever_StatPillLift<br align="left"/>    _1&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onInteractive&quot;]<br align="left"/>> ];
+    10 [ pos = "-0.565,-0.171!" ];
+    10 -> 1 [ label = "0→0" ];
+
+    13 [ label = <13: <b>SaveDataModule</b><br/><br/><i>Set Spawned<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;Spawned_Ch_Cat_Rm10_Enc0<br align="left"/>    4&quot;)]<br align="left"/>> ];
+    13 [ pos = "0.246,0.015000001!" ];
+
+    17 [ label = <17: <b>DelayModule</b><br/><br/><i>go Encounter<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    17 [ pos = "0.36,-0.186!" ];
+    17 -> 19 [ label = "0→0" ];
+
+    18 [ label = <18: <b>SaveDataModule</b><br/><br/><i>Set AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_Ch_Cat_Rm10_Enc0<br align="left"/>    4&quot;)]<br align="left"/>> ];
+    18 [ pos = "1.45,-0.25100002!" ];
+
+    19 [ label = <19: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;ChCat10_Enc04&quot;<br align="left"/>> ];
+    19 [ pos = "0.57900006,-0.20300001!" ];
+    19 -> 20 [ label = "0→0" ];
+    19 -> 21 [ style = dashed ];
+
+    20 [ label = <20: <b>SpawnMonsterEventModule</b><br/><br/><b>DelayTime</b><br align="left"/>    0.6<br align="left"/>> ];
+    20 [ pos = "0.83000004,-0.20300001!" ];
+    20 -> 7 [ label = "2→0" ];
+    21 -> 20 [ style = dashed ];
+
+    21 [ label = <21: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    21 [ shape = parallelogram ]
+    21 [ pos = "0.648,-0.34!" ];
+
+    22 [ label = <22: <b>ExternalCallModule</b><br/><br/><i>ch_cat_Rm04_to_Rm10_liftdoor... <br align="left"/>from Cat_Doors<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;StartEncounter&quot;<br align="left"/>> ];
+    22 [ shape = oval ]
+    22 [ pos = "-0.804,-0.043!" ];
+    22 -> 23 [ label = "0→0" ];
+
+    23 [ label = <23: <b>base/oneshotmodule</b><br/><br/><b>triggered</b><br align="left"/>    true<br align="left"/>> ];
+    23 [ pos = "-0.48400003,-0.043!" ];
+    23 -> 27 [ label = "0→0" ];
+
+    24 [ label = <24: <b>StartModule</b><br/><br/>> ];
+    24 [ shape = oval ]
+    24 [ pos = "-1.108,0.115!" ];
+    24 -> 26 [ label = "0→0" ];
+
+    25 [ label = <25: <b>SaveDataModule</b><br/><br/><i>Set AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_Ch_Cat_Rm10_Enc0<br align="left"/>    4&quot;)]<br align="left"/>> ];
+    25 [ pos = "-0.679,0.115!" ];
+    25 -> 23 [ label = "1→1" ];
+
+    26 [ label = <26: <b>SaveDataModule</b><br/><br/><i>Check Spawned<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;Spawned_Ch_Cat_Rm10_Enc0<br align="left"/>    4&quot;)]<br align="left"/>> ];
+    26 [ pos = "-0.92100006,0.115!" ];
+    26 -> 25 [ label = "0→0" ];
+
+    27 [ label = <27: <b>base/oneshotmodule</b><br/><br/>> ];
+    27 [ pos = "0.18300001,-0.187!" ];
+    27 -> 17 [ label = "0→0" ];
+
+    title [ pos = "-1.1090001,0.116000004!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>Ch_Cat_Rm10<br align="left"/>Combat<br align="left"/><b>Ch_Cat_Rm10_Enc04_Script</b><br align="left"/></font>> ];
+}

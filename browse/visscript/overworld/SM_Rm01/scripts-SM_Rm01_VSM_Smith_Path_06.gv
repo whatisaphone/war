@@ -1,0 +1,183 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    82 [ label = <82: <b>TriggerEventModule</b><br/><br/><i>When Player attempts to jump the<br align="left"/> gap<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;SM_Rm01_SmithHelpsWar_trig_02&quot;<br align="left"/>    ]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    82 [ shape = oval ]
+    82 [ pos = "0.26000002,0.13800001!" ];
+    82 -> 86 [ label = "0→0" ];
+    82 -> 184 [ label = "0→2" ];
+    82 -> 188 [ label = "0→2" ];
+
+    86 [ label = <86: <b>DelayModule</b><br/><br/>> ];
+    86 [ pos = "0.54700005,0.14!" ];
+    86 -> 220 [ label = "0→0" ];
+
+    88 [ label = <88: <b>base/setinitialwaypoint</b><br/><br/><i>move smith up path to next Secre<br align="left"/>t crystal<br align="left"/></i><br align="left"/><b>MonsterName</b><br align="left"/>    &quot;Smith1&quot;<br align="left"/><b>Waypoint</b><br align="left"/>    &quot;SM_Rm01_SmithPoint_33&quot;<br align="left"/>> ];
+    88 [ pos = "1.245,0.108!" ];
+    88 -> 156 [ label = "0→0" ];
+
+    152 [ label = <152: <b>ExternalCallModule</b><br/><br/><i>Shortcut to post-crane<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;SM_Rm01_Launch5&quot;<br align="left"/>> ];
+    152 [ shape = oval ]
+    152 [ pos = "-1.08,0.26700002!" ];
+    152 -> 182 [ label = "0→0" ];
+
+    156 [ label = <156: <b>TriggerEventModule</b><br/><br/><i>Smith is in the region<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;SM_Rm01_TrigReg_BreakSecret_01<br align="left"/>    &quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    156 [ shape = oval ]
+    156 [ pos = "-0.513,-0.56600004!" ];
+    156 -> 164 [ label = "0→0" ];
+
+    157 [ label = <157: <b>base/settargetmodule</b><br/><br/><b>Monster</b><br align="left"/>    &quot;Smith1&quot;<br align="left"/><b>Target</b><br align="left"/>    &quot;SM_Rm01_SmithTargetHelper_03&quot;<br align="left"/>> ];
+    157 [ pos = "0.095000006,-0.64900005!" ];
+    157 -> 156 [ label = "0→1" ];
+    157 -> 177 [ label = "0→0" ];
+    157 -> 167 [ label = "0→1" ];
+    157 -> 165 [ label = "0→1" ];
+    157 -> 190 [ label = "0→0" ];
+
+    164 [ label = <164: <b>AccumulatorModule</b><br/><br/><i>Both characters are in the regio<br align="left"/>n, break the crystal<br align="left"/></i><br align="left"/><b>CountTo</b><br align="left"/>    2<br align="left"/>> ];
+    164 [ pos = "-0.2,-0.65000004!" ];
+    164 -> 157 [ label = "0→0" ];
+
+    165 [ label = <165: <b>TriggerEventModule</b><br/><br/><i>Player left the region<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;SM_Rm01_TrigReg_BreakSecret&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>Enable</b><br align="left"/>    false<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    165 [ shape = oval ]
+    165 [ pos = "-0.512,-0.76100004!" ];
+    165 -> 164 [ label = "0→1" ];
+
+    167 [ label = <167: <b>TriggerEventModule</b><br/><br/><i>War is in the region enable the <br align="left"/>triggers to subtract<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;SM_Rm01_TrigReg_BreakSecret_02<br align="left"/>    &quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    167 [ shape = oval ]
+    167 [ pos = "-0.51000005,-0.36800003!" ];
+    167 -> 165 [ label = "0→0" ];
+    167 -> 165 [ label = "0→2" ];
+    167 -> 164 [ label = "0→0" ];
+
+    177 [ label = <177: <b>base/setinitialwaypoint</b><br/><br/><i>move smith to urial<br align="left"/></i><br align="left"/><b>MonsterName</b><br align="left"/>    &quot;Smith1&quot;<br align="left"/><b>Waypoint</b><br align="left"/>    &quot;SM_Rm01_SmithPoint_34&quot;<br align="left"/>> ];
+    177 [ pos = "0.33600003,-0.65000004!" ];
+
+    179 [ label = <179: <b>TriggerEventModule</b><br/><br/><i>When smith enters his region<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;SM_Rm01_SmithHelpsWar_trig_01&quot;<br align="left"/>    ]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    179 [ shape = oval ]
+    179 [ pos = "-1.207,-0.0050000004!" ];
+    179 -> 219 [ label = "0→0" ];
+    179 -> 219 [ label = "1→1" ];
+
+    180 [ label = <180: <b>ExternalCallModule</b><br/><br/><i>When Enc19 Finishes<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;Enc19_Finished&quot;<br align="left"/>> ];
+    180 [ shape = oval ]
+    180 [ pos = "-1.373,0.128!" ];
+    180 -> 181 [ label = "0→0" ];
+
+    181 [ label = <181: <b>base/setinitialwaypoint</b><br/><br/><i>Send smith into crystal trigger <br align="left"/>region<br align="left"/></i><br align="left"/><b>MonsterName</b><br align="left"/>    &quot;Smith1&quot;<br align="left"/><b>Waypoint</b><br align="left"/>    &quot;SM_Rm01_SmithPoint_25&quot;<br align="left"/>> ];
+    181 [ pos = "-1.156,0.128!" ];
+    181 -> 219 [ label = "0→0" ];
+
+    182 [ label = <182: <b>base/setinitialwaypoint</b><br/><br/><i>Send smith into crystal trigger <br align="left"/>region<br align="left"/></i><br align="left"/><b>MonsterName</b><br align="left"/>    &quot;Smith1&quot;<br align="left"/><b>Waypoint</b><br align="left"/>    &quot;SM_Rm01_SmithPoint_24&quot;<br align="left"/>> ];
+    182 [ pos = "-0.81700003,0.275!" ];
+
+    183 [ label = <183: <b>base/isinviewmodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;Smith1&quot;<br align="left"/><b>WidthScaleWS</b><br align="left"/>    &quot;.85&quot;<br align="left"/><b>WidthScaleNS</b><br align="left"/>    &quot;.9&quot;<br align="left"/>> ];
+    183 [ pos = "-0.652,0.12100001!" ];
+    183 -> 216 [ label = "0→0" ];
+    183 -> 216 [ label = "1→0" ];
+
+    184 [ label = <184: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    4<br align="left"/>> ];
+    184 [ pos = "0.57000005,0.44300002!" ];
+    184 -> 185 [ label = "0→0" ];
+
+    185 [ label = <185: <b>base/setinitialwaypoint</b><br/><br/><i>move smith to crane<br align="left"/></i><br align="left"/><b>MonsterName</b><br align="left"/>    &quot;Smith1&quot;<br align="left"/><b>Waypoint</b><br align="left"/>    &quot;SM_Rm01_SmithPoint_26&quot;<br align="left"/>> ];
+    185 [ pos = "0.734,0.446!" ];
+    185 -> 188 [ label = "0→0" ];
+
+    187 [ label = <187: <b>SoundModule</b><br/><br/><b>SoundDescFile</b><br align="left"/>    &quot;smith/Smith_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    50120<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;Smith1&quot;<br align="left"/>> ];
+    187 [ pos = "1.218,0.44200003!" ];
+
+    188 [ label = <188: <b>DelayModule</b><br/><br/>> ];
+    188 [ pos = "1.033,0.441!" ];
+    188 -> 187 [ label = "0→0" ];
+
+    189 [ label = <189: <b>SoundModule</b><br/><br/><b>SoundDescFile</b><br align="left"/>    &quot;smith/Smith_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    118<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;Smith1&quot;<br align="left"/>> ];
+    189 [ pos = "0.54200006,-0.757!" ];
+
+    190 [ label = <190: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    5<br align="left"/>> ];
+    190 [ pos = "0.35700002,-0.757!" ];
+    190 -> 189 [ label = "0→0" ];
+
+    196 [ label = <196: <b>VisScriptVariableWorldObjectList</b><br/><br/><b>Value</b><br align="left"/>    [&quot;SM_Rm01_SmithBreakCrystal_15&quot;,<br align="left"/>     &quot;SM_Rm01_SmithBreakCrystal_16&quot;,<br align="left"/>     &quot;SM_Rm01_SmithBreakCrystal_13&quot;,<br align="left"/>     &quot;Tremor_Growth03_07&quot;, &quot;SM_Rm01_<br align="left"/>> ];
+    196 [ shape = parallelogram ]
+    196 [ pos = "-0.86100006,0.54200006!" ];
+
+    197 [ label = <197: <b>AttachEventModule</b><br/><br/><b>EventNames</b><br align="left"/>    [&quot;onBreak&quot;]<br align="left"/>> ];
+    197 [ pos = "-0.85300004,0.694!" ];
+    197 -> 200 [ label = "0→0" ];
+    196 -> 197 [ style = dashed ];
+
+    200 [ label = <200: <b>DamageActorModule</b><br/><br/><b>DamageAmount</b><br align="left"/>    400<br align="left"/><b>WeaponType</b><br align="left"/>    15<br align="left"/>> ];
+    200 [ pos = "-0.657,0.693!" ];
+    200 -> 212 [ label = "0→1" ];
+    196 -> 200 [ style = dashed ];
+
+    201 [ label = <201: <b>SaveDataModule</b><br/><br/><i>SmithBrokeSecondCrystalSet<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SM_Rm01&quot;, F<br align="left"/>    lagName=&quot;SmithBrokeSecondCrystal<br align="left"/>    Set&quot;)]<br align="left"/>> ];
+    201 [ pos = "-1.105,0.758!" ];
+    201 -> 197 [ label = "1→0" ];
+    201 -> 214 [ label = "0→2" ];
+
+    202 [ label = <202: <b>ObjectToggleModule</b><br/><br/><b>ObjectList</b><br align="left"/>    [&quot;SecondCrystalBlocker_01&quot;, &quot;Sec<br align="left"/>    ondCrystalBlocker_02&quot;, &quot;SecondCr<br align="left"/>    ystalBlocker_03&quot;, &quot;SecondCrystal<br align="left"/>    Blocker_04&quot;, &quot;SecondCrystalBlock<br align="left"/>> ];
+    202 [ pos = "-0.13000001,0.95100003!" ];
+
+    203 [ label = <203: <b>StartModule</b><br/><br/>> ];
+    203 [ shape = oval ]
+    203 [ pos = "-1.3100001,0.75600004!" ];
+    203 -> 201 [ label = "0→0" ];
+
+    212 [ label = <212: <b>SaveDataModule</b><br/><br/><i>SmithBrokeSecondCrystalSet<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SM_Rm01&quot;, F<br align="left"/>    lagName=&quot;SmithBrokeSecondCrystal<br align="left"/>    Set&quot;)]<br align="left"/>> ];
+    212 [ pos = "-0.45800003,0.689!" ];
+    212 -> 213 [ label = "2→0" ];
+
+    213 [ label = <213: <b>base/oneshotmodule</b><br/><br/>> ];
+    213 [ pos = "-0.35300002,0.874!" ];
+    213 -> 202 [ label = "0→2" ];
+    213 -> 218 [ label = "0→0" ];
+    213 -> 217 [ label = "0→2" ];
+    213 -> 216 [ label = "0→2" ];
+
+    214 [ label = <214: <b>ObjectToggleModule</b><br/><br/>> ];
+    214 [ pos = "-0.85,0.87700003!" ];
+    214 -> 213 [ label = "0→0" ];
+    196 -> 214 [ style = dashed ];
+
+    215 [ label = <215: <b>base/settargetmodule</b><br/><br/><b>Monster</b><br align="left"/>    &quot;Smith1&quot;<br align="left"/><b>Target</b><br align="left"/>    &quot;SM_Rm01_SmithTargetHelper_02&quot;<br align="left"/>> ];
+    215 [ pos = "-0.223,0.172!" ];
+    215 -> 217 [ label = "0→0" ];
+
+    216 [ label = <216: <b>base/gatemodule</b><br/><br/>> ];
+    216 [ pos = "-0.38300002,0.108!" ];
+    216 -> 215 [ label = "0→0" ];
+
+    217 [ label = <217: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    5<br align="left"/>> ];
+    217 [ pos = "-0.083000004,0.35500002!" ];
+    217 -> 215 [ label = "0→0" ];
+
+    218 [ label = <218: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    2<br align="left"/>> ];
+    218 [ pos = "0.342,0.44500002!" ];
+    218 -> 184 [ label = "0→0" ];
+    218 -> 220 [ label = "0→0" ];
+
+    219 [ label = <219: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    2<br align="left"/>> ];
+    219 [ pos = "-0.86800003,0.126!" ];
+    219 -> 183 [ label = "0→0" ];
+    219 -> 218 [ label = "0→0" ];
+    219 -> 179 [ label = "0→1" ];
+
+    220 [ label = <220: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    2<br align="left"/>> ];
+    220 [ pos = "0.98600006,0.16800001!" ];
+    220 -> 88 [ label = "0→0" ];
+
+    title [ pos = "-1.3740001,0.952!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SM_Rm01<br align="left"/>scripts<br align="left"/><b>SM_Rm01_VSM_Smith_Path_06</b><br align="left"/><br/><i>Wait for war to get to bridge.</i><br align="left"/></font>> ];
+}

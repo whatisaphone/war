@@ -1,0 +1,73 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    7 [ label = <7: <b>SpawnMonsterEventModule</b><br/><br/><b>DelayTime</b><br align="left"/>    0.3<br align="left"/>> ];
+    7 [ pos = "0.20600002,-0.246!" ];
+    7 -> 14 [ label = "2→0" ];
+    7 -> 16 [ label = "0→0" ];
+    9 -> 7 [ style = dashed ];
+
+    8 [ label = <8: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;test&quot;<br align="left"/>> ];
+    8 [ pos = "-0.126,-0.246!" ];
+    8 -> 7 [ label = "0→0" ];
+    8 -> 9 [ style = dashed ];
+
+    9 [ label = <9: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    9 [ shape = parallelogram ]
+    9 [ pos = "-0.010000001,-0.384!" ];
+
+    10 [ label = <10: <b>StartModule</b><br/><br/>> ];
+    10 [ shape = oval ]
+    10 [ pos = "-0.66300005,-0.24700001!" ];
+
+    11 [ label = <11: <b>SpawnMonsterEventModule</b><br/><br/><b>DelayTime</b><br align="left"/>    0.3<br align="left"/>> ];
+    11 [ pos = "0.19500001,0.045!" ];
+    11 -> 17 [ label = "0→0" ];
+    13 -> 11 [ style = dashed ];
+
+    12 [ label = <12: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;spawnSmith&quot;<br align="left"/>> ];
+    12 [ pos = "-0.134,0.045!" ];
+    12 -> 11 [ label = "0→0" ];
+    12 -> 13 [ style = dashed ];
+
+    13 [ label = <13: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    13 [ shape = parallelogram ]
+    13 [ pos = "-0.009000001,-0.124000005!" ];
+
+    14 [ label = <14: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    3<br align="left"/>> ];
+    14 [ pos = "0.14400001,-0.522!" ];
+    14 -> 8 [ label = "0→0" ];
+
+    15 [ label = <15: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;Smith1&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;setBehaviorCombat&quot;<br align="left"/>> ];
+    15 [ pos = "0.656,-0.246!" ];
+
+    16 [ label = <16: <b>DelayModule</b><br/><br/>> ];
+    16 [ pos = "0.497,-0.246!" ];
+    16 -> 15 [ label = "0→0" ];
+
+    17 [ label = <17: <b>base/smithscorekeeper</b><br/><br/><b>SmithName</b><br align="left"/>    &quot;Smith1&quot;<br align="left"/>> ];
+    17 [ pos = "0.697,0.045!" ];
+
+    19 [ label = <19: <b>ExternalCallModule</b><br/><br/><b>EventName</b><br align="left"/>    &quot;SaveKills&quot;<br align="left"/>> ];
+    19 [ shape = oval ]
+    19 [ pos = "0.45000002,-0.055000003!" ];
+    19 -> 17 [ label = "0→2" ];
+
+    20 [ label = <20: <b>ExternalCallModule</b><br/><br/><i>Increase Kill Count - Sent From <br align="left"/>Angel oc files.<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;increaseKillCount&quot;<br align="left"/>> ];
+    20 [ shape = oval ]
+    20 [ pos = "0.44900003,0.105000004!" ];
+    20 -> 17 [ label = "0→1" ];
+
+    title [ pos = "-0.66400003,0.106000006!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">persistence<br align="left"/>Hallway<br align="left"/>scripts<br align="left"/><b>SM_Rm01_VSM_Smith_Start</b><br align="left"/></font>> ];
+}

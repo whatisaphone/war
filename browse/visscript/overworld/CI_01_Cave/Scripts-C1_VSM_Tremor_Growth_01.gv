@@ -1,0 +1,59 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    13 [ label = <13: <b>StartModule</b><br/><br/>> ];
+    13 [ shape = oval ]
+    13 [ pos = "-0.223,-0.17400001!" ];
+    13 -> 14 [ label = "0→0" ];
+
+    14 [ label = <14: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onBreak&quot;]<br align="left"/>> ];
+    14 [ pos = "0.007,-0.17400001!" ];
+    14 -> 17 [ label = "0→0" ];
+    14 -> 19 [ label = "0→1" ];
+    15 -> 14 [ style = dashed ];
+
+    15 [ label = <15: <b>VisScriptVariableWorldObjectList</b><br/><br/><b>Value</b><br align="left"/>    [&quot;C1_Tremor_Growth01_01&quot;, &quot;C1_Tr<br align="left"/>    emor_Growth02_01&quot;, &quot;C1_Tremor_Gr<br align="left"/>    owth02_02&quot;]<br align="left"/>> ];
+    15 [ shape = parallelogram ]
+    15 [ pos = "0.12100001,-0.44500002!" ];
+
+    16 [ label = <16: <b>DamageActorModule</b><br/><br/><b>DamageAmount</b><br align="left"/>    1000<br align="left"/><b>WeaponType</b><br align="left"/>    15<br align="left"/><b>HitType</b><br align="left"/>    0<br align="left"/>> ];
+    16 [ pos = "0.52400005,-0.17300001!" ];
+    16 -> 23 [ label = "0→2" ];
+    15 -> 16 [ style = dashed ];
+
+    17 [ label = <17: <b>AccumulatorModule</b><br/><br/>> ];
+    17 [ pos = "0.273,-0.17300001!" ];
+    17 -> 16 [ label = "0→0" ];
+    17 -> 22 [ label = "0→0" ];
+
+    18 [ label = <18: <b>StartModule</b><br/><br/>> ];
+    18 [ shape = oval ]
+    18 [ pos = "0.342,-0.44200003!" ];
+    18 -> 20 [ label = "0→0" ];
+
+    19 [ label = <19: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;CI_01&quot;, Fla<br align="left"/>    gName=&quot;CI01_TG_COMPLETE_01&quot;)]<br align="left"/>> ];
+    19 [ pos = "0.48800004,0.135!" ];
+
+    20 [ label = <20: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;CI_01&quot;, Fla<br align="left"/>    gName=&quot;CI01_TG_COMPLETE_01&quot;)]<br align="left"/>> ];
+    20 [ pos = "0.56700003,-0.44200003!" ];
+    20 -> 23 [ label = "0→2" ];
+
+    22 [ label = <22: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.1<br align="left"/>> ];
+    22 [ pos = "0.546,-0.009000001!" ];
+
+    23 [ label = <23: <b>ObjectToggleModule</b><br/><br/><b>ObjectList</b><br align="left"/>    [&quot;C1_Tremor_Growth_Blocker_01&quot;, <br align="left"/>    &quot;C1_Tremor_Growth_Blocker_02&quot;, &quot;<br align="left"/>    C1_Tremor_Growth_Blocker_03&quot;]<br align="left"/>> ];
+    23 [ pos = "0.95100003,-0.39600003!" ];
+
+    title [ pos = "-0.224,0.136!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>CI_01_Cave<br align="left"/>Scripts<br align="left"/><b>C1_VSM_Tremor_Growth_01</b><br align="left"/></font>> ];
+}

@@ -1,0 +1,97 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    29 [ label = <29: <b>base/merchantdismissmerchantmodule</b><br/><br/><i>Dismisses vulgrim<br align="left"/></i><br align="left"/>> ];
+    29 [ pos = "0.31,0.22000001!" ];
+
+    30 [ label = <30: <b>InteractiveRegionModule</b><br/><br/><b>InteractiveRegionList</b><br align="left"/>    [&quot;VulgrimIntRegion_CH_EXT&quot;]<br align="left"/>> ];
+    30 [ pos = "0.30900002,0.39600003!" ];
+    30 -> 43 [ label = "0→0" ];
+    30 -> 44 [ label = "1→0" ];
+
+    31 [ label = <31: <b>base/merchantsummonmerchantmodule</b><br/><br/><i>Summon Vulgrim (CH_Ext)<br align="left"/></i><br align="left"/><b>SpawnPoint</b><br align="left"/>    &quot;VulgrimSpawnPoint_CH_EXT&quot;<br align="left"/>> ];
+    31 [ pos = "0.30900002,0.55700004!" ];
+
+    32 [ label = <32: <b>TriggerEventModule</b><br/><br/><i>CH_EXT_Trigger<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;VulgrimTriggerRegion_CH_EXT&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    32 [ shape = oval ]
+    32 [ pos = "-0.20300001,0.39600003!" ];
+    32 -> 29 [ label = "1→0" ];
+    32 -> 31 [ label = "0→0" ];
+    32 -> 30 [ label = "0→0" ];
+    32 -> 30 [ label = "1→1" ];
+    32 -> 34 [ label = "0→0" ];
+
+    33 [ label = <33: <b>VisScriptCallModule</b><br/><br/><i>LoadVulgrimItemList<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;VulgrimScript&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;LoadVulgrimItemList&quot;<br align="left"/>> ];
+    33 [ pos = "0.611,0.55700004!" ];
+
+    34 [ label = <34: <b>SaveDataModule</b><br/><br/><i>Ch_Ext_VulgrimLocated<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Global&quot;, Fl<br align="left"/>    agName=&quot;Ch_Ext_VulgrimLocated&quot;)]<br align="left"/>> ];
+    34 [ pos = "0.31100002,0.72800004!" ];
+    34 -> 37 [ label = "1→0" ];
+
+    36 [ label = <36: <b>SaveDataModule</b><br/><br/><i>Ch_Ext_VulgrimLocated<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Global&quot;, Fl<br align="left"/>    agName=&quot;Ch_Ext_VulgrimLocated&quot;)]<br align="left"/>> ];
+    36 [ pos = "0.71900004,0.72800004!" ];
+    36 -> 50 [ label = "3→0" ];
+
+    37 [ label = <37: <b>base/giveitemmodule</b><br/><br/><i>Ch_Ext_Teleport<br align="left"/></i><br align="left"/><b>Item</b><br align="left"/>    &quot;base/Ch_Ext_Teleport&quot;<br align="left"/><b>HidePopup</b><br align="left"/>    false<br align="left"/>> ];
+    37 [ pos = "0.53000003,0.70500004!" ];
+    37 -> 36 [ label = "0→1" ];
+
+    38 [ label = <38: <b>StartModule</b><br/><br/>> ];
+    38 [ shape = oval ]
+    38 [ pos = "-1.085,0.38500002!" ];
+    38 -> 40 [ label = "0→0" ];
+
+    39 [ label = <39: <b>TriggerEventModule</b><br/><br/><i>disabled on start<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;Ch_Ext_SerpentHoleTrig&quot;, &quot;&quot;]<br align="left"/><b>Enable</b><br align="left"/>    false<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    39 [ shape = oval ]
+    39 [ pos = "-0.64000005,0.54300004!" ];
+    39 -> 32 [ label = "1→0" ];
+    39 -> 41 [ label = "0→1" ];
+    39 -> 46 [ label = "1→0" ];
+
+    40 [ label = <40: <b>SaveDataModule</b><br/><br/><i>SerpentHoleTaken<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Global&quot;, Fl<br align="left"/>    agName=&quot;SerpentHoleTaken&quot;)]<br align="left"/>> ];
+    40 [ pos = "-0.88500005,0.38500002!" ];
+    40 -> 39 [ label = "0→0" ];
+    40 -> 32 [ label = "0→1" ];
+
+    41 [ label = <41: <b>SaveDataModule</b><br/><br/><i>SerpentHoleTaken = false<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Global&quot;, Fl<br align="left"/>    agName=&quot;SerpentHoleTaken&quot;, FlagV<br align="left"/>    alue=&quot;False&quot;)]<br align="left"/>> ];
+    41 [ pos = "-0.36400002,0.615!" ];
+    41 -> 45 [ label = "3→0" ];
+
+    42 [ label = <42: <b>base/autosavemodule</b><br/><br/>> ];
+    42 [ pos = "0.042000003,0.569!" ];
+
+    43 [ label = <43: <b>base/gotovulgrimmodule</b><br/><br/>> ];
+    43 [ pos = "0.637,0.42700002!" ];
+
+    44 [ label = <44: <b>base/showmenumodule</b><br/><br/><i>Teleport menu<br align="left"/></i><br align="left"/><b>MenuName</b><br align="left"/>    &quot;ui_teleport_menu/teleportmenu&quot;<br align="left"/><b>UICategory</b><br align="left"/>    &quot;Teleport&quot;<br align="left"/>> ];
+    44 [ pos = "0.637,0.34300002!" ];
+
+    45 [ label = <45: <b>base/setspawnpointmodule</b><br/><br/><b>Region</b><br align="left"/>    &quot;Ch_Ext&quot;<br align="left"/><b>SpawnPoint</b><br align="left"/>    &quot;Ch_Ext_SerpentHole_Start_01&quot;<br align="left"/><b>SpawnLoadRegion</b><br align="left"/>    &quot;StartLoadRegion&quot;<br align="left"/>> ];
+    45 [ pos = "-0.16600001,0.569!" ];
+    45 -> 42 [ label = "0→0" ];
+
+    46 [ label = <46: <b>base/oneshotmodule</b><br/><br/>> ];
+    46 [ pos = "-0.60700005,0.291!" ];
+    46 -> 39 [ label = "0→1" ];
+
+    48 [ label = <48: <b>StartModule</b><br/><br/>> ];
+    48 [ shape = oval ]
+    48 [ pos = "0.033,0.20400001!" ];
+    48 -> 30 [ label = "0→1" ];
+
+    50 [ label = <50: <b>VisScriptCallModule</b><br/><br/><i>ShowVulgrim<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;Ch_Ext_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;ShowVulgrim&quot;<br align="left"/>> ];
+    50 [ pos = "0.95100003,0.68200004!" ];
+
+    title [ pos = "-1.0860001,0.72900003!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>Ch_Ext<br align="left"/>Vulgrim<br align="left"/><b>CH_Ext_VulgrimScript</b><br align="left"/></font>> ];
+}

@@ -1,0 +1,80 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    123 [ label = <123: <b>SpawnMonsterEventModule</b><br/><br/><i>CED_Enc01<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;CED_Enc01&quot;<br align="left"/>> ];
+    123 [ pos = "-0.208,0.48900002!" ];
+    123 -> 213 [ label = "2→0" ];
+    123 -> 218 [ label = "0→0" ];
+    123 -> 179 [ style = dashed ];
+
+    127 [ label = <127: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    3<br align="left"/>> ];
+    127 [ pos = "-0.432,0.49!" ];
+    127 -> 123 [ label = "0→0" ];
+
+    161 [ label = <161: <b>StartModule</b><br/><br/>> ];
+    161 [ shape = oval ]
+    161 [ pos = "-0.74100006,0.49800003!" ];
+    161 -> 127 [ label = "0→0" ];
+
+    179 [ label = <179: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    179 [ shape = parallelogram ]
+    179 [ pos = "-0.201,0.24100001!" ];
+
+    198 [ label = <198: <b>StartModule</b><br/><br/>> ];
+    198 [ shape = oval ]
+    198 [ pos = "-0.70100003,0.120000005!" ];
+    198 -> 200 [ label = "0→0" ];
+
+    199 [ label = <199: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagName=&quot;Enc01_Dead&quot;,<br align="left"/>     FlagValue=&quot;False&quot;)]<br align="left"/>> ];
+    199 [ pos = "-0.21300001,-0.017!" ];
+
+    200 [ label = <200: <b>DelayModule</b><br/><br/>> ];
+    200 [ pos = "-0.50200003,0.142!" ];
+    200 -> 199 [ label = "0→1" ];
+
+    213 [ label = <213: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    5<br align="left"/>> ];
+    213 [ pos = "-0.127,0.795!" ];
+    213 -> 123 [ label = "0→0" ];
+
+    214 [ label = <214: <b>base/settargetmodule</b><br/><br/><b>Target</b><br align="left"/>    &quot;War&quot;<br align="left"/>> ];
+    214 [ pos = "0.13700001,0.517!" ];
+    214 -> 215 [ label = "0→0" ];
+    179 -> 214 [ style = dashed ];
+
+    215 [ label = <215: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    215 [ pos = "0.40800002,0.586!" ];
+    215 -> 217 [ label = "0→0" ];
+
+    217 [ label = <217: <b>base/setcharactermovestate</b><br/><br/><b>Character</b><br align="left"/>    &quot;Spawnpoint_01_monster&quot;<br align="left"/><b>MoveState</b><br align="left"/>    &quot;FlySpline Shoot Projectile x1&quot;<br align="left"/>> ];
+    217 [ pos = "0.577,0.586!" ];
+
+    218 [ label = <218: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    218 [ pos = "0.162,0.27400002!" ];
+    218 -> 219 [ label = "0→2" ];
+
+    219 [ label = <219: <b>ObjectToggleModule</b><br/><br/>> ];
+    219 [ pos = "0.39200002,0.284!" ];
+    219 -> 220 [ label = "0→0" ];
+    179 -> 219 [ style = dashed ];
+
+    220 [ label = <220: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    220 [ pos = "0.63600004,0.284!" ];
+    220 -> 221 [ label = "0→1" ];
+
+    221 [ label = <221: <b>ObjectToggleModule</b><br/><br/>> ];
+    221 [ pos = "0.88400006,0.27400002!" ];
+    179 -> 221 [ style = dashed ];
+
+    title [ pos = "-0.74200004,0.79600006!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">ced_test<br align="left"/>combatTest<br align="left"/>script<br align="left"/><b>VisScript_Spawns</b><br align="left"/></font>> ];
+}

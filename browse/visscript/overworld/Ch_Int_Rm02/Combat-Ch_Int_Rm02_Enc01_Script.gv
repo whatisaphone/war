@@ -1,0 +1,372 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>TriggerEventModule</b><br/><br/><i>(one-time) Walk through door<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;Ch_Int_Rm02_Enc01_TrigReg&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>Enable</b><br align="left"/>    false<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "-1.4920001,0.21000001!" ];
+    1 -> 87 [ label = "0→0" ];
+    1 -> 218 [ label = "0→0" ];
+
+    5 [ label = <5: <b>SaveDataModule</b><br/><br/><i>Set AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_Ch_Int_Rm02_Enc0<br align="left"/>    1&quot;)]<br align="left"/>> ];
+    5 [ pos = "1.411,-0.31800002!" ];
+
+    8 [ label = <8: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    7<br align="left"/>> ];
+    8 [ pos = "1.092,-0.23500001!" ];
+    8 -> 114 [ label = "0→0" ];
+    8 -> 208 [ label = "0→0" ];
+    8 -> 5 [ label = "0→1" ];
+
+    9 [ label = <9: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    6.5<br align="left"/>> ];
+    9 [ pos = "-0.605,0.21000001!" ];
+    9 -> 89 [ label = "0→0" ];
+    9 -> 179 [ label = "0→0" ];
+    9 -> 209 [ label = "0→0" ];
+
+    30 [ label = <30: <b>SaveDataModule</b><br/><br/><i>Check AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_Ch_Int_Rm02_Enc0<br align="left"/>    1&quot;)]<br align="left"/>> ];
+    30 [ pos = "-1.7290001,0.23300001!" ];
+    30 -> 1 [ label = "1→0" ];
+    30 -> 212 [ label = "1→0" ];
+
+    70 [ label = <70: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    5<br align="left"/>> ];
+    70 [ pos = "0.58900005,-0.476!" ];
+    70 -> 207 [ label = "0→0" ];
+
+    87 [ label = <87: <b>CinematicModule</b><br/><br/><b>CinematicName</b><br align="left"/>    &quot;Ch_Int_Rm02_Cine02_StatueReveal<br align="left"/>    &quot;<br align="left"/>> ];
+    87 [ pos = "-0.85200006,0.21000001!" ];
+    87 -> 9 [ label = "0→0" ];
+    87 -> 101 [ label = "0→0" ];
+
+    89 [ label = <89: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.5<br align="left"/>> ];
+    89 [ pos = "-0.335,0.18200001!" ];
+    89 -> 111 [ label = "0→0" ];
+    89 -> 192 [ label = "0→0" ];
+
+    90 [ label = <90: <b>DamageActorModule</b><br/><br/><b>DamageAmount</b><br align="left"/>    900<br align="left"/>> ];
+    90 [ pos = "0.409,0.757!" ];
+    90 -> 92 [ label = "0→0" ];
+    164 -> 90 [ style = dashed ];
+
+    91 [ label = <91: <b>ExternalCallModule</b><br/><br/><i>Clear<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;Clear&quot;<br align="left"/>> ];
+    91 [ shape = oval ]
+    91 [ pos = "-0.009000001,0.82600003!" ];
+    91 -> 93 [ label = "0→0" ];
+
+    92 [ label = <92: <b>DebugOutModule</b><br/><br/><b>Message</b><br align="left"/>    &quot;Bat Damage Applied&quot;<br align="left"/>> ];
+    92 [ pos = "0.52500004,0.85700005!" ];
+
+    93 [ label = <93: <b>DelayModule</b><br/><br/>> ];
+    93 [ pos = "0.22800002,0.82600003!" ];
+    93 -> 90 [ label = "0→0" ];
+
+    101 [ label = <101: <b>SoundModule</b><br/><br/><i>Statue Reveal Music<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;base/Music&quot;<br align="left"/><b>SoundID</b><br align="left"/>    86<br align="left"/>> ];
+    101 [ pos = "-0.614,0.39000002!" ];
+
+    102 [ label = <102: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;ch_rm02_Barrier_Combat_01&quot;, &quot;c<br align="left"/>    h_rm02_Barrier_Combat_02&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOff&quot;<br align="left"/>> ];
+    102 [ pos = "1.9760001,-0.13100001!" ];
+    102 -> 115 [ label = "0→0" ];
+
+    109 [ label = <109: <b>CinematicModule</b><br/><br/><b>CinematicName</b><br align="left"/>    &quot;Ch_Int_Rm02_BarrierCine01&quot;<br align="left"/>> ];
+    109 [ pos = "1.567,-0.13100001!" ];
+    109 -> 110 [ label = "0→0" ];
+    109 -> 146 [ label = "0→0" ];
+
+    110 [ label = <110: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.5<br align="left"/>> ];
+    110 [ pos = "1.771,-0.13100001!" ];
+    110 -> 102 [ label = "0→0" ];
+
+    111 [ label = <111: <b>InvokeMethodModule</b><br/><br/><i>Barriers On<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;ch_rm02_Barrier_Combat_01&quot;, &quot;c<br align="left"/>    h_rm02_Barrier_Combat_02&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOn&quot;<br align="left"/>> ];
+    111 [ pos = "-0.14,0.18200001!" ];
+    111 -> 117 [ label = "0→0" ];
+
+    114 [ label = <114: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    5<br align="left"/>> ];
+    114 [ pos = "1.409,-0.13100001!" ];
+    114 -> 109 [ label = "0→0" ];
+
+    115 [ label = <115: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;ch_int_Rm02_to_Rm03_kickdoor&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;activate&quot;<br align="left"/>> ];
+    115 [ pos = "2.173,-0.13100001!" ];
+    115 -> 119 [ label = "0→0" ];
+
+    117 [ label = <117: <b>InvokeMethodModule</b><br/><br/><i>Doors Off<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;ch_int_Rm02_to_Rm03_kickdoor&quot;,<br align="left"/>     &quot;ch_int_Rm01_to_Rm02_rightdoor&quot;<br align="left"/>    ]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;deactivate&quot;<br align="left"/>> ];
+    117 [ pos = "0.07,0.18200001!" ];
+    117 -> 189 [ label = "0→0" ];
+
+    119 [ label = <119: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;ch_int_Rm01_to_Rm02_rightdoor&quot;<br align="left"/>    ]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;activate&quot;<br align="left"/>> ];
+    119 [ pos = "2.381,-0.13100001!" ];
+    119 -> 215 [ label = "0→0" ];
+
+    134 [ label = <134: <b>VisScriptCallModule</b><br/><br/><i>Start_ch_int_Music<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;ch_int_VSM_LoopingIntMusic&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;Start_ch_int_Music&quot;<br align="left"/>> ];
+    134 [ pos = "2.301,0.61800003!" ];
+
+    146 [ label = <146: <b>SoundModule</b><br/><br/><i>Play Victory Music<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;base/Music&quot;<br align="left"/><b>SoundID</b><br align="left"/>    89<br align="left"/><b>Music</b><br align="left"/>    true<br align="left"/>> ];
+    146 [ pos = "1.7650001,0.027!" ];
+
+    149 [ label = <149: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;ChInt02_Enc01_Wave1Undead_C&quot;<br align="left"/>> ];
+    149 [ pos = "-0.057000004,-0.51100004!" ];
+    149 -> 150 [ label = "0→0" ];
+    149 -> 151 [ style = dashed ];
+
+    150 [ label = <150: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn Undead<br align="left"/></i><br align="left"/>> ];
+    150 [ pos = "0.192,-0.513!" ];
+    150 -> 8 [ label = "2→0" ];
+    150 -> 70 [ label = "2→0" ];
+    150 -> 237 [ label = "1→0" ];
+    150 -> 236 [ label = "1→0" ];
+    151 -> 150 [ style = dashed ];
+
+    151 [ label = <151: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    151 [ shape = parallelogram ]
+    151 [ pos = "-0.033,-0.64100003!" ];
+
+    152 [ label = <152: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;ChInt02_Enc01&quot;<br align="left"/>> ];
+    152 [ pos = "-0.15200001,0.591!" ];
+    152 -> 153 [ label = "0→0" ];
+    152 -> 154 [ style = dashed ];
+
+    153 [ label = <153: <b>SpawnMonsterEventModule</b><br/><br/><b>IsRandom</b><br align="left"/>    false<br align="left"/><b>DelayTime</b><br align="left"/>    0.6<br align="left"/>> ];
+    153 [ pos = "0.116000004,0.591!" ];
+    153 -> 8 [ label = "2→0" ];
+    154 -> 153 [ style = dashed ];
+    153 -> 164 [ style = dashed ];
+
+    154 [ label = <154: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    154 [ shape = parallelogram ]
+    154 [ pos = "-0.117000006,0.45400003!" ];
+
+    155 [ label = <155: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;ChInt02_Enc01_Wave2&quot;<br align="left"/>> ];
+    155 [ pos = "0.693,-0.712!" ];
+    155 -> 156 [ label = "0→0" ];
+    155 -> 157 [ style = dashed ];
+
+    156 [ label = <156: <b>SpawnMonsterEventModule</b><br/><br/><b>IsRandom</b><br align="left"/>    false<br align="left"/><b>DelayTime</b><br align="left"/>    0.6<br align="left"/>> ];
+    156 [ pos = "0.9480001,-0.712!" ];
+    156 -> 8 [ label = "2→0" ];
+    157 -> 156 [ style = dashed ];
+    156 -> 167 [ style = dashed ];
+
+    157 [ label = <157: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    157 [ shape = parallelogram ]
+    157 [ pos = "0.73,-0.85!" ];
+
+    164 [ label = <164: <b>VisScriptVariableWorldObjectList</b><br/><br/><i>List of Bats<br align="left"/></i><br align="left"/>> ];
+    164 [ shape = parallelogram ]
+    164 [ pos = "0.157,0.37600002!" ];
+
+    167 [ label = <167: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    167 [ shape = parallelogram ]
+    167 [ pos = "0.98800004,-0.92700005!" ];
+
+    173 [ label = <173: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;ChInt02_Enc01_Wave1Undead_B&quot;<br align="left"/>> ];
+    173 [ pos = "-0.056,-0.27600002!" ];
+    173 -> 174 [ label = "0→0" ];
+    173 -> 175 [ style = dashed ];
+
+    174 [ label = <174: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn Undead<br align="left"/></i><br align="left"/>> ];
+    174 [ pos = "0.193,-0.27800003!" ];
+    174 -> 8 [ label = "2→0" ];
+    174 -> 70 [ label = "2→0" ];
+    174 -> 185 [ label = "0→0" ];
+    174 -> 236 [ label = "1→0" ];
+    174 -> 237 [ label = "1→0" ];
+    175 -> 174 [ style = dashed ];
+
+    175 [ label = <175: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    175 [ shape = parallelogram ]
+    175 [ pos = "-0.032,-0.40600002!" ];
+
+    176 [ label = <176: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;ChInt02_Enc01_Wave1Undead_A&quot;<br align="left"/>> ];
+    176 [ pos = "-0.087000005,-0.05!" ];
+    176 -> 177 [ label = "0→0" ];
+    176 -> 178 [ style = dashed ];
+
+    177 [ label = <177: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn Undead<br align="left"/></i><br align="left"/>> ];
+    177 [ pos = "0.158,-0.051000003!" ];
+    177 -> 8 [ label = "2→0" ];
+    177 -> 70 [ label = "2→0" ];
+    177 -> 183 [ label = "0→0" ];
+    177 -> 236 [ label = "1→0" ];
+    177 -> 237 [ label = "1→0" ];
+    178 -> 177 [ style = dashed ];
+
+    178 [ label = <178: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    178 [ shape = parallelogram ]
+    178 [ pos = "-0.054,-0.18!" ];
+
+    179 [ label = <179: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.5<br align="left"/>> ];
+    179 [ pos = "-0.39600003,-0.05!" ];
+    179 -> 182 [ label = "0→0" ];
+
+    182 [ label = <182: <b>EffectModule</b><br/><br/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;a<br align="left"/>    mbient&quot;, EffectName=&quot;Ambient_Lig<br align="left"/>    htning_StrikeSmall&quot;, Duration=5,<br align="left"/>     TargetNode=&quot;fx1&quot;)]<br align="left"/>> ];
+    182 [ pos = "-0.27100003,-0.05!" ];
+    182 -> 176 [ label = "0→0" ];
+
+    183 [ label = <183: <b>DelayModule</b><br/><br/>> ];
+    183 [ pos = "-0.39600003,-0.27600002!" ];
+    183 -> 184 [ label = "0→0" ];
+
+    184 [ label = <184: <b>EffectModule</b><br/><br/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;a<br align="left"/>    mbient&quot;, EffectName=&quot;Ambient_Lig<br align="left"/>    htning_StrikeSmall&quot;, Duration=5,<br align="left"/>     TargetNode=&quot;fx3&quot;)]<br align="left"/>> ];
+    184 [ pos = "-0.257,-0.27600002!" ];
+    184 -> 173 [ label = "0→0" ];
+
+    185 [ label = <185: <b>DelayModule</b><br/><br/>> ];
+    185 [ pos = "-0.395,-0.51100004!" ];
+    185 -> 186 [ label = "0→0" ];
+
+    186 [ label = <186: <b>EffectModule</b><br/><br/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;a<br align="left"/>    mbient&quot;, EffectName=&quot;Ambient_Lig<br align="left"/>    htning_StrikeSmall&quot;, Duration=5,<br align="left"/>     TargetNode=&quot;fx2&quot;)]<br align="left"/>> ];
+    186 [ pos = "-0.257,-0.51100004!" ];
+    186 -> 149 [ label = "0→0" ];
+
+    189 [ label = <189: <b>EffectModule</b><br/><br/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;a<br align="left"/>    mbient&quot;, EffectName=&quot;Ambient_Lig<br align="left"/>    htning_StrikeSmall&quot;, Duration=5,<br align="left"/>     TargetNode=&quot;fx4&quot;)]<br align="left"/>> ];
+    189 [ pos = "0.28300002,0.18200001!" ];
+    189 -> 190 [ label = "0→0" ];
+
+    190 [ label = <190: <b>DamageActorModule</b><br/><br/><b>DamageAmount</b><br align="left"/>    500<br align="left"/><b>TargetActorNames</b><br align="left"/>    [&quot;Ch_FntnAngel&quot;]<br align="left"/>> ];
+    190 [ pos = "0.49500003,0.18200001!" ];
+    190 -> 191 [ label = "0→0" ];
+
+    191 [ label = <191: <b>EffectModule</b><br/><br/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;a<br align="left"/>    mbient&quot;, EffectName=&quot;Ambient_Lig<br align="left"/>    htning_Ripple&quot;, Duration=5, Targ<br align="left"/>    etNode=&quot;fx5&quot;)]<br align="left"/>> ];
+    191 [ pos = "0.70100003,0.18200001!" ];
+
+    192 [ label = <192: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;Ch_Int_Rm02_VSM_LightningFX&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;flashMe&quot;<br align="left"/>> ];
+    192 [ pos = "-0.13800001,0.273!" ];
+
+    193 [ label = <193: <b>CinematicModule</b><br/><br/><b>CinematicName</b><br align="left"/>    &quot;Ch_Int_Rm02_Enc01_CineW2B&quot;<br align="left"/>> ];
+    193 [ pos = "-0.26700002,-1.437!" ];
+
+    194 [ label = <194: <b>ExternalCallModule</b><br/><br/><i>SpawnW2<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;SpawnW2&quot;<br align="left"/>> ];
+    194 [ shape = oval ]
+    194 [ pos = "0.50200003,-0.73!" ];
+    194 -> 155 [ label = "0→0" ];
+
+    195 [ label = <195: <b>ExternalCallModule</b><br/><br/><i>DropBats<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;DropBats&quot;<br align="left"/>> ];
+    195 [ shape = oval ]
+    195 [ pos = "0.46500003,-0.994!" ];
+    195 -> 200 [ label = "0→0" ];
+
+    196 [ label = <196: <b>InvokeMethodModule</b><br/><br/><i>setBehaviorCombat<br align="left"/></i><br align="left"/><b>MethodName</b><br align="left"/>    &quot;setBehaviorCombat&quot;<br align="left"/>> ];
+    196 [ pos = "1.1190001,-0.99500006!" ];
+    196 -> 197 [ label = "0→0" ];
+    202 -> 196 [ style = dashed ];
+
+    197 [ label = <197: <b>DelayModule</b><br/><br/><i>Delay - 1.5s<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    2.75<br align="left"/>> ];
+    197 [ pos = "1.3520001,-1.051!" ];
+    197 -> 200 [ label = "0→1" ];
+
+    200 [ label = <200: <b>base/forloop</b><br/><br/>> ];
+    200 [ pos = "0.71300006,-0.99300003!" ];
+    200 -> 217 [ label = "0→0" ];
+    164 -> 200 [ style = dashed ];
+    200 -> 202 [ style = dashed ];
+
+    202 [ label = <202: <b>VisScriptVariableWorldObject</b><br/><br/><i>current object<br align="left"/></i><br align="left"/>> ];
+    202 [ shape = parallelogram ]
+    202 [ pos = "0.71300006,-1.1470001!" ];
+
+    207 [ label = <207: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.5<br align="left"/>> ];
+    207 [ pos = "-0.42400002,-1.437!" ];
+    207 -> 193 [ label = "0→0" ];
+
+    208 [ label = <208: <b>VisScriptCallModule</b><br/><br/><i>scriptedHeavyOutro<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scriptedHeavyOutro&quot;<br align="left"/>> ];
+    208 [ pos = "1.409,-0.055000003!" ];
+
+    209 [ label = <209: <b>VisScriptCallModule</b><br/><br/><i>scripted_HeavyCombat<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scripted_HeavyCombat&quot;<br align="left"/>> ];
+    209 [ pos = "-0.43,0.279!" ];
+
+    212 [ label = <212: <b>base/gatemodule</b><br/><br/>> ];
+    212 [ pos = "-0.319,0.59000003!" ];
+    212 -> 152 [ label = "0→0" ];
+
+    214 [ label = <214: <b>base/storesavedatamodule</b><br/><br/>> ];
+    214 [ pos = "-0.88900006,0.015000001!" ];
+
+    215 [ label = <215: <b>base/commitsavedatamodule</b><br/><br/>> ];
+    215 [ pos = "2.571,-0.13100001!" ];
+    215 -> 220 [ label = "0→0" ];
+
+    216 [ label = <216: <b>base/autosavemodule</b><br/><br/>> ];
+    216 [ pos = "2.9900002,-0.13100001!" ];
+
+    217 [ label = <217: <b>base/settargetmodule</b><br/><br/><b>Target</b><br align="left"/>    &quot;War&quot;<br align="left"/>> ];
+    217 [ pos = "0.87600005,-0.994!" ];
+    217 -> 196 [ label = "0→0" ];
+    202 -> 217 [ style = dashed ];
+
+    218 [ label = <218: <b>base/setspawnpointmodule</b><br/><br/><b>World</b><br align="left"/>    &quot;Overworld&quot;<br align="left"/><b>Region</b><br align="left"/>    &quot;Ch_Int_Rm01&quot;<br align="left"/><b>SpawnPoint</b><br align="left"/>    &quot;Ch_Int_Rm02_CombatDeathRespawn&quot;<br align="left"/><b>SpawnLoadRegion</b><br align="left"/>    &quot;StartLoadRegion_Rm02_CombatDeat<br align="left"/>    h&quot;<br align="left"/>> ];
+    218 [ pos = "-1.243,0.015000001!" ];
+    218 -> 219 [ label = "0→0" ];
+
+    219 [ label = <219: <b>base/autosavemodule</b><br/><br/>> ];
+    219 [ pos = "-1.0500001,0.015000001!" ];
+    219 -> 214 [ label = "0→0" ];
+
+    220 [ label = <220: <b>base/setspawnpointmodule</b><br/><br/><b>World</b><br align="left"/>    &quot;Overworld&quot;<br align="left"/><b>Region</b><br align="left"/>    &quot;Ch_Int_Rm01&quot;<br align="left"/><b>SpawnPoint</b><br align="left"/>    &quot;Start&quot;<br align="left"/><b>SpawnLoadRegion</b><br align="left"/>    &quot;StartLoadRegion&quot;<br align="left"/>> ];
+    220 [ pos = "2.7870002,-0.13100001!" ];
+    220 -> 216 [ label = "0→0" ];
+
+    222 [ label = <222: <b>ExternalCallModule</b><br/><br/><i>(from ch_int02_VSM_loading01)<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;Door1To2Opened&quot;<br align="left"/>> ];
+    222 [ shape = oval ]
+    222 [ pos = "-1.9860001,0.23400001!" ];
+    222 -> 30 [ label = "0→0" ];
+
+    228 [ label = <228: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;ChInt02_Enc01_Wave1B&quot;<br align="left"/>> ];
+    228 [ pos = "-0.76000005,-0.81700003!" ];
+    228 -> 231 [ label = "0→0" ];
+    228 -> 230 [ style = dashed ];
+
+    229 [ label = <229: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn Undead<br align="left"/></i><br align="left"/>> ];
+    229 [ pos = "0.135,-0.81600004!" ];
+    229 -> 8 [ label = "2→0" ];
+    229 -> 70 [ label = "2→0" ];
+    230 -> 229 [ style = dashed ];
+
+    230 [ label = <230: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    230 [ shape = parallelogram ]
+    230 [ pos = "-0.73600006,-0.947!" ];
+
+    231 [ label = <231: <b>base/isinviewmodule</b><br/><br/><b>AutoTriggerTime</b><br align="left"/>    &quot;4&quot;<br align="left"/>> ];
+    231 [ pos = "-0.49400002,-0.81700003!" ];
+    231 -> 229 [ label = "1→0" ];
+    231 -> 229 [ label = "0→0" ];
+    230 -> 231 [ style = dashed ];
+
+    232 [ label = <232: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;ChInt02_Enc01_Wave1C&quot;<br align="left"/>> ];
+    232 [ pos = "-0.71900004,-1.0810001!" ];
+    232 -> 235 [ label = "0→0" ];
+    232 -> 234 [ style = dashed ];
+
+    233 [ label = <233: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn Undead<br align="left"/></i><br align="left"/>> ];
+    233 [ pos = "0.17600001,-1.079!" ];
+    233 -> 8 [ label = "2→0" ];
+    233 -> 70 [ label = "2→0" ];
+    234 -> 233 [ style = dashed ];
+
+    234 [ label = <234: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    234 [ shape = parallelogram ]
+    234 [ pos = "-0.69500005,-1.2110001!" ];
+
+    235 [ label = <235: <b>base/isinviewmodule</b><br/><br/><b>AutoTriggerTime</b><br align="left"/>    &quot;3&quot;<br align="left"/>> ];
+    235 [ pos = "-0.453,-1.0810001!" ];
+    235 -> 233 [ label = "0→0" ];
+    235 -> 233 [ label = "1→0" ];
+    234 -> 235 [ style = dashed ];
+
+    236 [ label = <236: <b>AccumulatorModule</b><br/><br/>> ];
+    236 [ pos = "0.572,-0.08400001!" ];
+    236 -> 228 [ label = "0→0" ];
+
+    237 [ label = <237: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    2<br align="left"/>> ];
+    237 [ pos = "0.58100003,-0.266!" ];
+    237 -> 232 [ label = "0→0" ];
+
+    title [ pos = "-1.9870001,0.85800004!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>Ch_Int_Rm02<br align="left"/>Combat<br align="left"/><b>Ch_Int_Rm02_Enc01_Script</b><br align="left"/></font>> ];
+}

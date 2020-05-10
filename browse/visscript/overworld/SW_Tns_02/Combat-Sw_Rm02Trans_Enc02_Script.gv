@@ -1,0 +1,79 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    8 [ label = <8: <b>SpawnMonsterEventModule</b><br/><br/>> ];
+    8 [ pos = "1.0170001,-0.142!" ];
+    8 -> 21 [ label = "2→1" ];
+    10 -> 8 [ style = dashed ];
+    8 -> 27 [ style = dashed ];
+
+    9 [ label = <9: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;Sw_Rm02Trans_Enc02&quot;<br align="left"/>> ];
+    9 [ pos = "0.763,-0.142!" ];
+    9 -> 25 [ label = "0→0" ];
+    9 -> 8 [ label = "0→0" ];
+    9 -> 10 [ style = dashed ];
+
+    10 [ label = <10: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    10 [ shape = parallelogram ]
+    10 [ pos = "0.78400004,-0.27100003!" ];
+
+    18 [ label = <18: <b>TriggerEventModule</b><br/><br/><i>Sw_Rm02Trans_Enc02_TrigReg<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;Sw_Rm02Trans_Enc02_TrigReg&quot;, &quot;<br align="left"/>    &quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    18 [ shape = oval ]
+    18 [ pos = "-0.344,-0.12200001!" ];
+    18 -> 20 [ label = "0→0" ];
+
+    19 [ label = <19: <b>SaveDataModule</b><br/><br/><i>check OneTime<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;SW_Rm02Trans_Enc02_OneTi<br align="left"/>    me&quot;)]<br align="left"/>> ];
+    19 [ pos = "0.115,-0.123!" ];
+    19 -> 22 [ label = "1→0" ];
+    19 -> 24 [ label = "1→0" ];
+
+    20 [ label = <20: <b>SaveDataModule</b><br/><br/><i>Check NoWater<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;SW_Rm02_NoWater&quot;)]<br align="left"/>> ];
+    20 [ pos = "-0.112,-0.123!" ];
+    20 -> 19 [ label = "0→0" ];
+    20 -> 19 [ label = "1→0" ];
+
+    21 [ label = <21: <b>SaveDataModule</b><br/><br/><i>set OneTime<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;SW_Rm02Trans_Enc02_OneTi<br align="left"/>    me&quot;)]<br align="left"/>> ];
+    21 [ pos = "1.386,-0.47200003!" ];
+
+    22 [ label = <22: <b>TriggerEventModule</b><br/><br/><i>Sw_Rm02Trans_Enc02_TrigRegEnd<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;Sw_Rm02Trans_Enc02_TrigRegEnd&quot;<br align="left"/>    , &quot;&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    22 [ shape = oval ]
+    22 [ pos = "1.12,-0.49500003!" ];
+    22 -> 21 [ label = "0→1" ];
+
+    24 [ label = <24: <b>base/isinviewmodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;Sw_Rm02Trans_Enc02_LOSTrig&quot;<br align="left"/><b>AutoTriggerTime</b><br align="left"/>    &quot;4&quot;<br align="left"/>> ];
+    24 [ pos = "0.46100003,-0.13800001!" ];
+    24 -> 9 [ label = "0→0" ];
+    24 -> 9 [ label = "1→0" ];
+
+    25 [ label = <25: <b>TriggerEventModule</b><br/><br/><i>Sw_Rm02Trans_Enc02_SafeZone<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;Sw_Rm02Trans_Enc02_SafeZone&quot;, <br align="left"/>    &quot;&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    25 [ shape = oval ]
+    25 [ pos = "0.90200007,0.132!" ];
+    25 -> 26 [ label = "0→0" ];
+    25 -> 28 [ label = "1→0" ];
+
+    26 [ label = <26: <b>InvokeMethodModule</b><br/><br/><b>MethodName</b><br align="left"/>    &quot;setInvulnerable&quot;<br align="left"/>> ];
+    26 [ pos = "1.25,0.201!" ];
+    27 -> 26 [ style = dashed ];
+
+    27 [ label = <27: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    27 [ shape = parallelogram ]
+    27 [ pos = "1.057,-0.34800002!" ];
+
+    28 [ label = <28: <b>InvokeMethodModule</b><br/><br/><b>MethodName</b><br align="left"/>    &quot;setVulnerable&quot;<br align="left"/>> ];
+    28 [ pos = "1.3030001,0.048!" ];
+    28 -> 25 [ label = "0→1" ];
+    27 -> 28 [ style = dashed ];
+
+    title [ pos = "-0.34500003,0.202!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SW_Tns_02<br align="left"/>Combat<br align="left"/><b>Sw_Rm02Trans_Enc02_Script</b><br align="left"/></font>> ];
+}

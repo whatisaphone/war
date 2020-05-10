@@ -1,0 +1,55 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>StartModule</b><br/><br/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "0.25800002,-0.27800003!" ];
+    1 -> 2 [ label = "0→0" ];
+
+    2 [ label = <2: <b>DelayModule</b><br/><br/>> ];
+    2 [ pos = "0.49400002,-0.27800003!" ];
+    2 -> 5 [ label = "0→2" ];
+
+    3 [ label = <3: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;Dummy&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>MoveVal</b><br align="left"/>    4<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;Dummy_01&quot;<br align="left"/><b>EaseIn</b><br align="left"/>    3<br align="left"/>> ];
+    3 [ pos = "1.0710001,-0.14400001!" ];
+    3 -> 6 [ label = "1→0" ];
+    3 -> 7 [ label = "1→2" ];
+
+    5 [ label = <5: <b>PlayEffectModule</b><br/><br/><b>TargetObjs</b><br align="left"/>    [&quot;Dummy&quot;]<br align="left"/><b>Package</b><br align="left"/>    &quot;city_fx&quot;<br align="left"/><b>Effect</b><br align="left"/>    &quot;City_Meteor_Small&quot;<br align="left"/><b>Duration</b><br align="left"/>    4<br align="left"/>> ];
+    5 [ pos = "0.878,-0.072000004!" ];
+    5 -> 3 [ label = "0→0" ];
+
+    6 [ label = <6: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;Dummy&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>MoveVal</b><br align="left"/>    0.1<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;Dummy_02&quot;<br align="left"/>> ];
+    6 [ pos = "1.069,-0.41000003!" ];
+    6 -> 2 [ label = "1→0" ];
+
+    7 [ label = <7: <b>PlayEffectModule</b><br/><br/><b>TargetObjs</b><br align="left"/>    [&quot;Dummy_01&quot;]<br align="left"/><b>Package</b><br align="left"/>    &quot;dgn_bombgrowth&quot;<br align="left"/><b>Effect</b><br align="left"/>    &quot;bombgrowth_explode&quot;<br align="left"/><b>Duration</b><br align="left"/>    5<br align="left"/>> ];
+    7 [ pos = "1.327,-0.028!" ];
+    7 -> 8 [ label = "0→1" ];
+    7 -> 10 [ label = "0→0" ];
+
+    8 [ label = <8: <b>ObjectToggleModule</b><br/><br/><b>ObjectList</b><br align="left"/>    [&quot;DamageRegion&quot;]<br align="left"/>> ];
+    8 [ pos = "1.7060001,0.20400001!" ];
+
+    9 [ label = <9: <b>StartModule</b><br/><br/>> ];
+    9 [ shape = oval ]
+    9 [ pos = "0.85,0.15300001!" ];
+    9 -> 8 [ label = "0→2" ];
+
+    10 [ label = <10: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.1<br align="left"/>> ];
+    10 [ pos = "1.5170001,-0.028!" ];
+    10 -> 8 [ label = "0→2" ];
+
+    title [ pos = "0.257,0.20500001!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">br_mechtest<br align="left"/>graphics<br align="left"/>script<br align="left"/><b>VisScriptModuleSystem_11</b><br align="left"/></font>> ];
+}

@@ -1,0 +1,94 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>ExternalCallModule</b><br/><br/><i>set Lift 2 Low<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;Lift2LowPosition&quot;<br align="left"/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "0.19100001,-0.098000005!" ];
+    1 -> 3 [ label = "0→1" ];
+
+    2 [ label = <2: <b>VisScriptVariableWorldObjectList</b><br/><br/><i>Blocker Regions<br align="left"/></i><br align="left"/><b>Value</b><br align="left"/>    [&quot;Lift2_Blocker_05&quot;]<br align="left"/>> ];
+    2 [ shape = parallelogram ]
+    2 [ pos = "0.26900002,-0.29700002!" ];
+
+    3 [ label = <3: <b>ObjectToggleModule</b><br/><br/>> ];
+    3 [ pos = "0.623,-0.13000001!" ];
+    2 -> 3 [ style = dashed ];
+
+    4 [ label = <4: <b>VisScriptVariableWorldObjectList</b><br/><br/><i>Lift 2 Up Position TLinks<br align="left"/></i><br align="left"/><b>Value</b><br align="left"/>    [&quot;Lift1_TLink_Up_12&quot;, &quot;Lift1_TLi<br align="left"/>    nk_Up_14&quot;, &quot;Lift1_TLink_Up_15&quot;]<br align="left"/>> ];
+    4 [ shape = parallelogram ]
+    4 [ pos = "0.256,-0.67800003!" ];
+
+    5 [ label = <5: <b>ObjectToggleModule</b><br/><br/>> ];
+    5 [ pos = "0.61700004,-0.31!" ];
+    2 -> 5 [ style = dashed ];
+
+    6 [ label = <6: <b>ExternalCallModule</b><br/><br/><i>set Lift 2 High<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;Lift2HighPosition&quot;<br align="left"/>> ];
+    6 [ shape = oval ]
+    6 [ pos = "0.194,-0.19000001!" ];
+    6 -> 5 [ label = "0→2" ];
+
+    7 [ label = <7: <b>SetLinkImpassableModule</b><br/><br/><b>Impassable</b><br align="left"/>    false<br align="left"/><b>LinkNames</b><br align="left"/>    [&quot;Lift1_TLink_Down_01&quot;, &quot;Lift1_T<br align="left"/>    Link_Down_02&quot;, &quot;Lift1_TLink_Down<br align="left"/>    _03&quot;]<br align="left"/>> ];
+    7 [ pos = "0.628,-0.544!" ];
+    7 -> 17 [ label = "0→0" ];
+
+    8 [ label = <8: <b>ExternalCallModule</b><br/><br/><i>set Lift 1 Low<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;Lift1LowPosition&quot;<br align="left"/>> ];
+    8 [ shape = oval ]
+    8 [ pos = "0.13000001,-0.47500002!" ];
+    8 -> 11 [ label = "0→2" ];
+    8 -> 7 [ label = "0→0" ];
+
+    9 [ label = <9: <b>ExternalCallModule</b><br/><br/><i>set Lift 1 High<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;Lift1HighPosition&quot;<br align="left"/>> ];
+    9 [ shape = oval ]
+    9 [ pos = "0.13700001,-0.58500004!" ];
+    9 -> 12 [ label = "0→1" ];
+    9 -> 13 [ label = "0→0" ];
+
+    10 [ label = <10: <b>VisScriptVariableWorldObjectList</b><br/><br/><i>Lift 1 Up Position Blockers<br align="left"/></i><br align="left"/><b>Value</b><br align="left"/>    [&quot;Lift1_Blocker_12&quot;, &quot;Lift1_Bloc<br align="left"/>    ker_11&quot;, &quot;Lift1_Blocker_05&quot;]<br align="left"/>> ];
+    10 [ shape = parallelogram ]
+    10 [ pos = "0.256,-0.78200006!" ];
+
+    11 [ label = <11: <b>ObjectToggleModule</b><br/><br/>> ];
+    11 [ pos = "0.62100005,-0.61800003!" ];
+    11 -> 15 [ label = "0→0" ];
+    10 -> 11 [ style = dashed ];
+
+    12 [ label = <12: <b>ObjectToggleModule</b><br/><br/>> ];
+    12 [ pos = "0.619,-0.808!" ];
+    12 -> 16 [ label = "0→0" ];
+    10 -> 12 [ style = dashed ];
+
+    13 [ label = <13: <b>SetLinkImpassableModule</b><br/><br/><b>LinkNames</b><br align="left"/>    [&quot;Lift1_TLink_Down_01&quot;, &quot;Lift1_T<br align="left"/>    Link_Down_02&quot;, &quot;Lift1_TLink_Down<br align="left"/>    _03&quot;]<br align="left"/>> ];
+    13 [ pos = "0.61600006,-1!" ];
+    13 -> 18 [ label = "0→0" ];
+
+    14 [ label = <14: <b>StartModule</b><br/><br/>> ];
+    14 [ shape = oval ]
+    14 [ pos = "0.042000003,-0.32900003!" ];
+    14 -> 7 [ label = "0→0" ];
+    14 -> 11 [ label = "0→2" ];
+
+    15 [ label = <15: <b>DebugOutModule</b><br/><br/><b>Message</b><br align="left"/>    &quot;Blockers Removed&quot;<br align="left"/>> ];
+    15 [ pos = "0.897,-0.65500003!" ];
+
+    16 [ label = <16: <b>DebugOutModule</b><br/><br/><b>Message</b><br align="left"/>    &quot;Blockers Added&quot;<br align="left"/>> ];
+    16 [ pos = "0.896,-0.882!" ];
+
+    17 [ label = <17: <b>SetLinkImpassableModule</b><br/><br/><b>LinkNames</b><br align="left"/>    [&quot;Lift1_TLink_Up_01&quot;, &quot;Lift1_TLi<br align="left"/>    nk_Up_02&quot;, &quot;Lift1_TLink_Up_03&quot;]<br align="left"/>> ];
+    17 [ pos = "0.91700006,-0.544!" ];
+
+    18 [ label = <18: <b>SetLinkImpassableModule</b><br/><br/><b>Impassable</b><br align="left"/>    false<br align="left"/><b>LinkNames</b><br align="left"/>    [&quot;Lift1_TLink_Up_01&quot;, &quot;Lift1_TLi<br align="left"/>    nk_Up_02&quot;, &quot;Lift1_TLink_Up_03&quot;]<br align="left"/>> ];
+    18 [ pos = "0.87000006,-0.9990001!" ];
+
+    title [ pos = "0.041,-0.097!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SW_Rm07<br align="left"/>script<br align="left"/><b>Sw_Rm07_VSM_LiftPathBlockers</b><br align="left"/></font>> ];
+}

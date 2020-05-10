@@ -1,0 +1,94 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    2 [ label = <2: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;IC_Rm08_EncBack_01_Trigger_Sta<br align="left"/>    rt&quot;]<br align="left"/><b>Enable</b><br align="left"/>    false<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    2 [ shape = oval ]
+    2 [ pos = "-0.523,-0.23600002!" ];
+    2 -> 67 [ label = "0→0" ];
+
+    5 [ label = <5: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn 2nd Crystal<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;IC_Rm08_EncBack_01c&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    -1<br align="left"/><b>IsRandom</b><br align="left"/>    false<br align="left"/><b>DelayTime</b><br align="left"/>    0.25<br align="left"/><b>MinRange</b><br align="left"/>    15<br align="left"/>> ];
+    5 [ pos = "0.384,0.134!" ];
+    5 -> 10 [ label = "3→0" ];
+
+    7 [ label = <7: <b>InvokeMethodModule</b><br/><br/><i>Barrier ON<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;IC_Rm08_EncBack_Barrier_01&quot;, &quot;<br align="left"/>    IC_Rm08_EncBack_Barrier_02&quot;, &quot;IC<br align="left"/>    _Rm08_EncBack_Barrier_03&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOn&quot;<br align="left"/>> ];
+    7 [ pos = "-0.068,0.134!" ];
+    7 -> 62 [ label = "0→0" ];
+
+    10 [ label = <10: <b>SpawnMonsterEventModule</b><br/><br/><i>More Angels<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;IC_Rm08_EncBack_03&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    2<br align="left"/><b>DelayTime</b><br align="left"/>    1<br align="left"/><b>PreferInRange</b><br align="left"/>    true<br align="left"/><b>MinRange</b><br align="left"/>    30<br align="left"/>> ];
+    10 [ pos = "0.79,0.065000005!" ];
+    10 -> 13 [ label = "3→0" ];
+
+    11 [ label = <11: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn 3rd Crystal<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;IC_Rm08_EncBack_01b&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    -1<br align="left"/><b>IsRandom</b><br align="left"/>    false<br align="left"/><b>DelayTime</b><br align="left"/>    0.25<br align="left"/><b>MinRange</b><br align="left"/>    15<br align="left"/>> ];
+    11 [ pos = "0.39000002,-0.21200001!" ];
+    11 -> 66 [ label = "3→0" ];
+
+    13 [ label = <13: <b>AccumulatorModule</b><br/><br/><i>Everyone is Dead<br align="left"/></i><br align="left"/><b>CountTo</b><br align="left"/>    2<br align="left"/>> ];
+    13 [ pos = "1.2,-0.004!" ];
+    13 -> 14 [ label = "0→0" ];
+
+    14 [ label = <14: <b>DelayModule</b><br/><br/>> ];
+    14 [ pos = "1.434,-0.004!" ];
+    14 -> 63 [ label = "0→0" ];
+
+    52 [ label = <52: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn 1st Crystal<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;IC_Rm08_EncBack_01a&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    -1<br align="left"/><b>IsRandom</b><br align="left"/>    false<br align="left"/><b>DelayTime</b><br align="left"/>    0.25<br align="left"/><b>MinRange</b><br align="left"/>    15<br align="left"/>> ];
+    52 [ pos = "-0.568,0.53800005!" ];
+    52 -> 2 [ label = "0→1" ];
+    52 -> 61 [ label = "0→0" ];
+    52 -> 54 [ label = "3→0" ];
+
+    54 [ label = <54: <b>SpawnMonsterEventModule</b><br/><br/><i>Angels<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;IC_Rm08_EncBack_03a&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    2<br align="left"/><b>DelayTime</b><br align="left"/>    1<br align="left"/><b>PreferInRange</b><br align="left"/>    true<br align="left"/><b>MinRange</b><br align="left"/>    30<br align="left"/>> ];
+    54 [ pos = "0.786,0.47000003!" ];
+    54 -> 13 [ label = "3→0" ];
+
+    61 [ label = <61: <b>DelayModule</b><br/><br/>> ];
+    61 [ pos = "-0.231,0.134!" ];
+    61 -> 7 [ label = "0→0" ];
+    61 -> 72 [ label = "0→0" ];
+
+    62 [ label = <62: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    4<br align="left"/>> ];
+    62 [ pos = "0.165,0.134!" ];
+    62 -> 5 [ label = "0→0" ];
+
+    63 [ label = <63: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;IC_Rm08_EncBack_Script_Wave_02&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;ShowTime&quot;<br align="left"/>> ];
+    63 [ pos = "1.6290001,-0.004!" ];
+
+    65 [ label = <65: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;IC_Rm08_EncBack_Ambiant_Trigge<br align="left"/>    r_Start&quot;, &quot;IC_Rm08_EncBack_Ambia<br align="left"/>    nt_Trigger_Start_01&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    65 [ shape = oval ]
+    65 [ pos = "-1.32,-0.21300001!" ];
+    65 -> 69 [ label = "0→0" ];
+
+    66 [ label = <66: <b>SpawnMonsterEventModule</b><br/><br/><i>And More Angels<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;IC_Rm08_EncBack_03&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    2<br align="left"/><b>DelayTime</b><br align="left"/>    1<br align="left"/><b>PreferInRange</b><br align="left"/>    true<br align="left"/><b>MinRange</b><br align="left"/>    30<br align="left"/>> ];
+    66 [ pos = "0.78400004,-0.28!" ];
+
+    67 [ label = <67: <b>base/storesavedatamodule</b><br/><br/>> ];
+    67 [ pos = "-0.78400004,0.53800005!" ];
+    67 -> 52 [ label = "0→0" ];
+    67 -> 70 [ label = "0→0" ];
+
+    68 [ label = <68: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;IC&quot;, FlagNa<br align="left"/>    me=&quot;IC_Rm08_EncBack_Done&quot;)]<br align="left"/>> ];
+    68 [ pos = "-0.80200005,-0.21300001!" ];
+    68 -> 2 [ label = "1→0" ];
+
+    69 [ label = <69: <b>SaveDataModule</b><br/><br/><i>check to make sure mini-boss is <br align="left"/>dead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;IC&quot;, FlagNa<br align="left"/>    me=&quot;IC_Rm02_mini_boss_dead&quot;)]<br align="left"/>> ];
+    69 [ pos = "-1.057,-0.21300001!" ];
+    69 -> 68 [ label = "0→0" ];
+
+    70 [ label = <70: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scripted_HeavyCombat&quot;<br align="left"/>> ];
+    70 [ pos = "-0.55,0.70400006!" ];
+
+    72 [ label = <72: <b>InvokeMethodModule</b><br/><br/><i>Ghost hook off<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;IC_Rm08_GhostHookToken_Swing_0<br align="left"/>    1&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;deactivate&quot;<br align="left"/>> ];
+    72 [ pos = "-0.066,-0.05!" ];
+
+    title [ pos = "-1.3210001,0.70500004!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>IC_Rm08<br align="left"/>combat_back<br align="left"/><b>IC_Rm08_EncBack_Script_Wave_01</b><br align="left"/></font>> ];
+}

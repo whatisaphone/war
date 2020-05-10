@@ -1,0 +1,37 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    8 [ label = <8: <b>CinematicModule</b><br/><br/><b>CinematicName</b><br align="left"/>    &quot;Fly01_Cine&quot;<br align="left"/>> ];
+    8 [ pos = "-0.335,-0.30100003!" ];
+    8 -> 12 [ label = "0→0" ];
+
+    9 [ label = <9: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;Fly01_Cine_Trigger&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    9 [ shape = oval ]
+    9 [ pos = "-0.563,-0.30100003!" ];
+    9 -> 8 [ label = "0→0" ];
+
+    12 [ label = <12: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;BirdPath_Music_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;StartMusic&quot;<br align="left"/>> ];
+    12 [ pos = "-0.147,-0.30100003!" ];
+
+    13 [ label = <13: <b>StartModule</b><br/><br/>> ];
+    13 [ shape = oval ]
+    13 [ pos = "-0.86600006,-0.324!" ];
+    13 -> 14 [ label = "0→0" ];
+
+    14 [ label = <14: <b>DelayModule</b><br/><br/>> ];
+    14 [ pos = "-0.698,-0.324!" ];
+    14 -> 9 [ label = "0→1" ];
+
+    title [ pos = "-0.86700004,-0.3!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>CI_BirdPath<br align="left"/>Cutscenes<br align="left"/><b>Fly01_Cine_VSM</b><br align="left"/></font>> ];
+}

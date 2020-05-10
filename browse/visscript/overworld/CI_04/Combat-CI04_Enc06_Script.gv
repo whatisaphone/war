@@ -1,0 +1,200 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    48 [ label = <48: <b>ExternalCallModule</b><br/><br/><b>EventName</b><br align="left"/>    &quot;StartEncounter&quot;<br align="left"/>> ];
+    48 [ shape = oval ]
+    48 [ pos = "-1.644,1.13!" ];
+    48 -> 49 [ label = "0→0" ];
+    48 -> 96 [ label = "0→0" ];
+
+    49 [ label = <49: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;CI04_Enc06_TrigReg&quot;]<br align="left"/><b>Enable</b><br align="left"/>    false<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    49 [ shape = oval ]
+    49 [ pos = "-1.429,1.13!" ];
+    49 -> 69 [ label = "1→0" ];
+
+    50 [ label = <50: <b>CountActiveSpawnPointsModule</b><br/><br/>> ];
+    50 [ pos = "-0.086,1.141!" ];
+    50 -> 51 [ label = "0→1" ];
+    53 -> 50 [ style = dashed ];
+    50 -> 59 [ style = dashed ];
+    104 -> 50 [ style = dashed ];
+
+    51 [ label = <51: <b>base/readmodulevar</b><br/><br/><i>get ActiveSpawns<br align="left"/></i><br align="left"/><b>VarName</b><br align="left"/>    &quot;ActiveSpawns&quot;<br align="left"/><b>ModuleName</b><br align="left"/>    &quot;CI04_Script_EncounterMaster&quot;<br align="left"/>> ];
+    51 [ pos = "0.186,1.1420001!" ];
+    51 -> 56 [ label = "0→0" ];
+    51 -> 52 [ style = dashed ];
+
+    52 [ label = <52: <b>VisScriptVariableInt</b><br/><br/>> ];
+    52 [ shape = parallelogram ]
+    52 [ pos = "0.187,1.01!" ];
+
+    53 [ label = <53: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    53 [ shape = parallelogram ]
+    53 [ pos = "-0.63900006,0.95000005!" ];
+
+    54 [ label = <54: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;CI04_Enc06Fast&quot;<br align="left"/>> ];
+    54 [ pos = "-0.656,1.143!" ];
+    54 -> 103 [ label = "0→0" ];
+    54 -> 53 [ style = dashed ];
+
+    55 [ label = <55: <b>IntCompareModule</b><br/><br/>> ];
+    55 [ pos = "0.638,1.1420001!" ];
+    55 -> 60 [ label = "1→0" ];
+    55 -> 60 [ label = "2→0" ];
+    57 -> 55 [ style = dashed ];
+    58 -> 55 [ style = dashed ];
+
+    56 [ label = <56: <b>base/intincrement</b><br/><br/><i>Calc min<br align="left"/></i><br align="left"/><b>Increment</b><br align="left"/>    0<br align="left"/>> ];
+    56 [ pos = "0.43,1.1420001!" ];
+    56 -> 55 [ label = "0→0" ];
+    56 -> 58 [ style = dashed ];
+    59 -> 56 [ style = dashed ];
+    52 -> 56 [ style = dashed ];
+
+    57 [ label = <57: <b>VisScriptVariableInt</b><br/><br/><i>max spawns - 27<br align="left"/></i><br align="left"/><b>Value</b><br align="left"/>    27<br align="left"/>> ];
+    57 [ shape = parallelogram ]
+    57 [ pos = "0.634,1.199!" ];
+
+    58 [ label = <58: <b>VisScriptVariableInt</b><br/><br/><i>wouldbe spawns<br align="left"/></i><br align="left"/>> ];
+    58 [ shape = parallelogram ]
+    58 [ pos = "0.43400002,0.99600005!" ];
+
+    59 [ label = <59: <b>VisScriptVariableInt</b><br/><br/>> ];
+    59 [ shape = parallelogram ]
+    59 [ pos = "-0.076000005,1.0370001!" ];
+
+    60 [ label = <60: <b>base/incrementmodulevar</b><br/><br/><i>increment ActiveSpawns by spawns<br align="left"/></i><br align="left"/><b>Increment</b><br align="left"/>    0<br align="left"/><b>VarName</b><br align="left"/>    &quot;ActiveSpawns&quot;<br align="left"/><b>ModuleName</b><br align="left"/>    &quot;CI04_Script_EncounterMaster&quot;<br align="left"/>> ];
+    60 [ pos = "0.822,0.95000005!" ];
+    60 -> 64 [ label = "0→0" ];
+    60 -> 71 [ label = "0→2" ];
+    59 -> 60 [ style = dashed ];
+
+    61 [ label = <61: <b>base/distancedelay</b><br/><br/><i>if far from all creatures<br align="left"/></i><br align="left"/><b>Enabled</b><br align="left"/>    false<br align="left"/><b>Distance</b><br align="left"/>    2400<br align="left"/>> ];
+    61 [ pos = "1.358,1.148!" ];
+    61 -> 62 [ label = "0→2" ];
+    63 -> 61 [ style = dashed ];
+
+    62 [ label = <62: <b>ObjectToggleModule</b><br/><br/><i>delete creatures<br align="left"/></i><br align="left"/>> ];
+    62 [ pos = "1.5560001,1.139!" ];
+    62 -> 65 [ label = "0→0" ];
+    63 -> 62 [ style = dashed ];
+
+    63 [ label = <63: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    63 [ shape = parallelogram ]
+    63 [ pos = "1.079,0.896!" ];
+
+    64 [ label = <64: <b>SpawnMonsterEventModule</b><br/><br/><b>NumberToSpawn</b><br align="left"/>    -1<br align="left"/><b>IsRandom</b><br align="left"/>    false<br align="left"/><b>DelayTime</b><br align="left"/>    0.5<br align="left"/>> ];
+    64 [ pos = "1.0810001,1.143!" ];
+    64 -> 67 [ label = "1→0" ];
+    64 -> 111 [ label = "0→0" ];
+    64 -> 63 [ style = dashed ];
+    64 -> 68 [ style = dashed ];
+    53 -> 64 [ style = dashed ];
+
+    65 [ label = <65: <b>base/incrementmodulevar</b><br/><br/><i>decrement ActiveSpawns by spawns<br align="left"/></i><br align="left"/><b>Increment</b><br align="left"/>    0<br align="left"/><b>Operator</b><br align="left"/>    1<br align="left"/><b>VarName</b><br align="left"/>    &quot;ActiveSpawns&quot;<br align="left"/><b>ModuleName</b><br align="left"/>    &quot;CI04_Script_EncounterMaster&quot;<br align="left"/>> ];
+    65 [ pos = "1.7780001,1.3240001!" ];
+    65 -> 71 [ label = "0→1" ];
+    68 -> 65 [ style = dashed ];
+
+    66 [ label = <66: <b>base/incrementmodulevar</b><br/><br/><i>decrement ActiveSpawns by 1<br align="left"/></i><br align="left"/><b>Operator</b><br align="left"/>    1<br align="left"/><b>VarName</b><br align="left"/>    &quot;ActiveSpawns&quot;<br align="left"/><b>ModuleName</b><br align="left"/>    &quot;CI04_Script_EncounterMaster&quot;<br align="left"/>> ];
+    66 [ pos = "1.588,0.91700006!" ];
+
+    67 [ label = <67: <b>base/intincrement</b><br/><br/><i>decrement local count<br align="left"/></i><br align="left"/><b>Operator</b><br align="left"/>    1<br align="left"/>> ];
+    67 [ pos = "1.368,0.92600006!" ];
+    67 -> 66 [ label = "0→0" ];
+    68 -> 67 [ style = dashed ];
+    67 -> 68 [ style = dashed ];
+
+    68 [ label = <68: <b>VisScriptVariableInt</b><br/><br/>> ];
+    68 [ shape = parallelogram ]
+    68 [ pos = "1.3800001,0.77300006!" ];
+
+    69 [ label = <69: <b>base/gatemodule</b><br/><br/><i>onExit Region<br align="left"/></i><br align="left"/>> ];
+    69 [ pos = "-0.296,1.572!" ];
+    69 -> 61 [ label = "0→0" ];
+
+    70 [ label = <70: <b>base/gatemodule</b><br/><br/><i>onEnter Region &amp;&amp; encounter not <br align="left"/>active<br align="left"/></i><br align="left"/>> ];
+    70 [ pos = "-0.634,1.414!" ];
+    70 -> 61 [ label = "0→2" ];
+
+    71 [ label = <71: <b>base/gatemodule</b><br/><br/>> ];
+    71 [ pos = "-0.85800004,1.1420001!" ];
+    71 -> 70 [ label = "0→0" ];
+    71 -> 54 [ label = "0→0" ];
+
+    96 [ label = <96: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;CI04_Enc06_TrigRegStart&quot;]<br align="left"/><b>Enable</b><br align="left"/>    false<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    96 [ shape = oval ]
+    96 [ pos = "-1.429,1.3750001!" ];
+    96 -> 100 [ label = "0→0" ];
+
+    99 [ label = <99: <b>ExternalCallModule</b><br/><br/><i>TGateQuestStart<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;TGateQuestStart&quot;<br align="left"/>> ];
+    99 [ shape = oval ]
+    99 [ pos = "-1.218,1.483!" ];
+    99 -> 69 [ label = "0→0" ];
+    99 -> 62 [ label = "0→2" ];
+
+    100 [ label = <100: <b>SaveDataModule</b><br/><br/><i>CI_04_QuestStarted<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;CI_04&quot;, Fla<br align="left"/>    gName=&quot;CI_04_QuestStarted&quot;)]<br align="left"/>> ];
+    100 [ pos = "-1.195,1.376!" ];
+    100 -> 101 [ label = "0→0" ];
+    100 -> 71 [ label = "1→0" ];
+
+    101 [ label = <101: <b>SaveDataModule</b><br/><br/><i>CI_04_TormentedGate_Gone<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;CI_04&quot;, Fla<br align="left"/>    gName=&quot;CI_04_TormentedGate_Gone&quot;<br align="left"/>    )]<br align="left"/>> ];
+    101 [ pos = "-0.98100007,1.376!" ];
+    101 -> 71 [ label = "0→0" ];
+
+    103 [ label = <103: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;CI04_Enc06&quot;<br align="left"/>> ];
+    103 [ pos = "-0.39000002,1.143!" ];
+    103 -> 50 [ label = "0→0" ];
+    103 -> 104 [ style = dashed ];
+
+    104 [ label = <104: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    104 [ shape = parallelogram ]
+    104 [ pos = "-0.40600002,0.998!" ];
+
+    105 [ label = <105: <b>SpawnMonsterEventModule</b><br/><br/><b>NumberToSpawn</b><br align="left"/>    -1<br align="left"/><b>IsRandom</b><br align="left"/>    false<br align="left"/><b>DelayTime</b><br align="left"/>    0.5<br align="left"/>> ];
+    105 [ pos = "1.039,0.79600006!" ];
+    105 -> 67 [ label = "1→0" ];
+    105 -> 107 [ label = "0→0" ];
+    104 -> 105 [ style = dashed ];
+    105 -> 109 [ style = dashed ];
+    105 -> 110 [ style = dashed ];
+
+    107 [ label = <107: <b>base/mergelistmodule</b><br/><br/>> ];
+    107 [ pos = "1.348,0.657!" ];
+    107 -> 108 [ label = "0→0" ];
+    63 -> 107 [ style = dashed ];
+    110 -> 107 [ style = dashed ];
+    107 -> 63 [ style = dashed ];
+
+    108 [ label = <108: <b>base/intincrement</b><br/><br/>> ];
+    108 [ pos = "1.598,0.65800005!" ];
+    108 -> 61 [ label = "0→1" ];
+    68 -> 108 [ style = dashed ];
+    108 -> 68 [ style = dashed ];
+    109 -> 108 [ style = dashed ];
+
+    109 [ label = <109: <b>VisScriptVariableInt</b><br/><br/>> ];
+    109 [ shape = parallelogram ]
+    109 [ pos = "1.2700001,0.47400004!" ];
+
+    110 [ label = <110: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    110 [ shape = parallelogram ]
+    110 [ pos = "1.054,0.53300005!" ];
+
+    111 [ label = <111: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.5<br align="left"/>> ];
+    111 [ pos = "0.86600006,0.79200006!" ];
+    111 -> 105 [ label = "0→0" ];
+
+    title [ pos = "-1.6450001,1.5730001!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>CI_04<br align="left"/>Combat<br align="left"/><b>CI04_Enc06_Script</b><br align="left"/><br/><i>The High Road</i><br align="left"/></font>> ];
+}

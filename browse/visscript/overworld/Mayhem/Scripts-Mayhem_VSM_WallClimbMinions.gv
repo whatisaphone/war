@@ -1,0 +1,66 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;Mayhem_WallClimbMinions_Trig&quot;,<br align="left"/>     &quot;&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "0.021000002,-0.21900001!" ];
+    1 -> 2 [ label = "0→0" ];
+
+    2 [ label = <2: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;wallMinions_Wave_01&quot;<br align="left"/>> ];
+    2 [ pos = "0.293,-0.21900001!" ];
+    2 -> 3 [ label = "0→0" ];
+    2 -> 9 [ label = "0→0" ];
+    2 -> 4 [ style = dashed ];
+
+    3 [ label = <3: <b>SpawnMonsterEventModule</b><br/><br/>> ];
+    3 [ pos = "0.73700005,-0.19600001!" ];
+    3 -> 5 [ label = "0→0" ];
+    4 -> 3 [ style = dashed ];
+    3 -> 6 [ style = dashed ];
+
+    4 [ label = <4: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    4 [ shape = parallelogram ]
+    4 [ pos = "0.535,-0.316!" ];
+
+    5 [ label = <5: <b>base/settargetmodule</b><br/><br/><b>Target</b><br align="left"/>    &quot;War&quot;<br align="left"/>> ];
+    5 [ pos = "1.215,-0.31100002!" ];
+    6 -> 5 [ style = dashed ];
+
+    6 [ label = <6: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    6 [ shape = parallelogram ]
+    6 [ pos = "0.78300005,-0.44400004!" ];
+
+    7 [ label = <7: <b>TriggerEventModule</b><br/><br/><i>Remove spawns on ballroom trig<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;MBall_Enc01_TrigReg&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    7 [ shape = oval ]
+    7 [ pos = "0.43800002,-0.003!" ];
+    7 -> 3 [ label = "0→3" ];
+
+    8 [ label = <8: <b>VisScriptCallModule</b><br/><br/><i>scripted_HeavyCombat<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scripted_HeavyCombat&quot;<br align="left"/>> ];
+    8 [ pos = "0.91200006,0.004!" ];
+
+    9 [ label = <9: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    3<br align="left"/>> ];
+    9 [ pos = "0.76400006,0.020000001!" ];
+    9 -> 8 [ label = "0→0" ];
+
+    10 [ label = <10: <b>ObjectToggleModule</b><br/><br/>> ];
+    10 [ pos = "1.3510001,-0.014!" ];
+    6 -> 10 [ style = dashed ];
+
+    11 [ label = <11: <b>ExternalCallModule</b><br/><br/><i>DeleteSpawns<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;DeleteSpawns&quot;<br align="left"/>> ];
+    11 [ shape = oval ]
+    11 [ pos = "1.097,0.031000001!" ];
+    11 -> 10 [ label = "0→2" ];
+
+    title [ pos = "0.020000001,0.032!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>Mayhem<br align="left"/>Scripts<br align="left"/><b>Mayhem_VSM_WallClimbMinions</b><br align="left"/></font>> ];
+}

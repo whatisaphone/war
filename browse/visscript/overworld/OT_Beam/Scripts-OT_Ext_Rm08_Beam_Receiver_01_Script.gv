@@ -1,0 +1,59 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Ext_Rm08_Beam_Receiver_01&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onReceiveBeam&quot;]<br align="left"/>> ];
+    1 [ pos = "0.178,-0.28800002!" ];
+    1 -> 2 [ label = "0→0" ];
+
+    2 [ label = <2: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm08<br align="left"/>    &quot;, FlagName=&quot;OT_Ext_Rm08_Beam_Re<br align="left"/>    ceiver_01&quot;)]<br align="left"/>> ];
+    2 [ pos = "0.42100003,-0.28800002!" ];
+    2 -> 4 [ label = "1→0" ];
+    2 -> 3 [ label = "1→1" ];
+    2 -> 6 [ label = "1→1" ];
+
+    3 [ label = <3: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm08<br align="left"/>    &quot;, FlagName=&quot;OT_Ext_Rm08_Beam_Re<br align="left"/>    ceiver_01&quot;)]<br align="left"/>> ];
+    3 [ pos = "0.70400006,-0.38200003!" ];
+
+    4 [ label = <4: <b>CinematicModule</b><br/><br/><b>CinematicName</b><br align="left"/>    &quot;OT_Ext_Rm08_Beam_Receiver_01_Ci<br align="left"/>    ne&quot;<br align="left"/>> ];
+    4 [ pos = "0.70100003,-0.22500001!" ];
+    4 -> 7 [ label = "0→0" ];
+    4 -> 10 [ label = "0→0" ];
+
+    5 [ label = <5: <b>StartModule</b><br/><br/>> ];
+    5 [ shape = oval ]
+    5 [ pos = "-0.028,-0.28800002!" ];
+    5 -> 1 [ label = "0→0" ];
+
+    6 [ label = <6: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm08<br align="left"/>    &quot;, FlagName=&quot;puz_barrier_up&quot;, Fl<br align="left"/>    agValue=&quot;False&quot;)]<br align="left"/>> ];
+    6 [ pos = "0.70600003,-0.523!" ];
+    6 -> 11 [ label = "3→0" ];
+
+    7 [ label = <7: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.5<br align="left"/>> ];
+    7 [ pos = "0.94000006,-0.22500001!" ];
+    7 -> 8 [ label = "0→0" ];
+
+    8 [ label = <8: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Ext_Rm08_PuzBarrier&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOff&quot;<br align="left"/>> ];
+    8 [ pos = "1.1750001,-0.22500001!" ];
+
+    9 [ label = <9: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Ext_Rm07_KickDoor_01&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;activate&quot;<br align="left"/>> ];
+    9 [ pos = "1.1750001,-0.358!" ];
+
+    10 [ label = <10: <b>VisScriptCallModule</b><br/><br/><i>play stinger<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;OT_Beam_Emitter_Music_script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;stinger 4&quot;<br align="left"/>> ];
+    10 [ pos = "0.94000006,-0.14400001!" ];
+
+    11 [ label = <11: <b>VisScriptCallModule</b><br/><br/><i>activate gear crank<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;OT_Ext_Rm08_VisMod_ElevatorSB&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;activate&quot;<br align="left"/>> ];
+    11 [ pos = "0.97200006,-0.569!" ];
+
+    title [ pos = "-0.029000001,-0.143!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>OT_Beam<br align="left"/>Scripts<br align="left"/><b>OT_Ext_Rm08_Beam_Receiver_01_Script</b><br align="left"/></font>> ];
+}

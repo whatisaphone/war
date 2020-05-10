@@ -1,0 +1,88 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    74 [ label = <74: <b>SpawnMonsterEventModule</b><br/><br/><b>NumberToSpawn</b><br align="left"/>    -1<br align="left"/>> ];
+    74 [ pos = "0.799,-1.585!" ];
+    76 -> 74 [ style = dashed ];
+    74 -> 79 [ style = dashed ];
+
+    75 [ label = <75: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;Fly01A_Wave01B&quot;<br align="left"/>> ];
+    75 [ pos = "0.30100003,-1.585!" ];
+    75 -> 74 [ label = "0→0" ];
+    75 -> 76 [ style = dashed ];
+
+    76 [ label = <76: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    76 [ shape = parallelogram ]
+    76 [ pos = "0.53800005,-1.682!" ];
+
+    78 [ label = <78: <b>ObjectToggleModule</b><br/><br/>> ];
+    78 [ pos = "1.2600001,-1.608!" ];
+    79 -> 78 [ style = dashed ];
+
+    79 [ label = <79: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    79 [ shape = parallelogram ]
+    79 [ pos = "1.0610001,-1.751!" ];
+
+    83 [ label = <83: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;Fly01A_Enc04_Trigger&quot;, &quot;&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    83 [ shape = oval ]
+    83 [ pos = "0.96000004,-1.3870001!" ];
+    83 -> 78 [ label = "0→2" ];
+
+    92 [ label = <92: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;Fly01A_Enc01_Trigger_01&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    92 [ shape = oval ]
+    92 [ pos = "0.033,-1.585!" ];
+    92 -> 75 [ label = "0→0" ];
+    92 -> 104 [ label = "0→0" ];
+
+    96 [ label = <96: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;CI_tanker&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onBreak&quot;]<br align="left"/>> ];
+    96 [ pos = "0.45600003,-2.043!" ];
+    96 -> 98 [ label = "0→0" ];
+    96 -> 100 [ label = "0→0" ];
+
+    97 [ label = <97: <b>DamageActorModule</b><br/><br/><b>DamageAmount</b><br align="left"/>    10<br align="left"/>> ];
+    97 [ pos = "0.84400004,-1.8180001!" ];
+    76 -> 97 [ style = dashed ];
+
+    98 [ label = <98: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    98 [ pos = "0.64900005,-2.043!" ];
+    98 -> 97 [ label = "0→0" ];
+    98 -> 99 [ label = "0→0" ];
+    98 -> 101 [ label = "0→0" ];
+
+    99 [ label = <99: <b>SoundModule</b><br/><br/><b>SoundDescFile</b><br align="left"/>    &quot;city_fly_fx/City_Fly_FX_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    44<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CF01_BreakableRock_01&quot;<br align="left"/>> ];
+    99 [ pos = "0.85,-2.183!" ];
+
+    100 [ label = <100: <b>base/sethealthmodule</b><br/><br/><b>MaxHitPoints</b><br align="left"/>    5<br align="left"/><b>MinHitPoints</b><br align="left"/>    0<br align="left"/>> ];
+    100 [ pos = "0.84000003,-1.9440001!" ];
+    76 -> 100 [ style = dashed ];
+
+    101 [ label = <101: <b>DamageActorModule</b><br/><br/><b>DamageAmount</b><br align="left"/>    1000<br align="left"/><b>TargetActorNames</b><br align="left"/>    [&quot;CI_F01A_BreakableRock_01&quot;]<br align="left"/>> ];
+    101 [ pos = "0.845,-2.0440001!" ];
+
+    104 [ label = <104: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    3<br align="left"/>> ];
+    104 [ pos = "0.264,-2.043!" ];
+    104 -> 96 [ label = "0→0" ];
+
+    105 [ label = <105: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    3<br align="left"/>> ];
+    105 [ pos = "0.609,-2.292!" ];
+    105 -> 97 [ label = "0→0" ];
+    105 -> 99 [ label = "0→0" ];
+    105 -> 101 [ label = "0→0" ];
+
+    106 [ label = <106: <b>StartModule</b><br/><br/>> ];
+    106 [ shape = oval ]
+    106 [ pos = "0.41700003,-2.292!" ];
+
+    title [ pos = "0.032,-1.386!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>CI_BirdPath<br align="left"/>Com_F01A<br align="left"/><b>Fly01A_Wave01B_VSM</b><br align="left"/><br/><i>bats</i><br align="left"/></font>> ];
+}

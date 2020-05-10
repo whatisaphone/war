@@ -1,0 +1,259 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    3 [ label = <3: <b>SaveDataModule</b><br/><br/><i>Ghost Hook Check<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;IC&quot;, FlagNa<br align="left"/>    me=&quot;IC_Rm08_Canopy_Spider_Dead&quot;)<br align="left"/>    ]<br align="left"/>> ];
+    3 [ pos = "0.59000003,-1.317!" ];
+    3 -> 5 [ label = "0→0" ];
+
+    5 [ label = <5: <b>SaveDataModule</b><br/><br/><i>Canopy Spider Dead check<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;IC&quot;, FlagNa<br align="left"/>    me=&quot;IC_Rm07_canopy_spider_dead&quot;)<br align="left"/>    ]<br align="left"/>> ];
+    5 [ pos = "0.818,-1.317!" ];
+    5 -> 10 [ label = "1→0" ];
+
+    8 [ label = <8: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;IC_Rm07_Enc00&quot;<br align="left"/>> ];
+    8 [ pos = "0.78200006,-0.84300005!" ];
+    8 -> 9 [ label = "0→0" ];
+    8 -> 11 [ style = dashed ];
+
+    9 [ label = <9: <b>SaveDataModule</b><br/><br/><i>Canopy Spider Dead check<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;IC&quot;, FlagNa<br align="left"/>    me=&quot;IC_Rm07_canopy_spider_dead&quot;)<br align="left"/>    ]<br align="left"/>> ];
+    9 [ pos = "1.051,-0.84300005!" ];
+    9 -> 12 [ label = "1→0" ];
+
+    10 [ label = <10: <b>base/storesavedatamodule</b><br/><br/>> ];
+    10 [ pos = "1.024,-1.34!" ];
+    10 -> 135 [ label = "0→1" ];
+    10 -> 141 [ label = "0→0" ];
+    10 -> 136 [ label = "0→0" ];
+    10 -> 173 [ label = "0→0" ];
+
+    11 [ label = <11: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    11 [ shape = parallelogram ]
+    11 [ pos = "1.052,-1.0040001!" ];
+
+    12 [ label = <12: <b>SpawnMonsterEventModule</b><br/><br/><b>NumberToSpawn</b><br align="left"/>    1<br align="left"/><b>IsRandom</b><br align="left"/>    false<br align="left"/>> ];
+    12 [ pos = "1.3130001,-0.86600006!" ];
+    12 -> 44 [ label = "0→0" ];
+    11 -> 12 [ style = dashed ];
+    12 -> 41 [ style = dashed ];
+
+    13 [ label = <13: <b>InvokeMethodModule</b><br/><br/><i>Turn Off Barrier<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;IC_Rm07_Barrier_00&quot;, &quot;IC_Rm07_<br align="left"/>    Barrier_01&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOff&quot;<br align="left"/>> ];
+    13 [ pos = "3.108,-2.0040002!" ];
+    13 -> 16 [ label = "0→0" ];
+
+    14 [ label = <14: <b>SaveDataModule</b><br/><br/><i>Set Canopy Spider Flag<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;IC&quot;, FlagNa<br align="left"/>    me=&quot;IC_Rm07_canopy_spider_dead&quot;)<br align="left"/>    ]<br align="left"/>> ];
+    14 [ pos = "2.459,-1.6420001!" ];
+    14 -> 154 [ label = "3→0" ];
+
+    15 [ label = <15: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    3<br align="left"/>> ];
+    15 [ pos = "2.459,-1.9810001!" ];
+    15 -> 60 [ label = "0→0" ];
+
+    16 [ label = <16: <b>base/commitsavedatamodule</b><br/><br/>> ];
+    16 [ pos = "3.315,-2.0040002!" ];
+    16 -> 17 [ label = "0→0" ];
+
+    17 [ label = <17: <b>base/setspawnpointmodule</b><br/><br/><b>World</b><br align="left"/>    &quot;Overworld&quot;<br align="left"/><b>Region</b><br align="left"/>    &quot;IC_Rm07&quot;<br align="left"/><b>SpawnPoint</b><br align="left"/>    &quot;IC_Rm07_Cin_CSpider_Wypt_00&quot;<br align="left"/>> ];
+    17 [ pos = "3.5530002,-2.0040002!" ];
+    17 -> 18 [ label = "0→0" ];
+
+    18 [ label = <18: <b>base/autosavemodule</b><br/><br/>> ];
+    18 [ pos = "3.7570002,-2.0040002!" ];
+
+    41 [ label = <41: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    41 [ shape = parallelogram ]
+    41 [ pos = "1.5840001,-1.0960001!" ];
+
+    42 [ label = <42: <b>InvokeMethodModule</b><br/><br/><i>Set to Combat Behavior<br align="left"/></i><br align="left"/><b>MethodName</b><br align="left"/>    &quot;setBehaviorCombat&quot;<br align="left"/>> ];
+    42 [ pos = "2.9290001,-1.3390001!" ];
+    42 -> 156 [ label = "0→0" ];
+    148 -> 42 [ style = dashed ];
+
+    43 [ label = <43: <b>base/settargetmodule</b><br/><br/><b>Target</b><br align="left"/>    &quot;War&quot;<br align="left"/>> ];
+    43 [ pos = "2.67,-1.3390001!" ];
+    43 -> 42 [ label = "0→0" ];
+
+    44 [ label = <44: <b>InvokeMethodModule</b><br/><br/><i>Disable Combat Phantoms<br align="left"/></i><br align="left"/><b>MethodName</b><br align="left"/>    &quot;disableCombatPhantoms&quot;<br align="left"/>> ];
+    44 [ pos = "1.6880001,-0.86600006!" ];
+    41 -> 44 [ style = dashed ];
+
+    46 [ label = <46: <b>TriggerEventModule</b><br/><br/><i>Spawn CSpider Forward<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;IC_Rm07_Amb_Spawn_TrgReg_00&quot;, <br align="left"/>    &quot;IC_Rm07_Amb_Spawn_TrgReg_01&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    46 [ shape = oval ]
+    46 [ pos = "0.29500002,-0.82000005!" ];
+    46 -> 140 [ label = "0→0" ];
+
+    59 [ label = <59: <b>VisScriptCallModule</b><br/><br/><i>Remove Rune<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;IC_BossBarrier_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;rm07_spider_dead&quot;<br align="left"/>> ];
+    59 [ pos = "2.667,-1.7820001!" ];
+
+    60 [ label = <60: <b>CinematicModule</b><br/><br/><b>CinematicName</b><br align="left"/>    &quot;IC_Rm07_Cin_CSpider&quot;<br align="left"/>> ];
+    60 [ pos = "2.674,-1.9810001!" ];
+    60 -> 171 [ label = "1→0" ];
+    60 -> 172 [ label = "0→0" ];
+
+    76 [ label = <76: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    5.8<br align="left"/>> ];
+    76 [ pos = "2.459,-1.7820001!" ];
+    76 -> 59 [ label = "0→0" ];
+
+    135 [ label = <135: <b>TriggerEventModule</b><br/><br/><i>Spawn CSpider Backtrack<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;IC_Rm07_Enc00_Trigger&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    135 [ shape = oval ]
+    135 [ pos = "0.316,-1.317!" ];
+    135 -> 3 [ label = "0→0" ];
+
+    136 [ label = <136: <b>InvokeMethodModule</b><br/><br/><i>Turn On Barrier<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;IC_Rm07_Barrier_00&quot;, &quot;IC_Rm07_<br align="left"/>    Barrier_01&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOn&quot;<br align="left"/>> ];
+    136 [ pos = "1.2700001,-1.4740001!" ];
+    136 -> 151 [ label = "0→1" ];
+
+    140 [ label = <140: <b>SaveDataModule</b><br/><br/><i>Ghost Hook Check<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;IC&quot;, FlagNa<br align="left"/>    me=&quot;IC_Rm08_Canopy_Spider_Dead&quot;)<br align="left"/>    ]<br align="left"/>> ];
+    140 [ pos = "0.546,-0.82000005!" ];
+    140 -> 8 [ label = "1→0" ];
+
+    141 [ label = <141: <b>CinematicModule</b><br/><br/><b>CinematicName</b><br align="left"/>    &quot;IC_Rm07_Cin_Backtrack&quot;<br align="left"/>> ];
+    141 [ pos = "1.269,-1.34!" ];
+    141 -> 142 [ label = "0→0" ];
+    141 -> 163 [ label = "0→0" ];
+
+    142 [ label = <142: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.75<br align="left"/>> ];
+    142 [ pos = "1.4890001,-1.34!" ];
+    142 -> 143 [ label = "0→0" ];
+
+    143 [ label = <143: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;IC_Rm07_Enc00_back&quot;<br align="left"/>> ];
+    143 [ pos = "1.6860001,-1.34!" ];
+    143 -> 146 [ label = "0→0" ];
+    143 -> 145 [ style = dashed ];
+
+    145 [ label = <145: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    145 [ shape = parallelogram ]
+    145 [ pos = "1.9410001,-1.506!" ];
+
+    146 [ label = <146: <b>SpawnMonsterEventModule</b><br/><br/><b>NumberToSpawn</b><br align="left"/>    1<br align="left"/><b>IsRandom</b><br align="left"/>    false<br align="left"/>> ];
+    146 [ pos = "2.1560001,-1.3390001!" ];
+    146 -> 147 [ label = "0→0" ];
+    146 -> 14 [ label = "2→1" ];
+    146 -> 76 [ label = "2→0" ];
+    146 -> 15 [ label = "2→0" ];
+    146 -> 175 [ label = "2→0" ];
+    145 -> 146 [ style = dashed ];
+    146 -> 148 [ style = dashed ];
+
+    147 [ label = <147: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.75<br align="left"/>> ];
+    147 [ pos = "2.467,-1.3390001!" ];
+    147 -> 43 [ label = "0→0" ];
+
+    148 [ label = <148: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    148 [ shape = parallelogram ]
+    148 [ pos = "2.4380002,-1.531!" ];
+
+    149 [ label = <149: <b>StartModule</b><br/><br/><i>Remove Cinematic Prop<br align="left"/></i><br align="left"/>> ];
+    149 [ shape = oval ]
+    149 [ pos = "0.287,-0.381!" ];
+    149 -> 150 [ label = "0→2" ];
+
+    150 [ label = <150: <b>ObjectToggleModule</b><br/><br/><b>ObjectList</b><br align="left"/>    [&quot;IC_Rm07_Cin_Backtrack_Prop&quot;]<br align="left"/>> ];
+    150 [ pos = "0.52900004,-0.33600003!" ];
+
+    151 [ label = <151: <b>ObjectToggleModule</b><br/><br/><b>ObjectList</b><br align="left"/>    [&quot;IC_Rm07_Cin_Backtrack_Prop&quot;]<br align="left"/>> ];
+    151 [ pos = "1.4970001,-1.6380001!" ];
+    151 -> 153 [ label = "0→0" ];
+
+    152 [ label = <152: <b>DamageActorModule</b><br/><br/><b>DamageAmount</b><br align="left"/>    100<br align="left"/><b>TargetActorNames</b><br align="left"/>    [&quot;IC_Rm07_Cin_Backtrack_Prop&quot;]<br align="left"/><b>WeaponType</b><br align="left"/>    2<br align="left"/><b>ApplyKnockBackUp</b><br align="left"/>    true<br align="left"/><b>DamageLocation</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>KnockBack</b><br align="left"/>    100<br align="left"/>> ];
+    152 [ pos = "1.9530001,-1.6380001!" ];
+    152 -> 169 [ label = "0→0" ];
+
+    153 [ label = <153: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.1<br align="left"/>> ];
+    153 [ pos = "1.7540001,-1.6380001!" ];
+    153 -> 152 [ label = "0→0" ];
+
+    154 [ label = <154: <b>VisScriptCallModule</b><br/><br/><i>Remove Markers<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;IC_MM_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;rm07_spider_dead&quot;<br align="left"/>> ];
+    154 [ pos = "2.6750002,-1.6880001!" ];
+
+    156 [ label = <156: <b>PopSpawnPointsModule</b><br/><br/><i>Spawn Waves of Baby Spiders<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;IC_Rm07_Enc00_back_wave&quot;<br align="left"/>> ];
+    156 [ pos = "3.1480002,-1.3390001!" ];
+    156 -> 158 [ label = "0→0" ];
+    156 -> 157 [ style = dashed ];
+
+    157 [ label = <157: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    157 [ shape = parallelogram ]
+    157 [ pos = "3.3920002,-1.4970001!" ];
+
+    158 [ label = <158: <b>SpawnMonsterEventModule</b><br/><br/><b>NumberToSpawn</b><br align="left"/>    -1<br align="left"/><b>IsRandom</b><br align="left"/>    false<br align="left"/>> ];
+    158 [ pos = "3.6030002,-1.3390001!" ];
+    158 -> 159 [ label = "1→0" ];
+    158 -> 162 [ label = "1→0" ];
+    157 -> 158 [ style = dashed ];
+
+    159 [ label = <159: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    4<br align="left"/><b>ResetOnComplete</b><br align="left"/>    true<br align="left"/>> ];
+    159 [ pos = "4.053,-1.3620001!" ];
+    159 -> 160 [ label = "0→0" ];
+
+    160 [ label = <160: <b>SaveDataModule</b><br/><br/><i>Check Canopy Spider death<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;IC&quot;, FlagNa<br align="left"/>    me=&quot;IC_Rm07_canopy_spider_dead&quot;)<br align="left"/>    ]<br align="left"/>> ];
+    160 [ pos = "4.3050003,-1.3620001!" ];
+    160 -> 161 [ label = "1→0" ];
+
+    161 [ label = <161: <b>SpawnMonsterEventModule</b><br/><br/><b>NumberToSpawn</b><br align="left"/>    4<br align="left"/>> ];
+    161 [ pos = "4.5740004,-1.3850001!" ];
+    161 -> 159 [ label = "1→0" ];
+    161 -> 162 [ label = "1→0" ];
+    157 -> 161 [ style = dashed ];
+
+    162 [ label = <162: <b>AccumulatorModule</b><br/><br/><i>Shut Down Waves<br align="left"/></i><br align="left"/><b>CountTo</b><br align="left"/>    16<br align="left"/><b>ResetOnComplete</b><br align="left"/>    true<br align="left"/>> ];
+    162 [ pos = "4.603,-1.1010001!" ];
+    162 -> 161 [ label = "0→2" ];
+
+    163 [ label = <163: <b>PopSpawnPointsModule</b><br/><br/><i>Spawn Waves of Baby Spiders<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;IC_Rm07_Enc00_back_prop&quot;<br align="left"/>> ];
+    163 [ pos = "1.498,-1.871!" ];
+    163 -> 165 [ label = "0→0" ];
+    163 -> 164 [ style = dashed ];
+
+    164 [ label = <164: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    164 [ shape = parallelogram ]
+    164 [ pos = "1.7420001,-2.029!" ];
+
+    165 [ label = <165: <b>SpawnMonsterEventModule</b><br/><br/><b>NumberToSpawn</b><br align="left"/>    -1<br align="left"/><b>IsRandom</b><br align="left"/>    false<br align="left"/>> ];
+    165 [ pos = "1.9530001,-1.871!" ];
+    165 -> 166 [ label = "0→0" ];
+    164 -> 165 [ style = dashed ];
+    165 -> 167 [ style = dashed ];
+
+    166 [ label = <166: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.75<br align="left"/>> ];
+    166 [ pos = "2.012,-2.1420002!" ];
+    166 -> 168 [ label = "0→0" ];
+
+    167 [ label = <167: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    167 [ shape = parallelogram ]
+    167 [ pos = "1.9930001,-2.3390002!" ];
+
+    168 [ label = <168: <b>InvokeMethodModule</b><br/><br/><i>Set to Combat Behavior<br align="left"/></i><br align="left"/><b>MethodName</b><br align="left"/>    &quot;setBehaviorCombat&quot;<br align="left"/>> ];
+    168 [ pos = "1.9980001,-2.443!" ];
+    167 -> 168 [ style = dashed ];
+
+    169 [ label = <169: <b>DelayModule</b><br/><br/>> ];
+    169 [ pos = "2.24,-1.6380001!" ];
+    169 -> 170 [ label = "0→0" ];
+
+    170 [ label = <170: <b>SoundModule</b><br/><br/><i>Play Corpse Drop<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;ic_props/IC_Corpse_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    7<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;IC_Rm07_Cin_Backtrack_Prop&quot;<br align="left"/>> ];
+    170 [ pos = "2.2380002,-1.8700001!" ];
+
+    171 [ label = <171: <b>DelayModule</b><br/><br/>> ];
+    171 [ pos = "2.913,-2.0040002!" ];
+    171 -> 13 [ label = "0→0" ];
+
+    172 [ label = <172: <b>VisScriptCallModule</b><br/><br/><i>cutscene music<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;IC_BossBarrier_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;stinger 03&quot;<br align="left"/>> ];
+    172 [ pos = "2.914,-1.9060001!" ];
+
+    173 [ label = <173: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scripted_HeavyCombat&quot;<br align="left"/>> ];
+    173 [ pos = "1.279,-1.228!" ];
+
+    175 [ label = <175: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scriptedHeavyOutro&quot;<br align="left"/>> ];
+    175 [ pos = "2.4650002,-2.2110002!" ];
+
+    title [ pos = "0.286,-0.335!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>IC_Rm07<br align="left"/>combat<br align="left"/><b>IC_Rm07_Enc00_Script</b><br align="left"/></font>> ];
+}

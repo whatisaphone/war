@@ -1,0 +1,106 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    27 [ label = <27: <b>StartModule</b><br/><br/>> ];
+    27 [ shape = oval ]
+    27 [ pos = "-1.212,-0.17500001!" ];
+    27 -> 28 [ label = "0→0" ];
+
+    28 [ label = <28: <b>AttachEventModule</b><br/><br/><b>EventNames</b><br align="left"/>    [&quot;onBreak&quot;]<br align="left"/>> ];
+    28 [ pos = "-0.98200005,-0.17500001!" ];
+    28 -> 46 [ label = "0→0" ];
+    29 -> 28 [ style = dashed ];
+
+    29 [ label = <29: <b>VisScriptVariableWorldObjectList</b><br/><br/><b>Value</b><br align="left"/>    [&quot;gauntlet_crystal_draggable_al0<br align="left"/>    1_01&quot;, &quot;gauntlet_crystal_draggab<br align="left"/>    le_al01_02&quot;, &quot;gauntlet_crystal_d<br align="left"/>    raggable_al01_03&quot;, &quot;gauntlet_cry<br align="left"/>    stal_draggable_al01_04&quot;, &quot;gauntl<br align="left"/>> ];
+    29 [ shape = parallelogram ]
+    29 [ pos = "-0.69100004,-0.46800002!" ];
+
+    30 [ label = <30: <b>DamageActorModule</b><br/><br/><b>DamageAmount</b><br align="left"/>    1000<br align="left"/><b>WeaponType</b><br align="left"/>    15<br align="left"/><b>HitType</b><br align="left"/>    0<br align="left"/>> ];
+    30 [ pos = "-0.317,-0.17500001!" ];
+    29 -> 30 [ style = dashed ];
+
+    31 [ label = <31: <b>AccumulatorModule</b><br/><br/>> ];
+    31 [ pos = "-0.568,-0.17500001!" ];
+    31 -> 30 [ label = "0→0" ];
+    31 -> 37 [ label = "0→0" ];
+    31 -> 50 [ label = "0→0" ];
+
+    32 [ label = <32: <b>StartModule</b><br/><br/>> ];
+    32 [ shape = oval ]
+    32 [ pos = "-0.89000005,-0.577!" ];
+    32 -> 35 [ label = "0→0" ];
+
+    34 [ label = <34: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Ashlands&quot;, <br align="left"/>    FlagName=&quot;gauntlet_crystal_dragg<br align="left"/>    able_altnl01_complete&quot;)]<br align="left"/>> ];
+    34 [ pos = "0.48900002,0.532!" ];
+
+    35 [ label = <35: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Ashlands&quot;, <br align="left"/>    FlagName=&quot;gauntlet_crystal_dragg<br align="left"/>    able_altnl01_complete&quot;)]<br align="left"/>> ];
+    35 [ pos = "-0.665,-0.577!" ];
+    35 -> 39 [ label = "1→2" ];
+    35 -> 43 [ label = "0→2" ];
+
+    36 [ label = <36: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;ALTUN_Draggable&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;activate&quot;<br align="left"/>> ];
+    36 [ pos = "0.081,-0.011000001!" ];
+
+    37 [ label = <37: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.1<br align="left"/>> ];
+    37 [ pos = "-0.294,-0.011000001!" ];
+    37 -> 36 [ label = "0→0" ];
+    37 -> 39 [ label = "0→1" ];
+    37 -> 43 [ label = "0→2" ];
+    37 -> 51 [ label = "0→1" ];
+    37 -> 54 [ label = "0→0" ];
+
+    39 [ label = <39: <b>ObjectToggleModule</b><br/><br/><b>ObjectList</b><br align="left"/>    [&quot;ALTUN_Draggable&quot;]<br align="left"/>> ];
+    39 [ pos = "0.17400001,-0.55600005!" ];
+
+    41 [ label = <41: <b>base/autosavemodule</b><br/><br/>> ];
+    41 [ pos = "0.577,0.37300003!" ];
+
+    43 [ label = <43: <b>ObjectToggleModule</b><br/><br/><b>ObjectList</b><br align="left"/>    [&quot;ALTUN_Drag_Blocker&quot;]<br align="left"/>> ];
+    43 [ pos = "0.171,-0.735!" ];
+
+    45 [ label = <45: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;AL_Tnl_Enc04_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;AL_TNL_01_Crystal_Des&quot;<br align="left"/>> ];
+    45 [ pos = "-0.036000002,0.15200001!" ];
+
+    46 [ label = <46: <b>base/storesavedatamodule</b><br/><br/>> ];
+    46 [ pos = "-0.791,-0.17400001!" ];
+    46 -> 31 [ label = "0→0" ];
+
+    48 [ label = <48: <b>base/commitsavedatamodule</b><br/><br/>> ];
+    48 [ pos = "0.33900002,0.372!" ];
+    48 -> 41 [ label = "0→0" ];
+
+    50 [ label = <50: <b>DelayModule</b><br/><br/>> ];
+    50 [ pos = "-0.293,0.15100001!" ];
+    50 -> 45 [ label = "0→0" ];
+
+    51 [ label = <51: <b>SaveDataModule</b><br/><br/><i>Used by the crystals<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Ashlands&quot;, <br align="left"/>    FlagName=&quot;gauntlet_crystal_dragg<br align="left"/>    able_altnl01_complete&quot;)]<br align="left"/>> ];
+    51 [ pos = "0.081,-0.17300001!" ];
+
+    52 [ label = <52: <b>base/autosavemodule</b><br/><br/>> ];
+    52 [ pos = "0.739,-0.333!" ];
+
+    53 [ label = <53: <b>base/commitsavedatamodule</b><br/><br/>> ];
+    53 [ pos = "0.50100005,-0.333!" ];
+    53 -> 52 [ label = "0→0" ];
+
+    54 [ label = <54: <b>DelayModule</b><br/><br/>> ];
+    54 [ pos = "0.079,-0.333!" ];
+    54 -> 55 [ label = "0→0" ];
+
+    55 [ label = <55: <b>base/setspawnpointmodule</b><br/><br/><b>World</b><br align="left"/>    &quot;Overworld&quot;<br align="left"/><b>Region</b><br align="left"/>    &quot;AL_Tnl_01&quot;<br align="left"/><b>SpawnPoint</b><br align="left"/>    &quot;AL_Tnl_Enc04_WarPoint&quot;<br align="left"/><b>SpawnLoadRegion</b><br align="left"/>    &quot;StartLoadRegion&quot;<br align="left"/>> ];
+    55 [ pos = "0.27100003,-0.333!" ];
+    55 -> 53 [ label = "0→0" ];
+
+    title [ pos = "-1.213,0.53300005!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>AL_Tnl_01<br align="left"/>Script<br align="left"/><b>VSM_ALTNL01_Crystal_Draggable</b><br align="left"/></font>> ];
+}

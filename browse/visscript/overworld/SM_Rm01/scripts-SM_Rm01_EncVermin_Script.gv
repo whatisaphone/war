@@ -1,0 +1,72 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    2 [ label = <2: <b>SpawnMonsterEventModule</b><br/><br/><i>SM_Rm01_EncVermin<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;SM_Rm01_EncVermin&quot;<br align="left"/>> ];
+    2 [ pos = "0.90700006,-0.085!" ];
+    2 -> 7 [ label = "0→0" ];
+    2 -> 9 [ style = dashed ];
+
+    7 [ label = <7: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;SM_Rm01_EncVermin_TrigRegRemov<br align="left"/>    e&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>Enable</b><br align="left"/>    false<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    7 [ shape = oval ]
+    7 [ pos = "1.292,-0.085!" ];
+    7 -> 15 [ label = "0→0" ];
+
+    8 [ label = <8: <b>ObjectToggleModule</b><br/><br/>> ];
+    8 [ pos = "1.7810001,-0.078!" ];
+    9 -> 8 [ style = dashed ];
+
+    9 [ label = <9: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    9 [ shape = parallelogram ]
+    9 [ pos = "0.91,-0.328!" ];
+
+    10 [ label = <10: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;SM_Rm01_EncVermin_TrigReg_01&quot;,<br align="left"/>     &quot;SM_Rm01_EncVermin_TrigReg_02&quot;,<br align="left"/>     &quot;SM_Rm01_EncVermin_TrigReg_03&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    10 [ shape = oval ]
+    10 [ pos = "0.323,-0.018000001!" ];
+    10 -> 19 [ label = "0→0" ];
+
+    12 [ label = <12: <b>SaveDataModule</b><br/><br/><i>SW_RM15_GreaverDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;SW_RM15_GreaverDead&quot;)]<br align="left"/>> ];
+    12 [ pos = "0.71400005,-0.407!" ];
+    12 -> 13 [ label = "0→0" ];
+
+    13 [ label = <13: <b>SpawnMonsterEventModule</b><br/><br/><i>SM_Rm01_EncVerminB<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;SM_Rm01_EncVerminB&quot;<br align="left"/>> ];
+    13 [ pos = "0.94200003,-0.407!" ];
+    13 -> 14 [ style = dashed ];
+
+    14 [ label = <14: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    14 [ shape = parallelogram ]
+    14 [ pos = "0.94500005,-0.65000004!" ];
+
+    15 [ label = <15: <b>SaveDataModule</b><br/><br/><i>SW_RM15_GreaverDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;SW_RM15_GreaverDead&quot;)]<br align="left"/>> ];
+    15 [ pos = "1.531,-0.085!" ];
+    15 -> 8 [ label = "1→2" ];
+
+    16 [ label = <16: <b>TriggerEventModule</b><br/><br/><i>SM_Rm01_EncVermin_TrigRegReset<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;SM_Rm01_EncVermin_TrigRegReset<br align="left"/>    &quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    16 [ shape = oval ]
+    16 [ pos = "0.063,-0.307!" ];
+    16 -> 19 [ label = "0→1" ];
+    16 -> 17 [ label = "0→2" ];
+
+    17 [ label = <17: <b>ObjectToggleModule</b><br/><br/>> ];
+    17 [ pos = "0.31500003,-0.305!" ];
+    17 -> 19 [ label = "0→0" ];
+    9 -> 17 [ style = dashed ];
+    14 -> 17 [ style = dashed ];
+
+    19 [ label = <19: <b>base/oneshotmodule</b><br/><br/>> ];
+    19 [ pos = "0.60300004,-0.018000001!" ];
+    19 -> 2 [ label = "0→0" ];
+    19 -> 12 [ label = "0→0" ];
+
+    title [ pos = "0.062000003,-0.017!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SM_Rm01<br align="left"/>scripts<br align="left"/><b>SM_Rm01_EncVermin_Script</b><br align="left"/></font>> ];
+}

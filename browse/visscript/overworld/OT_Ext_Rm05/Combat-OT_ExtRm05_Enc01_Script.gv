@@ -1,0 +1,150 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    6 [ label = <6: <b>SaveDataModule</b><br/><br/><i>AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OblivionTow<br align="left"/>    er&quot;, FlagName=&quot;ExtRm05_Enc01_All<br align="left"/>    Dead&quot;)]<br align="left"/>> ];
+    6 [ pos = "0.45000002,-0.158!" ];
+    6 -> 26 [ label = "1→0" ];
+    6 -> 36 [ label = "1→1" ];
+
+    8 [ label = <8: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn wraith_soldier<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;OT_ExtRm05_Enc01_wave_1a&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    -1<br align="left"/><b>PreferInView</b><br align="left"/>    true<br align="left"/><b>PreferInRange</b><br align="left"/>    true<br align="left"/>> ];
+    8 [ pos = "2.207,-0.476!" ];
+    8 -> 57 [ label = "3→0" ];
+    8 -> 56 [ label = "0→0" ];
+
+    10 [ label = <10: <b>SaveDataModule</b><br/><br/><i>AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OblivionTow<br align="left"/>    er&quot;, FlagName=&quot;ExtRm05_Enc01_All<br align="left"/>    Dead&quot;)]<br align="left"/>> ];
+    10 [ pos = "3.9610002,-1.031!" ];
+    10 -> 28 [ label = "3→0" ];
+
+    20 [ label = <20: <b>InvokeMethodModule</b><br/><br/><i>Turn on barrier<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;OT_ExtRm05_Enc01_Barrier&quot;, &quot;OT<br align="left"/>    _ExtRm05_Enc01_Barrier_01&quot;, &quot;OT_<br align="left"/>    ExtRm05_Enc01_Barrier_02&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOn&quot;<br align="left"/>> ];
+    20 [ pos = "1.1730001,-0.18100001!" ];
+    20 -> 53 [ label = "0→0" ];
+
+    25 [ label = <25: <b>ExternalCallModule</b><br/><br/><i>(from OT_ExtRm05_Scripts, FloorF<br align="left"/>all)<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;StartEncounter&quot;<br align="left"/>> ];
+    25 [ shape = oval ]
+    25 [ pos = "0.102000006,-0.158!" ];
+    25 -> 6 [ label = "0→0" ];
+
+    26 [ label = <26: <b>CinematicModule</b><br/><br/><i>OT_ExtRm05_Enc01_CineWalls (from<br align="left"/> combat layer)<br align="left"/></i><br align="left"/><b>CinematicName</b><br align="left"/>    &quot;OT_ExtRm05_Enc01_CineWalls&quot;<br align="left"/>> ];
+    26 [ pos = "0.716,-0.18100001!" ];
+    26 -> 51 [ label = "0→0" ];
+    26 -> 32 [ label = "0→0" ];
+    26 -> 62 [ label = "0→0" ];
+    26 -> 63 [ label = "0→0" ];
+    26 -> 64 [ label = "0→0" ];
+
+    28 [ label = <28: <b>base/commitsavedatamodule</b><br/><br/>> ];
+    28 [ pos = "4.191,-1.077!" ];
+    28 -> 29 [ label = "0→0" ];
+
+    29 [ label = <29: <b>base/autosavemodule</b><br/><br/>> ];
+    29 [ pos = "4.406,-1.077!" ];
+
+    32 [ label = <32: <b>VisScriptCallModule</b><br/><br/><i>Start Falling Floors<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;OT_Ext_Rm05_VisMod_FallingFloor<br align="left"/>    &quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;StartFallingFloors&quot;<br align="left"/>> ];
+    32 [ pos = "0.975,-0.386!" ];
+
+    36 [ label = <36: <b>ObjectToggleModule</b><br/><br/><i>turn on the death-fall region<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;OT_Ext_Rm05_Enc01DamageReg&quot;]<br align="left"/>> ];
+    36 [ pos = "0.69000006,0.231!" ];
+    36 -> 38 [ label = "0→2" ];
+
+    37 [ label = <37: <b>StartModule</b><br/><br/>> ];
+    37 [ shape = oval ]
+    37 [ pos = "0.113000005,0.18800001!" ];
+    37 -> 39 [ label = "0→2" ];
+
+    38 [ label = <38: <b>ObjectToggleModule</b><br/><br/><i>turn off the nerf fall region<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;OT_Ext_Rm05_KillRegionFall&quot;]<br align="left"/>> ];
+    38 [ pos = "0.93900007,0.277!" ];
+
+    39 [ label = <39: <b>ObjectToggleModule</b><br/><br/><i>remove death fall<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;OT_Ext_Rm05_Enc01DamageReg&quot;]<br align="left"/>> ];
+    39 [ pos = "0.43500003,0.23400001!" ];
+
+    40 [ label = <40: <b>ObjectToggleModule</b><br/><br/><i>remove the death-fall region<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;OT_Ext_Rm05_Enc01DamageReg&quot;]<br align="left"/>> ];
+    40 [ pos = "3.0360003,-1.077!" ];
+    40 -> 41 [ label = "0→1" ];
+
+    41 [ label = <41: <b>ObjectToggleModule</b><br/><br/><i>add back the nerf fall region<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;OT_Ext_Rm05_KillRegionFall&quot;]<br align="left"/>> ];
+    41 [ pos = "3.2930002,-1.054!" ];
+    41 -> 58 [ label = "0→0" ];
+
+    45 [ label = <45: <b>TriggerEventModule</b><br/><br/><i>Call to lower cages<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;OT_Ext_Rm05_Enc01_End_TrgReg&quot;,<br align="left"/>     &quot;&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    45 [ shape = oval ]
+    45 [ pos = "4.5990005,-1.075!" ];
+    45 -> 59 [ label = "0→0" ];
+
+    47 [ label = <47: <b>SaveDataModule</b><br/><br/><i>check for call<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;ot_ext_rm05<br align="left"/>    &quot;, FlagName=&quot;lower_cage_cin_play<br align="left"/>    ed&quot;)]<br align="left"/>> ];
+    47 [ pos = "5.117,-1.075!" ];
+    47 -> 48 [ label = "1→0" ];
+    47 -> 50 [ label = "1→1" ];
+
+    48 [ label = <48: <b>VisScriptCallModule</b><br/><br/><i>Call down cages<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;OT_Ext_Rm05_VisMod_FallingFloor<br align="left"/>    &quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;lower_cages_cinematic&quot;<br align="left"/>> ];
+    48 [ pos = "5.3430004,-1.098!" ];
+
+    50 [ label = <50: <b>SaveDataModule</b><br/><br/><i>set call<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;ot_ext_rm05<br align="left"/>    &quot;, FlagName=&quot;lower_cage_cin_play<br align="left"/>    ed&quot;)]<br align="left"/>> ];
+    50 [ pos = "5.3430004,-1.179!" ];
+
+    51 [ label = <51: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    8<br align="left"/>> ];
+    51 [ pos = "0.97700006,-0.18100001!" ];
+    51 -> 20 [ label = "0→0" ];
+
+    53 [ label = <53: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    53 [ pos = "1.4070001,-0.18100001!" ];
+    53 -> 54 [ label = "0→0" ];
+
+    54 [ label = <54: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn Goreclaws<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;OT_ExtRm05_Enc01_wave_1b&quot;<br align="left"/><b>DelayTime</b><br align="left"/>    0.5<br align="left"/><b>PreferInView</b><br align="left"/>    true<br align="left"/><b>PreferInRange</b><br align="left"/>    true<br align="left"/>> ];
+    54 [ pos = "1.603,-0.18100001!" ];
+    54 -> 55 [ label = "1→0" ];
+    54 -> 57 [ label = "3→0" ];
+
+    55 [ label = <55: <b>AccumulatorModule</b><br/><br/><i>Killed = 2?<br align="left"/></i><br align="left"/><b>CountTo</b><br align="left"/>    2<br align="left"/>> ];
+    55 [ pos = "1.9100001,-0.476!" ];
+    55 -> 8 [ label = "0→0" ];
+
+    56 [ label = <56: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn undeadlords<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;OT_ExtRm05_Enc01_wave_2&quot;<br align="left"/><b>DelayTime</b><br align="left"/>    0.5<br align="left"/><b>PreferInView</b><br align="left"/>    true<br align="left"/><b>PreferInRange</b><br align="left"/>    true<br align="left"/>> ];
+    56 [ pos = "2.549,-0.476!" ];
+    56 -> 57 [ label = "3→0" ];
+
+    57 [ label = <57: <b>AccumulatorModule</b><br/><br/><i>All enemies dead?<br align="left"/></i><br align="left"/><b>CountTo</b><br align="left"/>    3<br align="left"/>> ];
+    57 [ pos = "2.7870002,-1.123!" ];
+    57 -> 40 [ label = "0→2" ];
+
+    58 [ label = <58: <b>DelayModule</b><br/><br/>> ];
+    58 [ pos = "3.5390003,-1.054!" ];
+    58 -> 60 [ label = "0→0" ];
+
+    59 [ label = <59: <b>SaveDataModule</b><br/><br/><i>check for encounter complete<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OblivionTow<br align="left"/>    er&quot;, FlagName=&quot;ExtRm05_Enc01_All<br align="left"/>    Dead&quot;)]<br align="left"/>> ];
+    59 [ pos = "4.8700004,-1.075!" ];
+    59 -> 47 [ label = "0→0" ];
+
+    60 [ label = <60: <b>InvokeMethodModule</b><br/><br/><i>Turn off barrier<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;OT_ExtRm05_Enc01_Barrier&quot;, &quot;OT<br align="left"/>    _ExtRm05_Enc01_Barrier_01&quot;, &quot;OT_<br align="left"/>    ExtRm05_Enc01_Barrier_02&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOff&quot;<br align="left"/>> ];
+    60 [ pos = "3.726,-1.054!" ];
+    60 -> 10 [ label = "0→1" ];
+    60 -> 61 [ label = "0→0" ];
+
+    61 [ label = <61: <b>VisScriptCallModule</b><br/><br/><i>scriptedHeavyOutro<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scriptedHeavyOutro&quot;<br align="left"/>> ];
+    61 [ pos = "3.9630003,-1.1880001!" ];
+
+    62 [ label = <62: <b>VisScriptCallModule</b><br/><br/><i>scripted_HeavyCombat<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scripted_HeavyCombat&quot;<br align="left"/>> ];
+    62 [ pos = "0.975,-0.47300002!" ];
+
+    63 [ label = <63: <b>VisScriptCallModule</b><br/><br/><i>music stinger 10<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;OT_Beam_Emitter_Music_script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;stinger 10&quot;<br align="left"/>> ];
+    63 [ pos = "0.975,-0.558!" ];
+
+    64 [ label = <64: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    7<br align="left"/>> ];
+    64 [ pos = "0.9760001,-0.629!" ];
+    64 -> 65 [ label = "0→0" ];
+
+    65 [ label = <65: <b>VisScriptCallModule</b><br/><br/><i>music stinger 7<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;OT_Beam_Emitter_Music_script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;stinger 7&quot;<br align="left"/>> ];
+    65 [ pos = "1.176,-0.629!" ];
+
+    title [ pos = "0.101,0.27800003!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>OT_Ext_Rm05<br align="left"/>Combat<br align="left"/><b>OT_ExtRm05_Enc01_Script</b><br align="left"/></font>> ];
+}

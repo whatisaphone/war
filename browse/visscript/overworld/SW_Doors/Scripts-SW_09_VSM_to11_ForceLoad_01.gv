@@ -1,0 +1,48 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>StartModule</b><br/><br/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "0.4,-0.18800001!" ];
+    1 -> 3 [ label = "0→0" ];
+
+    2 [ label = <2: <b>TriggerEventModule</b><br/><br/><i>check side of door war is on.<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;SW_RM10Tns_Load10a_Trig&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    2 [ shape = oval ]
+    2 [ pos = "0.033,-0.17500001!" ];
+    2 -> 6 [ label = "0→1" ];
+    2 -> 9 [ label = "1→1" ];
+
+    3 [ label = <3: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;sw_Rm10tns_to_Rm10_Door&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onInteractive&quot;]<br align="left"/>> ];
+    3 [ pos = "0.56200004,-0.18800001!" ];
+    3 -> 10 [ label = "0→0" ];
+
+    4 [ label = <4: <b>LoaderModule</b><br/><br/><i>force load sw_Rm10a<br align="left"/></i><br align="left"/><b>Load</b><br align="left"/>    [[139, 1], [292, -1]]<br align="left"/><b>Required</b><br align="left"/>    true<br align="left"/>> ];
+    4 [ pos = "0.99500006,-0.15!" ];
+
+    6 [ label = <6: <b>SaveDataModule</b><br/><br/><i>on10Tns_Side = true<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;on10Tns_Side&quot;)]<br align="left"/>> ];
+    6 [ pos = "0.30900002,-0.039!" ];
+
+    9 [ label = <9: <b>SaveDataModule</b><br/><br/><i>on10Tns_Side = false<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;on10Tns_Side&quot;, FlagValue<br align="left"/>    =&quot;False&quot;)]<br align="left"/>> ];
+    9 [ pos = "0.30900002,-0.27400002!" ];
+
+    10 [ label = <10: <b>SaveDataModule</b><br/><br/><i>on10Tns_Side = true<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;on10Tns_Side&quot;)]<br align="left"/>> ];
+    10 [ pos = "0.76000005,-0.18800001!" ];
+    10 -> 4 [ label = "0→0" ];
+    10 -> 11 [ label = "1→0" ];
+
+    11 [ label = <11: <b>LoaderModule</b><br/><br/><i>force load trans 10 and 09<br align="left"/></i><br align="left"/><b>Load</b><br align="left"/>    [[130, -1]]<br align="left"/><b>Required</b><br align="left"/>    true<br align="left"/>> ];
+    11 [ pos = "0.99600005,-0.26000002!" ];
+
+    title [ pos = "0.032,-0.038000003!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SW_Doors<br align="left"/>Scripts<br align="left"/><b>SW_09_VSM_to11_ForceLoad_01</b><br align="left"/></font>> ];
+}

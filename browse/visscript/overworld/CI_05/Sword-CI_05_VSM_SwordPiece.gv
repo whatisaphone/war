@@ -1,0 +1,45 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    42 [ label = <42: <b>StartModule</b><br/><br/>> ];
+    42 [ shape = oval ]
+    42 [ pos = "-0.28800002,-0.12100001!" ];
+    42 -> 48 [ label = "0→0" ];
+
+    43 [ label = <43: <b>SoundModule</b><br/><br/><b>SoundDescFile</b><br align="left"/>    &quot;base/Music&quot;<br align="left"/><b>SoundID</b><br align="left"/>    916<br align="left"/>> ];
+    43 [ pos = "0.72,-0.076000005!" ];
+
+    44 [ label = <44: <b>base/storesavedatamodule</b><br/><br/>> ];
+    44 [ pos = "0.513,-0.076000005!" ];
+    44 -> 43 [ label = "0→0" ];
+
+    45 [ label = <45: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;CI_05_SwordAltar&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onInteractive&quot;, &quot;onInteractive<br align="left"/>    Complete&quot;]<br align="left"/>> ];
+    45 [ pos = "0.18,-0.11000001!" ];
+    45 -> 44 [ label = "0→0" ];
+    45 -> 51 [ label = "0→0" ];
+
+    48 [ label = <48: <b>SaveDataModule</b><br/><br/><i>SwordPiece_02 = true?<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;QuestItems&quot;<br align="left"/>    , FlagName=&quot;SwordPiece_02&quot;)]<br align="left"/>> ];
+    48 [ pos = "-0.095000006,-0.12100001!" ];
+    48 -> 45 [ label = "0→2" ];
+    48 -> 45 [ label = "1→0" ];
+
+    50 [ label = <50: <b>VisScriptCallModule</b><br/><br/><i>Got_Sword_02<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;Watcher_VSM_SwordPiecesCheck&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;Got_Sword_02&quot;<br align="left"/>> ];
+    50 [ pos = "0.90400004,-0.21700001!" ];
+
+    51 [ label = <51: <b>DelayModule</b><br/><br/>> ];
+    51 [ pos = "0.721,-0.21700001!" ];
+    51 -> 50 [ label = "0→0" ];
+
+    title [ pos = "-0.289,-0.075!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>CI_05<br align="left"/>Sword<br align="left"/><b>CI_05_VSM_SwordPiece</b><br align="left"/></font>> ];
+}

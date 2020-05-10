@@ -1,0 +1,62 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    2 [ label = <2: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;AL_Tnl_Enc01&quot;<br align="left"/>> ];
+    2 [ pos = "0.721,-0.21900001!" ];
+    2 -> 13 [ label = "0→0" ];
+    2 -> 6 [ style = dashed ];
+
+    3 [ label = <3: <b>SpawnMonsterEventModule</b><br/><br/><b>DelayTime</b><br align="left"/>    1.5<br align="left"/>> ];
+    3 [ pos = "1.2140001,-0.21900001!" ];
+    3 -> 10 [ label = "0→0" ];
+    6 -> 3 [ style = dashed ];
+    3 -> 9 [ style = dashed ];
+
+    4 [ label = <4: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;AL_Tnl&quot;, Fl<br align="left"/>    agName=&quot;Enc01_Spawned&quot;)]<br align="left"/>> ];
+    4 [ pos = "0.45600003,-0.19500001!" ];
+    4 -> 5 [ label = "1→1" ];
+    4 -> 2 [ label = "1→0" ];
+
+    5 [ label = <5: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;AL_Tnl&quot;, Fl<br align="left"/>    agName=&quot;Enc01_Spawned&quot;)]<br align="left"/>> ];
+    5 [ pos = "0.66200006,-0.37300003!" ];
+
+    6 [ label = <6: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    6 [ shape = parallelogram ]
+    6 [ pos = "0.96500003,-0.316!" ];
+
+    9 [ label = <9: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    9 [ shape = parallelogram ]
+    9 [ pos = "1.4810001,-0.38500002!" ];
+
+    10 [ label = <10: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;&quot;]<br align="left"/><b>Enable</b><br align="left"/>    false<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    10 [ shape = oval ]
+    10 [ pos = "1.554,-0.16800001!" ];
+    10 -> 11 [ label = "0→2" ];
+
+    11 [ label = <11: <b>ObjectToggleModule</b><br/><br/>> ];
+    11 [ pos = "1.858,-0.24200001!" ];
+    9 -> 11 [ style = dashed ];
+
+    13 [ label = <13: <b>base/isinviewmodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;AL_Tnl_Enc01_LoS_Trigger&quot;<br align="left"/><b>AutoTriggerTime</b><br align="left"/>    &quot;6&quot;<br align="left"/><b>ValidateWithRayCast</b><br align="left"/>    true<br align="left"/>> ];
+    13 [ pos = "0.97900003,-0.16700001!" ];
+    13 -> 3 [ label = "0→0" ];
+    13 -> 3 [ label = "1→0" ];
+
+    14 [ label = <14: <b>ExternalCallModule</b><br/><br/><b>EventName</b><br align="left"/>    &quot;PulseEncounter&quot;<br align="left"/>> ];
+    14 [ shape = oval ]
+    14 [ pos = "0.22700001,-0.19500001!" ];
+    14 -> 4 [ label = "0→0" ];
+
+    title [ pos = "0.22600001,-0.16600001!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>AL_Tnl_01<br align="left"/>Combat<br align="left"/><b>AL_Tnl_Enc01_Script</b><br align="left"/></font>> ];
+}

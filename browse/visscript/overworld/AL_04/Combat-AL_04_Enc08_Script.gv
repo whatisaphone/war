@@ -1,0 +1,232 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    2 [ label = <2: <b>CinematicModule</b><br/><br/><i>Play bridge crank cinematic<br align="left"/></i><br align="left"/><b>CinematicName</b><br align="left"/>    &quot;AL_04_Enc08_BridgeCrankCinemati<br align="left"/>    c&quot;<br align="left"/>> ];
+    2 [ pos = "-1.6200001,0.48900002!" ];
+    2 -> 19 [ label = "1→0" ];
+    2 -> 103 [ label = "0→1" ];
+    2 -> 19 [ label = "2→0" ];
+
+    3 [ label = <3: <b>AnimatorModule</b><br/><br/><i>Play bridge_01<br align="left"/></i><br align="left"/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;AL_04_Drawbridge&quot;, AnimationI<br align="left"/>    D=1)]<br align="left"/>> ];
+    3 [ pos = "-2.1290002,-1.1350001!" ];
+    3 -> 79 [ label = "0→0" ];
+    3 -> 30 [ label = "1→1" ];
+
+    14 [ label = <14: <b>SaveDataModule</b><br/><br/><i>Set bridge down flag<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;AL_04&quot;, Fla<br align="left"/>    gName=&quot;AL_04_BridgeDown&quot;)]<br align="left"/>> ];
+    14 [ pos = "-1.542,-1.4480001!" ];
+    14 -> 101 [ label = "3→1" ];
+
+    16 [ label = <16: <b>SetLinkImpassableModule</b><br/><br/><i>Link bridge path<br align="left"/></i><br align="left"/><b>Impassable</b><br align="left"/>    false<br align="left"/><b>LinkNames</b><br align="left"/>    [&quot;AL_04_BridgePathLink_01&quot;, &quot;AL_<br align="left"/>    04_BridgePathLink_02&quot;]<br align="left"/>> ];
+    16 [ pos = "-1.5380001,-1.6730001!" ];
+    16 -> 48 [ label = "0→0" ];
+
+    19 [ label = <19: <b>ObjectMoverModule</b><br/><br/><i>Move War<br align="left"/></i><br align="left"/><b>ObjectName</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>MoveVal</b><br align="left"/>    0<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;AL_04_Enc08_CinePlayerPos&quot;<br align="left"/><b>RotateObject</b><br align="left"/>    true<br align="left"/>> ];
+    19 [ pos = "-1.3920001,0.46600002!" ];
+    19 -> 43 [ label = "0→0" ];
+
+    21 [ label = <21: <b>AccumulatorModule</b><br/><br/><i>All dead?<br align="left"/></i><br align="left"/><b>CountTo</b><br align="left"/>    6<br align="left"/>> ];
+    21 [ pos = "1.6680001,-0.117000006!" ];
+    21 -> 22 [ label = "0→1" ];
+
+    22 [ label = <22: <b>SaveDataModule</b><br/><br/><i>Set Enc_08 Complete<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;AL_04&quot;, Fla<br align="left"/>    gName=&quot;AL_04_Enc08_Complete&quot;)]<br align="left"/>> ];
+    22 [ pos = "1.9350001,-0.094000004!" ];
+
+    23 [ label = <23: <b>base/commitsavedatamodule</b><br/><br/>> ];
+    23 [ pos = "-1.0630001,-1.5020001!" ];
+    23 -> 24 [ label = "0→0" ];
+
+    24 [ label = <24: <b>base/autosavemodule</b><br/><br/>> ];
+    24 [ pos = "-0.836,-1.5020001!" ];
+
+    27 [ label = <27: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn BridgeCrank guy<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;AL_04_Enc08_BridgeCrank&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    1<br align="left"/><b>IsRandom</b><br align="left"/>    false<br align="left"/>> ];
+    27 [ pos = "-1.8740001,-0.049000002!" ];
+    27 -> 21 [ label = "3→0" ];
+
+    30 [ label = <30: <b>TriggerEventModule</b><br/><br/><i>Bridgecrank Guy reaches crank<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;BridgeCrank_TrgReg&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    30 [ shape = oval ]
+    30 [ pos = "-1.8970001,-0.92200005!" ];
+    30 -> 31 [ label = "0→0" ];
+    30 -> 108 [ label = "0→2" ];
+
+    31 [ label = <31: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    31 [ pos = "-1.623,-0.92200005!" ];
+    31 -> 49 [ label = "0→0" ];
+
+    32 [ label = <32: <b>SaveDataModule</b><br/><br/><i>Enc08 complete?<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;AL_04&quot;, Fla<br align="left"/>    gName=&quot;AL_04_Enc08_Complete&quot;)]<br align="left"/>> ];
+    32 [ pos = "-2.8270001,-0.003!" ];
+    32 -> 67 [ label = "1→0" ];
+
+    38 [ label = <38: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn BFGs<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;AL_04_Enc08a&quot;<br align="left"/>> ];
+    38 [ pos = "-0.883,0.46600002!" ];
+    38 -> 42 [ label = "0→0" ];
+    38 -> 21 [ label = "3→0" ];
+
+    39 [ label = <39: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn BFGs<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;AL_04_Enc08b&quot;<br align="left"/>> ];
+    39 [ pos = "-0.379,0.46600002!" ];
+    39 -> 41 [ label = "0→0" ];
+    39 -> 21 [ label = "3→0" ];
+
+    40 [ label = <40: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn BFGs<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;AL_04_Enc08c&quot;<br align="left"/>> ];
+    40 [ pos = "0.15,0.46600002!" ];
+    40 -> 21 [ label = "3→0" ];
+
+    41 [ label = <41: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    3<br align="left"/>> ];
+    41 [ pos = "-0.064,0.46600002!" ];
+    41 -> 40 [ label = "0→0" ];
+
+    42 [ label = <42: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    3<br align="left"/>> ];
+    42 [ pos = "-0.58000004,0.46600002!" ];
+    42 -> 39 [ label = "0→0" ];
+
+    43 [ label = <43: <b>CinematicModule</b><br/><br/><i>Play Enc08_Cinematic<br align="left"/></i><br align="left"/><b>CinematicName</b><br align="left"/>    &quot;AL_04_Enc08_Cinematic&quot;<br align="left"/>> ];
+    43 [ pos = "-1.151,0.46600002!" ];
+    43 -> 38 [ label = "0→0" ];
+
+    46 [ label = <46: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn 3 waves after drawbridge d<br align="left"/>rops<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;AL_04_Enc08e&quot;<br align="left"/><b>DelayTime</b><br align="left"/>    1<br align="left"/>> ];
+    46 [ pos = "-0.30100003,-1.6730001!" ];
+    46 -> 72 [ label = "3→0" ];
+    46 -> 84 [ label = "3→0" ];
+
+    48 [ label = <48: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn PGBrute bridgecrosser<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;AL_04_Enc08d&quot;<br align="left"/>> ];
+    48 [ pos = "-1.2600001,-1.6730001!" ];
+    48 -> 21 [ label = "3→0" ];
+    48 -> 46 [ label = "0→0" ];
+
+    49 [ label = <49: <b>CinematicModule</b><br/><br/><i>Look at Bridge<br align="left"/></i><br align="left"/><b>CinematicName</b><br align="left"/>    &quot;AL_04_Enc08_BridgeLookatCinemat<br align="left"/>    ic&quot;<br align="left"/>> ];
+    49 [ pos = "-1.4230001,-0.92200005!" ];
+    49 -> 64 [ label = "0→0" ];
+
+    64 [ label = <64: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    64 [ pos = "-2.3240001,-1.1350001!" ];
+    64 -> 3 [ label = "0→0" ];
+
+    65 [ label = <65: <b>base/camerashakemodule</b><br/><br/><i>Cam shake for drawbridge<br align="left"/></i><br align="left"/><b>ObjectName</b><br align="left"/>    &quot;AL_04_RespawnRegion_05&quot;<br align="left"/><b>HorizontalPower</b><br align="left"/>    0.5<br align="left"/><b>VerticalPower</b><br align="left"/>    4<br align="left"/><b>HorizontalFreq</b><br align="left"/>    10<br align="left"/><b>VerticalFreq</b><br align="left"/>    100<br align="left"/><b>Duration</b><br align="left"/>    0.1<br align="left"/><b>EaseOut</b><br align="left"/>    0.25<br align="left"/>> ];
+    65 [ pos = "-1.319,-1.246!" ];
+
+    66 [ label = <66: <b>DelayModule</b><br/><br/>> ];
+    66 [ pos = "-1.544,-1.246!" ];
+    66 -> 65 [ label = "0→0" ];
+
+    67 [ label = <67: <b>SaveDataModule</b><br/><br/><i>Has drawbridge lowered?<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;AL_04&quot;, Fla<br align="left"/>    gName=&quot;AL_04_BridgeDown&quot;)]<br align="left"/>> ];
+    67 [ pos = "-2.5730002,-0.026!" ];
+    67 -> 30 [ label = "1→0" ];
+    67 -> 83 [ label = "0→0" ];
+    67 -> 30 [ label = "0→1" ];
+    67 -> 107 [ label = "1→0" ];
+    67 -> 108 [ label = "1→0" ];
+
+    68 [ label = <68: <b>AnimatorModule</b><br/><br/><i>Put drawbridge down<br align="left"/></i><br align="left"/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;AL_04_Drawbridge&quot;, AnimationI<br align="left"/>    D=6)]<br align="left"/>> ];
+    68 [ pos = "-2.8850002,-0.94500005!" ];
+    68 -> 30 [ label = "0→1" ];
+
+    70 [ label = <70: <b>SaveDataModule</b><br/><br/><i>Enc08 complete?<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;AL_04&quot;, Fla<br align="left"/>    gName=&quot;AL_04_Enc08_Complete&quot;)]<br align="left"/>> ];
+    70 [ pos = "-3.13,-1.057!" ];
+    70 -> 68 [ label = "0→0" ];
+    70 -> 81 [ label = "1→0" ];
+
+    71 [ label = <71: <b>TriggerEventModule</b><br/><br/><i>Has war entered AL_04_Enc08_Brid<br align="left"/>geCrosserSpawnStop_TrgReg?<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;AL_04_Enc08_BridgeCrosserSpawn<br align="left"/>    Stop_TrgReg&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    71 [ shape = oval ]
+    71 [ pos = "-0.71000004,-1.9750001!" ];
+    71 -> 46 [ label = "0→2" ];
+
+    72 [ label = <72: <b>DelayModule</b><br/><br/><i>Delay between waves<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    4<br align="left"/>> ];
+    72 [ pos = "-0.25,-1.96!" ];
+    72 -> 46 [ label = "0→0" ];
+
+    74 [ label = <74: <b>AnimatorModule</b><br/><br/><i>Play bridge_02<br align="left"/></i><br align="left"/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;AL_04_Drawbridge&quot;, AnimationI<br align="left"/>    D=3)]<br align="left"/>> ];
+    74 [ pos = "-2.125,-1.3210001!" ];
+    74 -> 77 [ label = "0→0" ];
+
+    75 [ label = <75: <b>AnimatorModule</b><br/><br/><i>Play bridge_03<br align="left"/></i><br align="left"/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;AL_04_Drawbridge&quot;, AnimationI<br align="left"/>    D=5)]<br align="left"/>> ];
+    75 [ pos = "-1.8800001,-1.511!" ];
+    75 -> 66 [ label = "0→0" ];
+    75 -> 14 [ label = "1→1" ];
+    75 -> 16 [ label = "1→0" ];
+
+    77 [ label = <77: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    25<br align="left"/>> ];
+    77 [ pos = "-2.321,-1.511!" ];
+    77 -> 82 [ label = "0→0" ];
+
+    79 [ label = <79: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    12<br align="left"/>> ];
+    79 [ pos = "-2.322,-1.3210001!" ];
+    79 -> 74 [ label = "0→0" ];
+
+    80 [ label = <80: <b>AnimatorModule</b><br/><br/><i>Make sure to set bridge to start<br align="left"/> position<br align="left"/></i><br align="left"/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;AL_04_Drawbridge&quot;, AnimationI<br align="left"/>    D=0)]<br align="left"/>> ];
+    80 [ pos = "-1.8740001,-0.324!" ];
+
+    81 [ label = <81: <b>AnimatorModule</b><br/><br/><i>Put drawbridge up<br align="left"/></i><br align="left"/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;AL_04_Drawbridge&quot;, AnimationI<br align="left"/>    D=0)]<br align="left"/>> ];
+    81 [ pos = "-2.8860002,-1.08!" ];
+
+    82 [ label = <82: <b>CinematicModule</b><br/><br/><i>Play bridgedown cinematic<br align="left"/></i><br align="left"/><b>CinematicName</b><br align="left"/>    &quot;AL_04_Enc08_BridgeLookatCinemat<br align="left"/>    ic&quot;<br align="left"/>> ];
+    82 [ pos = "-2.1230001,-1.511!" ];
+    82 -> 75 [ label = "0→0" ];
+
+    83 [ label = <83: <b>AnimatorModule</b><br/><br/><i>Put drawbridge down<br align="left"/></i><br align="left"/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;AL_04_Drawbridge&quot;, AnimationI<br align="left"/>    D=6)]<br align="left"/>> ];
+    83 [ pos = "-2.3330002,-0.855!" ];
+
+    84 [ label = <84: <b>AccumulatorModule</b><br/><br/><i>Disable spawners if 3 waves dead<br align="left"/></i><br align="left"/><b>CountTo</b><br align="left"/>    3<br align="left"/>> ];
+    84 [ pos = "-0.272,-1.4510001!" ];
+    84 -> 46 [ label = "0→2" ];
+    84 -> 21 [ label = "0→0" ];
+
+    87 [ label = <87: <b>ExternalCallModule</b><br/><br/><i>BridgeDrop call<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;BridgeDrop&quot;<br align="left"/>> ];
+    87 [ shape = oval ]
+    87 [ pos = "-3.108,-0.003!" ];
+    87 -> 32 [ label = "0→0" ];
+
+    88 [ label = <88: <b>AnimatorModule</b><br/><br/><i>Put drawbridge down<br align="left"/></i><br align="left"/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;AL_04_Drawbridge&quot;, AnimationI<br align="left"/>    D=6)]<br align="left"/>> ];
+    88 [ pos = "-2.8850002,-0.94500005!" ];
+
+    89 [ label = <89: <b>StartModule</b><br/><br/><i>Set drawbridge state<br align="left"/></i><br align="left"/>> ];
+    89 [ shape = oval ]
+    89 [ pos = "-3.3580003,-1.057!" ];
+    89 -> 70 [ label = "0→0" ];
+
+    90 [ label = <90: <b>SaveDataModule</b><br/><br/><i>Enc08 complete?<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;AL_04&quot;, Fla<br align="left"/>    gName=&quot;AL_04_Enc08_Complete&quot;)]<br align="left"/>> ];
+    90 [ pos = "-3.13,-1.057!" ];
+    90 -> 68 [ label = "0→0" ];
+    90 -> 81 [ label = "1→0" ];
+
+    91 [ label = <91: <b>AnimatorModule</b><br/><br/><i>Put drawbridge up<br align="left"/></i><br align="left"/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;AL_04_Drawbridge&quot;, AnimationI<br align="left"/>    D=0)]<br align="left"/>> ];
+    91 [ pos = "-2.8860002,-1.08!" ];
+
+    101 [ label = <101: <b>SaveDataModule</b><br/><br/><i>Set Encounter Complete<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;AL_04&quot;, Fla<br align="left"/>    gName=&quot;AL_04_Enc08_Complete&quot;)]<br align="left"/>> ];
+    101 [ pos = "-1.307,-1.4710001!" ];
+
+    102 [ label = <102: <b>SaveDataModule</b><br/><br/><i>Has bridgecrank cinematic played<br align="left"/>?<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;AL_04&quot;, Fla<br align="left"/>    gName=&quot;BridgeCrank_Cinematic_Com<br align="left"/>    plete&quot;)]<br align="left"/>> ];
+    102 [ pos = "-1.876,0.512!" ];
+    102 -> 2 [ label = "1→0" ];
+    102 -> 106 [ label = "1→0" ];
+
+    103 [ label = <103: <b>SaveDataModule</b><br/><br/><i>Set BridgeCrank_Cinematic_Comple<br align="left"/>te TRUE<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;AL_04&quot;, Fla<br align="left"/>    gName=&quot;BridgeCrank_Cinematic_Com<br align="left"/>    plete&quot;)]<br align="left"/>> ];
+    103 [ pos = "-1.8740001,0.135!" ];
+    103 -> 106 [ label = "3→2" ];
+
+    106 [ label = <106: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    3<br align="left"/>> ];
+    106 [ pos = "-1.8560001,0.349!" ];
+    106 -> 102 [ label = "0→0" ];
+
+    107 [ label = <107: <b>DelayModule</b><br/><br/>> ];
+    107 [ pos = "-2.17,-0.049000002!" ];
+    107 -> 102 [ label = "0→0" ];
+    107 -> 27 [ label = "0→0" ];
+    107 -> 80 [ label = "0→0" ];
+
+    108 [ label = <108: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    8<br align="left"/>> ];
+    108 [ pos = "-1.8960001,-0.71500003!" ];
+    108 -> 31 [ label = "0→0" ];
+    108 -> 30 [ label = "0→1" ];
+
+    title [ pos = "-3.3590002,0.513!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>AL_04<br align="left"/>Combat<br align="left"/><b>AL_04_Enc08_Script</b><br align="left"/><br/><i>AL_04_Enc08_Script</i><br align="left"/></font>> ];
+}

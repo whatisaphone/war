@@ -1,0 +1,53 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>StartModule</b><br/><br/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "-0.379,-0.272!" ];
+    1 -> 33 [ label = "0→0" ];
+    1 -> 39 [ label = "0→0" ];
+
+    14 [ label = <14: <b>SaveDataModule</b><br/><br/><i>Played cutscene before?<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Ashlands&quot;, <br align="left"/>    FlagName=&quot;Soul_Bridge_Reveal&quot;)]<br align="left"/>> ];
+    14 [ pos = "0.141,-0.272!" ];
+    14 -> 31 [ label = "1→0" ];
+
+    31 [ label = <31: <b>CinematicModule</b><br/><br/><b>CinematicName</b><br align="left"/>    &quot;AL_02_S_Bridge_Cinematic&quot;<br align="left"/>> ];
+    31 [ pos = "0.45700002,-0.294!" ];
+    31 -> 32 [ label = "1→1" ];
+
+    32 [ label = <32: <b>SaveDataModule</b><br/><br/><i>Played cutscene before?<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Ashlands&quot;, <br align="left"/>    FlagName=&quot;Soul_Bridge_Reveal&quot;)]<br align="left"/>> ];
+    32 [ pos = "0.74300003,-0.294!" ];
+
+    33 [ label = <33: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;AL_02_SoulBridge_IC_1&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onSoulBridgeActivate&quot;]<br align="left"/>> ];
+    33 [ pos = "-0.17300001,-0.272!" ];
+    33 -> 14 [ label = "0→0" ];
+
+    36 [ label = <36: <b>base/giveitemmodule</b><br/><br/><i>base/tip_soulBridge<br align="left"/></i><br align="left"/><b>Item</b><br align="left"/>    &quot;base/tip_soulBridge&quot;<br align="left"/>> ];
+    36 [ pos = "0.874,-0.038000003!" ];
+
+    37 [ label = <37: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;AL_02_Soulbridge_Tutorial_Trig<br align="left"/>    ger&quot;, &quot;&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    37 [ shape = oval ]
+    37 [ pos = "0.38200003,-0.038000003!" ];
+    37 -> 38 [ label = "0→0" ];
+
+    38 [ label = <38: <b>base/hasitemmodule</b><br/><br/><i>items/item_soulbridgeshard<br align="left"/></i><br align="left"/><b>Item</b><br align="left"/>    &quot;items/item_soulbridgeshard&quot;<br align="left"/>> ];
+    38 [ pos = "0.63600004,-0.038000003!" ];
+    38 -> 36 [ label = "0→0" ];
+
+    39 [ label = <39: <b>SaveDataModule</b><br/><br/><i>Played cutscene before?<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Ashlands&quot;, <br align="left"/>    FlagName=&quot;Soul_Bridge_Reveal&quot;)]<br align="left"/>> ];
+    39 [ pos = "0.14,-0.061000004!" ];
+    39 -> 37 [ label = "0→1" ];
+
+    title [ pos = "-0.38000003,-0.037!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>AL_02<br align="left"/>Script<br align="left"/><b>AL_02_Soulbridge_Script</b><br align="left"/></font>> ];
+}

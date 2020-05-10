@@ -1,0 +1,97 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>StartModule</b><br/><br/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "-0.155,-0.128!" ];
+    1 -> 3 [ label = "0→0" ];
+    1 -> 23 [ label = "0→0" ];
+
+    2 [ label = <2: <b>SpawnMonsterEventModule</b><br/><br/>> ];
+    2 [ pos = "0.77000004,-0.12900001!" ];
+    4 -> 2 [ style = dashed ];
+
+    3 [ label = <3: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;Crows&quot;<br align="left"/>> ];
+    3 [ pos = "0.11400001,-0.128!" ];
+    3 -> 2 [ label = "0→0" ];
+    3 -> 4 [ style = dashed ];
+
+    4 [ label = <4: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    4 [ shape = parallelogram ]
+    4 [ pos = "0.46600002,-0.257!" ];
+
+    20 [ label = <20: <b>InteractiveRegionModule</b><br/><br/><b>InteractiveRegionList</b><br align="left"/>    [&quot;InteractiveRegion&quot;]<br align="left"/>> ];
+    20 [ pos = "1.054,-0.49500003!" ];
+    20 -> 21 [ label = "0→0" ];
+
+    21 [ label = <21: <b>InvokeMethodModule</b><br/><br/><b>MethodName</b><br align="left"/>    &quot;doImbue&quot;<br align="left"/>> ];
+    21 [ pos = "1.399,-0.32700002!" ];
+    21 -> 26 [ label = "0→0" ];
+    21 -> 20 [ label = "0→1" ];
+    24 -> 21 [ style = dashed ];
+
+    22 [ label = <22: <b>SpawnMonsterEventModule</b><br/><br/><b>NumberToSpawn</b><br align="left"/>    1<br align="left"/>> ];
+    22 [ pos = "0.712,-0.48800004!" ];
+    22 -> 20 [ label = "0→0" ];
+    22 -> 24 [ style = dashed ];
+    25 -> 22 [ style = dashed ];
+
+    23 [ label = <23: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;Gate&quot;<br align="left"/>> ];
+    23 [ pos = "-0.003,-0.48900002!" ];
+    23 -> 22 [ label = "0→0" ];
+    23 -> 25 [ style = dashed ];
+
+    24 [ label = <24: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    24 [ shape = parallelogram ]
+    24 [ pos = "1.116,-0.67200005!" ];
+
+    25 [ label = <25: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    25 [ shape = parallelogram ]
+    25 [ pos = "0.37100002,-0.61800003!" ];
+
+    26 [ label = <26: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    12.7<br align="left"/>> ];
+    26 [ pos = "1.72,-0.32700002!" ];
+    26 -> 28 [ label = "0→0" ];
+
+    27 [ label = <27: <b>SpawnMonsterEventModule</b><br/><br/>> ];
+    27 [ pos = "2.2640002,-0.43300003!" ];
+    27 -> 32 [ label = "1→0" ];
+    27 -> 20 [ label = "2→0" ];
+    29 -> 27 [ style = dashed ];
+    27 -> 30 [ style = dashed ];
+
+    28 [ label = <28: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;Prowlers&quot;<br align="left"/>> ];
+    28 [ pos = "1.909,-0.326!" ];
+    28 -> 27 [ label = "0→0" ];
+    28 -> 29 [ style = dashed ];
+
+    29 [ label = <29: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    29 [ shape = parallelogram ]
+    29 [ pos = "2.035,-0.66200006!" ];
+
+    30 [ label = <30: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    30 [ shape = parallelogram ]
+    30 [ pos = "2.4410002,-0.74!" ];
+
+    32 [ label = <32: <b>SpawnerEventModule</b><br/><br/><b>ClassToSpawn</b><br align="left"/>    &quot;undead/undead&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    1<br align="left"/><b>NameRoot</b><br align="left"/>    &quot;caster&quot;<br align="left"/>> ];
+    32 [ pos = "2.7630002,-0.61700004!" ];
+    32 -> 33 [ label = "2→0" ];
+    30 -> 32 [ style = dashed ];
+
+    33 [ label = <33: <b>InvokeMethodModule</b><br/><br/><b>MethodName</b><br align="left"/>    &quot;prowlersDead&quot;<br align="left"/>> ];
+    33 [ pos = "3.1260002,-0.68!" ];
+    24 -> 33 [ style = dashed ];
+
+    title [ pos = "-0.156,-0.127!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">br_tgate<br align="left"/>Traversal<br align="left"/>default<br align="left"/><b>VisScriptModuleSystem</b><br align="left"/></font>> ];
+}

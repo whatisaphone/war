@@ -1,0 +1,91 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    5 [ label = <5: <b>ExternalCallModule</b><br/><br/><i>Start Post-Crystal<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;StartEncounter&quot;<br align="left"/>> ];
+    5 [ shape = oval ]
+    5 [ pos = "-0.44700003,-0.086!" ];
+    5 -> 50 [ label = "0→0" ];
+
+    11 [ label = <11: <b>DelayModule</b><br/><br/><i>go Encounter<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    11 [ pos = "0.002,-0.08400001!" ];
+    11 -> 21 [ label = "0→0" ];
+    11 -> 57 [ label = "0→0" ];
+
+    20 [ label = <20: <b>SpawnMonsterEventModule</b><br/><br/>> ];
+    20 [ pos = "0.45200002,-0.09!" ];
+    20 -> 65 [ label = "3→0" ];
+    22 -> 20 [ style = dashed ];
+    20 -> 31 [ style = dashed ];
+
+    21 [ label = <21: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;SM_Rm01_Enc13&quot;<br align="left"/>> ];
+    21 [ pos = "0.18800001,-0.08800001!" ];
+    21 -> 20 [ label = "0→0" ];
+    21 -> 22 [ style = dashed ];
+
+    22 [ label = <22: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    22 [ shape = parallelogram ]
+    22 [ pos = "0.24100001,-0.223!" ];
+
+    31 [ label = <31: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    31 [ shape = parallelogram ]
+    31 [ pos = "0.45900002,-0.32000002!" ];
+
+    50 [ label = <50: <b>SaveDataModule</b><br/><br/><i>SaveBeforeUriel<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SM_Rm01&quot;, F<br align="left"/>    lagName=&quot;SaveBeforeUriel&quot;)]<br align="left"/>> ];
+    50 [ pos = "-0.20500001,-0.086!" ];
+    50 -> 11 [ label = "1→0" ];
+
+    57 [ label = <57: <b>DebugOutModule</b><br/><br/><b>Message</b><br align="left"/>    &quot;STAGE 1&quot;<br align="left"/>> ];
+    57 [ pos = "0.179,0.034!" ];
+
+    58 [ label = <58: <b>base/sethealthmodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;SM_Rm01_Enc13_Fallen&quot;<br align="left"/><b>MaxHitPoints</b><br align="left"/>    65<br align="left"/><b>MinHitPoints</b><br align="left"/>    65<br align="left"/>> ];
+    58 [ pos = "1.5840001,-0.093!" ];
+    58 -> 60 [ label = "0→0" ];
+
+    59 [ label = <59: <b>base/sethealthmodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;SM_Rm01_Enc13_FallenTarget&quot;<br align="left"/><b>MaxHitPoints</b><br align="left"/>    40<br align="left"/><b>MinHitPoints</b><br align="left"/>    40<br align="left"/>> ];
+    59 [ pos = "0.75100005,-0.09!" ];
+    59 -> 62 [ label = "0→0" ];
+
+    60 [ label = <60: <b>base/settargetmodule</b><br/><br/><b>Target</b><br align="left"/>    &quot;SM_Rm01_Enc13_Fallen&quot;<br align="left"/>> ];
+    60 [ pos = "1.8470001,-0.23500001!" ];
+    31 -> 60 [ style = dashed ];
+
+    61 [ label = <61: <b>SpawnMonsterEventModule</b><br/><br/>> ];
+    61 [ pos = "1.3050001,-0.093!" ];
+    61 -> 58 [ label = "0→0" ];
+    61 -> 65 [ label = "3→0" ];
+    63 -> 61 [ style = dashed ];
+    61 -> 64 [ style = dashed ];
+
+    62 [ label = <62: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;SM_Rm01_Enc13F&quot;<br align="left"/>> ];
+    62 [ pos = "1.041,-0.091000006!" ];
+    62 -> 61 [ label = "0→0" ];
+    62 -> 63 [ style = dashed ];
+
+    63 [ label = <63: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    63 [ shape = parallelogram ]
+    63 [ pos = "1.0940001,-0.22600001!" ];
+
+    64 [ label = <64: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    64 [ shape = parallelogram ]
+    64 [ pos = "1.312,-0.323!" ];
+
+    65 [ label = <65: <b>AccumulatorModule</b><br/><br/>> ];
+    65 [ pos = "0.98100007,-0.546!" ];
+    65 -> 66 [ label = "0→1" ];
+
+    66 [ label = <66: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Smith&quot;, Fla<br align="left"/>    gName=&quot;FallenDogsDead&quot;)]<br align="left"/>> ];
+    66 [ pos = "1.21,-0.54700005!" ];
+
+    title [ pos = "-0.448,0.035!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SM_Rm01<br align="left"/>CombatDog<br align="left"/><b>SM_Rm01_Enc13_Script</b><br align="left"/></font>> ];
+}

@@ -1,0 +1,47 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    3 [ label = <3: <b>SpawnMonsterEventModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;T23_Enc03&quot;<br align="left"/><b>DelayTime</b><br align="left"/>    0.03<br align="left"/>> ];
+    3 [ pos = "0.469,-0.23900001!" ];
+    3 -> 10 [ label = "2→1" ];
+    3 -> 14 [ style = dashed ];
+
+    5 [ label = <5: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;T23_Enc03_TrigReg&quot;, &quot;&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    5 [ shape = oval ]
+    5 [ pos = "0.014,-0.23700002!" ];
+    5 -> 6 [ label = "0→0" ];
+
+    6 [ label = <6: <b>SaveDataModule</b><br/><br/><i>TransC0203.Enc02_AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;TransC0203&quot;<br align="left"/>    , FlagName=&quot;Enc03_AllDead&quot;)]<br align="left"/>> ];
+    6 [ pos = "0.256,-0.23700002!" ];
+    6 -> 3 [ label = "1→0" ];
+
+    10 [ label = <10: <b>SaveDataModule</b><br/><br/><i>TransC0203.Enc02_AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;TransC0203&quot;<br align="left"/>    , FlagName=&quot;Enc03_AllDead&quot;)]<br align="left"/>> ];
+    10 [ pos = "0.76000005,-0.245!" ];
+
+    14 [ label = <14: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    14 [ shape = parallelogram ]
+    14 [ pos = "0.47400004,-0.483!" ];
+
+    20 [ label = <20: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;T23_Enc03_TrigRegAggro&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    20 [ shape = oval ]
+    20 [ pos = "0.45900002,-0.596!" ];
+    20 -> 5 [ label = "0→1" ];
+    20 -> 21 [ label = "0→0" ];
+
+    21 [ label = <21: <b>InvokeMethodModule</b><br/><br/><b>MethodName</b><br align="left"/>    &quot;setBehaviorCombat&quot;<br align="left"/>> ];
+    21 [ pos = "0.851,-0.45100003!" ];
+    14 -> 21 [ style = dashed ];
+
+    title [ pos = "0.013,-0.23600002!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>CI_T_02-03<br align="left"/>Combat<br align="left"/><b>T23_Enc03_Script</b><br align="left"/></font>> ];
+}

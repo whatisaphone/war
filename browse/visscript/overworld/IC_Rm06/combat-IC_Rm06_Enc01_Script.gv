@@ -1,0 +1,45 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    4 [ label = <4: <b>StartModule</b><br/><br/><i>Init ic_rm06 encounter 00<br align="left"/></i><br align="left"/>> ];
+    4 [ shape = oval ]
+    4 [ pos = "-0.286,-0.18!" ];
+
+    6 [ label = <6: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;IC_Rm06_Enc01&quot;<br align="left"/>> ];
+    6 [ pos = "0.40100002,-0.20300001!" ];
+    6 -> 8 [ label = "0→0" ];
+    6 -> 7 [ style = dashed ];
+
+    7 [ label = <7: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    7 [ shape = parallelogram ]
+    7 [ pos = "0.637,-0.397!" ];
+
+    8 [ label = <8: <b>SpawnMonsterEventModule</b><br/><br/><b>IsRandom</b><br align="left"/>    false<br align="left"/>> ];
+    8 [ pos = "0.84900004,-0.20300001!" ];
+    8 -> 19 [ label = "2→1" ];
+    7 -> 8 [ style = dashed ];
+
+    17 [ label = <17: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;IC&quot;, FlagNa<br align="left"/>    me=&quot;ic_rm06_enc00_complete&quot;)]<br align="left"/>> ];
+    17 [ pos = "-0.072000004,-0.18!" ];
+    17 -> 18 [ label = "0→0" ];
+
+    18 [ label = <18: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;IC&quot;, FlagNa<br align="left"/>    me=&quot;ic_rm06_enc01_complete&quot;)]<br align="left"/>> ];
+    18 [ pos = "0.163,-0.18!" ];
+    18 -> 6 [ label = "1→0" ];
+
+    19 [ label = <19: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;IC&quot;, FlagNa<br align="left"/>    me=&quot;ic_rm06_enc01_complete&quot;)]<br align="left"/>> ];
+    19 [ pos = "1.1420001,-0.22600001!" ];
+
+    title [ pos = "-0.287,-0.179!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>IC_Rm06<br align="left"/>combat<br align="left"/><b>IC_Rm06_Enc01_Script</b><br align="left"/></font>> ];
+}

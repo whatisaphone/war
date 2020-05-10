@@ -1,0 +1,133 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    3 [ label = <3: <b>base/camerashakemodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>HorizontalPower</b><br align="left"/>    2<br align="left"/><b>VerticalPower</b><br align="left"/>    2<br align="left"/>> ];
+    3 [ pos = "0.65500003,-0.795!" ];
+
+    43 [ label = <43: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Int_Rm02_TowerHead_01&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onReceiveBeam&quot;]<br align="left"/>> ];
+    43 [ pos = "-0.91,-0.92700005!" ];
+    43 -> 91 [ label = "0→0" ];
+
+    44 [ label = <44: <b>StartModule</b><br/><br/>> ];
+    44 [ shape = oval ]
+    44 [ pos = "-1.266,-0.92700005!" ];
+    44 -> 43 [ label = "0→0" ];
+
+    74 [ label = <74: <b>CinematicModule</b><br/><br/><i>beam transfer to skull<br align="left"/></i><br align="left"/><b>CinematicName</b><br align="left"/>    &quot;OT_Int_Rm02_TowerHead_01_Cine&quot;<br align="left"/>> ];
+    74 [ pos = "-0.44900003,-0.92700005!" ];
+    74 -> 135 [ label = "0→0" ];
+    74 -> 112 [ label = "0→1" ];
+    74 -> 118 [ label = "1→0" ];
+
+    79 [ label = <79: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Int_Rm02<br align="left"/>    &quot;, FlagName=&quot;OT_Int_Rm02_TowerHe<br align="left"/>    ad_01&quot;)]<br align="left"/>> ];
+    79 [ pos = "-1.4000001,-0.587!" ];
+    79 -> 43 [ label = "0→2" ];
+    79 -> 152 [ label = "1→0" ];
+    79 -> 156 [ label = "0→0" ];
+
+    91 [ label = <91: <b>base/oneshotmodule</b><br/><br/>> ];
+    91 [ pos = "-0.63100004,-0.92700005!" ];
+    91 -> 74 [ label = "0→0" ];
+    91 -> 146 [ label = "0→0" ];
+
+    108 [ label = <108: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Int_Rm02_Beam_Emitter_01&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;open&quot;<br align="left"/>> ];
+    108 [ pos = "-0.37,-1.4580001!" ];
+
+    109 [ label = <109: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;OT_Int_Rm02_TowerHead_01_Trg&quot;,<br align="left"/>     &quot;&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    109 [ shape = oval ]
+    109 [ pos = "-1.238,-1.4350001!" ];
+    109 -> 125 [ label = "0→0" ];
+
+    112 [ label = <112: <b>SaveDataModule</b><br/><br/><i>Tower Head 01<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Int_Rm02<br align="left"/>    &quot;, FlagName=&quot;OT_Int_Rm02_TowerHe<br align="left"/>    ad_01&quot;)]<br align="left"/>> ];
+    112 [ pos = "-0.20700002,-0.772!" ];
+
+    114 [ label = <114: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;OT_Int_Rm02_VisMod_RingA&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;BringDownRingA&quot;<br align="left"/>> ];
+    114 [ pos = "0.65500003,-0.716!" ];
+
+    118 [ label = <118: <b>VisScriptCallModule</b><br/><br/><i>enable next azrael movie<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;OT_Int_Rm02_Azrael_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;CallNextCinematic&quot;<br align="left"/>> ];
+    118 [ pos = "-0.20300001,-1.09!" ];
+
+    123 [ label = <123: <b>SaveDataModule</b><br/><br/><i>Tower Head 01<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Int_Rm02<br align="left"/>    &quot;, FlagName=&quot;OT_Int_Rm02_TowerHe<br align="left"/>    ad_01&quot;)]<br align="left"/>> ];
+    123 [ pos = "-0.65900004,-1.4350001!" ];
+    123 -> 108 [ label = "1→0" ];
+
+    125 [ label = <125: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Int_Rm03<br align="left"/>    &quot;, FlagName=&quot;OT_Int_Rm03_Beam_Re<br align="left"/>    ceiver&quot;)]<br align="left"/>> ];
+    125 [ pos = "-0.92,-1.4350001!" ];
+    125 -> 123 [ label = "0→0" ];
+
+    126 [ label = <126: <b>AnimatorModule</b><br/><br/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;OT_Int_Rm02_RingA_Walls&quot;, Ani<br align="left"/>    mationID=2)]<br align="left"/>> ];
+    126 [ pos = "0.65300006,-0.901!" ];
+    126 -> 137 [ label = "0→0" ];
+
+    128 [ label = <128: <b>AnimatorModule</b><br/><br/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;OT_Int_Rm02_RingA_Walls&quot;, Ani<br align="left"/>    mationID=3)]<br align="left"/>> ];
+    128 [ pos = "-0.86800003,-0.272!" ];
+
+    134 [ label = <134: <b>StartModule</b><br/><br/>> ];
+    134 [ shape = oval ]
+    134 [ pos = "-1.616,-0.587!" ];
+    134 -> 79 [ label = "0→0" ];
+
+    135 [ label = <135: <b>SoundModule</b><br/><br/><i>play success<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;base/Music&quot;<br align="left"/><b>SoundID</b><br align="left"/>    90<br align="left"/>> ];
+    135 [ pos = "-0.20500001,-0.92700005!" ];
+
+    137 [ label = <137: <b>SoundModule</b><br/><br/><i>play reveal<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;base/Music&quot;<br align="left"/><b>SoundID</b><br align="left"/>    88<br align="left"/>> ];
+    137 [ pos = "0.89500004,-0.901!" ];
+
+    138 [ label = <138: <b>CinematicModule</b><br/><br/><b>CinematicName</b><br align="left"/>    &quot;OT_Int_Rm02_Cine_RingA&quot;<br align="left"/>> ];
+    138 [ pos = "0.42000002,-0.901!" ];
+    138 -> 3 [ label = "0→0" ];
+    138 -> 114 [ label = "0→0" ];
+    138 -> 144 [ label = "1→0" ];
+    138 -> 126 [ label = "0→0" ];
+    138 -> 158 [ label = "1→0" ];
+
+    139 [ label = <139: <b>ExternalCallModule</b><br/><br/><i>lower ring cine after azreal mov<br align="left"/>ie<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;Lower Ring&quot;<br align="left"/>> ];
+    139 [ shape = oval ]
+    139 [ pos = "0.15100001,-0.901!" ];
+    139 -> 138 [ label = "0→0" ];
+
+    142 [ label = <142: <b>InvokeMethodModule</b><br/><br/><i>turn off beam on the emitter<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Int_Rm02_Beam_Emitter_01&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;setBeamFalse&quot;<br align="left"/>> ];
+    142 [ pos = "-0.21000001,-0.59800005!" ];
+
+    144 [ label = <144: <b>VisScriptCallModule</b><br/><br/><i>Re-enable azrael VO<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;OT_Int_Rm02_Azrael_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;EnableAzraelVO&quot;<br align="left"/>> ];
+    144 [ pos = "0.638,-1.171!" ];
+
+    145 [ label = <145: <b>ObjectToggleModule</b><br/><br/><b>ObjectList</b><br align="left"/>    [&quot;OT_Int_Rm02_TowerHead_01&quot;]<br align="left"/>> ];
+    145 [ pos = "-0.86600006,-0.395!" ];
+
+    146 [ label = <146: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    3<br align="left"/>> ];
+    146 [ pos = "-0.44500002,-0.59800005!" ];
+    146 -> 142 [ label = "0→0" ];
+
+    152 [ label = <152: <b>AnimatorModule</b><br/><br/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;OT_Int_Rm02_RingA_Walls&quot;, Ani<br align="left"/>    mationID=4)]<br align="left"/>> ];
+    152 [ pos = "-1.107,-0.61!" ];
+    152 -> 155 [ label = "1→0" ];
+
+    155 [ label = <155: <b>AnimatorModule</b><br/><br/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;OT_Int_Rm02_RingA_Walls&quot;, Ani<br align="left"/>    mationID=1)]<br align="left"/>> ];
+    155 [ pos = "-0.892,-0.633!" ];
+
+    156 [ label = <156: <b>SaveDataModule</b><br/><br/><i>Scene 35 Played<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Int_Rm02<br align="left"/>    &quot;, FlagName=&quot;OT_Int_Rm02_Scene_3<br align="left"/>    5&quot;)]<br align="left"/>> ];
+    156 [ pos = "-1.1110001,-0.441!" ];
+    156 -> 145 [ label = "0→2" ];
+    156 -> 128 [ label = "0→0" ];
+
+    158 [ label = <158: <b>base/commitsavedatamodule</b><br/><br/>> ];
+    158 [ pos = "0.652,-1.064!" ];
+    158 -> 159 [ label = "0→0" ];
+
+    159 [ label = <159: <b>base/autosavemodule</b><br/><br/>> ];
+    159 [ pos = "0.87900007,-1.064!" ];
+
+    title [ pos = "-1.6170001,-0.27100003!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>OT_Int_Rm02<br align="left"/>Scripts<br align="left"/><b>OT_Int_Rm02_VisMod_MovingWalls01</b><br align="left"/></font>> ];
+}

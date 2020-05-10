@@ -1,0 +1,63 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    4 [ label = <4: <b>TriggerEventModule</b><br/><br/><i>close gate<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;AL_06_LastBossLockout_TrgReg&quot;,<br align="left"/>     &quot;AL_06_LastBossLockout_TrgReg_0<br align="left"/>    1&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    4 [ shape = oval ]
+    4 [ pos = "-0.034,0.058000002!" ];
+    4 -> 5 [ label = "0→0" ];
+    4 -> 16 [ label = "0→0" ];
+
+    5 [ label = <5: <b>SaveDataModule</b><br/><br/><i>check to see if war has the swor<br align="left"/>d<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;QuestItems&quot;<br align="left"/>    , FlagName=&quot;AllSwordPiecesCinePl<br align="left"/>    ayed&quot;)]<br align="left"/>> ];
+    5 [ pos = "0.24100001,0.058000002!" ];
+    5 -> 6 [ label = "0→0" ];
+    5 -> 4 [ label = "0→1" ];
+
+    6 [ label = <6: <b>InvokeMethodModule</b><br/><br/><i>Close the AL_06 Gate<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;Combat_Gate_AL_06_01&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;Close&quot;<br align="left"/>> ];
+    6 [ pos = "0.47900003,0.058000002!" ];
+    6 -> 19 [ label = "0→0" ];
+
+    8 [ label = <8: <b>CinematicModule</b><br/><br/><i>remove cinematic call<br align="left"/></i><br align="left"/><b>CinematicName</b><br align="left"/>    &quot;AL_06_LastBossLockout_cine&quot;<br align="left"/>> ];
+    8 [ pos = "0.93000007,-0.32700002!" ];
+
+    9 [ label = <9: <b>LoaderModule</b><br/><br/><b>Load</b><br align="left"/>    [[32, 0], [32, 1], [32, 2], [32,<br align="left"/>     3], [32, 4], [32, 5], [32, 8], <br align="left"/>    [32, 10], [32, 11], [32, 12], [3<br align="left"/>    2, 13], [321, -1], [364, -1], [2<br align="left"/>    76, 0], [276, 1], [276, 2], [276<br align="left"/><b>Unload</b><br align="left"/>    [[-1, -1]]<br align="left"/>> ];
+    9 [ pos = "0.89900005,0.058000002!" ];
+
+    13 [ label = <13: <b>InvokeMethodModule</b><br/><br/><i>Open the AL_06 Gate<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;Combat_Gate_AL_06_01&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;Open&quot;<br align="left"/>> ];
+    13 [ pos = "0.9990001,0.42400002!" ];
+
+    14 [ label = <14: <b>LoaderModule</b><br/><br/><b>Load</b><br align="left"/>    [[32, 0], [32, 1], [32, 2], [32,<br align="left"/>     3], [32, 4], [32, 5], [32, 8], <br align="left"/>    [32, 10], [32, 11], [32, 12], [3<br align="left"/>    2, 13], [321, -1], [364, -1], [6<br align="left"/>    0, 0], [60, 1], [60, 2], [60, 3]<br align="left"/><b>Unload</b><br align="left"/>    [[-1, -1]]<br align="left"/>> ];
+    14 [ pos = "0.47400004,0.42400002!" ];
+    14 -> 15 [ label = "0→0" ];
+
+    15 [ label = <15: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    3<br align="left"/>> ];
+    15 [ pos = "0.76400006,0.42400002!" ];
+    15 -> 13 [ label = "0→0" ];
+
+    16 [ label = <16: <b>TriggerEventModule</b><br/><br/><i>open gate<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;AL_06_LastBossLockout_TrgReg_0<br align="left"/>    2&quot;, &quot;&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    16 [ shape = oval ]
+    16 [ pos = "-0.039,0.42400002!" ];
+    16 -> 17 [ label = "0→0" ];
+    16 -> 4 [ label = "0→0" ];
+
+    17 [ label = <17: <b>SaveDataModule</b><br/><br/><i>check to see if war has the swor<br align="left"/>d<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;QuestItems&quot;<br align="left"/>    , FlagName=&quot;AllSwordPiecesCinePl<br align="left"/>    ayed&quot;)]<br align="left"/>> ];
+    17 [ pos = "0.23,0.42400002!" ];
+    17 -> 14 [ label = "0→0" ];
+    17 -> 16 [ label = "0→1" ];
+
+    19 [ label = <19: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.5<br align="left"/>> ];
+    19 [ pos = "0.69600004,0.058000002!" ];
+    19 -> 9 [ label = "0→0" ];
+
+    title [ pos = "-0.040000003,0.425!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>AL_06<br align="left"/>Script<br align="left"/><b>AL_06_LastBossLockout_script</b><br align="left"/></font>> ];
+}

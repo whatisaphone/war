@@ -1,0 +1,53 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    2 [ label = <2: <b>SpawnMonsterEventModule</b><br/><br/><b>SpawnPoints</b><br align="left"/>    [&quot;May_Heli_Spawn_01&quot;]<br align="left"/><b>NumberToSpawn</b><br align="left"/>    1<br align="left"/>> ];
+    2 [ pos = "0.32700002,-0.13700001!" ];
+    2 -> 4 [ label = "0→0" ];
+    2 -> 7 [ label = "0→0" ];
+    2 -> 5 [ style = dashed ];
+
+    3 [ label = <3: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;May_Heli_Spawn_01_Trigger&quot;, &quot;&quot;<br align="left"/>    ]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    3 [ shape = oval ]
+    3 [ pos = "0.068,-0.13700001!" ];
+    3 -> 2 [ label = "0→0" ];
+
+    4 [ label = <4: <b>AttachEventModule</b><br/><br/><b>EventNames</b><br align="left"/>    [&quot;NewsHeliDead&quot;]<br align="left"/>> ];
+    4 [ pos = "0.84200007,-0.128!" ];
+    4 -> 6 [ label = "0→0" ];
+    5 -> 4 [ style = dashed ];
+
+    5 [ label = <5: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    5 [ shape = parallelogram ]
+    5 [ pos = "0.615,-0.33200002!" ];
+
+    6 [ label = <6: <b>VisScriptCallModule</b><br/><br/><i>Open Air Parking<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;VSM_Achievements&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;OpenAirParking&quot;<br align="left"/>> ];
+    6 [ pos = "1.105,-0.128!" ];
+
+    7 [ label = <7: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;May_Heli_Trigger_01&quot;, &quot;&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    7 [ shape = oval ]
+    7 [ pos = "0.61,0.115!" ];
+    7 -> 9 [ label = "0→0" ];
+    7 -> 8 [ style = dashed ];
+
+    8 [ label = <8: <b>VisScriptVariableWorldObject</b><br/><br/>> ];
+    8 [ shape = parallelogram ]
+    8 [ pos = "0.84700006,-0.0050000004!" ];
+
+    9 [ label = <9: <b>InvokeMethodModule</b><br/><br/><b>MethodName</b><br align="left"/>    &quot;explodeHeli&quot;<br align="left"/>> ];
+    9 [ pos = "1.062,0.115!" ];
+    8 -> 9 [ style = dashed ];
+
+    title [ pos = "0.067,0.116000004!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>Mayhem<br align="left"/>Helicopters<br align="left"/><b>May_Heli_Spawn_01_Script</b><br align="left"/></font>> ];
+}

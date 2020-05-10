@@ -1,0 +1,101 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    2 [ label = <2: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;AL_02_Enc03&quot;<br align="left"/>> ];
+    2 [ pos = "0.66,-0.231!" ];
+    2 -> 3 [ label = "0→0" ];
+    2 -> 26 [ label = "0→0" ];
+    2 -> 4 [ style = dashed ];
+
+    3 [ label = <3: <b>SpawnMonsterEventModule</b><br/><br/><b>DelayTime</b><br align="left"/>    0.4<br align="left"/>> ];
+    3 [ pos = "1.0580001,-0.231!" ];
+    3 -> 6 [ label = "0→0" ];
+    4 -> 3 [ style = dashed ];
+
+    4 [ label = <4: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    4 [ shape = parallelogram ]
+    4 [ pos = "0.864,-0.541!" ];
+
+    5 [ label = <5: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;AL_02&quot;, Fla<br align="left"/>    gName=&quot;AL_02_Enc03&quot;)]<br align="left"/>> ];
+    5 [ pos = "0.35900003,-0.38000003!" ];
+    5 -> 2 [ label = "1→0" ];
+    5 -> 16 [ label = "1→0" ];
+    5 -> 28 [ label = "1→0" ];
+
+    6 [ label = <6: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;AL_02&quot;, Fla<br align="left"/>    gName=&quot;AL_02_Enc03&quot;)]<br align="left"/>> ];
+    6 [ pos = "1.404,-0.23!" ];
+
+    8 [ label = <8: <b>StartModule</b><br/><br/>> ];
+    8 [ shape = oval ]
+    8 [ pos = "-0.08800001,-0.53400004!" ];
+    8 -> 10 [ label = "0→2" ];
+
+    10 [ label = <10: <b>ObjectToggleModule</b><br/><br/><i>Damage Actor Spawns<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;AL_02_Enc03_DamageRegion&quot;, &quot;AL<br align="left"/>    _02_Enc03_Explode_FX&quot;]<br align="left"/>> ];
+    10 [ pos = "0.356,-0.623!" ];
+    10 -> 12 [ label = "0→0" ];
+
+    11 [ label = <11: <b>ExternalCallModule</b><br/><br/><i>AL_02_VSM_Ashcoil<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;AL_02_Enc03_Ash_Break_Triggered<br align="left"/>    &quot;<br align="left"/>> ];
+    11 [ shape = oval ]
+    11 [ pos = "-0.101,-0.76900005!" ];
+    11 -> 10 [ label = "0→1" ];
+
+    12 [ label = <12: <b>DelayModule</b><br/><br/>> ];
+    12 [ pos = "0.38200003,-0.809!" ];
+    12 -> 10 [ label = "0→2" ];
+
+    14 [ label = <14: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;AL_02_Enc03_Trigger&quot;, &quot;&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    14 [ shape = oval ]
+    14 [ pos = "-0.104,-0.23600002!" ];
+    14 -> 5 [ label = "0→0" ];
+
+    16 [ label = <16: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    16 [ pos = "0.62600005,0.07700001!" ];
+    16 -> 20 [ label = "0→0" ];
+    16 -> 24 [ label = "0→0" ];
+
+    20 [ label = <20: <b>SoundModule</b><br/><br/><i>Distant Scream<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;al_com/AL_ashcoil_distant_Sound<br align="left"/>    s&quot;<br align="left"/><b>SoundID</b><br align="left"/>    3<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;Anim_Ash_01&quot;<br align="left"/>> ];
+    20 [ pos = "0.88600004,0.19700001!" ];
+
+    24 [ label = <24: <b>SoundModule</b><br/><br/><i>Ashcoil Rumbe<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;ashlandcoil/AshlandCoil_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    25<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;Anim_Ash_01&quot;<br align="left"/>> ];
+    24 [ pos = "0.88600004,0.33800003!" ];
+    24 -> 25 [ label = "0→0" ];
+
+    25 [ label = <25: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    5<br align="left"/>> ];
+    25 [ pos = "1.1700001,0.223!" ];
+    25 -> 24 [ label = "0→1" ];
+
+    26 [ label = <26: <b>DelayModule</b><br/><br/>> ];
+    26 [ pos = "1.056,-0.009000001!" ];
+    26 -> 30 [ label = "0→0" ];
+    26 -> 27 [ label = "0→0" ];
+
+    27 [ label = <27: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.5<br align="left"/>> ];
+    27 [ pos = "1.3310001,-0.009000001!" ];
+    27 -> 31 [ label = "0→0" ];
+
+    28 [ label = <28: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2.5<br align="left"/>> ];
+    28 [ pos = "0.869,-0.67200005!" ];
+    28 -> 29 [ label = "0→0" ];
+
+    29 [ label = <29: <b>VisScriptCallModule</b><br/><br/><i>EXPLODE!<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;AL_02_VSM_Ashcoil&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;Ash_Burst_Phantom&quot;<br align="left"/>> ];
+    29 [ pos = "1.21,-0.587!" ];
+
+    30 [ label = <30: <b>SoundModule</b><br/><br/><b>SoundDescFile</b><br align="left"/>    &quot;phantomguard_prisonguard/Phanto<br align="left"/>    mGuard_PrisonGuard_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    19<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;AL_02_Enc03_Spawn_03&quot;<br align="left"/>> ];
+    30 [ pos = "1.396,0.13100001!" ];
+
+    31 [ label = <31: <b>SoundModule</b><br/><br/><b>SoundDescFile</b><br align="left"/>    &quot;phantomguard_prisonguard/Phanto<br align="left"/>    mGuard_PrisonGuard_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    19<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;AL_02_Enc03_Spawn_02&quot;<br align="left"/>> ];
+    31 [ pos = "1.5970001,-0.046000004!" ];
+
+    title [ pos = "-0.105000004,0.33900002!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>AL_02<br align="left"/>CombatA1<br align="left"/><b>AL_02_Enc03_Script</b><br align="left"/></font>> ];
+}

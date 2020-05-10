@@ -1,0 +1,150 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    15 [ label = <15: <b>SpawnMonsterEventModule</b><br/><br/><b>NumberToSpawn</b><br align="left"/>    -1<br align="left"/><b>DelayTime</b><br align="left"/>    1<br align="left"/>> ];
+    15 [ pos = "0.89000005,-0.041!" ];
+    15 -> 18 [ label = "2→1" ];
+    15 -> 20 [ label = "2→0" ];
+    15 -> 25 [ label = "2→0" ];
+    15 -> 44 [ label = "2→0" ];
+    15 -> 45 [ label = "2→2" ];
+    15 -> 52 [ label = "0→0" ];
+    19 -> 15 [ style = dashed ];
+    15 -> 31 [ style = dashed ];
+
+    16 [ label = <16: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;OT_Ext_Rm03_Enc01&quot;<br align="left"/>> ];
+    16 [ pos = "0.65500003,-0.042000003!" ];
+    16 -> 15 [ label = "0→0" ];
+    16 -> 19 [ style = dashed ];
+
+    17 [ label = <17: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm03<br align="left"/>    &quot;, FlagName=&quot;OT_Ext_Rm03_Enc01&quot;)<br align="left"/>    ]<br align="left"/>> ];
+    17 [ pos = "0.43300003,-0.044000003!" ];
+    17 -> 16 [ label = "1→0" ];
+
+    18 [ label = <18: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm03<br align="left"/>    &quot;, FlagName=&quot;OT_Ext_Rm03_Enc01&quot;)<br align="left"/>    ]<br align="left"/>> ];
+    18 [ pos = "1.7090001,-0.177!" ];
+
+    19 [ label = <19: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    19 [ shape = parallelogram ]
+    19 [ pos = "0.65400004,-0.17600001!" ];
+
+    20 [ label = <20: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;OT_Ext_Rm03_VisMod_Beam&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;OT_Ext_Rm03_Enc01_Dead&quot;<br align="left"/>> ];
+    20 [ pos = "1.7060001,-0.08800001!" ];
+
+    24 [ label = <24: <b>InvokeMethodModule</b><br/><br/><i>Turn On Barrier<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Ext_Rm03_CombatBarrier&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOn&quot;<br align="left"/>> ];
+    24 [ pos = "1.789,-0.374!" ];
+
+    25 [ label = <25: <b>InvokeMethodModule</b><br/><br/><i>Turn Off Barrier<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Ext_Rm03_CombatBarrier&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOff&quot;<br align="left"/>> ];
+    25 [ pos = "1.7070001,0.083000004!" ];
+
+    31 [ label = <31: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    31 [ shape = parallelogram ]
+    31 [ pos = "0.89900005,-0.28100002!" ];
+
+    33 [ label = <33: <b>StartModule</b><br/><br/>> ];
+    33 [ shape = oval ]
+    33 [ pos = "0.22800002,-0.041!" ];
+    33 -> 17 [ label = "0→0" ];
+
+    34 [ label = <34: <b>ExternalCallModule</b><br/><br/><i>BarriersOn (from Cine)<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;BarriersOn&quot;<br align="left"/>> ];
+    34 [ shape = oval ]
+    34 [ pos = "1.524,-0.37300003!" ];
+    34 -> 24 [ label = "0→0" ];
+
+    36 [ label = <36: <b>ExternalCallModule</b><br/><br/><i>GuardianAggro (from Guardian.oc,<br align="left"/> state Combat)<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;GuardianAggro&quot;<br align="left"/>> ];
+    36 [ shape = oval ]
+    36 [ pos = "0.86,-0.347!" ];
+    36 -> 38 [ label = "0→0" ];
+    36 -> 40 [ label = "0→1" ];
+
+    37 [ label = <37: <b>CinematicModule</b><br/><br/><i>barriers going up, reveal<br align="left"/></i><br align="left"/><b>CinematicName</b><br align="left"/>    &quot;OT_Ext_Rm03_Enc01_Cine01&quot;<br align="left"/>> ];
+    37 [ pos = "1.4260001,-0.47500002!" ];
+
+    38 [ label = <38: <b>base/oneshotmodule</b><br/><br/>> ];
+    38 [ pos = "1.088,-0.347!" ];
+    38 -> 51 [ label = "0→0" ];
+
+    40 [ label = <40: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;OT_Ext_Rm03_Enc01_TrigRegAggro<br align="left"/>    &quot;, &quot;&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    40 [ shape = oval ]
+    40 [ pos = "0.62,-0.51500005!" ];
+    40 -> 41 [ label = "0→0" ];
+    40 -> 43 [ label = "0→0" ];
+    40 -> 45 [ label = "0→1" ];
+
+    41 [ label = <41: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Ext_Rm03<br align="left"/>    &quot;, FlagName=&quot;OT_Ext_Rm03_Enc01&quot;)<br align="left"/>    ]<br align="left"/>> ];
+    41 [ pos = "0.855,-0.51500005!" ];
+    41 -> 42 [ label = "1→0" ];
+
+    42 [ label = <42: <b>InvokeMethodModule</b><br/><br/><b>MethodName</b><br align="left"/>    &quot;SleepWake&quot;<br align="left"/>> ];
+    42 [ pos = "1.125,-0.53800005!" ];
+    42 -> 57 [ label = "0→0" ];
+    31 -> 42 [ style = dashed ];
+
+    43 [ label = <43: <b>VisScriptCallModule</b><br/><br/><i>Start Combat Music<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scripted_HeavyCombat&quot;<br align="left"/>> ];
+    43 [ pos = "0.89900005,-0.72800004!" ];
+
+    44 [ label = <44: <b>VisScriptCallModule</b><br/><br/><i>Kill Combat Music<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scriptedHeavyOutro&quot;<br align="left"/>> ];
+    44 [ pos = "1.1780001,0.056!" ];
+
+    45 [ label = <45: <b>ObjectToggleModule</b><br/><br/><b>ObjectList</b><br align="left"/>    [&quot;OT_Ext_Rm03_CamInfReg_01&quot;]<br align="left"/>> ];
+    45 [ pos = "1.279,-0.90800005!" ];
+
+    46 [ label = <46: <b>StartModule</b><br/><br/>> ];
+    46 [ shape = oval ]
+    46 [ pos = "1.001,-1.074!" ];
+    46 -> 45 [ label = "0→2" ];
+
+    47 [ label = <47: <b>TriggerEventModule</b><br/><br/><i>OT_Ext_Rm03_Enc01_TrigSwapPatrol<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;OT_Ext_Rm03_Enc01_TrigSwapPatr<br align="left"/>    ol&quot;, &quot;&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    47 [ shape = oval ]
+    47 [ pos = "0.24700001,-1.327!" ];
+    47 -> 49 [ label = "0→0" ];
+    47 -> 50 [ label = "1→0" ];
+
+    49 [ label = <49: <b>PropertySetModule</b><br/><br/><b>PropertyName</b><br align="left"/>    &quot;PatrolPathName&quot;<br align="left"/><b>StringValue</b><br align="left"/>    &quot;OT_Ext_Rm03_Enc01_Sp_01_PathRig<br align="left"/>    ht&quot;<br align="left"/>> ];
+    49 [ pos = "0.564,-1.3340001!" ];
+    31 -> 49 [ style = dashed ];
+
+    50 [ label = <50: <b>PropertySetModule</b><br/><br/><b>PropertyName</b><br align="left"/>    &quot;PatrolPathName&quot;<br align="left"/><b>StringValue</b><br align="left"/>    &quot;OT_Ext_Rm03_Enc01_Sp_01_PathLef<br align="left"/>    t&quot;<br align="left"/>> ];
+    50 [ pos = "0.563,-1.4670001!" ];
+    31 -> 50 [ style = dashed ];
+
+    51 [ label = <51: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.1<br align="left"/>> ];
+    51 [ pos = "1.2540001,-0.347!" ];
+    51 -> 37 [ label = "0→0" ];
+
+    52 [ label = <52: <b>AttachEventModule</b><br/><br/><i>clear out portals on interactive<br align="left"/></i><br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onInteractive&quot;]<br align="left"/>> ];
+    52 [ pos = "1.2340001,0.41000003!" ];
+    52 -> 53 [ label = "0→1" ];
+    31 -> 52 [ style = dashed ];
+
+    53 [ label = <53: <b>ObjectToggleModule</b><br/><br/><b>ObjectList</b><br align="left"/>    [&quot;OT_Ext_Rm03_ClearVoid&quot;]<br align="left"/>> ];
+    53 [ pos = "1.5250001,0.43300003!" ];
+    53 -> 54 [ label = "0→0" ];
+
+    54 [ label = <54: <b>DelayModule</b><br/><br/>> ];
+    54 [ pos = "1.779,0.43300003!" ];
+    54 -> 55 [ label = "0→2" ];
+
+    55 [ label = <55: <b>ObjectToggleModule</b><br/><br/><b>ObjectList</b><br align="left"/>    [&quot;OT_Ext_Rm03_ClearVoid&quot;]<br align="left"/>> ];
+    55 [ pos = "1.9870001,0.47900003!" ];
+
+    56 [ label = <56: <b>ObjectToggleModule</b><br/><br/><i>remove clear void region<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;OT_Ext_Rm03_ClearVoid&quot;]<br align="left"/>> ];
+    56 [ pos = "1.557,-0.611!" ];
+
+    57 [ label = <57: <b>DelayModule</b><br/><br/>> ];
+    57 [ pos = "1.3470001,-0.657!" ];
+    57 -> 56 [ label = "0→2" ];
+
+    title [ pos = "0.22700001,0.48000002!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>OT_Ext_Rm03<br align="left"/>Combat<br align="left"/><b>OT_Ext_Rm03_Enc01_Script</b><br align="left"/></font>> ];
+}

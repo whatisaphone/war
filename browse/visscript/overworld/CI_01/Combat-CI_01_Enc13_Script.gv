@@ -1,0 +1,54 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    42 [ label = <42: <b>SpawnMonsterEventModule</b><br/><br/><b>NumberToSpawn</b><br align="left"/>    -1<br align="left"/><b>DelayTime</b><br align="left"/>    0.03<br align="left"/>> ];
+    42 [ pos = "1.065,-0.24300002!" ];
+    42 -> 57 [ label = "1→0" ];
+    42 -> 67 [ label = "2→1" ];
+    53 -> 42 [ style = dashed ];
+
+    46 [ label = <46: <b>base/incrementmodulevar</b><br/><br/><i>increment ActiveSpawns by spawns<br align="left"/></i><br align="left"/><b>Increment</b><br align="left"/>    3<br align="left"/><b>VarName</b><br align="left"/>    &quot;ActiveSpawns&quot;<br align="left"/><b>ModuleName</b><br align="left"/>    &quot;CI_01_Script_EncounterMaster&quot;<br align="left"/>> ];
+    46 [ pos = "0.56100005,-0.24400002!" ];
+    46 -> 54 [ label = "0→0" ];
+
+    53 [ label = <53: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    53 [ shape = parallelogram ]
+    53 [ pos = "0.83800006,-0.38000003!" ];
+
+    54 [ label = <54: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;CI_01_Enc13&quot;<br align="left"/>> ];
+    54 [ pos = "0.808,-0.245!" ];
+    54 -> 42 [ label = "0→0" ];
+    54 -> 53 [ style = dashed ];
+
+    57 [ label = <57: <b>base/incrementmodulevar</b><br/><br/><i>decrement ActiveSpawns by 1<br align="left"/></i><br align="left"/><b>Operator</b><br align="left"/>    1<br align="left"/><b>VarName</b><br align="left"/>    &quot;ActiveSpawns&quot;<br align="left"/><b>ModuleName</b><br align="left"/>    &quot;CI_01_Script_EncounterMaster&quot;<br align="left"/>> ];
+    57 [ pos = "1.3620001,-0.24300002!" ];
+
+    65 [ label = <65: <b>ExternalCallModule</b><br/><br/><i>StartEncounter<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;StartEncounter&quot;<br align="left"/>> ];
+    65 [ shape = oval ]
+    65 [ pos = "-0.125,-0.245!" ];
+    65 -> 68 [ label = "0→0" ];
+
+    66 [ label = <66: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;CI_01&quot;, Fla<br align="left"/>    gName=&quot;Enc13_AllDead&quot;)]<br align="left"/>> ];
+    66 [ pos = "0.30800003,-0.245!" ];
+    66 -> 46 [ label = "1→0" ];
+
+    67 [ label = <67: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;CI_01&quot;, Fla<br align="left"/>    gName=&quot;Enc13_AllDead&quot;)]<br align="left"/>> ];
+    67 [ pos = "1.388,-0.34100002!" ];
+
+    68 [ label = <68: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    10<br align="left"/>> ];
+    68 [ pos = "0.102000006,-0.246!" ];
+    68 -> 66 [ label = "0→0" ];
+
+    title [ pos = "-0.126,-0.24200001!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>CI_01<br align="left"/>Combat<br align="left"/><b>CI_01_Enc13_Script</b><br align="left"/><br/><i>phantom guards</i><br align="left"/></font>> ];
+}

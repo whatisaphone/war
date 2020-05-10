@@ -1,0 +1,141 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    20 [ label = <20: <b>ExternalCallModule</b><br/><br/><i>From AL_Tns_02_Enc_02_Script<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;Spawn Enc_03&quot;<br align="left"/>> ];
+    20 [ shape = oval ]
+    20 [ pos = "0.021000002,-0.76600003!" ];
+    20 -> 21 [ label = "0→0" ];
+
+    21 [ label = <21: <b>SaveDataModule</b><br/><br/><i>AL_Tns_02_Enc_03<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Ashlands&quot;, <br align="left"/>    FlagName=&quot;AL_Tns_02_Enc_03_AllDe<br align="left"/>    ad&quot;)]<br align="left"/>> ];
+    21 [ pos = "0.28,-0.76500005!" ];
+    21 -> 27 [ label = "1→0" ];
+    21 -> 62 [ label = "1→0" ];
+
+    22 [ label = <22: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn a Light on the catwalk, an<br align="left"/>d 2 Lights on the ground (3 guys<br align="left"/>) <br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;AL_Tns_02_Enc_03&quot;<br align="left"/>> ];
+    22 [ pos = "1.019,-0.794!" ];
+    22 -> 25 [ label = "0→0" ];
+    22 -> 54 [ label = "1→0" ];
+    22 -> 26 [ style = dashed ];
+
+    24 [ label = <24: <b>StartModule</b><br/><br/><i>Hax<br align="left"/></i><br align="left"/>> ];
+    24 [ shape = oval ]
+    24 [ pos = "0.021000002,-0.624!" ];
+
+    25 [ label = <25: <b>base/settargetmodule</b><br/><br/><i>Set target to War<br align="left"/></i><br align="left"/><b>Target</b><br align="left"/>    &quot;War&quot;<br align="left"/>> ];
+    25 [ pos = "1.595,-0.938!" ];
+    26 -> 25 [ style = dashed ];
+
+    26 [ label = <26: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    26 [ shape = parallelogram ]
+    26 [ pos = "1.4760001,-1.07!" ];
+
+    27 [ label = <27: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn 2 BFGS on round catwalk (2<br align="left"/> guys)<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;AL_Tns_02_Enc_03_BFG&quot;<br align="left"/>> ];
+    27 [ pos = "0.583,-1.1110001!" ];
+    27 -> 51 [ label = "1→0" ];
+    27 -> 54 [ label = "1→0" ];
+    27 -> 25 [ label = "0→0" ];
+    27 -> 26 [ style = dashed ];
+
+    51 [ label = <51: <b>AccumulatorModule</b><br/><br/><i>Count to 2, Check if BFGS dead<br align="left"/></i><br align="left"/><b>CountTo</b><br align="left"/>    2<br align="left"/>> ];
+    51 [ pos = "1.0070001,-1.2720001!" ];
+    51 -> 52 [ label = "0→1" ];
+
+    52 [ label = <52: <b>SaveDataModule</b><br/><br/><i>BFGs ALL DEAD?<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Ashlands&quot;, <br align="left"/>    FlagName=&quot;AL_Tns_02_Enc_03_BFG_A<br align="left"/>    LL_DEAD&quot;)]<br align="left"/>> ];
+    52 [ pos = "1.284,-1.258!" ];
+
+    53 [ label = <53: <b>SaveDataModule</b><br/><br/><i>BFGs ALL DEAD?<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Ashlands&quot;, <br align="left"/>    FlagName=&quot;AL_Tns_02_Enc_03_BFG_A<br align="left"/>    LL_DEAD&quot;)]<br align="left"/>> ];
+    53 [ pos = "0.44500002,-1.8610001!" ];
+    53 -> 72 [ label = "1→0" ];
+
+    54 [ label = <54: <b>AccumulatorModule</b><br/><br/><i>Count to 6<br align="left"/></i><br align="left"/><b>CountTo</b><br align="left"/>    6<br align="left"/>> ];
+    54 [ pos = "1.5530001,-0.513!" ];
+    54 -> 56 [ label = "0→0" ];
+
+    55 [ label = <55: <b>SaveDataModule</b><br/><br/><i>AL_Tns_02_Enc_03_AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Ashlands&quot;, <br align="left"/>    FlagName=&quot;AL_Tns_02_Enc_03_AllDe<br align="left"/>    ad&quot;)]<br align="left"/>> ];
+    55 [ pos = "1.838,-0.51000005!" ];
+
+    56 [ label = <56: <b>VisScriptCallModule</b><br/><br/><i>Send to AL_Tns_Enc_04_Script<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;AL_Tns_02_Enc_04_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;AL_Tns_02_Enc_03_AllDead&quot;<br align="left"/>> ];
+    56 [ pos = "2.104,-0.51900005!" ];
+
+    60 [ label = <60: <b>TriggerEventModule</b><br/><br/><i>AL_Tns_02_Enc_04a_TrigReg<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;AL_Tns_02_Enc_04a_TrigReg&quot;, &quot;&quot;<br align="left"/>    ]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    60 [ shape = oval ]
+    60 [ pos = "0.16600001,-1.8560001!" ];
+    60 -> 53 [ label = "0→0" ];
+
+    62 [ label = <62: <b>TriggerEventModule</b><br/><br/><i>AL_Tns_02_Enc_03_TrigReg02<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;AL_Tns_02_Enc_03_TrigReg02&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    62 [ shape = oval ]
+    62 [ pos = "0.551,-0.75900006!" ];
+    62 -> 22 [ label = "0→0" ];
+    62 -> 79 [ label = "0→0" ];
+
+    66 [ label = <66: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn 1 Medium on water ledge (1<br align="left"/> guy)<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;AL_Tns_02_Enc_06b&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    1<br align="left"/>> ];
+    66 [ pos = "0.96400005,-2.085!" ];
+    66 -> 67 [ label = "1→0" ];
+    66 -> 70 [ label = "0→0" ];
+    66 -> 71 [ style = dashed ];
+
+    67 [ label = <67: <b>AccumulatorModule</b><br/><br/><i>Count to 3, if BFGs are still al<br align="left"/>ive re-spawn them once.<br align="left"/></i><br align="left"/><b>CountTo</b><br align="left"/>    3<br align="left"/>> ];
+    67 [ pos = "1.432,-2.134!" ];
+    67 -> 53 [ label = "0→0" ];
+
+    68 [ label = <68: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn 1 Light on water ledge (1 <br align="left"/>guy)<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;AL_Tns_02_Enc_06a&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    1<br align="left"/>> ];
+    68 [ pos = "0.96300006,-1.7820001!" ];
+    68 -> 67 [ label = "1→0" ];
+    68 -> 70 [ label = "0→0" ];
+    68 -> 71 [ style = dashed ];
+
+    69 [ label = <69: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn 1 Light on water ledge (1 <br align="left"/>guy)<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;AL_Tns_02_Enc_06c&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    1<br align="left"/>> ];
+    69 [ pos = "0.97900003,-2.352!" ];
+    69 -> 67 [ label = "1→0" ];
+    69 -> 70 [ label = "0→0" ];
+    69 -> 71 [ style = dashed ];
+
+    70 [ label = <70: <b>base/settargetmodule</b><br/><br/><i>Set target to War<br align="left"/></i><br align="left"/><b>Target</b><br align="left"/>    &quot;War&quot;<br align="left"/>> ];
+    70 [ pos = "1.9650002,-2.058!" ];
+    71 -> 70 [ style = dashed ];
+
+    71 [ label = <71: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    71 [ shape = parallelogram ]
+    71 [ pos = "1.7220001,-2.1620002!" ];
+
+    72 [ label = <72: <b>DelayModule</b><br/><br/><i>Wait 10 seconds<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    10<br align="left"/>> ];
+    72 [ pos = "0.70000005,-1.8610001!" ];
+    72 -> 68 [ label = "0→0" ];
+    72 -> 66 [ label = "0→0" ];
+    72 -> 69 [ label = "0→0" ];
+
+    74 [ label = <74: <b>ObjectToggleModule</b><br/><br/><b>ObjectList</b><br align="left"/>    [&quot;AL_Tns_02_Enc_03_BFG_KillReg&quot;]<br align="left"/>> ];
+    74 [ pos = "1.1700001,-2.6680002!" ];
+
+    75 [ label = <75: <b>TriggerEventModule</b><br/><br/><i>AL_Tns_02_Enc_03_BFG_Kill_TrigRe<br align="left"/>g<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;AL_Tns_02_Enc_03_BFG_Kill_Trig<br align="left"/>    Reg&quot;, &quot;&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    75 [ shape = oval ]
+    75 [ pos = "0.776,-2.68!" ];
+    75 -> 74 [ label = "0→1" ];
+
+    76 [ label = <76: <b>StartModule</b><br/><br/>> ];
+    76 [ shape = oval ]
+    76 [ pos = "0.78200006,-2.8760002!" ];
+    76 -> 74 [ label = "0→2" ];
+
+    79 [ label = <79: <b>DelayModule</b><br/><br/><i>Wait 2 seconds<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    79 [ pos = "0.82100004,-0.51900005!" ];
+    79 -> 80 [ label = "0→0" ];
+
+    80 [ label = <80: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn 1 Medium PG on catwalk (1 <br align="left"/>guy)<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;AL_Tns_02_Enc_03a&quot;<br align="left"/>> ];
+    80 [ pos = "1.0220001,-0.49500003!" ];
+    80 -> 25 [ label = "0→0" ];
+    80 -> 54 [ label = "1→0" ];
+
+    title [ pos = "0.020000001,-0.49400002!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>AL_Tns_02<br align="left"/>Combat01<br align="left"/><b>AL_Tns_02_Enc_03_Script</b><br align="left"/></font>> ];
+}

@@ -1,0 +1,193 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    2 [ label = <2: <b>SpawnMonsterEventModule</b><br/><br/><b>NumberToSpawn</b><br align="left"/>    1<br align="left"/><b>IsRandom</b><br align="left"/>    false<br align="left"/>> ];
+    2 [ pos = "0.883,-0.26700002!" ];
+    2 -> 33 [ label = "2→1" ];
+    2 -> 40 [ label = "2→1" ];
+    2 -> 46 [ label = "0→0" ];
+    2 -> 45 [ label = "2→0" ];
+    2 -> 78 [ label = "2→0" ];
+    5 -> 2 [ style = dashed ];
+    2 -> 34 [ style = dashed ];
+
+    4 [ label = <4: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;IC_Rm02_Enc01&quot;<br align="left"/>> ];
+    4 [ pos = "0.5,-0.26700002!" ];
+    4 -> 2 [ label = "0→0" ];
+    4 -> 5 [ style = dashed ];
+
+    5 [ label = <5: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    5 [ shape = parallelogram ]
+    5 [ pos = "0.68,-0.53300005!" ];
+
+    8 [ label = <8: <b>base/commitsavedatamodule</b><br/><br/>> ];
+    8 [ pos = "3.186,-0.33600003!" ];
+    8 -> 9 [ label = "0→0" ];
+
+    9 [ label = <9: <b>base/setspawnpointmodule</b><br/><br/><b>World</b><br align="left"/>    &quot;Overworld&quot;<br align="left"/><b>Region</b><br align="left"/>    &quot;IC_Rm02&quot;<br align="left"/><b>SpawnPoint</b><br align="left"/>    &quot;IC_Rm02_Checkpoint_Waypoint_01&quot;<br align="left"/><b>SpawnLoadRegion</b><br align="left"/>    &quot;LoadRegion&quot;<br align="left"/>> ];
+    9 [ pos = "3.3990002,-0.33600003!" ];
+    9 -> 10 [ label = "0→0" ];
+
+    10 [ label = <10: <b>base/autosavemodule</b><br/><br/>> ];
+    10 [ pos = "3.627,-0.33600003!" ];
+
+    22 [ label = <22: <b>InvokeMethodModule</b><br/><br/><i>Turn Off Barrier<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;IC_Rm02_Enc01_Barrier_00&quot;, &quot;IC<br align="left"/>    _Rm02_Enc01_Barrier_01&quot;, &quot;IC_Rm0<br align="left"/>    2_Enc01_Barrier_02&quot;, &quot;IC_Rm02_En<br align="left"/>    c01_Barrier_03&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOff&quot;<br align="left"/>> ];
+    22 [ pos = "2.5240002,-0.33600003!" ];
+    22 -> 96 [ label = "0→0" ];
+
+    24 [ label = <24: <b>SaveDataModule</b><br/><br/><i>Check for mini boss death<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;IC&quot;, FlagNa<br align="left"/>    me=&quot;IC_Rm02_mini_boss_dead&quot;)]<br align="left"/>> ];
+    24 [ pos = "-0.22700001,-0.22100002!" ];
+    24 -> 68 [ label = "1→0" ];
+
+    29 [ label = <29: <b>TriggerEventModule</b><br/><br/><i>Start Fight<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;IC_Rm02_Enc01_Trigger&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    29 [ shape = oval ]
+    29 [ pos = "-0.47200003,-0.22100002!" ];
+    29 -> 24 [ label = "0→0" ];
+
+    32 [ label = <32: <b>InvokeMethodModule</b><br/><br/><i>Turn On Barrier<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;IC_Rm02_Enc01_Barrier_00&quot;, &quot;IC<br align="left"/>    _Rm02_Enc01_Barrier_01&quot;, &quot;IC_Rm0<br align="left"/>    2_Enc01_Barrier_02&quot;, &quot;IC_Rm02_En<br align="left"/>    c01_Barrier_03&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOn&quot;<br align="left"/>> ];
+    32 [ pos = "0.51600003,-0.708!" ];
+
+    33 [ label = <33: <b>SaveDataModule</b><br/><br/><i>set mini boss dead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;IC&quot;, FlagNa<br align="left"/>    me=&quot;IC_Rm02_mini_boss_dead&quot;)]<br align="left"/>> ];
+    33 [ pos = "1.391,0.2!" ];
+    33 -> 99 [ label = "3→0" ];
+
+    34 [ label = <34: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    34 [ shape = parallelogram ]
+    34 [ pos = "1.1650001,-0.72900003!" ];
+
+    40 [ label = <40: <b>SaveDataModule</b><br/><br/><i>unlock boss door<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;IC&quot;, FlagNa<br align="left"/>    me=&quot;ic_boss_door_unlock&quot;)]<br align="left"/>> ];
+    40 [ pos = "1.3920001,0.042000003!" ];
+
+    41 [ label = <41: <b>base/storesavedatamodule</b><br/><br/>> ];
+    41 [ pos = "0.23200001,-0.26700002!" ];
+    41 -> 4 [ label = "0→0" ];
+    41 -> 67 [ label = "0→1" ];
+    41 -> 32 [ label = "0→0" ];
+    41 -> 53 [ label = "0→0" ];
+    41 -> 73 [ label = "0→0" ];
+    41 -> 74 [ label = "0→0" ];
+
+    45 [ label = <45: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;IC_Rm01_Boss_Door&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;activate&quot;<br align="left"/>> ];
+    45 [ pos = "1.3920001,-0.093!" ];
+
+    46 [ label = <46: <b>AttachEventModule</b><br/><br/><i>Listening for stomp attack from <br align="left"/>the boss.oc<br align="left"/></i><br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onJumpStomp&quot;]<br align="left"/>> ];
+    46 [ pos = "1.4150001,-0.67700005!" ];
+    34 -> 46 [ style = dashed ];
+
+    47 [ label = <47: <b>VisScriptVariableWorldObjectList</b><br/><br/><b>Value</b><br align="left"/>    [&quot;ic_corpsegrowth_attach_01&quot;, &quot;i<br align="left"/>    c_corpsegrowth_attach_02&quot;, &quot;ic_c<br align="left"/>    orpsegrowth_attach_03&quot;, &quot;ic_corp<br align="left"/>    segrowth_attach_04&quot;, &quot;ic_corpseg<br align="left"/>> ];
+    47 [ shape = parallelogram ]
+    47 [ pos = "1.595,-0.77300006!" ];
+
+    48 [ label = <48: <b>InvokeMethodModule</b><br/><br/><i>destroy corpses<br align="left"/></i><br align="left"/><b>MethodName</b><br align="left"/>    &quot;destroyCorpse&quot;<br align="left"/>> ];
+    48 [ pos = "1.802,-0.67700005!" ];
+    47 -> 48 [ style = dashed ];
+
+    52 [ label = <52: <b>VisScriptCallModule</b><br/><br/><i>Remove Rune<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;IC_BossBarrier_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;mini-boss_dead&quot;<br align="left"/>> ];
+    52 [ pos = "2.154,-0.407!" ];
+
+    53 [ label = <53: <b>CinematicModule</b><br/><br/><b>CinematicName</b><br align="left"/>    &quot;IC_Rm02_Miniboss_Cin&quot;<br align="left"/>> ];
+    53 [ pos = "0.51900005,-0.87900007!" ];
+    53 -> 60 [ label = "0→2" ];
+
+    57 [ label = <57: <b>CinematicModule</b><br/><br/><b>CinematicName</b><br align="left"/>    &quot;IC_Rm02_Cin_Miniboss&quot;<br align="left"/>> ];
+    57 [ pos = "1.7520001,-0.31300002!" ];
+    57 -> 82 [ label = "1→0" ];
+    57 -> 90 [ label = "0→0" ];
+    57 -> 83 [ label = "0→0" ];
+    57 -> 84 [ label = "1→0" ];
+    57 -> 89 [ label = "1→0" ];
+
+    60 [ label = <60: <b>ObjectToggleModule</b><br/><br/><i>Remove Props<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;IC_Rm02_Cin_Corpse&quot;, &quot;IC_Rm02_<br align="left"/>    SpiderShell_Prop&quot;]<br align="left"/>> ];
+    60 [ pos = "0.76500005,-0.83300006!" ];
+
+    67 [ label = <67: <b>SaveDataModule</b><br/><br/><i>Set mini-boss spawned<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;ic_rm02&quot;, F<br align="left"/>    lagName=&quot;miniboss_spawned&quot;)]<br align="left"/>> ];
+    67 [ pos = "0.5,-0.11400001!" ];
+
+    68 [ label = <68: <b>SaveDataModule</b><br/><br/><i>Set mini-boss spawned<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;ic_rm02&quot;, F<br align="left"/>    lagName=&quot;miniboss_spawned&quot;)]<br align="left"/>> ];
+    68 [ pos = "0.008,-0.24400002!" ];
+    68 -> 41 [ label = "1→0" ];
+
+    72 [ label = <72: <b>DamageActorModule</b><br/><br/><i>Destroy Left Crystals<br align="left"/></i><br align="left"/><b>DamageAmount</b><br align="left"/>    9999<br align="left"/><b>TargetActorNames</b><br align="left"/>    [&quot;IC_Rm02_TGrowth_GrpLeft&quot;, &quot;IC_<br align="left"/>    Rm02_TGrowth_GrpLeft_01&quot;]<br align="left"/><b>WeaponType</b><br align="left"/>    15<br align="left"/><b>HitType</b><br align="left"/>    0<br align="left"/>> ];
+    72 [ pos = "0.768,-1.2340001!" ];
+    72 -> 97 [ label = "0→0" ];
+
+    73 [ label = <73: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.57<br align="left"/>> ];
+    73 [ pos = "0.521,-1.0480001!" ];
+    73 -> 75 [ label = "0→0" ];
+
+    74 [ label = <74: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2.67<br align="left"/>> ];
+    74 [ pos = "0.522,-1.2340001!" ];
+    74 -> 72 [ label = "0→0" ];
+
+    75 [ label = <75: <b>DamageActorModule</b><br/><br/><i>Destroy Right Crystals<br align="left"/></i><br align="left"/><b>DamageAmount</b><br align="left"/>    9999<br align="left"/><b>TargetActorNames</b><br align="left"/>    [&quot;IC_Rm02_TGrowth_GrpRight&quot;, &quot;IC<br align="left"/>    _Rm02_TGrowth_GrpRight_01&quot;]<br align="left"/><b>WeaponType</b><br align="left"/>    15<br align="left"/><b>HitType</b><br align="left"/>    0<br align="left"/>> ];
+    75 [ pos = "0.76600003,-1.0480001!" ];
+
+    78 [ label = <78: <b>PlayVideoModule</b><br/><br/><b>VideoName</b><br align="left"/>    &quot;Scene_31b.oo&quot;<br align="left"/><b>CamPositionObject</b><br align="left"/>    &quot;IC_Rm02_Vid_Miniboss_Cam_Wypt&quot;<br align="left"/><b>CamLookatObject</b><br align="left"/>    &quot;IC_Rm02_Vid_Miniboss_Look_Wypt&quot;<br align="left"/><b>PlayerPositionObject</b><br align="left"/>    &quot;IC_Rm02_Vid_Miniboss_War_Wypt&quot;<br align="left"/>> ];
+    78 [ pos = "1.2770001,-0.36800003!" ];
+    78 -> 91 [ label = "0→0" ];
+    78 -> 81 [ label = "0→0" ];
+
+    81 [ label = <81: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    3<br align="left"/>> ];
+    81 [ pos = "1.5380001,-0.31300002!" ];
+    81 -> 57 [ label = "0→0" ];
+
+    82 [ label = <82: <b>LoaderModule</b><br/><br/><i>unload rm01 and load tns2-8<br align="left"/></i><br align="left"/><b>Load</b><br align="left"/>    [[315, 0], [315, 1]]<br align="left"/><b>Unload</b><br align="left"/>    [[150, -1]]<br align="left"/><b>Required</b><br align="left"/>    true<br align="left"/>> ];
+    82 [ pos = "1.9770001,-0.614!" ];
+    82 -> 100 [ label = "0→0" ];
+
+    83 [ label = <83: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2.8<br align="left"/>> ];
+    83 [ pos = "1.978,-0.407!" ];
+    83 -> 52 [ label = "0→0" ];
+
+    84 [ label = <84: <b>base/watchersetpoimodule</b><br/><br/><b>POI</b><br align="left"/>    &quot;IC_Rm02_Cin_Watcher_Wypt&quot;<br align="left"/>> ];
+    84 [ pos = "2.322,-0.19600001!" ];
+
+    87 [ label = <87: <b>base/watchersetpoimodule</b><br/><br/><b>POI</b><br align="left"/>    &quot;IC_Rm02_Cin_Watcher_Wypt&quot;<br align="left"/>> ];
+    87 [ pos = "2.9800003,-0.21200001!" ];
+
+    88 [ label = <88: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.1<br align="left"/>> ];
+    88 [ pos = "2.9800003,-0.33600003!" ];
+    88 -> 8 [ label = "0→0" ];
+    88 -> 96 [ label = "0→2" ];
+
+    89 [ label = <89: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    89 [ pos = "2.318,-0.33600003!" ];
+    89 -> 22 [ label = "0→0" ];
+
+    90 [ label = <90: <b>VisScriptCallModule</b><br/><br/><i>cutscene music<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;IC_BossBarrier_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;stinger 03&quot;<br align="left"/>> ];
+    90 [ pos = "1.9900001,-0.25100002!" ];
+
+    91 [ label = <91: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;IC_Rm02_Enc01_SpiderABoss&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>MoveVal</b><br align="left"/>    0<br align="left"/><b>RotationVector</b><br align="left"/>    [0, 0, 140]<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;IC_Rm02_Vid_Miniboss_Sith_Wypt&quot;<br align="left"/>> ];
+    91 [ pos = "1.6220001,-0.143!" ];
+
+    96 [ label = <96: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;IC_Rm02_Web_Door&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onInteractive&quot;]<br align="left"/>> ];
+    96 [ pos = "2.749,-0.33600003!" ];
+    96 -> 87 [ label = "0→1" ];
+    96 -> 88 [ label = "0→0" ];
+
+    97 [ label = <97: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    14<br align="left"/>> ];
+    97 [ pos = "1.0090001,-1.2340001!" ];
+    97 -> 98 [ label = "0→0" ];
+
+    98 [ label = <98: <b>VisScriptCallModule</b><br/><br/><i>Start Heavy Combat Music<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scripted_HeavyCombat&quot;<br align="left"/>> ];
+    98 [ pos = "1.213,-1.2340001!" ];
+
+    99 [ label = <99: <b>VisScriptCallModule</b><br/><br/><i>Stop Heavy Combat Music<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scriptedHeavyOutro&quot;<br align="left"/>> ];
+    99 [ pos = "1.626,0.15400001!" ];
+
+    100 [ label = <100: <b>LoaderModule</b><br/><br/><i>unload rm01 and load tns2-8<br align="left"/></i><br align="left"/><b>Load</b><br align="left"/>    [[315, -1]]<br align="left"/>> ];
+    100 [ pos = "2.243,-0.614!" ];
+
+    title [ pos = "-0.47300002,0.201!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>IC_Rm02<br align="left"/>miniboss<br align="left"/><b>IC_Rm02_Enc01_Script</b><br align="left"/></font>> ];
+}

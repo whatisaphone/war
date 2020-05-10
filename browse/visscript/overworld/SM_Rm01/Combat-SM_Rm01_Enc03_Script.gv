@@ -1,0 +1,116 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>SpawnMonsterEventModule</b><br/><br/>> ];
+    1 [ pos = "0.63900006,-0.231!" ];
+    1 -> 19 [ label = "2→0" ];
+    3 -> 1 [ style = dashed ];
+    1 -> 26 [ style = dashed ];
+
+    2 [ label = <2: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;SM_Rm01_Enc03&quot;<br align="left"/>> ];
+    2 [ pos = "0.372,-0.231!" ];
+    2 -> 1 [ label = "0→0" ];
+    2 -> 3 [ style = dashed ];
+
+    3 [ label = <3: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    3 [ shape = parallelogram ]
+    3 [ pos = "0.42800003,-0.36400002!" ];
+
+    9 [ label = <9: <b>SaveDataModule</b><br/><br/><i>Check Spawned<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;Spawned_SM_Rm01_Enc03&quot;)]<br align="left"/>> ];
+    9 [ pos = "-0.439,0.11400001!" ];
+    9 -> 10 [ label = "0→0" ];
+
+    10 [ label = <10: <b>SaveDataModule</b><br/><br/><i>Check AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_SM_Rm01_Enc03&quot;)]<br align="left"/>> ];
+    10 [ pos = "-0.238,0.11400001!" ];
+    10 -> 11 [ label = "1→0" ];
+
+    11 [ label = <11: <b>DelayModule</b><br/><br/><i>go Encounter<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    11 [ pos = "-0.015000001,-0.017!" ];
+    11 -> 2 [ label = "0→0" ];
+    11 -> 24 [ label = "0→0" ];
+
+    13 [ label = <13: <b>SaveDataModule</b><br/><br/><i>Set Spawned<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;Spawned_SM_Rm01_Enc03&quot;)]<br align="left"/>> ];
+    13 [ pos = "-0.014,-0.18900001!" ];
+
+    14 [ label = <14: <b>SaveDataModule</b><br/><br/><i>Set AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_SM_Rm01_Enc03&quot;)]<br align="left"/>> ];
+    14 [ pos = "1.172,-0.26500002!" ];
+
+    15 [ label = <15: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;SM_Rm01_Enc03_TrigReg&quot;, &quot;&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    15 [ shape = oval ]
+    15 [ pos = "-0.89100003,-0.037!" ];
+    15 -> 34 [ label = "0→0" ];
+
+    16 [ label = <16: <b>SpawnMonsterEventModule</b><br/><br/>> ];
+    16 [ pos = "0.632,-0.558!" ];
+    16 -> 19 [ label = "2→0" ];
+    18 -> 16 [ style = dashed ];
+
+    17 [ label = <17: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;SM_Rm01_Enc03_Wave2&quot;<br align="left"/>> ];
+    17 [ pos = "0.36800003,-0.55600005!" ];
+    17 -> 16 [ label = "0→0" ];
+    17 -> 18 [ style = dashed ];
+
+    18 [ label = <18: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    18 [ shape = parallelogram ]
+    18 [ pos = "0.42100003,-0.69100004!" ];
+
+    19 [ label = <19: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    2<br align="left"/>> ];
+    19 [ pos = "0.93700004,-0.35700002!" ];
+    19 -> 14 [ label = "0→1" ];
+
+    21 [ label = <21: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;SM_Rm01_Enc03_TrigRegAggro&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    21 [ shape = oval ]
+    21 [ pos = "-0.48200002,-0.549!" ];
+    21 -> 22 [ label = "0→0" ];
+
+    22 [ label = <22: <b>InvokeMethodModule</b><br/><br/><b>MethodName</b><br align="left"/>    &quot;ScriptedAirTaunt1&quot;<br align="left"/>> ];
+    22 [ pos = "-0.23900001,-0.546!" ];
+    22 -> 25 [ label = "0→0" ];
+    22 -> 21 [ label = "0→1" ];
+    26 -> 22 [ style = dashed ];
+
+    23 [ label = <23: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;Smith1&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;setNormalCombatMode&quot;<br align="left"/>> ];
+    23 [ pos = "0.19100001,-0.71400005!" ];
+
+    24 [ label = <24: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;Smith1&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;setShortScanCombatMode&quot;<br align="left"/>> ];
+    24 [ pos = "0.23900001,0.025!" ];
+
+    25 [ label = <25: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    25 [ pos = "-0.012,-0.537!" ];
+    25 -> 23 [ label = "0→0" ];
+    25 -> 17 [ label = "0→0" ];
+    25 -> 31 [ label = "0→0" ];
+
+    26 [ label = <26: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    26 [ shape = parallelogram ]
+    26 [ pos = "0.68700004,-0.42400002!" ];
+
+    28 [ label = <28: <b>StartModule</b><br/><br/>> ];
+    28 [ shape = oval ]
+    28 [ pos = "-0.91300005,0.124000005!" ];
+
+    29 [ label = <29: <b>SaveDataModule</b><br/><br/><i>Check Spawned<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;Spawned_SM_Rm01_Enc03&quot;)]<br align="left"/>> ];
+    29 [ pos = "-0.28,-0.18900001!" ];
+    29 -> 11 [ label = "1→0" ];
+    29 -> 13 [ label = "1→1" ];
+
+    31 [ label = <31: <b>VisScriptCallModule</b><br/><br/><i>scripted_HeavyCombat_02_SM_Path<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scripted_HeavyCombat_02_SM_Path<br align="left"/>    &quot;<br align="left"/>> ];
+    31 [ pos = "0.15,-0.46300003!" ];
+
+    34 [ label = <34: <b>base/oneshotmodule</b><br/><br/>> ];
+    34 [ pos = "-0.57600003,-0.037!" ];
+    34 -> 11 [ label = "0→0" ];
+
+    title [ pos = "-0.91400003,0.125!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SM_Rm01<br align="left"/>Combat<br align="left"/><b>SM_Rm01_Enc03_Script</b><br align="left"/></font>> ];
+}

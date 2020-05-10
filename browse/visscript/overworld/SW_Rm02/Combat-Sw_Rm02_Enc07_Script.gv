@@ -1,0 +1,80 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    3 [ label = <3: <b>SaveDataModule</b><br/><br/><i>Check AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_Sw_Rm02_Enc07&quot;)]<br align="left"/>> ];
+    3 [ pos = "0.342,-0.155!" ];
+    3 -> 4 [ label = "1→0" ];
+    3 -> 22 [ label = "1→0" ];
+
+    4 [ label = <4: <b>DelayModule</b><br/><br/><i>go Encounter<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    4 [ pos = "0.64400005,-0.141!" ];
+    4 -> 8 [ label = "0→0" ];
+
+    7 [ label = <7: <b>SpawnMonsterEventModule</b><br/><br/><b>DelayTime</b><br align="left"/>    0.1<br align="left"/>> ];
+    7 [ pos = "1.1090001,-0.13700001!" ];
+    7 -> 10 [ label = "2→1" ];
+    7 -> 25 [ label = "0→0" ];
+    7 -> 26 [ label = "0→0" ];
+    9 -> 7 [ style = dashed ];
+    7 -> 16 [ style = dashed ];
+
+    8 [ label = <8: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;Sw_Rm02_Enc07&quot;<br align="left"/>> ];
+    8 [ pos = "0.791,-0.142!" ];
+    8 -> 7 [ label = "0→0" ];
+    8 -> 9 [ style = dashed ];
+
+    9 [ label = <9: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    9 [ shape = parallelogram ]
+    9 [ pos = "0.813,-0.27!" ];
+
+    10 [ label = <10: <b>SaveDataModule</b><br/><br/><i>Set AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_Sw_Rm02_Enc07&quot;)]<br align="left"/>> ];
+    10 [ pos = "1.455,-0.142!" ];
+
+    12 [ label = <12: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;Sw_Rm02_Enc07_TrigReg&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    12 [ shape = oval ]
+    12 [ pos = "0.014,-0.15400001!" ];
+    12 -> 3 [ label = "0→0" ];
+
+    16 [ label = <16: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    16 [ shape = parallelogram ]
+    16 [ pos = "1.139,-0.35300002!" ];
+
+    22 [ label = <22: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;sw_Rm02Tns_to_Rm02_Door&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;ForceOpen&quot;<br align="left"/>> ];
+    22 [ pos = "0.679,0.053000003!" ];
+
+    23 [ label = <23: <b>StartModule</b><br/><br/>> ];
+    23 [ shape = oval ]
+    23 [ pos = "0.141,0.085!" ];
+
+    24 [ label = <24: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    24 [ pos = "0.31800002,0.037!" ];
+    24 -> 3 [ label = "0→0" ];
+
+    25 [ label = <25: <b>CinematicModule</b><br/><br/><b>CinematicName</b><br align="left"/>    &quot;Sw_Rm02_Enc07_Cine01&quot;<br align="left"/>> ];
+    25 [ pos = "1.3740001,0.13100001!" ];
+
+    26 [ label = <26: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;Sw_Rm02_Enc07_TrigRegStopMinio<br align="left"/>    n&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>Enable</b><br align="left"/>    false<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    26 [ shape = oval ]
+    26 [ pos = "0.97,-0.507!" ];
+    26 -> 28 [ label = "0→0" ];
+
+    28 [ label = <28: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;Sw_Rm02_Enc07_Spawn_07_monster<br align="left"/>    &quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;setBehaviorRanged&quot;<br align="left"/>> ];
+    28 [ pos = "1.2290001,-0.507!" ];
+
+    29 [ label = <29: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;Sw_Rm02_Enc07_TrigRegStopMinio<br align="left"/>    n&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>Enable</b><br align="left"/>    false<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    29 [ shape = oval ]
+    29 [ pos = "0.9620001,0.193!" ];
+
+    title [ pos = "0.013,0.194!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SW_Rm02<br align="left"/>Combat<br align="left"/><b>Sw_Rm02_Enc07_Script</b><br align="left"/></font>> ];
+}

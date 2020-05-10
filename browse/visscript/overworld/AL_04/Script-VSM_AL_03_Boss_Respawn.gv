@@ -1,0 +1,57 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;Trigger_AL_03_Boss_Respawn_01&quot;<br align="left"/>    , &quot;&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "1.006,-0.13900001!" ];
+    1 -> 2 [ label = "0→0" ];
+
+    2 [ label = <2: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Ashlands&quot;, <br align="left"/>    FlagName=&quot;Gate_03_Progress&quot;)]<br align="left"/>> ];
+    2 [ pos = "1.389,-0.068!" ];
+    2 -> 8 [ label = "0→0" ];
+
+    3 [ label = <3: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;al_gate_al_03_01&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;Open&quot;<br align="left"/>> ];
+    3 [ pos = "1.9610001,-0.30600002!" ];
+    3 -> 1 [ label = "0→1" ];
+
+    4 [ label = <4: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;al_gate_al_03_01&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;Close&quot;<br align="left"/>> ];
+    4 [ pos = "1.01,-0.42600003!" ];
+    4 -> 5 [ label = "0→1" ];
+
+    5 [ label = <5: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;Trigger_AL_03_Boss_Respawn_02&quot;<br align="left"/>    , &quot;&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    5 [ shape = oval ]
+    5 [ pos = "0.011000001,-0.404!" ];
+    5 -> 6 [ label = "0→0" ];
+
+    6 [ label = <6: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Ashlands&quot;, <br align="left"/>    FlagName=&quot;Gate_03_Progress&quot;)]<br align="left"/>> ];
+    6 [ pos = "0.411,-0.512!" ];
+    6 -> 9 [ label = "0→0" ];
+
+    7 [ label = <7: <b>StartModule</b><br/><br/>> ];
+    7 [ shape = oval ]
+    7 [ pos = "-0.381,-0.37300003!" ];
+    7 -> 5 [ label = "0→1" ];
+
+    8 [ label = <8: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Ashlands&quot;, <br align="left"/>    FlagName=&quot;Gate_03_Complete&quot;)]<br align="left"/>> ];
+    8 [ pos = "1.697,-0.132!" ];
+    8 -> 3 [ label = "1→0" ];
+    8 -> 5 [ label = "1→0" ];
+
+    9 [ label = <9: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Ashlands&quot;, <br align="left"/>    FlagName=&quot;Gate_03_Complete&quot;)]<br align="left"/>> ];
+    9 [ pos = "0.70600003,-0.404!" ];
+    9 -> 4 [ label = "1→0" ];
+    9 -> 1 [ label = "1→0" ];
+
+    title [ pos = "-0.38200003,-0.067!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>AL_04<br align="left"/>Script<br align="left"/><b>VSM_AL_03_Boss_Respawn</b><br align="left"/></font>> ];
+}

@@ -1,0 +1,70 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>StartModule</b><br/><br/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "0.21700001,-0.36200002!" ];
+    1 -> 2 [ label = "0→0" ];
+
+    2 [ label = <2: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Int_Rm02_Dgn_KeyLock&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onTrigger&quot;]<br align="left"/>> ];
+    2 [ pos = "0.42700002,-0.36200002!" ];
+    2 -> 3 [ label = "0→1" ];
+    2 -> 4 [ label = "0→0" ];
+
+    3 [ label = <3: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Int_Rm02<br align="left"/>    &quot;, FlagName=&quot;OT_Int_Rm02_LockedD<br align="left"/>    oor&quot;)]<br align="left"/>> ];
+    3 [ pos = "0.74700004,-0.24100001!" ];
+
+    4 [ label = <4: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Int_Rm02_KickDoor_03&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;activate&quot;<br align="left"/>> ];
+    4 [ pos = "0.757,-0.441!" ];
+
+    5 [ label = <5: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Int_Rm02<br align="left"/>    &quot;, FlagName=&quot;OT_Int_Rm02_LockedD<br align="left"/>    oor&quot;)]<br align="left"/>> ];
+    5 [ pos = "0.448,-0.58400005!" ];
+    5 -> 4 [ label = "0→0" ];
+
+    6 [ label = <6: <b>StartModule</b><br/><br/>> ];
+    6 [ shape = oval ]
+    6 [ pos = "0.23600002,-0.58400005!" ];
+    6 -> 5 [ label = "0→0" ];
+
+    8 [ label = <8: <b>StartModule</b><br/><br/>> ];
+    8 [ shape = oval ]
+    8 [ pos = "-0.124000005,0.085!" ];
+    8 -> 10 [ label = "0→0" ];
+
+    9 [ label = <9: <b>SaveDataModule</b><br/><br/><i>check int_rm06 portcullis close<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Int_Rm06<br align="left"/>    &quot;, FlagName=&quot;puz_barrier_up&quot;)]<br align="left"/>> ];
+    9 [ pos = "0.34100002,0.085!" ];
+    9 -> 13 [ label = "0→0" ];
+    9 -> 14 [ label = "1→0" ];
+
+    10 [ label = <10: <b>SaveDataModule</b><br/><br/><i>check int_rm02 barrier<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Int_Rm02<br align="left"/>    &quot;, FlagName=&quot;OT_Int_Rm02_LockedD<br align="left"/>    oor&quot;)]<br align="left"/>> ];
+    10 [ pos = "0.076000005,0.085!" ];
+    10 -> 9 [ label = "0→0" ];
+    10 -> 13 [ label = "1→0" ];
+
+    11 [ label = <11: <b>InvokeMethodModule</b><br/><br/><i>activate door<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Int_Rm02_KickDoor_03&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;activate&quot;<br align="left"/>> ];
+    11 [ pos = "0.851,-0.023000002!" ];
+
+    12 [ label = <12: <b>InvokeMethodModule</b><br/><br/><i>deactivate door<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Int_Rm02_KickDoor_03&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;deactivate&quot;<br align="left"/>> ];
+    12 [ pos = "0.84900004,0.16900001!" ];
+
+    13 [ label = <13: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.25<br align="left"/>> ];
+    13 [ pos = "0.609,0.16900001!" ];
+    13 -> 12 [ label = "0→0" ];
+
+    14 [ label = <14: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.25<br align="left"/>> ];
+    14 [ pos = "0.61,-0.023000002!" ];
+    14 -> 11 [ label = "0→0" ];
+
+    title [ pos = "-0.125,0.17!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>OT_Int_Rm02<br align="left"/>Scripts<br align="left"/><b>OT_Int_Rm02_LockedDoor</b><br align="left"/></font>> ];
+}

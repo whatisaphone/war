@@ -1,0 +1,76 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;AL_Tns_02_Enc02_Trigger&quot;, &quot;&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "0.24200001,-0.19100001!" ];
+    1 -> 2 [ label = "0→0" ];
+
+    2 [ label = <2: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;AL_Tns_02_Enc02&quot;<br align="left"/>> ];
+    2 [ pos = "0.49600002,-0.19100001!" ];
+    2 -> 4 [ label = "0→0" ];
+    2 -> 3 [ style = dashed ];
+
+    3 [ label = <3: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    3 [ shape = parallelogram ]
+    3 [ pos = "0.74200004,-0.28800002!" ];
+
+    4 [ label = <4: <b>SpawnMonsterEventModule</b><br/><br/>> ];
+    4 [ pos = "0.97900003,-0.19100001!" ];
+    4 -> 21 [ label = "1→0" ];
+    3 -> 4 [ style = dashed ];
+    4 -> 5 [ style = dashed ];
+
+    5 [ label = <5: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    5 [ shape = parallelogram ]
+    5 [ pos = "1.2550001,-0.35500002!" ];
+
+    9 [ label = <9: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;AL_Tns_02_Enc02b&quot;<br align="left"/>> ];
+    9 [ pos = "1.6840001,-0.21400002!" ];
+    9 -> 11 [ label = "0→0" ];
+    9 -> 10 [ style = dashed ];
+
+    10 [ label = <10: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    10 [ shape = parallelogram ]
+    10 [ pos = "1.9300001,-0.31100002!" ];
+
+    11 [ label = <11: <b>SpawnMonsterEventModule</b><br/><br/><b>NumberToSpawn</b><br align="left"/>    2<br align="left"/><b>DelayTime</b><br align="left"/>    1.5<br align="left"/>> ];
+    11 [ pos = "2.1660001,-0.215!" ];
+    11 -> 22 [ label = "0→0" ];
+    10 -> 11 [ style = dashed ];
+    11 -> 12 [ style = dashed ];
+
+    12 [ label = <12: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    12 [ shape = parallelogram ]
+    12 [ pos = "2.193,-0.45700002!" ];
+
+    16 [ label = <16: <b>ExternalCallModule</b><br/><br/><i>From Enc01 script<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;enableSpawns&quot;<br align="left"/>> ];
+    16 [ shape = oval ]
+    16 [ pos = "-0.068,-0.19100001!" ];
+    16 -> 1 [ label = "0→0" ];
+
+    21 [ label = <21: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    2<br align="left"/>> ];
+    21 [ pos = "1.4280001,-0.21400002!" ];
+    21 -> 9 [ label = "0→0" ];
+
+    22 [ label = <22: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    4<br align="left"/>> ];
+    22 [ pos = "2.538,-0.215!" ];
+    22 -> 23 [ label = "0→0" ];
+
+    23 [ label = <23: <b>InvokeMethodModule</b><br/><br/><b>MethodName</b><br align="left"/>    &quot;setBehaviorCombat&quot;<br align="left"/>> ];
+    23 [ pos = "2.8000002,-0.21400002!" ];
+    12 -> 23 [ style = dashed ];
+
+    title [ pos = "-0.069000006,-0.19000001!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>AL_Tns_02<br align="left"/>Combat<br align="left"/><b>AL_Tns_02_Enc02_Script</b><br align="left"/></font>> ];
+}

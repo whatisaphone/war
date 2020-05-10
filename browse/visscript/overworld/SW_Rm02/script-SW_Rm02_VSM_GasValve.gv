@@ -1,0 +1,68 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>StartModule</b><br/><br/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "0.179,-0.21000001!" ];
+    1 -> 2 [ label = "0→0" ];
+
+    2 [ label = <2: <b>AttachEventModule</b><br/><br/><i>SW_Rm02_GearCrank_GasValve<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;SW_Rm02_GearCrank_GasValve&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onInteractive&quot;]<br align="left"/>> ];
+    2 [ pos = "0.39800003,-0.21000001!" ];
+    2 -> 8 [ label = "0→0" ];
+
+    6 [ label = <6: <b>CinematicModule</b><br/><br/><i>SW_Rm02_GasPipeCine<br align="left"/></i><br align="left"/><b>CinematicName</b><br align="left"/>    &quot;SW_Rm02_GasPipeCine&quot;<br align="left"/>> ];
+    6 [ pos = "0.79800004,-0.21000001!" ];
+    6 -> 9 [ label = "0→0" ];
+    6 -> 13 [ label = "0→0" ];
+    6 -> 14 [ label = "0→0" ];
+    6 -> 17 [ label = "1→0" ];
+
+    8 [ label = <8: <b>DelayModule</b><br/><br/>> ];
+    8 [ pos = "0.64100003,-0.21000001!" ];
+    8 -> 6 [ label = "0→0" ];
+
+    9 [ label = <9: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    9 [ pos = "1.105,0.16000001!" ];
+    9 -> 10 [ label = "0→0" ];
+
+    10 [ label = <10: <b>InvokeMethodModule</b><br/><br/><i>activate pipe 1<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;SW_Rm02_GasPipe_01&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;activate&quot;<br align="left"/>> ];
+    10 [ pos = "1.292,0.16000001!" ];
+    10 -> 11 [ label = "0→0" ];
+
+    11 [ label = <11: <b>DelayModule</b><br/><br/>> ];
+    11 [ pos = "1.514,0.16000001!" ];
+    11 -> 12 [ label = "0→0" ];
+
+    12 [ label = <12: <b>InvokeMethodModule</b><br/><br/><i>activate pipe 1 fire<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;SW_Rm02_GasPipe_01&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;activateFire&quot;<br align="left"/>> ];
+    12 [ pos = "1.6810001,0.16000001!" ];
+
+    13 [ label = <13: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    5<br align="left"/>> ];
+    13 [ pos = "1.1040001,-0.031000001!" ];
+    13 -> 15 [ label = "0→0" ];
+
+    14 [ label = <14: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    7<br align="left"/>> ];
+    14 [ pos = "1.1040001,-0.21000001!" ];
+    14 -> 16 [ label = "0→0" ];
+
+    15 [ label = <15: <b>InvokeMethodModule</b><br/><br/><i>activate pipe 2<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;SW_Rm02_GasPipe_02&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;activate&quot;<br align="left"/>> ];
+    15 [ pos = "1.2930001,-0.031000001!" ];
+
+    16 [ label = <16: <b>InvokeMethodModule</b><br/><br/><i>activate pipe 3<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;SW_Rm02_GasPipe_03&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;activate&quot;<br align="left"/>> ];
+    16 [ pos = "1.296,-0.21000001!" ];
+
+    17 [ label = <17: <b>base/autosavemodule</b><br/><br/>> ];
+    17 [ pos = "1.1040001,-0.38500002!" ];
+
+    title [ pos = "0.178,0.16100001!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SW_Rm02<br align="left"/>script<br align="left"/><b>SW_Rm02_VSM_GasValve</b><br align="left"/></font>> ];
+}

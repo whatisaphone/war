@@ -1,0 +1,59 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    4 [ label = <4: <b>base/gatemodule</b><br/><br/>> ];
+    4 [ pos = "0.643,-0.19700001!" ];
+    4 -> 5 [ label = "0→0" ];
+
+    5 [ label = <5: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;AL_04Arena_Enc05&quot;<br align="left"/>> ];
+    5 [ pos = "0.82900006,-0.19600001!" ];
+    5 -> 7 [ label = "0→0" ];
+    5 -> 10 [ style = dashed ];
+
+    7 [ label = <7: <b>SpawnMonsterEventModule</b><br/><br/>> ];
+    7 [ pos = "1.103,-0.19500001!" ];
+    7 -> 17 [ label = "2→1" ];
+    10 -> 7 [ style = dashed ];
+    7 -> 11 [ style = dashed ];
+
+    10 [ label = <10: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    10 [ shape = parallelogram ]
+    10 [ pos = "0.851,-0.33!" ];
+
+    11 [ label = <11: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    11 [ shape = parallelogram ]
+    11 [ pos = "1.159,-0.40300003!" ];
+
+    17 [ label = <17: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;AL_04Arena&quot;<br align="left"/>    , FlagName=&quot;Enc05_AllDead&quot;)]<br align="left"/>> ];
+    17 [ pos = "1.381,-0.123!" ];
+
+    29 [ label = <29: <b>ExternalCallModule</b><br/><br/><b>EventName</b><br align="left"/>    &quot;StartEncounter&quot;<br align="left"/>> ];
+    29 [ shape = oval ]
+    29 [ pos = "0.001,-0.21900001!" ];
+    29 -> 30 [ label = "0→0" ];
+    29 -> 32 [ label = "0→0" ];
+
+    30 [ label = <30: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    8<br align="left"/>> ];
+    30 [ pos = "0.453,-0.053000003!" ];
+    30 -> 31 [ label = "0→0" ];
+
+    31 [ label = <31: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;AL_04_vsm_setwatcher_dialogue_0<br align="left"/>    5&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;watcher_ashlands_06&quot;<br align="left"/>> ];
+    31 [ pos = "0.767,0.030000001!" ];
+
+    32 [ label = <32: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;AL_04Arena&quot;<br align="left"/>    , FlagName=&quot;Enc05_AllDead&quot;)]<br align="left"/>> ];
+    32 [ pos = "0.333,-0.23900001!" ];
+    32 -> 4 [ label = "1→0" ];
+
+    title [ pos = "0,0.031000001!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>AL_04<br align="left"/>CombatArn2<br align="left"/><b>AL_04Arena_Enc05_Script</b><br align="left"/></font>> ];
+}

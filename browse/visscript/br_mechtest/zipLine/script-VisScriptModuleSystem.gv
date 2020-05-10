@@ -1,0 +1,60 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>AttachEventModule</b><br/><br/><i>active test<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;global_gearcrank&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onInteractive&quot;, &quot;onTrigger&quot;]<br align="left"/>> ];
+    1 [ pos = "0.33100003,-0.128!" ];
+    1 -> 5 [ label = "1→0" ];
+    1 -> 4 [ label = "0→0" ];
+
+    2 [ label = <2: <b>StartModule</b><br/><br/>> ];
+    2 [ shape = oval ]
+    2 [ pos = "0.068,-0.246!" ];
+    2 -> 1 [ label = "0→0" ];
+    2 -> 3 [ label = "0→0" ];
+
+    3 [ label = <3: <b>AttachEventModule</b><br/><br/><i>fail test<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;global_gearcrank_fail&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onInteractive&quot;, &quot;onTrigger&quot;]<br align="left"/>> ];
+    3 [ pos = "0.33100003,-0.35900003!" ];
+    3 -> 6 [ label = "0→0" ];
+    3 -> 7 [ label = "1→0" ];
+
+    4 [ label = <4: <b>TextModule</b><br/><br/><b>Text</b><br align="left"/>    &quot;on interavtive works&quot;<br align="left"/>> ];
+    4 [ pos = "0.588,-0.074!" ];
+
+    5 [ label = <5: <b>TextModule</b><br/><br/><b>Text</b><br align="left"/>    &quot;on trigger works&quot;<br align="left"/>> ];
+    5 [ pos = "0.59000003,-0.21300001!" ];
+    5 -> 10 [ label = "0→0" ];
+
+    6 [ label = <6: <b>TextModule</b><br/><br/><b>Text</b><br align="left"/>    &quot;on interavtive fail works&quot;<br align="left"/>> ];
+    6 [ pos = "0.587,-0.30100003!" ];
+
+    7 [ label = <7: <b>TextModule</b><br/><br/><b>Text</b><br align="left"/>    &quot;on trigger fail works&quot;<br align="left"/>> ];
+    7 [ pos = "0.58900005,-0.44000003!" ];
+    7 -> 11 [ label = "0→0" ];
+
+    8 [ label = <8: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;global_gearcrank&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;reset&quot;<br align="left"/>> ];
+    8 [ pos = "0.93900007,-0.21300001!" ];
+
+    9 [ label = <9: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;global_gearcrank_fail&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;reset&quot;<br align="left"/>> ];
+    9 [ pos = "0.933,-0.44000003!" ];
+
+    10 [ label = <10: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.5<br align="left"/>> ];
+    10 [ pos = "0.79700005,-0.21300001!" ];
+    10 -> 8 [ label = "0→0" ];
+
+    11 [ label = <11: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.5<br align="left"/>> ];
+    11 [ pos = "0.786,-0.44000003!" ];
+    11 -> 9 [ label = "0→0" ];
+
+    title [ pos = "0.067,-0.07300001!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">br_mechtest<br align="left"/>zipLine<br align="left"/>script<br align="left"/><b>VisScriptModuleSystem</b><br align="left"/></font>> ];
+}

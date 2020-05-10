@@ -1,0 +1,46 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    3 [ label = <3: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;Ch_Cat_Rm06_TrgReg_DoorSlamShu<br align="left"/>    t&quot;, &quot;&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    3 [ shape = oval ]
+    3 [ pos = "0.086,-0.30800003!" ];
+    3 -> 8 [ label = "0→0" ];
+
+    4 [ label = <4: <b>ObjectToggleModule</b><br/><br/><b>ObjectList</b><br align="left"/>    [&quot;Ch_Cat_Rm06_BlkReg&quot;]<br align="left"/>> ];
+    4 [ pos = "0.78000003,-0.116000004!" ];
+    4 -> 5 [ label = "0→1" ];
+
+    5 [ label = <5: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Ch_Cat&quot;, Fl<br align="left"/>    agName=&quot;DoorSlammed&quot;)]<br align="left"/>> ];
+    5 [ pos = "1.0400001,-0.093!" ];
+
+    6 [ label = <6: <b>StartModule</b><br/><br/>> ];
+    6 [ shape = oval ]
+    6 [ pos = "-0.231,-0.148!" ];
+    6 -> 7 [ label = "0→0" ];
+    6 -> 3 [ label = "0→1" ];
+
+    7 [ label = <7: <b>SaveDataModule</b><br/><br/><i>Checks to see if the door has be<br align="left"/>en slammed and removes the block<br align="left"/>er region<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Ch_Cat&quot;, Fl<br align="left"/>    agName=&quot;DoorSlammed&quot;)]<br align="left"/>> ];
+    7 [ pos = "0.268,-0.148!" ];
+    7 -> 4 [ label = "0→2" ];
+
+    8 [ label = <8: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;ch_cat_Rm06_KeyChestGratedoor&quot;<br align="left"/>    ]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;close&quot;<br align="left"/>> ];
+    8 [ pos = "0.328,-0.307!" ];
+    8 -> 9 [ label = "0→0" ];
+
+    9 [ label = <9: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.5<br align="left"/>> ];
+    9 [ pos = "0.528,-0.307!" ];
+    9 -> 4 [ label = "0→2" ];
+
+    title [ pos = "-0.23200001,-0.09200001!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>Ch_Cat_Rm06<br align="left"/>Scripts<br align="left"/><b>Ch_Cat_Rm06_VSM_SwordDoorSlam</b><br align="left"/></font>> ];
+}

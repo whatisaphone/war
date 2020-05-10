@@ -1,0 +1,75 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    17 [ label = <17: <b>CinematicModule</b><br/><br/><b>CinematicName</b><br align="left"/>    &quot;ch_cat_Rm01_ShowGrateCine&quot;<br align="left"/>> ];
+    17 [ pos = "0.51500005,0.080000006!" ];
+    17 -> 24 [ label = "0→0" ];
+
+    19 [ label = <19: <b>base/ontriggerscriptmodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;ch_cat_Rm01_crossbladeswitch&quot;<br align="left"/>> ];
+    19 [ pos = "-0.186,0.10300001!" ];
+    19 -> 20 [ label = "0→0" ];
+
+    20 [ label = <20: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.5<br align="left"/>> ];
+    20 [ pos = "0.035,0.10300001!" ];
+    20 -> 26 [ label = "0→0" ];
+
+    21 [ label = <21: <b>DelayModule</b><br/><br/>> ];
+    21 [ pos = "0.51600003,-0.117000006!" ];
+    21 -> 23 [ label = "0→0" ];
+
+    23 [ label = <23: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;ch_cat_Rm01_to_Rm02_gratedoor&quot;<br align="left"/>    ]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;open&quot;<br align="left"/>> ];
+    23 [ pos = "0.71800005,-0.117000006!" ];
+
+    24 [ label = <24: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    3.5<br align="left"/>> ];
+    24 [ pos = "0.73200005,0.080000006!" ];
+    24 -> 25 [ label = "0→0" ];
+
+    25 [ label = <25: <b>SoundModule</b><br/><br/><b>SoundDescFile</b><br align="left"/>    &quot;base/Music&quot;<br align="left"/><b>SoundID</b><br align="left"/>    90<br align="left"/>> ];
+    25 [ pos = "0.95400006,0.080000006!" ];
+    25 -> 31 [ label = "0→0" ];
+
+    26 [ label = <26: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;ch_cat_Rm01_gratedoorOpe<br align="left"/>    nedOnce&quot;)]<br align="left"/>> ];
+    26 [ pos = "0.23900001,0.10300001!" ];
+    26 -> 17 [ label = "1→0" ];
+    26 -> 21 [ label = "1→0" ];
+    26 -> 27 [ label = "1→1" ];
+    26 -> 28 [ label = "0→0" ];
+
+    27 [ label = <27: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;ch_cat_Rm01_gratedoorOpe<br align="left"/>    nedOnce&quot;)]<br align="left"/>> ];
+    27 [ pos = "0.51900005,-0.307!" ];
+    27 -> 34 [ label = "3→0" ];
+
+    28 [ label = <28: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;ch_cat_Rm01_to_Rm02_gratedoor&quot;<br align="left"/>    ]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;open&quot;<br align="left"/>> ];
+    28 [ pos = "0.517,0.261!" ];
+
+    29 [ label = <29: <b>base/autosavemodule</b><br/><br/>> ];
+    29 [ pos = "1.595,0.080000006!" ];
+    29 -> 33 [ label = "0→0" ];
+
+    31 [ label = <31: <b>base/commitsavedatamodule</b><br/><br/>> ];
+    31 [ pos = "1.1400001,0.080000006!" ];
+    31 -> 32 [ label = "0→0" ];
+
+    32 [ label = <32: <b>base/setspawnpointmodule</b><br/><br/><b>World</b><br align="left"/>    &quot;Overworld&quot;<br align="left"/><b>Region</b><br align="left"/>    &quot;Ch_Cat_Rm01&quot;<br align="left"/><b>SpawnPoint</b><br align="left"/>    &quot;Start2&quot;<br align="left"/><b>SpawnLoadRegion</b><br align="left"/>    &quot;StartLoadRegion&quot;<br align="left"/>> ];
+    32 [ pos = "1.3700001,0.080000006!" ];
+    32 -> 29 [ label = "0→0" ];
+
+    33 [ label = <33: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;ch_cat_Rm07_VSM_DoorLock01&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;addDoorLock&quot;<br align="left"/>> ];
+    33 [ pos = "1.7780001,0.080000006!" ];
+
+    34 [ label = <34: <b>base/clearnudgewatcherdialogmodule</b><br/><br/><i>clearing nudge if the player ele<br align="left"/>cted not to use it.<br align="left"/></i><br align="left"/>> ];
+    34 [ pos = "0.75000006,-0.35300002!" ];
+
+    title [ pos = "-0.187,0.26200002!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>Ch_Cat_Rm01<br align="left"/>Scripts<br align="left"/><b>ch_cat_rm01_VSM_XBladeSwitchHit</b><br align="left"/></font>> ];
+}

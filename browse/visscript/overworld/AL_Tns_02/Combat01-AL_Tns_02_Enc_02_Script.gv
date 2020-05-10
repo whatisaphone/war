@@ -1,0 +1,93 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>StartModule</b><br/><br/><i>Hax<br align="left"/></i><br align="left"/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "-0.034,-0.41300002!" ];
+
+    3 [ label = <3: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn Light &amp; Medium PGs on grou<br align="left"/>nd (3 Guys)<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;AL_Tns_02_Enc_02&quot;<br align="left"/>> ];
+    3 [ pos = "0.78700006,-0.528!" ];
+    3 -> 25 [ label = "1→0" ];
+    3 -> 37 [ label = "1→0" ];
+
+    5 [ label = <5: <b>SaveDataModule</b><br/><br/><i>AL_Tns_02_Enc_02<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Ashlands&quot;, <br align="left"/>    FlagName=&quot;AL_Tns_02_Enc_02&quot;)]<br align="left"/>> ];
+    5 [ pos = "0.22500001,-0.52900004!" ];
+    5 -> 3 [ label = "1→0" ];
+    5 -> 28 [ label = "1→0" ];
+    5 -> 29 [ label = "1→0" ];
+    5 -> 36 [ label = "1→0" ];
+
+    6 [ label = <6: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Ashlands&quot;, <br align="left"/>    FlagName=&quot;AL_Tns_02_Enc_02&quot;)]<br align="left"/>> ];
+    6 [ pos = "1.4100001,-1.286!" ];
+
+    8 [ label = <8: <b>TriggerEventModule</b><br/><br/><i>AL_Tns_02_Enc_02_TrigReg<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;AL_Tns_02_Enc_02_TrigReg&quot;, &quot;&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    8 [ shape = oval ]
+    8 [ pos = "-0.101,-0.527!" ];
+    8 -> 5 [ label = "0→0" ];
+
+    12 [ label = <12: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn Lights and Mediums on grou<br align="left"/>nd (2 Guys)<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;AL_Tns_02_Enc_02_W2&quot;<br align="left"/>> ];
+    12 [ pos = "1.9340001,-0.767!" ];
+    12 -> 18 [ label = "1→0" ];
+
+    17 [ label = <17: <b>VisScriptCallModule</b><br/><br/><i>Spawn Enc_03<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;AL_Tns_02_Enc_03_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;Spawn Enc_03&quot;<br align="left"/>> ];
+    17 [ pos = "2.8860002,-0.96900004!" ];
+
+    18 [ label = <18: <b>AccumulatorModule</b><br/><br/><i>Count to 3, when AL_Tns_02_Enc_0<br align="left"/>2_W2 and the Brute are dead, go <br align="left"/>to next<br align="left"/></i><br align="left"/><b>CountTo</b><br align="left"/>    3<br align="left"/>> ];
+    18 [ pos = "2.3360002,-0.96900004!" ];
+    18 -> 32 [ label = "0→0" ];
+
+    25 [ label = <25: <b>AccumulatorModule</b><br/><br/><i>Count to 4<br align="left"/></i><br align="left"/><b>CountTo</b><br align="left"/>    4<br align="left"/>> ];
+    25 [ pos = "1.24,-0.76900005!" ];
+    25 -> 12 [ label = "0→0" ];
+    25 -> 31 [ label = "0→0" ];
+
+    26 [ label = <26: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn Medium PGs on Catwalk (2 G<br align="left"/>uys)<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;AL_Tns_02_Enc_02_W3&quot;<br align="left"/>> ];
+    26 [ pos = "0.78200006,-0.87700003!" ];
+    26 -> 25 [ label = "1→0" ];
+    26 -> 37 [ label = "1→0" ];
+
+    27 [ label = <27: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn BFG on 1st Catwalk (1 Guy)<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;AL_Tns_02_Enc_02_BFG&quot;<br align="left"/>> ];
+    27 [ pos = "0.78000003,-1.1570001!" ];
+    27 -> 25 [ label = "1→0" ];
+    27 -> 37 [ label = "1→0" ];
+
+    28 [ label = <28: <b>DelayModule</b><br/><br/><i>Wait 1 second<br align="left"/></i><br align="left"/>> ];
+    28 [ pos = "0.507,-0.89000005!" ];
+    28 -> 26 [ label = "0→0" ];
+
+    29 [ label = <29: <b>DelayModule</b><br/><br/><i>Wait 5 seconds<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    5<br align="left"/>> ];
+    29 [ pos = "0.51600003,-1.166!" ];
+    29 -> 27 [ label = "0→0" ];
+
+    30 [ label = <30: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn 1st Brute (1 Guy)<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;AL_Tns_02_Enc_02_W2Brute&quot;<br align="left"/>> ];
+    30 [ pos = "1.9430001,-1.1320001!" ];
+    30 -> 18 [ label = "1→0" ];
+
+    31 [ label = <31: <b>DelayModule</b><br/><br/><i>Wait 3 seconds<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    3<br align="left"/>> ];
+    31 [ pos = "1.7350001,-1.131!" ];
+    31 -> 30 [ label = "0→0" ];
+
+    32 [ label = <32: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    32 [ pos = "2.595,-0.96900004!" ];
+    32 -> 17 [ label = "0→0" ];
+
+    36 [ label = <36: <b>VisScriptCallModule</b><br/><br/><i>scripted_HeavyCombat<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scripted_HeavyCombat&quot;<br align="left"/>> ];
+    36 [ pos = "0.45000002,-0.37800002!" ];
+
+    37 [ label = <37: <b>AccumulatorModule</b><br/><br/><i>Count to 6<br align="left"/></i><br align="left"/><b>CountTo</b><br align="left"/>    6<br align="left"/>> ];
+    37 [ pos = "1.159,-1.309!" ];
+    37 -> 6 [ label = "0→1" ];
+
+    title [ pos = "-0.102000006,-0.377!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>AL_Tns_02<br align="left"/>Combat01<br align="left"/><b>AL_Tns_02_Enc_02_Script</b><br align="left"/></font>> ];
+}

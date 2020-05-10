@@ -1,0 +1,77 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    22 [ label = <22: <b>StartModule</b><br/><br/>> ];
+    22 [ shape = oval ]
+    22 [ pos = "0.83100003,0.008!" ];
+    22 -> 45 [ label = "0→0" ];
+    22 -> 51 [ label = "0→0" ];
+
+    45 [ label = <45: <b>SaveDataModule</b><br/><br/><i>Check elevator switch moved<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;IC&quot;, FlagNa<br align="left"/>    me=&quot;ic_rm03_elevator_moved&quot;)]<br align="left"/>> ];
+    45 [ pos = "1.0810001,0.008!" ];
+    45 -> 47 [ label = "1→0" ];
+
+    47 [ label = <47: <b>AttachEventModule</b><br/><br/><i>wait for broken growth<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;IC_Rm03_Tremor_Growth&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onBreak&quot;]<br align="left"/>> ];
+    47 [ pos = "1.3610001,-0.015000001!" ];
+    47 -> 48 [ label = "0→0" ];
+    47 -> 68 [ label = "0→1" ];
+
+    48 [ label = <48: <b>InvokeMethodModule</b><br/><br/><i>Activate Elevator Switch<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;IC_Rm03_Elevator_Switch&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;activate&quot;<br align="left"/>> ];
+    48 [ pos = "1.593,-0.015000001!" ];
+    48 -> 53 [ label = "0→0" ];
+
+    51 [ label = <51: <b>ObjectAttacherModule</b><br/><br/><b>ChildObject</b><br align="left"/>    &quot;IC_Rm03_FrenzyTotem&quot;<br align="left"/><b>ParentObject</b><br align="left"/>    &quot;IC_Rm03_Elevator&quot;<br align="left"/><b>ParentNode</b><br align="left"/>    &quot;A1&quot;<br align="left"/><b>Relative</b><br align="left"/>    true<br align="left"/>> ];
+    51 [ pos = "1.064,0.22500001!" ];
+
+    53 [ label = <53: <b>AttachEventModule</b><br/><br/><i>wait for switch to be hit<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;IC_Rm03_Elevator_Switch&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onInteractive&quot;]<br align="left"/>> ];
+    53 [ pos = "1.8240001,-0.015000001!" ];
+    53 -> 54 [ label = "0→0" ];
+    53 -> 65 [ label = "0→1" ];
+
+    54 [ label = <54: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    3.7<br align="left"/>> ];
+    54 [ pos = "2.078,-0.015000001!" ];
+    54 -> 55 [ label = "0→0" ];
+    54 -> 76 [ label = "0→0" ];
+
+    55 [ label = <55: <b>InvokeMethodModule</b><br/><br/><i>Deactivate Elevator Switch<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;IC_Rm03_Elevator_Switch&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;deactivate&quot;<br align="left"/>> ];
+    55 [ pos = "2.3390002,-0.015000001!" ];
+
+    61 [ label = <61: <b>StartModule</b><br/><br/>> ];
+    61 [ shape = oval ]
+    61 [ pos = "0.82900006,-0.37800002!" ];
+    61 -> 67 [ label = "0→0" ];
+
+    65 [ label = <65: <b>SaveDataModule</b><br/><br/><i>Set elevator switch moved<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;IC&quot;, FlagNa<br align="left"/>    me=&quot;ic_rm03_elevator_moved&quot;)]<br align="left"/>> ];
+    65 [ pos = "2.079,0.22200002!" ];
+
+    66 [ label = <66: <b>SaveDataModule</b><br/><br/><i>Check tremor growth broken<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;IC&quot;, FlagNa<br align="left"/>    me=&quot;ic_rm03_tremor_broken&quot;)]<br align="left"/>> ];
+    66 [ pos = "1.3460001,-0.40100002!" ];
+    66 -> 48 [ label = "0→0" ];
+
+    67 [ label = <67: <b>SaveDataModule</b><br/><br/><i>Check elevator switch moved<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;IC&quot;, FlagNa<br align="left"/>    me=&quot;ic_rm03_elevator_moved&quot;)]<br align="left"/>> ];
+    67 [ pos = "1.0680001,-0.37800002!" ];
+    67 -> 66 [ label = "1→0" ];
+    67 -> 74 [ label = "0→0" ];
+
+    68 [ label = <68: <b>SaveDataModule</b><br/><br/><i>Set tremor growth broken<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;IC&quot;, FlagNa<br align="left"/>    me=&quot;ic_rm03_tremor_broken&quot;)]<br align="left"/>> ];
+    68 [ pos = "1.5890001,0.22700001!" ];
+
+    74 [ label = <74: <b>AnimatorModule</b><br/><br/><i>Move Up<br align="left"/></i><br align="left"/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;IC_Rm03_Elevator&quot;, AnimationI<br align="left"/>    D=2)]<br align="left"/>> ];
+    74 [ pos = "1.342,-0.25300002!" ];
+
+    76 [ label = <76: <b>AnimatorModule</b><br/><br/><i>Move Up<br align="left"/></i><br align="left"/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;IC_Rm03_Elevator&quot;, AnimationI<br align="left"/>    D=2)]<br align="left"/>> ];
+    76 [ pos = "2.344,-0.22900002!" ];
+
+    title [ pos = "0.82800007,0.22800002!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>IC_Rm03<br align="left"/>script<br align="left"/><b>IC_Rm03_Elevator_Script</b><br align="left"/></font>> ];
+}

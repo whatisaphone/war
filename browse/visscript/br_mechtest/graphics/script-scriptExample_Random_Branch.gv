@@ -1,0 +1,61 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    7 [ label = <7: <b>DelayModule</b><br/><br/><i>Wait 5-15 seconds<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    5<br align="left"/><b>Variance</b><br align="left"/>    10<br align="left"/>> ];
+    7 [ pos = "0.43600002,-0.55700004!" ];
+    7 -> 11 [ label = "0→0" ];
+
+    11 [ label = <11: <b>RandModule</b><br/><br/><b>Min</b><br align="left"/>    1<br align="left"/><b>Max</b><br align="left"/>    5<br align="left"/><b>NoRepeat</b><br align="left"/>    true<br align="left"/>> ];
+    11 [ pos = "0.40300003,-0.37300003!" ];
+    11 -> 13 [ label = "0→0" ];
+    11 -> 7 [ label = "0→0" ];
+    11 -> 14 [ style = dashed ];
+
+    12 [ label = <12: <b>StartModule</b><br/><br/>> ];
+    12 [ shape = oval ]
+    12 [ pos = "0.124000005,-0.256!" ];
+    12 -> 11 [ label = "0→0" ];
+
+    13 [ label = <13: <b>BranchModule</b><br/><br/><b>Branches</b><br align="left"/>    [1, 2, 3, 4, 5]<br align="left"/>> ];
+    13 [ pos = "0.79,-0.37300003!" ];
+    13 -> 15 [ label = "1→0" ];
+    13 -> 16 [ label = "2→0" ];
+    14 -> 13 [ style = dashed ];
+
+    14 [ label = <14: <b>VisScriptVariableInt</b><br/><br/>> ];
+    14 [ shape = parallelogram ]
+    14 [ pos = "0.637,-0.49100003!" ];
+
+    15 [ label = <15: <b>DelayModule</b><br/><br/><i>Wait 5-15 seconds<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    5<br align="left"/><b>Variance</b><br align="left"/>    10<br align="left"/>> ];
+    15 [ pos = "1.0580001,-0.245!" ];
+
+    16 [ label = <16: <b>DelayModule</b><br/><br/><i>Wait 5-15 seconds<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    5<br align="left"/><b>Variance</b><br align="left"/>    10<br align="left"/>> ];
+    16 [ pos = "1.049,-0.409!" ];
+
+    17 [ label = <17: <b>DelayModule</b><br/><br/><i>Wait 5-15 seconds<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    5<br align="left"/><b>Variance</b><br align="left"/>    10<br align="left"/>> ];
+    17 [ pos = "1.0610001,-0.58900005!" ];
+
+    18 [ label = <18: <b>DelayModule</b><br/><br/><i>Wait 5-15 seconds<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    5<br align="left"/><b>Variance</b><br align="left"/>    10<br align="left"/>> ];
+    18 [ pos = "1.0660001,-0.79800004!" ];
+
+    19 [ label = <19: <b>DelayModule</b><br/><br/><i>Wait 5-15 seconds<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    5<br align="left"/><b>Variance</b><br align="left"/>    10<br align="left"/>> ];
+    19 [ pos = "1.0710001,-0.95600003!" ];
+
+    21 [ label = <21: <b>ExternalCallModule</b><br/><br/>> ];
+    21 [ shape = oval ]
+    21 [ pos = "0.095000006,-0.45600003!" ];
+    21 -> 11 [ label = "0→0" ];
+
+    title [ pos = "0.094000004,-0.24400002!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">br_mechtest<br align="left"/>graphics<br align="left"/>script<br align="left"/><b>scriptExample_Random_Branch</b><br align="left"/><br/><i>scriptExample_Random_Branch</i><br align="left"/></font>> ];
+}

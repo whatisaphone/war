@@ -1,0 +1,209 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>StartModule</b><br/><br/><i>Hax<br align="left"/></i><br align="left"/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "-0.21400002,0.35200003!" ];
+
+    9 [ label = <9: <b>SpawnMonsterEventModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;AL_Hunter_Enc01&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    -1<br align="left"/>> ];
+    9 [ pos = "0.753,0.24800001!" ];
+    9 -> 15 [ label = "0→1" ];
+    9 -> 44 [ label = "3→0" ];
+    9 -> 11 [ style = dashed ];
+
+    11 [ label = <11: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    11 [ shape = parallelogram ]
+    11 [ pos = "1.258,0.047000002!" ];
+
+    14 [ label = <14: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;AL_Hunter&quot;,<br align="left"/>     FlagName=&quot;AL_Hunter_Enc01&quot;)]<br align="left"/>> ];
+    14 [ pos = "0.286,0.263!" ];
+    14 -> 9 [ label = "1→0" ];
+
+    15 [ label = <15: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;AL_Hunter&quot;,<br align="left"/>     FlagName=&quot;AL_Hunter_Enc01&quot;)]<br align="left"/>> ];
+    15 [ pos = "1.144,0.272!" ];
+
+    16 [ label = <16: <b>SoundModule</b><br/><br/><b>SoundDescFile</b><br align="left"/>    &quot;phantomguard_prisonguard/Phanto<br align="left"/>    mGuard_PrisonGuard_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    38<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;War&quot;<br align="left"/>> ];
+    16 [ pos = "0.62200004,0.57600003!" ];
+
+    17 [ label = <17: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;AL_Hunter_Enc01_Barrier01&quot;, &quot;A<br align="left"/>    L_Hunter_Enc01_Barrier02&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOn&quot;<br align="left"/>> ];
+    17 [ pos = "0.808,0.44000003!" ];
+    17 -> 29 [ label = "0→0" ];
+    17 -> 33 [ label = "0→0" ];
+
+    18 [ label = <18: <b>DelayModule</b><br/><br/>> ];
+    18 [ pos = "0.624,0.44000003!" ];
+    18 -> 17 [ label = "0→0" ];
+
+    19 [ label = <19: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;AL_Hunter_Enc01_Barrier01&quot;, &quot;A<br align="left"/>    L_Hunter_Enc01_Barrier02&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOff&quot;<br align="left"/>> ];
+    19 [ pos = "2.216,0.16700001!" ];
+
+    21 [ label = <21: <b>TriggerEventModule</b><br/><br/><i>Start Brute Reveal Event<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;AL_Hunter_Enc01_Barrier_Trigge<br align="left"/>    r&quot;, &quot;&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    21 [ shape = oval ]
+    21 [ pos = "0.014,0.263!" ];
+    21 -> 14 [ label = "0→0" ];
+    21 -> 22 [ label = "0→0" ];
+
+    22 [ label = <22: <b>TriggerEventModule</b><br/><br/><i>Start Brute Reveal Event<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;AL_Hunter_Enc01_Barrier_Trigge<br align="left"/>    r&quot;, &quot;&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    22 [ shape = oval ]
+    22 [ pos = "0.38000003,0.439!" ];
+    22 -> 18 [ label = "0→0" ];
+    22 -> 16 [ label = "0→0" ];
+
+    26 [ label = <26: <b>SpawnMonsterEventModule</b><br/><br/><b>NumberToSpawn</b><br align="left"/>    2<br align="left"/><b>DelayTime</b><br align="left"/>    0.66<br align="left"/>> ];
+    26 [ pos = "1.649,0.94900006!" ];
+    26 -> 44 [ label = "3→0" ];
+    26 -> 45 [ label = "0→0" ];
+    26 -> 46 [ label = "0→1" ];
+    26 -> 56 [ label = "3→0" ];
+    27 -> 26 [ style = dashed ];
+    26 -> 28 [ style = dashed ];
+    51 -> 26 [ style = dashed ];
+
+    27 [ label = <27: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    27 [ shape = parallelogram ]
+    27 [ pos = "1.4080001,0.74200004!" ];
+
+    28 [ label = <28: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    28 [ shape = parallelogram ]
+    28 [ pos = "1.9350001,0.78300005!" ];
+
+    29 [ label = <29: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;AL_Hunter_Enc01_W2&quot;<br align="left"/>> ];
+    29 [ pos = "1.1400001,0.95000005!" ];
+    29 -> 26 [ label = "0→0" ];
+    29 -> 27 [ style = dashed ];
+
+    30 [ label = <30: <b>SpawnMonsterEventModule</b><br/><br/><b>NumberToSpawn</b><br align="left"/>    4<br align="left"/><b>DelayTime</b><br align="left"/>    0.75<br align="left"/>> ];
+    30 [ pos = "1.646,1.2880001!" ];
+    30 -> 34 [ label = "0→0" ];
+    30 -> 35 [ label = "0→1" ];
+    30 -> 44 [ label = "3→0" ];
+    30 -> 56 [ label = "3→0" ];
+    31 -> 30 [ style = dashed ];
+    30 -> 32 [ style = dashed ];
+    42 -> 30 [ style = dashed ];
+
+    31 [ label = <31: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    31 [ shape = parallelogram ]
+    31 [ pos = "1.4050001,1.0810001!" ];
+
+    32 [ label = <32: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    32 [ shape = parallelogram ]
+    32 [ pos = "1.932,1.1220001!" ];
+
+    33 [ label = <33: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;AL_Hunter_Enc01_W1&quot;<br align="left"/>> ];
+    33 [ pos = "1.1370001,1.289!" ];
+    33 -> 30 [ label = "0→0" ];
+    33 -> 31 [ style = dashed ];
+
+    34 [ label = <34: <b>HealthStatsModule</b><br/><br/>> ];
+    34 [ pos = "2.1590002,1.2870001!" ];
+    34 -> 35 [ label = "0→0" ];
+    34 -> 40 [ label = "0→0" ];
+    32 -> 34 [ style = dashed ];
+    34 -> 38 [ style = dashed ];
+
+    35 [ label = <35: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    35 [ pos = "2.1720002,1.5000001!" ];
+    35 -> 34 [ label = "0→0" ];
+
+    38 [ label = <38: <b>VisScriptVariableInt</b><br/><br/>> ];
+    38 [ shape = parallelogram ]
+    38 [ pos = "2.3620002,1.144!" ];
+
+    39 [ label = <39: <b>VisScriptVariableInt</b><br/><br/><b>Value</b><br align="left"/>    2<br align="left"/>> ];
+    39 [ shape = parallelogram ]
+    39 [ pos = "2.365,1.085!" ];
+
+    40 [ label = <40: <b>IntCompareModule</b><br/><br/>> ];
+    40 [ pos = "2.532,1.223!" ];
+    40 -> 35 [ label = "1→2" ];
+    40 -> 35 [ label = "2→2" ];
+    40 -> 43 [ label = "1→0" ];
+    40 -> 43 [ label = "2→0" ];
+    38 -> 40 [ style = dashed ];
+    39 -> 40 [ style = dashed ];
+
+    42 [ label = <42: <b>VisScriptVariableInt</b><br/><br/><b>Value</b><br align="left"/>    4<br align="left"/>> ];
+    42 [ shape = parallelogram ]
+    42 [ pos = "1.501,1.013!" ];
+
+    43 [ label = <43: <b>base/intincrement</b><br/><br/><b>Increment</b><br align="left"/>    2<br align="left"/>> ];
+    43 [ pos = "2.772,1.192!" ];
+    43 -> 52 [ label = "0→0" ];
+    43 -> 16 [ label = "0→0" ];
+    43 -> 30 [ label = "0→0" ];
+    42 -> 43 [ style = dashed ];
+    43 -> 42 [ style = dashed ];
+
+    44 [ label = <44: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    3<br align="left"/>> ];
+    44 [ pos = "1.9790001,0.16600001!" ];
+    44 -> 19 [ label = "0→0" ];
+
+    45 [ label = <45: <b>HealthStatsModule</b><br/><br/>> ];
+    45 [ pos = "2.158,0.814!" ];
+    45 -> 46 [ label = "0→0" ];
+    45 -> 49 [ label = "0→0" ];
+    45 -> 47 [ style = dashed ];
+
+    46 [ label = <46: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    46 [ pos = "2.171,1.0270001!" ];
+    46 -> 45 [ label = "0→0" ];
+
+    47 [ label = <47: <b>VisScriptVariableInt</b><br/><br/>> ];
+    47 [ shape = parallelogram ]
+    47 [ pos = "2.361,0.671!" ];
+
+    48 [ label = <48: <b>VisScriptVariableInt</b><br/><br/><b>Value</b><br align="left"/>    2<br align="left"/>> ];
+    48 [ shape = parallelogram ]
+    48 [ pos = "2.364,0.61200005!" ];
+
+    49 [ label = <49: <b>IntCompareModule</b><br/><br/>> ];
+    49 [ pos = "2.5310001,0.75000006!" ];
+    49 -> 46 [ label = "1→2" ];
+    49 -> 46 [ label = "2→2" ];
+    49 -> 50 [ label = "1→0" ];
+    49 -> 50 [ label = "2→0" ];
+    47 -> 49 [ style = dashed ];
+    48 -> 49 [ style = dashed ];
+
+    50 [ label = <50: <b>base/intincrement</b><br/><br/>> ];
+    50 [ pos = "2.7710001,0.71900004!" ];
+    50 -> 53 [ label = "0→0" ];
+    50 -> 16 [ label = "0→0" ];
+    50 -> 26 [ label = "0→0" ];
+    51 -> 50 [ style = dashed ];
+    50 -> 51 [ style = dashed ];
+
+    51 [ label = <51: <b>VisScriptVariableInt</b><br/><br/><b>Value</b><br align="left"/>    2<br align="left"/>> ];
+    51 [ shape = parallelogram ]
+    51 [ pos = "1.5220001,0.65900004!" ];
+
+    52 [ label = <52: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    2<br align="left"/>> ];
+    52 [ pos = "3.012,1.192!" ];
+    52 -> 30 [ label = "0→2" ];
+
+    53 [ label = <53: <b>AccumulatorModule</b><br/><br/>> ];
+    53 [ pos = "3.025,0.71900004!" ];
+    53 -> 26 [ label = "0→2" ];
+
+    54 [ label = <54: <b>InvokeMethodModule</b><br/><br/><b>MethodName</b><br align="left"/>    &quot;setBehaviorCombat&quot;<br align="left"/>> ];
+    54 [ pos = "2.3170002,0.49100003!" ];
+    11 -> 54 [ style = dashed ];
+
+    56 [ label = <56: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    2<br align="left"/>> ];
+    56 [ pos = "2.0740001,0.49100003!" ];
+    56 -> 54 [ label = "0→0" ];
+
+    title [ pos = "-0.215,1.501!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>AL_Hunter<br align="left"/>Combat<br align="left"/><b>AL_Hunter_Enc01_Script</b><br align="left"/></font>> ];
+}

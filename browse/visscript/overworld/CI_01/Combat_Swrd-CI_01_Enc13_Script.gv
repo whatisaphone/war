@@ -1,0 +1,38 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    42 [ label = <42: <b>SpawnMonsterEventModule</b><br/><br/><i>CI_01_Enc13<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;CI_01_Enc13&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    -1<br align="left"/><b>DelayTime</b><br align="left"/>    0.53<br align="left"/>> ];
+    42 [ pos = "1.065,-0.24300002!" ];
+    42 -> 57 [ label = "1→0" ];
+    42 -> 46 [ label = "0→0" ];
+    42 -> 69 [ style = dashed ];
+
+    46 [ label = <46: <b>base/incrementmodulevar</b><br/><br/><i>increment ActiveSpawns by spawns<br align="left"/></i><br align="left"/><b>Increment</b><br align="left"/>    3<br align="left"/><b>VarName</b><br align="left"/>    &quot;ActiveSpawns&quot;<br align="left"/><b>ModuleName</b><br align="left"/>    &quot;CI_01_Script_EncounterMaster&quot;<br align="left"/>> ];
+    46 [ pos = "1.388,-0.113000005!" ];
+    69 -> 46 [ style = dashed ];
+
+    57 [ label = <57: <b>base/incrementmodulevar</b><br/><br/><i>decrement ActiveSpawns by 1<br align="left"/></i><br align="left"/><b>Operator</b><br align="left"/>    1<br align="left"/><b>VarName</b><br align="left"/>    &quot;ActiveSpawns&quot;<br align="left"/><b>ModuleName</b><br align="left"/>    &quot;CI_01_Script_EncounterMaster&quot;<br align="left"/>> ];
+    57 [ pos = "1.381,-0.224!" ];
+
+    69 [ label = <69: <b>VisScriptVariableInt</b><br/><br/>> ];
+    69 [ shape = parallelogram ]
+    69 [ pos = "1.2110001,-0.483!" ];
+
+    70 [ label = <70: <b>TriggerEventModule</b><br/><br/><i>CI_01_Enc13_TrigReg<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;CI_01_Enc13_TrigReg&quot;, &quot;&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    70 [ shape = oval ]
+    70 [ pos = "0.81000006,-0.24400002!" ];
+    70 -> 42 [ label = "0→0" ];
+
+    title [ pos = "0.809,-0.112!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>CI_01<br align="left"/>Combat_Swrd<br align="left"/><b>CI_01_Enc13_Script</b><br align="left"/><br/><i>phantom guards</i><br align="left"/></font>> ];
+}

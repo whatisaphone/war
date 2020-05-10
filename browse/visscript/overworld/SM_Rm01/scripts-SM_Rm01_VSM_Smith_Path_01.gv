@@ -1,0 +1,69 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    149 [ label = <149: <b>VisScriptCallModule</b><br/><br/><i>sends message to start script 03<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SM_Rm01_VSM_Smith_Path_03&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;Continue&quot;<br align="left"/>> ];
+    149 [ pos = "-0.446,-0.156!" ];
+
+    150 [ label = <150: <b>base/setinitialwaypoint</b><br/><br/><i>Move to 1st Door<br align="left"/></i><br align="left"/><b>MonsterName</b><br align="left"/>    &quot;Smith1&quot;<br align="left"/><b>Waypoint</b><br align="left"/>    &quot;SM_Rm01_SmithPoint_04&quot;<br align="left"/>> ];
+    150 [ pos = "-1.251,-0.15!" ];
+
+    151 [ label = <151: <b>ExternalCallModule</b><br/><br/><i>Continue (from Start)<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;Continue&quot;<br align="left"/>> ];
+    151 [ shape = oval ]
+    151 [ pos = "-2.2930002,-0.15!" ];
+    151 -> 183 [ label = "0→0" ];
+
+    169 [ label = <169: <b>VisScriptCallModule</b><br/><br/><i>Start Encounter 01<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SM_Rm01_Enc01_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;StartEncounter&quot;<br align="left"/>> ];
+    169 [ pos = "-1.894,0.029000001!" ];
+
+    178 [ label = <178: <b>ExternalCallModule</b><br/><br/><i>path_01_Door_Open (from Start sc<br align="left"/>ript)<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;path_01_Door_Open&quot;<br align="left"/>> ];
+    178 [ shape = oval ]
+    178 [ pos = "-0.878,-0.156!" ];
+    178 -> 207 [ label = "0→0" ];
+
+    183 [ label = <183: <b>base/gatemodule</b><br/><br/>> ];
+    183 [ pos = "-2.062,-0.15!" ];
+    183 -> 169 [ label = "0→0" ];
+    183 -> 189 [ label = "0→0" ];
+
+    185 [ label = <185: <b>ExternalCallModule</b><br/><br/><i>Enc01_AllDead (from Combat, Enc0<br align="left"/>1)<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;Enc01_AllDead&quot;<br align="left"/>> ];
+    185 [ shape = oval ]
+    185 [ pos = "-1.6990001,0.028!" ];
+    185 -> 186 [ label = "0→0" ];
+
+    186 [ label = <186: <b>DelayModule</b><br/><br/><i>short pause at the end of combat<br align="left"/>?<br align="left"/></i><br align="left"/>> ];
+    186 [ pos = "-1.4580001,0.028!" ];
+    186 -> 150 [ label = "0→0" ];
+    186 -> 208 [ label = "0→0" ];
+
+    189 [ label = <189: <b>DelayModule</b><br/><br/><i>12 sec Delay (give angels time t<br align="left"/>o arrive from Enc01)<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    12<br align="left"/>> ];
+    189 [ pos = "-1.7120001,-0.15!" ];
+    189 -> 150 [ label = "0→0" ];
+
+    207 [ label = <207: <b>base/oneshotmodule</b><br/><br/>> ];
+    207 [ pos = "-0.61800003,-0.156!" ];
+    207 -> 149 [ label = "0→0" ];
+
+    208 [ label = <208: <b>SoundModule</b><br/><br/><b>SoundDescFile</b><br align="left"/>    &quot;smith/Smith_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    118<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;Smith1&quot;<br align="left"/>> ];
+    208 [ pos = "-1.2270001,0.13800001!" ];
+    208 -> 209 [ label = "0→0" ];
+
+    209 [ label = <209: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    3<br align="left"/>> ];
+    209 [ pos = "-1.046,0.13900001!" ];
+    209 -> 210 [ label = "0→0" ];
+
+    210 [ label = <210: <b>base/dowatcherdialogmodule</b><br/><br/><i>vo_watcher_smith_02<br align="left"/></i><br align="left"/><b>Dialog</b><br align="left"/>    &quot;vo_watcher_smith_02&quot;<br align="left"/>> ];
+    210 [ pos = "-0.86600006,0.13800001!" ];
+
+    title [ pos = "-2.2940001,0.14!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SM_Rm01<br align="left"/>scripts<br align="left"/><b>SM_Rm01_VSM_Smith_Path_01</b><br align="left"/><br/><i>opens door 1</i><br align="left"/></font>> ];
+}

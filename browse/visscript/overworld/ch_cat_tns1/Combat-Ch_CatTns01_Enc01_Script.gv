@@ -1,0 +1,65 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>TriggerEventModule</b><br/><br/><i>(one-time)<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;Ch_CatTns01_Enc01_TrigReg&quot;, &quot;C<br align="left"/>    h_CatTns01_Enc01_TrigReg02&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "-0.23,-0.112!" ];
+    1 -> 170 [ label = "0→0" ];
+
+    5 [ label = <5: <b>SaveDataModule</b><br/><br/><i>Set AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_Ch_CatTns01_Enc0<br align="left"/>    1&quot;)]<br align="left"/>> ];
+    5 [ pos = "1.294,-0.15400001!" ];
+
+    8 [ label = <8: <b>AccumulatorModule</b><br/><br/>> ];
+    8 [ pos = "0.919,-0.156!" ];
+    8 -> 5 [ label = "0→1" ];
+
+    134 [ label = <134: <b>VisScriptCallModule</b><br/><br/><i>Start_ch_int_Music<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;ch_int_VSM_LoopingIntMusic&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;Start_ch_int_Music&quot;<br align="left"/>> ];
+    134 [ pos = "2.301,0.61800003!" ];
+
+    152 [ label = <152: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;Ch_CatTns01_Enc01&quot;<br align="left"/>> ];
+    152 [ pos = "0.316,-0.117000006!" ];
+    152 -> 153 [ label = "0→0" ];
+    152 -> 154 [ style = dashed ];
+
+    153 [ label = <153: <b>SpawnMonsterEventModule</b><br/><br/><b>DelayTime</b><br align="left"/>    0.1<br align="left"/>> ];
+    153 [ pos = "0.58100003,-0.124000005!" ];
+    153 -> 8 [ label = "2→0" ];
+    154 -> 153 [ style = dashed ];
+    153 -> 172 [ style = dashed ];
+
+    154 [ label = <154: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    154 [ shape = parallelogram ]
+    154 [ pos = "0.351,-0.254!" ];
+
+    170 [ label = <170: <b>base/gatemodule</b><br/><br/>> ];
+    170 [ pos = "0.089,-0.113000005!" ];
+    170 -> 152 [ label = "0→0" ];
+    170 -> 1 [ label = "0→1" ];
+
+    171 [ label = <171: <b>TriggerEventModule</b><br/><br/><i>Delete Regions<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;Ch_CatTns01_Enc01_DelTrigReg&quot;,<br align="left"/>     &quot;Ch_CatTns01_Enc01_DelTrigReg02<br align="left"/>    &quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    171 [ shape = oval ]
+    171 [ pos = "-0.23200001,-0.39100003!" ];
+    171 -> 173 [ label = "0→2" ];
+    171 -> 1 [ label = "0→0" ];
+
+    172 [ label = <172: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    172 [ shape = parallelogram ]
+    172 [ pos = "0.605,-0.33200002!" ];
+
+    173 [ label = <173: <b>ObjectToggleModule</b><br/><br/>> ];
+    173 [ pos = "0.081,-0.38900003!" ];
+    172 -> 173 [ style = dashed ];
+
+    title [ pos = "-0.23300001,0.619!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>ch_cat_tns1<br align="left"/>Combat<br align="left"/><b>Ch_CatTns01_Enc01_Script</b><br align="left"/></font>> ];
+}

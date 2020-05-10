@@ -1,0 +1,72 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    21 [ label = <21: <b>StartModule</b><br/><br/>> ];
+    21 [ shape = oval ]
+    21 [ pos = "-0.13700001,-0.41900003!" ];
+    21 -> 26 [ label = "0→0" ];
+
+    26 [ label = <26: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Int_Rm02_Bomb_Growth_01&quot;, &quot;<br align="left"/>    OT_Int_Rm02_Bomb_Growth_02&quot;, &quot;OT<br align="left"/>    _Int_Rm02_Bomb_Growth_03&quot;, &quot;OT_I<br align="left"/>    nt_Rm02_Bomb_Growth_04&quot;, &quot;OT_Int<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onBreak&quot;]<br align="left"/>> ];
+    26 [ pos = "0.09900001,-0.41900003!" ];
+    26 -> 35 [ label = "0→0" ];
+
+    33 [ label = <33: <b>DamageActorModule</b><br/><br/><b>DamageAmount</b><br align="left"/>    100<br align="left"/><b>TargetActorNames</b><br align="left"/>    [&quot;OT_Int_Rm02_Bomb_Growth_01&quot;, &quot;<br align="left"/>    OT_Int_Rm02_Bomb_Growth_02&quot;, &quot;OT<br align="left"/>    _Int_Rm02_Bomb_Growth_03&quot;, &quot;OT_I<br align="left"/>    nt_Rm02_Bomb_Growth_04&quot;, &quot;OT_Int<br align="left"/><b>WeaponType</b><br align="left"/>    22<br align="left"/>> ];
+    33 [ pos = "0.65800005,-0.65400004!" ];
+    33 -> 45 [ label = "0→2" ];
+
+    35 [ label = <35: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Int_Rm02<br align="left"/>    &quot;, FlagName=&quot;OT_Int_Rm02_Tempest<br align="left"/>    Cloak&quot;)]<br align="left"/>> ];
+    35 [ pos = "0.33400002,-0.41900003!" ];
+    35 -> 39 [ label = "1→1" ];
+    35 -> 33 [ label = "1→0" ];
+
+    36 [ label = <36: <b>StartModule</b><br/><br/><i>platform persistence<br align="left"/></i><br align="left"/>> ];
+    36 [ shape = oval ]
+    36 [ pos = "-0.104,0.116000004!" ];
+    36 -> 37 [ label = "0→0" ];
+
+    37 [ label = <37: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Int_Rm02<br align="left"/>    &quot;, FlagName=&quot;OT_Int_Rm02_Tempest<br align="left"/>    Cloak&quot;)]<br align="left"/>> ];
+    37 [ pos = "0.106000006,0.116000004!" ];
+    37 -> 38 [ label = "0→0" ];
+    37 -> 44 [ label = "0→2" ];
+
+    38 [ label = <38: <b>AnimatorModule</b><br/><br/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;OT_Int_Rm02_Platform&quot;, Animat<br align="left"/>    ionID=1)]<br align="left"/>> ];
+    38 [ pos = "0.347,0.116000004!" ];
+
+    39 [ label = <39: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;OT_Int_Rm02<br align="left"/>    &quot;, FlagName=&quot;OT_Int_Rm02_Tempest<br align="left"/>    Cloak&quot;)]<br align="left"/>> ];
+    39 [ pos = "0.656,-0.41900003!" ];
+    39 -> 41 [ label = "3→0" ];
+
+    40 [ label = <40: <b>AnimatorModule</b><br/><br/><b>AnimatedTargetList</b><br align="left"/>    [AnimatedTargetInfo(AnimatedActo<br align="left"/>    r=&quot;OT_Int_Rm02_Platform&quot;, Animat<br align="left"/>    ionID=0)]<br align="left"/>> ];
+    40 [ pos = "1.322,-0.46500003!" ];
+
+    41 [ label = <41: <b>CinematicModule</b><br/><br/><b>CinematicName</b><br align="left"/>    &quot;OT_Int_Rm02_Platform_cine&quot;<br align="left"/>> ];
+    41 [ pos = "0.90800005,-0.46500003!" ];
+    41 -> 42 [ label = "0→0" ];
+
+    42 [ label = <42: <b>DelayModule</b><br/><br/>> ];
+    42 [ pos = "1.1240001,-0.46500003!" ];
+    42 -> 40 [ label = "0→0" ];
+    42 -> 43 [ label = "0→0" ];
+
+    43 [ label = <43: <b>VisScriptCallModule</b><br/><br/><i>music stinger<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;OT_Beam_Emitter_Music_script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;stinger 3&quot;<br align="left"/>> ];
+    43 [ pos = "1.3230001,-0.39400002!" ];
+
+    44 [ label = <44: <b>ObjectToggleModule</b><br/><br/><i>Remove Player Movement Blocker<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;OT_Int_Rm02_Platform_blocker&quot;]<br align="left"/>> ];
+    44 [ pos = "0.349,-0.015000001!" ];
+
+    45 [ label = <45: <b>ObjectToggleModule</b><br/><br/><i>Remove Player Movement Blocker<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;OT_Int_Rm02_Platform_blocker&quot;]<br align="left"/>> ];
+    45 [ pos = "0.9110001,-0.60800004!" ];
+
+    title [ pos = "-0.13800001,0.117000006!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>OT_Int_Rm02<br align="left"/>Scripts<br align="left"/><b>OT_Int_Rm02_Platform_script</b><br align="left"/></font>> ];
+}

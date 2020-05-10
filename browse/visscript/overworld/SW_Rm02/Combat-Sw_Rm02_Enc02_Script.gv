@@ -1,0 +1,83 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>StartModule</b><br/><br/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "0.19000001,-0.010000001!" ];
+    1 -> 24 [ label = "0→0" ];
+
+    4 [ label = <4: <b>DelayModule</b><br/><br/><i>go Encounter<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    4 [ pos = "0.64400005,-0.141!" ];
+    4 -> 8 [ label = "0→0" ];
+
+    7 [ label = <7: <b>SpawnMonsterEventModule</b><br/><br/><i>spawn 1 only<br align="left"/></i><br align="left"/><b>NumberToSpawn</b><br align="left"/>    1<br align="left"/>> ];
+    7 [ pos = "2.223,-0.10700001!" ];
+    7 -> 17 [ label = "0→0" ];
+    7 -> 17 [ label = "1→1" ];
+    7 -> 14 [ label = "0→0" ];
+    16 -> 7 [ style = dashed ];
+
+    8 [ label = <8: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;Sw_Rm02_Enc02&quot;<br align="left"/>> ];
+    8 [ pos = "0.79200006,-0.141!" ];
+    8 -> 12 [ label = "0→0" ];
+    8 -> 9 [ style = dashed ];
+
+    9 [ label = <9: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    9 [ shape = parallelogram ]
+    9 [ pos = "0.813,-0.27!" ];
+
+    12 [ label = <12: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;Sw_Rm02_Enc02_TrigReg&quot;, &quot;&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    12 [ shape = oval ]
+    12 [ pos = "1.074,-0.185!" ];
+    12 -> 20 [ label = "0→1" ];
+    12 -> 20 [ label = "1→2" ];
+    12 -> 21 [ label = "0→0" ];
+
+    14 [ label = <14: <b>DelayModule</b><br/><br/><i>wait 5-9 seconds<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    7<br align="left"/><b>Variance</b><br align="left"/>    2<br align="left"/>> ];
+    14 [ pos = "1.8800001,0.089!" ];
+    14 -> 20 [ label = "0→0" ];
+
+    15 [ label = <15: <b>base/inviewlistmodule</b><br/><br/><i>Find *out* of sight spawn points<br align="left"/></i><br align="left"/>> ];
+    15 [ pos = "1.9390001,-0.120000005!" ];
+    15 -> 7 [ label = "0→0" ];
+    9 -> 15 [ style = dashed ];
+    15 -> 16 [ style = dashed ];
+
+    16 [ label = <16: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    16 [ shape = parallelogram ]
+    16 [ pos = "1.9520001,-0.27!" ];
+
+    17 [ label = <17: <b>AccumulatorModule</b><br/><br/><i>turn off if we have too many<br align="left"/></i><br align="left"/><b>CountTo</b><br align="left"/>    2<br align="left"/>> ];
+    17 [ pos = "2.5010002,-0.156!" ];
+    17 -> 21 [ label = "0→2" ];
+    17 -> 21 [ label = "1→1" ];
+
+    20 [ label = <20: <b>base/gatemodule</b><br/><br/><i>In-Volume control<br align="left"/></i><br align="left"/><b>enable</b><br align="left"/>    false<br align="left"/>> ];
+    20 [ pos = "1.363,-0.113000005!" ];
+    20 -> 21 [ label = "0→0" ];
+
+    21 [ label = <21: <b>base/gatemodule</b><br/><br/><i>Monster Count Control<br align="left"/></i><br align="left"/>> ];
+    21 [ pos = "1.544,-0.11100001!" ];
+    21 -> 23 [ label = "0→0" ];
+
+    23 [ label = <23: <b>SaveDataModule</b><br/><br/><i>Check for Water<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;SW_Rm02_NoWater&quot;)]<br align="left"/>> ];
+    23 [ pos = "1.6800001,-0.12200001!" ];
+    23 -> 15 [ label = "1→0" ];
+
+    24 [ label = <24: <b>SaveDataModule</b><br/><br/><i>Check for Water<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Subway&quot;, Fl<br align="left"/>    agName=&quot;SW_Rm02_NoWater&quot;)]<br align="left"/>> ];
+    24 [ pos = "0.38200003,-0.020000001!" ];
+    24 -> 4 [ label = "1→0" ];
+
+    title [ pos = "0.18900001,0.09!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SW_Rm02<br align="left"/>Combat<br align="left"/><b>Sw_Rm02_Enc02_Script</b><br align="left"/><br/><i>Bomb protectors</i><br align="left"/></font>> ];
+}

@@ -1,0 +1,61 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    57 [ label = <57: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;OT_Boss_Tns_ElevatorPlatform&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>MoveVal</b><br align="left"/>    25<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;OT_Boss_Tns_ElevatorPlatform_Do<br align="left"/>    wn&quot;<br align="left"/>> ];
+    57 [ pos = "0.296,-0.53400004!" ];
+    57 -> 105 [ label = "1→0" ];
+    57 -> 108 [ label = "0→0" ];
+    57 -> 109 [ label = "0→0" ];
+    57 -> 109 [ label = "1→1" ];
+    57 -> 110 [ label = "1→0" ];
+
+    64 [ label = <64: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Boss_Tns_Elevator_Crank&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onTrigger&quot;]<br align="left"/>> ];
+    64 [ pos = "-0.012,-0.53400004!" ];
+    64 -> 57 [ label = "0→0" ];
+
+    67 [ label = <67: <b>StartModule</b><br/><br/>> ];
+    67 [ shape = oval ]
+    67 [ pos = "-0.432,-0.53400004!" ];
+    67 -> 64 [ label = "0→0" ];
+    67 -> 68 [ label = "0→0" ];
+    67 -> 111 [ label = "0→0" ];
+
+    68 [ label = <68: <b>ObjectAttacherModule</b><br/><br/><b>ChildObject</b><br align="left"/>    &quot;OT_Boss_Tns_Elevator_Crank&quot;<br align="left"/><b>ParentObject</b><br align="left"/>    &quot;OT_Boss_Tns_ElevatorPlatform&quot;<br align="left"/><b>ParentNode</b><br align="left"/>    &quot;&quot;<br align="left"/><b>Relative</b><br align="left"/>    true<br align="left"/>> ];
+    68 [ pos = "-0.007,-0.679!" ];
+
+    105 [ label = <105: <b>DelayModule</b><br/><br/>> ];
+    105 [ pos = "0.58100003,-0.55700004!" ];
+    105 -> 106 [ label = "0→0" ];
+
+    106 [ label = <106: <b>base/setspawnpointmodule</b><br/><br/><b>World</b><br align="left"/>    &quot;Overworld&quot;<br align="left"/><b>Region</b><br align="left"/>    &quot;OT_Int_Rm02&quot;<br align="left"/><b>SpawnPoint</b><br align="left"/>    &quot;Start&quot;<br align="left"/><b>SpawnLoadRegion</b><br align="left"/>    &quot;StartLoadRegion&quot;<br align="left"/>> ];
+    106 [ pos = "0.758,-0.55700004!" ];
+    106 -> 107 [ label = "0→0" ];
+
+    107 [ label = <107: <b>base/autosavemodule</b><br/><br/>> ];
+    107 [ pos = "0.966,-0.55700004!" ];
+
+    108 [ label = <108: <b>SoundModule</b><br/><br/><i>Start<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;ot_com/Tower_Props_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    3<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;OT_Boss_Tns_ElevatorPlatform&quot;<br align="left"/>> ];
+    108 [ pos = "0.56700003,-0.109000005!" ];
+
+    109 [ label = <109: <b>SoundModule</b><br/><br/><i>Loop<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;ot_com/Tower_Props_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    5<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;OT_Boss_Tns_ElevatorPlatform&quot;<br align="left"/>> ];
+    109 [ pos = "0.57100004,-0.263!" ];
+
+    110 [ label = <110: <b>SoundModule</b><br/><br/><i>Stop<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;ot_com/Tower_Props_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    4<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;OT_Boss_Tns_ElevatorPlatform&quot;<br align="left"/>> ];
+    110 [ pos = "0.573,-0.41300002!" ];
+
+    111 [ label = <111: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;OT_Boss_Tns_Elevator_Crank&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;reset&quot;<br align="left"/>> ];
+    111 [ pos = "-0.009000001,-0.77800006!" ];
+
+    title [ pos = "-0.43300003,-0.108!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>OT_Boss_Tns<br align="left"/>Scripts<br align="left"/><b>OT_Boss_Tns_Elevator_Script</b><br align="left"/></font>> ];
+}

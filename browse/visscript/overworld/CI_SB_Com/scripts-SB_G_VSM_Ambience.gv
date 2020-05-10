@@ -1,0 +1,2383 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    30 [ label = <30: <b>TriggerEventModule</b><br/><br/><i>FX ON/OFF<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;SB_G_fallingDebris_Loop_Trig&quot;,<br align="left"/>     &quot;&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    30 [ shape = oval ]
+    30 [ pos = "-0.83800006,-2.4980001!" ];
+    30 -> 45 [ label = "0→1" ];
+    30 -> 32 [ label = "1→0" ];
+
+    32 [ label = <32: <b>SaveDataModule</b><br/><br/><i>FallingDebris_On = TRUE<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;FallingDebris_On&quot;)]<br align="left"/>> ];
+    32 [ pos = "-0.555,-2.5990002!" ];
+
+    45 [ label = <45: <b>SaveDataModule</b><br/><br/><i>FallingDebris_On = FALSE<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;FallingDebris_On&quot;, Fl<br align="left"/>    agValue=&quot;False&quot;)]<br align="left"/>> ];
+    45 [ pos = "-0.554,-2.4020002!" ];
+
+    137 [ label = <137: <b>BranchModule</b><br/><br/><b>Branches</b><br align="left"/>    [1, 2, 3, 4, 5]<br align="left"/>> ];
+    137 [ pos = "-1.8690001,3.8460002!" ];
+    137 -> 806 [ label = "1→0" ];
+    137 -> 811 [ label = "2→0" ];
+    137 -> 818 [ label = "3→0" ];
+    137 -> 823 [ label = "4→0" ];
+    137 -> 827 [ label = "5→0" ];
+    140 -> 137 [ style = dashed ];
+
+    138 [ label = <138: <b>RandModule</b><br/><br/><b>Min</b><br align="left"/>    1<br align="left"/><b>Max</b><br align="left"/>    5<br align="left"/><b>NoRepeat</b><br align="left"/>    true<br align="left"/>> ];
+    138 [ pos = "-2.528,3.8230002!" ];
+    138 -> 143 [ label = "0→0" ];
+    138 -> 144 [ label = "0→0" ];
+    138 -> 140 [ style = dashed ];
+
+    139 [ label = <139: <b>StartModule</b><br/><br/><i>Start small debris FX 1-5<br align="left"/></i><br align="left"/>> ];
+    139 [ shape = oval ]
+    139 [ pos = "-2.7340002,3.8230002!" ];
+    139 -> 138 [ label = "0→0" ];
+
+    140 [ label = <140: <b>VisScriptVariableInt</b><br/><br/>> ];
+    140 [ shape = parallelogram ]
+    140 [ pos = "-2.2610002,3.749!" ];
+
+    143 [ label = <143: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    3<br align="left"/><b>Variance</b><br align="left"/>    5<br align="left"/>> ];
+    143 [ pos = "-2.493,3.6840003!" ];
+    143 -> 138 [ label = "0→0" ];
+
+    144 [ label = <144: <b>SaveDataModule</b><br/><br/><i>FallingDebris_On check<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;FallingDebris_On&quot;)]<br align="left"/>> ];
+    144 [ pos = "-2.302,3.9050002!" ];
+    144 -> 1186 [ label = "1→0" ];
+
+    146 [ label = <146: <b>EffectModule</b><br/><br/><i>Debris Falling  Small<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRocks_Lit&quot;<br align="left"/>    , StartDelay=2, Duration=3.5, Ta<br align="left"/>    rgetNode=&quot;SB_G_DebrisSmall_FX_02<br align="left"/>> ];
+    146 [ pos = "-1.0500001,3.9340003!" ];
+
+    152 [ label = <152: <b>EffectModule</b><br/><br/><i>Debris Falling  Small<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRocks_Lit&quot;<br align="left"/>    , StartDelay=2, Duration=3.5, Ta<br align="left"/>    rgetNode=&quot;SB_G_DebrisSmall_FX_04<br align="left"/>> ];
+    152 [ pos = "-1.0550001,3.3990002!" ];
+
+    155 [ label = <155: <b>EffectModule</b><br/><br/><i>Debris Falling  Small   Single<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRock_Lit&quot;,<br align="left"/>     StartDelay=2, Duration=3.5, Tar<br align="left"/>    getNode=&quot;SB_G_DebrisSmall_FX_05&quot;<br align="left"/>> ];
+    155 [ pos = "-1.059,3.265!" ];
+
+    194 [ label = <194: <b>EffectModule</b><br/><br/><i>Debris Falling  Small<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRocks_Lit&quot;<br align="left"/>    , StartDelay=2, Duration=3.5, Ta<br align="left"/>    rgetNode=&quot;SB_G_DebrisSmall_FX_16<br align="left"/>> ];
+    194 [ pos = "-1.082,0.041!" ];
+
+    197 [ label = <197: <b>EffectModule</b><br/><br/><i>Debris Falling  Small<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRocks_Lit&quot;<br align="left"/>    , StartDelay=2, Duration=3.5, Ta<br align="left"/>    rgetNode=&quot;SB_G_DebrisSmall_FX_17<br align="left"/>> ];
+    197 [ pos = "-1.0840001,-0.22600001!" ];
+
+    200 [ label = <200: <b>EffectModule</b><br/><br/><i>Debris Falling  Small<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRocks_Lit&quot;<br align="left"/>    , StartDelay=2, Duration=3.5, Ta<br align="left"/>    rgetNode=&quot;SB_G_DebrisSmall_FX_18<br align="left"/>> ];
+    200 [ pos = "-1.087,-0.48900002!" ];
+
+    203 [ label = <203: <b>EffectModule</b><br/><br/><i>Debris Falling  Small<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRocks_Lit&quot;<br align="left"/>    , StartDelay=2, Duration=3.5, Ta<br align="left"/>    rgetNode=&quot;SB_G_DebrisSmall_FX_19<br align="left"/>> ];
+    203 [ pos = "-1.092,-0.758!" ];
+
+    206 [ label = <206: <b>EffectModule</b><br/><br/><i>Debris Falling  Small<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRocks_Lit&quot;<br align="left"/>    , StartDelay=2, Duration=3.5, Ta<br align="left"/>    rgetNode=&quot;SB_G_DebrisSmall_FX_20<br align="left"/>> ];
+    206 [ pos = "-1.0940001,-1.036!" ];
+
+    249 [ label = <249: <b>EffectModule</b><br/><br/><i>Debris Falling  Small<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRocks_Lit&quot;<br align="left"/>    , StartDelay=2, Duration=3.5, Ta<br align="left"/>    rgetNode=&quot;SB_G_DebrisSmall_FX_11<br align="left"/>> ];
+    249 [ pos = "-1.0660001,1.4410001!" ];
+
+    254 [ label = <254: <b>EffectModule</b><br/><br/><i>Debris Falling  Small<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRocks_Lit&quot;<br align="left"/>    , StartDelay=2, Duration=3.5, Ta<br align="left"/>    rgetNode=&quot;SB_G_DebrisSmall_FX_12<br align="left"/>> ];
+    254 [ pos = "-1.069,1.172!" ];
+
+    257 [ label = <257: <b>EffectModule</b><br/><br/><i>Debris Falling  Small<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRocks_Lit&quot;<br align="left"/>    , StartDelay=2, Duration=3.5, Ta<br align="left"/>    rgetNode=&quot;SB_G_DebrisSmall_FX_13<br align="left"/>> ];
+    257 [ pos = "-1.0730001,0.9110001!" ];
+
+    260 [ label = <260: <b>EffectModule</b><br/><br/><i>Debris Falling  Small<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRocks_Lit&quot;<br align="left"/>    , StartDelay=2, Duration=3.5, Ta<br align="left"/>    rgetNode=&quot;SB_G_DebrisSmall_FX_14<br align="left"/>> ];
+    260 [ pos = "-1.0730001,0.64100003!" ];
+
+    263 [ label = <263: <b>EffectModule</b><br/><br/><i>Debris Falling  Small<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRocks_Lit&quot;<br align="left"/>    , StartDelay=2, Duration=3.5, Ta<br align="left"/>    rgetNode=&quot;SB_G_DebrisSmall_FX_15<br align="left"/>> ];
+    263 [ pos = "-1.079,0.367!" ];
+
+    281 [ label = <281: <b>BranchModule</b><br/><br/><b>Branches</b><br align="left"/>    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]<br align="left"/>> ];
+    281 [ pos = "0.051000003,1.4690001!" ];
+    281 -> 285 [ label = "1→0" ];
+    281 -> 320 [ label = "2→0" ];
+    281 -> 323 [ label = "3→0" ];
+    281 -> 326 [ label = "4→0" ];
+    281 -> 329 [ label = "5→0" ];
+    281 -> 335 [ label = "6→0" ];
+    281 -> 338 [ label = "7→0" ];
+    281 -> 341 [ label = "8→0" ];
+    281 -> 344 [ label = "9→0" ];
+    281 -> 347 [ label = "10→0" ];
+    284 -> 281 [ style = dashed ];
+
+    282 [ label = <282: <b>RandModule</b><br/><br/><b>Min</b><br align="left"/>    1<br align="left"/><b>Max</b><br align="left"/>    10<br align="left"/><b>NoRepeat</b><br align="left"/>    true<br align="left"/>> ];
+    282 [ pos = "-0.59400004,1.5150001!" ];
+    282 -> 287 [ label = "0→0" ];
+    282 -> 288 [ label = "0→0" ];
+    282 -> 284 [ style = dashed ];
+
+    283 [ label = <283: <b>StartModule</b><br/><br/><i>Start Large Debris FX<br align="left"/></i><br align="left"/>> ];
+    283 [ shape = oval ]
+    283 [ pos = "-0.8,1.5150001!" ];
+    283 -> 282 [ label = "0→0" ];
+
+    284 [ label = <284: <b>VisScriptVariableInt</b><br/><br/>> ];
+    284 [ shape = parallelogram ]
+    284 [ pos = "-0.326,1.314!" ];
+
+    285 [ label = <285: <b>EffectModule</b><br/><br/><i>debris LARGE<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_BigChunk_Lit&quot;, <br align="left"/>    StartDelay=2, Duration=3.5, Targ<br align="left"/>    etNode=&quot;SB_G_DebrisLarge_FX_01&quot;)<br align="left"/>> ];
+    285 [ pos = "0.284,2.121!" ];
+    285 -> 289 [ label = "0→0" ];
+
+    286 [ label = <286: <b>base/camerashakemodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;SB_G_DebrisLarge_FX_01&quot;<br align="left"/><b>Duration</b><br align="left"/>    0.5<br align="left"/><b>EaseOut</b><br align="left"/>    0.5<br align="left"/>> ];
+    286 [ pos = "0.65400004,2.121!" ];
+
+    287 [ label = <287: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    5<br align="left"/><b>Variance</b><br align="left"/>    10<br align="left"/>> ];
+    287 [ pos = "-0.56100005,1.376!" ];
+    287 -> 282 [ label = "0→0" ];
+
+    288 [ label = <288: <b>SaveDataModule</b><br/><br/><i>FallingDebris_On check<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;FallingDebris_On&quot;)]<br align="left"/>> ];
+    288 [ pos = "-0.36800003,1.5150001!" ];
+    288 -> 1194 [ label = "1→0" ];
+
+    289 [ label = <289: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    289 [ pos = "0.505,2.121!" ];
+    289 -> 286 [ label = "0→0" ];
+
+    320 [ label = <320: <b>EffectModule</b><br/><br/><i>debris LARGE<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_BigChunk_Lit&quot;, <br align="left"/>    StartDelay=2, Duration=3.5, Targ<br align="left"/>    etNode=&quot;SB_G_DebrisLarge_FX_02&quot;)<br align="left"/>> ];
+    320 [ pos = "0.286,1.9480001!" ];
+    320 -> 322 [ label = "0→0" ];
+
+    321 [ label = <321: <b>base/camerashakemodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;SB_G_DebrisLarge_FX_02&quot;<br align="left"/><b>Duration</b><br align="left"/>    0.5<br align="left"/><b>EaseOut</b><br align="left"/>    0.5<br align="left"/>> ];
+    321 [ pos = "0.656,1.9480001!" ];
+
+    322 [ label = <322: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    322 [ pos = "0.507,1.9480001!" ];
+    322 -> 321 [ label = "0→0" ];
+
+    323 [ label = <323: <b>EffectModule</b><br/><br/><i>debris LARGE<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_BigChunk_Lit&quot;, <br align="left"/>    StartDelay=2, Duration=3.5, Targ<br align="left"/>    etNode=&quot;SB_G_DebrisLarge_FX_03&quot;)<br align="left"/>> ];
+    323 [ pos = "0.287,1.7770001!" ];
+    323 -> 325 [ label = "0→0" ];
+
+    324 [ label = <324: <b>base/camerashakemodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;SB_G_DebrisLarge_FX_03&quot;<br align="left"/><b>Duration</b><br align="left"/>    0.5<br align="left"/><b>EaseOut</b><br align="left"/>    0.5<br align="left"/>> ];
+    324 [ pos = "0.657,1.7770001!" ];
+
+    325 [ label = <325: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    325 [ pos = "0.508,1.7770001!" ];
+    325 -> 324 [ label = "0→0" ];
+
+    326 [ label = <326: <b>EffectModule</b><br/><br/><i>debris LARGE<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_BigChunk_Lit&quot;, <br align="left"/>    StartDelay=2, Duration=3.5, Targ<br align="left"/>    etNode=&quot;SB_G_DebrisLarge_FX_04&quot;)<br align="left"/>> ];
+    326 [ pos = "0.28800002,1.6060001!" ];
+    326 -> 328 [ label = "0→0" ];
+
+    327 [ label = <327: <b>base/camerashakemodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;SB_G_DebrisLarge_FX_04&quot;<br align="left"/><b>Duration</b><br align="left"/>    0.5<br align="left"/><b>EaseOut</b><br align="left"/>    0.5<br align="left"/>> ];
+    327 [ pos = "0.65800005,1.6060001!" ];
+
+    328 [ label = <328: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    328 [ pos = "0.509,1.6060001!" ];
+    328 -> 327 [ label = "0→0" ];
+
+    329 [ label = <329: <b>EffectModule</b><br/><br/><i>debris LARGE<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_BigChunk_Lit&quot;, <br align="left"/>    StartDelay=2, Duration=3.5, Targ<br align="left"/>    etNode=&quot;SB_G_DebrisLarge_FX_05&quot;)<br align="left"/>> ];
+    329 [ pos = "0.293,1.4360001!" ];
+    329 -> 331 [ label = "0→0" ];
+
+    330 [ label = <330: <b>base/camerashakemodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;SB_G_DebrisLarge_FX_05&quot;<br align="left"/><b>Duration</b><br align="left"/>    0.5<br align="left"/><b>EaseOut</b><br align="left"/>    0.5<br align="left"/>> ];
+    330 [ pos = "0.66200006,1.4360001!" ];
+
+    331 [ label = <331: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    331 [ pos = "0.514,1.4360001!" ];
+    331 -> 330 [ label = "0→0" ];
+
+    335 [ label = <335: <b>EffectModule</b><br/><br/><i>debris LARGE<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_BigChunk_Lit&quot;, <br align="left"/>    StartDelay=2, Duration=3.5, Targ<br align="left"/>    etNode=&quot;SB_G_DebrisLarge_FX_06&quot;)<br align="left"/>> ];
+    335 [ pos = "0.294,1.266!" ];
+    335 -> 337 [ label = "0→0" ];
+
+    336 [ label = <336: <b>base/camerashakemodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;SB_G_DebrisLarge_FX_06&quot;<br align="left"/><b>Duration</b><br align="left"/>    0.5<br align="left"/><b>EaseOut</b><br align="left"/>    0.5<br align="left"/>> ];
+    336 [ pos = "0.66400003,1.266!" ];
+
+    337 [ label = <337: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    337 [ pos = "0.51500005,1.266!" ];
+    337 -> 336 [ label = "0→0" ];
+
+    338 [ label = <338: <b>EffectModule</b><br/><br/><i>debris LARGE<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_BigChunk_Lit&quot;, <br align="left"/>    StartDelay=2, Duration=3.5, Targ<br align="left"/>    etNode=&quot;SB_G_DebrisLarge_FX_07&quot;)<br align="left"/>> ];
+    338 [ pos = "0.296,1.093!" ];
+    338 -> 340 [ label = "0→0" ];
+
+    339 [ label = <339: <b>base/camerashakemodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;SB_G_DebrisLarge_FX_07&quot;<br align="left"/><b>Duration</b><br align="left"/>    0.5<br align="left"/><b>EaseOut</b><br align="left"/>    0.5<br align="left"/>> ];
+    339 [ pos = "0.666,1.093!" ];
+
+    340 [ label = <340: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    340 [ pos = "0.517,1.093!" ];
+    340 -> 339 [ label = "0→0" ];
+
+    341 [ label = <341: <b>EffectModule</b><br/><br/><i>debris LARGE<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_BigChunk_Lit&quot;, <br align="left"/>    StartDelay=2, Duration=3.5, Targ<br align="left"/>    etNode=&quot;SB_G_DebrisLarge_FX_08&quot;)<br align="left"/>> ];
+    341 [ pos = "0.29700002,0.92200005!" ];
+    341 -> 343 [ label = "0→0" ];
+
+    342 [ label = <342: <b>base/camerashakemodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;SB_G_DebrisLarge_FX_08&quot;<br align="left"/><b>Duration</b><br align="left"/>    0.5<br align="left"/><b>EaseOut</b><br align="left"/>    0.5<br align="left"/>> ];
+    342 [ pos = "0.66700006,0.92200005!" ];
+
+    343 [ label = <343: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    343 [ pos = "0.518,0.92200005!" ];
+    343 -> 342 [ label = "0→0" ];
+
+    344 [ label = <344: <b>EffectModule</b><br/><br/><i>debris LARGE<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_BigChunk_Lit&quot;, <br align="left"/>    StartDelay=2, Duration=3.5, Targ<br align="left"/>    etNode=&quot;SB_G_DebrisLarge_FX_09&quot;)<br align="left"/>> ];
+    344 [ pos = "0.298,0.75100005!" ];
+    344 -> 346 [ label = "0→0" ];
+
+    345 [ label = <345: <b>base/camerashakemodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;SB_G_DebrisLarge_FX_09&quot;<br align="left"/><b>Duration</b><br align="left"/>    0.5<br align="left"/><b>EaseOut</b><br align="left"/>    0.5<br align="left"/>> ];
+    345 [ pos = "0.66800004,0.75100005!" ];
+
+    346 [ label = <346: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    346 [ pos = "0.51900005,0.75100005!" ];
+    346 -> 345 [ label = "0→0" ];
+
+    347 [ label = <347: <b>EffectModule</b><br/><br/><i>debris LARGE<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_BigChunk_Lit&quot;, <br align="left"/>    StartDelay=2, Duration=3.5, Targ<br align="left"/>    etNode=&quot;SB_G_DebrisLarge_FX_10&quot;)<br align="left"/>> ];
+    347 [ pos = "0.303,0.58100003!" ];
+    347 -> 349 [ label = "0→0" ];
+
+    348 [ label = <348: <b>base/camerashakemodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;SB_G_DebrisLarge_FX_10&quot;<br align="left"/><b>Duration</b><br align="left"/>    0.5<br align="left"/><b>EaseOut</b><br align="left"/>    0.5<br align="left"/>> ];
+    348 [ pos = "0.67300004,0.58100003!" ];
+
+    349 [ label = <349: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    349 [ pos = "0.52400005,0.58100003!" ];
+    349 -> 348 [ label = "0→0" ];
+
+    399 [ label = <399: <b>BranchModule</b><br/><br/><b>Branches</b><br align="left"/>    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]<br align="left"/>> ];
+    399 [ pos = "-1.389,-5.7900004!" ];
+    399 -> 1068 [ label = "1→0" ];
+    399 -> 1069 [ label = "2→0" ];
+    399 -> 1070 [ label = "3→0" ];
+    399 -> 1071 [ label = "4→0" ];
+    399 -> 1072 [ label = "5→0" ];
+    399 -> 1073 [ label = "6→0" ];
+    399 -> 1074 [ label = "7→0" ];
+    399 -> 1075 [ label = "8→0" ];
+    399 -> 1076 [ label = "9→0" ];
+    399 -> 1077 [ label = "10→0" ];
+    402 -> 399 [ style = dashed ];
+
+    400 [ label = <400: <b>RandModule</b><br/><br/><b>Min</b><br align="left"/>    1<br align="left"/><b>Max</b><br align="left"/>    10<br align="left"/><b>NoRepeat</b><br align="left"/>    true<br align="left"/>> ];
+    400 [ pos = "-1.8390001,-5.813!" ];
+    400 -> 403 [ label = "0→0" ];
+    400 -> 1078 [ label = "0→0" ];
+    400 -> 402 [ style = dashed ];
+
+    401 [ label = <401: <b>StartModule</b><br/><br/><i>building sound 5 sec<br align="left"/></i><br align="left"/>> ];
+    401 [ shape = oval ]
+    401 [ pos = "-2.207,-5.813!" ];
+    401 -> 410 [ label = "0→0" ];
+
+    402 [ label = <402: <b>VisScriptVariableInt</b><br/><br/>> ];
+    402 [ shape = parallelogram ]
+    402 [ pos = "-1.57,-5.887!" ];
+
+    403 [ label = <403: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    8<br align="left"/><b>Variance</b><br align="left"/>    12<br align="left"/>> ];
+    403 [ pos = "-1.8040001,-5.9540005!" ];
+    403 -> 400 [ label = "0→0" ];
+    1108 -> 403 [ style = dashed ];
+    1109 -> 403 [ style = dashed ];
+
+    410 [ label = <410: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/><b>Variance</b><br align="left"/>    5<br align="left"/>> ];
+    410 [ pos = "-2.0080001,-5.813!" ];
+    410 -> 400 [ label = "0→0" ];
+
+    451 [ label = <451: <b>BranchModule</b><br/><br/><b>Branches</b><br align="left"/>    [1, 2, 3, 4]<br align="left"/>> ];
+    451 [ pos = "2.5830002,0.26200002!" ];
+    451 -> 744 [ label = "1→0" ];
+    451 -> 746 [ label = "2→0" ];
+    451 -> 747 [ label = "3→0" ];
+    451 -> 748 [ label = "4→0" ];
+    454 -> 451 [ style = dashed ];
+
+    452 [ label = <452: <b>RandModule</b><br/><br/><b>Min</b><br align="left"/>    1<br align="left"/><b>Max</b><br align="left"/>    4<br align="left"/><b>NoRepeat</b><br align="left"/>    true<br align="left"/>> ];
+    452 [ pos = "1.9020001,0.22700001!" ];
+    452 -> 455 [ label = "0→0" ];
+    452 -> 456 [ label = "0→0" ];
+    452 -> 454 [ style = dashed ];
+
+    453 [ label = <453: <b>StartModule</b><br/><br/><i>Random Explosions<br align="left"/></i><br align="left"/>> ];
+    453 [ shape = oval ]
+    453 [ pos = "1.5320001,0.22700001!" ];
+    453 -> 457 [ label = "0→0" ];
+
+    454 [ label = <454: <b>VisScriptVariableInt</b><br/><br/>> ];
+    454 [ shape = parallelogram ]
+    454 [ pos = "2.1690001,0.15300001!" ];
+
+    455 [ label = <455: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/><b>Variance</b><br align="left"/>    2<br align="left"/>> ];
+    455 [ pos = "1.9350001,0.087000005!" ];
+    455 -> 452 [ label = "0→0" ];
+
+    456 [ label = <456: <b>SaveDataModule</b><br/><br/><i>FallingDebris_On check<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;FallingDebris_On&quot;)]<br align="left"/>> ];
+    456 [ pos = "2.13,0.30800003!" ];
+    456 -> 1195 [ label = "1→0" ];
+
+    457 [ label = <457: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    5<br align="left"/><b>Variance</b><br align="left"/>    5<br align="left"/>> ];
+    457 [ pos = "1.7310001,0.22700001!" ];
+    457 -> 452 [ label = "0→0" ];
+
+    503 [ label = <503: <b>SoundModule</b><br/><br/><i>AMB_MetalImpactLow  VARIATIONS<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    85<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_01b&quot;<br align="left"/>> ];
+    503 [ pos = "1.4660001,-2.756!" ];
+    503 -> 531 [ label = "0→0" ];
+    503 -> 780 [ label = "0→0" ];
+
+    504 [ label = <504: <b>BranchModule</b><br/><br/><b>Branches</b><br align="left"/>    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]<br align="left"/>> ];
+    504 [ pos = "0.046000004,-6.7160006!" ];
+    504 -> 754 [ label = "1→0" ];
+    504 -> 756 [ label = "2→0" ];
+    504 -> 758 [ label = "3→0" ];
+    504 -> 760 [ label = "4→0" ];
+    504 -> 762 [ label = "5→0" ];
+    504 -> 764 [ label = "6→0" ];
+    504 -> 766 [ label = "7→0" ];
+    504 -> 768 [ label = "8→0" ];
+    504 -> 770 [ label = "9→0" ];
+    504 -> 772 [ label = "10→0" ];
+    507 -> 504 [ style = dashed ];
+
+    505 [ label = <505: <b>RandModule</b><br/><br/><b>Min</b><br align="left"/>    1<br align="left"/><b>Max</b><br align="left"/>    10<br align="left"/><b>NoRepeat</b><br align="left"/>    true<br align="left"/>> ];
+    505 [ pos = "-0.40600002,-6.7390003!" ];
+    505 -> 508 [ label = "0→0" ];
+    505 -> 1086 [ label = "0→0" ];
+    505 -> 507 [ style = dashed ];
+
+    506 [ label = <506: <b>StartModule</b><br/><br/><i>Random Metal Groans<br align="left"/></i><br align="left"/>> ];
+    506 [ shape = oval ]
+    506 [ pos = "-0.772,-6.7390003!" ];
+    506 -> 510 [ label = "0→0" ];
+
+    507 [ label = <507: <b>VisScriptVariableInt</b><br/><br/>> ];
+    507 [ shape = parallelogram ]
+    507 [ pos = "-0.135,-6.813!" ];
+
+    508 [ label = <508: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    15<br align="left"/><b>Variance</b><br align="left"/>    15<br align="left"/>> ];
+    508 [ pos = "-0.36900002,-6.879!" ];
+    508 -> 505 [ label = "0→0" ];
+    1118 -> 508 [ style = dashed ];
+    1119 -> 508 [ style = dashed ];
+
+    510 [ label = <510: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    3<br align="left"/>> ];
+    510 [ pos = "-0.573,-6.7390003!" ];
+    510 -> 505 [ label = "0→0" ];
+
+    530 [ label = <530: <b>SoundModule</b><br/><br/><i>AMB_Explosions  VARIATIONS<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    86<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_01c&quot;<br align="left"/>> ];
+    530 [ pos = "1.9720001,-2.756!" ];
+    530 -> 678 [ label = "0→0" ];
+
+    531 [ label = <531: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.5<br align="left"/><b>Variance</b><br align="left"/>    0.5<br align="left"/>> ];
+    531 [ pos = "1.83,-2.756!" ];
+    531 -> 530 [ label = "0→0" ];
+
+    534 [ label = <534: <b>SoundModule</b><br/><br/><i>Low Rumble<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    80<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_01a&quot;<br align="left"/>> ];
+    534 [ pos = "1.8500001,-2.4520001!" ];
+    534 -> 536 [ label = "0→0" ];
+    534 -> 1088 [ label = "0→0" ];
+
+    536 [ label = <536: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    4<br align="left"/>> ];
+    536 [ pos = "1.8620001,-2.595!" ];
+    536 -> 534 [ label = "0→1" ];
+
+    538 [ label = <538: <b>SoundModule</b><br/><br/><i>5sec  ambient<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    75<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_01a&quot;<br align="left"/>> ];
+    538 [ pos = "1.1220001,-2.756!" ];
+    538 -> 539 [ label = "0→0" ];
+
+    539 [ label = <539: <b>DelayModule</b><br/><br/><b>Variance</b><br align="left"/>    0.5<br align="left"/>> ];
+    539 [ pos = "1.304,-2.756!" ];
+    539 -> 503 [ label = "0→0" ];
+    539 -> 540 [ label = "0→0" ];
+
+    540 [ label = <540: <b>base/camerashakemodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>HorizontalPower</b><br align="left"/>    0.4<br align="left"/><b>VerticalPower</b><br align="left"/>    0.4<br align="left"/><b>Duration</b><br align="left"/>    2<br align="left"/><b>EaseIn</b><br align="left"/>    2<br align="left"/>> ];
+    540 [ pos = "1.6220001,-2.4520001!" ];
+    540 -> 534 [ label = "0→0" ];
+
+    542 [ label = <542: <b>SoundModule</b><br/><br/><i>AMB_Explosions  VARIATIONS<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    86<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_02b&quot;<br align="left"/>> ];
+    542 [ pos = "1.526,-3.6260002!" ];
+    542 -> 543 [ label = "0→0" ];
+
+    543 [ label = <543: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.5<br align="left"/><b>Variance</b><br align="left"/>    0.5<br align="left"/>> ];
+    543 [ pos = "1.7010001,-3.6260002!" ];
+    543 -> 551 [ label = "0→0" ];
+
+    544 [ label = <544: <b>SoundModule</b><br/><br/><i>AMB_MetalImpactLow  VARIATIONS<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    85<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_02e&quot;<br align="left"/>> ];
+    544 [ pos = "2.2210002,-3.6260002!" ];
+    544 -> 781 [ label = "0→0" ];
+
+    545 [ label = <545: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.5<br align="left"/><b>Variance</b><br align="left"/>    0.5<br align="left"/>> ];
+    545 [ pos = "2.072,-3.6260002!" ];
+    545 -> 544 [ label = "0→0" ];
+
+    546 [ label = <546: <b>SoundModule</b><br/><br/><i>Low Rumble<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    80<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_02a&quot;<br align="left"/>> ];
+    546 [ pos = "1.7850001,-3.3330002!" ];
+    546 -> 547 [ label = "0→0" ];
+    546 -> 1090 [ label = "0→0" ];
+
+    547 [ label = <547: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    4<br align="left"/>> ];
+    547 [ pos = "1.797,-3.476!" ];
+    547 -> 546 [ label = "0→1" ];
+
+    548 [ label = <548: <b>SoundModule</b><br/><br/><i>5sec  ambient<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    75<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_02a&quot;<br align="left"/>> ];
+    548 [ pos = "1.1400001,-3.6260002!" ];
+    548 -> 549 [ label = "0→0" ];
+
+    549 [ label = <549: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.5<br align="left"/><b>Variance</b><br align="left"/>    0.5<br align="left"/>> ];
+    549 [ pos = "1.3620001,-3.6260002!" ];
+    549 -> 550 [ label = "0→0" ];
+    549 -> 542 [ label = "0→0" ];
+
+    550 [ label = <550: <b>base/camerashakemodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>HorizontalPower</b><br align="left"/>    0.6<br align="left"/><b>VerticalPower</b><br align="left"/>    0.6<br align="left"/><b>Duration</b><br align="left"/>    2<br align="left"/><b>EaseIn</b><br align="left"/>    3<br align="left"/><b>EaseOut</b><br align="left"/>    0.5<br align="left"/>> ];
+    550 [ pos = "1.585,-3.3330002!" ];
+    550 -> 546 [ label = "0→0" ];
+
+    551 [ label = <551: <b>SoundModule</b><br/><br/><i>AMB_Explosions  VARIATIONS<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    86<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_02c&quot;<br align="left"/>> ];
+    551 [ pos = "1.891,-3.6260002!" ];
+    551 -> 545 [ label = "0→0" ];
+    551 -> 677 [ label = "0→0" ];
+
+    552 [ label = <552: <b>SoundModule</b><br/><br/><i>AMB_MetalImpactLow  VARIATIONS<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    85<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_03c&quot;<br align="left"/>> ];
+    552 [ pos = "1.531,-4.467!" ];
+    552 -> 554 [ label = "0→0" ];
+    552 -> 782 [ label = "0→0" ];
+
+    553 [ label = <553: <b>SoundModule</b><br/><br/><i>AMB_Explosions  VARIATIONS<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    86<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_03f&quot;<br align="left"/>> ];
+    553 [ pos = "2.335,-4.467!" ];
+    553 -> 556 [ label = "0→0" ];
+
+    554 [ label = <554: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.5<br align="left"/><b>Variance</b><br align="left"/>    0.5<br align="left"/>> ];
+    554 [ pos = "1.7680001,-4.467!" ];
+    554 -> 572 [ label = "0→0" ];
+
+    555 [ label = <555: <b>SoundModule</b><br/><br/><i>AMB_MetalImpactLow  VARIATIONS<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    85<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_03g&quot;<br align="left"/>> ];
+    555 [ pos = "2.6750002,-4.467!" ];
+    555 -> 579 [ label = "0→0" ];
+    555 -> 784 [ label = "0→0" ];
+
+    556 [ label = <556: <b>DelayModule</b><br/><br/><b>Variance</b><br align="left"/>    0.5<br align="left"/>> ];
+    556 [ pos = "2.5180001,-4.467!" ];
+    556 -> 555 [ label = "0→0" ];
+
+    557 [ label = <557: <b>SoundModule</b><br/><br/><i>Low Rumble<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    80<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_03a&quot;<br align="left"/>> ];
+    557 [ pos = "1.8740001,-4.1990004!" ];
+    557 -> 558 [ label = "0→0" ];
+
+    558 [ label = <558: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    5<br align="left"/>> ];
+    558 [ pos = "1.886,-4.342!" ];
+    558 -> 557 [ label = "0→1" ];
+
+    559 [ label = <559: <b>SoundModule</b><br/><br/><i>5sec  ambient<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    75<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_03a&quot;<br align="left"/>> ];
+    559 [ pos = "1.1470001,-4.467!" ];
+    559 -> 560 [ label = "0→0" ];
+
+    560 [ label = <560: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0<br align="left"/><b>Variance</b><br align="left"/>    0.5<br align="left"/>> ];
+    560 [ pos = "1.3130001,-4.467!" ];
+    560 -> 552 [ label = "0→0" ];
+    560 -> 561 [ label = "0→0" ];
+    560 -> 676 [ label = "0→0" ];
+
+    561 [ label = <561: <b>base/camerashakemodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>HorizontalPower</b><br align="left"/>    0.4<br align="left"/><b>VerticalPower</b><br align="left"/>    0.4<br align="left"/><b>EaseIn</b><br align="left"/>    2<br align="left"/>> ];
+    561 [ pos = "1.5400001,-4.1990004!" ];
+    561 -> 557 [ label = "0→0" ];
+    561 -> 1092 [ label = "0→0" ];
+
+    562 [ label = <562: <b>SoundModule</b><br/><br/><i>AMB_Explosions  VARIATIONS<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    86<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_04c&quot;<br align="left"/>> ];
+    562 [ pos = "1.567,-5.3180003!" ];
+    562 -> 563 [ label = "0→0" ];
+    562 -> 584 [ label = "0→0" ];
+
+    563 [ label = <563: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.5<br align="left"/><b>Variance</b><br align="left"/>    0.5<br align="left"/>> ];
+    563 [ pos = "1.7490001,-5.3180003!" ];
+    563 -> 571 [ label = "0→0" ];
+
+    564 [ label = <564: <b>SoundModule</b><br/><br/><i>AMB_MetalImpactLow  VARIATIONS<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    85<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_04e&quot;<br align="left"/>> ];
+    564 [ pos = "2.397,-5.552!" ];
+    564 -> 785 [ label = "0→0" ];
+
+    566 [ label = <566: <b>SoundModule</b><br/><br/><i>Low Rumble<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    80<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_04a&quot;<br align="left"/>> ];
+    566 [ pos = "1.8160001,-4.9940004!" ];
+    566 -> 567 [ label = "0→0" ];
+    566 -> 1094 [ label = "0→0" ];
+
+    567 [ label = <567: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    4<br align="left"/>> ];
+    567 [ pos = "1.8280001,-5.137!" ];
+    567 -> 566 [ label = "0→1" ];
+
+    568 [ label = <568: <b>SoundModule</b><br/><br/><i>5sec  ambient<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    75<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_04a&quot;<br align="left"/>> ];
+    568 [ pos = "1.1810001,-5.3180003!" ];
+    568 -> 569 [ label = "0→0" ];
+
+    569 [ label = <569: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/><b>Variance</b><br align="left"/>    1<br align="left"/>> ];
+    569 [ pos = "1.4030001,-5.3180003!" ];
+    569 -> 570 [ label = "0→0" ];
+    569 -> 562 [ label = "0→0" ];
+    569 -> 675 [ label = "0→0" ];
+
+    570 [ label = <570: <b>base/camerashakemodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>HorizontalPower</b><br align="left"/>    0.6<br align="left"/><b>VerticalPower</b><br align="left"/>    0.6<br align="left"/><b>Duration</b><br align="left"/>    2<br align="left"/><b>EaseIn</b><br align="left"/>    3<br align="left"/><b>EaseOut</b><br align="left"/>    0.5<br align="left"/>> ];
+    570 [ pos = "1.616,-4.9940004!" ];
+    570 -> 566 [ label = "0→0" ];
+
+    571 [ label = <571: <b>SoundModule</b><br/><br/><i>AMB_Explosions  VARIATIONS<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    86<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_04d&quot;<br align="left"/>> ];
+    571 [ pos = "1.9130001,-5.3180003!" ];
+
+    572 [ label = <572: <b>SoundModule</b><br/><br/><i>5sec  ambient<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    75<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_03d&quot;<br align="left"/>> ];
+    572 [ pos = "1.9870001,-4.467!" ];
+    572 -> 574 [ label = "0→0" ];
+    572 -> 575 [ label = "0→0" ];
+
+    573 [ label = <573: <b>SoundModule</b><br/><br/><i>AMB_MetalImpactLow  VARIATIONS<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    85<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_03e&quot;<br align="left"/>> ];
+    573 [ pos = "2.338,-4.2850003!" ];
+    573 -> 783 [ label = "0→0" ];
+
+    574 [ label = <574: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0<br align="left"/><b>Variance</b><br align="left"/>    1<br align="left"/>> ];
+    574 [ pos = "2.184,-4.2850003!" ];
+    574 -> 573 [ label = "0→0" ];
+
+    575 [ label = <575: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0<br align="left"/><b>Variance</b><br align="left"/>    1<br align="left"/>> ];
+    575 [ pos = "2.183,-4.467!" ];
+    575 -> 553 [ label = "0→0" ];
+
+    579 [ label = <579: <b>SoundModule</b><br/><br/><i>5sec  ambient<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    75<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_03h&quot;<br align="left"/>> ];
+    579 [ pos = "2.8690002,-4.3050003!" ];
+
+    580 [ label = <580: <b>BranchModule</b><br/><br/><b>Branches</b><br align="left"/>    [1, 2]<br align="left"/>> ];
+    580 [ pos = "2.23,-5.506!" ];
+    580 -> 564 [ label = "2→0" ];
+    582 -> 580 [ style = dashed ];
+
+    581 [ label = <581: <b>RandModule</b><br/><br/><b>Min</b><br align="left"/>    1<br align="left"/><b>Max</b><br align="left"/>    2<br align="left"/>> ];
+    581 [ pos = "1.8870001,-5.506!" ];
+    581 -> 580 [ label = "0→0" ];
+    581 -> 582 [ style = dashed ];
+
+    582 [ label = <582: <b>VisScriptVariableInt</b><br/><br/>> ];
+    582 [ shape = parallelogram ]
+    582 [ pos = "2.089,-5.5800004!" ];
+
+    584 [ label = <584: <b>DelayModule</b><br/><br/><b>Variance</b><br align="left"/>    1<br align="left"/>> ];
+    584 [ pos = "1.7500001,-5.506!" ];
+    584 -> 581 [ label = "0→0" ];
+
+    585 [ label = <585: <b>SoundModule</b><br/><br/><i>AMB_MetalImpactLow  VARIATIONS<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    85<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_05d&quot;<br align="left"/>> ];
+    585 [ pos = "1.9520001,-6.353!" ];
+    585 -> 589 [ label = "0→0" ];
+    585 -> 674 [ label = "0→0" ];
+    585 -> 786 [ label = "0→0" ];
+
+    586 [ label = <586: <b>SoundModule</b><br/><br/><i>AMB_Explosions  VARIATIONS<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    86<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_05c&quot;<br align="left"/>> ];
+    586 [ pos = "1.8750001,-6.5080004!" ];
+
+    587 [ label = <587: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/><b>Variance</b><br align="left"/>    0.5<br align="left"/>> ];
+    587 [ pos = "1.7140001,-6.353!" ];
+    587 -> 585 [ label = "0→0" ];
+
+    588 [ label = <588: <b>SoundModule</b><br/><br/><i>AMB_MetalImpactLow  VARIATIONS<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    85<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_05f&quot;<br align="left"/>> ];
+    588 [ pos = "2.3030002,-6.353!" ];
+    588 -> 787 [ label = "0→0" ];
+
+    589 [ label = <589: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.5<br align="left"/><b>Variance</b><br align="left"/>    0.5<br align="left"/>> ];
+    589 [ pos = "2.1460001,-6.353!" ];
+    589 -> 588 [ label = "0→0" ];
+    589 -> 603 [ label = "0→0" ];
+
+    590 [ label = <590: <b>SoundModule</b><br/><br/><i>Low Rumble<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    80<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_05a&quot;<br align="left"/>> ];
+    590 [ pos = "1.82,-6.0850005!" ];
+    590 -> 591 [ label = "0→0" ];
+
+    591 [ label = <591: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    5.5<br align="left"/>> ];
+    591 [ pos = "1.8320001,-6.228!" ];
+    591 -> 590 [ label = "0→1" ];
+
+    592 [ label = <592: <b>SoundModule</b><br/><br/><i>5sec  ambient<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    75<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_05b&quot;<br align="left"/>> ];
+    592 [ pos = "1.534,-6.353!" ];
+    592 -> 587 [ label = "0→0" ];
+    592 -> 598 [ label = "0→0" ];
+
+    593 [ label = <593: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.5<br align="left"/><b>Variance</b><br align="left"/>    0.5<br align="left"/>> ];
+    593 [ pos = "1.396,-6.353!" ];
+    593 -> 592 [ label = "0→0" ];
+
+    594 [ label = <594: <b>base/camerashakemodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>HorizontalPower</b><br align="left"/>    0.4<br align="left"/><b>VerticalPower</b><br align="left"/>    0.4<br align="left"/><b>Duration</b><br align="left"/>    5<br align="left"/><b>EaseOut</b><br align="left"/>    1.5<br align="left"/>> ];
+    594 [ pos = "1.3980001,-5.9960003!" ];
+    594 -> 1096 [ label = "0→0" ];
+
+    595 [ label = <595: <b>SoundModule</b><br/><br/><i>AMB_Explosions  VARIATIONS<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    86<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_05a&quot;<br align="left"/>> ];
+    595 [ pos = "1.205,-6.353!" ];
+    595 -> 594 [ label = "0→0" ];
+    595 -> 593 [ label = "0→0" ];
+    595 -> 599 [ label = "0→0" ];
+
+    598 [ label = <598: <b>DelayModule</b><br/><br/><b>Variance</b><br align="left"/>    1<br align="left"/>> ];
+    598 [ pos = "1.715,-6.5080004!" ];
+    598 -> 586 [ label = "0→0" ];
+
+    599 [ label = <599: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.5<br align="left"/>> ];
+    599 [ pos = "1.5920001,-6.175!" ];
+    599 -> 590 [ label = "0→0" ];
+
+    603 [ label = <603: <b>SoundModule</b><br/><br/><i>5sec  ambient<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    75<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_05g&quot;<br align="left"/>> ];
+    603 [ pos = "2.3070002,-6.504!" ];
+    603 -> 680 [ label = "0→0" ];
+
+    604 [ label = <604: <b>SoundModule</b><br/><br/><i>AMB_Explosions  VARIATIONS<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    86<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_06c&quot;<br align="left"/>> ];
+    604 [ pos = "1.6220001,-7.3300004!" ];
+    604 -> 618 [ label = "0→0" ];
+    604 -> 605 [ label = "0→0" ];
+
+    605 [ label = <605: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.5<br align="left"/><b>Variance</b><br align="left"/>    0.5<br align="left"/>> ];
+    605 [ pos = "1.8040001,-7.3300004!" ];
+    605 -> 613 [ label = "0→0" ];
+
+    606 [ label = <606: <b>SoundModule</b><br/><br/><i>AMB_MetalImpactLow  VARIATIONS<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    85<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_06g&quot;<br align="left"/>> ];
+    606 [ pos = "2.4520001,-7.564!" ];
+    606 -> 789 [ label = "0→0" ];
+
+    607 [ label = <607: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.5<br align="left"/><b>Variance</b><br align="left"/>    0.5<br align="left"/>> ];
+    607 [ pos = "2.4580002,-7.3560004!" ];
+    607 -> 628 [ label = "0→0" ];
+
+    608 [ label = <608: <b>SoundModule</b><br/><br/><i>Low Rumble<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    80<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_06a&quot;<br align="left"/>> ];
+    608 [ pos = "1.8930001,-7.01!" ];
+    608 -> 609 [ label = "0→0" ];
+    608 -> 1098 [ label = "0→0" ];
+
+    609 [ label = <609: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    4<br align="left"/>> ];
+    609 [ pos = "1.9050001,-7.1530004!" ];
+    609 -> 608 [ label = "0→1" ];
+
+    610 [ label = <610: <b>SoundModule</b><br/><br/><i>5sec  ambient<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    75<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_06d&quot;<br align="left"/>> ];
+    610 [ pos = "1.6100001,-7.5730004!" ];
+
+    611 [ label = <611: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/><b>Variance</b><br align="left"/>    1<br align="left"/>> ];
+    611 [ pos = "1.4580001,-7.3300004!" ];
+    611 -> 612 [ label = "0→0" ];
+    611 -> 604 [ label = "0→0" ];
+
+    612 [ label = <612: <b>base/camerashakemodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>HorizontalPower</b><br align="left"/>    0.6<br align="left"/><b>VerticalPower</b><br align="left"/>    0.6<br align="left"/><b>Duration</b><br align="left"/>    2<br align="left"/><b>EaseIn</b><br align="left"/>    3<br align="left"/><b>EaseOut</b><br align="left"/>    0.5<br align="left"/>> ];
+    612 [ pos = "1.6620001,-7.2200003!" ];
+    612 -> 608 [ label = "0→0" ];
+
+    613 [ label = <613: <b>SoundModule</b><br/><br/><i>AMB_Explosions  VARIATIONS<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    86<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_06e&quot;<br align="left"/>> ];
+    613 [ pos = "1.968,-7.3300004!" ];
+    613 -> 673 [ label = "0→0" ];
+
+    614 [ label = <614: <b>BranchModule</b><br/><br/><b>Branches</b><br align="left"/>    [1, 2]<br align="left"/>> ];
+    614 [ pos = "2.285,-7.518!" ];
+    614 -> 606 [ label = "2→0" ];
+    614 -> 607 [ label = "1→0" ];
+    616 -> 614 [ style = dashed ];
+
+    615 [ label = <615: <b>RandModule</b><br/><br/><b>Min</b><br align="left"/>    1<br align="left"/><b>Max</b><br align="left"/>    2<br align="left"/>> ];
+    615 [ pos = "1.9420002,-7.518!" ];
+    615 -> 614 [ label = "0→0" ];
+    615 -> 616 [ style = dashed ];
+
+    616 [ label = <616: <b>VisScriptVariableInt</b><br/><br/>> ];
+    616 [ shape = parallelogram ]
+    616 [ pos = "2.144,-7.5920005!" ];
+
+    618 [ label = <618: <b>DelayModule</b><br/><br/><b>Variance</b><br align="left"/>    1<br align="left"/>> ];
+    618 [ pos = "1.8050001,-7.518!" ];
+    618 -> 615 [ label = "0→0" ];
+
+    619 [ label = <619: <b>SoundModule</b><br/><br/><i>AMB_MetalImpactLow  VARIATIONS<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    85<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_06a&quot;<br align="left"/>> ];
+    619 [ pos = "1.21,-7.3300004!" ];
+    619 -> 611 [ label = "0→0" ];
+    619 -> 621 [ label = "0→0" ];
+    619 -> 671 [ label = "0→0" ];
+    619 -> 788 [ label = "0→0" ];
+
+    621 [ label = <621: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.5<br align="left"/><b>Variance</b><br align="left"/>    0.5<br align="left"/>> ];
+    621 [ pos = "1.4580001,-7.5730004!" ];
+    621 -> 610 [ label = "0→0" ];
+
+    622 [ label = <622: <b>TextModule</b><br/><br/><b>Text</b><br align="left"/>    &quot;1&quot;<br align="left"/>> ];
+    622 [ pos = "-0.272,-7.1010003!" ];
+
+    623 [ label = <623: <b>TextModule</b><br/><br/><b>Text</b><br align="left"/>    &quot;2&quot;<br align="left"/>> ];
+    623 [ pos = "-0.273,-7.1780005!" ];
+
+    624 [ label = <624: <b>TextModule</b><br/><br/><b>Text</b><br align="left"/>    &quot;3&quot;<br align="left"/>> ];
+    624 [ pos = "-0.273,-7.2500005!" ];
+
+    625 [ label = <625: <b>TextModule</b><br/><br/><b>Text</b><br align="left"/>    &quot;4&quot;<br align="left"/>> ];
+    625 [ pos = "-0.272,-7.3230004!" ];
+
+    626 [ label = <626: <b>TextModule</b><br/><br/><b>Text</b><br align="left"/>    &quot;5&quot;<br align="left"/>> ];
+    626 [ pos = "-0.272,-7.4020004!" ];
+
+    627 [ label = <627: <b>TextModule</b><br/><br/><b>Text</b><br align="left"/>    &quot;6&quot;<br align="left"/>> ];
+    627 [ pos = "-0.272,-7.478!" ];
+
+    628 [ label = <628: <b>SoundModule</b><br/><br/><i>5sec  ambient<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    75<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_06g&quot;<br align="left"/>> ];
+    628 [ pos = "2.6190002,-7.3560004!" ];
+
+    630 [ label = <630: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.5<br align="left"/><b>Variance</b><br align="left"/>    0.5<br align="left"/>> ];
+    630 [ pos = "1.7700001,-8.307!" ];
+    630 -> 644 [ label = "0→0" ];
+    630 -> 668 [ label = "0→0" ];
+
+    631 [ label = <631: <b>SoundModule</b><br/><br/><i>AMB_MetalImpactLow  VARIATIONS<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    85<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_07e&quot;<br align="left"/>> ];
+    631 [ pos = "2.48,-8.504001!" ];
+    631 -> 790 [ label = "0→0" ];
+
+    633 [ label = <633: <b>SoundModule</b><br/><br/><i>Low Rumble<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    80<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_07a&quot;<br align="left"/>> ];
+    633 [ pos = "2.1160002,-8.081!" ];
+    633 -> 634 [ label = "0→0" ];
+    633 -> 1100 [ label = "0→0" ];
+
+    634 [ label = <634: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    4<br align="left"/>> ];
+    634 [ pos = "2.128,-8.224!" ];
+    634 -> 633 [ label = "0→1" ];
+
+    635 [ label = <635: <b>SoundModule</b><br/><br/><i>5sec  ambient<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    75<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_07a&quot;<br align="left"/>> ];
+    635 [ pos = "1.2090001,-8.307!" ];
+    635 -> 636 [ label = "0→0" ];
+    635 -> 641 [ label = "0→0" ];
+
+    636 [ label = <636: <b>DelayModule</b><br/><br/><b>Variance</b><br align="left"/>    1<br align="left"/>> ];
+    636 [ pos = "1.422,-8.307!" ];
+    636 -> 640 [ label = "0→0" ];
+
+    637 [ label = <637: <b>base/camerashakemodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>HorizontalPower</b><br align="left"/>    0.6<br align="left"/><b>VerticalPower</b><br align="left"/>    0.6<br align="left"/><b>Duration</b><br align="left"/>    2<br align="left"/><b>EaseIn</b><br align="left"/>    3<br align="left"/><b>EaseOut</b><br align="left"/>    0.5<br align="left"/>> ];
+    637 [ pos = "1.794,-8.150001!" ];
+    637 -> 633 [ label = "0→0" ];
+
+    638 [ label = <638: <b>SoundModule</b><br/><br/><i>AMB_Explosions  VARIATIONS<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    86<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_07b&quot;<br align="left"/>> ];
+    638 [ pos = "1.598,-8.150001!" ];
+    638 -> 637 [ label = "0→0" ];
+
+    640 [ label = <640: <b>SoundModule</b><br/><br/><i>5sec  ambient<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    75<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_07c&quot;<br align="left"/>> ];
+    640 [ pos = "1.598,-8.307!" ];
+    640 -> 630 [ label = "0→0" ];
+
+    641 [ label = <641: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.5<br align="left"/><b>Variance</b><br align="left"/>    2<br align="left"/>> ];
+    641 [ pos = "1.424,-8.150001!" ];
+    641 -> 638 [ label = "0→0" ];
+
+    642 [ label = <642: <b>TextModule</b><br/><br/><b>Text</b><br align="left"/>    &quot;7&quot;<br align="left"/>> ];
+    642 [ pos = "-0.27,-7.557!" ];
+
+    643 [ label = <643: <b>BranchModule</b><br/><br/><b>Branches</b><br align="left"/>    [1, 2]<br align="left"/>> ];
+    643 [ pos = "2.2680001,-8.459001!" ];
+    643 -> 631 [ label = "2→0" ];
+    643 -> 646 [ label = "1→0" ];
+    645 -> 643 [ style = dashed ];
+
+    644 [ label = <644: <b>RandModule</b><br/><br/><b>Min</b><br align="left"/>    1<br align="left"/><b>Max</b><br align="left"/>    2<br align="left"/><b>NoRepeat</b><br align="left"/>    true<br align="left"/>> ];
+    644 [ pos = "1.9250001,-8.459001!" ];
+    644 -> 643 [ label = "0→0" ];
+    644 -> 645 [ style = dashed ];
+
+    645 [ label = <645: <b>VisScriptVariableInt</b><br/><br/>> ];
+    645 [ shape = parallelogram ]
+    645 [ pos = "2.127,-8.533!" ];
+
+    646 [ label = <646: <b>SoundModule</b><br/><br/><i>AMB_Explosions  VARIATIONS<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    86<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_07e&quot;<br align="left"/>> ];
+    646 [ pos = "2.48,-8.346001!" ];
+
+    647 [ label = <647: <b>SoundModule</b><br/><br/><i>AMB_Explosions  VARIATIONS<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    86<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_08c&quot;<br align="left"/>> ];
+    647 [ pos = "1.7370001,-9.207001!" ];
+    647 -> 648 [ label = "0→0" ];
+    647 -> 661 [ label = "0→0" ];
+
+    648 [ label = <648: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.5<br align="left"/><b>Variance</b><br align="left"/>    0.5<br align="left"/>> ];
+    648 [ pos = "1.9190001,-9.207001!" ];
+    648 -> 663 [ label = "0→0" ];
+
+    649 [ label = <649: <b>SoundModule</b><br/><br/><i>AMB_MetalImpactLow  VARIATIONS<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    85<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_08f&quot;<br align="left"/>> ];
+    649 [ pos = "2.5670002,-9.441!" ];
+    649 -> 792 [ label = "0→0" ];
+
+    651 [ label = <651: <b>SoundModule</b><br/><br/><i>Low Rumble<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    80<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_08a&quot;<br align="left"/>> ];
+    651 [ pos = "1.9860001,-8.883!" ];
+    651 -> 652 [ label = "0→0" ];
+
+    652 [ label = <652: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    4<br align="left"/>> ];
+    652 [ pos = "1.9980001,-9.026!" ];
+    652 -> 651 [ label = "0→1" ];
+
+    653 [ label = <653: <b>SoundModule</b><br/><br/><i>5sec  ambient<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    75<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_08b&quot;<br align="left"/>> ];
+    653 [ pos = "1.401,-9.207001!" ];
+    653 -> 654 [ label = "0→0" ];
+
+    654 [ label = <654: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.5<br align="left"/><b>Variance</b><br align="left"/>    1<br align="left"/>> ];
+    654 [ pos = "1.5730001,-9.207001!" ];
+    654 -> 655 [ label = "0→0" ];
+    654 -> 647 [ label = "0→0" ];
+
+    655 [ label = <655: <b>base/camerashakemodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>HorizontalPower</b><br align="left"/>    0.6<br align="left"/><b>VerticalPower</b><br align="left"/>    0.6<br align="left"/><b>Duration</b><br align="left"/>    2<br align="left"/><b>EaseIn</b><br align="left"/>    3<br align="left"/><b>EaseOut</b><br align="left"/>    0.5<br align="left"/>> ];
+    655 [ pos = "1.7860001,-8.883!" ];
+    655 -> 651 [ label = "0→0" ];
+    655 -> 1102 [ label = "0→0" ];
+
+    657 [ label = <657: <b>BranchModule</b><br/><br/><b>Branches</b><br align="left"/>    [1, 2]<br align="left"/>> ];
+    657 [ pos = "2.4,-9.395!" ];
+    657 -> 649 [ label = "2→0" ];
+    659 -> 657 [ style = dashed ];
+
+    658 [ label = <658: <b>RandModule</b><br/><br/><b>Min</b><br align="left"/>    1<br align="left"/><b>Max</b><br align="left"/>    2<br align="left"/>> ];
+    658 [ pos = "2.0570002,-9.395!" ];
+    658 -> 657 [ label = "0→0" ];
+    658 -> 659 [ style = dashed ];
+
+    659 [ label = <659: <b>VisScriptVariableInt</b><br/><br/>> ];
+    659 [ shape = parallelogram ]
+    659 [ pos = "2.259,-9.469001!" ];
+
+    661 [ label = <661: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    4<br align="left"/><b>Variance</b><br align="left"/>    2<br align="left"/>> ];
+    661 [ pos = "1.922,-9.395!" ];
+    661 -> 658 [ label = "0→0" ];
+
+    662 [ label = <662: <b>TextModule</b><br/><br/><b>Text</b><br align="left"/>    &quot;8&quot;<br align="left"/>> ];
+    662 [ pos = "-0.27,-7.6400003!" ];
+
+    663 [ label = <663: <b>SoundModule</b><br/><br/><i>AMB_MetalImpactLow  VARIATIONS<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    85<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_08d&quot;<br align="left"/>> ];
+    663 [ pos = "2.095,-9.207001!" ];
+    663 -> 666 [ label = "0→0" ];
+    663 -> 791 [ label = "0→0" ];
+
+    665 [ label = <665: <b>SoundModule</b><br/><br/><i>5sec  ambient<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    75<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_08e&quot;<br align="left"/>> ];
+    665 [ pos = "2.4490001,-9.207001!" ];
+
+    666 [ label = <666: <b>DelayModule</b><br/><br/><b>Variance</b><br align="left"/>    1<br align="left"/>> ];
+    666 [ pos = "2.285,-9.207001!" ];
+    666 -> 665 [ label = "0→0" ];
+
+    667 [ label = <667: <b>SoundModule</b><br/><br/><i>AMB_MetalStress  ambient<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    87<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_08a&quot;<br align="left"/>> ];
+    667 [ pos = "1.2210001,-9.207001!" ];
+    667 -> 653 [ label = "0→0" ];
+
+    668 [ label = <668: <b>SoundModule</b><br/><br/><i>AMB_MetalStress  ambient<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    87<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_07d&quot;<br align="left"/>> ];
+    668 [ pos = "1.9360001,-8.307!" ];
+
+    670 [ label = <670: <b>SoundModule</b><br/><br/><i>AMB_MetalStress  ambient<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    87<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_06b&quot;<br align="left"/>> ];
+    670 [ pos = "1.6370001,-7.0800004!" ];
+
+    671 [ label = <671: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.5<br align="left"/><b>Variance</b><br align="left"/>    0.5<br align="left"/>> ];
+    671 [ pos = "1.4610001,-7.0800004!" ];
+    671 -> 670 [ label = "0→0" ];
+
+    672 [ label = <672: <b>SoundModule</b><br/><br/><i>AMB_MetalStress  ambient<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    87<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_06f&quot;<br align="left"/>> ];
+    672 [ pos = "2.283,-7.3300004!" ];
+
+    673 [ label = <673: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.25<br align="left"/><b>Variance</b><br align="left"/>    0.25<br align="left"/>> ];
+    673 [ pos = "2.138,-7.3300004!" ];
+    673 -> 672 [ label = "0→0" ];
+
+    674 [ label = <674: <b>SoundModule</b><br/><br/><i>AMB_MetalStress  ambient<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    87<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_05e&quot;<br align="left"/>> ];
+    674 [ pos = "2.1460001,-6.1140003!" ];
+
+    675 [ label = <675: <b>SoundModule</b><br/><br/><i>AMB_MetalStress  ambient<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    87<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_04b&quot;<br align="left"/>> ];
+    675 [ pos = "1.6350001,-5.164!" ];
+
+    676 [ label = <676: <b>SoundModule</b><br/><br/><i>AMB_MetalStress  ambient<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    87<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_03b&quot;<br align="left"/>> ];
+    676 [ pos = "1.557,-4.2980003!" ];
+
+    677 [ label = <677: <b>SoundModule</b><br/><br/><i>AMB_MetalStress  ambient<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    87<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_02d&quot;<br align="left"/>> ];
+    677 [ pos = "2.1820002,-3.4680002!" ];
+
+    678 [ label = <678: <b>SoundModule</b><br/><br/><i>AMB_MetalStress  ambient<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    87<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_01d&quot;<br align="left"/>> ];
+    678 [ pos = "2.184,-2.756!" ];
+
+    679 [ label = <679: <b>SoundModule</b><br/><br/><i>AMB_MetalStress  ambient<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    87<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_05h&quot;<br align="left"/>> ];
+    679 [ pos = "2.6200001,-6.504!" ];
+
+    680 [ label = <680: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.5<br align="left"/><b>Variance</b><br align="left"/>    0.5<br align="left"/>> ];
+    680 [ pos = "2.48,-6.504!" ];
+    680 -> 679 [ label = "0→0" ];
+
+    681 [ label = <681: <b>TextModule</b><br/><br/><b>Text</b><br align="left"/>    &quot;9&quot;<br align="left"/>> ];
+    681 [ pos = "-0.26900002,-7.7090006!" ];
+
+    682 [ label = <682: <b>TextModule</b><br/><br/><b>Text</b><br align="left"/>    &quot;10&quot;<br align="left"/>> ];
+    682 [ pos = "-0.27100003,-7.7770004!" ];
+
+    685 [ label = <685: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.5<br align="left"/><b>Variance</b><br align="left"/>    0.5<br align="left"/>> ];
+    685 [ pos = "1.6940001,-10.112!" ];
+    685 -> 692 [ label = "0→0" ];
+
+    686 [ label = <686: <b>SoundModule</b><br/><br/><i>AMB_MetalImpactLow  VARIATIONS<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    85<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_09e&quot;<br align="left"/>> ];
+    686 [ pos = "2.3430002,-10.346001!" ];
+    686 -> 793 [ label = "0→0" ];
+
+    687 [ label = <687: <b>SoundModule</b><br/><br/><i>Low Rumble<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    80<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_09a&quot;<br align="left"/>> ];
+    687 [ pos = "1.7590001,-9.788!" ];
+    687 -> 688 [ label = "0→0" ];
+
+    688 [ label = <688: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    4<br align="left"/>> ];
+    688 [ pos = "1.7730001,-9.931001!" ];
+    688 -> 687 [ label = "0→1" ];
+
+    689 [ label = <689: <b>SoundModule</b><br/><br/><i>5sec  ambient<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    75<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_09a&quot;<br align="left"/>> ];
+    689 [ pos = "1.148,-10.112!" ];
+    689 -> 690 [ label = "0→0" ];
+
+    690 [ label = <690: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/><b>Variance</b><br align="left"/>    1<br align="left"/>> ];
+    690 [ pos = "1.348,-10.112!" ];
+    690 -> 691 [ label = "0→0" ];
+    690 -> 701 [ label = "0→0" ];
+
+    691 [ label = <691: <b>base/camerashakemodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>HorizontalPower</b><br align="left"/>    0.6<br align="left"/><b>VerticalPower</b><br align="left"/>    0.6<br align="left"/><b>Duration</b><br align="left"/>    2<br align="left"/><b>EaseIn</b><br align="left"/>    3<br align="left"/><b>EaseOut</b><br align="left"/>    0.5<br align="left"/>> ];
+    691 [ pos = "1.5610001,-9.788!" ];
+    691 -> 687 [ label = "0→0" ];
+    691 -> 1104 [ label = "0→0" ];
+
+    692 [ label = <692: <b>SoundModule</b><br/><br/><i>AMB_Explosions  VARIATIONS<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    86<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_09c&quot;<br align="left"/>> ];
+    692 [ pos = "1.858,-10.112!" ];
+    692 -> 698 [ label = "0→0" ];
+
+    693 [ label = <693: <b>BranchModule</b><br/><br/><b>Branches</b><br align="left"/>    [1, 2]<br align="left"/>> ];
+    693 [ pos = "2.1750002,-10.3!" ];
+    693 -> 686 [ label = "2→0" ];
+    693 -> 699 [ label = "1→0" ];
+    695 -> 693 [ style = dashed ];
+
+    694 [ label = <694: <b>RandModule</b><br/><br/><b>Min</b><br align="left"/>    1<br align="left"/><b>Max</b><br align="left"/>    2<br align="left"/>> ];
+    694 [ pos = "1.8320001,-10.3!" ];
+    694 -> 693 [ label = "0→0" ];
+    694 -> 695 [ style = dashed ];
+
+    695 [ label = <695: <b>VisScriptVariableInt</b><br/><br/>> ];
+    695 [ shape = parallelogram ]
+    695 [ pos = "2.0340002,-10.374001!" ];
+
+    697 [ label = <697: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/><b>Variance</b><br align="left"/>    2<br align="left"/>> ];
+    697 [ pos = "1.695,-10.3!" ];
+    697 -> 694 [ label = "0→0" ];
+
+    698 [ label = <698: <b>SoundModule</b><br/><br/><i>AMB_MetalStress  ambient<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    87<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_09d&quot;<br align="left"/>> ];
+    698 [ pos = "2.062,-10.112!" ];
+
+    699 [ label = <699: <b>SoundModule</b><br/><br/><i>AMB_Explosions  VARIATIONS<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    86<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_09e&quot;<br align="left"/>> ];
+    699 [ pos = "2.3730001,-10.146001!" ];
+
+    701 [ label = <701: <b>SoundModule</b><br/><br/><i>5sec  ambient<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    75<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_09b&quot;<br align="left"/>> ];
+    701 [ pos = "1.5200001,-10.112!" ];
+    701 -> 685 [ label = "0→0" ];
+    701 -> 697 [ label = "0→0" ];
+
+    703 [ label = <703: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.5<br align="left"/><b>Variance</b><br align="left"/>    1<br align="left"/>> ];
+    703 [ pos = "1.3520001,-10.982!" ];
+    703 -> 705 [ label = "0→0" ];
+
+    704 [ label = <704: <b>BranchModule</b><br/><br/><b>Branches</b><br align="left"/>    [1, 2]<br align="left"/>> ];
+    704 [ pos = "1.853,-10.982!" ];
+    704 -> 709 [ label = "1→0" ];
+    704 -> 707 [ label = "2→0" ];
+    704 -> 718 [ label = "1→0" ];
+    704 -> 718 [ label = "2→0" ];
+    706 -> 704 [ style = dashed ];
+
+    705 [ label = <705: <b>RandModule</b><br/><br/><b>Min</b><br align="left"/>    1<br align="left"/><b>Max</b><br align="left"/>    2<br align="left"/>> ];
+    705 [ pos = "1.5100001,-10.982!" ];
+    705 -> 704 [ label = "0→0" ];
+    705 -> 710 [ label = "0→0" ];
+    705 -> 706 [ style = dashed ];
+
+    706 [ label = <706: <b>VisScriptVariableInt</b><br/><br/>> ];
+    706 [ shape = parallelogram ]
+    706 [ pos = "1.7120001,-11.056001!" ];
+
+    707 [ label = <707: <b>SoundModule</b><br/><br/><i>AMB_MetalImpactLow  VARIATIONS<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    85<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_10d&quot;<br align="left"/>> ];
+    707 [ pos = "2.069,-11.193001!" ];
+    707 -> 794 [ label = "0→0" ];
+
+    709 [ label = <709: <b>SoundModule</b><br/><br/><i>AMB_Explosions  VARIATIONS<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    86<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_10d&quot;<br align="left"/>> ];
+    709 [ pos = "2.069,-10.847!" ];
+
+    710 [ label = <710: <b>SoundModule</b><br/><br/><i>5sec  ambient<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    75<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_10c&quot;<br align="left"/>> ];
+    710 [ pos = "1.8270001,-11.200001!" ];
+
+    711 [ label = <711: <b>SoundModule</b><br/><br/><i>Low Rumble<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    80<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_10a&quot;<br align="left"/>> ];
+    711 [ pos = "1.7070001,-10.721001!" ];
+    711 -> 712 [ label = "0→0" ];
+    711 -> 1106 [ label = "0→0" ];
+
+    712 [ label = <712: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    4<br align="left"/>> ];
+    712 [ pos = "1.7190001,-10.864!" ];
+    712 -> 711 [ label = "0→1" ];
+
+    713 [ label = <713: <b>base/camerashakemodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>HorizontalPower</b><br align="left"/>    0.6<br align="left"/><b>VerticalPower</b><br align="left"/>    0.6<br align="left"/><b>Duration</b><br align="left"/>    2<br align="left"/><b>EaseIn</b><br align="left"/>    3<br align="left"/><b>EaseOut</b><br align="left"/>    0.5<br align="left"/>> ];
+    713 [ pos = "1.5070001,-10.721001!" ];
+    713 -> 711 [ label = "0→0" ];
+
+    714 [ label = <714: <b>SoundModule</b><br/><br/><i>AMB_MetalStress  ambient<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    87<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_10b&quot;<br align="left"/>> ];
+    714 [ pos = "1.3740001,-11.154!" ];
+
+    715 [ label = <715: <b>SoundModule</b><br/><br/><i>AMB_MetalImpactLow  VARIATIONS<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    85<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_10a&quot;<br align="left"/>> ];
+    715 [ pos = "1.1500001,-10.982!" ];
+    715 -> 703 [ label = "0→0" ];
+    715 -> 713 [ label = "0→0" ];
+    715 -> 714 [ label = "0→0" ];
+    715 -> 795 [ label = "0→0" ];
+
+    717 [ label = <717: <b>SoundModule</b><br/><br/><i>5sec  ambient<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    75<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_Ambient_10e&quot;<br align="left"/>> ];
+    717 [ pos = "2.217,-11.017!" ];
+
+    718 [ label = <718: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    718 [ pos = "2.0670002,-11.017!" ];
+    718 -> 717 [ label = "0→0" ];
+
+    722 [ label = <722: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;SB_G_fallingDebris_Loop_Trig&quot;,<br align="left"/>     &quot;&quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    722 [ shape = oval ]
+    722 [ pos = "-1.784,-4.0550003!" ];
+
+    723 [ label = <723: <b>PlayVideoModule</b><br/><br/><i>Scene_06<br align="left"/></i><br align="left"/><b>VideoName</b><br align="left"/>    &quot;Scene_06.oo&quot;<br align="left"/>> ];
+    723 [ pos = "-1.473,-4.0550003!" ];
+
+    744 [ label = <744: <b>EffectModule</b><br/><br/><i>Lower Rim FX LIGHT<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;s<br align="left"/>    b_com&quot;, EffectName=&quot;City_SB_Dust<br align="left"/>    Fall_Level01_Light&quot;, Duration=2,<br align="left"/>     TargetNode=&quot;CI_StBld_RimFX_Ligh<br align="left"/>    t_01&quot;)]<br align="left"/>> ];
+    744 [ pos = "2.8160002,0.423!" ];
+
+    745 [ label = <745: <b>EffectModule</b><br/><br/><i>Lower Rim FX Heavy<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DustFall_Level01_Heavy&quot;, D<br align="left"/>    uration=0.5, TargetNode=&quot;CI_StBl<br align="left"/>    d_RimFX_Light_01&quot;)]<br align="left"/>> ];
+    745 [ pos = "2.019,0.53000003!" ];
+
+    746 [ label = <746: <b>EffectModule</b><br/><br/><i>Lower Rim FX LIGHT<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;s<br align="left"/>    b_com&quot;, EffectName=&quot;City_SB_Dust<br align="left"/>    Fall_Level02_Light&quot;, Duration=2,<br align="left"/>     TargetNode=&quot;CI_StBld_RimFX_Ligh<br align="left"/>    t_02&quot;)]<br align="left"/>> ];
+    746 [ pos = "2.815,0.277!" ];
+
+    747 [ label = <747: <b>EffectModule</b><br/><br/><i>Lower Rim FX LIGHT<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;s<br align="left"/>    b_com&quot;, EffectName=&quot;City_SB_Dust<br align="left"/>    Fall_Level03_Light&quot;, Duration=2,<br align="left"/>     TargetNode=&quot;CI_StBld_RimFX_Ligh<br align="left"/>    t_03&quot;)]<br align="left"/>> ];
+    747 [ pos = "2.8130002,0.126!" ];
+
+    748 [ label = <748: <b>EffectModule</b><br/><br/><i>Lower Rim FX LIGHT<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;s<br align="left"/>    b_com&quot;, EffectName=&quot;City_SB_Dust<br align="left"/>    Fall_Level04_Light&quot;, Duration=2,<br align="left"/>     TargetNode=&quot;CI_StBld_RimFX_Ligh<br align="left"/>    t_04&quot;)]<br align="left"/>> ];
+    748 [ pos = "2.812,-0.020000001!" ];
+
+    749 [ label = <749: <b>TextModule</b><br/><br/><b>Text</b><br align="left"/>    &quot;rim1&quot;<br align="left"/>> ];
+    749 [ pos = "3.0330002,0.423!" ];
+
+    750 [ label = <750: <b>TextModule</b><br/><br/><b>Text</b><br align="left"/>    &quot;rim2&quot;<br align="left"/>> ];
+    750 [ pos = "3.0330002,0.27800003!" ];
+
+    751 [ label = <751: <b>TextModule</b><br/><br/><b>Text</b><br align="left"/>    &quot;rim3&quot;<br align="left"/>> ];
+    751 [ pos = "3.0360003,0.125!" ];
+
+    752 [ label = <752: <b>TextModule</b><br/><br/><b>Text</b><br align="left"/>    &quot;rim4&quot;<br align="left"/>> ];
+    752 [ pos = "3.039,-0.020000001!" ];
+
+    753 [ label = <753: <b>ExternalCallModule</b><br/><br/><i>AMB_Sound_01<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;AMB_Sound_01&quot;<br align="left"/>> ];
+    753 [ shape = oval ]
+    753 [ pos = "0.85200006,-2.756!" ];
+    753 -> 538 [ label = "0→0" ];
+
+    754 [ label = <754: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SB_G_VSM_Ambience&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;AMB_Sound_01&quot;<br align="left"/>> ];
+    754 [ pos = "0.32000002,-6.556!" ];
+
+    755 [ label = <755: <b>ExternalCallModule</b><br/><br/><i>AMB_Sound_02<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;AMB_Sound_02&quot;<br align="left"/>> ];
+    755 [ shape = oval ]
+    755 [ pos = "0.851,-3.6260002!" ];
+    755 -> 548 [ label = "0→0" ];
+
+    756 [ label = <756: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SB_G_VSM_Ambience&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;AMB_Sound_02&quot;<br align="left"/>> ];
+    756 [ pos = "0.32000002,-6.63!" ];
+
+    757 [ label = <757: <b>ExternalCallModule</b><br/><br/><i>AMB_Sound_03<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;AMB_Sound_03&quot;<br align="left"/>> ];
+    757 [ shape = oval ]
+    757 [ pos = "0.83900005,-4.467!" ];
+    757 -> 559 [ label = "0→0" ];
+
+    758 [ label = <758: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SB_G_VSM_Ambience&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;AMB_Sound_03&quot;<br align="left"/>> ];
+    758 [ pos = "0.319,-6.7040005!" ];
+
+    759 [ label = <759: <b>ExternalCallModule</b><br/><br/><i>AMB_Sound_04<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;AMB_Sound_04&quot;<br align="left"/>> ];
+    759 [ shape = oval ]
+    759 [ pos = "0.864,-5.3190002!" ];
+    759 -> 568 [ label = "0→0" ];
+
+    760 [ label = <760: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SB_G_VSM_Ambience&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;AMB_Sound_04&quot;<br align="left"/>> ];
+    760 [ pos = "0.31800002,-6.7730002!" ];
+
+    761 [ label = <761: <b>ExternalCallModule</b><br/><br/><i>AMB_Sound_05<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;AMB_Sound_05&quot;<br align="left"/>> ];
+    761 [ shape = oval ]
+    761 [ pos = "0.91300005,-6.353!" ];
+    761 -> 595 [ label = "0→0" ];
+
+    762 [ label = <762: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SB_G_VSM_Ambience&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;AMB_Sound_05&quot;<br align="left"/>> ];
+    762 [ pos = "0.317,-6.8450003!" ];
+
+    763 [ label = <763: <b>ExternalCallModule</b><br/><br/><i>AMB_Sound_06<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;AMB_Sound_06&quot;<br align="left"/>> ];
+    763 [ shape = oval ]
+    763 [ pos = "0.86600006,-7.3310003!" ];
+    763 -> 619 [ label = "0→0" ];
+
+    764 [ label = <764: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SB_G_VSM_Ambience&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;AMB_Sound_06&quot;<br align="left"/>> ];
+    764 [ pos = "0.317,-6.9220004!" ];
+
+    765 [ label = <765: <b>ExternalCallModule</b><br/><br/><i>AMB_Sound_07<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;AMB_Sound_07&quot;<br align="left"/>> ];
+    765 [ shape = oval ]
+    765 [ pos = "0.883,-8.307!" ];
+    765 -> 635 [ label = "0→0" ];
+
+    766 [ label = <766: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SB_G_VSM_Ambience&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;AMB_Sound_07&quot;<br align="left"/>> ];
+    766 [ pos = "0.32000002,-7.0000005!" ];
+
+    767 [ label = <767: <b>ExternalCallModule</b><br/><br/><i>AMB_Sound_08<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;AMB_Sound_08&quot;<br align="left"/>> ];
+    767 [ shape = oval ]
+    767 [ pos = "0.90400004,-9.207001!" ];
+    767 -> 667 [ label = "0→0" ];
+
+    768 [ label = <768: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SB_G_VSM_Ambience&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;AMB_Sound_08&quot;<br align="left"/>> ];
+    768 [ pos = "0.319,-7.0690002!" ];
+
+    769 [ label = <769: <b>ExternalCallModule</b><br/><br/><i>AMB_Sound_09<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;AMB_Sound_09&quot;<br align="left"/>> ];
+    769 [ shape = oval ]
+    769 [ pos = "0.832,-10.112!" ];
+    769 -> 689 [ label = "0→0" ];
+
+    770 [ label = <770: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SB_G_VSM_Ambience&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;AMB_Sound_09&quot;<br align="left"/>> ];
+    770 [ pos = "0.31800002,-7.1410003!" ];
+
+    771 [ label = <771: <b>ExternalCallModule</b><br/><br/><i>AMB_Sound_10<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;AMB_Sound_10&quot;<br align="left"/>> ];
+    771 [ shape = oval ]
+    771 [ pos = "0.88100004,-10.982!" ];
+    771 -> 715 [ label = "0→0" ];
+
+    772 [ label = <772: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SB_G_VSM_Ambience&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;AMB_Sound_10&quot;<br align="left"/>> ];
+    772 [ pos = "0.31800002,-7.2180004!" ];
+
+    773 [ label = <773: <b>ExternalCallModule</b><br/><br/><i>CI_St_Bld_CameraJolt<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;CI_St_Bld_CameraJolt&quot;<br align="left"/>> ];
+    773 [ shape = oval ]
+    773 [ pos = "-0.95100003,-5.0490003!" ];
+    773 -> 775 [ label = "0→0" ];
+    773 -> 774 [ label = "0→0" ];
+    773 -> 1196 [ label = "0→0" ];
+
+    774 [ label = <774: <b>base/camerashakemodule</b><br/><br/><i>Shake<br align="left"/></i><br align="left"/><b>ObjectName</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>BlurPower</b><br align="left"/>    0.15<br align="left"/><b>Duration</b><br align="left"/>    0<br align="left"/><b>EaseIn</b><br align="left"/>    0.15<br align="left"/><b>EaseOut</b><br align="left"/>    0.5<br align="left"/>> ];
+    774 [ pos = "-0.192,-4.913!" ];
+
+    775 [ label = <775: <b>base/camerashakemodule</b><br/><br/><i>screen blur<br align="left"/></i><br align="left"/><b>ObjectName</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>HorizontalPower</b><br align="left"/>    0<br align="left"/><b>VerticalPower</b><br align="left"/>    0<br align="left"/><b>BlurPower</b><br align="left"/>    0.15<br align="left"/><b>Duration</b><br align="left"/>    0.5<br align="left"/><b>EaseIn</b><br align="left"/>    0.2<br align="left"/>> ];
+    775 [ pos = "-0.19100001,-4.829!" ];
+
+    776 [ label = <776: <b>EffectModule</b><br/><br/><i>Lower Rim FX Heavy<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;s<br align="left"/>    b_com&quot;, EffectName=&quot;City_SB_Dust<br align="left"/>    Fall_Level01_Heavy&quot;, Duration=0.<br align="left"/>    5, TargetNode=&quot;CI_StBld_RimFX_Li<br align="left"/>    ght_01&quot;)]<br align="left"/>> ];
+    776 [ pos = "-0.192,-5.09!" ];
+
+    777 [ label = <777: <b>EffectModule</b><br/><br/><i>Lower Rim FX Heavy<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;s<br align="left"/>    b_com&quot;, EffectName=&quot;City_SB_Dust<br align="left"/>    Fall_Level02_Heavy&quot;, Duration=0.<br align="left"/>    5, TargetNode=&quot;CI_StBld_RimFX_Li<br align="left"/>    ght_02&quot;)]<br align="left"/>> ];
+    777 [ pos = "-0.194,-5.215!" ];
+
+    778 [ label = <778: <b>EffectModule</b><br/><br/><i>Lower Rim FX Heavy<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;s<br align="left"/>    b_com&quot;, EffectName=&quot;City_SB_Dust<br align="left"/>    Fall_Level03_Heavy&quot;, Duration=0.<br align="left"/>    5, TargetNode=&quot;CI_StBld_RimFX_Li<br align="left"/>    ght_03&quot;)]<br align="left"/>> ];
+    778 [ pos = "-0.19500001,-5.34!" ];
+
+    779 [ label = <779: <b>EffectModule</b><br/><br/><i>Lower Rim FX Heavy<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;s<br align="left"/>    b_com&quot;, EffectName=&quot;City_SB_Dust<br align="left"/>    Fall_Level04_Heavy&quot;, Duration=0.<br align="left"/>    5, TargetNode=&quot;CI_StBld_RimFX_Li<br align="left"/>    ght_04&quot;)]<br align="left"/>> ];
+    779 [ pos = "-0.19500001,-5.464!" ];
+
+    780 [ label = <780: <b>VisScriptCallModule</b><br/><br/><i>CI_St_Bld_CameraJolt<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SB_G_VSM_Ambience&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;CI_St_Bld_CameraJolt&quot;<br align="left"/>> ];
+    780 [ pos = "1.667,-2.664!" ];
+
+    781 [ label = <781: <b>VisScriptCallModule</b><br/><br/><i>CI_St_Bld_CameraJolt<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SB_G_VSM_Ambience&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;CI_St_Bld_CameraJolt&quot;<br align="left"/>> ];
+    781 [ pos = "2.4510002,-3.6260002!" ];
+
+    782 [ label = <782: <b>VisScriptCallModule</b><br/><br/><i>CI_St_Bld_CameraJolt<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SB_G_VSM_Ambience&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;CI_St_Bld_CameraJolt&quot;<br align="left"/>> ];
+    782 [ pos = "1.702,-4.392!" ];
+
+    783 [ label = <783: <b>VisScriptCallModule</b><br/><br/><i>CI_St_Bld_CameraJolt<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SB_G_VSM_Ambience&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;CI_St_Bld_CameraJolt&quot;<br align="left"/>> ];
+    783 [ pos = "2.571,-4.2850003!" ];
+
+    784 [ label = <784: <b>VisScriptCallModule</b><br/><br/><i>CI_St_Bld_CameraJolt<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SB_G_VSM_Ambience&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;CI_St_Bld_CameraJolt&quot;<br align="left"/>> ];
+    784 [ pos = "2.914,-4.467!" ];
+
+    785 [ label = <785: <b>VisScriptCallModule</b><br/><br/><i>CI_St_Bld_CameraJolt<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SB_G_VSM_Ambience&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;CI_St_Bld_CameraJolt&quot;<br align="left"/>> ];
+    785 [ pos = "2.64,-5.552!" ];
+
+    786 [ label = <786: <b>VisScriptCallModule</b><br/><br/><i>CI_St_Bld_CameraJolt<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SB_G_VSM_Ambience&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;CI_St_Bld_CameraJolt&quot;<br align="left"/>> ];
+    786 [ pos = "2.18,-6.2650003!" ];
+
+    787 [ label = <787: <b>VisScriptCallModule</b><br/><br/><i>CI_St_Bld_CameraJolt<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SB_G_VSM_Ambience&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;CI_St_Bld_CameraJolt&quot;<br align="left"/>> ];
+    787 [ pos = "2.5640001,-6.353!" ];
+
+    788 [ label = <788: <b>VisScriptCallModule</b><br/><br/><i>CI_St_Bld_CameraJolt<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SB_G_VSM_Ambience&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;CI_St_Bld_CameraJolt&quot;<br align="left"/>> ];
+    788 [ pos = "1.4610001,-7.5000005!" ];
+
+    789 [ label = <789: <b>VisScriptCallModule</b><br/><br/><i>CI_St_Bld_CameraJolt<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SB_G_VSM_Ambience&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;CI_St_Bld_CameraJolt&quot;<br align="left"/>> ];
+    789 [ pos = "2.6880002,-7.564!" ];
+
+    790 [ label = <790: <b>VisScriptCallModule</b><br/><br/><i>CI_St_Bld_CameraJolt<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SB_G_VSM_Ambience&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;CI_St_Bld_CameraJolt&quot;<br align="left"/>> ];
+    790 [ pos = "2.719,-8.504001!" ];
+
+    791 [ label = <791: <b>VisScriptCallModule</b><br/><br/><i>CI_St_Bld_CameraJolt<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SB_G_VSM_Ambience&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;CI_St_Bld_CameraJolt&quot;<br align="left"/>> ];
+    791 [ pos = "2.335,-9.125!" ];
+
+    792 [ label = <792: <b>VisScriptCallModule</b><br/><br/><i>CI_St_Bld_CameraJolt<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SB_G_VSM_Ambience&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;CI_St_Bld_CameraJolt&quot;<br align="left"/>> ];
+    792 [ pos = "2.8290002,-9.441!" ];
+
+    793 [ label = <793: <b>VisScriptCallModule</b><br/><br/><i>CI_St_Bld_CameraJolt<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SB_G_VSM_Ambience&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;CI_St_Bld_CameraJolt&quot;<br align="left"/>> ];
+    793 [ pos = "2.5860002,-10.346001!" ];
+
+    794 [ label = <794: <b>VisScriptCallModule</b><br/><br/><i>CI_St_Bld_CameraJolt<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SB_G_VSM_Ambience&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;CI_St_Bld_CameraJolt&quot;<br align="left"/>> ];
+    794 [ pos = "2.319,-11.193001!" ];
+
+    795 [ label = <795: <b>VisScriptCallModule</b><br/><br/><i>CI_St_Bld_CameraJolt<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SB_G_VSM_Ambience&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;CI_St_Bld_CameraJolt&quot;<br align="left"/>> ];
+    795 [ pos = "1.3750001,-11.308001!" ];
+
+    805 [ label = <805: <b>BranchModule</b><br/><br/><b>Branches</b><br align="left"/>    [1, 2, 3, 4]<br align="left"/>> ];
+    805 [ pos = "-1.2490001,4.3050003!" ];
+    805 -> 809 [ label = "1→0" ];
+    805 -> 809 [ label = "2→0" ];
+    805 -> 809 [ label = "3→0" ];
+    805 -> 808 [ label = "4→0" ];
+    807 -> 805 [ style = dashed ];
+
+    806 [ label = <806: <b>RandModule</b><br/><br/><b>Min</b><br align="left"/>    1<br align="left"/><b>Max</b><br align="left"/>    4<br align="left"/><b>NoRepeat</b><br align="left"/>    true<br align="left"/>> ];
+    806 [ pos = "-1.575,4.3050003!" ];
+    806 -> 805 [ label = "0→0" ];
+    806 -> 807 [ style = dashed ];
+
+    807 [ label = <807: <b>VisScriptVariableInt</b><br/><br/>> ];
+    807 [ shape = parallelogram ]
+    807 [ pos = "-1.3800001,4.2310004!" ];
+
+    808 [ label = <808: <b>EffectModule</b><br/><br/><i>Debris Falling  Small, multiple<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRocks_Lit&quot;<br align="left"/>    , StartDelay=2, Duration=3.5, Ta<br align="left"/>    rgetNode=&quot;SB_G_DebrisSmall_FX_01<br align="left"/>> ];
+    808 [ pos = "-1.046,4.1990004!" ];
+
+    809 [ label = <809: <b>EffectModule</b><br/><br/><i>Debris Falling  Small, Single<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRock_Lit&quot;,<br align="left"/>     StartDelay=2, Duration=3.5, Tar<br align="left"/>    getNode=&quot;SB_G_DebrisSmall_FX_01&quot;<br align="left"/>> ];
+    809 [ pos = "-1.0450001,4.333!" ];
+
+    810 [ label = <810: <b>BranchModule</b><br/><br/><b>Branches</b><br align="left"/>    [1, 2, 3, 4]<br align="left"/>> ];
+    810 [ pos = "-1.2470001,4.04!" ];
+    810 -> 813 [ label = "1→0" ];
+    810 -> 813 [ label = "2→0" ];
+    810 -> 813 [ label = "3→0" ];
+    810 -> 146 [ label = "4→0" ];
+    812 -> 810 [ style = dashed ];
+
+    811 [ label = <811: <b>RandModule</b><br/><br/><b>Min</b><br align="left"/>    1<br align="left"/><b>Max</b><br align="left"/>    4<br align="left"/><b>NoRepeat</b><br align="left"/>    true<br align="left"/>> ];
+    811 [ pos = "-1.5840001,4.04!" ];
+    811 -> 810 [ label = "0→0" ];
+    811 -> 812 [ style = dashed ];
+
+    812 [ label = <812: <b>VisScriptVariableInt</b><br/><br/>> ];
+    812 [ shape = parallelogram ]
+    812 [ pos = "-1.389,3.966!" ];
+
+    813 [ label = <813: <b>EffectModule</b><br/><br/><i>Debris Falling  Small  Single<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRock_Lit&quot;,<br align="left"/>     StartDelay=2, Duration=3.5, Tar<br align="left"/>    getNode=&quot;SB_G_DebrisSmall_FX_02&quot;<br align="left"/>> ];
+    813 [ pos = "-1.047,4.0670004!" ];
+
+    817 [ label = <817: <b>BranchModule</b><br/><br/><b>Branches</b><br align="left"/>    [1, 2, 3, 4]<br align="left"/>> ];
+    817 [ pos = "-1.245,3.7770002!" ];
+    817 -> 821 [ label = "1→0" ];
+    817 -> 821 [ label = "2→0" ];
+    817 -> 821 [ label = "3→0" ];
+    817 -> 820 [ label = "4→0" ];
+    819 -> 817 [ style = dashed ];
+
+    818 [ label = <818: <b>RandModule</b><br/><br/><b>Min</b><br align="left"/>    1<br align="left"/><b>Max</b><br align="left"/>    4<br align="left"/><b>NoRepeat</b><br align="left"/>    true<br align="left"/>> ];
+    818 [ pos = "-1.5870001,3.7770002!" ];
+    818 -> 817 [ label = "0→0" ];
+    818 -> 819 [ style = dashed ];
+
+    819 [ label = <819: <b>VisScriptVariableInt</b><br/><br/>> ];
+    819 [ shape = parallelogram ]
+    819 [ pos = "-1.3920001,3.703!" ];
+
+    820 [ label = <820: <b>EffectModule</b><br/><br/><i>Debris Falling  Small<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRocks_Lit&quot;<br align="left"/>    , StartDelay=2, Duration=3.5, Ta<br align="left"/>    rgetNode=&quot;SB_G_DebrisSmall_FX_03<br align="left"/>> ];
+    820 [ pos = "-1.052,3.6620002!" ];
+
+    821 [ label = <821: <b>EffectModule</b><br/><br/><i>Debris Falling  Small   Single<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRock_Lit&quot;,<br align="left"/>     StartDelay=2, Duration=3.5, Tar<br align="left"/>    getNode=&quot;SB_G_DebrisSmall_FX_03&quot;<br align="left"/>> ];
+    821 [ pos = "-1.0500001,3.808!" ];
+
+    822 [ label = <822: <b>BranchModule</b><br/><br/><b>Branches</b><br align="left"/>    [1, 2, 3, 4]<br align="left"/>> ];
+    822 [ pos = "-1.2440001,3.5080001!" ];
+    822 -> 825 [ label = "1→0" ];
+    822 -> 825 [ label = "2→0" ];
+    822 -> 825 [ label = "3→0" ];
+    822 -> 152 [ label = "4→0" ];
+    824 -> 822 [ style = dashed ];
+
+    823 [ label = <823: <b>RandModule</b><br/><br/><b>Min</b><br align="left"/>    1<br align="left"/><b>Max</b><br align="left"/>    4<br align="left"/><b>NoRepeat</b><br align="left"/>    true<br align="left"/>> ];
+    823 [ pos = "-1.582,3.5080001!" ];
+    823 -> 822 [ label = "0→0" ];
+    823 -> 824 [ style = dashed ];
+
+    824 [ label = <824: <b>VisScriptVariableInt</b><br/><br/>> ];
+    824 [ shape = parallelogram ]
+    824 [ pos = "-1.3870001,3.4340003!" ];
+
+    825 [ label = <825: <b>EffectModule</b><br/><br/><i>Debris Falling  Small  Single<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRock_Lit&quot;,<br align="left"/>     StartDelay=2, Duration=3.5, Tar<br align="left"/>    getNode=&quot;SB_G_DebrisSmall_FX_04&quot;<br align="left"/>> ];
+    825 [ pos = "-1.054,3.5370002!" ];
+
+    826 [ label = <826: <b>BranchModule</b><br/><br/><b>Branches</b><br align="left"/>    [1, 2, 3, 4]<br align="left"/>> ];
+    826 [ pos = "-1.243,3.2300003!" ];
+    826 -> 155 [ label = "1→0" ];
+    826 -> 155 [ label = "2→0" ];
+    826 -> 155 [ label = "3→0" ];
+    826 -> 829 [ label = "4→0" ];
+    828 -> 826 [ style = dashed ];
+
+    827 [ label = <827: <b>RandModule</b><br/><br/><b>Min</b><br align="left"/>    1<br align="left"/><b>Max</b><br align="left"/>    4<br align="left"/><b>NoRepeat</b><br align="left"/>    true<br align="left"/>> ];
+    827 [ pos = "-1.577,3.2300003!" ];
+    827 -> 826 [ label = "0→0" ];
+    827 -> 828 [ style = dashed ];
+
+    828 [ label = <828: <b>VisScriptVariableInt</b><br/><br/>> ];
+    828 [ shape = parallelogram ]
+    828 [ pos = "-1.3820001,3.1560001!" ];
+
+    829 [ label = <829: <b>EffectModule</b><br/><br/><i>Debris Falling  Small<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRocks_Lit&quot;<br align="left"/>    , StartDelay=2, Duration=3.5, Ta<br align="left"/>    rgetNode=&quot;SB_G_DebrisSmall_FX_05<br align="left"/>> ];
+    829 [ pos = "-1.0600001,3.1230001!" ];
+
+    861 [ label = <861: <b>BranchModule</b><br/><br/><b>Branches</b><br align="left"/>    [1, 2, 3, 4, 5]<br align="left"/>> ];
+    861 [ pos = "-1.8820001,2.466!" ];
+    861 -> 871 [ label = "1→0" ];
+    861 -> 960 [ label = "2→0" ];
+    861 -> 963 [ label = "3→0" ];
+    861 -> 966 [ label = "4→0" ];
+    861 -> 969 [ label = "5→0" ];
+    864 -> 861 [ style = dashed ];
+
+    862 [ label = <862: <b>RandModule</b><br/><br/><b>Min</b><br align="left"/>    1<br align="left"/><b>Max</b><br align="left"/>    5<br align="left"/><b>NoRepeat</b><br align="left"/>    true<br align="left"/>> ];
+    862 [ pos = "-2.5530002,2.443!" ];
+    862 -> 865 [ label = "0→0" ];
+    862 -> 866 [ label = "0→0" ];
+    862 -> 864 [ style = dashed ];
+
+    863 [ label = <863: <b>StartModule</b><br/><br/><i>Start small debris FX 6-10<br align="left"/></i><br align="left"/>> ];
+    863 [ shape = oval ]
+    863 [ pos = "-2.759,2.443!" ];
+    863 -> 862 [ label = "0→0" ];
+
+    864 [ label = <864: <b>VisScriptVariableInt</b><br/><br/>> ];
+    864 [ shape = parallelogram ]
+    864 [ pos = "-2.286,2.3690002!" ];
+
+    865 [ label = <865: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    4<br align="left"/><b>Variance</b><br align="left"/>    6<br align="left"/>> ];
+    865 [ pos = "-2.5180001,2.3040001!" ];
+    865 -> 862 [ label = "0→0" ];
+
+    866 [ label = <866: <b>SaveDataModule</b><br/><br/><i>FallingDebris_On check<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;FallingDebris_On&quot;)]<br align="left"/>> ];
+    866 [ pos = "-2.3270001,2.525!" ];
+    866 -> 1187 [ label = "1→0" ];
+
+    869 [ label = <869: <b>EffectModule</b><br/><br/><i>Debris Falling  Small   Single<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRock_Lit&quot;,<br align="left"/>     StartDelay=2, Duration=3.5, Tar<br align="left"/>    getNode=&quot;SB_G_DebrisSmall_FX_10&quot;<br align="left"/>> ];
+    869 [ pos = "-1.072,1.8850001!" ];
+
+    870 [ label = <870: <b>BranchModule</b><br/><br/><b>Branches</b><br align="left"/>    [1, 2, 3, 4]<br align="left"/>> ];
+    870 [ pos = "-1.2390001,2.9250002!" ];
+    870 -> 874 [ label = "1→0" ];
+    870 -> 874 [ label = "3→0" ];
+    870 -> 874 [ label = "2→0" ];
+    870 -> 892 [ label = "4→0" ];
+    872 -> 870 [ style = dashed ];
+
+    871 [ label = <871: <b>RandModule</b><br/><br/><b>Min</b><br align="left"/>    1<br align="left"/><b>Max</b><br align="left"/>    4<br align="left"/><b>NoRepeat</b><br align="left"/>    true<br align="left"/>> ];
+    871 [ pos = "-1.588,2.9250002!" ];
+    871 -> 870 [ label = "0→0" ];
+    871 -> 872 [ style = dashed ];
+
+    872 [ label = <872: <b>VisScriptVariableInt</b><br/><br/>> ];
+    872 [ shape = parallelogram ]
+    872 [ pos = "-1.393,2.851!" ];
+
+    874 [ label = <874: <b>EffectModule</b><br/><br/><i>Debris Falling  Small, Single<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRock_Lit&quot;,<br align="left"/>     StartDelay=2, Duration=3.5, Tar<br align="left"/>    getNode=&quot;SB_G_DebrisSmall_FX_06&quot;<br align="left"/>> ];
+    874 [ pos = "-1.0580001,2.953!" ];
+
+    878 [ label = <878: <b>EffectModule</b><br/><br/><i>Debris Falling  Small  Single<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRock_Lit&quot;,<br align="left"/>     StartDelay=2, Duration=3.5, Tar<br align="left"/>    getNode=&quot;SB_G_DebrisSmall_FX_07&quot;<br align="left"/>> ];
+    878 [ pos = "-1.0600001,2.687!" ];
+
+    883 [ label = <883: <b>EffectModule</b><br/><br/><i>Debris Falling  Small   Single<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRock_Lit&quot;,<br align="left"/>     StartDelay=2, Duration=3.5, Tar<br align="left"/>    getNode=&quot;SB_G_DebrisSmall_FX_08&quot;<br align="left"/>> ];
+    883 [ pos = "-1.0630001,2.4280002!" ];
+
+    887 [ label = <887: <b>EffectModule</b><br/><br/><i>Debris Falling  Small  Single<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRock_Lit&quot;,<br align="left"/>     StartDelay=2, Duration=3.5, Tar<br align="left"/>    getNode=&quot;SB_G_DebrisSmall_FX_09&quot;<br align="left"/>> ];
+    887 [ pos = "-1.067,2.157!" ];
+
+    892 [ label = <892: <b>EffectModule</b><br/><br/><i>Debris Falling  Small<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRocks_Lit&quot;<br align="left"/>    , StartDelay=2, Duration=3.5, Ta<br align="left"/>    rgetNode=&quot;SB_G_DebrisSmall_FX_06<br align="left"/>> ];
+    892 [ pos = "-1.059,2.8260002!" ];
+
+    893 [ label = <893: <b>EffectModule</b><br/><br/><i>Debris Falling  Small<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRocks_Lit&quot;<br align="left"/>    , StartDelay=2, Duration=3.5, Ta<br align="left"/>    rgetNode=&quot;SB_G_DebrisSmall_FX_07<br align="left"/>> ];
+    893 [ pos = "-1.0600001,2.5570002!" ];
+
+    894 [ label = <894: <b>EffectModule</b><br/><br/><i>Debris Falling  Small<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRocks_Lit&quot;<br align="left"/>    , StartDelay=2, Duration=3.5, Ta<br align="left"/>    rgetNode=&quot;SB_G_DebrisSmall_FX_08<br align="left"/>> ];
+    894 [ pos = "-1.0630001,2.2970002!" ];
+
+    895 [ label = <895: <b>EffectModule</b><br/><br/><i>Debris Falling  Small<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRocks_Lit&quot;<br align="left"/>    , StartDelay=2, Duration=3.5, Ta<br align="left"/>    rgetNode=&quot;SB_G_DebrisSmall_FX_09<br align="left"/>> ];
+    895 [ pos = "-1.0680001,2.025!" ];
+
+    896 [ label = <896: <b>EffectModule</b><br/><br/><i>Debris Falling  Small<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRocks_Lit&quot;<br align="left"/>    , StartDelay=2, Duration=3.5, Ta<br align="left"/>    rgetNode=&quot;SB_G_DebrisSmall_FX_10<br align="left"/>> ];
+    896 [ pos = "-1.072,1.7540001!" ];
+
+    897 [ label = <897: <b>BranchModule</b><br/><br/><b>Branches</b><br align="left"/>    [1, 2, 3, 4, 5]<br align="left"/>> ];
+    897 [ pos = "-1.8900001,1.0780001!" ];
+    897 -> 972 [ label = "1→0" ];
+    897 -> 975 [ label = "2→0" ];
+    897 -> 978 [ label = "3→0" ];
+    897 -> 981 [ label = "4→0" ];
+    897 -> 984 [ label = "5→0" ];
+    900 -> 897 [ style = dashed ];
+
+    898 [ label = <898: <b>RandModule</b><br/><br/><b>Min</b><br align="left"/>    1<br align="left"/><b>Max</b><br align="left"/>    5<br align="left"/><b>NoRepeat</b><br align="left"/>    true<br align="left"/>> ];
+    898 [ pos = "-2.561,1.0550001!" ];
+    898 -> 901 [ label = "0→0" ];
+    898 -> 902 [ label = "0→0" ];
+    898 -> 900 [ style = dashed ];
+
+    899 [ label = <899: <b>StartModule</b><br/><br/><i>Start small debris FX 11-15<br align="left"/></i><br align="left"/>> ];
+    899 [ shape = oval ]
+    899 [ pos = "-2.7670002,1.0550001!" ];
+    899 -> 898 [ label = "0→0" ];
+
+    900 [ label = <900: <b>VisScriptVariableInt</b><br/><br/>> ];
+    900 [ shape = parallelogram ]
+    900 [ pos = "-2.2940001,0.98100007!" ];
+
+    901 [ label = <901: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    4<br align="left"/><b>Variance</b><br align="left"/>    3<br align="left"/>> ];
+    901 [ pos = "-2.526,0.91600007!" ];
+    901 -> 898 [ label = "0→0" ];
+
+    902 [ label = <902: <b>SaveDataModule</b><br/><br/><i>FallingDebris_On check<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;FallingDebris_On&quot;)]<br align="left"/>> ];
+    902 [ pos = "-2.335,1.1370001!" ];
+    902 -> 1188 [ label = "1→0" ];
+
+    903 [ label = <903: <b>EffectModule</b><br/><br/><i>Debris Falling  Small   Single<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRock_Lit&quot;,<br align="left"/>     StartDelay=2, Duration=3.5, Tar<br align="left"/>    getNode=&quot;SB_G_DebrisSmall_FX_15&quot;<br align="left"/>> ];
+    903 [ pos = "-1.08,0.497!" ];
+
+    907 [ label = <907: <b>EffectModule</b><br/><br/><i>Debris Falling  Small, Single<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRock_Lit&quot;,<br align="left"/>     StartDelay=2, Duration=3.5, Tar<br align="left"/>    getNode=&quot;SB_G_DebrisSmall_FX_11&quot;<br align="left"/>> ];
+    907 [ pos = "-1.0660001,1.565!" ];
+
+    911 [ label = <911: <b>EffectModule</b><br/><br/><i>Debris Falling  Small  Single<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRock_Lit&quot;,<br align="left"/>     StartDelay=2, Duration=3.5, Tar<br align="left"/>    getNode=&quot;SB_G_DebrisSmall_FX_12&quot;<br align="left"/>> ];
+    911 [ pos = "-1.0680001,1.299!" ];
+
+    915 [ label = <915: <b>EffectModule</b><br/><br/><i>Debris Falling  Small   Single<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRock_Lit&quot;,<br align="left"/>     StartDelay=2, Duration=3.5, Tar<br align="left"/>    getNode=&quot;SB_G_DebrisSmall_FX_13&quot;<br align="left"/>> ];
+    915 [ pos = "-1.0710001,1.0400001!" ];
+
+    919 [ label = <919: <b>EffectModule</b><br/><br/><i>Debris Falling  Small  Single<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRock_Lit&quot;,<br align="left"/>     StartDelay=2, Duration=3.5, Tar<br align="left"/>    getNode=&quot;SB_G_DebrisSmall_FX_13&quot;<br align="left"/>> ];
+    919 [ pos = "-1.075,0.76900005!" ];
+
+    928 [ label = <928: <b>BranchModule</b><br/><br/><b>Branches</b><br align="left"/>    [1, 2, 3, 4, 5]<br align="left"/>> ];
+    928 [ pos = "-1.9050001,-0.32000002!" ];
+    928 -> 987 [ label = "1→0" ];
+    928 -> 990 [ label = "2→0" ];
+    928 -> 993 [ label = "3→0" ];
+    928 -> 996 [ label = "4→0" ];
+    928 -> 999 [ label = "5→0" ];
+    931 -> 928 [ style = dashed ];
+
+    929 [ label = <929: <b>RandModule</b><br/><br/><b>Min</b><br align="left"/>    1<br align="left"/><b>Max</b><br align="left"/>    5<br align="left"/><b>NoRepeat</b><br align="left"/>    true<br align="left"/>> ];
+    929 [ pos = "-2.5760002,-0.34300002!" ];
+    929 -> 932 [ label = "0→0" ];
+    929 -> 933 [ label = "0→0" ];
+    929 -> 931 [ style = dashed ];
+
+    930 [ label = <930: <b>StartModule</b><br/><br/><i>Start small debris FX 16-20<br align="left"/></i><br align="left"/>> ];
+    930 [ shape = oval ]
+    930 [ pos = "-2.782,-0.34300002!" ];
+    930 -> 929 [ label = "0→0" ];
+
+    931 [ label = <931: <b>VisScriptVariableInt</b><br/><br/>> ];
+    931 [ shape = parallelogram ]
+    931 [ pos = "-2.309,-0.41700003!" ];
+
+    932 [ label = <932: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    5<br align="left"/><b>Variance</b><br align="left"/>    2<br align="left"/>> ];
+    932 [ pos = "-2.5410001,-0.48200002!" ];
+    932 -> 929 [ label = "0→0" ];
+
+    933 [ label = <933: <b>SaveDataModule</b><br/><br/><i>FallingDebris_On check<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;FallingDebris_On&quot;)]<br align="left"/>> ];
+    933 [ pos = "-2.3500001,-0.261!" ];
+    933 -> 1189 [ label = "1→0" ];
+
+    934 [ label = <934: <b>EffectModule</b><br/><br/><i>Debris Falling  Small   Single<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRock_Lit&quot;,<br align="left"/>     StartDelay=2, Duration=3.5, Tar<br align="left"/>    getNode=&quot;SB_G_DebrisSmall_FX_20&quot;<br align="left"/>> ];
+    934 [ pos = "-1.095,-0.901!" ];
+
+    938 [ label = <938: <b>EffectModule</b><br/><br/><i>Debris Falling  Small, Single<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRock_Lit&quot;,<br align="left"/>     StartDelay=2, Duration=3.5, Tar<br align="left"/>    getNode=&quot;SB_G_DebrisSmall_FX_16&quot;<br align="left"/>> ];
+    938 [ pos = "-1.0810001,0.16700001!" ];
+
+    942 [ label = <942: <b>EffectModule</b><br/><br/><i>Debris Falling  Small  Single<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRock_Lit&quot;,<br align="left"/>     StartDelay=2, Duration=3.5, Tar<br align="left"/>    getNode=&quot;SB_G_DebrisSmall_FX_17&quot;<br align="left"/>> ];
+    942 [ pos = "-1.082,-0.09900001!" ];
+
+    946 [ label = <946: <b>EffectModule</b><br/><br/><i>Debris Falling  Small   Single<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRock_Lit&quot;,<br align="left"/>     StartDelay=2, Duration=3.5, Tar<br align="left"/>    getNode=&quot;SB_G_DebrisSmall_FX_18&quot;<br align="left"/>> ];
+    946 [ pos = "-1.0860001,-0.358!" ];
+
+    950 [ label = <950: <b>EffectModule</b><br/><br/><i>Debris Falling  Small  Single<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRock_Lit&quot;,<br align="left"/>     StartDelay=2, Duration=3.5, Tar<br align="left"/>    getNode=&quot;SB_G_DebrisSmall_FX_19&quot;<br align="left"/>> ];
+    950 [ pos = "-1.09,-0.629!" ];
+
+    959 [ label = <959: <b>BranchModule</b><br/><br/><b>Branches</b><br align="left"/>    [1, 2, 3, 4]<br align="left"/>> ];
+    959 [ pos = "-1.2370001,2.653!" ];
+    959 -> 878 [ label = "1→0" ];
+    959 -> 878 [ label = "2→0" ];
+    959 -> 878 [ label = "3→0" ];
+    959 -> 893 [ label = "4→0" ];
+    961 -> 959 [ style = dashed ];
+
+    960 [ label = <960: <b>RandModule</b><br/><br/><b>Min</b><br align="left"/>    1<br align="left"/><b>Max</b><br align="left"/>    4<br align="left"/><b>NoRepeat</b><br align="left"/>    true<br align="left"/>> ];
+    960 [ pos = "-1.5920001,2.653!" ];
+    960 -> 959 [ label = "0→0" ];
+    960 -> 961 [ style = dashed ];
+
+    961 [ label = <961: <b>VisScriptVariableInt</b><br/><br/>> ];
+    961 [ shape = parallelogram ]
+    961 [ pos = "-1.3970001,2.5790002!" ];
+
+    962 [ label = <962: <b>BranchModule</b><br/><br/><b>Branches</b><br align="left"/>    [1, 2, 3, 4]<br align="left"/>> ];
+    962 [ pos = "-1.2360001,2.397!" ];
+    962 -> 883 [ label = "1→0" ];
+    962 -> 883 [ label = "2→0" ];
+    962 -> 883 [ label = "3→0" ];
+    962 -> 894 [ label = "4→0" ];
+    964 -> 962 [ style = dashed ];
+
+    963 [ label = <963: <b>RandModule</b><br/><br/><b>Min</b><br align="left"/>    1<br align="left"/><b>Max</b><br align="left"/>    4<br align="left"/><b>NoRepeat</b><br align="left"/>    true<br align="left"/>> ];
+    963 [ pos = "-1.5910001,2.397!" ];
+    963 -> 962 [ label = "0→0" ];
+    963 -> 964 [ style = dashed ];
+
+    964 [ label = <964: <b>VisScriptVariableInt</b><br/><br/>> ];
+    964 [ shape = parallelogram ]
+    964 [ pos = "-1.396,2.3230002!" ];
+
+    965 [ label = <965: <b>BranchModule</b><br/><br/><b>Branches</b><br align="left"/>    [1, 2, 3, 4]<br align="left"/>> ];
+    965 [ pos = "-1.233,2.131!" ];
+    965 -> 887 [ label = "1→0" ];
+    965 -> 887 [ label = "2→0" ];
+    965 -> 887 [ label = "3→0" ];
+    965 -> 895 [ label = "4→0" ];
+    967 -> 965 [ style = dashed ];
+
+    966 [ label = <966: <b>RandModule</b><br/><br/><b>Min</b><br align="left"/>    1<br align="left"/><b>Max</b><br align="left"/>    4<br align="left"/><b>NoRepeat</b><br align="left"/>    true<br align="left"/>> ];
+    966 [ pos = "-1.588,2.131!" ];
+    966 -> 965 [ label = "0→0" ];
+    966 -> 967 [ style = dashed ];
+
+    967 [ label = <967: <b>VisScriptVariableInt</b><br/><br/>> ];
+    967 [ shape = parallelogram ]
+    967 [ pos = "-1.393,2.0570002!" ];
+
+    968 [ label = <968: <b>BranchModule</b><br/><br/><b>Branches</b><br align="left"/>    [1, 2, 3, 4]<br align="left"/>> ];
+    968 [ pos = "-1.233,1.8490001!" ];
+    968 -> 869 [ label = "1→0" ];
+    968 -> 869 [ label = "2→0" ];
+    968 -> 869 [ label = "3→0" ];
+    968 -> 896 [ label = "4→0" ];
+    970 -> 968 [ style = dashed ];
+
+    969 [ label = <969: <b>RandModule</b><br/><br/><b>Min</b><br align="left"/>    1<br align="left"/><b>Max</b><br align="left"/>    4<br align="left"/><b>NoRepeat</b><br align="left"/>    true<br align="left"/>> ];
+    969 [ pos = "-1.588,1.8490001!" ];
+    969 -> 968 [ label = "0→0" ];
+    969 -> 970 [ style = dashed ];
+
+    970 [ label = <970: <b>VisScriptVariableInt</b><br/><br/>> ];
+    970 [ shape = parallelogram ]
+    970 [ pos = "-1.393,1.7750001!" ];
+
+    971 [ label = <971: <b>BranchModule</b><br/><br/><b>Branches</b><br align="left"/>    [1, 2, 3, 4]<br align="left"/>> ];
+    971 [ pos = "-1.256,1.5460001!" ];
+    971 -> 907 [ label = "1→0" ];
+    971 -> 907 [ label = "2→0" ];
+    971 -> 907 [ label = "3→0" ];
+    971 -> 249 [ label = "4→0" ];
+    973 -> 971 [ style = dashed ];
+
+    972 [ label = <972: <b>RandModule</b><br/><br/><b>Min</b><br align="left"/>    1<br align="left"/><b>Max</b><br align="left"/>    4<br align="left"/><b>NoRepeat</b><br align="left"/>    true<br align="left"/>> ];
+    972 [ pos = "-1.6110001,1.5460001!" ];
+    972 -> 971 [ label = "0→0" ];
+    972 -> 973 [ style = dashed ];
+
+    973 [ label = <973: <b>VisScriptVariableInt</b><br/><br/>> ];
+    973 [ shape = parallelogram ]
+    973 [ pos = "-1.416,1.4720001!" ];
+
+    974 [ label = <974: <b>BranchModule</b><br/><br/><b>Branches</b><br align="left"/>    [1, 2, 3, 4]<br align="left"/>> ];
+    974 [ pos = "-1.2520001,1.268!" ];
+    974 -> 911 [ label = "1→0" ];
+    974 -> 911 [ label = "2→0" ];
+    974 -> 911 [ label = "3→0" ];
+    974 -> 254 [ label = "4→0" ];
+    976 -> 974 [ style = dashed ];
+
+    975 [ label = <975: <b>RandModule</b><br/><br/><b>Min</b><br align="left"/>    1<br align="left"/><b>Max</b><br align="left"/>    4<br align="left"/><b>NoRepeat</b><br align="left"/>    true<br align="left"/>> ];
+    975 [ pos = "-1.6070001,1.268!" ];
+    975 -> 974 [ label = "0→0" ];
+    975 -> 976 [ style = dashed ];
+
+    976 [ label = <976: <b>VisScriptVariableInt</b><br/><br/>> ];
+    976 [ shape = parallelogram ]
+    976 [ pos = "-1.4120001,1.194!" ];
+
+    977 [ label = <977: <b>BranchModule</b><br/><br/><b>Branches</b><br align="left"/>    [1, 2, 3, 4]<br align="left"/>> ];
+    977 [ pos = "-1.253,1.01!" ];
+    977 -> 915 [ label = "1→0" ];
+    977 -> 915 [ label = "2→0" ];
+    977 -> 915 [ label = "3→0" ];
+    977 -> 257 [ label = "4→0" ];
+    979 -> 977 [ style = dashed ];
+
+    978 [ label = <978: <b>RandModule</b><br/><br/><b>Min</b><br align="left"/>    1<br align="left"/><b>Max</b><br align="left"/>    4<br align="left"/><b>NoRepeat</b><br align="left"/>    true<br align="left"/>> ];
+    978 [ pos = "-1.608,1.01!" ];
+    978 -> 977 [ label = "0→0" ];
+    978 -> 979 [ style = dashed ];
+
+    979 [ label = <979: <b>VisScriptVariableInt</b><br/><br/>> ];
+    979 [ shape = parallelogram ]
+    979 [ pos = "-1.4130001,0.93600005!" ];
+
+    980 [ label = <980: <b>BranchModule</b><br/><br/><b>Branches</b><br align="left"/>    [1, 2, 3, 4]<br align="left"/>> ];
+    980 [ pos = "-1.251,0.74100006!" ];
+    980 -> 919 [ label = "1→0" ];
+    980 -> 919 [ label = "2→0" ];
+    980 -> 919 [ label = "3→0" ];
+    980 -> 260 [ label = "4→0" ];
+    982 -> 980 [ style = dashed ];
+
+    981 [ label = <981: <b>RandModule</b><br/><br/><b>Min</b><br align="left"/>    1<br align="left"/><b>Max</b><br align="left"/>    4<br align="left"/><b>NoRepeat</b><br align="left"/>    true<br align="left"/>> ];
+    981 [ pos = "-1.6060001,0.74100006!" ];
+    981 -> 980 [ label = "0→0" ];
+    981 -> 982 [ style = dashed ];
+
+    982 [ label = <982: <b>VisScriptVariableInt</b><br/><br/>> ];
+    982 [ shape = parallelogram ]
+    982 [ pos = "-1.411,0.66700006!" ];
+
+    983 [ label = <983: <b>BranchModule</b><br/><br/><b>Branches</b><br align="left"/>    [1, 2, 3, 4]<br align="left"/>> ];
+    983 [ pos = "-1.248,0.47100002!" ];
+    983 -> 903 [ label = "1→0" ];
+    983 -> 903 [ label = "2→0" ];
+    983 -> 903 [ label = "3→0" ];
+    983 -> 263 [ label = "4→0" ];
+    985 -> 983 [ style = dashed ];
+
+    984 [ label = <984: <b>RandModule</b><br/><br/><b>Min</b><br align="left"/>    1<br align="left"/><b>Max</b><br align="left"/>    4<br align="left"/><b>NoRepeat</b><br align="left"/>    true<br align="left"/>> ];
+    984 [ pos = "-1.603,0.47100002!" ];
+    984 -> 983 [ label = "0→0" ];
+    984 -> 985 [ style = dashed ];
+
+    985 [ label = <985: <b>VisScriptVariableInt</b><br/><br/>> ];
+    985 [ shape = parallelogram ]
+    985 [ pos = "-1.4080001,0.397!" ];
+
+    986 [ label = <986: <b>BranchModule</b><br/><br/><b>Branches</b><br align="left"/>    [1, 2, 3, 4]<br align="left"/>> ];
+    986 [ pos = "-1.2770001,0.135!" ];
+    986 -> 938 [ label = "1→0" ];
+    986 -> 938 [ label = "2→0" ];
+    986 -> 938 [ label = "3→0" ];
+    986 -> 194 [ label = "4→0" ];
+    988 -> 986 [ style = dashed ];
+
+    987 [ label = <987: <b>RandModule</b><br/><br/><b>Min</b><br align="left"/>    1<br align="left"/><b>Max</b><br align="left"/>    4<br align="left"/><b>NoRepeat</b><br align="left"/>    true<br align="left"/>> ];
+    987 [ pos = "-1.6320001,0.135!" ];
+    987 -> 986 [ label = "0→0" ];
+    987 -> 988 [ style = dashed ];
+
+    988 [ label = <988: <b>VisScriptVariableInt</b><br/><br/>> ];
+    988 [ shape = parallelogram ]
+    988 [ pos = "-1.437,0.061000004!" ];
+
+    989 [ label = <989: <b>BranchModule</b><br/><br/><b>Branches</b><br align="left"/>    [1, 2, 3, 4]<br align="left"/>> ];
+    989 [ pos = "-1.2750001,-0.136!" ];
+    989 -> 942 [ label = "1→0" ];
+    989 -> 942 [ label = "2→0" ];
+    989 -> 942 [ label = "3→0" ];
+    989 -> 197 [ label = "4→0" ];
+    991 -> 989 [ style = dashed ];
+
+    990 [ label = <990: <b>RandModule</b><br/><br/><b>Min</b><br align="left"/>    1<br align="left"/><b>Max</b><br align="left"/>    4<br align="left"/><b>NoRepeat</b><br align="left"/>    true<br align="left"/>> ];
+    990 [ pos = "-1.6300001,-0.136!" ];
+    990 -> 989 [ label = "0→0" ];
+    990 -> 991 [ style = dashed ];
+
+    991 [ label = <991: <b>VisScriptVariableInt</b><br/><br/>> ];
+    991 [ shape = parallelogram ]
+    991 [ pos = "-1.4350001,-0.21000001!" ];
+
+    992 [ label = <992: <b>BranchModule</b><br/><br/><b>Branches</b><br align="left"/>    [1, 2, 3, 4]<br align="left"/>> ];
+    992 [ pos = "-1.2770001,-0.38900003!" ];
+    992 -> 946 [ label = "1→0" ];
+    992 -> 946 [ label = "2→0" ];
+    992 -> 946 [ label = "3→0" ];
+    992 -> 200 [ label = "4→0" ];
+    994 -> 992 [ style = dashed ];
+
+    993 [ label = <993: <b>RandModule</b><br/><br/><b>Min</b><br align="left"/>    1<br align="left"/><b>Max</b><br align="left"/>    4<br align="left"/><b>NoRepeat</b><br align="left"/>    true<br align="left"/>> ];
+    993 [ pos = "-1.6320001,-0.38900003!" ];
+    993 -> 992 [ label = "0→0" ];
+    993 -> 994 [ style = dashed ];
+
+    994 [ label = <994: <b>VisScriptVariableInt</b><br/><br/>> ];
+    994 [ shape = parallelogram ]
+    994 [ pos = "-1.437,-0.46300003!" ];
+
+    995 [ label = <995: <b>BranchModule</b><br/><br/><b>Branches</b><br align="left"/>    [1, 2, 3, 4]<br align="left"/>> ];
+    995 [ pos = "-1.2770001,-0.665!" ];
+    995 -> 950 [ label = "1→0" ];
+    995 -> 950 [ label = "2→0" ];
+    995 -> 950 [ label = "3→0" ];
+    995 -> 203 [ label = "4→0" ];
+    997 -> 995 [ style = dashed ];
+
+    996 [ label = <996: <b>RandModule</b><br/><br/><b>Min</b><br align="left"/>    1<br align="left"/><b>Max</b><br align="left"/>    4<br align="left"/><b>NoRepeat</b><br align="left"/>    true<br align="left"/>> ];
+    996 [ pos = "-1.6320001,-0.665!" ];
+    996 -> 995 [ label = "0→0" ];
+    996 -> 997 [ style = dashed ];
+
+    997 [ label = <997: <b>VisScriptVariableInt</b><br/><br/>> ];
+    997 [ shape = parallelogram ]
+    997 [ pos = "-1.437,-0.739!" ];
+
+    998 [ label = <998: <b>BranchModule</b><br/><br/><b>Branches</b><br align="left"/>    [1, 2, 3, 4]<br align="left"/>> ];
+    998 [ pos = "-1.2780001,-0.93500006!" ];
+    998 -> 934 [ label = "1→0" ];
+    998 -> 934 [ label = "2→0" ];
+    998 -> 934 [ label = "3→0" ];
+    998 -> 206 [ label = "4→0" ];
+    1000 -> 998 [ style = dashed ];
+
+    999 [ label = <999: <b>RandModule</b><br/><br/><b>Min</b><br align="left"/>    1<br align="left"/><b>Max</b><br align="left"/>    4<br align="left"/><b>NoRepeat</b><br align="left"/>    true<br align="left"/>> ];
+    999 [ pos = "-1.6330001,-0.93500006!" ];
+    999 -> 998 [ label = "0→0" ];
+    999 -> 1000 [ style = dashed ];
+
+    1000 [ label = <1000: <b>VisScriptVariableInt</b><br/><br/>> ];
+    1000 [ shape = parallelogram ]
+    1000 [ pos = "-1.4380001,-1.0090001!" ];
+
+    1005 [ label = <1005: <b>VisScriptCallModule</b><br/><br/><i>DropRubble<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SB_G_VSM_Ambience&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;DropRubble&quot;<br align="left"/>> ];
+    1005 [ pos = "-0.19000001,-5.0070004!" ];
+
+    1006 [ label = <1006: <b>EffectModule</b><br/><br/><i>Debris Falling  Small<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRocks_Lit&quot;<br align="left"/>    , StartDelay=2, Duration=3.5, Ta<br align="left"/>    rgetNode=&quot;SB_G_DebrisSmall_FX_02<br align="left"/>> ];
+    1006 [ pos = "0.89500004,5.2460003!" ];
+
+    1007 [ label = <1007: <b>EffectModule</b><br/><br/><i>Debris Falling  Small<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRocks_Lit&quot;<br align="left"/>    , StartDelay=2, Duration=3.5, Ta<br align="left"/>    rgetNode=&quot;SB_G_DebrisSmall_FX_04<br align="left"/>> ];
+    1007 [ pos = "0.89400005,4.984!" ];
+
+    1009 [ label = <1009: <b>EffectModule</b><br/><br/><i>Debris Falling  Small<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRocks_Lit&quot;<br align="left"/>    , StartDelay=2, Duration=3.5, Ta<br align="left"/>    rgetNode=&quot;SB_G_DebrisSmall_FX_16<br align="left"/>> ];
+    1009 [ pos = "0.89300007,3.4370003!" ];
+
+    1010 [ label = <1010: <b>EffectModule</b><br/><br/><i>Debris Falling  Small<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRocks_Lit&quot;<br align="left"/>    , StartDelay=2, Duration=3.5, Ta<br align="left"/>    rgetNode=&quot;SB_G_DebrisSmall_FX_17<br align="left"/>> ];
+    1010 [ pos = "0.89300007,3.3100002!" ];
+
+    1011 [ label = <1011: <b>EffectModule</b><br/><br/><i>Debris Falling  Small<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRocks_Lit&quot;<br align="left"/>    , StartDelay=2, Duration=3.5, Ta<br align="left"/>    rgetNode=&quot;SB_G_DebrisSmall_FX_18<br align="left"/>> ];
+    1011 [ pos = "0.89500004,3.183!" ];
+
+    1012 [ label = <1012: <b>EffectModule</b><br/><br/><i>Debris Falling  Small<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRocks_Lit&quot;<br align="left"/>    , StartDelay=2, Duration=3.5, Ta<br align="left"/>    rgetNode=&quot;SB_G_DebrisSmall_FX_19<br align="left"/>> ];
+    1012 [ pos = "0.89500004,3.051!" ];
+
+    1013 [ label = <1013: <b>EffectModule</b><br/><br/><i>Debris Falling  Small<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRocks_Lit&quot;<br align="left"/>    , StartDelay=2, Duration=3.5, Ta<br align="left"/>    rgetNode=&quot;SB_G_DebrisSmall_FX_20<br align="left"/>> ];
+    1013 [ pos = "0.89500004,2.924!" ];
+
+    1014 [ label = <1014: <b>EffectModule</b><br/><br/><i>Debris Falling  Small<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRocks_Lit&quot;<br align="left"/>    , StartDelay=2, Duration=3.5, Ta<br align="left"/>    rgetNode=&quot;SB_G_DebrisSmall_FX_11<br align="left"/>> ];
+    1014 [ pos = "0.8880001,4.0820003!" ];
+
+    1015 [ label = <1015: <b>EffectModule</b><br/><br/><i>Debris Falling  Small<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRocks_Lit&quot;<br align="left"/>    , StartDelay=2, Duration=3.5, Ta<br align="left"/>    rgetNode=&quot;SB_G_DebrisSmall_FX_12<br align="left"/>> ];
+    1015 [ pos = "0.88900006,3.9540002!" ];
+
+    1016 [ label = <1016: <b>EffectModule</b><br/><br/><i>Debris Falling  Small<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRocks_Lit&quot;<br align="left"/>    , StartDelay=2, Duration=3.5, Ta<br align="left"/>    rgetNode=&quot;SB_G_DebrisSmall_FX_13<br align="left"/>> ];
+    1016 [ pos = "0.892,3.8240001!" ];
+
+    1017 [ label = <1017: <b>EffectModule</b><br/><br/><i>Debris Falling  Small<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRocks_Lit&quot;<br align="left"/>    , StartDelay=2, Duration=3.5, Ta<br align="left"/>    rgetNode=&quot;SB_G_DebrisSmall_FX_14<br align="left"/>> ];
+    1017 [ pos = "0.892,3.6950002!" ];
+
+    1018 [ label = <1018: <b>EffectModule</b><br/><br/><i>Debris Falling  Small<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRocks_Lit&quot;<br align="left"/>    , StartDelay=2, Duration=3.5, Ta<br align="left"/>    rgetNode=&quot;SB_G_DebrisSmall_FX_15<br align="left"/>> ];
+    1018 [ pos = "0.89300007,3.5630002!" ];
+
+    1019 [ label = <1019: <b>EffectModule</b><br/><br/><i>Debris Falling  Small, multiple<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRocks_Lit&quot;<br align="left"/>    , StartDelay=2, Duration=3.5, Ta<br align="left"/>    rgetNode=&quot;SB_G_DebrisSmall_FX_01<br align="left"/>> ];
+    1019 [ pos = "0.89400005,5.3760004!" ];
+
+    1022 [ label = <1022: <b>EffectModule</b><br/><br/><i>Debris Falling  Small<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRocks_Lit&quot;<br align="left"/>    , StartDelay=2, Duration=3.5, Ta<br align="left"/>    rgetNode=&quot;SB_G_DebrisSmall_FX_03<br align="left"/>> ];
+    1022 [ pos = "0.89500004,5.116!" ];
+
+    1025 [ label = <1025: <b>EffectModule</b><br/><br/><i>Debris Falling  Small<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRocks_Lit&quot;<br align="left"/>    , StartDelay=2, Duration=3.5, Ta<br align="left"/>    rgetNode=&quot;SB_G_DebrisSmall_FX_05<br align="left"/>> ];
+    1025 [ pos = "0.89400005,4.854!" ];
+
+    1031 [ label = <1031: <b>EffectModule</b><br/><br/><i>Debris Falling  Small<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRocks_Lit&quot;<br align="left"/>    , StartDelay=2, Duration=3.5, Ta<br align="left"/>    rgetNode=&quot;SB_G_DebrisSmall_FX_06<br align="left"/>> ];
+    1031 [ pos = "0.89500004,4.7310004!" ];
+
+    1032 [ label = <1032: <b>EffectModule</b><br/><br/><i>Debris Falling  Small<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRocks_Lit&quot;<br align="left"/>    , StartDelay=2, Duration=3.5, Ta<br align="left"/>    rgetNode=&quot;SB_G_DebrisSmall_FX_07<br align="left"/>> ];
+    1032 [ pos = "0.89400005,4.597!" ];
+
+    1033 [ label = <1033: <b>EffectModule</b><br/><br/><i>Debris Falling  Small<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRocks_Lit&quot;<br align="left"/>    , StartDelay=2, Duration=3.5, Ta<br align="left"/>    rgetNode=&quot;SB_G_DebrisSmall_FX_08<br align="left"/>> ];
+    1033 [ pos = "0.89500004,4.465!" ];
+
+    1034 [ label = <1034: <b>EffectModule</b><br/><br/><i>Debris Falling  Small<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRocks_Lit&quot;<br align="left"/>    , StartDelay=2, Duration=3.5, Ta<br align="left"/>    rgetNode=&quot;SB_G_DebrisSmall_FX_09<br align="left"/>> ];
+    1034 [ pos = "0.89300007,4.3380003!" ];
+
+    1035 [ label = <1035: <b>EffectModule</b><br/><br/><i>Debris Falling  Small<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;c<br align="left"/>    ity_startblding&quot;, EffectName=&quot;Ci<br align="left"/>    ty_SB_DebrisFall_SmallRocks_Lit&quot;<br align="left"/>    , StartDelay=2, Duration=3.5, Ta<br align="left"/>    rgetNode=&quot;SB_G_DebrisSmall_FX_10<br align="left"/>> ];
+    1035 [ pos = "0.88900006,4.208!" ];
+
+    1046 [ label = <1046: <b>BranchModule</b><br/><br/><b>Branches</b><br align="left"/>    [1, 2, 3, 4, 5]<br align="left"/>> ];
+    1046 [ pos = "0.574,5.1580005!" ];
+    1046 -> 1019 [ label = "1→0" ];
+    1046 -> 1006 [ label = "2→0" ];
+    1046 -> 1022 [ label = "3→0" ];
+    1046 -> 1007 [ label = "4→0" ];
+    1046 -> 1025 [ label = "5→0" ];
+    1049 -> 1046 [ style = dashed ];
+
+    1047 [ label = <1047: <b>RandModule</b><br/><br/><b>Min</b><br align="left"/>    1<br align="left"/><b>Max</b><br align="left"/>    5<br align="left"/><b>NoRepeat</b><br align="left"/>    true<br align="left"/>> ];
+    1047 [ pos = "-0.12200001,5.1330004!" ];
+    1047 -> 1051 [ label = "0→0" ];
+    1047 -> 1049 [ style = dashed ];
+
+    1049 [ label = <1049: <b>VisScriptVariableInt</b><br/><br/>> ];
+    1049 [ shape = parallelogram ]
+    1049 [ pos = "0.14500001,5.059!" ];
+
+    1051 [ label = <1051: <b>SaveDataModule</b><br/><br/><i>FallingDebris_On check<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;FallingDebris_On&quot;)]<br align="left"/>> ];
+    1051 [ pos = "0.104,5.215!" ];
+    1051 -> 1193 [ label = "1→0" ];
+
+    1052 [ label = <1052: <b>ExternalCallModule</b><br/><br/><i>DropRubble<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;DropRubble&quot;<br align="left"/>> ];
+    1052 [ shape = oval ]
+    1052 [ pos = "-0.39400002,5.1330004!" ];
+    1052 -> 1047 [ label = "0→0" ];
+
+    1053 [ label = <1053: <b>BranchModule</b><br/><br/><b>Branches</b><br align="left"/>    [1, 2, 3, 4, 5]<br align="left"/>> ];
+    1053 [ pos = "0.59900004,4.5340004!" ];
+    1053 -> 1031 [ label = "1→0" ];
+    1053 -> 1032 [ label = "2→0" ];
+    1053 -> 1033 [ label = "3→0" ];
+    1053 -> 1034 [ label = "4→0" ];
+    1053 -> 1035 [ label = "5→0" ];
+    1055 -> 1053 [ style = dashed ];
+
+    1054 [ label = <1054: <b>RandModule</b><br/><br/><b>Min</b><br align="left"/>    1<br align="left"/><b>Max</b><br align="left"/>    5<br align="left"/><b>NoRepeat</b><br align="left"/>    true<br align="left"/>> ];
+    1054 [ pos = "-0.097,4.5090003!" ];
+    1054 -> 1056 [ label = "0→0" ];
+    1054 -> 1055 [ style = dashed ];
+
+    1055 [ label = <1055: <b>VisScriptVariableInt</b><br/><br/>> ];
+    1055 [ shape = parallelogram ]
+    1055 [ pos = "0.17,4.4350004!" ];
+
+    1056 [ label = <1056: <b>SaveDataModule</b><br/><br/><i>FallingDebris_On check<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;FallingDebris_On&quot;)]<br align="left"/>> ];
+    1056 [ pos = "0.12900001,4.591!" ];
+    1056 -> 1192 [ label = "1→0" ];
+
+    1057 [ label = <1057: <b>ExternalCallModule</b><br/><br/><i>DropRubble<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;DropRubble&quot;<br align="left"/>> ];
+    1057 [ shape = oval ]
+    1057 [ pos = "-0.36900002,4.5090003!" ];
+    1057 -> 1054 [ label = "0→0" ];
+
+    1058 [ label = <1058: <b>BranchModule</b><br/><br/><b>Branches</b><br align="left"/>    [1, 2, 3, 4, 5]<br align="left"/>> ];
+    1058 [ pos = "0.60200006,3.8930001!" ];
+    1058 -> 1016 [ label = "3→0" ];
+    1058 -> 1015 [ label = "2→0" ];
+    1058 -> 1014 [ label = "1→0" ];
+    1058 -> 1017 [ label = "4→0" ];
+    1058 -> 1018 [ label = "5→0" ];
+    1060 -> 1058 [ style = dashed ];
+
+    1059 [ label = <1059: <b>RandModule</b><br/><br/><b>Min</b><br align="left"/>    1<br align="left"/><b>Max</b><br align="left"/>    5<br align="left"/><b>NoRepeat</b><br align="left"/>    true<br align="left"/>> ];
+    1059 [ pos = "-0.094000004,3.8680003!" ];
+    1059 -> 1061 [ label = "0→0" ];
+    1059 -> 1060 [ style = dashed ];
+
+    1060 [ label = <1060: <b>VisScriptVariableInt</b><br/><br/>> ];
+    1060 [ shape = parallelogram ]
+    1060 [ pos = "0.17300001,3.7940001!" ];
+
+    1061 [ label = <1061: <b>SaveDataModule</b><br/><br/><i>FallingDebris_On check<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;FallingDebris_On&quot;)]<br align="left"/>> ];
+    1061 [ pos = "0.132,3.9500003!" ];
+    1061 -> 1191 [ label = "1→0" ];
+
+    1062 [ label = <1062: <b>ExternalCallModule</b><br/><br/><i>DropRubble<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;DropRubble&quot;<br align="left"/>> ];
+    1062 [ shape = oval ]
+    1062 [ pos = "-0.36600003,3.8680003!" ];
+    1062 -> 1059 [ label = "0→0" ];
+
+    1063 [ label = <1063: <b>BranchModule</b><br/><br/><b>Branches</b><br align="left"/>    [1, 2, 3, 4, 5]<br align="left"/>> ];
+    1063 [ pos = "0.62,3.252!" ];
+    1063 -> 1009 [ label = "1→0" ];
+    1063 -> 1010 [ label = "2→0" ];
+    1063 -> 1011 [ label = "3→0" ];
+    1063 -> 1012 [ label = "4→0" ];
+    1063 -> 1013 [ label = "5→0" ];
+    1065 -> 1063 [ style = dashed ];
+
+    1064 [ label = <1064: <b>RandModule</b><br/><br/><b>Min</b><br align="left"/>    1<br align="left"/><b>Max</b><br align="left"/>    5<br align="left"/><b>NoRepeat</b><br align="left"/>    true<br align="left"/>> ];
+    1064 [ pos = "-0.076000005,3.2270002!" ];
+    1064 -> 1066 [ label = "0→0" ];
+    1064 -> 1065 [ style = dashed ];
+
+    1065 [ label = <1065: <b>VisScriptVariableInt</b><br/><br/>> ];
+    1065 [ shape = parallelogram ]
+    1065 [ pos = "0.19100001,3.153!" ];
+
+    1066 [ label = <1066: <b>SaveDataModule</b><br/><br/><i>FallingDebris_On check<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;FallingDebris_On&quot;)]<br align="left"/>> ];
+    1066 [ pos = "0.15,3.3090003!" ];
+    1066 -> 1190 [ label = "1→0" ];
+
+    1067 [ label = <1067: <b>ExternalCallModule</b><br/><br/><i>DropRubble<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;DropRubble&quot;<br align="left"/>> ];
+    1067 [ shape = oval ]
+    1067 [ pos = "-0.34800002,3.2270002!" ];
+    1067 -> 1064 [ label = "0→0" ];
+
+    1068 [ label = <1068: <b>SoundModule</b><br/><br/><i>AMB_MetalStress  ambient<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    87<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_MetalSounds_01&quot;<br align="left"/>> ];
+    1068 [ pos = "-1.113,-5.222!" ];
+
+    1069 [ label = <1069: <b>SoundModule</b><br/><br/><i>AMB_MetalStress  ambient<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    87<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_MetalSounds_02&quot;<br align="left"/>> ];
+    1069 [ pos = "-1.115,-5.3840003!" ];
+
+    1070 [ label = <1070: <b>SoundModule</b><br/><br/><i>AMB_MetalStress  ambient<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    87<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_MetalSounds_03&quot;<br align="left"/>> ];
+    1070 [ pos = "-1.1170001,-5.5400004!" ];
+
+    1071 [ label = <1071: <b>SoundModule</b><br/><br/><i>AMB_MetalStress  ambient<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    87<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_MetalSounds_04&quot;<br align="left"/>> ];
+    1071 [ pos = "-1.1190001,-5.6940002!" ];
+
+    1072 [ label = <1072: <b>SoundModule</b><br/><br/><i>AMB_MetalStress  ambient<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    87<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_MetalSounds_05&quot;<br align="left"/>> ];
+    1072 [ pos = "-1.121,-5.8510003!" ];
+
+    1073 [ label = <1073: <b>SoundModule</b><br/><br/><i>AMB_MetalStress  ambient<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    87<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_MetalSounds_06&quot;<br align="left"/>> ];
+    1073 [ pos = "-1.1220001,-6.0080004!" ];
+
+    1074 [ label = <1074: <b>SoundModule</b><br/><br/><i>AMB_MetalStress  ambient<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    87<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_MetalSounds_07&quot;<br align="left"/>> ];
+    1074 [ pos = "-1.1240001,-6.17!" ];
+
+    1075 [ label = <1075: <b>SoundModule</b><br/><br/><i>AMB_MetalStress  ambient<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    87<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_MetalSounds_08&quot;<br align="left"/>> ];
+    1075 [ pos = "-1.126,-6.326!" ];
+
+    1076 [ label = <1076: <b>SoundModule</b><br/><br/><i>AMB_MetalStress  ambient<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    87<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_MetalSounds_09&quot;<br align="left"/>> ];
+    1076 [ pos = "-1.128,-6.4800005!" ];
+
+    1077 [ label = <1077: <b>SoundModule</b><br/><br/><i>AMB_MetalStress  ambient<br align="left"/></i><br align="left"/><b>SoundDescFile</b><br align="left"/>    &quot;sb_com/SB_Com_Sounds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    87<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;CI_StBld_MetalSounds_10&quot;<br align="left"/>> ];
+    1077 [ pos = "-1.13,-6.637!" ];
+
+    1078 [ label = <1078: <b>SaveDataModule</b><br/><br/><i>BuildingSounds_Off check<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;BuildingSounds_Off&quot;)]<br align="left"/>> ];
+    1078 [ pos = "-1.6090001,-5.7460003!" ];
+    1078 -> 399 [ label = "1→0" ];
+
+    1080 [ label = <1080: <b>TriggerEventModule</b><br/><br/><i>SOUNDS OFF<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;SB_G_Sound_Loop_Trig_True&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    1080 [ shape = oval ]
+    1080 [ pos = "-0.82900006,-2.835!" ];
+    1080 -> 1084 [ label = "0→1" ];
+
+    1083 [ label = <1083: <b>TriggerEventModule</b><br/><br/><i>SOUNDS ON<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;SB_G_Sound_Loop_Trig_False&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    1083 [ shape = oval ]
+    1083 [ pos = "-0.82900006,-3.0330002!" ];
+    1083 -> 1085 [ label = "0→1" ];
+
+    1084 [ label = <1084: <b>SaveDataModule</b><br/><br/><i>Set Sounds to OFF<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;BuildingSounds_Off&quot;)]<br align="left"/>> ];
+    1084 [ pos = "-0.55700004,-2.812!" ];
+
+    1085 [ label = <1085: <b>SaveDataModule</b><br/><br/><i>Set Sounds to ON<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;BuildingSounds_Off&quot;, <br align="left"/>    FlagValue=&quot;False&quot;)]<br align="left"/>> ];
+    1085 [ pos = "-0.55600005,-3.0100002!" ];
+
+    1086 [ label = <1086: <b>SaveDataModule</b><br/><br/><i>Set Sounds to OFF<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;BuildingSounds_Off&quot;)]<br align="left"/>> ];
+    1086 [ pos = "-0.164,-6.6390004!" ];
+    1086 -> 504 [ label = "1→0" ];
+
+    1087 [ label = <1087: <b>SaveDataModule</b><br/><br/><i>FallingDebris_On check<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;FallingDebris_On&quot;)]<br align="left"/>> ];
+    1087 [ pos = "-0.47400004,-5.17!" ];
+    1087 -> 776 [ label = "1→0" ];
+    1087 -> 777 [ label = "1→0" ];
+    1087 -> 778 [ label = "1→0" ];
+    1087 -> 779 [ label = "1→0" ];
+    1087 -> 1005 [ label = "1→0" ];
+
+    1088 [ label = <1088: <b>SaveDataModule</b><br/><br/><i>FallingDebris_On check<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;FallingDebris_On&quot;)]<br align="left"/>> ];
+    1088 [ pos = "2.0300002,-2.4520001!" ];
+    1088 -> 1200 [ label = "1→0" ];
+
+    1090 [ label = <1090: <b>SaveDataModule</b><br/><br/><i>FallingDebris_On check<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;FallingDebris_On&quot;)]<br align="left"/>> ];
+    1090 [ pos = "2.003,-3.3030002!" ];
+    1090 -> 1201 [ label = "1→0" ];
+
+    1091 [ label = <1091: <b>EffectModule</b><br/><br/><i>Lower Rim FX LIGHT<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;s<br align="left"/>    b_com&quot;, EffectName=&quot;City_SB_Dust<br align="left"/>    Fall_Level01_Light&quot;, Duration=5,<br align="left"/>     TargetNode=&quot;CI_StBld_RimFX_Ligh<br align="left"/>    t_01&quot;), EffectTargetInfo(Package<br align="left"/>> ];
+    1091 [ pos = "2.301,-4.092!" ];
+
+    1092 [ label = <1092: <b>SaveDataModule</b><br/><br/><i>FallingDebris_On check<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;FallingDebris_On&quot;)]<br align="left"/>> ];
+    1092 [ pos = "1.8740001,-4.046!" ];
+    1092 -> 1203 [ label = "1→0" ];
+
+    1093 [ label = <1093: <b>EffectModule</b><br/><br/><i>Lower Rim FX LIGHT<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;s<br align="left"/>    b_com&quot;, EffectName=&quot;City_SB_Dust<br align="left"/>    Fall_Level01_Light&quot;, Duration=5,<br align="left"/>     TargetNode=&quot;CI_StBld_RimFX_Ligh<br align="left"/>    t_01&quot;), EffectTargetInfo(Package<br align="left"/>> ];
+    1093 [ pos = "2.423,-5.0400004!" ];
+
+    1094 [ label = <1094: <b>SaveDataModule</b><br/><br/><i>FallingDebris_On check<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;FallingDebris_On&quot;)]<br align="left"/>> ];
+    1094 [ pos = "2.009,-4.9940004!" ];
+    1094 -> 1204 [ label = "1→0" ];
+
+    1096 [ label = <1096: <b>SaveDataModule</b><br/><br/><i>FallingDebris_On check<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;FallingDebris_On&quot;)]<br align="left"/>> ];
+    1096 [ pos = "1.6560001,-5.933!" ];
+    1096 -> 1205 [ label = "1→0" ];
+
+    1097 [ label = <1097: <b>EffectModule</b><br/><br/><i>Lower Rim FX LIGHT<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;s<br align="left"/>    b_com&quot;, EffectName=&quot;City_SB_Dust<br align="left"/>    Fall_Level01_Light&quot;, Duration=5,<br align="left"/>     TargetNode=&quot;CI_StBld_RimFX_Ligh<br align="left"/>    t_01&quot;), EffectTargetInfo(Package<br align="left"/>> ];
+    1097 [ pos = "2.5110002,-7.056!" ];
+
+    1098 [ label = <1098: <b>SaveDataModule</b><br/><br/><i>FallingDebris_On check<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;FallingDebris_On&quot;)]<br align="left"/>> ];
+    1098 [ pos = "2.089,-7.01!" ];
+    1098 -> 1207 [ label = "1→0" ];
+
+    1100 [ label = <1100: <b>SaveDataModule</b><br/><br/><i>FallingDebris_On check<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;FallingDebris_On&quot;)]<br align="left"/>> ];
+    1100 [ pos = "2.299,-8.081!" ];
+    1100 -> 1208 [ label = "1→0" ];
+
+    1102 [ label = <1102: <b>SaveDataModule</b><br/><br/><i>FallingDebris_On check<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;FallingDebris_On&quot;)]<br align="left"/>> ];
+    1102 [ pos = "2.0310001,-8.7300005!" ];
+    1102 -> 1210 [ label = "1→0" ];
+
+    1104 [ label = <1104: <b>SaveDataModule</b><br/><br/><i>FallingDebris_On check<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;FallingDebris_On&quot;)]<br align="left"/>> ];
+    1104 [ pos = "1.7990001,-9.642!" ];
+    1104 -> 1212 [ label = "1→0" ];
+
+    1106 [ label = <1106: <b>SaveDataModule</b><br/><br/><i>FallingDebris_On check<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;FallingDebris_On&quot;)]<br align="left"/>> ];
+    1106 [ pos = "1.9110001,-10.691001!" ];
+    1106 -> 1214 [ label = "1→0" ];
+
+    1107 [ label = <1107: <b>AssignModule</b><br/><br/>> ];
+    1107 [ pos = "-2.7970002,-5.491!" ];
+    1112 -> 1107 [ style = dashed ];
+    1107 -> 1108 [ style = dashed ];
+
+    1108 [ label = <1108: <b>VisScriptVariableFloat</b><br/><br/><b>Value</b><br align="left"/>    8<br align="left"/><b>Name</b><br align="left"/>    &quot;8&quot;<br align="left"/>> ];
+    1108 [ shape = parallelogram ]
+    1108 [ pos = "-2.033,-6.031!" ];
+
+    1109 [ label = <1109: <b>VisScriptVariableFloat</b><br/><br/><b>Value</b><br align="left"/>    12<br align="left"/><b>Name</b><br align="left"/>    &quot;12&quot;<br align="left"/>> ];
+    1109 [ shape = parallelogram ]
+    1109 [ pos = "-2.0400002,-6.1260004!" ];
+
+    1112 [ label = <1112: <b>VisScriptVariableFloat</b><br/><br/><b>Value</b><br align="left"/>    7<br align="left"/><b>Name</b><br align="left"/>    &quot;7&quot;<br align="left"/>> ];
+    1112 [ shape = parallelogram ]
+    1112 [ pos = "-2.9250002,-5.5880003!" ];
+
+    1113 [ label = <1113: <b>AssignModule</b><br/><br/>> ];
+    1113 [ pos = "-2.8690002,-5.6870003!" ];
+    1114 -> 1113 [ style = dashed ];
+    1113 -> 1109 [ style = dashed ];
+
+    1114 [ label = <1114: <b>VisScriptVariableFloat</b><br/><br/><b>Value</b><br align="left"/>    10<br align="left"/><b>Name</b><br align="left"/>    &quot;10&quot;<br align="left"/>> ];
+    1114 [ shape = parallelogram ]
+    1114 [ pos = "-3.0040002,-5.7840004!" ];
+
+    1118 [ label = <1118: <b>VisScriptVariableFloat</b><br/><br/><b>Value</b><br align="left"/>    15<br align="left"/><b>Name</b><br align="left"/>    &quot;16&quot;<br align="left"/>> ];
+    1118 [ shape = parallelogram ]
+    1118 [ pos = "-0.689,-7.142!" ];
+
+    1119 [ label = <1119: <b>VisScriptVariableFloat</b><br/><br/><b>Value</b><br align="left"/>    15<br align="left"/><b>Name</b><br align="left"/>    &quot;16&quot;<br align="left"/>> ];
+    1119 [ shape = parallelogram ]
+    1119 [ pos = "-0.69600004,-7.2370005!" ];
+
+    1133 [ label = <1133: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;SB_G_VSM_Ambience_Trigger_01&quot;,<br align="left"/>     &quot;&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    1133 [ shape = oval ]
+    1133 [ pos = "-3.4210002,-5.491!" ];
+    1133 -> 1107 [ label = "0→0" ];
+    1133 -> 1113 [ label = "0→0" ];
+
+    1134 [ label = <1134: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;SB_G_VSM_Ambience_Trigger_02&quot;,<br align="left"/>     &quot;&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    1134 [ shape = oval ]
+    1134 [ pos = "-3.394,-5.8830004!" ];
+    1134 -> 1138 [ label = "0→0" ];
+    1134 -> 1140 [ label = "0→0" ];
+
+    1138 [ label = <1138: <b>AssignModule</b><br/><br/>> ];
+    1138 [ pos = "-2.8620002,-5.8830004!" ];
+    1139 -> 1138 [ style = dashed ];
+    1138 -> 1108 [ style = dashed ];
+
+    1139 [ label = <1139: <b>VisScriptVariableFloat</b><br/><br/><b>Value</b><br align="left"/>    6<br align="left"/><b>Name</b><br align="left"/>    &quot;6&quot;<br align="left"/>> ];
+    1139 [ shape = parallelogram ]
+    1139 [ pos = "-2.9900002,-5.9800005!" ];
+
+    1140 [ label = <1140: <b>AssignModule</b><br/><br/>> ];
+    1140 [ pos = "-2.8660002,-6.064!" ];
+    1141 -> 1140 [ style = dashed ];
+    1140 -> 1109 [ style = dashed ];
+
+    1141 [ label = <1141: <b>VisScriptVariableFloat</b><br/><br/><b>Value</b><br align="left"/>    8<br align="left"/><b>Name</b><br align="left"/>    &quot;8&quot;<br align="left"/>> ];
+    1141 [ shape = parallelogram ]
+    1141 [ pos = "-3.0010002,-6.1610003!" ];
+
+    1142 [ label = <1142: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;SB_G_VSM_Ambience_Trigger_02&quot;,<br align="left"/>     &quot;&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    1142 [ shape = oval ]
+    1142 [ pos = "-3.3830001,-6.2630005!" ];
+    1142 -> 1143 [ label = "0→0" ];
+    1142 -> 1145 [ label = "0→0" ];
+
+    1143 [ label = <1143: <b>AssignModule</b><br/><br/>> ];
+    1143 [ pos = "-2.851,-6.2630005!" ];
+    1144 -> 1143 [ style = dashed ];
+    1143 -> 1108 [ style = dashed ];
+
+    1144 [ label = <1144: <b>VisScriptVariableFloat</b><br/><br/><b>Value</b><br align="left"/>    5<br align="left"/><b>Name</b><br align="left"/>    &quot;5&quot;<br align="left"/>> ];
+    1144 [ shape = parallelogram ]
+    1144 [ pos = "-2.979,-6.36!" ];
+
+    1145 [ label = <1145: <b>AssignModule</b><br/><br/>> ];
+    1145 [ pos = "-2.855,-6.4440002!" ];
+    1146 -> 1145 [ style = dashed ];
+    1145 -> 1109 [ style = dashed ];
+
+    1146 [ label = <1146: <b>VisScriptVariableFloat</b><br/><br/><b>Value</b><br align="left"/>    6<br align="left"/><b>Name</b><br align="left"/>    &quot;6&quot;<br align="left"/>> ];
+    1146 [ shape = parallelogram ]
+    1146 [ pos = "-2.9900002,-6.5410004!" ];
+
+    1147 [ label = <1147: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;SB_G_VSM_Ambience_Trigger_02&quot;,<br align="left"/>     &quot;&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    1147 [ shape = oval ]
+    1147 [ pos = "-3.367,-6.643!" ];
+    1147 -> 1148 [ label = "0→0" ];
+    1147 -> 1150 [ label = "0→0" ];
+
+    1148 [ label = <1148: <b>AssignModule</b><br/><br/>> ];
+    1148 [ pos = "-2.835,-6.643!" ];
+    1149 -> 1148 [ style = dashed ];
+    1148 -> 1108 [ style = dashed ];
+
+    1149 [ label = <1149: <b>VisScriptVariableFloat</b><br/><br/><b>Value</b><br align="left"/>    5<br align="left"/><b>Name</b><br align="left"/>    &quot;4&quot;<br align="left"/>> ];
+    1149 [ shape = parallelogram ]
+    1149 [ pos = "-2.963,-6.7400002!" ];
+
+    1150 [ label = <1150: <b>AssignModule</b><br/><br/>> ];
+    1150 [ pos = "-2.8390002,-6.8240004!" ];
+    1151 -> 1150 [ style = dashed ];
+    1150 -> 1109 [ style = dashed ];
+
+    1151 [ label = <1151: <b>VisScriptVariableFloat</b><br/><br/><b>Value</b><br align="left"/>    4<br align="left"/><b>Name</b><br align="left"/>    &quot;4&quot;<br align="left"/>> ];
+    1151 [ shape = parallelogram ]
+    1151 [ pos = "-2.9740002,-6.9210005!" ];
+
+    1152 [ label = <1152: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;SB_G_VSM_Ambience_Trigger_02&quot;,<br align="left"/>     &quot;&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    1152 [ shape = oval ]
+    1152 [ pos = "-3.3590002,-7.017!" ];
+    1152 -> 1153 [ label = "0→0" ];
+    1152 -> 1155 [ label = "0→0" ];
+
+    1153 [ label = <1153: <b>AssignModule</b><br/><br/>> ];
+    1153 [ pos = "-2.8270001,-7.017!" ];
+    1154 -> 1153 [ style = dashed ];
+    1153 -> 1108 [ style = dashed ];
+
+    1154 [ label = <1154: <b>VisScriptVariableFloat</b><br/><br/><b>Value</b><br align="left"/>    5<br align="left"/><b>Name</b><br align="left"/>    &quot;2&quot;<br align="left"/>> ];
+    1154 [ shape = parallelogram ]
+    1154 [ pos = "-2.9550002,-7.1140003!" ];
+
+    1155 [ label = <1155: <b>AssignModule</b><br/><br/>> ];
+    1155 [ pos = "-2.831,-7.1980004!" ];
+    1156 -> 1155 [ style = dashed ];
+    1155 -> 1109 [ style = dashed ];
+
+    1156 [ label = <1156: <b>VisScriptVariableFloat</b><br/><br/><b>Value</b><br align="left"/>    2<br align="left"/><b>Name</b><br align="left"/>    &quot;2&quot;<br align="left"/>> ];
+    1156 [ shape = parallelogram ]
+    1156 [ pos = "-2.9640002,-7.2950006!" ];
+
+    1157 [ label = <1157: <b>AssignModule</b><br/><br/>> ];
+    1157 [ pos = "-1.363,-6.6240005!" ];
+    1158 -> 1157 [ style = dashed ];
+    1157 -> 1118 [ style = dashed ];
+
+    1158 [ label = <1158: <b>VisScriptVariableFloat</b><br/><br/><b>Value</b><br align="left"/>    14<br align="left"/><b>Name</b><br align="left"/>    &quot;14&quot;<br align="left"/>> ];
+    1158 [ shape = parallelogram ]
+    1158 [ pos = "-1.491,-6.721!" ];
+
+    1159 [ label = <1159: <b>AssignModule</b><br/><br/>> ];
+    1159 [ pos = "-1.4350001,-6.82!" ];
+    1160 -> 1159 [ style = dashed ];
+    1159 -> 1119 [ style = dashed ];
+
+    1160 [ label = <1160: <b>VisScriptVariableFloat</b><br/><br/><b>Value</b><br align="left"/>    12<br align="left"/><b>Name</b><br align="left"/>    &quot;14&quot;<br align="left"/>> ];
+    1160 [ shape = parallelogram ]
+    1160 [ pos = "-1.57,-6.9170003!" ];
+
+    1161 [ label = <1161: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;SB_G_VSM_Ambience_Trigger_01&quot;,<br align="left"/>     &quot;&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    1161 [ shape = oval ]
+    1161 [ pos = "-1.9870001,-6.6240005!" ];
+    1161 -> 1157 [ label = "0→0" ];
+    1161 -> 1159 [ label = "0→0" ];
+
+    1162 [ label = <1162: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;SB_G_VSM_Ambience_Trigger_02&quot;,<br align="left"/>     &quot;&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    1162 [ shape = oval ]
+    1162 [ pos = "-1.96,-7.0160003!" ];
+    1162 -> 1163 [ label = "0→0" ];
+    1162 -> 1165 [ label = "0→0" ];
+
+    1163 [ label = <1163: <b>AssignModule</b><br/><br/>> ];
+    1163 [ pos = "-1.4280001,-7.0160003!" ];
+    1164 -> 1163 [ style = dashed ];
+    1163 -> 1118 [ style = dashed ];
+
+    1164 [ label = <1164: <b>VisScriptVariableFloat</b><br/><br/><b>Value</b><br align="left"/>    5<br align="left"/><b>Name</b><br align="left"/>    &quot;12&quot;<br align="left"/>> ];
+    1164 [ shape = parallelogram ]
+    1164 [ pos = "-1.5560001,-7.1130004!" ];
+
+    1165 [ label = <1165: <b>AssignModule</b><br/><br/>> ];
+    1165 [ pos = "-1.432,-7.1970005!" ];
+    1166 -> 1165 [ style = dashed ];
+    1165 -> 1119 [ style = dashed ];
+
+    1166 [ label = <1166: <b>VisScriptVariableFloat</b><br/><br/><b>Value</b><br align="left"/>    10<br align="left"/><b>Name</b><br align="left"/>    &quot;10&quot;<br align="left"/>> ];
+    1166 [ shape = parallelogram ]
+    1166 [ pos = "-1.567,-7.294!" ];
+
+    1167 [ label = <1167: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;SB_G_VSM_Ambience_Trigger_02&quot;,<br align="left"/>     &quot;&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    1167 [ shape = oval ]
+    1167 [ pos = "-1.9490001,-7.3960004!" ];
+    1167 -> 1168 [ label = "0→0" ];
+    1167 -> 1170 [ label = "0→0" ];
+
+    1168 [ label = <1168: <b>AssignModule</b><br/><br/>> ];
+    1168 [ pos = "-1.417,-7.3960004!" ];
+    1169 -> 1168 [ style = dashed ];
+    1168 -> 1118 [ style = dashed ];
+
+    1169 [ label = <1169: <b>VisScriptVariableFloat</b><br/><br/><b>Value</b><br align="left"/>    8<br align="left"/><b>Name</b><br align="left"/>    &quot;8&quot;<br align="left"/>> ];
+    1169 [ shape = parallelogram ]
+    1169 [ pos = "-1.5450001,-7.4930005!" ];
+
+    1170 [ label = <1170: <b>AssignModule</b><br/><br/>> ];
+    1170 [ pos = "-1.4210001,-7.577!" ];
+    1171 -> 1170 [ style = dashed ];
+    1170 -> 1119 [ style = dashed ];
+
+    1171 [ label = <1171: <b>VisScriptVariableFloat</b><br/><br/><b>Value</b><br align="left"/>    6<br align="left"/><b>Name</b><br align="left"/>    &quot;6&quot;<br align="left"/>> ];
+    1171 [ shape = parallelogram ]
+    1171 [ pos = "-1.5560001,-7.6740003!" ];
+
+    1172 [ label = <1172: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;SB_G_VSM_Ambience_Trigger_02&quot;,<br align="left"/>     &quot;&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    1172 [ shape = oval ]
+    1172 [ pos = "-1.9330001,-7.7760005!" ];
+    1172 -> 1173 [ label = "0→0" ];
+    1172 -> 1175 [ label = "0→0" ];
+
+    1173 [ label = <1173: <b>AssignModule</b><br/><br/>> ];
+    1173 [ pos = "-1.401,-7.7760005!" ];
+    1174 -> 1173 [ style = dashed ];
+    1173 -> 1118 [ style = dashed ];
+
+    1174 [ label = <1174: <b>VisScriptVariableFloat</b><br/><br/><b>Value</b><br align="left"/>    6<br align="left"/><b>Name</b><br align="left"/>    &quot;6&quot;<br align="left"/>> ];
+    1174 [ shape = parallelogram ]
+    1174 [ pos = "-1.529,-7.873!" ];
+
+    1175 [ label = <1175: <b>AssignModule</b><br/><br/>> ];
+    1175 [ pos = "-1.4050001,-7.9570003!" ];
+    1176 -> 1175 [ style = dashed ];
+    1175 -> 1119 [ style = dashed ];
+
+    1176 [ label = <1176: <b>VisScriptVariableFloat</b><br/><br/><b>Value</b><br align="left"/>    4<br align="left"/><b>Name</b><br align="left"/>    &quot;4&quot;<br align="left"/>> ];
+    1176 [ shape = parallelogram ]
+    1176 [ pos = "-1.5400001,-8.054001!" ];
+
+    1177 [ label = <1177: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;SB_G_VSM_Ambience_Trigger_02&quot;,<br align="left"/>     &quot;&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    1177 [ shape = oval ]
+    1177 [ pos = "-1.9250001,-8.150001!" ];
+    1177 -> 1178 [ label = "0→0" ];
+    1177 -> 1180 [ label = "0→0" ];
+
+    1178 [ label = <1178: <b>AssignModule</b><br/><br/>> ];
+    1178 [ pos = "-1.393,-8.150001!" ];
+    1179 -> 1178 [ style = dashed ];
+    1178 -> 1118 [ style = dashed ];
+
+    1179 [ label = <1179: <b>VisScriptVariableFloat</b><br/><br/><b>Value</b><br align="left"/>    4<br align="left"/><b>Name</b><br align="left"/>    &quot;4&quot;<br align="left"/>> ];
+    1179 [ shape = parallelogram ]
+    1179 [ pos = "-1.521,-8.247001!" ];
+
+    1180 [ label = <1180: <b>AssignModule</b><br/><br/>> ];
+    1180 [ pos = "-1.3970001,-8.331!" ];
+    1181 -> 1180 [ style = dashed ];
+    1180 -> 1119 [ style = dashed ];
+
+    1181 [ label = <1181: <b>VisScriptVariableFloat</b><br/><br/><b>Value</b><br align="left"/>    2<br align="left"/><b>Name</b><br align="left"/>    &quot;2&quot;<br align="left"/>> ];
+    1181 [ shape = parallelogram ]
+    1181 [ pos = "-1.5320001,-8.427!" ];
+
+    1182 [ label = <1182: <b>TriggerEventModule</b><br/><br/><i>Particles OFF<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;SB_G_ParticlesOff_Trig&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    1182 [ shape = oval ]
+    1182 [ pos = "-0.83400005,-3.288!" ];
+    1182 -> 1184 [ label = "0→1" ];
+
+    1183 [ label = <1183: <b>TriggerEventModule</b><br/><br/><i>Particles ON<br align="left"/></i><br align="left"/><b>WorldObjects</b><br align="left"/>    [&quot;SB_G_ParticlesOn_Trig&quot;]<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    1183 [ shape = oval ]
+    1183 [ pos = "-0.83400005,-3.486!" ];
+    1183 -> 1185 [ label = "0→1" ];
+
+    1184 [ label = <1184: <b>SaveDataModule</b><br/><br/><i>BuildingParticles_Off = true<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;BuildingParticles_Off<br align="left"/>    &quot;)]<br align="left"/>> ];
+    1184 [ pos = "-0.56200004,-3.265!" ];
+
+    1185 [ label = <1185: <b>SaveDataModule</b><br/><br/><i>BuildingParticles_Off = false<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;BuildingParticles_Off<br align="left"/>    &quot;, FlagValue=&quot;False&quot;)]<br align="left"/>> ];
+    1185 [ pos = "-0.56100005,-3.463!" ];
+
+    1186 [ label = <1186: <b>SaveDataModule</b><br/><br/><i>BuildingParticles_Off = true<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;BuildingParticles_Off<br align="left"/>    &quot;)]<br align="left"/>> ];
+    1186 [ pos = "-2.0990002,3.8820002!" ];
+    1186 -> 137 [ label = "1→0" ];
+
+    1187 [ label = <1187: <b>SaveDataModule</b><br/><br/><i>BuildingParticles_Off = true<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;BuildingParticles_Off<br align="left"/>    &quot;)]<br align="left"/>> ];
+    1187 [ pos = "-2.1060002,2.502!" ];
+    1187 -> 861 [ label = "1→0" ];
+
+    1188 [ label = <1188: <b>SaveDataModule</b><br/><br/><i>BuildingParticles_Off = true<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;BuildingParticles_Off<br align="left"/>    &quot;)]<br align="left"/>> ];
+    1188 [ pos = "-2.13,1.1140001!" ];
+    1188 -> 897 [ label = "1→0" ];
+
+    1189 [ label = <1189: <b>SaveDataModule</b><br/><br/><i>BuildingParticles_Off = true<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;BuildingParticles_Off<br align="left"/>    &quot;)]<br align="left"/>> ];
+    1189 [ pos = "-2.13,-0.284!" ];
+    1189 -> 928 [ label = "1→0" ];
+
+    1190 [ label = <1190: <b>SaveDataModule</b><br/><br/><i>BuildingParticles_Off = true<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;BuildingParticles_Off<br align="left"/>    &quot;)]<br align="left"/>> ];
+    1190 [ pos = "0.36800003,3.2860003!" ];
+    1190 -> 1063 [ label = "1→0" ];
+
+    1191 [ label = <1191: <b>SaveDataModule</b><br/><br/><i>BuildingParticles_Off = true<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;BuildingParticles_Off<br align="left"/>    &quot;)]<br align="left"/>> ];
+    1191 [ pos = "0.34,3.9270003!" ];
+    1191 -> 1058 [ label = "1→0" ];
+
+    1192 [ label = <1192: <b>SaveDataModule</b><br/><br/><i>BuildingParticles_Off = true<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;BuildingParticles_Off<br align="left"/>    &quot;)]<br align="left"/>> ];
+    1192 [ pos = "0.36100003,4.5680003!" ];
+    1192 -> 1053 [ label = "1→0" ];
+
+    1193 [ label = <1193: <b>SaveDataModule</b><br/><br/><i>BuildingParticles_Off = true<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;BuildingParticles_Off<br align="left"/>    &quot;)]<br align="left"/>> ];
+    1193 [ pos = "0.32200003,5.1920004!" ];
+    1193 -> 1046 [ label = "1→0" ];
+
+    1194 [ label = <1194: <b>SaveDataModule</b><br/><br/><i>BuildingParticles_Off = true<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;BuildingParticles_Off<br align="left"/>    &quot;)]<br align="left"/>> ];
+    1194 [ pos = "-0.15300001,1.4920001!" ];
+    1194 -> 281 [ label = "1→0" ];
+
+    1195 [ label = <1195: <b>SaveDataModule</b><br/><br/><i>BuildingParticles_Off = true<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;BuildingParticles_Off<br align="left"/>    &quot;)]<br align="left"/>> ];
+    1195 [ pos = "2.3590002,0.28500003!" ];
+    1195 -> 451 [ label = "1→0" ];
+
+    1196 [ label = <1196: <b>SaveDataModule</b><br/><br/><i>BuildingParticles_Off = true<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;BuildingParticles_Off<br align="left"/>    &quot;)]<br align="left"/>> ];
+    1196 [ pos = "-0.67300004,-5.1470003!" ];
+    1196 -> 1087 [ label = "1→0" ];
+
+    1199 [ label = <1199: <b>EffectModule</b><br/><br/><i>Lower Rim FX LIGHT<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;s<br align="left"/>    b_com&quot;, EffectName=&quot;City_SB_Dust<br align="left"/>    Fall_Level01_Light&quot;, Duration=5,<br align="left"/>     TargetNode=&quot;CI_StBld_RimFX_Ligh<br align="left"/>    t_01&quot;), EffectTargetInfo(Package<br align="left"/>> ];
+    1199 [ pos = "2.459,-2.4980001!" ];
+
+    1200 [ label = <1200: <b>SaveDataModule</b><br/><br/><i>BuildingParticles_Off = true<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;BuildingParticles_Off<br align="left"/>    &quot;)]<br align="left"/>> ];
+    1200 [ pos = "2.24,-2.4750001!" ];
+    1200 -> 1199 [ label = "1→0" ];
+
+    1201 [ label = <1201: <b>SaveDataModule</b><br/><br/><i>BuildingParticles_Off = true<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;BuildingParticles_Off<br align="left"/>    &quot;)]<br align="left"/>> ];
+    1201 [ pos = "2.2120001,-3.3260002!" ];
+    1201 -> 1202 [ label = "1→0" ];
+
+    1202 [ label = <1202: <b>EffectModule</b><br/><br/><i>Lower Rim FX LIGHT<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;s<br align="left"/>    b_com&quot;, EffectName=&quot;City_SB_Dust<br align="left"/>    Fall_Level01_Light&quot;, Duration=5,<br align="left"/>     TargetNode=&quot;CI_StBld_RimFX_Ligh<br align="left"/>    t_01&quot;), EffectTargetInfo(Package<br align="left"/>> ];
+    1202 [ pos = "2.4450002,-3.3490002!" ];
+
+    1203 [ label = <1203: <b>SaveDataModule</b><br/><br/><i>BuildingParticles_Off = true<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;BuildingParticles_Off<br align="left"/>    &quot;)]<br align="left"/>> ];
+    1203 [ pos = "2.0770001,-4.0690002!" ];
+    1203 -> 1091 [ label = "1→0" ];
+
+    1204 [ label = <1204: <b>SaveDataModule</b><br/><br/><i>BuildingParticles_Off = true<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;BuildingParticles_Off<br align="left"/>    &quot;)]<br align="left"/>> ];
+    1204 [ pos = "2.213,-5.017!" ];
+    1204 -> 1093 [ label = "1→0" ];
+
+    1205 [ label = <1205: <b>SaveDataModule</b><br/><br/><i>BuildingParticles_Off = true<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;BuildingParticles_Off<br align="left"/>    &quot;)]<br align="left"/>> ];
+    1205 [ pos = "1.9260001,-5.9560003!" ];
+    1205 -> 1206 [ label = "1→0" ];
+
+    1206 [ label = <1206: <b>EffectModule</b><br/><br/><i>Lower Rim FX LIGHT<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;s<br align="left"/>    b_com&quot;, EffectName=&quot;City_SB_Dust<br align="left"/>    Fall_Level01_Light&quot;, Duration=5,<br align="left"/>     TargetNode=&quot;CI_StBld_RimFX_Ligh<br align="left"/>    t_01&quot;), EffectTargetInfo(Package<br align="left"/>> ];
+    1206 [ pos = "2.1820002,-5.979!" ];
+
+    1207 [ label = <1207: <b>SaveDataModule</b><br/><br/><i>BuildingParticles_Off = true<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;BuildingParticles_Off<br align="left"/>    &quot;)]<br align="left"/>> ];
+    1207 [ pos = "2.295,-7.0330005!" ];
+    1207 -> 1097 [ label = "1→0" ];
+
+    1208 [ label = <1208: <b>SaveDataModule</b><br/><br/><i>BuildingParticles_Off = true<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;BuildingParticles_Off<br align="left"/>    &quot;)]<br align="left"/>> ];
+    1208 [ pos = "2.5180001,-8.104!" ];
+    1208 -> 1209 [ label = "1→0" ];
+
+    1209 [ label = <1209: <b>EffectModule</b><br/><br/><i>Lower Rim FX LIGHT<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;s<br align="left"/>    b_com&quot;, EffectName=&quot;City_SB_Dust<br align="left"/>    Fall_Level01_Light&quot;, Duration=5,<br align="left"/>     TargetNode=&quot;CI_StBld_RimFX_Ligh<br align="left"/>    t_01&quot;), EffectTargetInfo(Package<br align="left"/>> ];
+    1209 [ pos = "2.736,-8.127001!" ];
+
+    1210 [ label = <1210: <b>SaveDataModule</b><br/><br/><i>BuildingParticles_Off = true<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;BuildingParticles_Off<br align="left"/>    &quot;)]<br align="left"/>> ];
+    1210 [ pos = "2.2440002,-8.753!" ];
+    1210 -> 1211 [ label = "1→0" ];
+
+    1211 [ label = <1211: <b>EffectModule</b><br/><br/><i>Lower Rim FX LIGHT<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;s<br align="left"/>    b_com&quot;, EffectName=&quot;City_SB_Dust<br align="left"/>    Fall_Level01_Light&quot;, Duration=5,<br align="left"/>     TargetNode=&quot;CI_StBld_RimFX_Ligh<br align="left"/>    t_01&quot;), EffectTargetInfo(Package<br align="left"/>> ];
+    1211 [ pos = "2.466,-8.776!" ];
+
+    1212 [ label = <1212: <b>SaveDataModule</b><br/><br/><i>BuildingParticles_Off = true<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;BuildingParticles_Off<br align="left"/>    &quot;)]<br align="left"/>> ];
+    1212 [ pos = "2.0040002,-9.665001!" ];
+    1212 -> 1213 [ label = "1→0" ];
+
+    1213 [ label = <1213: <b>EffectModule</b><br/><br/><i>Lower Rim FX LIGHT<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;s<br align="left"/>    b_com&quot;, EffectName=&quot;City_SB_Dust<br align="left"/>    Fall_Level01_Light&quot;, Duration=5,<br align="left"/>     TargetNode=&quot;CI_StBld_RimFX_Ligh<br align="left"/>    t_01&quot;), EffectTargetInfo(Package<br align="left"/>> ];
+    1213 [ pos = "2.2180002,-9.688001!" ];
+
+    1214 [ label = <1214: <b>SaveDataModule</b><br/><br/><i>BuildingParticles_Off = true<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SB_Garage&quot;,<br align="left"/>     FlagName=&quot;BuildingParticles_Off<br align="left"/>    &quot;)]<br align="left"/>> ];
+    1214 [ pos = "2.1320002,-10.714001!" ];
+    1214 -> 1215 [ label = "1→0" ];
+
+    1215 [ label = <1215: <b>EffectModule</b><br/><br/><i>Lower Rim FX LIGHT<br align="left"/></i><br align="left"/><b>EffectTargetList</b><br align="left"/>    [EffectTargetInfo(PackageName=&quot;s<br align="left"/>    b_com&quot;, EffectName=&quot;City_SB_Dust<br align="left"/>    Fall_Level01_Light&quot;, Duration=5,<br align="left"/>     TargetNode=&quot;CI_StBld_RimFX_Ligh<br align="left"/>    t_01&quot;), EffectTargetInfo(Package<br align="left"/>> ];
+    1215 [ pos = "2.3430002,-10.737!" ];
+
+    title [ pos = "-3.4220002,5.3770003!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>CI_SB_Com<br align="left"/>scripts<br align="left"/><b>SB_G_VSM_Ambience</b><br align="left"/></font>> ];
+}

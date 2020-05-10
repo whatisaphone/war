@@ -1,0 +1,66 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>StartModule</b><br/><br/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "0.279,-0.358!" ];
+    1 -> 6 [ label = "0→0" ];
+    1 -> 15 [ label = "0→2" ];
+
+    4 [ label = <4: <b>DamageActorModule</b><br/><br/><b>DamageAmount</b><br align="left"/>    200<br align="left"/><b>TargetActorNames</b><br align="left"/>    [&quot;SM_Freewy_SmithBreak&quot;]<br align="left"/>> ];
+    4 [ pos = "1.2900001,-0.312!" ];
+    4 -> 13 [ label = "0→1" ];
+    4 -> 14 [ label = "0→0" ];
+    4 -> 17 [ label = "0→0" ];
+
+    6 [ label = <6: <b>SaveDataModule</b><br/><br/><i>SaveBeforeUriel<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SM_Rm01&quot;, F<br align="left"/>    lagName=&quot;SaveBeforeUriel&quot;)]<br align="left"/>> ];
+    6 [ pos = "0.45100003,-0.358!" ];
+    6 -> 7 [ label = "0→2" ];
+    6 -> 11 [ label = "0→2" ];
+
+    7 [ label = <7: <b>ObjectToggleModule</b><br/><br/><b>ObjectList</b><br align="left"/>    [&quot;SM_Freewy_SmithBreak&quot;]<br align="left"/>> ];
+    7 [ pos = "0.68700004,-0.069000006!" ];
+
+    9 [ label = <9: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    1.6<br align="left"/>> ];
+    9 [ pos = "1.121,-0.312!" ];
+    9 -> 4 [ label = "0→0" ];
+    9 -> 12 [ label = "0→0" ];
+
+    10 [ label = <10: <b>ExternalCallModule</b><br/><br/><i>SmithsWillStomp<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;SmithsWillStomp&quot;<br align="left"/>> ];
+    10 [ shape = oval ]
+    10 [ pos = "0.694,-0.312!" ];
+    10 -> 11 [ label = "0→0" ];
+    10 -> 15 [ label = "0→1" ];
+
+    11 [ label = <11: <b>base/gatemodule</b><br/><br/>> ];
+    11 [ pos = "0.93200004,-0.312!" ];
+    11 -> 9 [ label = "0→0" ];
+
+    12 [ label = <12: <b>SoundModule</b><br/><br/><b>SoundDescFile</b><br align="left"/>    &quot;ci_smithpath/city_smithpath_Sou<br align="left"/>    nds&quot;<br align="left"/><b>SoundID</b><br align="left"/>    71<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;SM_Freewy_SmithBreak&quot;<br align="left"/>> ];
+    12 [ pos = "1.32,-0.49600002!" ];
+
+    13 [ label = <13: <b>SaveDataModule</b><br/><br/><i>RemoveBridgeBlocker<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SM_Rm01&quot;, F<br align="left"/>    lagName=&quot;RemoveBridgeBlocker&quot;)]<br align="left"/>> ];
+    13 [ pos = "1.5330001,-0.289!" ];
+
+    14 [ label = <14: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SM_Rm01_VSM_RemoveBridgeBlocker<br align="left"/>    &quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;RemoveBridgeBlocker&quot;<br align="left"/>> ];
+    14 [ pos = "1.5320001,-0.437!" ];
+
+    15 [ label = <15: <b>ObjectToggleModule</b><br/><br/><i>Add backtrack selective blockers<br align="left"/> at bridge<br align="left"/></i><br align="left"/><b>ObjectList</b><br align="left"/>    [&quot;Blocker_BridgeDestroyed_Select<br align="left"/>    ive_01&quot;, &quot;Blocker_BridgeDestroye<br align="left"/>    d_Selective_02&quot;, &quot;Blocker_Bridge<br align="left"/>    Destroyed_Selective_03&quot;]<br align="left"/>> ];
+    15 [ pos = "0.96000004,-0.62600005!" ];
+
+    17 [ label = <17: <b>VisScriptCallModule</b><br/><br/><i>VSM_Path_05-&amp;gt;BridgeDestroyed<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SM_Rm01_VSM_Smith_Path_05&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;BridgeDestroyed&quot;<br align="left"/>> ];
+    17 [ pos = "1.5330001,-0.52400005!" ];
+
+    title [ pos = "0.27800003,-0.068!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SM_Rm01<br align="left"/>scripts<br align="left"/><b>SM_Rm01_VSM_BreakFreeway</b><br align="left"/></font>> ];
+}

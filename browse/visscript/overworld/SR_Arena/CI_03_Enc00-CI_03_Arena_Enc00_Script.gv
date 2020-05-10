@@ -1,0 +1,137 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    122 [ label = <122: <b>PopSpawnPointsModule</b><br/><br/><i>Spawn Wave 00 Wicked<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;CI_03_Arena_Enc00_Wave_01&quot;<br align="left"/>> ];
+    122 [ pos = "0.22900002,-0.753!" ];
+    122 -> 124 [ label = "0→0" ];
+    122 -> 123 [ style = dashed ];
+
+    123 [ label = <123: <b>VisScriptVariableWorldObjectList</b><br/><br/><i>Save the spawn point<br align="left"/></i><br align="left"/>> ];
+    123 [ shape = parallelogram ]
+    123 [ pos = "0.46100003,-0.873!" ];
+
+    124 [ label = <124: <b>SpawnMonsterEventModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;CI_03_Arena_Enc00_Wave_01&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    -1<br align="left"/>> ];
+    124 [ pos = "0.689,-0.753!" ];
+    124 -> 245 [ label = "1→0" ];
+    124 -> 296 [ label = "0→0" ];
+    124 -> 306 [ label = "1→0" ];
+    123 -> 124 [ style = dashed ];
+    124 -> 149 [ style = dashed ];
+
+    149 [ label = <149: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    149 [ shape = parallelogram ]
+    149 [ pos = "1.1830001,-1.036!" ];
+
+    200 [ label = <200: <b>StartModule</b><br/><br/>> ];
+    200 [ shape = oval ]
+    200 [ pos = "-0.155,-0.73!" ];
+    200 -> 225 [ label = "0→0" ];
+
+    201 [ label = <201: <b>ExternalCallModule</b><br/><br/><b>EventName</b><br align="left"/>    &quot;GetUpAndFight01&quot;<br align="left"/>> ];
+    201 [ shape = oval ]
+    201 [ pos = "1.5610001,-0.75500005!" ];
+    201 -> 202 [ label = "0→0" ];
+
+    202 [ label = <202: <b>InvokeMethodModule</b><br/><br/><b>MethodName</b><br align="left"/>    &quot;SpawnProneWaitForPlayer&quot;<br align="left"/>> ];
+    202 [ pos = "1.784,-0.75500005!" ];
+    202 -> 203 [ label = "0→0" ];
+    149 -> 202 [ style = dashed ];
+
+    203 [ label = <203: <b>DelayModule</b><br/><br/>> ];
+    203 [ pos = "1.9850001,-0.75500005!" ];
+    203 -> 230 [ label = "0→0" ];
+
+    204 [ label = <204: <b>InvokeMethodModule</b><br/><br/><b>MethodName</b><br align="left"/>    &quot;setBehaviorCombat&quot;<br align="left"/>> ];
+    204 [ pos = "2.3470001,-0.84400004!" ];
+    204 -> 231 [ label = "0→0" ];
+    229 -> 204 [ style = dashed ];
+
+    225 [ label = <225: <b>SaveDataModule</b><br/><br/><i>Check City03 Enc01 Complete<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SR_Arena&quot;, <br align="left"/>    FlagName=&quot;SR_Arena_C3_Enc01Compl<br align="left"/>    ete&quot;)]<br align="left"/>> ];
+    225 [ pos = "0.024,-0.73!" ];
+    225 -> 122 [ label = "1→0" ];
+
+    229 [ label = <229: <b>VisScriptVariableWorldObject</b><br/><br/>> ];
+    229 [ shape = parallelogram ]
+    229 [ pos = "2.196,-1.01!" ];
+
+    230 [ label = <230: <b>base/forloop</b><br/><br/>> ];
+    230 [ pos = "2.1850002,-0.84400004!" ];
+    230 -> 204 [ label = "0→0" ];
+    230 -> 229 [ style = dashed ];
+    149 -> 230 [ style = dashed ];
+
+    231 [ label = <231: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.12<br align="left"/><b>Variance</b><br align="left"/>    0.04<br align="left"/>> ];
+    231 [ pos = "2.39,-1.0320001!" ];
+    231 -> 230 [ label = "0→1" ];
+
+    245 [ label = <245: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    20<br align="left"/>> ];
+    245 [ pos = "1.1680001,-0.55!" ];
+    245 -> 251 [ label = "0→0" ];
+
+    248 [ label = <248: <b>ExternalCallModule</b><br/><br/><i>Stop Combat<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;StopCombatWicked&quot;<br align="left"/>> ];
+    248 [ shape = oval ]
+    248 [ pos = "0.42800003,-1.0680001!" ];
+    248 -> 124 [ label = "0→2" ];
+    248 -> 300 [ label = "0→0" ];
+    248 -> 305 [ label = "0→2" ];
+
+    251 [ label = <251: <b>VisScriptCallModule</b><br/><br/><i>Start Enc01 Wave01<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CI_03_Arena_Enc01_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;StartWave01&quot;<br align="left"/>> ];
+    251 [ pos = "1.3820001,-0.55!" ];
+
+    296 [ label = <296: <b>SaveDataModule</b><br/><br/><i>CI_03_Enc01_Complete<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;ShadowArena<br align="left"/>    &quot;, FlagName=&quot;CI_03_Enc01_Complet<br align="left"/>    e&quot;)]<br align="left"/>> ];
+    296 [ pos = "1.1700001,-0.753!" ];
+    296 -> 297 [ label = "0→0" ];
+
+    297 [ label = <297: <b>DamageActorModule</b><br/><br/><b>DamageAmount</b><br align="left"/>    10000<br align="left"/>> ];
+    297 [ pos = "1.3970001,-0.753!" ];
+    149 -> 297 [ style = dashed ];
+
+    299 [ label = <299: <b>DamageActorModule</b><br/><br/><b>DamageAmount</b><br align="left"/>    10000<br align="left"/><b>ApplyKnockBackUp</b><br align="left"/>    true<br align="left"/><b>DamageLocation</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>KnockBack</b><br align="left"/>    1000<br align="left"/><b>KnockUp</b><br align="left"/>    1000<br align="left"/>> ];
+    299 [ pos = "1.83,-1.192!" ];
+    149 -> 299 [ style = dashed ];
+
+    300 [ label = <300: <b>base/setfactionoverride</b><br/><br/>> ];
+    300 [ pos = "1.8080001,-1.0680001!" ];
+    300 -> 299 [ label = "0→0" ];
+    149 -> 300 [ style = dashed ];
+
+    301 [ label = <301: <b>base/listsize</b><br/><br/>> ];
+    301 [ pos = "1.414,-1.1220001!" ];
+    301 -> 303 [ label = "0→0" ];
+    301 -> 302 [ style = dashed ];
+    149 -> 301 [ style = dashed ];
+
+    302 [ label = <302: <b>VisScriptVariableInt</b><br/><br/>> ];
+    302 [ shape = parallelogram ]
+    302 [ pos = "1.5000001,-1.235!" ];
+
+    303 [ label = <303: <b>DebugOutModule</b><br/><br/><b>Message</b><br align="left"/>    &quot;Enc_00_EnemyCheck = &quot;<br align="left"/>> ];
+    303 [ pos = "1.57,-1.1220001!" ];
+    303 -> 305 [ label = "0→0" ];
+    302 -> 303 [ style = dashed ];
+
+    304 [ label = <304: <b>StartModule</b><br/><br/>> ];
+    304 [ shape = oval ]
+    304 [ pos = "1.2370001,-1.1220001!" ];
+    304 -> 301 [ label = "0→0" ];
+
+    305 [ label = <305: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    305 [ pos = "1.468,-1.3800001!" ];
+    305 -> 301 [ label = "0→0" ];
+
+    306 [ label = <306: <b>VisScriptCallModule</b><br/><br/><i>IncrementHUDCounter_Enc01<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CI_03_Arena_Enc01_Script&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;IncrementHUDCounter_Enc01&quot;<br align="left"/>> ];
+    306 [ pos = "1.1700001,-0.90400004!" ];
+
+    title [ pos = "-0.156,-0.549!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SR_Arena<br align="left"/>CI_03_Enc00<br align="left"/><b>CI_03_Arena_Enc00_Script</b><br align="left"/></font>> ];
+}

@@ -1,0 +1,166 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    5 [ label = <5: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;IC_Tns2-8_Trigger_Undead_Flood<br align="left"/>    &quot;]<br align="left"/><b>OneShot</b><br align="left"/>    true<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    5 [ shape = oval ]
+    5 [ pos = "0.88100004,-1.3490001!" ];
+    5 -> 140 [ label = "0→0" ];
+
+    22 [ label = <22: <b>SpawnMonsterEventModule</b><br/><br/><i>1st Round = Caster Only<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;IC_Tns2-8_Enc02_Caster2_Flood&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    1<br align="left"/><b>DelayTime</b><br align="left"/>    0.5<br align="left"/><b>PreferInView</b><br align="left"/>    true<br align="left"/><b>PreferInRange</b><br align="left"/>    true<br align="left"/><b>MinRange</b><br align="left"/>    200<br align="left"/>> ];
+    22 [ pos = "1.9310001,-1.371!" ];
+    22 -> 64 [ label = "3→0" ];
+    22 -> 77 [ label = "3→0" ];
+
+    60 [ label = <60: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn 2nd Caster<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;IC_Tns2-8_Enc02_Caster2_Flood&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    1<br align="left"/><b>DelayTime</b><br align="left"/>    1<br align="left"/><b>PreferInView</b><br align="left"/>    true<br align="left"/><b>PreferInRange</b><br align="left"/>    true<br align="left"/><b>MinRange</b><br align="left"/>    200<br align="left"/>> ];
+    60 [ pos = "2.476,-1.0040001!" ];
+    60 -> 117 [ label = "3→0" ];
+
+    64 [ label = <64: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    20<br align="left"/>> ];
+    64 [ pos = "2.286,-1.0040001!" ];
+    64 -> 60 [ label = "0→0" ];
+
+    68 [ label = <68: <b>SpawnMonsterEventModule</b><br/><br/><i>Fallen_Dog<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;IC_Tns2-8_Enc02_FallenDog&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    2<br align="left"/><b>PreferInView</b><br align="left"/>    true<br align="left"/><b>PreferInRange</b><br align="left"/>    true<br align="left"/><b>MinRange</b><br align="left"/>    300<br align="left"/>> ];
+    68 [ pos = "3.423,-1.4640001!" ];
+    68 -> 75 [ label = "3→0" ];
+    68 -> 145 [ label = "3→0" ];
+
+    72 [ label = <72: <b>InvokeMethodModule</b><br/><br/><i>Barrier ON<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;IC_Tns-08_Enc02_barrier_01&quot;, &quot;<br align="left"/>    IC_Tns-08_Enc02_barrier_02&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOn&quot;<br align="left"/>> ];
+    72 [ pos = "1.552,-1.371!" ];
+    72 -> 73 [ label = "0→0" ];
+
+    73 [ label = <73: <b>DelayModule</b><br/><br/><b>Variance</b><br align="left"/>    0.5<br align="left"/>> ];
+    73 [ pos = "1.7580001,-1.371!" ];
+    73 -> 22 [ label = "0→0" ];
+
+    74 [ label = <74: <b>InvokeMethodModule</b><br/><br/><i>Barrier OFF<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;IC_Tns-08_Enc02_barrier_01&quot;, &quot;<br align="left"/>    IC_Tns-08_Enc02_barrier_02&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOff&quot;<br align="left"/>> ];
+    74 [ pos = "4.1600003,-1.5330001!" ];
+    74 -> 141 [ label = "0→1" ];
+
+    75 [ label = <75: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    3<br align="left"/>> ];
+    75 [ pos = "3.7960002,-1.5330001!" ];
+    75 -> 127 [ label = "0→0" ];
+    75 -> 126 [ label = "0→0" ];
+
+    76 [ label = <76: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    2<br align="left"/>> ];
+    76 [ pos = "2.7900002,-2.5300002!" ];
+
+    77 [ label = <77: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn undead... not random to ha<br align="left"/>ve the first one on the floor<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;IC_Tns2-8_Enc02_Undead_Flood_2a<br align="left"/>    &quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    4<br align="left"/><b>IsRandom</b><br align="left"/>    false<br align="left"/><b>DelayTime</b><br align="left"/>    2<br align="left"/><b>MinRange</b><br align="left"/>    50<br align="left"/>> ];
+    77 [ pos = "2.1920002,-1.7600001!" ];
+    77 -> 117 [ label = "3→0" ];
+    77 -> 138 [ label = "1→0" ];
+
+    115 [ label = <115: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    7<br align="left"/>> ];
+    115 [ pos = "2.1910002,-2.5180001!" ];
+    115 -> 123 [ label = "0→0" ];
+
+    117 [ label = <117: <b>AccumulatorModule</b><br/><br/><i>Everyone is dead?<br align="left"/></i><br align="left"/><b>CountTo</b><br align="left"/>    3<br align="left"/>> ];
+    117 [ pos = "2.996,-1.4640001!" ];
+    117 -> 143 [ label = "0→0" ];
+
+    123 [ label = <123: <b>SpawnMonsterEventModule</b><br/><br/><i>More Undead Lord<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;IC_Tns2-8_Enc02_Undead_Flood&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    5<br align="left"/><b>DelayTime</b><br align="left"/>    5<br align="left"/><b>PreferInView</b><br align="left"/>    true<br align="left"/><b>PreferInRange</b><br align="left"/>    true<br align="left"/><b>MinRange</b><br align="left"/>    200<br align="left"/>> ];
+    123 [ pos = "2.5140002,-2.5180001!" ];
+
+    125 [ label = <125: <b>CinematicModule</b><br/><br/><b>CinematicName</b><br align="left"/>    &quot;IC_tsn2_Cin_End&quot;<br align="left"/>> ];
+    125 [ pos = "4.184,-1.279!" ];
+
+    126 [ label = <126: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>MoveVal</b><br align="left"/>    0<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;IC_Tns2_Cin_War_Pos&quot;<br align="left"/><b>RotateObject</b><br align="left"/>    true<br align="left"/>> ];
+    126 [ pos = "3.979,-1.279!" ];
+    126 -> 125 [ label = "0→0" ];
+
+    127 [ label = <127: <b>DelayModule</b><br/><br/>> ];
+    127 [ pos = "3.9840002,-1.5330001!" ];
+    127 -> 74 [ label = "0→0" ];
+
+    130 [ label = <130: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    130 [ shape = parallelogram ]
+    130 [ pos = "3.0170002,-2.568!" ];
+
+    131 [ label = <131: <b>AttachEventModule</b><br/><br/><b>EventNames</b><br align="left"/>    [&quot;Mounted_Start&quot;]<br align="left"/>> ];
+    131 [ pos = "3.2050002,-2.4710002!" ];
+    131 -> 132 [ label = "0→0" ];
+    130 -> 131 [ style = dashed ];
+
+    132 [ label = <132: <b>SpawnMonsterEventModule</b><br/><br/><i>Some Undead to kill while riding<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;IC_Tns2-8_Enc02_Undead_Flood&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    10<br align="left"/><b>DelayTime</b><br align="left"/>    0.1<br align="left"/><b>PreferInRange</b><br align="left"/>    true<br align="left"/><b>MaxRange</b><br align="left"/>    150<br align="left"/>> ];
+    132 [ pos = "3.4180002,-2.4710002!" ];
+    132 -> 147 [ label = "0→0" ];
+    132 -> 133 [ style = dashed ];
+    132 -> 148 [ style = dashed ];
+
+    133 [ label = <133: <b>VisScriptVariableInt</b><br/><br/>> ];
+    133 [ shape = parallelogram ]
+    133 [ pos = "3.7150002,-2.683!" ];
+
+    134 [ label = <134: <b>VisScriptVariableInt</b><br/><br/>> ];
+    134 [ shape = parallelogram ]
+    134 [ pos = "3.8430002,-2.706!" ];
+
+    135 [ label = <135: <b>IntCompareModule</b><br/><br/><i>Check for left over<br align="left"/></i><br align="left"/>> ];
+    135 [ pos = "4.0080004,-2.5860002!" ];
+    135 -> 136 [ label = "0→0" ];
+    135 -> 136 [ label = "1→0" ];
+    133 -> 135 [ style = dashed ];
+    134 -> 135 [ style = dashed ];
+
+    136 [ label = <136: <b>DelayModule</b><br/><br/>> ];
+    136 [ pos = "4.018,-2.3560002!" ];
+    136 -> 135 [ label = "0→0" ];
+
+    137 [ label = <137: <b>SpawnMonsterEventModule</b><br/><br/><i>Spawn more undead<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;IC_Tns2-8_Enc02_Undead_Flood_2b<br align="left"/>    &quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    3<br align="left"/><b>IsRandom</b><br align="left"/>    false<br align="left"/><b>DelayTime</b><br align="left"/>    3<br align="left"/><b>MinRange</b><br align="left"/>    200<br align="left"/>> ];
+    137 [ pos = "2.6420002,-1.3970001!" ];
+    137 -> 117 [ label = "3→0" ];
+
+    138 [ label = <138: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    2<br align="left"/>> ];
+    138 [ pos = "2.413,-1.3970001!" ];
+    138 -> 137 [ label = "0→0" ];
+
+    139 [ label = <139: <b>base/storesavedatamodule</b><br/><br/>> ];
+    139 [ pos = "1.3280001,-1.3720001!" ];
+    139 -> 72 [ label = "0→0" ];
+    139 -> 144 [ label = "0→0" ];
+
+    140 [ label = <140: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;IC&quot;, FlagNa<br align="left"/>    me=&quot;IC_Tns2-8_Enc_Done&quot;)]<br align="left"/>> ];
+    140 [ pos = "1.116,-1.3490001!" ];
+    140 -> 139 [ label = "1→0" ];
+
+    141 [ label = <141: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;IC&quot;, FlagNa<br align="left"/>    me=&quot;IC_Tns2-8_Enc_Done&quot;)]<br align="left"/>> ];
+    141 [ pos = "4.3710003,-1.5100001!" ];
+    141 -> 142 [ label = "3→0" ];
+
+    142 [ label = <142: <b>base/commitsavedatamodule</b><br/><br/>> ];
+    142 [ pos = "4.589,-1.5560001!" ];
+    142 -> 149 [ label = "0→0" ];
+
+    143 [ label = <143: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    143 [ pos = "3.256,-1.4640001!" ];
+    143 -> 68 [ label = "0→0" ];
+
+    144 [ label = <144: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scripted_HeavyCombat&quot;<br align="left"/>> ];
+    144 [ pos = "1.5450001,-1.2540001!" ];
+
+    145 [ label = <145: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scriptedHeavyOutro&quot;<br align="left"/>> ];
+    145 [ pos = "3.7960002,-1.7210001!" ];
+
+    147 [ label = <147: <b>base/sethealthmodule</b><br/><br/><b>MaxHitPoints</b><br align="left"/>    10<br align="left"/>> ];
+    147 [ pos = "3.7410002,-2.835!" ];
+    148 -> 147 [ style = dashed ];
+
+    148 [ label = <148: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    148 [ shape = parallelogram ]
+    148 [ pos = "3.555,-2.887!" ];
+
+    149 [ label = <149: <b>base/autosavemodule</b><br/><br/>> ];
+    149 [ pos = "4.852,-1.5560001!" ];
+
+    title [ pos = "0.88000005,-1.003!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>IC_Tns2-8<br align="left"/>combat<br align="left"/><b>IC_Tns2-8_Enc01_Script</b><br align="left"/></font>> ];
+}

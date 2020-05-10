@@ -1,0 +1,67 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    1 [ label = <1: <b>ExternalCallModule</b><br/><br/><i>Begin Round<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;onBeginRound&quot;<br align="left"/>> ];
+    1 [ shape = oval ]
+    1 [ pos = "0.49800003,0.24300002!" ];
+    1 -> 6 [ label = "0→0" ];
+
+    6 [ label = <6: <b>SpawnMonsterEventModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;ot_boss_undead&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    4<br align="left"/><b>DelayTime</b><br align="left"/>    0.25<br align="left"/>> ];
+    6 [ pos = "0.753,0.120000005!" ];
+    6 -> 10 [ label = "2→0" ];
+    6 -> 35 [ label = "1→0" ];
+
+    9 [ label = <9: <b>SpawnMonsterEventModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;ot_boss_wraith&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    2<br align="left"/><b>DelayTime</b><br align="left"/>    0.25<br align="left"/>> ];
+    9 [ pos = "0.41000003,0.65400004!" ];
+
+    10 [ label = <10: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    2<br align="left"/>> ];
+    10 [ pos = "1.741,-0.021000002!" ];
+    10 -> 32 [ label = "0→0" ];
+
+    14 [ label = <14: <b>SpawnMonsterEventModule</b><br/><br/><b>NumberToSpawn</b><br align="left"/>    1<br align="left"/><b>DelayTime</b><br align="left"/>    0.25<br align="left"/>> ];
+    14 [ pos = "2.2480001,1.3800001!" ];
+    14 -> 20 [ label = "2→0" ];
+
+    16 [ label = <16: <b>SpawnMonsterEventModule</b><br/><br/><b>NumberToSpawn</b><br align="left"/>    4<br align="left"/><b>DelayTime</b><br align="left"/>    0.25<br align="left"/>> ];
+    16 [ pos = "2.2480001,1.016!" ];
+    16 -> 20 [ label = "2→0" ];
+
+    20 [ label = <20: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    2<br align="left"/>> ];
+    20 [ pos = "2.703,1.1630001!" ];
+
+    21 [ label = <21: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    5<br align="left"/>> ];
+    21 [ pos = "1.8790001,1.3800001!" ];
+    21 -> 14 [ label = "0→0" ];
+
+    32 [ label = <32: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;Straga&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;onCombatDone&quot;<br align="left"/>> ];
+    32 [ pos = "2.025,-0.021000002!" ];
+    32 -> 33 [ label = "0→0" ];
+
+    33 [ label = <33: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    3<br align="left"/>> ];
+    33 [ pos = "2.2870002,-0.022000002!" ];
+    33 -> 34 [ label = "0→0" ];
+
+    34 [ label = <34: <b>LoaderModule</b><br/><br/><b>Load</b><br align="left"/>    [[284, -1], [244, 6]]<br align="left"/><b>Unload</b><br align="left"/>    [[244, 5]]<br align="left"/>> ];
+    34 [ pos = "2.489,-0.023000002!" ];
+
+    35 [ label = <35: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    2<br align="left"/>> ];
+    35 [ pos = "1.062,0.312!" ];
+    35 -> 36 [ label = "0→0" ];
+
+    36 [ label = <36: <b>SpawnMonsterEventModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;ot_boss_undead&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    2<br align="left"/><b>DelayTime</b><br align="left"/>    0.25<br align="left"/>> ];
+    36 [ pos = "1.365,0.31100002!" ];
+    36 -> 10 [ label = "2→0" ];
+
+    title [ pos = "0.409,1.381!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>OT_Boss<br align="left"/>Combat1<br align="left"/><b>ot_boss_stragacombat01</b><br align="left"/></font>> ];
+}

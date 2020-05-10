@@ -1,0 +1,74 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    12 [ label = <12: <b>ExternalCallModule</b><br/><br/><i>(from Ch_Cat_Rm08_Script_BrkWall<br align="left"/>s01)<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;Spawn&quot;<br align="left"/>> ];
+    12 [ shape = oval ]
+    12 [ pos = "0.143,-0.35000002!" ];
+    12 -> 21 [ label = "0→0" ];
+
+    15 [ label = <15: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    15 [ pos = "0.72300005,-0.37100002!" ];
+    15 -> 43 [ label = "0→0" ];
+
+    21 [ label = <21: <b>SaveDataModule</b><br/><br/><i>Check AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_Ch_Cat_Rm08_Enc0<br align="left"/>    2&quot;)]<br align="left"/>> ];
+    21 [ pos = "0.39800003,-0.374!" ];
+    21 -> 15 [ label = "1→0" ];
+    21 -> 41 [ label = "1→1" ];
+
+    26 [ label = <26: <b>SaveDataModule</b><br/><br/><i>Set AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_Ch_Cat_Rm08_Enc0<br align="left"/>    2&quot;)]<br align="left"/>> ];
+    26 [ pos = "1.4890001,-0.40500003!" ];
+
+    29 [ label = <29: <b>SpawnMonsterEventModule</b><br/><br/>> ];
+    29 [ pos = "1.1370001,-0.36900002!" ];
+    29 -> 26 [ label = "2→1" ];
+    31 -> 29 [ style = dashed ];
+
+    30 [ label = <30: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;ChCat08_Enc02&quot;<br align="left"/>> ];
+    30 [ pos = "0.90200007,-0.37!" ];
+    30 -> 29 [ label = "0→0" ];
+    30 -> 31 [ style = dashed ];
+
+    31 [ label = <31: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    31 [ shape = parallelogram ]
+    31 [ pos = "0.92800003,-0.50100005!" ];
+
+    34 [ label = <34: <b>VisScriptCallModule</b><br/><br/><i>start_HeavyCombat<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;start_HeavyCombat&quot;<br align="left"/>> ];
+    34 [ pos = "0.915,-0.6!" ];
+
+    38 [ label = <38: <b>StartModule</b><br/><br/>> ];
+    38 [ shape = oval ]
+    38 [ pos = "0.178,-0.14500001!" ];
+    38 -> 39 [ label = "0→0" ];
+
+    39 [ label = <39: <b>SaveDataModule</b><br/><br/><i>Check Spawned<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;Spawned_Ch_Cat_Rm08_Enc0<br align="left"/>    2&quot;)]<br align="left"/>> ];
+    39 [ pos = "0.344,-0.14500001!" ];
+    39 -> 40 [ label = "0→0" ];
+
+    40 [ label = <40: <b>SaveDataModule</b><br/><br/><i>Check AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_Ch_Cat_Rm08_Enc0<br align="left"/>    2&quot;)]<br align="left"/>> ];
+    40 [ pos = "0.55600005,-0.148!" ];
+    40 -> 42 [ label = "1→0" ];
+
+    41 [ label = <41: <b>SaveDataModule</b><br/><br/><i>Check Spawned<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;Spawned_Ch_Cat_Rm08_Enc0<br align="left"/>    2&quot;)]<br align="left"/>> ];
+    41 [ pos = "0.63900006,-0.591!" ];
+
+    42 [ label = <42: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2.25<br align="left"/>> ];
+    42 [ pos = "0.78000003,-0.13900001!" ];
+    42 -> 43 [ label = "0→0" ];
+
+    43 [ label = <43: <b>base/oneshotmodule</b><br/><br/>> ];
+    43 [ pos = "0.97200006,-0.21800001!" ];
+    43 -> 30 [ label = "0→0" ];
+
+    title [ pos = "0.142,-0.13800001!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>Ch_Cat_Rm08<br align="left"/>Combat<br align="left"/><b>Ch_Cat_Rm08_Enc02_Script</b><br align="left"/></font>> ];
+}

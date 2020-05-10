@@ -1,0 +1,44 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    6 [ label = <6: <b>VisScriptCallModule</b><br/><br/><i>kill catacomb music<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;ch_cat_VSM_LoopingCatMusic&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;KillAllMusic&quot;<br align="left"/>> ];
+    6 [ pos = "0.629,-0.351!" ];
+
+    7 [ label = <7: <b>VisScriptCallModule</b><br/><br/><i>kill COMBAT music<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;ch_VSM_LoopingCombatMusic&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;KillAllMusic&quot;<br align="left"/>> ];
+    7 [ pos = "0.799,-0.18100001!" ];
+
+    8 [ label = <8: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    0.1<br align="left"/>> ];
+    8 [ pos = "0.632,-0.18100001!" ];
+    8 -> 7 [ label = "0→0" ];
+
+    9 [ label = <9: <b>StartModule</b><br/><br/>> ];
+    9 [ shape = oval ]
+    9 [ pos = "0.17300001,-0.42200002!" ];
+    9 -> 10 [ label = "0→0" ];
+
+    10 [ label = <10: <b>AttachEventModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;Chest_KeyChest_OpensDoorTo_ch_<br align="left"/>    cat_Rm08&quot;]<br align="left"/><b>EventNames</b><br align="left"/>    [&quot;onOpen&quot;]<br align="left"/>> ];
+    10 [ pos = "0.358,-0.42100003!" ];
+    10 -> 11 [ label = "0→0" ];
+    10 -> 6 [ label = "0→0" ];
+    10 -> 8 [ label = "0→0" ];
+
+    11 [ label = <11: <b>DelayModule</b><br/><br/>> ];
+    11 [ pos = "0.628,-0.42200002!" ];
+    11 -> 12 [ label = "0→0" ];
+
+    12 [ label = <12: <b>base/autosavemodule</b><br/><br/>> ];
+    12 [ pos = "0.80700004,-0.42200002!" ];
+
+    title [ pos = "0.172,-0.18!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>Ch_Cat_Rm07<br align="left"/>Scripts<br align="left"/><b>ch_cat_Rm07_VSM_KeyChestMessage02</b><br align="left"/></font>> ];
+}

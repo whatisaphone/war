@@ -1,0 +1,81 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    64 [ label = <64: <b>ExternalCallModule</b><br/><br/><b>EventName</b><br align="left"/>    &quot;ShowTime&quot;<br align="left"/>> ];
+    64 [ shape = oval ]
+    64 [ pos = "1.549,0.505!" ];
+    64 -> 83 [ label = "0→0" ];
+
+    66 [ label = <66: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;IC_Rm08_EncBack_Barrier_01&quot;, &quot;<br align="left"/>    IC_Rm08_EncBack_Barrier_02&quot;, &quot;IC<br align="left"/>    _Rm08_EncBack_Barrier_03&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;turnOff&quot;<br align="left"/>> ];
+    66 [ pos = "3.3980002,0.284!" ];
+    66 -> 120 [ label = "0→0" ];
+
+    72 [ label = <72: <b>SpawnMonsterEventModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;IC_Rm08_EncBack_Gholen_01&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    -1<br align="left"/><b>DelayTime</b><br align="left"/>    1<br align="left"/>> ];
+    72 [ pos = "2.3040001,0.505!" ];
+    72 -> 82 [ label = "3→0" ];
+
+    79 [ label = <79: <b>SpawnMonsterEventModule</b><br/><br/><i>spawn angel support<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;IC_Rm08_EncBack_03&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    3<br align="left"/><b>DelayTime</b><br align="left"/>    1<br align="left"/>> ];
+    79 [ pos = "2.3030002,0.22100002!" ];
+    79 -> 82 [ label = "3→0" ];
+
+    80 [ label = <80: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    80 [ pos = "2.118,0.22100002!" ];
+    80 -> 79 [ label = "0→0" ];
+
+    82 [ label = <82: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    2<br align="left"/>> ];
+    82 [ pos = "2.7400002,0.28300002!" ];
+    82 -> 116 [ label = "0→0" ];
+
+    83 [ label = <83: <b>DelayModule</b><br/><br/><b>Variance</b><br align="left"/>    0.5<br align="left"/>> ];
+    83 [ pos = "1.95,0.505!" ];
+    83 -> 72 [ label = "0→0" ];
+    83 -> 80 [ label = "0→0" ];
+
+    110 [ label = <110: <b>CinematicModule</b><br/><br/><b>CinematicName</b><br align="left"/>    &quot;IC_Rm08_Cin_EncBack_End&quot;<br align="left"/>> ];
+    110 [ pos = "3.3890002,0.48600003!" ];
+
+    111 [ label = <111: <b>ObjectMoverModule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;War&quot;<br align="left"/><b>MovementType</b><br align="left"/>    2<br align="left"/><b>MoveVal</b><br align="left"/>    0<br align="left"/><b>WaypointName</b><br align="left"/>    &quot;IC_Rm08_Cin_War_Start_Pos&quot;<br align="left"/><b>RotateObject</b><br align="left"/>    true<br align="left"/>> ];
+    111 [ pos = "3.2050002,0.48600003!" ];
+    111 -> 110 [ label = "0→0" ];
+
+    112 [ label = <112: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    2<br align="left"/>> ];
+    112 [ pos = "3.213,0.284!" ];
+    112 -> 66 [ label = "0→0" ];
+
+    116 [ label = <116: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    4<br align="left"/>> ];
+    116 [ pos = "2.9580002,0.28300002!" ];
+    116 -> 111 [ label = "0→0" ];
+    116 -> 112 [ label = "0→0" ];
+    116 -> 119 [ label = "0→0" ];
+
+    117 [ label = <117: <b>base/commitsavedatamodule</b><br/><br/>> ];
+    117 [ pos = "4.117,0.261!" ];
+    117 -> 121 [ label = "0→0" ];
+
+    118 [ label = <118: <b>SaveDataModule</b><br/><br/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;IC&quot;, FlagNa<br align="left"/>    me=&quot;IC_Rm08_EncBack_Done&quot;)]<br align="left"/>> ];
+    118 [ pos = "3.8700001,0.307!" ];
+    118 -> 117 [ label = "3→0" ];
+
+    119 [ label = <119: <b>VisScriptCallModule</b><br/><br/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scriptedHeavyOutro&quot;<br align="left"/>> ];
+    119 [ pos = "3.213,0.040000003!" ];
+
+    120 [ label = <120: <b>InvokeMethodModule</b><br/><br/><i>Ghost hook on<br align="left"/></i><br align="left"/><b>ObjectNames</b><br align="left"/>    [&quot;IC_Rm08_GhostHookToken_Swing_0<br align="left"/>    1&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;activate&quot;<br align="left"/>> ];
+    120 [ pos = "3.6250002,0.284!" ];
+    120 -> 118 [ label = "0→1" ];
+
+    121 [ label = <121: <b>base/autosavemodule</b><br/><br/>> ];
+    121 [ pos = "4.3570004,0.261!" ];
+
+    title [ pos = "1.5480001,0.50600004!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>IC_Rm08<br align="left"/>combat_back<br align="left"/><b>IC_Rm08_EncBack_Script_Wave_02</b><br align="left"/></font>> ];
+}

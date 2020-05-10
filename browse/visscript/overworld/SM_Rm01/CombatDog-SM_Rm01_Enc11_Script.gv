@@ -1,0 +1,190 @@
+digraph {
+    layout = fdp;
+    overlap = prism;
+    sep = "+16";
+    splines = spline;
+
+    node [ shape = box ];
+
+    graph [ fontname = "Segoe UI" ];
+    node [ fontname = "Segoe UI" ];
+    edge [ fontname = "Segoe UI" ];
+
+    11 [ label = <11: <b>DelayModule</b><br/><br/><i>go Encounter<br align="left"/></i><br align="left"/><b>Delay</b><br align="left"/>    0<br align="left"/>> ];
+    11 [ pos = "-0.38900003,-0.023000002!" ];
+    11 -> 16 [ label = "0→0" ];
+    11 -> 74 [ label = "0→0" ];
+
+    14 [ label = <14: <b>SaveDataModule</b><br/><br/><i>Set AllDead<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;Church&quot;, Fl<br align="left"/>    agName=&quot;AllDead_SM_Rm01_Enc11&quot;)]<br align="left"/>> ];
+    14 [ pos = "2.2050002,-0.349!" ];
+
+    16 [ label = <16: <b>TriggerEventModule</b><br/><br/><b>WorldObjects</b><br align="left"/>    [&quot;SM_Rm01_Enc11_TrigReg&quot;]<br align="left"/><b>Enable</b><br align="left"/>    false<br align="left"/><b>WorldObject</b><br align="left"/>    &quot;-CONVERTED-&quot;<br align="left"/>> ];
+    16 [ shape = oval ]
+    16 [ pos = "-0.126,-0.4!" ];
+    16 -> 78 [ label = "0→0" ];
+
+    17 [ label = <17: <b>SpawnMonsterEventModule</b><br/><br/><b>DelayTime</b><br align="left"/>    0.2<br align="left"/>> ];
+    17 [ pos = "1.7850001,-0.261!" ];
+    17 -> 14 [ label = "2→1" ];
+    17 -> 69 [ label = "0→0" ];
+    17 -> 88 [ label = "2→0" ];
+    19 -> 17 [ style = dashed ];
+
+    18 [ label = <18: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;SM_Rm01_Enc11&quot;<br align="left"/>> ];
+    18 [ pos = "1.498,-0.263!" ];
+    18 -> 17 [ label = "0→0" ];
+    18 -> 19 [ style = dashed ];
+
+    19 [ label = <19: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    19 [ shape = parallelogram ]
+    19 [ pos = "1.5660001,-0.41200003!" ];
+
+    28 [ label = <28: <b>SpawnMonsterEventModule</b><br/><br/><b>DelayTime</b><br align="left"/>    0.2<br align="left"/>> ];
+    28 [ pos = "0.514,-0.694!" ];
+    28 -> 51 [ label = "0→0" ];
+    28 -> 88 [ label = "2→0" ];
+    28 -> 97 [ label = "0→0" ];
+    30 -> 28 [ style = dashed ];
+    28 -> 36 [ style = dashed ];
+
+    29 [ label = <29: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;SM_Rm01_Enc11_W2&quot;<br align="left"/>> ];
+    29 [ pos = "0.25,-0.689!" ];
+    29 -> 28 [ label = "0→0" ];
+    29 -> 30 [ style = dashed ];
+
+    30 [ label = <30: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    30 [ shape = parallelogram ]
+    30 [ pos = "0.303,-0.827!" ];
+
+    36 [ label = <36: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    36 [ shape = parallelogram ]
+    36 [ pos = "0.772,-0.86200005!" ];
+
+    51 [ label = <51: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    3<br align="left"/>> ];
+    51 [ pos = "0.707,-0.23200001!" ];
+    51 -> 53 [ label = "0→0" ];
+
+    53 [ label = <53: <b>HealthStatsModule</b><br/><br/>> ];
+    53 [ pos = "0.546,-0.38900003!" ];
+    53 -> 54 [ label = "0→0" ];
+    53 -> 55 [ style = dashed ];
+    36 -> 53 [ style = dashed ];
+
+    54 [ label = <54: <b>FloatCompareModule</b><br/><br/>> ];
+    54 [ pos = "0.841,-0.386!" ];
+    54 -> 51 [ label = "0→0" ];
+    54 -> 51 [ label = "2→0" ];
+    54 -> 51 [ label = "1→2" ];
+    54 -> 57 [ label = "1→0" ];
+    56 -> 54 [ style = dashed ];
+    55 -> 54 [ style = dashed ];
+
+    55 [ label = <55: <b>VisScriptVariableFloat</b><br/><br/>> ];
+    55 [ shape = parallelogram ]
+    55 [ pos = "0.726,-0.483!" ];
+
+    56 [ label = <56: <b>VisScriptVariableFloat</b><br/><br/><b>Value</b><br align="left"/>    0.65<br align="left"/>> ];
+    56 [ shape = parallelogram ]
+    56 [ pos = "0.73300004,-0.546!" ];
+
+    57 [ label = <57: <b>base/isinviewmodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;SM_Rm01_Enc11_Spawn_03&quot;<br align="left"/><b>AutoTriggerTime</b><br align="left"/>    &quot;4&quot;<br align="left"/>> ];
+    57 [ pos = "1.077,-0.393!" ];
+    57 -> 61 [ label = "0→0" ];
+    57 -> 61 [ label = "1→0" ];
+
+    58 [ label = <58: <b>base/isinviewmodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;SM_Rm01_Enc11_LOSTrig_02&quot;<br align="left"/><b>AutoTriggerTime</b><br align="left"/>    &quot;5&quot;<br align="left"/><b>ValidateWithRayCast</b><br align="left"/>    true<br align="left"/>> ];
+    58 [ pos = "-0.223,-0.71300006!" ];
+    58 -> 59 [ label = "0→0" ];
+    58 -> 59 [ label = "1→0" ];
+
+    59 [ label = <59: <b>base/gatemodule</b><br/><br/>> ];
+    59 [ pos = "0.031000001,-0.71000004!" ];
+    59 -> 29 [ label = "0→0" ];
+    59 -> 16 [ label = "0→1" ];
+
+    61 [ label = <61: <b>base/gatemodule</b><br/><br/>> ];
+    61 [ pos = "1.3180001,-0.26500002!" ];
+    61 -> 18 [ label = "0→0" ];
+    61 -> 63 [ label = "0→0" ];
+
+    62 [ label = <62: <b>SpawnMonsterEventModule</b><br/><br/>> ];
+    62 [ pos = "1.8320001,-0.49600002!" ];
+    62 -> 65 [ label = "0→0" ];
+    62 -> 88 [ label = "2→0" ];
+    64 -> 62 [ style = dashed ];
+    62 -> 66 [ style = dashed ];
+
+    63 [ label = <63: <b>PopSpawnPointsModule</b><br/><br/><b>EncounterName</b><br align="left"/>    &quot;SM_Rm01_Enc11_P&quot;<br align="left"/>> ];
+    63 [ pos = "1.5450001,-0.497!" ];
+    63 -> 62 [ label = "0→0" ];
+    63 -> 64 [ style = dashed ];
+
+    64 [ label = <64: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    64 [ shape = parallelogram ]
+    64 [ pos = "1.6120001,-0.646!" ];
+
+    65 [ label = <65: <b>base/settargetmodule</b><br/><br/><b>Target</b><br align="left"/>    &quot;War&quot;<br align="left"/>> ];
+    65 [ pos = "2.1290002,-0.514!" ];
+    66 -> 65 [ style = dashed ];
+
+    66 [ label = <66: <b>VisScriptVariableWorldObjectList</b><br/><br/>> ];
+    66 [ shape = parallelogram ]
+    66 [ pos = "1.9820001,-0.669!" ];
+
+    67 [ label = <67: <b>base/settargetmodule</b><br/><br/><b>Monster</b><br align="left"/>    &quot;Smith1&quot;<br align="left"/><b>Target</b><br align="left"/>    &quot;SM_Rm01_Enc11_SmithTarget02&quot;<br align="left"/>> ];
+    67 [ pos = "2.26,-0.20300001!" ];
+
+    69 [ label = <69: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    3<br align="left"/>> ];
+    69 [ pos = "2.092,-0.20300001!" ];
+    69 -> 67 [ label = "0→0" ];
+
+    71 [ label = <71: <b>InvokeMethodModule</b><br/><br/><b>ObjectNames</b><br align="left"/>    [&quot;Smith1&quot;]<br align="left"/><b>MethodName</b><br align="left"/>    &quot;setNormalCombatMode&quot;<br align="left"/>> ];
+    71 [ pos = "2.15,0.18200001!" ];
+
+    74 [ label = <74: <b>SpawnerEventModule</b><br/><br/><i>Target helper<br align="left"/></i><br align="left"/><b>SpawnPoints</b><br align="left"/>    [&quot;SM_Rm01_Enc11_Spawn_TargetDumm<br align="left"/>    y&quot;]<br align="left"/><b>ClassToSpawn</b><br align="left"/>    &quot;smith/smithtargethelper&quot;<br align="left"/><b>NumberToSpawn</b><br align="left"/>    1<br align="left"/><b>NameRoot</b><br align="left"/>    &quot;SM_Rm01_Enc11_TargetDummy&quot;<br align="left"/>> ];
+    74 [ pos = "0.32000002,0.252!" ];
+
+    77 [ label = <77: <b>ExternalCallModule</b><br/><br/><i>triggered when smith commits to <br align="left"/>opening the door<br align="left"/></i><br align="left"/><b>EventName</b><br align="left"/>    &quot;OpeningDoor02&quot;<br align="left"/>> ];
+    77 [ shape = oval ]
+    77 [ pos = "-1.11,-0.024!" ];
+    77 -> 86 [ label = "0→0" ];
+
+    78 [ label = <78: <b>base/gatemodule</b><br/><br/>> ];
+    78 [ pos = "0.11800001,-0.39900002!" ];
+    78 -> 58 [ label = "0→0" ];
+
+    85 [ label = <85: <b>AccumulatorModule</b><br/><br/>> ];
+    85 [ pos = "-0.615,-0.024!" ];
+    85 -> 11 [ label = "0→0" ];
+
+    86 [ label = <86: <b>SaveDataModule</b><br/><br/><i>Save In Building<br align="left"/></i><br align="left"/><b>FlagInfoList</b><br align="left"/>    [FlagInfo(FlagLevel=&quot;SM_Rm01&quot;, F<br align="left"/>    lagName=&quot;SaveInBuilding&quot;)]<br align="left"/>> ];
+    86 [ pos = "-0.864,-0.024!" ];
+    86 -> 85 [ label = "1→0" ];
+
+    88 [ label = <88: <b>AccumulatorModule</b><br/><br/><b>CountTo</b><br align="left"/>    3<br align="left"/>> ];
+    88 [ pos = "2.262,-0.864!" ];
+    88 -> 92 [ label = "0→0" ];
+    88 -> 94 [ label = "0→0" ];
+
+    92 [ label = <92: <b>VisScriptCallModule</b><br/><br/><i>scripted_LightCombat_04_Path<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;CombatMusic_VSM&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;scripted_LightCombat_04_Path&quot;<br align="left"/>> ];
+    92 [ pos = "2.49,-0.864!" ];
+
+    94 [ label = <94: <b>VisScriptCallModule</b><br/><br/><i>SM_Rm01_VSM_Smith_Path_04-&amp;gt; Enc1<br align="left"/>1_AllDead<br align="left"/></i><br align="left"/><b>VisualScriptSystemName</b><br align="left"/>    &quot;SM_Rm01_VSM_Smith_Path_04&quot;<br align="left"/><b>ExternalCallName</b><br align="left"/>    &quot;Enc11_AllDead&quot;<br align="left"/>> ];
+    94 [ pos = "2.5300002,-0.957!" ];
+
+    97 [ label = <97: <b>DelayModule</b><br/><br/><b>Delay</b><br align="left"/>    15<br align="left"/>> ];
+    97 [ pos = "0.69000006,-1.077!" ];
+
+    98 [ label = <98: <b>base/isinviewmodule</b><br/><br/><b>ObjectName</b><br align="left"/>    &quot;SM_Rm01_Enc11_LOSTrigDog&quot;<br align="left"/><b>AutoTriggerTime</b><br align="left"/>    &quot;6&quot;<br align="left"/><b>WidthScaleWS</b><br align="left"/>    &quot;.85&quot;<br align="left"/><b>WidthScaleNS</b><br align="left"/>    &quot;.95&quot;<br align="left"/>> ];
+    98 [ pos = "0.86200005,-1.0810001!" ];
+    98 -> 99 [ label = "0→0" ];
+    98 -> 99 [ label = "1→0" ];
+
+    99 [ label = <99: <b>SpawnMonsterEventModule</b><br/><br/><i>SM_Rm01_Enc11Dog<br align="left"/></i><br align="left"/><b>EncounterName</b><br align="left"/>    &quot;SM_Rm01_Enc11Dog&quot;<br align="left"/>> ];
+    99 [ pos = "1.1290001,-1.079!" ];
+    99 -> 88 [ label = "3→0" ];
+
+    title [ pos = "-1.1110001,0.25300002!" ];
+    title [ shape = underline ];
+    title [ label = <<font point-size="20">overworld<br align="left"/>SM_Rm01<br align="left"/>CombatDog<br align="left"/><b>SM_Rm01_Enc11_Script</b><br align="left"/></font>> ];
+}
