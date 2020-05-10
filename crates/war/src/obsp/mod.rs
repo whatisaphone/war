@@ -6,6 +6,22 @@ use std::{
     io::{Read, Seek},
 };
 
+macro_rules! wip_skip_continue {
+    ($var:ident, $info:expr) => {
+        let $var = match $var {
+            Ok(x) => x,
+            Err(_) => {
+                eprintln!(
+                    "bailing out of {} with unknown data format: {:?}",
+                    stringify!($var),
+                    $info.unpacked.name,
+                );
+                continue;
+            }
+        };
+    };
+}
+
 // Loosely based on `gfc::OCClassManager::loadScripts`
 pub fn read(file: impl Read + Seek) -> Result<Vec<(String, String)>, Error> {
     let mut packfile = ByteOrdered::new(file, Endianness::Little);
@@ -22,7 +38,8 @@ pub fn read(file: impl Read + Seek) -> Result<Vec<(String, String)>, Error> {
         };
 
         if info.typ == gfc::OCClassManager__Types::Script {
-            let class = gfc::OCClassManager::read_script(&mut packfile, &info)?;
+            let class = gfc::OCClassManager::read_script(&mut packfile, &info);
+            wip_skip_continue!(class, info);
             let json = serde_json::to_string_pretty(&Lossy(&class))?;
             files.push((path.clone() + ".json", json));
 
@@ -31,7 +48,8 @@ pub fn read(file: impl Read + Seek) -> Result<Vec<(String, String)>, Error> {
                 files.push((path + ".s", listing));
             }
         } else {
-            let object = gfc::OCClassManager::read_object(&mut packfile, &info)?;
+            let object = gfc::OCClassManager::read_object(&mut packfile, &info);
+            wip_skip_continue!(object, info);
             let json = serde_json::to_string_pretty(&Lossy(&object))?;
             files.push((path + ".json", json));
         }
