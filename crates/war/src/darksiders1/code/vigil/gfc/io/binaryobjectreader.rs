@@ -130,6 +130,11 @@ impl<'s> BinaryObjectReader<'s> {
                 let string = self.read_string(input)?;
                 Ok(gfc::Value::String(string))
             }
+            0x6 => {
+                let string = self.read_wstring(input)?;
+                // TODO: add a specific `gfc::Value` variant so the type isn't lost
+                Ok(gfc::Value::String(string))
+            }
             0x7 => {
                 let id = input.read_i32()?;
                 let obj = self.read_obj(input)?;
@@ -186,6 +191,13 @@ impl<'s> BinaryObjectReader<'s> {
         input: &mut ByteOrdered<impl Read, Endianness>,
     ) -> Result<String, Error> {
         Ok(gfc::InputStream::read_string(input)?)
+    }
+
+    fn read_wstring(
+        &mut self,
+        input: &mut ByteOrdered<impl Read, Endianness>,
+    ) -> Result<String, Error> {
+        Ok(gfc::InputStream::read_wstring(input)?)
     }
 
     fn read_hstring(

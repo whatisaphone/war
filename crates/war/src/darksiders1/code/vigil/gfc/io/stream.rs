@@ -23,6 +23,18 @@ impl InputStream {
         stream.read_exact(&mut buf)?;
         Ok(String::from_windows_1252(buf))
     }
+
+    pub fn read_wstring(
+        stream: &mut ByteOrdered<impl Read, impl Endian>,
+    ) -> io::Result<String> {
+        let length = stream.read_u16()?;
+        let length = usize::try_from(length).map_err(|_| derailed())?;
+        let mut buf = Vec::with_capacity(length);
+        for _ in 0..length {
+            buf.push(stream.read_u16()?);
+        }
+        Ok(String::from_utf16(&buf).map_err(|_| derailed())?)
+    }
 }
 
 pub struct OutputStream {
