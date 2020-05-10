@@ -14,6 +14,10 @@ These are a couple example save files, along with extracted versions.
 
 ⚠ **NOTE**: Darksiders will refuse to load a save if the `SaveGameInfo`'s `UserId` does not match the logged-in Steam user's ID. If you want to play any of these save files, you'll need to use the `war` tool yourself to change the `UserId` to your own Steam User ID.
 
+## `visscript/`
+
+These are the game's visual scripts, extracted from `worlds.mnfst`.
+
 ## `worlds/`
 
 These are the game's world layouts, extracted from `worlds.mnfst`.
