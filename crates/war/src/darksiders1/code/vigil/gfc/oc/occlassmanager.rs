@@ -1,6 +1,9 @@
 use crate::{
     darksiders1::gfc,
-    utils::parsing::{derailed, expect},
+    utils::{
+        parsing::{derailed, expect},
+        windows1252::StringWindows1252Ext,
+    },
 };
 use byteordered::{ByteOrdered, Endianness};
 use failure::Error;
@@ -55,11 +58,11 @@ impl OCClassManager {
         // Propagate the new endianness to callers as well.
         replace_with_or_abort(stream, |stream| stream.into_endianness(endianness));
 
-        expect(stream.read_i32()? == 7)?;
+        expect(stream.read_i32()? == 12)?;
         let packed_compiled = stream.read_i32()? != 0;
         expect(packed_compiled)?;
-        let original_names = stream.read_i32()? != 0;
-        expect(original_names)?;
+        // let original_names = stream.read_i32()? != 0;
+        // expect(original_names)?;
         let num_scripts = stream.read_i32()?;
         let _scripts_pos = stream.read_i32()?;
         let mut scripts = IndexMap::with_capacity(num_scripts.try_into()?);
@@ -69,7 +72,14 @@ impl OCClassManager {
         hstring_manager.read_string_table(&mut strings, stream)?;
 
         for _ in 0..num_scripts {
-            let name = hstring_manager.read_u64_hstring(stream)?;
+            let _unknown = stream.read_i32()?;
+            let _name_hash = hstring_manager.read_u64_hstring(stream)?;
+
+            let name_len = stream.read_i16()?;
+            let mut name = vec![0; name_len.try_into().unwrap()];
+            stream.read_exact(&mut name)?;
+            let name = String::from_windows_1252(name);
+
             let file_offset = stream.read_i32()?;
             let file_length = stream.read_i32()?;
             let package_id = stream.read_u16()?;
@@ -82,6 +92,12 @@ impl OCClassManager {
                 relative_path,
             };
 
+            let _unknown = stream.read_i32()?;
+
+            // There are more after this, but list_politic_p01_animations has a bunch of
+            // extra data I'm not sure what it is. Skip for now.
+            let wip_skip = name == "list_politic_p01_animations";
+
             scripts.insert(name, OCClassManager__ScriptInfo {
                 file_offset,
                 file_length,
@@ -89,6 +105,10 @@ impl OCClassManager {
                 typ: typ.try_into()?,
                 unpacked,
             });
+
+            if wip_skip {
+                break;
+            }
         }
         Ok(scripts)
     }
@@ -103,6 +123,7 @@ impl OCClassManager {
         hstring_manager.read_string_table(&mut strings, stream)?;
 
         let script_name = hstring_manager.read_u64_hstring(stream)?;
+        let _unknown = stream.read_i32()?;
         let package_name = hstring_manager.read_u64_hstring(stream)?;
         let parent_name = hstring_manager.read_u64_hstring(stream)?;
 
